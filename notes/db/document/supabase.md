@@ -5,7 +5,7 @@ title: supabase
 # supabase
 
 - [supabase/supabase](https://github.com/supabase/supabase)
-  - Apache-2.0
+  - Apache-2.0, TS, Postgres
 
 :::caution Self Hosting
 

@@ -7,12 +7,12 @@ tags:
 # JavaScript 常见问题
 
 - Promise 在创建时便会请求，而不是在 then 时请求 - eager eval
-
-| item                    | for               |
-| ----------------------- | ----------------- |
-| Number.MAX_SAFE_INTEGER | 9007199254740991  |
-| Number.MIN_SAFE_INTEGER | -9007199254740991 |
-| 安全整数长度            | 15 位, 最大 16 位 |
+- Number
+  - Number.MAX_VALUE -> 2<sup>1024</sup> - 1
+  - Number.MAX_SAFE_INTEGER -> (2<sup>53</sup> - 1) -> 9007199254740991
+  - Number.MIN_SAFE_INTEGER -> -(2<sup>53</sup> - 1) -> -9007199254740991
+  - Number.EPSILON -> -2<sup>-52</sup> -> 2.220446049250313e-16
+  - 安全整数长度: 15 位, 最大 16 位
 
 ## base64
 

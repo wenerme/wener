@@ -38,6 +38,8 @@ brew install duckdb
 curl -LO https://ghproxy.com/github.com/duckdb/duckdb/releases/download/v0.8.0/duckdb_cli-osx-universal.zip
 unzip duckdb_cli-osx-universal.zip
 ./duckdb
+
+duckdb -h
 ```
 
 ```sql

@@ -29,8 +29,6 @@ title: ESBuild
 :::info
 
 - ES5+
-- 不支持 decorator
-  - https://github.com/evanw/esbuild/issues/104
 - 不支持 emitDecoratorMetadata
   - [#257](https://github.com/evanw/esbuild/issues/257)
   - [thomaschaaf/esbuild-plugin-tsc](https://github.com/thomaschaaf/esbuild-plugin-tsc)

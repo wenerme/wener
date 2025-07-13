@@ -113,6 +113,26 @@ docker run --rm -it \
   --name paddlex ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddle:3.0.0b2 /bin/bash
 ```
 
+## hpip
+
+```py
+from paddlex import create_pipeline
+
+pipeline = create_pipeline(
+    pipeline="OCR",
+    use_hpip=True,
+    hpi_config={"backend": "onnxruntime"}
+)
+```
+
+- backend
+  - paddle_infer
+  - openvino
+  - onnx_runtime
+  - tensorrt
+- High-Performance Inference
+- https://paddlepaddle.github.io/PaddleX/3.0/pipeline_deploy/high_performance_inference.html
+
 ## Paddle2ONNX
 
 - https://github.com/PaddlePaddle/PaddleOCR/blob/main/deploy/paddle2onnx/readme_ch.md

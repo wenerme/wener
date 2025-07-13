@@ -86,6 +86,18 @@ https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/padd
   - PP-OCRv5_server_det
   - PP-OCRv5_server_rec
   - UVDoc
+- text_detection - 文本检测
+  - 输出 polys
+- doc_orientation_classify - 方向分类
+- doc_unwarping - 文本图像预处理
+- textline_orientation - 文字行方向分类
+- PP-LCNet_x1_0_textline_ori
+  - https://huggingface.co/PaddlePaddle/PP-LCNet_x1_0_textline_ori
+- collection [PP-OCRv5](https://huggingface.co/collections/PaddlePaddle/pp-ocrv5-684a5356aef5b4b1d7b85e4b)
+
+## MCP
+
+- [mcp_server/paddleocr_mcp](https://github.com/PaddlePaddle/PaddleOCR/blob/main/mcp_server/paddleocr_mcp/__main__.py)
 
 ## PP-Structure
 

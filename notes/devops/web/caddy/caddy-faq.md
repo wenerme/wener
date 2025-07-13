@@ -106,3 +106,5 @@ tls {
 ## could not determine the zone for: unexpected response code 'SERVFAIL'
 
 DNS 有问题
+
+## loading initial config: loading new config: creating storage value: context deadline exceeded

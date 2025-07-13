@@ -8,24 +8,89 @@ tags:
 
 # 交易
 
-| abbr. | stand for                          | meaning              |
-| ----- | ---------------------------------- | -------------------- |
-| ROI   | Return On Investment               | 投资回报率           |
-| P&L   | Profit and Loss                    | 盈亏                 |
-| ETF   | Exchange Traded Fund               | 交易所交易基金       |
-| FX    | Forex                              | 外汇                 |
-| IPO   | Initial Public Offering            | 首次公开募股         |
-| CFD   | Contract For Difference            | 差价合约             |
-| OTC   | Over The Counter                   | 场外交易             |
-| SEC   | Securities and Exchange Commission | 证券交易委员会       |
-| ETM   | Exchange Traded Market             | 交易所交易市场       |
-| FOMO  | Fear Of Missing Out                | 错失恐惧症           |
-| FUD   | Fear, Uncertainty and Doubt        | 恐惧、不确定性和怀疑 |
-| HODL  | Hold On for Dear Life              | 坚持持有             |
-| GDP   | Gross Domestic Product             | 国内生产总值         |
-| P/E   | Price to Earnings Ratio            | 市盈率               |
-| HFT   | High Frequency Trading             | 高频交易             |
-| APY   | Annual Percentage Yield            | 年化收益率           |
+| abbr. | stand for                          | meaning               |
+| ----- | ---------------------------------- | --------------------- | ------ |
+| ROI   | Return On Investment               | 投资回报率            |
+| P&L   | Profit and Loss                    | 盈亏                  |
+| ETF   | Exchange Traded Fund               | 交易所交易基金        |
+| FX    | Forex                              | 外汇                  |
+| IPO   | Initial Public Offering            | 首次公开募股          |
+| CFD   | Contract For Difference            | 差价合约              |
+| OTC   | Over The Counter                   | 场外交易              |
+| SEC   | Securities and Exchange Commission | 证券交易委员会        |
+| ETM   | Exchange Traded Market             | 交易所交易市场        |
+| FOMO  | Fear Of Missing Out                | 错失恐惧症            |
+| FUD   | Fear, Uncertainty and Doubt        | 恐惧、不确定性和怀疑  |
+| HODL  | Hold On for Dear Life              | 坚持持有              |
+| GDP   | Gross Domestic Product             | 国内生产总值          |
+| P/E   | Price to Earnings Ratio            | 市盈率                |
+| HFT   | High Frequency Trading             | 高频交易              |
+| APY   | Annual Percentage Yield            | 年化收益率            |
+| DEX   | Decentralized Exchange             | 去中心化交易所        |
+| CEX   | Centralized Exchange               | 中心化交易所          |
+| KYC   | Know Your Customer                 | 了解你的客户          |
+| IEO   | Initial Exchange Offering          | 首次交易所发行        |
+| AMM   | Automated Market Maker             | 自动化做市商          |
+| LP    | Liquidity Provider                 | 流动性提供者          |
+| DeFi  | Decentralized Finance              | 去中心化金融          |
+| TA    | Technical Analysis                 | 技术分析              |
+| FA    | Fundamental Analysis               | 基本面分析            |
+| DYOR  | Do Your Own Research               | 自己做功课            |
+| BTFD  |                                    | Buy The F**\*\*** Dip | 抄底！ |
+
+- KYC - 实名认证
+- 行情
+  - 价格 - Price
+  - 趋势、状况 - Market Trend/Condition
+  - 报价 - Quote / Quotation
+- 炒币 - Crypto Trading, Crypto Slang
+- Bagholder - 持币待涨者, （高位接盘的）持套者
+  - 指在高价位买入加密货币，但随后币价大幅下跌，导致其被深度套牢的投资者。他们手里“提着一袋子（bag）”不断贬值的币，却因为不愿承认亏损或幻想价格能涨回来，而选择继续持有。
+- Mooning - 登月 / 爆拉
+  - 形容一种加密货币的价格正在经历火箭式的飙升。
+- When Lambo - 何时买兰博？
+  - 约等于 Mooning
+- Pump and dump - 拉高出货
+  - 一种市场操纵骗局。操纵者（庄家）先在低位吸筹，然后通过散播利好消息或利用资金优势人为地“拉高（Pump）”价格，吸引散户追涨。当价格达到高位后，操纵者便迅速“出货（Dump）”，将手中的筹码抛售给后来的接盘侠，导致币价暴跌，让散户蒙受巨大损失。
+- Diamond and Paper hands - 钻石手和纸手
+  - 钻石手 (Diamond hands)： 指那些信念极其坚定、无论市场如何剧烈波动（即使是巨额亏损）也绝不卖出资产的持有者。他们和“HODL”精神一致。
+  - 纸手 (Paper hands)： 指那些内心脆弱、稍遇市场下跌或恐慌就立刻抛售资产的投资者。
+- Flippening - 大反转 / 超越
+  - 特指一个加密货币的市值超过另一个排名更高的加密货币的历史性时刻。
+  - 最常被提及的“The Flippening”是指以太坊（ETH）的市值有朝一日可能会超过比特币（BTC）。
+- Whale - 鲸鱼
+  - 指持有巨量特定加密货币的个人或实体。
+  - 他们的资金体量足以通过买入或卖出操作来显著影响市场价格，因此巨鲸的动向是很多小投资者密切关注的指标。
+- Cryptosis - 加密货币成瘾症
+  - 形容一种无法抑制地渴望了解关于区块链和加密货币一切信息的“病症”。
+  - 患者会不停地刷新闻、看行情、参与社群讨论，对加密世界极度着迷。
+- No-coiner - 无币者 / 加密货币怀疑论者
+  - 指那些对加密货币持批评或怀疑态度，认为它们没有内在价值或未来前景的人。他们不持有任何加密货币，并且相信传统金融体系。
+- GMI, WAGMI / NGMI - 我们都会成功的 / 不会成功的
+  - WAGMI (We're All Gonna Make It)： “我们都会成功的”。一句在熊市或市场不确定时用来互相打气、建立社区信心的口号。
+  - GMI (Gonna Make It)： “会成功的”。与WAGMI类似，表达对项目或个人投资成功的信心。
+  - NGMI (Not Gonna Make It)： “不会成功的”。用来评价某个项目或某个错误的决策注定会失败，有时也用来嘲讽那些不理解加密货币的人。
+- Bear / Bearish - 熊 / 看跌
+  - 长期持续下跌的市场被称为“熊市”（Bear Market）。
+  - “熊市陷阱”（Bear Trap）则指价格看似要下跌但随后迅速反弹的假象，诱使做空者亏损。
+- Bull / Bullish - 牛 / 看涨
+  - “Bullish”（看涨的）指市场情绪乐观，投资者普遍预期价格将上涨。
+  - 长期持续上涨的市场被称为“牛市”（Bull Market）。
+  - “牛市陷阱”（Bull Trap）则指价格看似要持续上涨但随后迅速掉头的假象，诱使追涨者亏损。
+- Degen / Degenerate - 赌狗 / 堕落的交易者
+- REKT / Wrecked - 爆仓了 / 玩完了
+- Cryptojacking - 加密货币劫持 / 挖矿劫持
+- LFG / Let's F—ing Go! - 冲啊！/ 干了！
+- Rug pull - 抽地毯 / 卷款跑路
+- Shill / Shilling - 吹捧 / 喊单
+  - 指某人为了个人利益（例如自己已提前埋伏）而大肆宣传、推广某个加密货币，目的是制造热度，吸引其他人买入，从而推高价格方便自己出货。
+  - “Shill”也可以指进行这种推广行为的人，即“喊单狗”。
+- SAFU - 资金安全
+  - 源于币安首席执行官赵长鹏的一句话 "Funds are safe"（资金是安全的），后来演变成一个梗和品牌。它代表“用户安全资产基金”(Secure Asset Fund for Users)，是币安设立的一个紧急保险基金。现在泛指“资金是安全的”。
+- Normie / Pleb - 普通人 / 圈外人
+  - 在加密圈里，这个词用来指代那些不了解或不参与加密货币世界的人，即“圈外人”。
+  - 有时带有一点圈内人士的优越感。
+- WAGBO / We're All Gonna Be Okay - 我们都会没事的
 
 | en                  | cn         |
 | ------------------- | ---------- |
@@ -95,6 +160,9 @@ tags:
   - 加密货币 (Cryptocurrencies): 数字或虚拟货币，如比特币、以太坊。
   - 衍生品 (Derivatives): 期货 (Futures)、期权 (Options)、差价合约 (CFDs)、远期契约（Forward Contract）、交换交易（Swaps）
     - 用途：避险/对冲、投机、套利
+- 交易标的分类 (Trading Asset Classification)
+  - 现货交易 (Spot Trading)
+  - 衍生品交易 (Derivatives Trading)
 - 市场类型 (Market Types)
   - 交易所市场 (Exchange-Traded Markets): 如证券交易所，提供标准化的合约和透明的交易环境。
   - 场外市场 (Over-the-Counter, OTC Markets): 交易双方直接进行，更具灵活性，但透明度较低。

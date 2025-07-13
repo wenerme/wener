@@ -52,6 +52,14 @@ tags:
     - https://krita-artists.org/
     - https://github.com/Acly/krita-ai-diffusion
       - bridge to ComfyUI
+  - [Inkscape](https://inkscape.org/)
+    - GPLv2, C++
+    - 开源矢量图形编辑器
+  - [CyberTimon/RapidRAW](https://github.com/CyberTimon/RapidRAW)
+    - AGPLv3, C++
+    - RAW 图像处理软件
+    - 支持 Windows, Linux, macOS
+    - GPU-accelerated RAW image editor
 - [safing/portmaster](https://github.com/safing/portmaster)
   - 端口映射
 - [wmjordan/PDFPatcher](https://github.com/wmjordan/PDFPatcher)

@@ -16,6 +16,63 @@ tags:
 :::
 
 - 分层 - 关注点分离 - 避免 阻抗失配
+- 线性销售漏斗
+  - 潜在客户
+  - 机会
+  - 成交
+  - AIDA模型
+  - 线索到现金（Lead-to-Cash）模型
+- 现代B2B购买 - 非线性漏斗
+  - 六个并行的“购买任务”（Buying Jobs）
+    - 问题识别（Problem Identification）：“我们需要做些什么。”
+    - 方案探索（Solution Exploration）：“有哪些方案可以解决我们的问题？”
+    - 需求构建（Requirements Building）：“我们具体需要采购什么？”
+    - 供应商选择（Supplier Selection）：“这个方案能满足我们的需求吗？”
+    - 方案验证（Validation）：“我们认为这是正确的答案，但需要确认。”
+    - 达成共识（Consensus Creation）：“我们需要让所有人都同意。”
+  - 参考
+    - https://growthmethod.com/gartner-b2b-buying-journey/
+    - https://www.forrester.com/b2b-marketing/b2b-marketing-strategy/
+
+| abbr. | stand for                           | meaning                       |
+| ----- | ----------------------------------- | ----------------------------- | -------------- |
+| CRM   | Customer Relationship Management    | 客户关系管理                  |
+| AIDA  | Attention, Interest, Desire, Action | 注意、兴趣、欲望、行动        |
+| ICP   | Ideal Customer Profile              | 理想客户画像                  |
+| ABM   | Account-Based Marketing             | 基于账户的营销                |
+| SDR   | Sales Development Representative    | 销售开发代表                  |
+| MQL   | Marketing Qualified Lead            | 营销合格线索                  |
+| SQL   | Sales Qualified Lead                | 销售合格线索                  |
+| MAP   |                                     | Marketing Automation Platform | 营销自动化平台 |
+
+| en                     | cn            | notes                            |
+| ---------------------- | ------------- | -------------------------------- |
+| Outbound               | 出站,外呼     | 主动联系潜在客户                 |
+| Inbound                | 入站,内呼     | 被动等待客户联系                 |
+| Grading                | 评级,线索评级 | 用于评估“匹配度”                 |
+| Scoring                | 评分,线索评分 | 用于衡量“兴趣度”                 |
+| Data Enrichment        | 数据增强      | 增强线索信息，提升质量           |
+| Single Source of Truth | 单一真相来源  | 确保数据一致性和准确性           |
+| Data Warehouse         | 数据仓库      | 商业智能、历史报表、分析         |
+| Data Lake              | 数据湖        | 大数据存储、数据科学、探索性分析 |
+| Data Hub               | 数据中心      | 数据共享、集成、治理、运营中介   |
+
+- 目标客群宇宙（Target Universe）
+  - 一个庞大的、符合ICP的、待激活的数据库
+- Lead/线索
+  - 一个已经与企业产生联系、进入生命周期管理的个体
+  - 线索评级 (Fit)：基于明确的人口统计和公司统计数据（如职位、公司规模、行业、地理位置），衡量一个线索与理想客户画像（ICP）的匹配程度。这通常用字母等级（A-D）表示 。
+  - 线索评分 (Interest)：基于隐性的行为数据（如网站访问、邮件打开、内容下载、定价页面浏览），衡量线索的兴趣水平。积极行为会加分，而长时间不活跃则可能导致分数衰减（Decay）。
+- Data Enrichment
+  - 统计数据（如行业、员工数、年收入）
+  - 人口统计数据（如职位、级别）
+  - 开放数据
+  - 经过扩充的数据可以将线索评分的准确性提高多达50%
+- 参考
+  - HubSpot
+  - Salesforce
+  - Data Enrichment
+    - Clearbit、ZoomInfo
 
 ## 服务分层 {#service-layer}
 
@@ -288,6 +345,19 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
   - Note - 备注
   - Attachment - 附件
   - Comment - 评论
+
+### Customer
+
+| 阶段                               | 定义                                                                           | 进入标准（触发器）                                     | 退出标准（晋升）                           | 关键数据点                                                       | 负责团队      |
+| ---------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------ | ---------------------------------------------------------------- | ------------- |
+| 目标客群宇宙 (Target Universe)     | 一个经过筛选的、符合 ICP 的个人/客户列表，通过研究识别但尚未互动。             | 手动导入、列表购买、数据库扩充。                       | 首次有意义的互动（如邮件回复、表单提交）。 | 企业信息（规模、行业）、人口统计信息（职位、级别）、技术栈信息。 | 市场/SDR      |
+| 线索 (Lead)                        | 通过低意向行为或出站活动，与企业产生初次联系的个体。                           | 网站访问、订阅新闻通讯、下载内容、启动出站序列。       | 满足 MQL 标准（评分/评级阈值）。           | lead_source、first_touch_timestamp、初始行为数据。               | 市场          |
+| 市场认可线索 (MQL)                 | 市场部基于"匹配度"（评级）和"兴趣度"（评分）判断已准备好移交给销售团队的线索。 | 达到预设的线索分数阈值（如 100 分）、请求演示或报价。  | 销售团队接受该线索进行跟进。               | mql_timestamp、线索分数、线索评级、关键互动行为。                | 市场          |
+| 销售认可线索 (SQL)                 | 销售团队已接受并验证其具有真实、近期需求的 MQL。                               | SDR/AE 与线索建立联系并确认 BANT/MEDDPICC 等资格标准。 | 创建正式的销售流程（商机）。               | sql_timestamp、资格认证笔记、已识别的痛点。                      | 销售 (SDR/AE) |
+| 商机 (Opportunity)                 | 一个已确认资格的潜在客户（SQL），并已进入积极的销售流程以完成交易。            | 在 CRM 中创建交易/商机记录，并关联金额和预计关闭日期。 | 交易赢单或输单。                           | deal_amount、close_date、管道阶段、竞争对手信息。                | 销售 (AE)     |
+| 客户 (Customer)                    | 至少有一个赢单（Closed-Won）商机的个人或组织。                                 | opportunity_status = 'Closed-Won'。                    | 成为品牌倡导者或流失。                     | 合同价值、产品使用数据、支持工单。                               | 客户成功      |
+| 布道者 (Evangelist)                | 积极为品牌进行宣传和推荐的客户。                                               | 高 NPS 分数、提供推荐语、参与案例研究。                | N/A                                        | 推荐活动、评价提交。                                             | 市场/客户成功 |
+| 不合格/培育 (Disqualified/Nurture) | 在任何阶段被认为暂时不合适，但未来可能成为客户的联系人。                       | 不符合 ICP、时机不当、失联。                           | 重新通过高意向行为进行互动。               | disqualification_reason、nurture_until_date。                    | 市场/销售     |
 
 ## UI 状态
 
@@ -694,6 +764,21 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 - 一个外卖订单，主状态为 已下单 - 配送中 - 已送达 - 已完成
   - Status -> Ordered -> Delivering -> Delivered -> Completed
 
+**Rental Management**
+
+- House - 房屋
+  - Active
+    - Available (可租用)：房屋处于可供租赁状态。
+    - UnderMaintenance (维修中)：房屋正在进行维护或修理。
+    - Reserved (已预订)：房屋已被预订，但尚未签署
+    - Rented (已租用)：房屋已被租赁，处于使用状态。
+  - Inactive
+    - Delisted
+    - Unavailable (不可用)：房屋因某种原因暂时无法出租。
+    - Sold (已售出)：房屋已被出售，不再作为租赁对象
+    - Demolished (已拆除)：房屋已被拆除，不再存在
+  - Archived
+
 ### MS Dynamics356
 
 - statecode - State - Status - 状态
@@ -1045,6 +1130,22 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 - payer_bank_account
 - sender_account
 - sending_account
+
+## Data
+
+| 标准     | 数据中心 (Data Hub)              | 数据仓库 (Data Warehouse)                        | 数据湖 (Data Lake)                              |
+| -------- | -------------------------------- | ------------------------------------------------ | ----------------------------------------------- |
+| 主要目的 | 数据共享、集成、治理、运营中介   | 商业智能、历史报表、分析                         | 大数据存储、数据科学、探索性分析                |
+| 数据形态 | 半结构化、已协调、一致性模型     | 结构化、写入时定义模式 (Schema-on-Write)、关系型 | 原始、非结构化、读取时定义模式 (Schema-on-Read) |
+| 核心功能 | 扮演数据交换的"中转站"           | 扮演存储已整理数据的"图书馆"                     | 扮演存储所有原始数据的"水库"                    |
+| 延迟     | 实时、近实时、事件驱动           | 批处理、历史快照                                 | 批处理或流式，但数据是原始的                    |
+| 数据治理 | 主动式，在数据流动过程中强制执行 | 被动式，在 ETL/ELT 过程中应用                    | 需额外构建治理框架，否则易形成"数据沼泽"        |
+
+## Party 模型 {#party-model}
+
+- 参考
+  - https://developer.salesforce.com/docs/platform/data-models/guide/party.html
+  - https://help.salesforce.com/s/articleView?id=sf.c360_a_party_data_model.htm&language=en_US&type=5
 
 # FAQ
 

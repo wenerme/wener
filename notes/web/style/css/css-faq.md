@@ -519,6 +519,11 @@ body {
 - https://css-tricks.com/books/greatest-css-tricks/scroll-shadows/
 - https://css-tricks.com/scroll-shadows-with-javascript/
 
+## text-overflow
+
+text-overflow 只有在容器的 overflow 属性为 hidden、scroll 或 auto 且 white-space: nowrap 时才会生效。
+文本溢出只会发生在块级元素或 inline-block 元素上，因为元素需要有固定宽度才可能出现溢出。
+
 ## Defensive CSS
 
 ```css

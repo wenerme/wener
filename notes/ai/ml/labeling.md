@@ -21,13 +21,19 @@ tags:
 - 参考
   - https://github.com/KKKSQJ/DeepLearning/tree/master/others/label_convert
   - https://openvinotoolkit.github.io/datumaro/latest/docs/data-formats/formats/index.html
+  - [A Guide to Bounding Box Formats](https://dragoneye.ai/blog/a-guide-to-bounding-box-formats)
 - [datumaro](./datumaro.md)
-- box
-  - xywh
-  - xywhn
-  - xyxy
-  - xyxyn
-  - cycywh
+
+| format  | spec                              | adopted by     |
+| ------- | --------------------------------- | -------------- |
+| xyxy    | left, top, right, bottom          | Pascal VOC     |
+| xyxyn   |                                   | Albumentations |
+| xywh    | left, top, width, height          | COCO           |
+| xywhn   |                                   |                |
+| cxcywh  | center x, center y, width, height | CreateML       |
+| cxcywhn |                                   | YOLO           |
+
+- n -> Normalized
 
 ## YOLO
 

@@ -20,6 +20,14 @@ tags:
     - LLM Observability, Prompt Management, LLM Evaluations, Datasets, LLM Metrics, Prompt Playground
   - https://openrouter.io
   - https://together.ai
+- Engine
+  - MLX
+  - tinygrad
+  - PyTorch
+  - llama.cpp
+  - stablediffusion.cpp
+- Accelerators
+  - [huggingface/optimum](https://github.com/huggingface/optimum)
 - Search/RAG
   - Perplexity
   - [ItzCrazyKns/Perplexica](https://github.com/ItzCrazyKns/Perplexica)
@@ -30,7 +38,7 @@ tags:
     - MIT, TS
     - MiniPerplx -> scira
     - minimalistic AI-powered search engine
-- Client/Desktop/App
+- Client/Desktop/App/Runner/Server
   - [chatbox](./service/chatbox.md)
     - GPLv3, TypeScript, React, Electron
     - 支持 Desktop, iOS, Android, Web
@@ -39,8 +47,12 @@ tags:
     - MIT
   - [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio)
     - ~~Apache-2.0~~, TS
+    - 聚合客户端 / Service Aggregator
     - 功能更加全面、综合
     - 桌面端为主
+  - [lmstudio](https://lmstudio.ai/)
+    - LM Runner/Server
+    - 闭源
   - [mainframecomputer/fullmoon-ios](https://github.com/mainframecomputer/fullmoon-ios)
     - MIT, Swift
   - [languine-ai/languine](https://github.com/languine-ai/languine)
@@ -124,6 +136,8 @@ tags:
 - Agent/MCP
   - [microsoft/autogen](https://github.com/microsoft/autogen)
     - Multi Agent
+  - [FoundationAgents/OpenManus](https://github.com/FoundationAgents/OpenManus)
+    - MIT, Python
   - [magnitudedev/magnitude](https://github.com/magnitudedev/magnitude)
     - Aapche-2.0, TS
     - browser automation framework
@@ -287,11 +301,15 @@ tags:
 
 ## Reading
 
+- from scratch
+  - [jsbaan/transformer-from-scratch](https://github.com/jsbaan/transformer-from-scratch)
+  - [GeeeekExplorer/nano-vllm](https://github.com/GeeeekExplorer/nano-vllm)
 - https://github.com/microsoft/generative-ai-for-beginners
 - https://www.promptingguide.ai/zh/readings
 - https://jalammar.github.io/
 - https://karpathy.ai/zero-to-hero.html
 - https://github.com/premAI-io/state-of-open-source-ai
+- https://theaisummer.com/diffusion-models/
 
 ## Prompt
 

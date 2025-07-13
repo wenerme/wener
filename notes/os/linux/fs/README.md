@@ -6,38 +6,43 @@ title: FS
 
 **逻辑/内存**
 
-| fs         | mount point               | notes                        |
-| ---------- | ------------------------- | ---------------------------- |
+| fs         | mount point               | notes                                     |
+| ---------- | ------------------------- | ----------------------------------------- |
 | [rootfs]   | /                         |
 | proc       | /proc                     |
 | sysfs      | /sys                      |
-| devfs      | /dev                      | linux 4.16+ 废弃             |
-| devtmpfs   | /dev                      | udev                         |
+| devfs      | /dev                      | linux 4.16+ 废弃                          |
+| devtmpfs   | /dev                      | udev                                      |
 | cgroup     | /sys/fs/cgroup            |
 | cgroup2    | /sys/fs/cgroup/unified    |
 | cpuset     | /sys/fs/cgroup/cpuset     |
 | debugfs    | /sys/kernel/debug         |
-| securityfs | /sys/kernel/security/     | LSM - Linux Security Modules |
+| securityfs | /sys/kernel/security/     | LSM - Linux Security Modules              |
 | tracefs    | /sys/kernel/debug/tracing |
-| devpts     | /dev/pts                  | Pseudo terminals             |
-| binder     | /dev/binderfs             | Android binder IPC           |
-| pstore     | /sys/fs/pstore            |
-| autofs     |                           | 按需挂载和卸载               |
-| fusectl    | /sys/fs/fuse/connections  | for fuse                     |
-| [bindfs]   |                           | mount --bind                 |
-| specfs     | /dev/streams              | 不需要挂载                   |
+| devpts     | /dev/pts                  | Pseudo terminals                          |
+| binder     | /dev/binderfs             | Android binder IPC                        |
+| pstore     | /sys/fs/pstore            | Persistent Storage for kernel logs        |
+| mtd        | /dev/mtd\*                | Memory Technology Device                  |
+| mtdblock   | /dev/mtdblock\*           | MTD block devices                         |
+| mtdram     | /dev/mtdram\*             | MTD RAM devices                           |
+| mtdoops    | /dev/mtdoops\*            | MTD Oops                                  |
+| autofs     |                           | 按需挂载和卸载                            |
+| fusectl    | /sys/fs/fuse/connections  | for fuse                                  |
+| [bindfs]   |                           | mount --bind                              |
+| specfs     | /dev/streams              | 不需要挂载                                |
 | tmpfs      | /tmp,/run                 |
 | ramfs      |
-| pipefs     | pipe:                     | 当 shell 使用 pipe 时        |
+| pipefs     | pipe:                     | 当 shell 使用 pipe 时                     |
 | loopfs     | `/dev/loop*`              |
 | bpf        |
-| sockfs     |                           | TCP/UDP sockets              |
+| sockfs     |                           | TCP/UDP sockets                           |
 | hugetlbfs  |
 | bdev       |
-| mqueue     |
+| mqueue     | /dev/mqueue               | POSIX Message Queues                      |
 | fscache    |
-| initramfs  | INITial RAM FileSystem    | 临时 roofs                   |
-| initrd     | Initial Ramdisk           | 被 initramfs 替代            |
+| initramfs  | INITial RAM FileSystem    | 临时 roofs                                |
+| initrd     | Initial Ramdisk           | 被 initramfs 替代                         |
+| nsfs       | /run/netns/cni-UUID       | NameSpace File System 用于 Linux 命名空间 |
 
 **物理/硬盘**
 

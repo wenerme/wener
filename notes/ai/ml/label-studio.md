@@ -13,10 +13,11 @@ title: Label Studio
 - 参考
   - https://labelstud.io/
   - 前端 https://github.com/HumanSignal/label-studio/tree/develop/web/libs/editor
+- /Users/wener/Library/Application Support/label-studio
 
 ```bash
-pip install -U label-studio
-label-studio
+uv pip install -U label-studio
+LOCAL_FILES_SERVING_ENABLED=true uv run label-studio
 
 # https://hub.docker.com/r/heartexlabs/label-studio
 # https://github.com/HumanSignal/label-studio/blob/develop/docker-compose.yml
@@ -28,8 +29,8 @@ docker run --rm -it \
 # label-studio --log-level DEBUG
 
 LABEL_STUDIO_BASE_DATA_DIR=$PWD/data \
-LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true \
-LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=$PWD/files \
+  LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true \
+  LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=$PWD/files \
   label-studio start
 ```
 
@@ -49,7 +50,6 @@ LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=$PWD/files \
 | LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT   |                               | /                      |
 
 ## tags
-
 
 ```xml
 <View>
@@ -81,8 +81,8 @@ ts.brushRange.map(n=>(+n).toFixed(2));_=r();setInterval($=>r().some((n,i)=>n!==_
 interface Obj {
   id: string;
 
-  data:any
-  value:any
+  data: any;
+  value: any;
 
   from_name: string;
   to_name: string;
@@ -90,12 +90,60 @@ interface Obj {
 }
 ```
 
+- Label Studio Common Format
+
 ## ML Backend
 
 - https://github.com/HumanSignal/label-studio-ml-backend
 - https://github.com/seblful/label-studio-yolov8-backend
 
+## Template
+
+- data 是静态的、被观察的对象
+- annotations 是动态的、被创建的结果
+- value 绑定 data
+- 控制标签创建 annotations
+
+```tsx
+<Text name='text' value='$prediction' />
+```
+
+- name 是内部名字
+- value
+
+---
+
+- 参考
+  - https://labelstud.io/tags/
+
+## Storage
+
+```
+/project-folder/
+├── images/
+│   ├── image1.jpg
+│   ├── image2.png
+│   └── subfolder/
+│       └── image3.gif
+└── my_tasks.json
+```
+
+- Treat every bucket object as a source file
+- 本地存储
+  - `LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true`
+  - LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT
+    - 限定访问目录
+  - `/data/local-files?d=ds/images/1.jpg`
+    - 实际相当于访问 `http://localhost:8080/data/local-files?d=ds/images/1.jpg`
+- 上传存储
+  - `/data/upload/$PROJECT_ID/`
+- https://labelstud.io/guide/storage.html
+
 # FAQ
+
+- OCR 指标
+  - 字符错误率 (CER)
+  - 词错误率 (WER)
 
 ## video frameCount
 

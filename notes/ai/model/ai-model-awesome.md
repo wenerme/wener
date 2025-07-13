@@ -185,6 +185,9 @@ tags:
     - Berkeley Function-Calling Leaderboard
   - https://models.litellm.ai/
   - https://arena.xlang.ai/leaderboard
+- Benchmark/Eval
+  - https://huggingface.co/spaces/Jellyfish042/UncheatableEval
+  - https://github.com/open-compass/VLMEvalKit
 - 价格/Pricing/成本/Cost
   - https://www.llm-prices.com/
   - https://openrouter.ai/models
@@ -381,10 +384,12 @@ tags:
       - 内容识别 (Content Recognition)：在识别出结构的同时，完成对内部文字的 OCR 识别。
       - 关系预测 (Relationship Prediction)：理解这些结构之间的关联，比如知道某个图表是为哪一段文字作解释的。
   - [nanonets/Nanonets-OCR-s](https://huggingface.co/nanonets/Nanonets-OCR-s)
-    - Image -> Structure Markdown
     - 基于 Qwen2.5-VL-3b
+    - Image -> Structure Markdown
   - [ByteDance/Dolphin](https://huggingface.co/ByteDance/Dolphin)
     - Dolphin: Document Image Parsing via Heterogeneous Anchor Prompting
+  - [ChatDOC/OCRFlux-3B](https://huggingface.co/ChatDOC/OCRFlux-3B)
+    - 基于 Qwen/Qwen2.5-VL-3B-Instruct
 - Document Structure/Layout Analysis/OCR Toolkit
   - Marker
   - [allenai/olmocr](https://github.com/allenai/olmocr)
@@ -411,6 +416,8 @@ tags:
   - Vicuna + CLIP
 - OpenGVLab
   - [OpenGVLab/InternVL3-8B](https://huggingface.co/OpenGVLab/InternVL3-8B)
+    - [OpenGVLab/VisualPRM-8B-v1_1](https://huggingface.co/OpenGVLab/VisualPRM-8B-v1_1)
+      - Process Reward Model (PRM)
 - command-a
   - 主要用于 Agent, 工具调用
   - https://cohere.com/blog/command-a
@@ -490,6 +497,16 @@ tags:
 grep avx /proc/cpuinfo --color # x86_64
 ```
 
+## VLM
+
+- VLM - Vision Language Model
+- box_2d format
+- Qwen (xmin, ymin, xmax, ymax) floats between 0-1
+- Gemini (ymin, xmin, ymax, xmax) integers between 0-1000
+- 参考
+  - [Is Gemini 2.5 good at bounding boxes?](https://simedw.com/2025/07/10/gemini-bounding-boxes/)
+    - https://news.ycombinator.com/item?id=44520292
+
 ## Computer Agent
 
 - Qwen 2.5 VL 72B
@@ -500,6 +517,8 @@ grep avx /proc/cpuinfo --color # x86_64
 - https://platform.openai.com/docs/models/computer-use-preview
   - $3 / $12
 - https://arena.xlang.ai/leaderboard
+- https://huggingface.co/Menlo/Jan-nano
+  - for deep research tasks
 
 ## 中文 {#chinese}
 
@@ -585,6 +604,14 @@ grep avx /proc/cpuinfo --color # x86_64
 - ASR - Automatic Speech Recognition - 自动语音识别
 - [modelscope/FunASR](https://github.com/modelscope/FunASR)
 
+## Music
+
+- Music Generation - 音乐生成
+- Song Generation - 歌曲生成
+- https://huggingface.co/google/magenta-realtime
+- https://labs.google/fx/tools/music-fx-dj
+- http://goo.gle/lyria-realtime
+
 ## MLLM
 
 - Multimodal Large Language Model - 多模态大语言模型
@@ -621,6 +648,8 @@ grep avx /proc/cpuinfo --color # x86_64
   - https://huggingface.co/spaces/webml-community/smolvlm-realtime-webgpu
     - 500M, SmolVLM
     - https://www.reddit.com/r/LocalLLaMA/comments/1kmi6vl
+- Video Understanding
+  - https://huggingface.co/google/videoprism
 - 参考
   - https://blog.roboflow.com/multimodal-vision-models/
   - https://github.com/0xsline/GeminiImageApp
@@ -656,30 +685,38 @@ grep avx /proc/cpuinfo --color # x86_64
 make this image come alive, cinematic motion, smooth animation
 -->
 
-## Generation Media
+## Image Generation
 
-- Text to Image, Video, Audio
-- Image Inpainting
-- Image Variation
-- Text-guided
-- Upscale, Super Resolution
+- Image Generation - 图像生成
+- Image Editing - 图像编辑
+- Image Inpainting - 图像修复
+- Image Upscaling - 图像放大
+- Image Variation - 图像变体
+- Super Resolution - 超分辨率
+- Multimodal Understanding - 多模态理解
+- OpenCompass Multi-modal Academic Benchmarks
+  - MMB MMS MMMU MathVista Hallusion AI2D OCRBench MMVet
+- GenEval
+  - Single object Two object Counting Colors Position Attribute binding
+- DPG-Bench
+  - Global Entity Attribute Relation Other
+- ImgEdit-Bench
+  - Add Adjust Extract Replace Remove Background Style Hybrid Action
+- GEdit-Bench-EN
+  - Background Change Color Alteration Material Modification Motion Change Portrait Beautification Style Transfer Subject Addition Subject Removal Subject Replacement Text Modification Tone Transformation
+- [AIDC-AI/Ovis-U1-3B](https://huggingface.co/AIDC-AI/Ovis-U1-3B)
+  - 3B, Flux based
+- [advimman/lama](https://github.com/advimman/lama)
+  - Image Inpainting, Resolution-robust Large Mask Inpainting
+- Styles
+  - [showlab/OmniConsistency](https://huggingface.co/showlab/OmniConsistency)
+    - OmniConsistency: Learning Style-Agnostic Consistency from Paired Stylization Data
+    - https://github.com/lc03lc/Comfyui_OmniConsistency
 - [huggingface/diffusers](https://github.com/huggingface/diffusers)
   - [bghira/SimpleTuner](https://github.com/bghira/SimpleTuner)
   - [ostris/ai-toolkit](https://github.com/ostris/ai-toolkit)
-- 商业/平台/Hub/Router
-  - https://fal.ai/
-  - https://heygen.com
-  - https://aihubmix.com/
-  - https://www.dmxapi.cn/
-    - 中国
-    - 即梦
-  - https://tokenflux.ai/
-    - 模型 https://tokenflux.ai/models
-  - https://www.siliconflow.com/
-    - 硅基流动
-    - 北京硅动科技有限公司
-  - https://xiaoice.com/
-    - 小冰 数字人
+- [ByteDance/XVerse](https://huggingface.co/ByteDance/XVerse)
+  - Consistent Multi-Subject Control of Identity and Semantic Attributes via DiT Modulation
 - FLUX.1
   - https://playground.bfl.ai/
   - collection [FLUX.1](https://huggingface.co/collections/black-forest-labs/flux1-679d013aee236841c0e9d38a)
@@ -710,9 +747,33 @@ make this image come alive, cinematic motion, smooth animation
 - Ability to pull sources from across multiple images with or without "innovation" / change to their pixels.（能够从多张图片中提取来源，无论是否对其像素进行“创新”/更改）
 - Fine-tunable (so we can get higher quality and precision)（可微调，以获得更高的质量和精度）
 
-## Generative Marketing
+## Media Generation
 
-好的，这是去掉“AI”关键词后的版本：
+- Image & Text to Image, Video, Audio
+- Lip Sync - 口型同步
+- Text-guided
+- [OmniAvatar/OmniAvatar-14B](https://huggingface.co/OmniAvatar/OmniAvatar-14B)
+  - OmniAvatar: Efficient Audio-Driven Avatar Video Generation with Adaptive Body Animation
+- 商业/平台/Hub/Router
+  - https://fal.ai/
+  - https://replicate.com
+  - https://runware.ai
+  - https://www.together.ai
+  - https://datacrunch.io/
+  - https://heygen.com
+  - https://aihubmix.com/
+  - https://www.dmxapi.cn/
+    - 中国
+    - 即梦
+  - https://tokenflux.ai/
+    - 模型 https://tokenflux.ai/models
+  - https://www.siliconflow.com/
+    - 硅基流动
+    - 北京硅动科技有限公司
+  - https://xiaoice.com/
+    - 小冰 数字人
+
+## Generative Marketing
 
 ### 媒体
 
@@ -1260,3 +1321,8 @@ If you only want the main face being refined set 'Mask only the top k largest' t
 - RTFx = RTFx = 1/RTF
 - [huggingface/evaluate](https://huggingface.co/docs/evaluate/index)
 - https://huggingface.co/spaces/evaluate-metric/wer
+
+## Datasets
+
+- https://huggingface.co/datasets
+- [mlabonne/llm-datasets](https://github.com/mlabonne/llm-datasets)

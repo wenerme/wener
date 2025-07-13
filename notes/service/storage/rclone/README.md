@@ -85,6 +85,8 @@ rclone lsd --s3-provider=AWS --s3-region=eu-west-1 :s3:/ngi-igenomes/
 rclone about gd:     # 使用情况
 rclone reconnect gd: # Token 失效重连
 
+rclone size --human-readable mys3:bucket/
+
 rclone sync -P --stats-one-line --transfers 10 -M A B
 ```
 

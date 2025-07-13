@@ -17,6 +17,8 @@ tags:
   - rTorrent + ruTorrent
   - [webtorrent](https://github.com/webtorrent/webtorrent)
     - [webtorrent/bittorrent-tracker](https://github.com/webtorrent/bittorrent-tracker)
+  - [piyushgupta53/go-torrent-client](https://github.com/piyushgupta53/go-torrent-client)
+    - MIT, Go
 - [atomashpolskiy/bt](https://github.com/atomashpolskiy/bt)
   - Apache-2.0, Java
   - [HN](https://news.ycombinator.com/item?id=14911372)

@@ -38,6 +38,7 @@ title: WeChat
 
 ## 接口
 
+- [cluic/wxauto](https://github.com/cluic/wxauto)
 - [huan/docker-wechat](https://github.com/huan/docker-wechat)
   - Wine
 - [UOS Web 协议](https://wechaty.js.org/2021/04/13/wechaty-uos-web/)

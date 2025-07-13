@@ -43,7 +43,13 @@ SELECT SERVERPROPERTY('ProductVersion')      AS ProductVersion,      -- e.g., 15
 ;
 
 
+-- LIMIT
 SELECT TOP 3 * FROM Users;
+
+-- 系统用户
+-- type S = SQL Login, U = Windows Login, G = Windows Group
+select *
+from sys.server_principals;
 ```
 
 | sql   | mssql |

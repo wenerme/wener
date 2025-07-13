@@ -165,6 +165,21 @@ navigation.addEventListener('navigate', (e) => {
   - Tabbable and focusable
 - tabIndex=-1
   - Not tabbable, but focusable
+- :focus-visible
+- :focus-within
+- document.activeElement
+  - 当前获得焦点的元素
+
+
+```js
+document.addEventListener('focusin', (event) => {
+    console.log('focusin:', event.target);
+});
+
+document.addEventListener('focusout', (event) => {
+    console.log('focusout:', event.target);
+});
+```
 
 ## HTML attributes vs DOM properties
 

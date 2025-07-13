@@ -42,3 +42,17 @@ https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16
 
 https://huggingface.co/Comfy-Org/flux1-dev/blob/main/flux1-dev-fp8.safetensors
 ```
+
+## Kontext
+
+- Lora
+  - https://huggingface.co/drbaph/GlassPrism-kontext-LoRA
+  - https://huggingface.co/svjack/Kontext_OmniConsistency_lora
+  - https://huggingface.co/Owen777/Kontext-Style-Loras
+- Promopts
+  - https://zhuanlan.zhihu.com/p/1922042108895797435
+  - https://www.reddit.com/r/comfyui/comments/1lk94cg/i_spend_a_lot_of_time_attempting_to_create/
+  - https://www.reddit.com/r/comfyui/comments/1lnejq6/kontextdev_promptify/
+- 参考
+  - https://fluxkontextlab.com/
+    - https://news.ycombinator.com/item?id=44516288

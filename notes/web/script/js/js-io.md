@@ -93,13 +93,31 @@ interface File extends Blob {
 
 ## Stream
 
-> 处理大文件
+> **Notes** 使用场景
+>
+> - 大文件
+> - 数据流
+> - 异步数据
 
 - Streams/WebStream - `node:stream/web`
   - ReadableStream
+    - interface
+    - getReader().read()
+    - pipeTo(), pipeThrough()
   - WritableStream
   - TransformStream
+- Readable/Writable - `node:stream`
+  - Readable
+    - class
+    - event-driven
+    - 'data', 'readable', 'end', 'error', 'close'
+  - Writable
+  - Duplex
+  - Transform
 - 参考
+  - npm:[readable-stream](https://npmjs.com/package/readable-stream)
+    - Node.js core streams for userland
+    - [nodejs/readable-stream](https://github.com/nodejs/readable-stream)
   - https://streams.spec.whatwg.org/
   - https://nodejs.org/api/webstreams.html
   - https://nodejs.org/api/stream.html

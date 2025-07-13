@@ -43,6 +43,10 @@ tags:
 - https://www.magicpattern.design/tools/mesh-gradients
   - 生成渐变
 - https://github.com/terkelg/awesome-creative-coding
+- Fancy
+  - [paper-design/shaders](https://github.com/paper-design/shaders)
+    - Zero-dependency canvas shaders
+    - https://shaders.paper.design/
 
 ## 设计参考
 

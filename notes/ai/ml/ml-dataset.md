@@ -20,6 +20,7 @@ title: Dataset
   - 增值税发票数据集-适配PaddleOCR https://aistudio.baidu.com/datasetdetail/165561
 - [huggingface/datasets](https://huggingface.co/docs/datasets/index)
 - [ConardLi/easy-dataset](https://github.com/ConardLi/easy-dataset)
+  - AGPLv3, JS
   - creating fine-tuning datasets for LLM
   - 不支持 图片数据集
 - [open-sciencelab/GraphGen](https://github.com/open-sciencelab/GraphGen)
@@ -31,6 +32,18 @@ cd easy-dataset
 pnpm i
 pnpm run build
 pnpm run start
+
+
+#
+docker cp easy-dataset:/app/prisma/db.sqlite easy-dataset/prisma/
+
+docker run --rm -it \
+  -p 1717:1717 \
+  -v $PWD/easy-dataset/data:/app/local-db \
+  -v $PWD/easy-dataset/prisma:/app/prisma \
+  --name easy-dataset ghcr.io/conardli/easy-dataset
+
+# docker exec -it easy-dataset npx prisma db push
 ```
 
 - 数据集格式

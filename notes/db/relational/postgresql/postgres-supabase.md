@@ -17,9 +17,8 @@ title: Supabase PostgreSQL Image
 
 :::notes
 
-- 目前只有 PG 15
-  - Supabase with PostgreSQL 16 [#19427](https://github.com/orgs/supabase/discussions/19427)
-  - 目前有 PG 17 orioledb 镜像 https://hub.docker.com/r/supabase/postgres/tags
+- 目前有 PG 15, 17
+  - 有 PG 17 orioledb 镜像 https://hub.docker.com/r/supabase/postgres/tags
 - Vote for Postgres extensions [supabase#679](https://github.com/orgs/supabase/discussions/679)
 
 :::
@@ -27,13 +26,14 @@ title: Supabase PostgreSQL Image
 ```bash
 # 注意 superuser 为 supabase_admin 密码和 postgres 相同
 # 建议登录为 supabase_admin 然后 alter user postgres with superuser
+# https://hub.docker.com/r/supabase/postgres
 PASSWORD=$(uuidgen | tr -d '[[:space:]]')
 docker run --rm -it \
   -e POSTGRES_PASSWORD=$PASSWORD \
   -p 5432:5432 \
   -e POSTGRES_INITDB_ARGS="--encoding=UTF-8 --lc-collate=C --lc-ctype=C" \
   -v $PWD/data:/var/lib/postgresql/data \
-  --name postgres supabase/postgres:15.1.1.58 \
+  --name postgres supabase/postgres:17.4.1.049 \
   -clisten_addresses="*" \
   -cshared_preload_libraries=pg_stat_statements,pg_stat_monitor,pgaudit,plpgsql,plpgsql_check,pg_cron,pg_net,timescaledb,auto_explain,pg_tle
 ```

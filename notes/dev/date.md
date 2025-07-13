@@ -26,6 +26,11 @@ tags:
   - RFC 2822 常用于电子邮件
   - Unix Timestamp
     - 自 1970-01-01T00:00:00Z（UTC） 起的秒数
+- int32
+  - 最大 2,147,483,647
+  - 最大 timestamp 2038-01-19T03:14:07Z
+  - 最大 ms timestamp 1970-01-25 20:31:23 UTC
+    - ≈ 24.85 天
 - JS/TS
   - Date
   - Intl for Locale and Timezone

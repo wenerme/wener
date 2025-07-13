@@ -106,3 +106,10 @@ tags:
 ## Resources
 
 - https://m.sj33.cn/sc/logo/dzhy/it/202009/54302.html
+
+# FAQ
+
+## Menu Icon
+
+- https://ux.stackexchange.com/a/130549/36888
+- https://x.com/lukew/status/591296890030915585

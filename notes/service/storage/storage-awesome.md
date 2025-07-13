@@ -64,31 +64,36 @@ tags:
 
 - [文件系统](../../os/linux/fs/README.md)
 
-## 分布式存储服务 {#distributed}
+## Awesome
 
-- [ceph](./ceph/README.md)
-  - LGPLv2.1
-  - by RedHat
-  - S3 - 对象存储
-  - POSIX - 文件存储
-  - RBD - 块存储
-  - RAOD - 底层
-  - 对网络带宽和磁盘带宽要求高
-- [glusterfs](./gluster.md) - POSIX
-- lustre
-  - GPLv2, LGPL, C
-  - 利用很多 ZFS 特性
-  - [lustre/lustre-release](https://github.com/lustre/lustre-release)
-- [ThinkParQ/beegfs](https://github.com/ThinkParQ/beegfs)
-- hdfs - 大数据, 计算->存储
-- openio-sds
-- longhorn
-- S3/对象存储
+- Distributed File Systems/Software Defined Storage
+  - [ceph](./ceph/README.md)
+    - LGPLv2.1
+    - by RedHat
+    - S3 - 对象存储
+    - POSIX - 文件存储
+    - RBD - 块存储
+    - RAOD - 底层
+    - 对网络带宽和磁盘带宽要求高
+  - [glusterfs](./gluster.md) - POSIX
+  - lustre
+    - GPLv2, LGPL, C
+    - 利用很多 ZFS 特性
+    - [lustre/lustre-release](https://github.com/lustre/lustre-release)
+  - [ThinkParQ/beegfs](https://github.com/ThinkParQ/beegfs)
+  - hdfs - 大数据, 计算->存储
+  - openio-sds
+  - longhorn
+- S3
   - [minio](./minio.md) - S3
     - AGPLv3, Go
     - 支持作为 S3 代理
   - [garage](./garage.md)
     - Rust
+  - [versity/versitygw](https://github.com/versity/versitygw)
+    - Apache-2.0, Go
+    - S3 Gateway
+    - Local -> S3, S3 -> S3
 - S3 to FS/FUSE
   - [s3fs-fuse](https://github.com/s3fs-fuse/s3fs-fuse)
     - GPLv2, C++
@@ -105,7 +110,7 @@ tags:
   - [s3ql/s3ql](https://github.com/s3ql/s3ql)
     - GPLv3, Python
     - 自有存储格式
-- 对象存储
+- Object Storage/对象存储
   - Swift
   - [linkedin/ambry](https://github.com/linkedin/ambry)
     - Apache-2.0, Java
@@ -113,21 +118,37 @@ tags:
   - [apache/ozone](https://github.com/apache/ozone)
     - Apache-2.0, Java
     - for Apache Hadoop
-- 文件存储
+- 文件存储/File Storage
   - [juicefs](./juicefs.md)
-  - [lizardfs](https://github.com/lizardfs/lizardfs)
   - [moosefs](https://github.com/moosefs/moosefs)
     - GPLv2, C
   - [Alluxio/alluxio](https://github.com/Alluxio/alluxio)
     - Apache 2.0, Java
     - Tachyon
     - UFS
-- 块存储
+  - nfs
+    - NFSv3, NFSv4
+    - [nfs-ganesha/nfs-ganesha](https://github.com/nfs-ganesha/nfs-ganesha)
+      - NFSv3,v4,v4.1
+      - user mode
+  - smb
+  - cifs
+  - afp
+    - netatalk
+  - ~~[lizardfs](https://github.com/lizardfs/lizardfs)~~
+- 块存储/Block Storage
   - GFS2
     - Global File System 2
     - Symmetric Shared-Disk
     - 分布式锁管理器 (DLM) 来协调节点间的访问 - Pacemaker、 Corosync
-
+- Drive/Cloud Storage/云盘
+  - nextcloud
+  - [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)
+    - GPLv3, Go
+    - file management and sharing system, supports multiple storage providers
+  - [nimbusdotstorage/Nimbus](https://github.com/nimbusdotstorage/Nimbus)
+    - Apache-2.0, TS
+    - open source alternative to Google Drive, One Drive, iCloud, etc.
 
 **国人开发/维护**
 
@@ -167,14 +188,6 @@ tags:
   - [distributed_fs_evaluation](https://www.reddit.com/r/homelab/comments/q9weh4/distributed_fs_evaluation/)
   - [Comparison of distributed file systems](https://en.wikipedia.org/wiki/Comparison_of_distributed_file_systems)
 
-## Awesome
-
-- [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)
-  - GPLv3, Go
-  - file management and sharing system, supports multiple storage providers
-- [nimbusdotstorage/Nimbus](https://github.com/nimbusdotstorage/Nimbus)
-  - Apache-2.0, TS
-  - open source alternative to Google Drive, One Drive, iCloud, etc.
 
 ## 协议库 {#library}
 

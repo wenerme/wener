@@ -72,6 +72,22 @@ tags:
   - 用于可视化卷积神经网络（CNN）在图像分类任务中关注的区域
   - 通过将特定类别的预测与输入图像的特征图进行关联，生成热力图，显示模型在做出决策时关注的图像区域
   - 模型可解释性
+- diffusion
+  - 一种技术范式，广义概念
+  - 扩散过程
+  - 加噪-去噪
+  - High Concentration -> Low Concentration
+  - 物理上: Passive, Concentration Gradient, Temperature, Surface Area
+  - 通常在像素空间 (Pixel Space) 直接操作
+- Stable Diffusion
+  - 一种特定的扩散模型/应用，专注于图像生成任务
+  - 在潜空间 (Latent Space) 中操作
+    - e.g. 512x512 pixels -> 64x64 latent
+  - 引入 VAE
+  - 引入 文本引导（Text-Conditioning） - CLIP
+- VAE - Variational Autoencoder - 变分自编码器
+- ControlNet
+  - [lllyasviel/ControlNet](https://github.com/lllyasviel/ControlNet)
 
 | en               | cn       |
 | ---------------- | -------- |

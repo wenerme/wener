@@ -31,10 +31,9 @@ title: 推理
 
 ## Service
 
+- toruchrun
 - vLLM
-  - Text
 - SGLang
-  - Text, Image
 - Image
   - ComfyUI
   - SD
@@ -43,6 +42,16 @@ title: 推理
 - Embeddings
   - [michaelfeil/infinity](https://github.com/michaelfeil/infinity)
     - MIT, Python
+- [exo-explore/exo](https://github.com/exo-explore/exo)
+  - GPLv3, Python
+- [Tencent/ncnn](https://github.com/Tencent/ncnn)
+- [InternLM/lmdeploy](https://github.com/InternLM/lmdeploy)
+  - Apache-2.0, Python, C++
+  - based on [MMRazor](https://github.com/open-mmlab/mmrazor) and [MMDeploy](https://github.com/open-mmlab/mmdeploy)
+- [mit-han-lab/nunchaku](https://github.com/mit-han-lab/nunchaku)
+  - Apache-2.0, Python, C++
+  - Nunchaku is a high-performance inference engine optimized for 4-bit neural networks
+  - SVDQuant: Absorbing Outliers by Low-Rank Components for 4-Bit Diffusion Models
 
 ## 模型大小 {#model-size}
 

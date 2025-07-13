@@ -37,30 +37,30 @@ tags:
 
 :::
 
-| en             | cn                   |
-| -------------- | -------------------- |
-| sinology       | 汉学                 |
-| year-on-year   | 同比                 |
-| month-on-month | 环比                 |
-| robust         | 健壮性, ~~鲁棒~~     |
-| socket         | ~~套接字~~           |
-| handler        | ~~句柄~~             |
-| macro          | ~~宏~~               |
-| metaphysics    | ~~形而上学~~,玄学    |
-| philosophy     | 哲学,理学            |
-| subjective     |
-| objective      |
-| idealism       | ~~唯心主义~~         |
-| utilitarianism | ~~功利主义~~         |
-| login,signin   | 登录                 |
-| signup         | 注册                 |
-| logout,signout | 登出,退出登录        |
-| argument       | 实际参数             |
-| parameter      | 形式参数             |
-| chorus         | 合唱、复歌、~~副歌~~ |
-| verse          | 主唱                 |
-| debit          | 借, 左               |
-| credit         | 贷, 右               |
+| en             | cn                                             |
+| -------------- | ---------------------------------------------- |
+| sinology       | 汉学                                           |
+| year-on-year   | 同比, 年度营收增长率                           |
+| month-on-month | 环比, 月度营收增长率                           |
+| robust         | 健壮性, ~~鲁棒~~                               |
+| socket         | ~~套接字~~                                     |
+| handler        | ~~句柄~~                                       |
+| macro          | ~~宏~~                                         |
+| metaphysics    | 形而上学, 形上学, 形之上学, 玄学, 在物理学之后 |
+| philosophy     | 哲学,理学                                      |
+| subjective     | 主观的                                         |
+| objective      | 客观的                                         |
+| idealism       | ~~唯心主义~~                                   |
+| utilitarianism | ~~功利主义~~                                   |
+| login,signin   | 登录                                           |
+| signup         | 注册                                           |
+| logout,signout | 登出,退出登录                                  |
+| argument       | 实际参数                                       |
+| parameter      | 形式参数                                       |
+| chorus         | 合唱、复歌、~~副歌~~                           |
+| verse          | 主唱                                           |
+| debit          | 借, 左                                         |
+| credit         | 贷, 右                                         |
 
 > ~~划掉~~ 的词语表示不建议这样翻译, 或尽量避免从翻译去理解，直接理解本来的词义
 
@@ -69,6 +69,43 @@ tags:
   - 形而上学 这个翻译从小感觉就是贬义的
 - idealism - 唯心主义
   - 本身是个中性词，但是从小的教育是贬义指向
+
+## 多音字 {#heteronym}
+
+| cn  | old              | new   | e.g. |
+| --- | ---------------- | ----- | ---- |
+| 从  | cóng, ~~cōng~~   | cóng  |      |
+| 凿  | záo, ~~zuò~~     | záo   |      |
+| 呆  | dāi, ~~ái~~      | dāi   |      |
+| 咱  | zán, ~~zá~~      | zán   | 咱家 |
+| 寻  | xún, ~~xín~~     | xún   |      |
+| 往  | wǎng, ~~wàng~~   | wǎng  |      |
+| 拎  | līn, ~~līng~~    | līn   |      |
+| 斜  | xié, ~~xiá~~     | xié   |      |
+| 框  | kuàng, ~~kuāng~~ | kuàng |      |
+| 橙  | chéng, ~~chén~~  | chéng |      |
+| 澎  | péng, ~~pēng~~   | péng  |      |
+| 绕  | rào, ~~ráo~~     | rào   |      |
+| 绩  | jì, ~~jī~~       | jì    |      |
+| 脊  | jǐ, ~~jí~~       | jǐ    |      |
+| 荨  | xún, ~~qián~~    | xún   |      |
+| 说  | shuō, ~~shuì~~   | shuō  | 说服 |
+| 迹  | jì, ~~jī~~       | jì    |      |
+| 食  | shí, ~~sì~~      | shí   |      |
+| 骑  | qí, ~~jì~~       | qí    |      |
+
+| cn       | old             | new             |
+| -------- | --------------- | --------------- |
+| 阿房宫赋 | e pang gong fu  | e fang gong fu  |
+| 大腹便便 | da fu pian pian | da fu bian bian |
+| 坐骑     | zuo ji          | zuo qi          |
+| 说服     | shui fu         | shuo fu         |
+
+- [普通话异读词审音表（修订稿）](https://zh.wikisource.org/wiki/普通话异读词审音表（修订稿）)
+  - 2016年5月 《普通话异读词审音表》（1985年）修订版
+- [普通话异读词审音表](https://zh.wikipedia.org/zh-hans/普通话异读词审音表)
+- http://www.moe.gov.cn/jyb_sjzl/ziliao/A19/201001/W020190416497956176438.pdf
+- https://zhuanlan.zhihu.com/p/58435229
 
 ## 中文的优缺点 {#avoid-chinese-defect}
 
@@ -1598,6 +1635,17 @@ tags:
   - 通常是一个行政区域，由政府或法律规定的机构负责管理和执行法律。
 - Administrative Division - 行政区划
   - 行政区域的划分，通常由政府或其他管理机构负责管理和执行。
+
+## location vs coordinate
+
+- location - 位置
+  - 通常指一个具体的地点或区域
+  - 可以是城市、建筑、地标等
+  - 例如：The location of the meeting is at the downtown conference center.
+- coordinate - 坐标
+  - 通常指一个点在空间中的精确位置
+  - 使用数字表示，如经度和纬度
+  - 例如：The coordinates of the Eiffel Tower are 48.8584° N, 2.2945° E.
 
 ## mobile vs phone vs tel
 

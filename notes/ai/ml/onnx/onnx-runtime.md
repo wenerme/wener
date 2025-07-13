@@ -1,6 +1,6 @@
 ---
 tags:
-- Runtime
+  - Runtime
 ---
 
 # ONNX Runtime
@@ -17,6 +17,8 @@ tags:
     - [oramasearch/onnx-go](https://github.com/oramasearch/onnx-go)
     - [AdvancedClimateSystems/gonnx](https://github.com/AdvancedClimateSystems/gonnx)
   - https://onnxruntime.ai/
+  - https://github.com/Aimol-l/OrtInference
+    - yolov10,yolov10+SAM ,yolov10+bytetrack , SAM2, paddleOCR
 - Inferencing
   - [Generative AI](https://github.com/microsoft/onnxruntime-genai) 实验阶段
 

@@ -6,6 +6,14 @@ title: pdfmake
 
 - [bpampuch/pdfmake](https://github.com/bpampuch/pdfmake)
   - MIT, JS
+  - 使用 pdfkit, xmldoc 生成 PDF
+
+:::caution
+
+- 图片只支持 JPEG 和 PNG 格式
+  - 因为 pdfkit 只支持这两种格式 https://pdfkit.org/docs/images.html
+
+:::
 
 ```ts
 // PdfPrinter 用于 Node.js

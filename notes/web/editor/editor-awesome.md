@@ -131,7 +131,8 @@ tags:
 - [bytedance/bytemd](https://github.com/bytedance/bytemd)
   - Svelte
   - 提供 React, Vue
-- [Saul-Mirone/milkdown](https://github.com/Saul-Mirone/milkdown)
+- [Milkdown/milkdown](https://github.com/Milkdown/milkdown)
+  - MIT, TS, React
   - prosemirror+remark
 
 ## Hex

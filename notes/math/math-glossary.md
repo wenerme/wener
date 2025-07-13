@@ -61,3 +61,24 @@ tags:
   - R
   - Julia
   - Wolfram Mathematica
+
+## 残差 {#residual}
+
+- 残差 Residual
+  - 真实值 (Observed Value) 与 预测值 (Predicted Value) 之间的差值
+  - 残差 = 真实 - 预测
+    - 代表了你的预测“错得有多离谱”。
+  - 统计学 (Statistics)
+    - 回归分析 (Regression Analysis) 的核心
+    - 衡量模型拟合优度 (Goodness of Fit) 的基础
+      - 所有常用的评估指标，如均方误差（Mean Squared Error, MSE），都是基于残差计算的。
+  - 数值分析 (Numerical Analysis)
+- 评估模型好坏: 一个模型所有预测的残差越小，说明模型越精准。训练模型的过程，在很多情况下就是想办法让总体的残差尽可能小。
+- 残差网络 (ResNet)
+
+## 奇异值分解 {#svd}
+
+- 奇异值分解 - SVD / Singular Value Decomposition
+  - 任何一个复杂的矩阵，都可以被拆解成三个更简单、更有代表性的“基础矩阵”的乘积。
+  - A = U · Σ · Vᵀ
+- 线性代数 (Linear Algebra)

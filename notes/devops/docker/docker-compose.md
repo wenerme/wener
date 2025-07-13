@@ -36,6 +36,7 @@ docker compose version
 
 ## docker-compose.yaml
 
+- 会自动读取 .env
 - services, volumes,
 - configs
   - 全局配置定义
@@ -281,10 +282,24 @@ services:
       device_write_iops:
         - path: /dev/sdb
           rate: 30
+# 挂载访问
+# /<config-name>
+# C:\<config-name>
 configs:
   web_config:
+    name:
     file: ./default.nginx
+    environment:
+    content:
+    external: true # 除了 name 其他都外部化
   redis_config:
+    external: true
+# 和 configs 类似
+secrets:
+  server-certificate:
+    name:
+    file: ./server.cert
+    environment:
     external: true
 networks:
   front-tier:

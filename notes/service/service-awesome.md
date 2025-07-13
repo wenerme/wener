@@ -170,6 +170,11 @@ tags:
     - Verifiable Data
 - captcha
   - [ZYSzys/awesome-captcha](https://github.com/ZYSzys/awesome-captcha)
+  - [tiagorangel1/cap](https://github.com/tiagorangel1/cap)
+    - Apache-2.0, JS
+    - modern open-source CAPTCHA alternative using SHA-256 proof-of-work
+  - [altcha-org/altcha](https://github.com/altcha-org/altcha)
+    - MIT, JS
   - [mCaptcha/mCaptcha](https://github.com/mCaptcha/mCaptcha)
     - AGPL-3.0, Rust
     - 依赖 postgres, redis

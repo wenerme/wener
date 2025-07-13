@@ -7,9 +7,6 @@ tags:
 
 - [unnoq/orpc](https://github.com/unnoq/orpc)
   - MIT, TS
-- 类似于 trpc
-  - 支持 contract - 不需要耦合 server 实现
-  - 耦合更小, 生态支持更多
 
 ```bash
 # Server
@@ -23,3 +20,24 @@ pnpm add @orpc/contract
 ## Protocol
 
 - https://orpc.unnoq.com/docs/advanced/rpc-protocol
+
+# FAQ
+
+## orpc vs trpc
+
+- trpc
+  - 第一个流行的同类库
+  - 历史包袱很重
+  - v10 -> v11 版本难产
+    - v10 2022-09 -> v11 2025-03
+    - https://trpc.io/blog/announcing-trpc-v11
+  - 区分 mutate 和 query - 个人认为不必要
+- orpc
+  - 新兴的同类库 - v1 2025-04
+  - 设计更现代, 默认集成更多功能
+  - 支持 SSE, WebSocket, HTTP
+  - 支持 MessagePort
+  - 支持多种 Validate 库 - 非绑定 zod
+  - 类型安全 schema 可选
+  - 设计更简洁，易于使用
+  - 支持 contract - 不需要耦合 server 实现

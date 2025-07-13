@@ -108,6 +108,28 @@ tags:
     - 支持自动重连
     - 兼容 WebSocket API
     - 支持多平台
+- io/fs/storage
+  - [good-lly/s3mini](https://github.com/good-lly/s3mini)
+    - 16kB, 6kB
+    - 不支持高级功能，不支持 CopyObject
+  - [sentienhq/ultralight-s3](https://github.com/sentienhq/ultralight-s3)
+    - lightweight S3 client
+  - [good-lly/lowstorage](https://github.com/good-lly/lowstorage)
+    - MIT, JS, TS
+    - object pseudo-database for S3-compatible storages using JSON or Msgpack
+  - minio
+    - 460kB, 120kB
+  - npm:readable-stream
+    - node:stream
+  - [willfarrell/datastream](https://github.com/willfarrell/datastream)
+    - Commonly used stream patterns for Web Streams API and NodeJS Stream.
+- standard/dataset/数据集
+  - [jshttp/mime-types](https://github.com/jshttp/mime-types)
+    - npm:mime-types
+    - npm:mime-db
+      - minified 160kB, gzipped 20kB
+      - https://cdn.jsdelivr.net/gh/jshttp/mime-db@master/db.json
+        - 200KB
 - WebWorker
   - [GoogleChromeLabs/comlink](https://github.com/GoogleChromeLabs/comlink)
   - https://vitejs.dev/guide/features.html#web-workers
@@ -155,7 +177,6 @@ tags:
 - deep compare
   - [epoberezkin/fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal)
   - [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
-    - 基于 fast-deep-equal
     - 支持 react 元素
   - [lukeed/dequal](https://github.com/lukeed/dequal)
     - 304B to 489B
@@ -978,6 +999,10 @@ tags:
     - BSD-3, JS
     - Portable Unix shell commands for Node.js
   - [google/zx](https://github.com/google/zx)
+- http
+  - [jshttp/negotiator](https://github.com/jshttp/negotiator)
+    - MIT, JS
+    - HTTP content negotiator
 - [xyflow/xyflow](https://github.com/xyflow/xyflow)
 
 ---

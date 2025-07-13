@@ -47,3 +47,10 @@ streams:
 env:
   SLING_THREADS: 3
 ```
+
+## 配置 {#config}
+
+- ~/.sling/env.yaml
+  - https://docs.slingdata.io/sling-cli/environment
+- ~/dbt/profiles.yml
+- https://docs.slingdata.io/concepts/replication/structure

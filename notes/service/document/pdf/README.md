@@ -83,6 +83,9 @@ pdfseparate document.pdf %d.pdf
 
 # Spec
 
+- https://helpx.adobe.com/acrobat/kb/supported-file-formats-acrobat-reader.html
+- https://en.wikipedia.org/wiki/PDF#Imaging_model
+
 # FAQ
 
 ## 水印处理逻辑

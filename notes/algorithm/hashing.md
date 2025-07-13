@@ -11,6 +11,7 @@ title: Hashing
 
 :::tip Hash used by various tools/services
 
+- 对比文件是否相同推荐 md5, sha1, sha256
 - sha256 通常指 sha2-256
 - git
   - 默认 sha2-256 - https://git-scm.com/docs/hash-function-transition/
@@ -82,6 +83,8 @@ shasum -a 512224 ~/.bashrc
   - [shattered](https://shattered.io/)
     broken SHA-1 in practice
   - [cr-marcstevens/sha1collisiondetection](https://github.com/cr-marcstevens/sha1collisiondetection)
+- Benchmark
+  - https://github.com/rurban/smhasher
 - [SipHash](https://en.wikipedia.org/wiki/SipHash)
 - 实现
   - https://gist.github.com/creationix/4710780
@@ -149,7 +152,7 @@ echo -n "secret" | argon2 "saltsalt" -e
 - [fnv] - Fowler–Noll–Vo
   - 32,64,128,256,512,1024
   - xor
-- MurmurHash
+- [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash)
   - 32,64,128
 - maphash
 - tdigest

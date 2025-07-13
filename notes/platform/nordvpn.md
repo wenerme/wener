@@ -82,6 +82,8 @@ curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]
 curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=195&filters[servers_technologies][identifier]=proxy_ssl&limit=1'
 # TR Turkey
 curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=220&filters[servers_technologies][identifier]=proxy_ssl&limit=1'
+# US
+curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=228&filters[servers_technologies][identifier]=proxy_ssl&limit=1'
 ```
 
 - filters
@@ -92,6 +94,8 @@ curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]
     - 108, Japan
     - 195, Singapore
     - 220, Turkey
+    - 227, United Kingdom
+    - 228, United States
     - https://github.com/bubuntux/nordlynx/discussions/8
 
 ## NordWhisper

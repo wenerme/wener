@@ -39,6 +39,8 @@ tags:
 - react 的 focus & blur 会 bubble
   - 因此实际应该类似 onFocus -> onFocusIn, onBlur -> onFocusOut
   - [facebook/react#6410](https://github.com/facebook/react/issues/6410#issuecomment-207064994)
+- key code
+  - https://www.w3.org/TR/uievents-key/
 
 ```ts
 // if (e.pageX || pageY) -> MouseEvent
@@ -161,6 +163,9 @@ interface MouseEvent extends CommonEvent {
 
 - 会导致 click delay
   - 80 - 100ms
+- 以前 移动端 300-350ms delay - touchend, click
+  - https://github.com/ftlabs/fastclick
+  - https://developer.chrome.com/blog/300ms-tap-delay-gone-away
 
 ## focus
 

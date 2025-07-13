@@ -22,6 +22,7 @@ title: JSON
   - Standard MIME content-type [#19](https://github.com/wardi/jsonlines/issues/19)
     - `.jsonl`, `application/jsonl`
   - jsonlines.org and ndjson.org [wardi/jsonlines#22](https://github.com/wardi/jsonlines/issues/22)
+  - adopter https://jsonlines.org/on_the_web/
 - ndjson - Newline delimited JSON
   - ⚠️ 不活跃
   - [ndjson/ndjson-spec](https://github.com/ndjson/ndjson-spec)

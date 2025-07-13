@@ -104,3 +104,8 @@ aws --profile project01 --endpoint-url http://localhost:9000 s3 ls s3://my-bucke
 ```
 
 # FAQ
+
+- Aliyun
+  - s3.oss-cn-hongkong.aliyuncs.com
+  - 内网 s3.oss-cn-hongkong-internal.aliyuncs.com
+  - https://help.aliyun.com/zh/oss/developer-reference/compatibility-with-amazon-s3-1/

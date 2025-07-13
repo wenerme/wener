@@ -79,6 +79,11 @@ title: rsync
 > - dst 如果包含 `/` 则不存在时会创建目录，否则会被复制为指定文件
 
 ```bash
+# checksum: xxh128 xxh3 xxh64 (xxhash) md5 md4 sha1 none
+# compress: zstd lz4 zlibx zlib none
+# daemon auth: sha512 sha256 sha1 md5 md4
+rsync -V
+
 # 使用 SSH 同步
 rsync -avz -e ssh remoteuser@remotehost:/remote/dir /this/dir/
 

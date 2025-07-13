@@ -49,6 +49,10 @@ npx typesync # 自动添加 @types/ 依赖
 
 # 单个文件
 npx tsc --out test.js ./src/test.ts --module system
+
+# 查看所有文件
+# --explainFiles 显示包含原因
+npx tsc --listFiles --noEmit --noCheck
 ```
 
 ## NPM 模块开发

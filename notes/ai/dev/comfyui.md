@@ -12,14 +12,15 @@ title: ComfyUI
 - Control Net
   - SD 1.5
 - Juggernaut
-- 参考
-  - https://github.com/Comfy-Org/ComfyUI-Manager
 - 生产部署
   - ComfyDeploy
   - 另存 (API 格式)
   - 调用 /prompt
 - 参考
+  - [BennyKok/comfyui-deploy](https://github.com/BennyKok/comfyui-deploy)
+  - [Comfy-Org/ComfyUI-Manager](https://github.com/Comfy-Org/ComfyUI-Manager)
   - https://docs.comfy.org/tutorials/
+  - Transform Your Videos with Professional Quality: WAN-VACE V2V Complete Workflow for ComfyUI https://civitai.com/articles/16401
 
 :::caution
 

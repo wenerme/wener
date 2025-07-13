@@ -5,6 +5,13 @@ tags:
 
 # Life FAQ
 
+| item   | size          |
+| ------ | ------------- |
+| 抽纸 L | 195mm x 200mm |
+| 抽纸 M | 153mm x 195mm |
+| 抽纸 S | 195mm x 130mm |
+| 抽纸 S | 180mm x 133mm |
+
 ## 螺丝刀
 
 - H - 内六角
