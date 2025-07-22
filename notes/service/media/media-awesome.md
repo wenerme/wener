@@ -81,21 +81,36 @@ tags:
 ## Media Server
 
 - [jellyfin](./server/jellyfin.md)
-  - C#
-  - fork of Emby
+  - GPLv2, C#
+  - fork of Emby 3.5.2
   - 🌟 推荐 - 简单易用，开发活跃
+- Plex
+- Emby
+  - $119/Lifetime
+  - https://hub.docker.com/r/emby/embyserver
+  - https://emby.media/premiere.html
+- [midarrlabs/midarr-server](https://github.com/midarrlabs/midarr-server)
+  - MIT, Elixir
+  - 类似 Radarr, Sonarr
+  - 使用现有的 Plex, Jellyfin, Emby
+- ~~[Dusk-Labs/dim](https://github.com/Dusk-Labs/dim)~~
+  - AGPLv3, Rust
+- ~~[olaris/olaris-server](https://gitlab.com/olaris/olaris-server)~~
+  - GPLv3, Go
 - [advplyr/audiobookshelf](https://github.com/advplyr/audiobookshelf)
   - GPLv3, JS, Vue
 - [Radarr/Radarr](https://github.com/Radarr/Radarr)
   - GPLv3, C#
   - fork of Sonarr
+  - Movie organizer/manager for usenet and torrent users.
+- [Sonarr/Sonarr](https://github.com/Sonarr/Sonarr)
+  - GPLv3, C#
+  - PVR for newsgroup and bittorrent users
 - [Red5/red5-server](https://github.com/Red5/red5-server)
   - Apache-2.0, Java
 - [ant-media/Ant-Media-Server](https://github.com/ant-media/Ant-Media-Server)
   - GPL-3.0, Java
     - Red5 fork
-- [midarrlabs/midarr-server](https://github.com/midarrlabs/midarr-server)
-  - MIT, Elixir
 - [Wizarrrr/wizarr](https://github.com/Wizarrrr/wizarr)
   - user invitation and management system for Jellyfin, Plex, Emby
 - [causefx/Organizr](https://github.com/causefx/Organizr)

@@ -24,7 +24,8 @@ title: Font
 
 ```bash
 system_profiler SPFontsDataType
-fc-list: file family | grep \/Library
+fc-list : file family
+fc-list : family
 ```
 
 cursive
@@ -87,7 +88,9 @@ curl -L --remote-name-all -J- fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thi
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 100;
-  src: url(./NotoSansSC-Thin.woff2) format('woff2'), url(./NotoSansSC-Thin.woff) format('woff'),
+  src:
+    url(./NotoSansSC-Thin.woff2) format('woff2'),
+    url(./NotoSansSC-Thin.woff) format('woff'),
     url(./NotoSansSC-Thin.otf) format('opentype');
 }
 
@@ -95,7 +98,9 @@ curl -L --remote-name-all -J- fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thi
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 300;
-  src: url(./NotoSansSC-Light.woff2) format('woff2'), url(./NotoSansSC-Light.woff) format('woff'),
+  src:
+    url(./NotoSansSC-Light.woff2) format('woff2'),
+    url(./NotoSansSC-Light.woff) format('woff'),
     url(./NotoSansSC-Light.otf) format('opentype');
 }
 
@@ -103,7 +108,9 @@ curl -L --remote-name-all -J- fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thi
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 400;
-  src: url(./NotoSansSC-Regular.woff2) format('woff2'), url(./NotoSansSC-Regular.woff) format('woff'),
+  src:
+    url(./NotoSansSC-Regular.woff2) format('woff2'),
+    url(./NotoSansSC-Regular.woff) format('woff'),
     url(./NotoSansSC-Regular.otf) format('opentype');
 }
 
@@ -111,7 +118,9 @@ curl -L --remote-name-all -J- fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thi
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 500;
-  src: url(./NotoSansSC-Medium.woff2) format('woff2'), url(./NotoSansSC-Medium.woff) format('woff'),
+  src:
+    url(./NotoSansSC-Medium.woff2) format('woff2'),
+    url(./NotoSansSC-Medium.woff) format('woff'),
     url(./NotoSansSC-Medium.otf) format('opentype');
 }
 
@@ -119,7 +128,9 @@ curl -L --remote-name-all -J- fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thi
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 700;
-  src: url(./NotoSansSC-Bold.woff2) format('woff2'), url(./NotoSansSC-Bold.woff) format('woff'),
+  src:
+    url(./NotoSansSC-Bold.woff2) format('woff2'),
+    url(./NotoSansSC-Bold.woff) format('woff'),
     url(./NotoSansSC-Bold.otf) format('opentype');
 }
 
@@ -127,7 +138,9 @@ curl -L --remote-name-all -J- fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thi
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 900;
-  src: url(./NotoSansSC-Black.woff2) format('woff2'), url(./NotoSansSC-Black.woff) format('woff'),
+  src:
+    url(./NotoSansSC-Black.woff2) format('woff2'),
+    url(./NotoSansSC-Black.woff) format('woff'),
     url(./NotoSansSC-Black.otf) format('opentype');
 }
 ```

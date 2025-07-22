@@ -13,8 +13,12 @@ title: NTFS
 
 ```bash
 modprobe ntfs
+# ntfs, ntfs3
 cat /proc/filesystems | grep ntfs
 ```
+
+- 可能需要使用 chkdsk 修复
+  - Windows 下运行 `chkdsk /f /r /x D:`
 
 ## ntfs-3g
 

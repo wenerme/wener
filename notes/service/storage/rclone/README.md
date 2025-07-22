@@ -215,9 +215,12 @@ sudo --preserve-env=SSH_AUTH_SOCK -s
 
 ```bash
 # 会下载 https://github.com/rclone/rclone-webui-react/releases/download/v2.0.5/currentbuild.zip
-# 到 ~/.cache/rclone/webgui/v2.0.5.zip]
-rclone rcd --rc-web-gui --rc-addr :5572
+# 到 ~/.cache/rclone/webgui/v2.0.5.zip
+rclone rcd --rc-web-gui --rc-no-auth --rc-addr :5572
 ```
+
+- --rc-user
+- --rc-pass
 
 ## google drive
 

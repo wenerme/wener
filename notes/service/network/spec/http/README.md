@@ -7,31 +7,47 @@ title: HTTP
 - 参考
   - https://tools.ietf.org/id/draft-wright-http-partial-upload-01.html
 
-## CORS
+## Well Known
 
-- 默认允许头
-  - Cache-Control
-  - Content-Language
-  - Content-Type
-  - Expires
-  - Last-Modified
-  - Pragma
-- access-control-expose-headers - 控制暴露头
+- /.well-known/acme-challenge
+  - 自动证书管理环境（ACME）的域名验证
+- /.well-known/caldav
+- /.well-known/carddav
+- /.well-known/oauth-authorization-server
+  - OAuth Authorization Server Metadata
+- /.well-known/openid-configuration
+  - OpenID Connect Privder Discovery
+  - /.well-known/jwks.json
+- /.well-known/ai-plugin.json
+  - Manifest for a ChatGPT plugin
+- /.well-known/change-password
+  - 提供一个直接更改当前网站密码的链接
+- /.well-known/security.txt
+  - 公布网站的安全策略和联系方式
+- /.well-known/webauthn
+- /.well-known/wasm-pkg/registry.json
+  - WebAssembly registry
+- /.well-known/appspecific/com.chrome.devtools.json
+- /.well-known/assetlinks.json
+  - 关联网站和 Android 应用 (App Links)
 
-```yaml
-# 请求
-Access-Control-Request-Headers: authorization
-Access-Control-Request-Method: GET
+---
 
-# 响应
-Access-Control-Allow-Headers: authorization
-Access-Control-Allow-Methods: POST,GET
-Access-Control-Allow-Origin: http://127.0.0.1:3000
-# 默认 5s、最大 86400=24h
-Access-Control-Max-Age: 86400
-```
+Web Protocols & Fediverse
 
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age
+- /.well-known/webfinger
+  - 通过一个地址（如 email 或用户句柄）发现关于该用户的更多信息
+- /.well-known/host-meta
+  - 发现关于主机本身的服务和元数据
+  - 配合 webfinger
+- /.well-known/nodeinfo
+  - 描述服务器软件及其能力统计信息
+  - ActivityPub、Mastodon、Pleroma
+
+---
+
+- https://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml
+- [Well-known URI](https://en.wikipedia.org/wiki/Well-known_URI)
 
 ## OPTIONS
 

@@ -7,10 +7,9 @@ title: Cookie
 - [rfc6265](https://datatracker.ietf.org/doc/html/rfc6265)
   HTTP State Management Mechanism
   - [Set-Cookie Header](https://datatracker.ietf.org/doc/html/rfc6265#section-5.2)
-- [Same-Site Cookies](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site-00)
-  - SameSite
-    - 请求时只有 匹配站点的 cookie 会被发送
-    - 默认不会随 top-level navigations 发送
+- SameSite
+  - 请求时只有 匹配站点的 cookie 会被发送
+  - 默认不会随 top-level navigations 发送
   - SameSite=Strict
     - 与 same-site 请求一起发送
   - SameSite=Lax
@@ -55,3 +54,9 @@ Set-Cookie: my_cookie=value; SameSite=None; Secure; Partitioned
 | `__Host-`   | 前缀, 强制 Secure 属性, 路径为 `/`, 且没有 Domain | \_\_Host-session=abc123; Secure; Path=/ | 提高安全性，确保 Cookie 在主域及其所有路径上有效            |
 | `__Secure-` | 前缀, 强制 Secure 属性                            | \_\_Secure-session=abc123; Secure       | 提高安全性，允许跨子域使用                                  |
 | Partitioned | 指定 Cookie 在不同的上下文中隔离                  | Partitioned                             | 必须配合 SameSite=None 和 Secure 属性使用，提升隐私和安全性 |
+
+---
+
+**参考**
+
+- RFC6265 [Same-Site Cookies](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site-00)

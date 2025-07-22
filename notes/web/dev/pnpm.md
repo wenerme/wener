@@ -47,6 +47,7 @@ title: pnpm
 
 :::info
 
+- 新版本支持使用 pnpm-workspace.yaml 配置 pnpm
 - pnpm monorepo docker support [#1637](https://github.com/pnpm/pnpm/issues/1637)
   - monorepo 无法分离单个模块依赖，会包含所有依赖
 - Support workspaces from package.json [#2255](https://github.com/pnpm/pnpm/issues/2255)
@@ -96,7 +97,15 @@ public-hoist-pattern[]=*jest*
 - ~/Library/pnpm
 - NODE_PATH=$HOME/Library/pnpm/global/5/.pnpm/node_modules
 
-## 配置
+## 配置 {#config}
+
+- pnpm-workspace.yaml
+- package.json
+- ~/.config/pnpm/rc
+
+```yaml
+
+```
 
 - strict-peer-dependencies
 - auto-install-peers
@@ -110,7 +119,7 @@ public-hoist-pattern[]=*jest*
   - bypass peerDependency auto-installation
   - https://stackoverflow.com/a/66620869/1870054
 
-### package.json
+
 
 ```json title="package.json"
 {

@@ -104,7 +104,29 @@ tags:
 | `$bitsAnyClear`  | 匹配一组位位置中任何一位为 0 的数字或二进制值。                                           |
 | `$bitsAnySet`    | 匹配一组位位置中任何一位为 1 的数字或二进制值。                                           |
 
-- https://www.mongodb.com/docs/manual/reference/operator/query/
+- Query & Projection
+  - Comparison Query - $eq, $gt, $gte, $in, $lt, $lte, $ne, $nin
+  - Logical Query - $and, $not, $nor, $or
+  - Element Query - $exists, $type
+  - Evaluation Query - $expr, $jsonSchema, $mod, $regex, $text, $where
+  - Geospatial Query
+  - Array Query - $all, $elemMatch, $size
+  - Bitwise Query
+  - Projection - $, $elemMatch, $slice
+- $expr - MongoDB 3.6+, 2018+
+  - 字段比较
+  - 计算
+  - 复杂筛选逻辑
+  - https://www.mongodb.com/docs/manual/reference/operator/query/expr/
+  - $eq, $lt, $lte, $gt, $gte
+
+```js
+db.monthlyBudget.find({ $expr: { $gt: ['$spent', '$budget'] } });
+```
+
+- 参考
+  - https://www.mongodb.com/docs/manual/reference/operator/query/
+  - 聚合操作 https://www.mongodb.com/docs/manual/reference/operator/aggregation/
 
 ## mikro-orm
 
@@ -138,7 +160,23 @@ tags:
 | `$none`        | `<> ANY`    | 查找没有任何记录符合条件的集合。                          |
 | `$every`       |             | 查找所有记录均符合条件的集合。                            |
 
+```ts
+const query = [
+  //
+  { [sql`(select ${1} = ${1})`]: [] },
+  { [raw('length(perex)')]: { $gt: 10000 } },
+  { [sql`lower(name)`]: name.toLowerCase() },
+  { time: sql`now()` },
+  { [raw(alias => `lower(${alias}.name)`)]: name.toLowerCase() },
+  // 函数
+  { [sql.upper('title')]: 'TITLE' },
+  // 字段引用
+  { foo: sql.ref('bar') },
+];
+```
+
 - https://mikro-orm.io/docs/query-conditions
+- https://mikro-orm.io/docs/raw-queries
 
 ## hasura
 

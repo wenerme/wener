@@ -355,7 +355,7 @@ tags:
   - Jetbrains Datalore
   - https://datasciencenotebook.org/
 - Storage/File/Drive
-  - [Nextcloud](./file/nextcloud/README.md)
+  - [Nextcloud](./storage/nextcloud/README.md)
   - [filegator/filegator](https://github.com/filegator/filegator)
     - MIT, PHP, Vue
   - [cryptpad](https://github.com/cryptpad/cryptpad)

@@ -34,16 +34,19 @@ tags:
     - https://growthmethod.com/gartner-b2b-buying-journey/
     - https://www.forrester.com/b2b-marketing/b2b-marketing-strategy/
 
-| abbr. | stand for                           | meaning                       |
-| ----- | ----------------------------------- | ----------------------------- | -------------- |
-| CRM   | Customer Relationship Management    | 客户关系管理                  |
-| AIDA  | Attention, Interest, Desire, Action | 注意、兴趣、欲望、行动        |
-| ICP   | Ideal Customer Profile              | 理想客户画像                  |
-| ABM   | Account-Based Marketing             | 基于账户的营销                |
-| SDR   | Sales Development Representative    | 销售开发代表                  |
-| MQL   | Marketing Qualified Lead            | 营销合格线索                  |
-| SQL   | Sales Qualified Lead                | 销售合格线索                  |
-| MAP   |                                     | Marketing Automation Platform | 营销自动化平台 |
+| abbr. | stand for                               | meaning                |
+| ----- | --------------------------------------- | ---------------------- |
+| CRM   | Customer Relationship Management        | 客户关系管理           |
+| AIDA  | Attention, Interest, Desire, Action     | 注意、兴趣、欲望、行动 |
+| ICP   | Ideal Customer Profile                  | 理想客户画像           |
+| ABM   | Account-Based Marketing                 | 基于账户的营销         |
+| SDR   | Sales Development Representative        | 销售开发代表           |
+| MQL   | Marketing Qualified Lead                | 营销合格线索           |
+| SQL   | Sales Qualified Lead                    | 销售合格线索           |
+| MAP   | Marketing Automation Platform           | 营销自动化平台         |
+| IVR   | Inbound Voice Response                  | 入站语音响应           |
+| OCIC  | Omnichannel Customer Interaction Center | 全渠道客户互动中心     |
+| ACW   | After Call Work                         | 通话后工作             |
 
 | en                     | cn            | notes                            |
 | ---------------------- | ------------- | -------------------------------- |

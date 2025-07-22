@@ -4,14 +4,6 @@ title: Trigger
 
 # Trigger
 
-:::caution
-
-- 目前是 PUSH 的模式，因此推荐在 serverless 环境中使用
-- 支持 PULL 模式/long-running server [#244](https://github.com/triggerdotdev/trigger.dev/issues/244)
-  - WIP https://trigger.dev/blog/v3-developer-preview-launch/
-
-:::
-
 - [triggerdotdev/trigger.dev](https://github.com/triggerdotdev/trigger.dev)
   - Apache-2.0, TS
   - 技术栈 postgres, prisma, react, codemirror, headlessui, heroicons, radix-ui, lucide-react, prismjs, framer, remix
@@ -32,3 +24,29 @@ title: Trigger
 - https://github.com/triggerdotdev/docker
   - https://github.com/triggerdotdev/docker/blob/main/docker-compose.yml
 - Cloud [限制](https://trigger.dev/docs/documentation/concepts/limits)
+- 参考
+  - https://trigger.dev/pricing
+
+## Notes
+
+- webapp
+  - postgres, redis, electric, clickhouse, registry, minio
+  - TRIGGER_TELEMETRY_DISABLED=1
+- worker
+  - supervisor, docker-proxy
+- https://github.com/triggerdotdev/trigger.dev/tree/main/hosting/docker
+
+# Version
+
+## trigger.dev v4
+
+- Warm starts
+- Waitpoints
+- Run priority
+- Queues and pausing
+- Middleware and lifecycle hooks
+
+## trigger.dev v3
+
+- Durable long-running tasks
+- [Durable Serverless functions. No timeouts.](https://trigger.dev/blog/v3-announcement)

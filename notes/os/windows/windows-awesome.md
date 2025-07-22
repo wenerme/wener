@@ -43,17 +43,16 @@ tags:
 - 输入法
   - http://dl.google.com/pinyin/v2/GooglePinyinInstaller.exe
   - http://dl.google.com/pinyin/v1/GooglePinyinInstaller.exe
+- Distro
+  - [Atlas-OS/Atlas](https://github.com/Atlas-OS/Atlas)
+    - modification of Windows 10, designed to optimize performance, and latency
+    - designed for gamers
+  - Windows LTSC
 
 ## Softwares
 
 - [sumatrapdfreader/sumatrapdf](https://github.com/sumatrapdfreader/sumatrapdf)
 
-## Distro
-
-- [Atlas-OS/Atlas](https://github.com/Atlas-OS/Atlas)
-  - modification of Windows 10, designed to optimize performance, and latency
-  - designed for gamers
-- Windows LTSC
 
 ## Tools
 

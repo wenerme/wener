@@ -60,13 +60,19 @@ tags:
     - RAW 图像处理软件
     - 支持 Windows, Linux, macOS
     - GPU-accelerated RAW image editor
+- Video Editor/Video Processing
+  - [OpenCut-app/OpenCut](https://github.com/OpenCut-app/OpenCut)
+    - MIT, TS
+    - open-source video editor for web, desktop, and mobile
+    - CapCut alternative
+  - [mifi/lossless-cut](https://github.com/mifi/lossless-cut)
+    - GPLv2, TS, ffmpeg
+    - swiss army knife of lossless video/audio editing
 - [safing/portmaster](https://github.com/safing/portmaster)
   - 端口映射
 - [wmjordan/PDFPatcher](https://github.com/wmjordan/PDFPatcher)
   - C#
   - PDF 处理
-- [mifi/lossless-cut](https://github.com/mifi/lossless-cut)
-  - GPLv2, TS, ffmpeg
 - https://www.synfig.org/
   - Open-source 2D Animation Software
 - https://www.leocad.org/

@@ -35,3 +35,12 @@ button.addEventListener('click', handleClick);
 
 - e.defaultPrevented
 - https://reactjs.org/docs/events.html
+
+## img
+
+- loading
+  - eager
+  - lazy
+- crossorigin
+  - anonymous
+  - use-credentials

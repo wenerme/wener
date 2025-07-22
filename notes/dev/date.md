@@ -282,3 +282,22 @@ moment.updateLocale('en', {
 ```
 
 - https://github.com/moment/momentjs.com/blob/master/docs/moment/07-customization/07-relative-time.md
+
+## Calender
+
+| 名称        | 英文名                   | 简介                                                     | 主要用途/地区      |
+| ----------- | ------------------------ | -------------------------------------------------------- | ------------------ |
+| 公历/格里历 | Gregorian Calendar       | 目前全球最常用的历法，1582年由教皇格里高利十三世颁布。   | 国际通用、ISO标准  |
+| 儒略历      | Julian Calendar          | 由罗马儒略·凯撒制定，公元前46年启用，后被格里历取代。    | 历史研究、东正教   |
+| 农历/阴阳历 | Chinese Lunar Calendar   | 中国传统历法，结合太阳和月亮周期，常用于节气和传统节日。 | 中国及东亚地区     |
+| 伊斯兰历    | Islamic Calendar         | 纯阴历，以月亮周期为基础，回历纪年。                     | 伊斯兰国家         |
+| 犹太历      | Hebrew Calendar          | 犹太教传统历法，阴阳合历。                               | 犹太教、以色列     |
+| 佛历        | Buddhist Calendar        | 基于泰国、柬埔寨等地的太阳历，纪年以佛祖涅槃为起点。     | 东南亚佛教国家     |
+| 印度历      | Indian National Calendar | 结合太阳和月亮周期，印度官方历法之一。                   | 印度               |
+| 波斯历      | Persian Calendar         | 太阳历，伊朗和阿富汗等地使用。                           | 伊朗、阿富汗       |
+| 财年日历    | Fiscal Calendar          | 企业或政府用于财务统计的年度周期，起止时间可自定义。     | 企业、政府         |
+| ISO周历     | ISO Week Calendar        | ISO 8601标准，按周编号，常用于项目管理和统计。           | 国际标准、项目管理 |
+
+- [Wikipedia: Calendar](https://en.wikipedia.org/wiki/Calendar)
+- [ISO 8601 标准](https://en.wikipedia.org/wiki/ISO_8601)
+- [中国农历](https://zh.wikipedia.org/wiki/农历)

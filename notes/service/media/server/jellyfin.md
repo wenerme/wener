@@ -11,7 +11,7 @@ title: Jellyfin
 
 :::info
 
-- 不支持外部音轨 [#177](https://features.jellyfin.org/posts/177)
+- 支持外部音轨
 - 字幕加载延迟导致不同步 [#2547](https://github.com/jellyfin/jellyfin/issues/2547)
 - [Support for OIDC](https://features.jellyfin.org/posts/230/support-for-oidc)
   - [#530](https://github.com/jellyfin/jellyfin/issues/530)

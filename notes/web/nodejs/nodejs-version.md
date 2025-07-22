@@ -20,7 +20,8 @@ tags:
 
 | ver                           | Active LTS | EOL        | v8 ver   |
 | ----------------------------- | ---------- | ---------- | -------- |
-| [Node v22 LTS](#node-22-lts)  |            |            | v8 v12.4 |
+| [Node v24 LTS](#node-v24-lts) | 2025-10-28 | 2028-04-30 | v8 v13.6 |
+| [Node v22 LTS](#node-v22-lts) | 2024-10-29 | 2027-04-30 | v8 v12.4 |
 | [Node v20 LTS](#node-v20-lts) | 2023-10-24 | 2026-04-30 | v8 v11.3 |
 | [Node v18 LTS](#node-v18-lts) | 2022-10-25 | 2025-04-30 | v8 v10.1 |
 | [Node v16 LTS](#node-v16-lts) | 2021-10-26 | 2023-09-11 | v8 v9.0  |
@@ -54,7 +55,26 @@ tags:
 - https://unofficial-builds.nodejs.org/download/release
   - arm64 musl [nodejs/unofficial-builds#59](https://github.com/nodejs/unofficial-builds/pull/59)
 
-## Node v22
+## Node v24 LTS
+
+- V8 13.6
+  - RegExp.escape
+  - Float16Array
+  - Atomics.pause
+  - WebAssembly Memory64
+  - Explicit Resource Management await using
+  - Error.isError
+- Experimental Permission Model
+  - --experimental-permission -> --permission
+- URLPattern
+- Undici 7
+  - WebSocketStream
+  - Composing Interceptors
+  - Caching
+  - llhttp v9
+- npm v11
+
+## Node v22 LTS
 
 - [Typescript](https://nodejs.org/api/typescript.html)
   - Node v22.6+

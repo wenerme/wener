@@ -4,9 +4,16 @@ title: 闪存
 
 # 闪存
 
+| abbr.     | stand for                              | meaning                |
+| --------- | -------------------------------------- | ---------------------- |
+| microSD   | micro Secure Digital                   | 微型安全数码卡         |
+| SD        | Secure Digital                         | 安全数码卡             |
+| SDMC      | Secure Digital Memory Card             | 安全数码卡             |
+| TF        | TransFlash                             | 转换闪存               |
+| USB       | Universal Serial Bus                   | 通用串行总线           |
+| microSDXC | micro Secure Digital eXtended Capacity | 微型安全数码卡扩展容量 |
+
 - USB flash drive - U 盘
-- SD/SDMC - Secure Digital Memory Card - 安全数码卡 - SD 卡
-- microSD
 - TF - TransFlash
   - SanDisk+摩托罗拉 研发产品 - 2004 年
   - microSD 基于该产品形成标准
@@ -54,10 +61,13 @@ title: 闪存
 - Application Performance Class - 定义 IOPS
   - 至少顺序写 10 MB/s
 
-| A   | read      | write     |
-| --- | --------- | --------- |
+| std | read      | write     |
+| --- | --------- | --------- | ------- |
 | A1  | 1500 IOPS | 500 IOPS  |
 | A2  | 4000 IOPS | 2000 IOPS |
+| A3  | 4000 IOPS | 2000 IOPS |
+| U3  |           | 30 MB/s   | 10 MB/s |
+| V30 |
 
 - [SD card](https://en.wikipedia.org/wiki/SD_card)
 

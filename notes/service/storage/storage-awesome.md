@@ -84,7 +84,7 @@ tags:
   - hdfs - 大数据, 计算->存储
   - openio-sds
   - longhorn
-- S3
+- [S3](./s3/README.md)
   - [minio](./minio.md) - S3
     - AGPLv3, Go
     - 支持作为 S3 代理
@@ -142,7 +142,9 @@ tags:
     - Symmetric Shared-Disk
     - 分布式锁管理器 (DLM) 来协调节点间的访问 - Pacemaker、 Corosync
 - Drive/Cloud Storage/云盘
-  - nextcloud
+  - [nextcloud](./nextcloud/README.md)
+    - AGPLv3, PHP
+    - file sync and share platform
   - [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)
     - GPLv3, Go
     - file management and sharing system, supports multiple storage providers

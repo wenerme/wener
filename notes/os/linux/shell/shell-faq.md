@@ -31,6 +31,11 @@ xxd -l 16 -p /dev/urandom
 
 # infinite loop
 while true; do echo "Hello, World!"; sleep 1; done
+
+# rm .DS_Store
+find . -name '.DS_Store' -type f -delete
+# rm empty dir
+find . -type d -empty -delete
 ```
 
 - prompt

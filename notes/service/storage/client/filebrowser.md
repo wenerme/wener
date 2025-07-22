@@ -4,12 +4,14 @@ title: filebrowser
 
 # filebrowser
 
-- [filebrowser/filebrowser](https://github.com/filebrowser/filebrowser) 是什么？
-  - Apache-2.0, Vue
+- [filebrowser/filebrowser](https://github.com/filebrowser/filebrowser)
+  - Apache-2.0, Go, Vue
   - 简单的文件浏览器
 
 :::caution
 
+- [Need Maintainers](https://github.com/filebrowser/filebrowser/discussions/4906)
+  - [gtsteffaniak/filebrowser](https://github.com/gtsteffaniak/filebrowser)
 - 配置分为服务配置和系统设置 - 只有服务配置才能 JSON 传递
   - 系统配置在 db - 通过命令行修改
 - 启动后 db 被锁定 - 无法通过命令行修改配置

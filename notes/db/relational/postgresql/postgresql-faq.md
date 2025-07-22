@@ -12,6 +12,9 @@ tags:
 
 :::note
 
+- case-sentivity of identifiers - 表、列、函数名
+  - 如果没有双引号，则不区分大小写，默认转换为小写
+  - https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS
 - 无 Foreign Key Arrays
   - `FOREIGN KEY (EACH ELEMENT OF userids) REFERENCES users,`
   - https://stackoverflow.com/a/50441059/1870054
@@ -758,7 +761,6 @@ CREATE TABLE t (
 
 - 使用 pg_isready 判断是否可用
 
-
 ## ERROR: could not resize shared memory segment "/PostgreSQL.2692148336" to 1073812480 bytes: No space left on device
 
 - vacuum 时发生
@@ -811,7 +813,6 @@ preStop:
 - collate 不能创建 db 后修改，可以针对 column 或 table 修改。
 
 :::
-
 
 ```sql
 create index on t (name COLLATE "C");

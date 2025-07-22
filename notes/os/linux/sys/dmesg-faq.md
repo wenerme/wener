@@ -737,3 +737,12 @@ Buffer I/O error on dev sdb, logical block 2655236, lost sync page write
 JBD2: Error -5 detected when updating journal superblock for sdb-8.
 sd 3:0:0:1: [sdc] Synchronizing SCSI cache
 ```
+
+### device not accepting address 6, error -71
+
+```
+usb 3-6: new high-speed USB device number 6 using xhci_hcd
+usb 3-6: Device not responding to setup address.
+usb 3-6: Device not responding to setup address.
+usb 3-6: device not accepting address 6, error -71
+```

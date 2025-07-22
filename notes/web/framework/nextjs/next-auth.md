@@ -1,11 +1,14 @@
 ---
 title: NextAuth
+tags:
+  - Auth
 ---
 
 # NextAuth
 
 - [nextauthjs/next-auth](https://github.com/nextauthjs/next-auth)
   - ISC, TS
+  - NextAuth -> Auth.js
 - 回调 `/api/auth/callback/<NAME>`
 - Provider
   - Gitlab

@@ -12,16 +12,18 @@ tags:
 - [MinIO](../minio/README.md)
 - [oxyno-zeta/s3-proxy](https://github.com/oxyno-zeta/s3-proxy)
   - Apache-2.0, Go
+  - Reverse Proxy with GET, PUT and DELETE methods and authentication
 - [gaul/s3proxy](https://github.com/gaul/s3proxy)
   - Apache-2.0, Java
 - S3 Proxy with overlay
   - https://github.com/Switch-TV/s3proxy/tree/feature/overlay-middleware
-- [pottava/aws-s3-proxy](https://github.com/pottava/aws-s3-proxy)
 - [dandanthedev/littletinystorage](https://github.com/dandanthedev/littletinystorage)
   - GPLv3, TS
   - S3 兼容接口
   - 可以作为实现的参考
 - glacier - 冷存储, 90 天 删除
+- ~~[pottava/aws-s3-proxy](https://github.com/pottava/aws-s3-proxy)~~
+  - MIT, Go
 
 ## Limits
 
@@ -78,8 +80,35 @@ x-amz-sdk-checksum: SHA256
 
 ## API
 
-- https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html
-- https://min.io/docs/minio/linux/developers/javascript/API.html
+```http
+### List Objects V2
+GET /?list-type=2&continuation-token=ContinuationToken&delimiter=Delimiter&encoding-type=EncodingType&fetch-owner=FetchOwner&max-keys=MaxKeys&prefix=Prefix&start-after=StartAfter HTTP/1.1
+Host: Bucket.s3.amazonaws.com
+x-amz-request-payer: RequestPayer
+x-amz-expected-bucket-owner: ExpectedBucketOwner
+x-amz-optional-object-attributes: OptionalObjectAttributes
+```
+
+- ObjectIdentifier
+  - Key
+    - XML 需要做 escape
+  - ETag
+  - LastModifiedTime
+  - Size
+  - VersionId
+- write once, read many (WORM) model
+  - Lock
+- S3 API compatibility
+  - https://docs.openio.io/latest/source/arch-design/s3_compliancy.html
+  - https://docs.riak.com/riak/cs/2.1.1/references/apis/storage/s3/index.html
+  - https://docs.ceph.com/en/latest/radosgw/s3/
+  - Garage https://garagehq.deuxfleurs.fr/documentation/reference-manual/s3-compatibility/
+  - Cloudflare R2 https://developers.cloudflare.com/r2/api/s3/api/
+  - MinIO https://min.io/docs/minio/linux/reference/s3-api-compatibility.html
+  - 阿里云 https://help.aliyun.com/zh/oss/developer-reference/compatibility-with-amazon-s3
+- 参考
+  - https://docs.aws.amazon.com/AmazonS3/latest/API/Type_API_Reference.html
+  - https://min.io/docs/minio/linux/developers/javascript/API.html
 
 ## Profile
 

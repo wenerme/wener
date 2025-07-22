@@ -37,6 +37,34 @@ SHOW max_connections;
 SHOW shared_buffers;
 SHOW default_transaction_isolation;
 SHOW ALL;
+
+-- Database 和 Owner
+SELECT
+    datname AS database_name,
+    pg_get_userbyid(datdba) AS owner
+FROM
+    pg_database;
+
+-- Schema 和 Owner
+SELECT
+  nspname AS schema_name,
+  pg_get_userbyid(nspowner) AS owner
+FROM
+  pg_namespace;
+
+-- 表和 Owner
+SELECT n.nspname                   AS schema_name,
+       c.relname                   AS table_name,
+       pg_get_userbyid(c.relowner) AS owner
+FROM pg_class c
+         JOIN
+     pg_namespace n ON n.oid = c.relnamespace
+WHERE c.relkind = 'r'
+-- r -> relation - 普通表
+--   AND n.nspname = 'public'
+--   AND c.relname = 'customers';
+order by schema_name, table_name
+;
 ```
 
 ```sql

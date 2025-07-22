@@ -249,3 +249,7 @@ We do not want anyone to see our source code, but if for any reason our code is 
   - 条款可以自己拟定协商
   - owner <-> user
   - copyrighted work - 受版权保护的作品
+
+## AGPL Javascript Library
+
+- 情况复杂，不建议使用
