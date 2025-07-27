@@ -37,11 +37,10 @@ huggingface-cli download Qwen/Qwen2.5-VL-7B-Instruct # 手动下载
 vllm serve Qwen/Qwen2.5-VL-7B-Instruct --dtype auto --api-key token-abc123
 vllm serve NousResearch/Meta-Llama-3-8B-Instruct --dtype auto --api-key token-abc123
 
-
 curl http://localhost:8000/v1/models
 curl http://localhost:8000/v1/completions \
-    -H "Content-Type: application/json" \
-    -d '{
+  -H "Content-Type: application/json" \
+  -d '{
         "model": "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4",
         "prompt": "Today is",
         "max_tokens": 100,
@@ -49,8 +48,8 @@ curl http://localhost:8000/v1/completions \
     }'
 
 curl http://localhost:8000/v1/chat/completions \
-    -H "Content-Type: application/json" \
-    -d '{
+  -H "Content-Type: application/json" \
+  -d '{
         "model": "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4",
         "messages": [
             {"role": "system", "content": "You are a helpful assistant."},
@@ -68,6 +67,8 @@ docker run --rm -it \
   --model Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4 \
   --enable-sleep-mode \
   --dtype float16
+
+VLLM_USE_PRECOMPILED=1 pip install git+https://github.com/vllm-project/vllm.git
 ```
 
 - 参考
@@ -226,6 +227,20 @@ llm = LLM(
   - 7.5 awq
 
 ## Compute Capability < 8.0 is not supported by the V1 Engine. Falling back to V0.
+
+```
+Cannot use FlashAttention-2 backend for Volta and Turing GPUs.
+```
+
+```
+Found GPU0 Tesla V100-SXM2-16GB which is of cuda capability 7.0.
+PyTorch no longer supports this GPU because it is too old.
+The minimum cuda capability supported by this library is 7.5.
+```
+
+```
+RuntimeError: CUDA error: no kernel image is available for execution on the device
+```
 
 ## dtype=auto
 

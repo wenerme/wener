@@ -225,11 +225,13 @@ export N_PREFIX=$HOME/n
   - Character encoding detection
 - Concurret/Thread/Worker/async
   - [piscinajs/piscina](https://github.com/piscinajs/piscina)
+    - MIT, TS
     - Worker Thread Pool
   - [parallel-js/parallel.js](https://github.com/parallel-js/parallel.js)
     - multi-core processing utilities for Node
   - [greenlet](https://github.com/developit/greenlet)
     - Move an async function into its own thread
+  - [andywer/threads.js](https://github.com/andywer/threads.js)
 - Game Server/Server
   - [colyseus/colyseus](https://github.com/colyseus/colyseus)
     - MIT, TS

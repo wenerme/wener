@@ -47,3 +47,13 @@ export type Content =
   | ContentQr
   | ContentCanvas;
 ```
+
+# FAQ
+
+## 内存问题
+
+> 1. 关闭 fontLayoutCache
+> 2. 拆分为多个 pdf 然后合并
+
+- https://github.com/bpampuch/pdfmake/issues/1052
+- https://github.com/bpampuch/pdfmake/issues/2540

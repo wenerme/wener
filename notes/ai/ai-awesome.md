@@ -40,6 +40,9 @@ tags:
     - minimalistic AI-powered search engine
 - Workflow
   - dify
+  - coze
+  - n8n
+  - windmill
   - [simstudioai/sim](https://github.com/simstudioai/sim)
     - Apache-2.0, TS
     - pgvector, socket.io, bun, next.js, Drizzle ORM, [trigger.dev](https://github.com/triggerdotdev/trigger.dev), [better-auth/better-auth](https://github.com/better-auth/better-auth), ReactFlow

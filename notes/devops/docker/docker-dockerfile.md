@@ -16,17 +16,24 @@ FROM alpine
 ARG TARGETPLATFORM
 ```
 
-| env            | for                                                                        |
-| -------------- | -------------------------------------------------------------------------- |
-| TARGETPLATFORM | 构建结果的平台  |
-| TARGETOS       | OS  of TARGETPLATFORM                                             |
-| TARGETARCH     | arch  of TARGETPLATFORM                                   |
-| TARGETVARIANT  | variant  of TARGETPLATFORM                                        |
-| BUILDPLATFORM  | 执行构建的节点的平台                                |
-| BUILDOS        | OS of BUILDPLATFORM                                              |
-| BUILDARCH      | arch of BUILDPLATFORM                                    |
-| BUILDVARIANT   | variant of BUILDPLATFORM                                         |
+| env            | for                       |
+| -------------- | ------------------------- |
+| TARGETPLATFORM | 构建结果的平台            |
+| TARGETOS       | OS of TARGETPLATFORM      |
+| TARGETARCH     | arch of TARGETPLATFORM    |
+| TARGETVARIANT  | variant of TARGETPLATFORM |
+| BUILDPLATFORM  | 执行构建的节点的平台      |
+| BUILDOS        | OS of BUILDPLATFORM       |
+| BUILDARCH      | arch of BUILDPLATFORM     |
+| BUILDVARIANT   | variant of BUILDPLATFORM  |
 
+- TARGETARCH
+  - amd64
+  - arm64
+  - arm/v7
+  - arm/v6
+  - ppc64le
+  - s390x
 - platform
   - linux/amd64, linux/arm/v7, windows/amd64
 
@@ -47,8 +54,8 @@ ARG TARGETPLATFORM
 ```bash
 FROM alpine
 RUN --mount=type=ssh \
-    apk add git openssh-client \
-    && install -m 0700 -d ~/.ssh \
-    && ssh-keyscan github.com >> ~/.ssh/known_hosts \
-    && git clone git@github.com:wener/wode.git
+  apk add git openssh-client \
+  && install -m 0700 -d ~/.ssh \
+  && ssh-keyscan github.com >> ~/.ssh/known_hosts \
+  && git clone git@github.com:wener/wode.git
 ```

@@ -22,7 +22,7 @@ tags:
   - [typing](https://docs.python.org/3/library/typing.html)
     - PSF
     - by PSF
-    - PEP 484,  static type checking in Python.
+    - PEP 484, static type checking in Python.
   - [mypy](https://github.com/python/mypy)
     - MIT
     - by Jukka Lehtosalo
@@ -70,3 +70,40 @@ tags:
     - OpenGL, GTK
   - Streamlit
   - Dear PyGui
+
+| abbr.   | stand for                             | meaning                     |
+| ------- | ------------------------------------- | --------------------------- |
+| API     | Application Programming Interface     | 应用程序编程接口            |
+| ASGI    | Asynchronous Server Gateway Interface | 异步服务器网关接口          |
+| AST     | Abstract Syntax Tree                  | 抽象语法树                  |
+| CLI     | Command Line Interface                | 命令行界面                  |
+| CPython | C Python Implementation               | 官方C语言实现的Python解释器 |
+| GIL     | Global Interpreter Lock               | 全局解释器锁                |
+| IDLE    | Integrated DeveLopment Environment    | Python自带集成开发环境      |
+| OOP     | Object-Oriented Programming           | 面向对象编程                |
+| PEP     | Python Enhancement Proposal           | Python增强提案              |
+| PIP     | Python Package Index                  | Python包索引                |
+| pipenv  | Pip + Virtualenv                      | 包管理与虚拟环境工具        |
+| PyPI    | Python Package Index                  | Python官方包仓库            |
+| RE      | Regular Expression                    | 正则表达式                  |
+| REPL    | Read-Eval-Print Loop                  | 交互式命令行环境            |
+| TOML    | Tom's Obvious, Minimal Language       | 配置文件格式                |
+| TTY     | Teletypewriter                        | 终端设备                    |
+| venv    | Virtual Environment                   | 虚拟环境                    |
+| WSGI    | Web Server Gateway Interface          | Web服务器网关接口           |
+| YAML    | YAML Ain't Markup Language            | 一种简洁的数据序列化格式    |
+
+# FAQ
+
+## Uvicorn vs Gunicorn
+
+- Gunicorn (Green Unicorn)
+  - WSGI 服务器
+  - 进程管理器 和应用服务器
+  - 多进程模型 (Pre-fork)。它会预先启动多个独立的 worker 进程来处理请求。
+  - 用于同步框架，如 Flask, Django
+- Uvicorn
+  - ASGI 服务器
+  - 异步 I/O 的 Web 服务器
+  - 单进程事件循环 (Event Loop)。基于 asyncio 在单个进程中通过异步协程处理大量并发连接。
+  - 用于异步框架，如 FastAPI, Starlette。

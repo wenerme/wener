@@ -44,6 +44,47 @@ title: 延迟数
 | LCP   | Largest Contentful Paint | 最大内容绘制 |
 | INP   | Input Delay              | 输入延迟     |
 
+- 1小时 = 60分钟 = 3600秒 = 3,600,000毫秒
+- 1天 = 24小时 = 1,440分钟 = 86,400秒 = 86,400,000毫秒
+
+---
+
+- 网络速度通常以比特每秒（bps）为单位
+- 文件大小以字节（Byte）为单位
+- **1 Byte = 8 bits**。因此，一个 1Gbps 的网络，其理论最大传输速度为 125MB/s (1000 Mbps / 8)。
+
+|   网络标准 |                       别名 | 理论速率 |   传输 1GB | 实际速率            |
+| ---------: | -------------------------: | -------: | ---------: | ------------------- |
+|   10BASE-T |          Ethernet / 以太网 |  10 Mbps | ~13.3 分钟 | 9-10 Mbps           |
+| 100BASE-TX | Fast Ethernet / 快速以太网 | 100 Mbps |     ~80 秒 | 90-95 Mbps          |
+| 1000BASE-T |            GE / 千兆以太网 |   1 Gbps |      ~8 秒 | 900-950 Mbps        |
+| 2.5GBASE-T |       2.5GbE / 2.5G 以太网 | 2.5 Gbps |    ~3.4 秒 | 2.3-2.4 Gbps        |
+|  10GBASE-T |         10GbE / 万兆以太网 |  10 Gbps |    ~0.8 秒 | 9+ Gbps             |
+|  40GBASE-R |                 40G 以太网 |  40 Gbps |    ~0.2 秒 | 38+ Gbps            |
+| 100GBASE-R |                100G 以太网 | 100 Gbps |   ~0.08 秒 | 95+ Gbps            |
+|    Wi-Fi 4 |                    802.11n | 600 Mbps |   ~13.3 秒 | 50-200 Mbps         |
+|    Wi-Fi 5 |                   802.11ac | 6.9 Gbps |    ~1.2 秒 | 200-800 Mbps        |
+|    Wi-Fi 6 |                   802.11ax | 9.6 Gbps |    ~0.8 秒 | 300 Mbps - 1.5 Gbps |
+|   Wi-Fi 6E |                   802.11ax | 9.6 Gbps |    ~0.8 秒 | 500 Mbps - 2 Gbps   |
+|    Wi-Fi 7 |                   802.11be |  46 Gbps |    ~0.2 秒 | 1 Gbps - 5 Gbps+    |
+|         3G |                      HSPA+ |  42 Mbps |    ~3 分钟 | 1-10 Mbps           |
+|         4G |                        LTE | 150 Mbps |     ~53 秒 | 10-50 Mbps          |
+|         5G |                         NR |  10 Gbps |    ~0.8 秒 | 100 Mbps - 1 Gbps+  |
+
+- 影响因素
+  - 网络协议开销（TCP/IP/HTTP）
+  - 服务器负载
+  - 网络延迟
+- 2.5GbE
+  - 复用 超五类 (Cat5e) 和六类 (Cat6)
+- Wi-Fi 4 (802.11n)
+  - 40MHz, 2x2 MIMO = 300Mbps
+- 信噪比(SNR) = 信号 - 噪音
+- 空间流数量 (Number of Spatial Streams/NSS)
+  - 2x2 MIMO - 两根天线
+
+---
+
 - hot potato routing - 无租用光纤 - 网络运营商会尽可能快地将数据包从自己的网络中移出并传递给下一个网络
   - 特点：快速移交，低成本
   - 问题： 导致更高延迟，可能会选择次优路径来传递

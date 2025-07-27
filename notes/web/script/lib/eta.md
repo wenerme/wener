@@ -14,6 +14,8 @@ title: eta.js
   - renderString{,Async} - 渲染字符串
   - loadTemplate - 加载模板
 - 通过 `extends Eta` 覆盖 readFile, resolvePath 来实现自定义模板加载
+- 参考
+  - https://eta.js.org/playground
 
 ```ts
 const eta = new Eta({ views: path.join(__dirname, 'templates') });

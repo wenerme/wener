@@ -56,6 +56,8 @@ tags:
   - [microsoft/cascadia-code](https://github.com/microsoft/cascadia-code)
   - [source-code-pro](https://github.com/adobe-fonts/source-code-pro)
     - Source Code Pro
+- Icon
+  - [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 - Source Han Sans - 思源黑体
   - Adobe 和 Google 联合开发的开源字体
 - 参考
@@ -107,6 +109,7 @@ fc-list : family
   - Maple Mono
 - [be5invis/Sarasa-Gothic](https://github.com/be5invis/Sarasa-Gothic)
   - Sarasa Gothic = Inter + Iosevka + Source Han Sans
+  - Sarasa Mono SC
   - 更纱黑体
   - 比 Maple Mono 窄一点
 - Ubuntu Mono
@@ -128,7 +131,7 @@ fc-list : family
 - MS Gothic
 
 ```bash
-# Sarasa Gothic
+# Sarasa Mono SC
 brew install font-sarasa-gothic
 
 # LXGW WenKai Mono

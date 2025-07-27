@@ -7,6 +7,8 @@ title: GFW
 - 参考
   - [如何检测网站是否被屏蔽](https://blog.bgme.me/posts/how-to-detect-if-a-website-is-blocked-by-gfw/)
   - https://zh.greatfire.org/analyzer
+  - https://www.comparitech.com/privacy-security-tools/blockedinchina/
+  - https://www.dotcom-tools.com/china-firewall-test
 - ESNI 会被直接阻断 - 不区分域名
 - curl http 重复尝试会导致 IP 被间歇性阻断
 

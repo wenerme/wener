@@ -36,6 +36,11 @@ while true; do echo "Hello, World!"; sleep 1; done
 find . -name '.DS_Store' -type f -delete
 # rm empty dir
 find . -type d -empty -delete
+
+
+# Shell 参数最大长度
+# 131072 -> 128KB
+getconf ARG_MAX
 ```
 
 - prompt

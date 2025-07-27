@@ -187,6 +187,7 @@ tags:
 | TL;TR  | Too Long To Read              | 简而言之         |
 | TTYL   | Talk To You Later             | 回头见           |
 | YMMV   | Your Mileage May Vary         | 具体情况具体分析 |
+| ppl    | people                        | 人们             |
 
 | abbr. | stand for              | mean         |
 | ----- | ---------------------- | ------------ |

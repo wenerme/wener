@@ -172,6 +172,7 @@ tags:
     - https://huggingface.co/open-llm-leaderboard
     - https://lmarena.ai/
     - https://www.vellum.ai/llm-leaderboard
+    - https://pricepertoken.com/
   - Text-to-Image
     - [ArtificialAnalysis/Text-to-Image-Leaderboard](https://huggingface.co/spaces/ArtificialAnalysis/Text-to-Image-Leaderboard)
   - Usage/Adoption/Coding
@@ -541,8 +542,6 @@ grep avx /proc/cpuinfo --color # x86_64
   - Vocoder
   - https://huggingface.co/spaces/TTS-AGI/TTS-Arena
   - https://huggingface.co/spaces/TTS-AGI/TTS-Arena-V2
-- STT / Speech-to-Text / ASR / Automatic Speech Recognition / Speech Recognition
-  - https://huggingface.co/spaces/hf-audio/open_asr_leaderboard
 - Turn / VAD / Voice Activity Detection
   - VAD (voice activity detection)
     - 传统检测方式, 不能理解语言所以容易导致 FP 检测
@@ -576,9 +575,6 @@ grep avx /proc/cpuinfo --color # x86_64
     - 基于 CosyVoice 重新训练的支持流式推理的语音解码器，将离散化的语音 Token 转化为连续的语音输出。
 - https://huggingface.co/datasets/gpt-omni/VoiceAssistant-400K
 - [shivammehta25/Matcha-TTS](https://github.com/shivammehta25/Matcha-TTS)
-- [modelscope/FunASR](https://github.com/modelscope/FunASR)
-  - MIT, Python
-  - ASR, VAD
 - [nari-labs/dia](https://github.com/nari-labs/dia)
   - text to dialogue
   - 只支持 en
@@ -602,7 +598,23 @@ grep avx /proc/cpuinfo --color # x86_64
 
 - STT - Speech to Text - 语音转文本
 - ASR - Automatic Speech Recognition - 自动语音识别
+- STT / Speech-to-Text / ASR / Automatic Speech Recognition / Speech Recognition
+  - https://huggingface.co/spaces/hf-audio/open_asr_leaderboard
 - [modelscope/FunASR](https://github.com/modelscope/FunASR)
+  - MIT, Python
+  - ASR, VAD
+- Voxtral
+  - 支持中文
+  - [mistralai/Voxtral-Mini-3B-2507](https://huggingface.co/mistralai/Voxtral-Mini-3B-2507)
+  - [mistralai/Voxtral-Small-24B-2507](https://huggingface.co/mistralai/Voxtral-Small-24B-2507)
+  - Voxtral Mini Transcribe
+  - https://huggingface.co/docs/transformers/main/en/model_doc/voxtral
+  - https://mistral.ai/news/voxtral
+  - https://huggingface.co/spaces/MohamedRashad/Voxtral
+  - 参考
+    - https://github.com/coezbek/voxtral-test
+- https://huggingface.co/nvidia/canary-1b-flash
+  - 没有中文
 
 ## Music
 

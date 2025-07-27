@@ -18,6 +18,13 @@ npx browserslist defaults
 npx browserslist "last 1 version, >1%"
 ```
 
+```
+# 类似 Node LTS
+maintained node versions
+
+last 2 node major versions
+```
+
 ```json title="package.json"
 {
   "browserslist": [

@@ -49,7 +49,8 @@ title: bun
 ```bash
 # Manually Install
 # =======================
-curl -LO https://ghproxy.com/https://github.com/oven-sh/bun/releases/download/bun-v1.0.29/bun-darwin-x64.zip
+# macOS
+curl -LO https://github.com/oven-sh/bun/releases/download/bun-v1.2.19/bun-darwin-x64.zip
 unzip bun-darwin-x64.zip
 mv bun-darwin-x64/bun ~/bin/
 xattr -r -d com.apple.quarantine ~/bin/bun
@@ -61,6 +62,9 @@ bun upgrade --canary # 升级到尚未发布版本 - bun 开发很快，可以�
 docker run --rm -it wener/bun bun -v
 docker run --rm --init --ulimit memlock=-1:-1 oven/bun # 官方镜像
 docker run -it --rm -v $PWD:/host -w /host -p 3000:3000 --entrypoint bash oven/bun:debian
+
+# 安装脚本
+curl -fsSL https://bun.com/install | bash
 ```
 
 ```bash

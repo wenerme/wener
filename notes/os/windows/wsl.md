@@ -247,6 +247,21 @@ wsl -l -v # 列出所有的 WSL 和 WSL 版本
 
 - https://wslutiliti.es/wslu
 
+## 配置
+
+- `%USERPROFILE%\.wslconfig`
+- ~/.wslconfig
+- 内存默认 50%
+
+```batch
+notepad.exe %USERPROFILE%\.wslconfig
+```
+
+```bash
+[wsl2]
+memory=26GB
+```
+
 # FAQ
 
 - https://learn.microsoft.com/en-us/windows/wsl/troubleshooting
@@ -254,6 +269,9 @@ wsl -l -v # 列出所有的 WSL 和 WSL 版本
 ```bash
 # /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Users/USERNAME/AppData/Local/Microsoft/WindowsApps
 export PATH="$PATH:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows/System32/WindowsPowerShell/v1.0"
+
+# 挂载缺少的盘符
+sudo mount -t drvfs F: /mnt/f
 ```
 
 ## WSL vs WSL2

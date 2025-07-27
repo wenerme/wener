@@ -89,3 +89,11 @@ tags:
 - Caddy Server
 - [certbot/certbot](https://github.com/certbot/certbot)
   - Apache-2.0, Python
+
+## 证书透明度
+
+- https://crt.sh
+- https://certificate.transparency.dev/monitors/
+- https://ct.googleapis.com/logs/crucible/
+- https://github.com/mpalmer/scrape-ct-log
+- 证书透明度 (Certificate Transparency, CT) 日志

@@ -15,13 +15,16 @@ title: 模板
 
 - mustache
   - [janl/mustache.js](https://github.com/janl/mustache.js)
+    - https://jgonggrijp.gitlab.io/wontache/playground.html
   - 无逻辑
   - 非常简单
 - handlebars
   - js 为主 - bundle 75K/25K
+  - https://handlebarsjs.com/playground.html
 - pug/jade
   - HTML
   - JS, Larvel, Scala, Ruby, Python, Java
+- https://github.com/sshailabh/awesome-template-engine
 
 **语言相关**
 

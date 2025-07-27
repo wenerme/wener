@@ -42,6 +42,12 @@ title: MinIO
     - ObjectACL (Use bucket policies instead)
     - ObjectTorrent
 - Cyberduck s3 http https://svn.cyberduck.io/trunk/profiles/S3%20(HTTP).cyberduckprofile
+- IAM
+  - MinIO Internal IDP
+  - OpenID
+  - MinIO Authentation Plugin
+  - LDAP / Active Directory
+  - Access Management Plugin
 - 参考
   - [Set up Nginx proxy with MinIO Server](https://docs.minio.io/docs/setup-nginx-proxy-with-minio)
 

@@ -1150,6 +1150,18 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
   - https://developer.salesforce.com/docs/platform/data-models/guide/party.html
   - https://help.salesforce.com/s/articleView?id=sf.c360_a_party_data_model.htm&language=en_US&type=5
 
+## 销售 {#sales}
+
+- 初次接触的销售型通话（Discovery Call）
+  - 低于2分钟（无效或低效区）
+  - 3-8分钟（黄金区间）
+    - 1分钟: 破冰，建立初步信任。
+    - 2-3分钟: 提出高质量问题，挖掘客户的核心需求或痛点。
+    - 2-3分钟: 针对性地介绍产品或解决方案的核心价值。
+    - 1分钟: 确认客户意向，并成功约定下一步（如发送资料、预约演示、建立微信联系等）。
+  - 超过10分钟（潜力和风险并存区）
+- “黄金时间窗口”
+
 # FAQ
 
 ## 银行卡 vs 银行账户

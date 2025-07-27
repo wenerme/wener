@@ -380,6 +380,13 @@ NODE_OPTIONS="--max-old-space-size=8192" eslint --fix
 - `DEBUG=*`
 - `DEBUG=typescript-eslint`
 - `TIMING=1`
+- max-old-space-size
+  - 默认 4144MB
+
+```bash
+# 获取当前内存限制
+node -e 'console.log(v8.getHeapStatistics().heap_size_limit/(1024*1024))'
+```
 
 ## Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
 
@@ -701,3 +708,16 @@ const decrypted = key.decrypt(buffer);
   "syscall": "spawn"
 }
 ```
+
+## The requested module 'globby' does not provide an export named 'globby'
+
+- 新旧版本 globby 区别
+- v12+ 使用 ESM
+- v11- 使用 CJS
+
+```ts
+// v12+
+import { globby } from 'globby';
+```
+
+- https://github.com/sindresorhus/globby/issues/193

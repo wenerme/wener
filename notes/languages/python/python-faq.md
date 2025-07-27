@@ -33,3 +33,9 @@ from .module_name
 # 修改为
 from module_name
 ```
+
+## ModuleNotFoundError: No module named 'PIL'
+
+```bash
+pip install pillow
+```

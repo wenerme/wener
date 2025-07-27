@@ -1227,10 +1227,16 @@ tags:
 
 ## Template
 
-- [ladjs/consolidate](https://github.com/ladjs/consolidate)
 - [eta](./lib/eta.md)
   - 5.7kB/2.4kB
+- [edge-js/edge](https://github.com/edge-js/edge)
+  - MIT, TS
+- [lukeed/templite](https://github.com/lukeed/templite)
+  - 154 bytes
+  - `{{name}}`
+- [lukeed/tempura](https://github.com/lukeed/tempura)
 - [linkedin/dustjs](https://github.com/linkedin/dustjs)
+- [tj/consolidate.js](https://github.com/tj/consolidate.js)
 - ejs
 - nunjucks
 - pug
