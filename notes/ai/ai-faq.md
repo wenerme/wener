@@ -57,3 +57,9 @@ tags:
   - 产品功能描述
 - ASR: Automatic Speech Recognition - 自动语音识别
   - 技术
+
+## Repair LLM JSON
+
+- JSON.parse throw SyntaxError
+- https://github.com/vercel/ai/blob/main/packages/ai/src/generate-object/generate-object.ts#L191-L195
+- https://github.com/RealAlexandreAI/json-repair

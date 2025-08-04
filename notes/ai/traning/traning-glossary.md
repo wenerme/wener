@@ -7,6 +7,7 @@ tags:
 
 | abbr.    | stand for                                  | meaning          |
 | -------- | ------------------------------------------ | ---------------- |
+| AWR      | Advantage-Weighted Regression              | 优势加权回归     |
 | CPO      | Contextual Policy Optimization             | 上下文策略优化   |
 | DoRA     | Weight-Decomposed Low-Rank Adaptation      | 动态秩适配       |
 | DPO      | Direct Preference Optimization             | 直接偏好优化     |
@@ -81,3 +82,6 @@ tags:
     - 将模型参数本身也进行切分。每个GPU只保留当前计算层所需的参数，其他参数在使用时动态聚合。
   - ZeRO-Offload
     - 将部分或全部被切分的状态（参数、梯度、优化器状态）进一步卸载到CPU内存中，进一步降低GPU显存需求。
+- Q-learning
+  - 一种基于值的强化学习算法，通过学习状态-动作值函数来指导智能体的行为。
+  - 主要思想是使用Q值来表示在给定状态下采取某个动作的预期回报。

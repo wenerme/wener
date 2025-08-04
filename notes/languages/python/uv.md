@@ -26,7 +26,7 @@ uv sync
 uv python install 3.10 3.11 3.12
 uv venv --python 3.11 # 按需下载
 uv run --python pypy@3.8 -- python --version
-uv python pin 3.11 # 固定 .python-version
+uv python pin 3.12 # 固定 .python-version
 
 uv pip
 uv venv

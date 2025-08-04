@@ -884,3 +884,23 @@ echo -n I | od -to2 | head -n1 | cut -f2 -d" " | cut -c6
 - LLM 是一个杠杆，而不是方向盘。
 - [Writing Code Was Never the Bottleneck](https://ordep.dev/posts/writing-code-was-never-the-bottleneck)
   - [HN](https://news.ycombinator.com/item?id=44429789)
+
+## Backoff
+
+```ts
+type BackoffStragegy = {
+  limit?: number; // 最大重试次数
+  delay?: (attempt: number) => number; // 延迟函数，返回延迟时间（毫秒）
+  maxDelay?: number; // 最大延迟时间（毫秒）
+};
+
+type BackoffType =
+  | 'exponential' // 指数回退 - 例如：0.3 * (2 ** (attemptCount - 1)) * 1000
+  | 'linear' // 线性回退 - 例如：attemptCount * 1000
+  | 'constant'; // 固定延迟 - 例如：1000
+```
+
+- delay - 延迟函数，返回延迟时间（毫秒）
+  - `0.3 * (2 ** (attemptCount - 1)) * 1000` - 0.3 秒的指数回退
+    - 300ms, 600ms, 1200ms, 2400ms, 4800ms, 9600ms, ...
+- exponential backoff

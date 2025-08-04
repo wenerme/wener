@@ -94,6 +94,16 @@ Pascal (2016) > Volta (2017) > Turing (2018) > Ampere (2020) > Hopper (2022) >= 
 | 2024    | Blackwell    | GeForce RTX 50                    | NVIDIA RTX PRO            | NVIDIA B100, B200, GB200       |     9.0 |
 | 2026    | Rubin        |                                   |                           |                                |
 
+- 8.0 bfloat16
+  - 不支持会 cast 为 fp16 或 fp32 - 性能影响很大
+- 7.5
+  - AWQ 量化
+  - base line for: SGlang, vLLM, fastinfer
+- 7.0
+  - PyTorch 2.7+ 不支持 sm70
+
+---
+
 - 市场
   - 消费级/桌面
   - 专业级/工作站

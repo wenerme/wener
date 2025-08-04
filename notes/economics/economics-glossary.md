@@ -24,11 +24,35 @@ tags:
 | ------------- | ---------- |
 | Copy to China | 复制到中国 |
 
+- 货币供应量 Money Supply
+- M0 流通中货币
+  - 中央银行, 信用， 储备金
+  - 增长 - 印钞
+  - 法定存款准备金率
+- M1 狭义货币/货币 = M0 + 商业银行活期存款 = M0 + 可开支票进行支付的单位活期存款
+- M2 广义货币/准货币 = M1 + 商业银行定期存款 = M1 + 居民储蓄存款 + 单位定期存款 + 单位其他存款 + 证券公司客户保证金
+  - 商业银行
+  - 欠条/信用本位
+  - 存款派生 (Deposit Creation)
+  - 增长 - 社会总信贷（总债务）规模扩张
+- 经济萧条
+  - 消费减少 -> 企业收入下降 -> 无法偿还债务 -> 银行惜贷，收缩信贷 -> M2总量下降 -> 经济活动萎缩。
+  - 萧条时“消失”的钱，其实是消失的“信用/债务”。
+- 货币
+  - 货币的本质是债务
+  - 核心功能 价值尺度和交换媒介
+  - 欠条 - 个人债务凭证
+  - 信用的创造和流通，可以脱离实体货币，独立地促进经济活动。流通的不是钱，而是债。
 - k线图 波浪理论 股市技术分析 量价理论 人民日报 缠论
+- 书籍
+  - 《债务：第一个5000年》（Debt: The First 5,000 Years）
+  - 《货币的崛起：金融如何影响世界历史》（The Ascent of Money: A Financial History of the World）
+  - 《美联储的诞生》（The Creature from Jekyll Island）
+  - 《日元王子：日本央行的王子们，以及他们如何引爆又搞砸了日本经济》（Princes of the Yen）
+  - 《货币战争》
+  - 《经济学原理》（Principles of Economics）
 - [Economics A-Z terms](https://www.economist.com/economics-a-to-z)
 - [Glossary of economics](https://en.wikipedia.org/wiki/Glossary_of_economics)
-
-常见的股票指数主要反映特定股票市场或股票市场部分的表现，以下是一些全球知名的股票指数：
 
 ## Bank
 

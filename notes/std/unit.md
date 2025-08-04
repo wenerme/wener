@@ -35,9 +35,48 @@ title: Unit
 - SI - International System of Units
 - IEC - International Electrotechnical Commission
 - 参考
+
   - https://en.wikipedia.org/wiki/Byte
   - [Binary prefix](https://en.wikipedia.org/wiki/Binary_prefix)
   - [IEC 80000-13](https://en.wikipedia.org/wiki/IEC_80000-13)
   - https://www.nist.gov/pml/owm/metric-si-prefixes
   - https://physics.nist.gov/cuu/Units/binary.html
-  - [CSS values and units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units)
+
+  ## Mass / Weight
+
+  | abbr. |       for |   cn |      Notes |
+  | ----: | --------: | ---: | ---------: |
+  |    mg | milligram | 毫克 |            |
+  |     g |      gram |   克 |            |
+  |    kg |  kilogram | 千克 |     1000 g |
+  |     t |     tonne |   吨 |    1000 kg |
+  |    oz |     ounce | 盎司 |  ≈ 28.35 g |
+  |    lb |     pound |   磅 |      16 oz |
+  |    st |     stone | 英石 | 14 lb (UK) |
+
+  ## Volume / Capacity
+
+  | abbr. |         for |       cn |           Notes |
+  | ----: | ----------: | -------: | --------------: |
+  |    ml |  milliliter |     毫升 |           1 cm³ |
+  |   tsp |    teaspoon |     茶匙 |  ≈ 4.93 ml (US) |
+  |  tbsp |  tablespoon |     汤匙 |           3 tsp |
+  | fl oz | fluid ounce | 液体盎司 | ≈ 29.57 ml (US) |
+  |   cup |         cup |       杯 |    16 tbsp (US) |
+  |    pt |        pint |     品脱 |   16 fl oz (US) |
+  |    qt |       quart |     夸脱 |            2 pt |
+  |     l |       liter |       升 |         1000 ml |
+  |   gal |      gallon |     加仑 |            4 qt |
+  |   cm³ |    cubic cm | 立方厘米 |            1 ml |
+  |    m³ | cubic meter |   立方米 |          1000 l |
+
+| from |        to |
+| ---: | --------: |
+| 16oz | 473.176ml |
+| 24oz | 710.678ml |
+
+## 参考 {#reference}
+
+- 国际单位制 / SI
+  - s, m, kg, A, K, mol, cd
+- https://en.wikipedia.org/wiki/International_System_of_Units

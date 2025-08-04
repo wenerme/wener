@@ -4,36 +4,84 @@ title: Gemini
 
 # Gemini
 
+- Pricing
+  - Google Developer Program Plans & Pricing https://developers.google.com/program/plans-and-pricing
+    - $299/year
+  - https://codeassist.google/
+  - https://gemini.google/subscriptions/
+
 ## gemini-cli
 
-- [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
+- .geminiignore
+- settings.json
+  - ~/.gemini/settings.json
+  - .gemini/settings.json
+  - /etc/gemini-cli/settings.json
+  - `C:\ProgramData\gemini-cli\settings.json`
+  - `/Library/Application Support/GeminiCli/settings.json`
+- .env
+  - 在 JSON 里直接使用 `"$MY_API_TOKEN"`
+- .gemini/
+  - sandbox-macos-custom.sb
+  - sandbox.Dockerfile
+- `~/.gemini/tmp/<project_hash>/shell_history`
+- `<workspace>/.gemini/extensions`
+- `<home>/.gemini/extensions/<name>/gemini-extension.json`
+- 参考
+  - [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
+    - Apache-2.0, TypeScript
+  - [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code)
+    - based on Gemini CLI
+  - https://cloud.google.com/gemini/docs/codeassist/gemini-cli
+  - https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md
+  - https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/commands.md
+- env
+  - GEMINI_CLI=1 用于 Shell 检测运行环境
+  - GEMINI_CONFIG_DIR=.gemini
+  - GEMINI_SYSTEM_MD=.gemini/system.md
+    - override system prompt from file
+  - GEMINI_WRITE_SYSTEM_MD
+  - GEMINI_CLI_NO_RELAUNCH
+  - GEMINI_CLI_SYSTEM_SETTINGS_PATH
+  - GEMINI_CLI_DISABLE_AUTOUPDATER
+  - SANDBOX
+  - GEMINI_API_KEY
+  - TERM_PROGRAM=vscode
+    - 检测 IDE 类型
+    - vscode 扩展 https://github.com/google-gemini/gemini-cli/tree/main/packages/vscode-ide-companion
+    - Open Editor File Context
+    - Selection Context
 
 ```bash
-npm install -g @google/gemini-cli
+npm install -g @google/gemini-cli@latest
 
 gemini
 ```
 
+### commands
+
 | command         | for                            | notes                                                          |
 | --------------- | ------------------------------ | -------------------------------------------------------------- |
+| `/about`        | 显示版本信息                   |
+| `/auth`         | 更换认证方式                   |
 | `/bug`          | 提交 Gemini CLI 问题           | `/bug <标题>`                                                  |
 | `/chat`         | 保存/恢复会话历史              | `save <tag>`<br>`resume <tag>`<br>`list`                       |
 | `/clear`        | 清屏，清除可见历史             | Ctrl+L                                                         |
 | `/compress`     | 用摘要替换全部上下文           |
 | `/copy`         | 复制上次输出到剪贴板           |
+| `/corgi`        | 切换 Corgi 模式（AI 角色）     |
 | `/editor`       | 选择支持的编辑器               |
 | `/extensions`   | 列出当前会话扩展               |
 | `/help` `/？`   | 显示帮助信息                   |
+| `/ide`          |                                | `/ide status`, `/ide install`                                  |
 | `/mcp`          | 管理 MCP 服务器和工具          | `desc`/`descriptions`<br>`nodesc`/`nodescriptions`<br>`schema` |
 | `/memory`       | 管理 AI 指令上下文             | `add <内容>`<br>`show`<br>`refresh`                            |
+| `/privacy`      | 显示隐私声明及同意设置         |
+| `/quit` `/exit` | 退出 CLI                       |
 | `/restore`      | 恢复文件到工具执行前状态       | `/restore [tool_call_id]`                                      |
 | `/stats`        | 显示会话统计信息               |
 | `/theme`        | 更换 CLI 主题                  |
-| `/auth`         | 更换认证方式                   |
-| `/about`        | 显示版本信息                   |
 | `/tools`        | 列出可用工具                   | `desc`/`descriptions`<br>`nodesc`/`nodescriptions`             |
-| `/privacy`      | 显示隐私声明及同意设置         |
-| `/quit` `/exit` | 退出 CLI                       |
 | `!<shell命令>`  | 执行 shell 命令                | `!ls -la`<br>`!git status`                                     |
 | `!`             | 切换 shell 模式                |
 | `@<路径>`       | 注入指定文件/目录内容到 prompt | `@README.md`<br>`@src/`                                        |
@@ -41,20 +89,7 @@ gemini
 
 > ⚠️ Shell 模式下命令拥有与终端同等权限，请谨慎操作。
 
-- ~/.gemini/settings.json
-- .gemini/settings.json
-- /etc/gemini-cli/settings.json
-- `C:\ProgramData\gemini-cli\settings.json`
-- `/Library/Application Support/GeminiCli/settings.json`
-- .env
-  - `"$MY_API_TOKEN"`
-- .gemini/
-  - sandbox-macos-custom.sb
-  - sandbox.Dockerfile
-- `~/.gemini/tmp/<project_hash>/shell_history`
-- 参考
-  - https://cloud.google.com/gemini/docs/codeassist/gemini-cli
-  - https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md
+### settings.json
 
 ```json
 {
@@ -122,6 +157,38 @@ gemini
 | WebSearchTool     | 执行网页搜索                   |
 | **Memory**        | 内存工具                       |
 | MemoryTool        | 与 AI 的记忆交互               |
+
+- Promopts
+  - https://github.com/google-gemini/gemini-cli/blob/main/packages/core/src/core/prompts.ts
+  - getCoreSystemPrompt
+  - getCompressionPrompt
+
+### extensions
+
+```json title="gemini-extension.json"
+{
+  "name": "my-extension",
+  "version": "1.0.0",
+  "mcpServers": {
+    "my-server": {
+      "command": "node my-server.js"
+    }
+  },
+  "contextFileName": "GEMINI.md",
+  "excludeTools": ["run_shell_command"]
+}
+```
+
+```
+.gemini/extensions/gcp/
+├── gemini-extension.json
+└── commands/
+    ├── deploy.toml
+    └── gcs/
+        └── sync.toml
+```
+
+- https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md
 
 ## GEMINI.md
 

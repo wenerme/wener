@@ -134,6 +134,22 @@ date: 2021-11-30
   - {Create,Describe,List}Job
     - Tagging
 
+# Awesome
+
+
+- rules
+  - unix-like 不允许 `/`
+  - Windows 不允许 `<>:"/\|?*\u0000-\u001F`
+
+```ts
+const FilenameReservedRegex = /[<>:"/\\|?*\u0000-\u001F]/g;
+const WindowsReservedNameRegex = /^(con|prn|aux|nul|com\d|lpt\d)$/i;
+```
+
+- 参考
+  - https://github.com/sindresorhus/filenamify
+  - https://github.com/sindresorhus/filename-reserved-regex
+
 # 实现方案分析
 
 ## local

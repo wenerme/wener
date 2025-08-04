@@ -7,6 +7,11 @@ tags:
 
 - SSS - 虫师, Rick and Morty
 
+## Awesome
+
+- Rank
+  - https://bangumi.tv/anime/browser
+
 ## Studio
 
 日本动画工作室

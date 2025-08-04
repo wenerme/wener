@@ -22,6 +22,8 @@ title: Stable Diffusion
   - AUTOMATIC1111/stable-diffusion-webui
   - [modelscope/DiffSynth-Studio](https://github.com/modelscope/DiffSynth-Studio)
   - [mcmonkeyprojects/SwarmUI](https://github.com/mcmonkeyprojects/SwarmUI)
+    - MIT, C#
+    - ComfyUI backend
 - models
   - https://huggingface.co/cagliostrolab/animagine-xl-3.1
 - 参考
@@ -42,7 +44,6 @@ title: Stable Diffusion
   - 2023-07-26
 - [stabilityai/stable-diffusion-xl-refiner-1.0](https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0)
   - 2023-07-26
-
 
 ## img2img
 

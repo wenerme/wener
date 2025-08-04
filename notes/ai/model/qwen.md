@@ -71,7 +71,6 @@ tags:
 - [reducto/RolmOCR](https://huggingface.co/reducto/RolmOCR)
   - based on Qwen2.5-VL-7B
   - finetune on https://huggingface.co/datasets/allenai/olmOCR-mix-0225
-  - 应该偏向语音
   - 主要是 文档 OCR
 - [Fancy-MLLM/R1-Onevision-7B](https://huggingface.co/Fancy-MLLM/R1-Onevision-7B)
   - 包含 3B, 7B, 32B

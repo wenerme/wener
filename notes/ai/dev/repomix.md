@@ -83,12 +83,26 @@ _Cline_
 }
 ```
 
-## promopts
+## prompts
 
 **Code Review and Refactoring**
 
 ```
 This file contains my entire codebase. Please review the overall structure and suggest any improvements or refactoring opportunities, focusing on maintainability and scalability.
+```
+
+```
+这个文件包含了我整个代码库。请审查整体结构，并提出任何改进或重构的建议，重点关注可维护性和可扩展性。
+```
+
+```
+分析此代码库的架构：
+1. 评估整体结构和模式
+2. 识别潜在的架构问题
+3. 提出改进可扩展性的建议
+4. 标注遵循最佳实践的部分
+
+重点关注可维护性和模块化。
 ```
 
 **Documentation Generation**

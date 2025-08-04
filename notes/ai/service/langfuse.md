@@ -1,5 +1,8 @@
 ---
 title: langfuse
+tags:
+  - Observability
+  - Gateway
 ---
 
 # langfuse

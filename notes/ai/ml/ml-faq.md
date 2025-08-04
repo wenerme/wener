@@ -14,8 +14,19 @@ tags:
   - checkpointing models in pytorch compiled (for JIT)
 - pickle
   - https://docs.python.org/2/library/pickle.html
-- flash_attn 不支持 macOS/Apple Silicon
-  - https://github.com/Dao-AILab/flash-attention/issues/977
+- flash_attn
+  - 不支持 macOS/Apple Silicon
+    - https://github.com/Dao-AILab/flash-attention/issues/977
+  - 需要 CUDA 7.5+
+  - FlashAttention-2
+    - Ampere, Ada, Hopper
+  - FlashAttention 1
+    - Turing
+  - flash-attn-triton
+    - https://github.com/vllm-project/vllm/blob/main/vllm/attention/ops/triton_flash_attention.py
+  - [flashinfer-ai/flashinfer](https://github.com/flashinfer-ai/flashinfer)
+    - sm75+
+    - 不会支持 Volta
 - SafeTensor
   - 存储和传输神经网络权重、数据和其他张量数据的格式
 

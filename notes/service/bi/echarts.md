@@ -13,3 +13,4 @@ title: echarts
 - 参考
   - [hustcc/echarts-for-react](https://github.com/hustcc/echarts-for-react)
   - https://echarts.apache.org/examples/zh/index.html
+  - https://echarts.apache.org/zh/option.html

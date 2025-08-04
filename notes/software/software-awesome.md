@@ -68,6 +68,21 @@ tags:
   - [mifi/lossless-cut](https://github.com/mifi/lossless-cut)
     - GPLv2, TS, ffmpeg
     - swiss army knife of lossless video/audio editing
+- File Transfer/FTP/SFTP/S3/WebDAV
+  - [rclone](https://rclone.org/)
+    - MIT, Go
+    - WebUI
+  - [iterate-ch/cyberduck](https://github.com/iterate-ch/cyberduck)
+    - GPLv3, Java
+    - 支持 FTP, SFTP, WebDAV, S3, Azure, Google Drive, Dropbox 等
+    - 支持 Windows, macOS
+  - [FileZilla](https://filezilla-project.org/)
+    - GPLv2, C++
+    - 支持 FTP, FTPS, SFTP
+  - [WinSCP](https://github.com/winscp/winscp)
+    - GPLv3, C, C++
+    - 支持 SFTP, FTP, FTPS, SCP, S3, WebDAV
+    - https://winscp.net/eng/download.php
 - [safing/portmaster](https://github.com/safing/portmaster)
   - 端口映射
 - [wmjordan/PDFPatcher](https://github.com/wmjordan/PDFPatcher)

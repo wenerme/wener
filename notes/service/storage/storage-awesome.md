@@ -119,6 +119,9 @@ tags:
     - Apache-2.0, Java
     - for Apache Hadoop
 - 文件存储/File Storage
+  - [9001/copyparty](https://github.com/9001/copyparty)
+    - MIT, Python, JS
+    - Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++
   - [juicefs](./juicefs.md)
   - [moosefs](https://github.com/moosefs/moosefs)
     - GPLv2, C

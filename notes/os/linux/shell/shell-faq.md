@@ -36,6 +36,8 @@ while true; do echo "Hello, World!"; sleep 1; done
 find . -name '.DS_Store' -type f -delete
 # rm empty dir
 find . -type d -empty -delete
+# rm empty file
+find . -type f -empty -delete
 
 
 # Shell 参数最大长度

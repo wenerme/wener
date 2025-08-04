@@ -270,6 +270,8 @@ title: Ideas
 
 ## 参考
 
+- https://www.josh.ing/hn-slop
+  - https://news.ycombinator.com/item?id=44434938
 - https://profithunt.co/
 - https://www.sideprojectors.com/
 - https://www.reddit.com/r/SideProject/

@@ -122,6 +122,9 @@ tags:
 
 ---
 
+- 优化
+  - downsample-lttb
+
 **React**
 
 - [FormidableLabs/victory](https://github.com/FormidableLabs/victory)
@@ -160,6 +163,7 @@ tags:
 - https://github.com/VisActor
   - by ByteDance
 - https://github.com/topics/charts
+- https://npmtrends.com/@antv/g2-vs-@visx/visx-vs-apexcharts-vs-chart.js-vs-echarts-vs-nivo-vs-plotly-vs-recharts-vs-victory
 
 ---
 
@@ -251,6 +255,7 @@ tags:
 - [cytoscape/cytoscape.js](https://github.com/cytoscape/cytoscape.js)
 - [visjs/vis-network](https://github.com/visjs/vis-network)
 - [leeoniya/uPlot](https://github.com/leeoniya/uPlot)
+  - form time series
 - [thingsboard/thingsboard](https://github.com/thingsboard/thingsboard)
   - IoT
 - [jwilber/roughViz](https://github.com/jwilber/roughViz)

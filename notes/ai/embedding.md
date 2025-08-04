@@ -34,6 +34,8 @@ title: Embedding
   - [google/siglip](https://huggingface.co/collections/google/siglip-659d5e62f0ae1a57ae0e83ba)
     - google/siglip-so400m-patch14-384
   - [Alibaba-NLP/gte-models](https://huggingface.co/collections/Alibaba-NLP/gte-models-6680f0b13f885cb431e6d469)
+- 参考
+  - https://huggingface.co/spaces/hesamation/primer-llm-embedding
 
 # GET
 

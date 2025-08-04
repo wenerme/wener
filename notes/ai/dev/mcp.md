@@ -19,9 +19,6 @@ tags:
   - https://www.open-mcp.org/servers
   - https://www.claudemcp.com/servers
   - https://smithery.ai/
-- Android/iOS/Mobile/Device
-  - [minhalvp/android-mcp-server](https://github.com/minhalvp/android-mcp-server)
-  - [mobile-next/mobile-mcp](https://github.com/mobile-next/mobile-mcp)
 
 ```json
 {

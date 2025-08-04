@@ -150,9 +150,16 @@ pdfseparate document.pdf %d.pdf
 - PDF 2.0 - 由 ISO 委员会内部开发和发布
 - 子集标准 (Subsets)
   - **PDF/A**: 用于长期**存档** (Archiving)。
+    - 自包含、无动态、无加密
   - **PDF/X**: 用于高端**印刷**和图形交换 (eXchange)。
+    - 确保印刷效果和设计稿一致
+    - 色彩管理、CMYK、嵌入字体
   - **PDF/E**: 用于工程文档 (Engineering)。
+    - 可靠地交换复杂的工程图纸
+    - 3D模型、图层、交互
   - **PDF/UA**: 用于确保通用可访问性 (Universal Accessibility)。
+    - 确保残障人士也能访问
+    - 标签化、替代文本、逻辑顺序
 - 参考
   - https://pdfa.org/
   - ISO 32000-2:2020 https://pdfa.org/announcing-no-cost-access-to-iso-32000-2-pdf-2-0/

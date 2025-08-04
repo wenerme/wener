@@ -19,7 +19,7 @@ title: macOS
 
 ```bash
 # 查看可用的分辨率
-system_profiler SPDisplaysDataType |grep Resolution
+system_profiler SPDisplaysDataType | grep Resolution
 xrandr
 
 # 统计 Chrome 用的内存
@@ -58,6 +58,35 @@ killall Finder /System/Library/CoreServices/Finder.app
 # 关闭
 defaults write com.apple.finder AppleShowAllFiles NO
 ```
+
+| 快捷键                   | 功能                               |
+| ------------------------ | ---------------------------------- |
+| `Command + C`            | 拷贝                               |
+| `Command + V`            | 粘贴                               |
+| `Command + X`            | 剪切                               |
+| `Command + Z`            | 撤销                               |
+| `Command + Shift + Z`    | 重做                               |
+| `Command + A`            | 全选                               |
+| `Command + F`            | 查找                               |
+| `Command + S`            | 保存                               |
+| `Command + P`            | 打印                               |
+| `Command + Q`            | 退出应用                           |
+| `Command + W`            | 关闭当前窗口                       |
+| `Command + M`            | 最小化当前窗口                     |
+| `Option + Command + D`   | 显示或隐藏 Dock                    |
+| `Command + Tab`          | 在打开的应用之间切换               |
+| `Command + Space`        | 显示或隐藏 Spotlight 搜索栏        |
+| `Command + Shift + 3`    | 截取整个屏幕                       |
+| `Command + Shift + 4`    | 截取屏幕的一部分                   |
+| `Command + Shift + 5`    | 截屏和录屏选项 (Mojave 及更高版本) |
+| `Control + Command + Q`  | 立即锁定屏幕                       |
+| `Control + Command + F`  | 进入或退出全屏模式                 |
+| `Option + Command + Esc` | 强制退出应用                       |
+| `Command + ,`            | 打开当前应用的偏好设置             |
+| `Fn + ↑`                 | 向上翻页 (Page Up)                 |
+| `Fn + ↓`                 | 向下翻页 (Page Down)               |
+| `Fn + ←`                 | 滚动到文稿开头 (Home)              |
+| `Fn + →`                 | 滚动到文稿末尾 (End)               |
 
 打开取色器
 
@@ -192,7 +221,6 @@ log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24
 
 ## FAQ
 
-
 ### Diskutil
 
 ```bash
@@ -315,7 +343,7 @@ ifconfig tap0 create
 # https://sourceforge.net/p/tuntaposx/mailman/message/30457237/
 # The idea is that interfaces only get created when a program opens the corresponding /dev/tapX or /dev/tunX device.
 # To try, do exec 3<>/dev/tap0 on a root shell.
-exec 3<>/dev/tap0
+exec 3<> /dev/tap0
 
 ifconfig tap0 10.10.10.1 10.10.10.255
 ifconfig tap0 up

@@ -19,7 +19,7 @@ tags:
 - atob, btoa 经常弄不清
   - atob - Ascii to Binary - decode
   - btoa - Binary to Ascii - encode
-  - 仅支持 ASCII 字符
+  - **仅支持 ASCII 字符**
   - UTF8 可能出现问题
     - 例如 emoji
     - 编码的时候就会出现问题

@@ -73,9 +73,8 @@ tags:
   - https://www.midlibrary.io/categories/photographers
 - [Stable Diffusion Models](https://cyberes.github.io/stable-diffusion-models/)
 - [openai/guided-diffusion](https://github.com/openai/guided-diffusion)
-
-| mode | date | author | notes |
-| ---- | ---- | ------ | ----- |
+- Online/Playground
+  - https://huggingface.co/spaces/huggingface-projects/diffuse-the-rest
 
 | en                    | cn       | notes |
 | --------------------- | -------- | ----- |

@@ -12,6 +12,7 @@ tags:
 
 - 不支持 macOS [vllm-project/vllm#1441](https://github.com/vllm-project/vllm/issues/1441)
   - docker x86 跑可以, 但是性能差
+- 大多新模型需要 CUDA 7.5+ / 2018 Nvidia Turing+
 
 :::
 

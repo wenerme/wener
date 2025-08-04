@@ -61,6 +61,17 @@ tags:
   - `@ucast/sql`
   - `@ucast/mongo`
 
+---
+
+- Condition
+  - `{field,op,value}`
+  - Triple
+- AST
+  - 在 Condition 基础上增加逻辑运算符、分组等
+  - `and`, `or`, `not`
+- Query Document / DSL
+  - `{ field: { $op: value } }`
+
 ## mongodb
 
 | Query            | Desc                                                                                      |
@@ -122,6 +133,8 @@ tags:
 
 ```js
 db.monthlyBudget.find({ $expr: { $gt: ['$spent', '$budget'] } });
+// 搜索 / FTS
+db.article.find({ $text: { $search: 'groceries' } });
 ```
 
 - 参考
@@ -167,7 +180,7 @@ const query = [
   { [raw('length(perex)')]: { $gt: 10000 } },
   { [sql`lower(name)`]: name.toLowerCase() },
   { time: sql`now()` },
-  { [raw(alias => `lower(${alias}.name)`)]: name.toLowerCase() },
+  { [raw((alias) => `lower(${alias}.name)`)]: name.toLowerCase() },
   // 函数
   { [sql.upper('title')]: 'TITLE' },
   // 字段引用

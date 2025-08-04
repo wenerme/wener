@@ -130,7 +130,7 @@ tags:
   - GPLv3, Go
   - minimalistic OpenVPN implementation in Go
 - [EasyTier/Easytier](https://github.com/EasyTier/Easytier)
-  - Apache-2.0, Rust
+  - LGPLv3, Rust, Tokio, Vue
   - WireGuard, Mesh VPN
   - 国人维护
 

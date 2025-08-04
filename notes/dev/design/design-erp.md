@@ -420,9 +420,101 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 
 ## Resource View
 
-- List
+- ResourceList
+  - 资源列表视图
+  - 希望尽量所有操作都在列表页能完成 - 避免进入到单独的 详情页，来回切换页面效率低
   - 筛选、排序、列选择、搜索、分页
-  - 自定义视图
+  - Header + View + Footer
+  - Header
+    - 搜索, tags filter, status filter, sort
+    - actions
+  - Footer
+    - PageNav, PageInfo, QueryStatus - 错误、loading、refresh
+    - 视图操作 Placeholder
+      - 例如 选择 Table 列
+  - components / 自定义
+    - 高级筛选
+    - 自定义筛选逻辑
+  - 视图
+    - Table
+    - List
+      - ListViewItem
+        - 选择、标题、描述、meta、备注、主要关联对象信息
+    - Kanban
+    - Calendar
+    - Map
+  - Sidebar
+    - 左侧 - 树形侧边栏
+  - Summary / 当前选中Active资源信息
+    - 基本信息 + 多 tabs
+    - Summary - 基本表单
+      - Header
+      - Content - 例如 Form
+      - Footer - 例如 删除、状态流转
+    - 关联记录
+    - FileExplorer - 关联文件
+    - MetaPanel - 元数据
+      - ID 之类的
+
+```
+| Header  | Title Search Filter                                      Action
+|--------------------------------------------------------------------------
+| Sidebar | View                                            | Summary Panel
+|         |----------------------------------------------------------------
+|         | Footer  | PageInfo PageNav Refresh        ViewActionPlaceholder
+```
+
+---
+
+- ResourceChip
+  - 用于快速引用资源
+  - 方便在任何上下文中引用资源
+  - 显示资源的关键信息
+  - 支持点击 Popup 预览
+  - 支持提及功能
+
+```
+Icon | Title/DisplayName | [X]
+```
+
+---
+
+- PopupLayout
+  - 用于所有需要 Popup 的场景
+  - 内容可能需要 Scroll
+  - 用于快速预览资源的关键信息
+  - 用于 复杂选择场景
+  - 显示资源的详细信息
+  - 支持操作按钮
+  - 支持关闭
+
+```
+Icon | Title                     [Error/Loading] Refresh Toolbar Action/Simple
+-------------------------------------------------------------------------------
+Content
+-------------------------------------------------------------------------------
+Context Action                                                    Action/Submit
+```
+
+---
+
+- FileExplorer
+  - 用于文件和附件的管理
+  - 显示文件列表
+  - 支持上传、下载、删除等操作
+  - 支持文件预览
+  - 支持文件夹结构
+
+```
+| Nav < > Path Segments Selected Action           Refresh ViewSwitch Action
+|--------------------------------------------------------------------------
+| Sidebar | View                                            | Summary Panel
+| Tree    |----------------------------------------------------------------
+|         | Footer Stats
+```
+
+---
+
 - View/Detail - 详情
   - 展示单个资源的详细信息，常以多Tab形式组织不同维度的数据。
   - Resource Overview + 多 Tab 视图

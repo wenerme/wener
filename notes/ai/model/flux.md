@@ -5,7 +5,17 @@ tags:
 
 # FLUX
 
+- FLUX.1-Krea-dev
+  - 2025-07-31
+  - Black Forest Labs (BFL) + Krea AI
+  - T2I
+  - 生成手指有问题
+  - vs FLUX.1-dev
+    - anatomy
+    - Faces and skin looks a lot more natural
+  - https://huggingface.co/black-forest-labs/FLUX.1-Krea-dev
 - FLUX.1-dev
+  - 生成下巴有问题 - flux chin
   - https://huggingface.co/spaces/jasperai/Flux.1-dev-Controlnet-Upscaler
   - https://huggingface.co/showlab/OmniConsistency
 - FLUX.2-schnell

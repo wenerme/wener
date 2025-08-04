@@ -1,11 +1,10 @@
 ---
-id: mosh
 title: MOSH
 ---
 
 # MOSH
 
-## Why
+:::tip Why use Mosh
 
 - 即便是 IP 改变也会保持连接
 - 在待机或者网络恢复后,依然会保持连接
@@ -17,11 +16,21 @@ title: MOSH
 - 客户端预先显示的输出会在下面显示下划线
 - 默认端口 60000-61000
 
-## Tips
+:::
 
+- [mobile-shell/mosh](https://github.com/mobile-shell/mosh)
 - 远程服务器如果没有相应的 LC 可能会导致连接不上
   - `locale-gen zh_CN.UTF-8`
-- https://git.zx2c4.com/mosh-cleaner/about/
+- 参考
+  - https://git.zx2c4.com/mosh-cleaner/about/
+  - [mosh](https://mosh.mit.edu/)
+
+```caution
+
+- 不支持 ProxyCommand [#285](https://github.com/mobile-shell/mosh/issues/285)
+  - `--experimental-remote-ip={proxy|local|remote}`
+
+```
 
 ```bash
 mosh user@example.com --ssh="ssh -p 2222"
@@ -33,9 +42,11 @@ mosh-server new -l LANG=en_US.UTF-8 -p 60500
 curl -O https://git.zx2c4.com/mosh-cleaner/plain/clean-mosh.c
 ```
 
+```bash
 pgrep -u "$USER" mosh-server | tr ' ' '\n' | grep -v "$PPID" | xargs kill
 
 who | grep -v 'via mosh' | grep -oP '(?<=mosh \[)(\d+)(?=\])' | xargs kill
+```
 
 ## 使用鼠标滚动查看历史
 
@@ -92,8 +103,3 @@ mosh HOST -- tmux -S /tmp/extratmuxserver/tmuxserver a -t log
 - http://superuser.com/a/492285/242730
 - https://gist.github.com/MohamedAlaa/2961058
 - https://gist.github.com/andreyvit/2921703
-
-## 参考
-
-- [mosh](https://mosh.mit.edu/)
-- [mobile-shell/mosh](https://github.com/mobile-shell/mosh)

@@ -11,15 +11,20 @@ title: LLaMA-Factory
 git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git
 cd LLaMA-Factory
 
-uv venv --python 3.10
+uv python pin 3.10
+uv venv
 
-uv pip install setuptools
-uv pip install
+# uv pip install setuptools
+# uv pip install
 # uv pip install -e ".[torch,metrics]" --no-build-isolation
-# uv sync --extra torch --extra metrics --prerelease=allow
+uv sync --extra torch --extra metrics --prerelease=allow
 
 # working
 uv run llamafactory-cli --help
+
+# 启动 API
+uv run llamafactory-cli api examples/inference/qwen2_5vl.yaml
+curl http://0.0.0.0:8000/v1/models
 
 # 训练 LoRA 微调
 uv run llamafactory-cli train examples/train_lora/llama3_lora_pretrain.yaml

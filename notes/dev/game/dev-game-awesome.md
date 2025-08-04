@@ -70,6 +70,7 @@ tags:
   - Fengari (Lua engine in JavaScript): https://github.com/fengari-lua
   - [kaplayjs/kaplay](https://github.com/kaplayjs/kaplay)
     - MIT, TS
+    - https://play.kaplayjs.com/
     - fork [replit/kaboom](https://github.com/replit/kaboom)
 - 国内
   - Cocos Creator

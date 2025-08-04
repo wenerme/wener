@@ -178,13 +178,14 @@ tags:
   - [kubeapps](https://github.com/kubeapps/kubeapps)
     - 可简单的理解为 HELM WebUI
     - web-based UI for deploying and managing applications in Kubernetes clusters
+  - [goodrain/rainbond](https://github.com/goodrain/rainbond)
+    - ~~Apache-2.0~~, Go
+  - ~~Kubesphere~~
 - 商业/闭源
   - lens
   - https://infra.app/
   - https://aptakube.com/
     - 无免费方案
-- [goodrain/rainbond](https://github.com/goodrain/rainbond)
-  - LGPLv3, Golang
 - [kubernetes-sigs/kui](https://github.com/kubernetes-sigs/kui)
   - 增强 kubectl
   - kubectl kui get pods
@@ -216,7 +217,7 @@ tags:
     - by Red Hat
   - [rancher](https://github.com/rancher/rancher)
     - by SUSE
-  - [kubesphere](https://github.com/kubesphere/kubesphere)
+  - ~~[kubesphere](https://github.com/kubesphere/kubesphere)~~
     - by 青云
 - Edge/Minimal
   - [k3s-io/k3s](https://github.com/k3s-io/k3s)
@@ -392,9 +393,6 @@ tags:
 
 - [telepresenceio/telepresence](https://github.com/telepresenceio/telepresence)
 - [solo-io/squash](https://github.com/solo-io/squash)
-- [goodrain/rainbond](https://github.com/goodrain/rainbond)
-  云原生应用管理平台
-  - LGPL-3.0, Go
 - [open-hand/choerodon](https://github.com/open-hand/choerodon)
   Multi-Cloud Integrated Platform
 - [metacontroller/metacontroller](https://github.com/metacontroller/metacontroller)

@@ -860,6 +860,12 @@ tags:
     - React router 之前版本
   - hono RegExpRouter https://hono.dev/docs/concepts/routers
 - audio/sound
+  - [katspaugh/wavesurfer.js](https://github.com/katspaugh/wavesurfer.js)
+    - BSD-3, TS
+    - waveform player
+  - [makeusabrew/audioteejs](https://github.com/makeusabrew/audioteejs)
+    - NodeJS wrapper library around [Audiotee](https://github.com/makeusabrew/audiotee)
+    - 语音输入
   - [goldfire/howler.js](https://github.com/goldfire/howler.js)
     - MIT, JS
     - Web Audio API, HTML5 Audio
@@ -1011,15 +1017,48 @@ tags:
 
 ## Runtimes & Engines
 
-| Engine          | [QuickJS] | [DukTape] | [V8]  | MuJS | JerryScript | Hermes | XS   |
-| --------------- | --------- | --------- | ----- | ---- | ----------- | ------ | ---- |
-| License         | MIT       | MIT       | BSD-3 | ISC  | Apache-2.0  | MIT    | GPL  |
-| Executable size | 620K      | 331K      | 28M   | 244K | 211K        | 27M    | 1.2M |
+| Engine                  | Since | author    | License    | Size | notes                                        |
+| ----------------------- | ----- | --------- | :--------- | ---: | -------------------------------------------- |
+| [V8]                    |       |           | BSD-3      |  28M |
+| [JavaScriptCore]        |       |           | MIT        | 620K |
+| Node                    |
+| Bun                     |       |           |            |  60M |
+| Deno                    |
+| [QuickJS]               |       |           | MIT        | 620K |
+| [DukTape]               |       |           | MIT        | 331K |
+| [MuJS]                  | 2013  |           | ISC        | 244K |
+| [JerryScript]           |       |           | Apache-2.0 | 211K |
+| [Hermes]                |       | Meta      | MIT        |  27M |
+| [XS]                    |       |           | GPL        | 1.2M |
+| [saghul/txiki.js]       | 2019  |           | MIT        | 1.2M | QuickJS, libuv, wasm3, curl, libffi,WinterCG |
+| [holepunchto/bare]      | 2022  |           | Apache-2.0 |      | libuv, libjs, v8                             |
+| [just-js/lo]            | 2023  |           | MIT        |  15M | v8                                           |
+| [GNOME/gjs]             | 2008  |           |            |      | based on SpiderMonkey, binding to GNOME      |
+| ~~[creationix/dukluv]~~ | 2014  |           |            |      | libuv-based, duktape                         |
+| ~~[JXA]~~               | 2014  | Apple     |            |      | JavaScript for Automation, macOS only        |
+| ~~[microsoft/napajs]~~  | 2016  | Microsoft | MIT        |      | multi-threaded, v8                           |
+| GraalJS                 |       | Oracle    |            |      |
+| ChakraCore              |       | Microsoft |            |      |
+
+[just-js/lo]: https://github.com/just-js/lo
+[JXA]: https://developer.apple.com/library/archive/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/Introduction.html
+[GNOME/gjs]: https://gitlab.gnome.org/GNOME/gjs
+[creationix/dukluv]: https://github.com/creationix/dukluv
+[microsoft/napajs]: https://github.com/microsoft/napajs
+[saghul/txiki.js]: https://github.com/saghul/txiki.js
+[holepunchto/bare]: https://github.com/holepunchto/bare
 
 - Runtime - stdlib/sandboxing
   - NodeJS
   - Deno
   - Bun
+  - [andrewmd5/hako](https://github.com/andrewmd5/hako)
+    - fork of PrimJS
+  - [lynx-family/primjs](https://github.com/lynx-family/primjs)
+    - based on  QuickJS
+    - for [lynx](https://github.com/lynx-family/lynx)
+      - 字节 跨平台框架
+      - 目前 React 为主
   - [workerd](../dev/workerd.md)
   - [edge-runtime](../dev/edge-runtime.md)
   - [losfair/blueboat](https://github.com/losfair/blueboat)
@@ -1053,7 +1092,7 @@ tags:
   - [ChakraCore](https://github.com/chakra-core/ChakraCore)
     - MIT, C++
     - 早先的 Microsoft Edge
-  - [just-js/just](https://github.com/just-js/just)
+  - ~~[just-js/just](https://github.com/just-js/just)~~
     - small v8 for linux only
     - ~15 MB
   - [facebook/hermes](https://github.com/facebook/hermes)

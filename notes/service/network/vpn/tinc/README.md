@@ -91,7 +91,9 @@ title: Tinc
 
 :::caution
 
-- tinc 1.1 还不足够稳定
+- 推荐使用 1.1
+  - 不过 tinc 1.1 还不足够稳定
+  - 不支持 Forwarding, 因此不支持 direct mode only [#342](https://github.com/gsliepen/tinc/issues/342)
 - 单线程 - 性能有限
 
 :::

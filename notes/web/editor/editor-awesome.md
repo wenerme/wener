@@ -18,6 +18,9 @@ tags:
 - [prosemirror](./prosemirror/README.md)
   - 实现 Editor 的基础库
 - [tiptap](./tiptap/README.md)
+- [Hufe921/canvas-editor](https://github.com/Hufe921/canvas-editor)
+  - MIT, TS
+  - https://hufe.club/canvas-editor-docs/guide/schema.html
 - React
   - [facebook/lexical](https://github.com/facebook/lexical)
     - by Facebook, 替代 draftjs

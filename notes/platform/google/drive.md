@@ -53,3 +53,11 @@ tags:
   - .tsv
   - .tab
 - Ctrl + Option + I 打开插入菜单
+
+# FAQ
+
+## 导入矢量/SVG 到 Google Slides
+
+- SVG 转 EMF
+- Google Drawing 能打开 EMF
+- 然后复制粘贴到 Google Slides

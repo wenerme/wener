@@ -460,3 +460,15 @@ from (select sequence,
       from wecom_archive_message) nr
 where sequence + 1 <> next_nr;
 ```
+
+## histgram
+
+```sql
+SELECT
+    width_bucket(value, 0, 100, 10) AS bucket,
+    count(*) AS count
+FROM
+    your_table
+GROUP BY
+1
+```

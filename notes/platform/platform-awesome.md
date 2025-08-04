@@ -82,6 +82,20 @@ tags:
 [kbone]: https://github.com/Tencent/kbone
 [omi]: https://github.com/Tencent/omi
 
+## 跨端开发
+
+- React Native
+  - 2015, Meta（Facebook）
+  - JS Bridge, 原生组件, JS ↔ Native 异步调用
+  - 200MB
+- Flutter
+  - 2018, Google
+  - Skia, 自绘, Dart ↔ C++ ↔ 原生
+  - 20MB
+- Lynx
+  - 2025, 字节跳动
+  - AST DSL, 渲染引擎, JSON AST ↔ Native
+  - 150MB
 ## Message
 
 - [gallonyin/worktool](https://github.com/gallonyin/worktool)

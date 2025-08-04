@@ -27,6 +27,14 @@ tags:
 - [PostHog/posthog](https://github.com/PostHog/posthog)
   - 支持非 Web Session
 - [electerious/Ackee](https://github.com/electerious/Ackee)
+- [Doist/bitmapist](https://github.com/Doist/bitmapist)
+  - cohort library using Redis bitmaps
+- bitmaps
+  - ~~[FeatureBaseDB/featurebase](https://github.com/FeatureBaseDB/featurebase)~~
+    - Apache-2.0, Go
+- ~~[traildb/traildb](https://github.com/traildb/traildb)~~
+  - MIT, C
+  - efficient tool for storing and querying series of events
 - ~~[usefathom/fathom](https://github.com/usefathom/fathom)~~
 - 商业
   - 百度统计 - 免费给百度推广的客户和百度联盟成员

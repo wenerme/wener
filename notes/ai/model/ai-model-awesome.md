@@ -9,8 +9,15 @@ tags:
 
 **Open Weights/Transformer**
 
-| Date       | Model            | Size                                                        | Context Window | Creator         | tags                                                                               |
+| Date       | Model            | Size                                                        | Context Window | Creator         | notes                                                                              |
 | :--------- | :--------------- | :---------------------------------------------------------- | :------------- | :-------------- | ---------------------------------------------------------------------------------- |
+| 2025-07-28 | Intern-S1        | 235B                                                        |                |                 | Qwen3 + 6B InternViT                                                               |
+| 2025-07-28 | GLM 4.5          | 355-32A, Air 106-12A                                        | 128K           | Zhipu           | Reasoning, Multilingual                                                            |
+| 2025-07-23 | Qwen3 2507       | Coder 480B-A35B, Coder-Flash 30B-A3B, 235B-A22B, 30B-A3B    | 256K, Yarn 1M  |
+| 2025-07-28 | WAN-2.2          | TI2V-5B, T2V-27B-A14B, I2V-27B-A14B                         |                | Alibaba         | T2V, I2V, VACE, FLF2V, Reasoning, Multilingual                                     |
+| 2025-07-15 | Voxtral 1.0      | Mini 3B, Small 24B                                          | 32K            | Mistral AI      | Audio, 30min transcription, 40 min understanding                                   |
+| 2025-07-11 | Kimi k2          | 1T-A32B                                                     | 128K           | Moonshot AI     | MoE                                                                                |
+| 2025-07-02 | GLM-4.1V         | 9B                                                          | 64K            | Zhipu,THUDM     | Vision, Reasoning                                                                  |
 | 2025-06-11 | Magistral        | small 24B                                                   | 39K            | Mistral AI      | Reasoning, Multilingual                                                            |
 | 2025-06-07 | Comma v0.1       | 7B                                                          |                | EleutherAI      | Full OSS, English                                                                  |
 | 2025-06-05 | Qwen3-Embedding  | 0.6b, 4b, 8b                                                | 32K            | Alibaba         | Embedding, Reranking, Multilingual(100+), Instruction Aware, MRL(1024, 2560, 4096) |
@@ -77,28 +84,34 @@ tags:
 
 **Proprietary Models**
 
-| release    | model                        | output                 | input price              | author            | notes                            |
-| :--------- | :--------------------------- | ---------------------- | ------------------------ | :---------------- | :------------------------------- |
+| release    | model                        |                 output |              input price | author            | notes                            |
+| :--------- | :--------------------------- | ---------------------: | -----------------------: | :---------------- | :------------------------------- |
+| 2025-07-31 | Horizon Alpha                |                        |                          | OpenAI            | 256K                             |
+| 2025-06    | Kling 2.1                    |                $0.28/s |
+| 2025-06-17 | Gemini 2.5 Pro               |              $10.00/1M |                 $1.25/1M | Google            | 1M                               |
+| 2025-06    | Gemini 2.5 Flash-Lite        |               $0.40/1M | $0.10/1M, audio $0.50/1M | Google            |
+| 2025-06    | Gemini 2.5 Flash             |               $2.50/1M | $0.30/1M, audio $1.00/1M | Google            |
+| 2025-05-22 | Claude 4 Opus                |                 $15/1M |                    $3/1M | Anthropic         | 200K                             |
+| 2025-05-22 | Claude 4 Sonnet              |                 $75/1M |                   $15/1M | Anthropic         | 200K                             |
 | 2025-05-20 | Imagen 4                     |                        |                          | Google            | t2i                              |
-| 2025-06    | Kling 2.1                    | $0.28/s                |
 | 2025-05    | Veo 3                        | $0.50/s, audio $0.75/s |                          | Google            | t2v                              |
-| 2025-06    | Gemini 2.5 Pro               | $10.00/1M              | $1.25/1M                 |
-| 2025-06    | Gemini 2.5 Flash             | $2.50/1M               | $0.30/1M, audio $1.00/1M | Google            |
-| 2025-06    | Gemini 2.5 Flash-Lite        | $0.40/1M               | $0.10/1M, audio $0.50/1M | Google            |
 | 2025-05    | FLUX.1 Kontext max/pro       |                        |                          | Black Forest Labs | t2i                              |
-| 2025-04-17 | Gemini 2.5 Flash             |                        |                          | Google            |
+| 2025-04-17 | Gemini 2.0 Flash             |                        |                          | Google            |
 | 2025-04-16 | Seedream 3.0                 |                        |                          | Bytedance         | t2i                              |
 | 2025-04-14 | GPT-4.1, mini, nano          |                        |                          | OpenAI            |
-| 2025-03-25 | Gemini 2.5 Pro               |                        |                          | Google            | 2M                               |
+| 2025-03-25 | Gemini 2.0 Pro               |                        |                          | Google            | 2M                               |
+| 2025-02-27 | ChatGPT 4.5                  |                        |                          | OpenAI            | 128K                             |
+| 2025-02-24 | Claude 3.7                   |
 | 2025-02-05 | Gemini 2.0 Flash             |                        |                          | Google            | audio, video                     |
 | 2025-02-01 | Gemini 2.0 Flash-Lite        |                        |                          | Google            |
 | 2025-01-10 | o3, o3-mini                  |                        |                          | OpenAI            | Reasoning                        |
 | 2024-12-17 | o1                           |                        |                          | OpenAI            |
-| 2024-12    | Veo 2                        | $0.35/s                |                          | Google            | t2v                              |
+| 2024-12    | Veo 2                        |                $0.35/s |                          | Google            | t2v                              |
 | 2024-10    | Recraft V3                   |                        |                          | Recraft           |
 | 2024-09-12 | o1-preview                   |                        |                          | OpenAI            | Reasoning                        |
 | 2024-08    | Imagen 3                     |                        |                          | Google            | t2i                              |
 | 2024-07-18 | GPT-4o mini                  |                        |                          | OpenAI            |
+| 2024-06-20 | Claude 3.5 Haiku             |                        |                          |
 | 2024-05-13 | GPT-4o                       |                        |                          | OpenAI            | text, audio, image               |
 | 2024-03-04 | Claude 3 Haiku, Sonnet, Opus |                        |                          | Anthropic         | 200K                             |
 | 2024-02-15 | Gemini 1.5 Pro               |                        |                          | Google            | 突破性的100万token超长上下文窗口 |
@@ -393,6 +406,12 @@ tags:
     - 基于 Qwen/Qwen2.5-VL-3B-Instruct
 - Document Structure/Layout Analysis/OCR Toolkit
   - Marker
+  - [rednote-hilab/dots.ocr](https://github.com/rednote-hilab/dots.ocr)
+    - MIT
+    - 2025.07.30
+    - 1.7B
+    - hf [rednote-hilab/dots.ocr](https://huggingface.co/rednote-hilab/dots.ocr)
+    - https://huggingface.co/spaces/MohamedRashad/Dots-OCR
   - [allenai/olmocr](https://github.com/allenai/olmocr)
     - Apache-2.0, Python
     - Toolkit for linearizing PDFs for LLM datasets/training
@@ -403,7 +422,11 @@ tags:
     - LayoutLMv3
     - UniMERNet
     - [opendatalab/PDF-Extract-Kit](https://github.com/opendatalab/PDF-Extract-Kit)
+  - DocLayout-YOLO
 - Task Specific Models/任务模型/领域模型
+  - WebWalkerQA https://huggingface.co/spaces/callanwu/WebWalkerQALeaderboard
+  - [Alibaba-NLP/WebAgent](https://github.com/Alibaba-NLP/WebAgent)
+    - hf [Alibaba-NLP/WebDancer-32B](https://huggingface.co/Alibaba-NLP/WebDancer-32B)
   - [osmosis-ai/Osmosis-Structure-0.6B](https://huggingface.co/osmosis-ai/Osmosis-Structure-0.6B)
     - 基于 Qwen3-0.6B
     - 文本 -> JSON
@@ -876,18 +899,25 @@ make this image come alive, cinematic motion, smooth animation
 - In/Out-Painting
 - Structural Conditioning
 
-| date       | model              | size                           | author            | notes |
-| ---------- | ------------------ | ------------------------------ | ----------------- | ----- |
-| 2025-05-29 | FLUX.1 Kontext     | dev,~~max~~,~~pro~~            |
-| 2024-10-22 | SD 3.5             | turbo, large, medium ,2.5B, 8B | Stability AI      |
-| 2024-08-01 | FLUX.1             | dev, schnell, 12B, ~~pro~~     | Black Forest Labs |
-| 2024-02    | SD 3.0             | 800M, 8B                       | Stability AI      |
-| 2023-11    | SDXL Turbo         |                                | Stability AI      |
-| 2023-07    | SDXL 1.0           | 3.5B                           |
+| date       | model              | size                                      | author            | notes                   |
+| ---------- | ------------------ | ----------------------------------------- | ----------------- | ----------------------- |
+| 2025-07-16 | HiDream-E1-1       |                                           |                   | Editing                 |
+| 2025-05-29 | FLUX.1 Kontext     | dev 12B,~~max~~,~~pro~~                   | Black Forest Labs |                         |
+| 2025-04-07 | HiDream-I1         | 17B, Fast 16step, Dev 28step, Full 50step |
+| 2025-01-25 | Lumina-Image 2.0   | 2B                                        | OpenGVLab         | Apache-2.0              |
+| 2024-10-22 | SD 3.5             | turbo, large, medium ,2.5B, 8B            | Stability AI      |
+| 2024-08-01 | FLUX.1             | dev, schnell, 12B, ~~pro~~                | Black Forest Labs |
+| 2024-02    | SD 3.0             | 800M, 8B                                  | Stability AI      |
+| 2023-11    | SDXL Turbo         |                                           | Stability AI      |
+| 2023-07    | SDXL 1.0           | 3.5B                                      |
 | 2022-12    | SD v2.1            |
-| 2022-11    | SD v2.0            |                                |
-| 2022-10    | SD 1.5             | 983M                           | RunwayML          |
-| 2022-08    | SD 1.1 1.2 1.3 1.4 |                                | CompVis           |
+| 2022-11    | SD v2.0            |                                           |
+| 2022-10    | SD 1.5             | 983M                                      | RunwayML          |
+| 2022-08    | SD 1.1 1.2 1.3 1.4 |                                           | CompVis           |
+| 2025-06-16 | OmniGen2           | 7B                                        | VectorSpaceLab    | T2I, Editing, Composing |
+
+- [Alpha-VLLM/Lumina-Image-2.0](https://github.com/Alpha-VLLM/Lumina-Image-2.0)
+  - hf [Alpha-VLLM/Lumina-Image-2.0](https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0)
 
 <!--
 civitai.com
@@ -1005,6 +1035,12 @@ civitai.com
 [FLUX.1-schnell]: https://huggingface.co/black-forest-labs/FLUX.1-schnell
 [FLUX.1-dev]: https://huggingface.co/black-forest-labs/FLUX.1-dev
 
+- 常见出问题的地方
+  - 手指
+  - 眼睛
+  - 头发
+  - 下巴
+  - 皮肤
 - CFG - Classifier-Free Diffusion Guidance (2022)
 - [black-forest-labs/flux](https://github.com/black-forest-labs/flux)
   - FLUX.1 [dev] Non-Commercial License
@@ -1034,8 +1070,12 @@ civitai.com
 - [HiDream-I1-Full](https://huggingface.co/HiDream-ai/HiDream-I1-Full)
   - 2025-04-28
   - 17B
-  - FLUX.1 schnell VAE
-  - Text Encoder google/t5-v1_1-xxl, meta-llama/Meta-Llama-3.1-8B-Instruct
+  - VAE: FLUX.1 schnell
+  - Text Encoder: google/t5-v1_1-xxl, meta-llama/Meta-Llama-3.1-8B-Instruct
+- [VectorSpaceLab/OmniGen2](https://github.com/VectorSpaceLab/OmniGen2)
+  - Qwen-VL-2.5
+  - https://huggingface.co/spaces/OmniGen2/OmniGen2
+  - https://blog.comfy.org/p/omnigen2-native-support-in-comfyui
 - [huanngzh/mv-adapter](https://huggingface.co/huanngzh/mv-adapter)
 - Stable Diffusion
   - Stable Diffusion XL (SDXL)
@@ -1052,6 +1092,10 @@ civitai.com
     - Large-Turbo
       - MMDiT + ADD
       - 速度快, 4 个步骤
+- Optimization
+  - [TMElyralab/lyraDiff](https://github.com/TMElyralab/lyraDiff)
+    - Apache-2.0, C++
+    - acceleration engine for Diffusion and DiT models
 
 ---
 

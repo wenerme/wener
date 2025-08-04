@@ -33,6 +33,9 @@ dpkg -i fastfetch-linux-amd64.deb
 
 # UEFI
 bootctl status | grep SecureBoot
+
+# check firewall
+sudo ufw status
 ```
 
 ## Nvidia GPU Driver

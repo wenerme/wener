@@ -222,13 +222,6 @@ pause > nul
 EOF
 ```
 
-## /etc/wsl.conf
-
-- Windows 11
-- Windows Build 17093+
-- https://learn.microsoft.com/en-us/windows/wsl/wsl-config
-- https://gist.github.com/ecarlson94/283102ffd2f2473d41e7c9965be8fdd4
-
 ## 管理
 
 ```bash
@@ -247,20 +240,108 @@ wsl -l -v # 列出所有的 WSL 和 WSL 版本
 
 - https://wslutiliti.es/wslu
 
-## 配置
+## wslconfig
 
 - `%USERPROFILE%\.wslconfig`
 - ~/.wslconfig
 - 内存默认 50%
+- 修改后关机等待 8s 后再启动
+- /etc/wsl.conf
 
 ```batch
 notepad.exe %USERPROFILE%\.wslconfig
 ```
 
-```bash
+```ini title="%USERPROFILE%.wslconfig"
 [wsl2]
+# 默认 50%
 memory=26GB
+# 默认内存的 1/4
+swap=
+swapFile=%USERPROFILE%\AppData\Local\Temp\swap.vhdx
+kernel=
+kernelModules=
+kernelCommandLine=
+processors=
+localhostForwarding=true
+safeMode=false
+# Windows 能够回收分配给 WSL 2 虚拟机的未使用内存
+pageReporting=true
+# https://github.com/microsoft/wslg 支持
+guiApplications=true
+# networkingMode=NAT 时将 WSL 设置为 host 的 NAT
+dnsProxy=true
+# mirrored
+networkingMode=NAT
+# Windows 防火墙规则以及特定于 Hyper-V 流量的规则可以筛选 WSL 网络流量
+firewall=true
+dnsTunneling=true
+# WLS 强制使用 Windows 的 HTTP 代理
+autoProxy=true
+defaultVhdSize=1TB
+
+# Windows 11+
+debugConsole=false
+nestedVirtualization=true
+vmIdleTimeout=60000
+
+[experimental]
 ```
+
+- https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config
+
+## /etc/wsl.conf
+
+- DrvFs - WSL 挂载 Windows 盘符
+
+```ini
+[automount]
+# 自动挂载 Windows 盘符到 /mnt 使用 DrvFs
+enabled = true
+root = /mnt/
+# DrvFs 参数
+# uid,gid,umask,fmask,dmask,metadata,case
+options = ""
+# 是否处理 /etc/fstab
+mountFsTab = true
+
+[network]
+# 生成 /etc/hosts
+generateHosts = true
+# 生成 /etc/resolv.conf
+generateResolvConf = true
+hostname =
+
+[interop]
+# WSL 是否支持启动 Windows 进程
+enabled = true
+# 是否将 Windows 路径添加到 WSL 的 PATH 中
+appendWindowsPath = true
+
+# Windows 18980+
+[user]
+# 首次启动 WSL 的用户身份
+default =
+
+# Windows 11+, Windows Server 2022+
+[boot]
+# 启动 WSL 时运行的命令
+command = ""
+# 防止 WSL 在启用 systemd 时生成 systemd 单元
+protectBinfmt=true
+
+[gpu]
+enabled = true
+
+[time]
+# WSL2 使用 Windows 的时区
+timezone = true
+```
+
+- Windows 11
+- Windows Build 17093+
+- https://learn.microsoft.com/en-us/windows/wsl/wsl-config
+- https://gist.github.com/ecarlson94/283102ffd2f2473d41e7c9965be8fdd4
 
 # FAQ
 

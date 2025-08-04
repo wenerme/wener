@@ -5,6 +5,7 @@ tags:
 
 # AI Awesome
 
+- [Dev Awesome](./dev/ai-dev-awesome.md)
 - [LLM Awesome](./llm/llm-awesome.md)
 - [ML Awesome](./ml/ml-awesome.md)
 - [Stable-Diffusion Awesome](./diffusion/diffusion-awesome.md)
@@ -14,12 +15,6 @@ tags:
     - ASR, TTS
   - [wenet-e2e/wenet](https://github.com/wenet-e2e/wenet)
     - STT
-- API/Aggregator/Gateway
-  - [langfuse/langfuse](https://github.com/langfuse/langfuse)
-    - MIT+EE, TS, React
-    - LLM Observability, Prompt Management, LLM Evaluations, Datasets, LLM Metrics, Prompt Playground
-  - https://openrouter.io
-  - https://together.ai
 - Engine
   - MLX
   - tinygrad
@@ -38,15 +33,30 @@ tags:
     - MIT, TS
     - MiniPerplx -> scira
     - minimalistic AI-powered search engine
-- Workflow
-  - dify
-  - coze
+- Workflow/Research
+  - [langgenius/dify](https://github.com/langgenius/dify)
+    - ~~Apache-2.0~~, TS, React
+  - [coze-dev/coze-studio](https://github.com/coze-dev/coze-studio)
+    - Apache-2.0, TS, React, Go
   - n8n
   - windmill
+  - [FoundationAgents/OpenManus](https://github.com/FoundationAgents/OpenManus)
+    - MIT, Python
+  - [DahnM20/ai-flow](https://github.com/DahnM20/ai-flow)
+    - MIT, TS, Python
+  - [bytedance/deer-flow](https://github.com/bytedance/deer-flow)
+    - MIT, Python, TS
+  - [activepieces](https://github.com/activepieces/activepieces)
+    - MIT+EE, TS
   - [simstudioai/sim](https://github.com/simstudioai/sim)
     - Apache-2.0, TS
     - pgvector, socket.io, bun, next.js, Drizzle ORM, [trigger.dev](https://github.com/triggerdotdev/trigger.dev), [better-auth/better-auth](https://github.com/better-auth/better-auth), ReactFlow
+  - https://github.com/enumura1/chatbot-flow-editor
+    - Visual chatbot flow editor. GUI tool for designing chatbot flows. Create, test, and export as JSON.
 - Client/Desktop/App/Runner/Server
+  - [danny-avila/LibreChat](https://github.com/danny-avila/LibreChat)
+    - MIT, TS, JS, React, radix-ui, recoil, tailwindcss, zod, redis, meilisearch, mongodb, express, pgvector
+    - ChatGPT Clone
   - [chatbox](./service/chatbox.md)
     - GPLv3, TypeScript, React, Electron
     - 支持 Desktop, iOS, Android, Web
@@ -175,6 +185,10 @@ tags:
 - Vision
   - [microsoft/OmniParser](https://github.com/microsoft/OmniParser)
     - UI -> structured
+- Application
+  - [Huanshere/VideoLingo](https://github.com/Huanshere/VideoLingo)
+    - Apache-2.0, Python
+    - subtitle cutting, translation, alignment, even dubbing
 - [microsoft/unilm](https://github.com/microsoft/unilm)
   - MIT, Python
   - https://thegenerality.com/agi/
@@ -371,7 +385,7 @@ tags:
   - 基于节点的流程图界面
   - 高级用户、开发者，希望完全掌控生成过程的每一个细节、构建复杂的工作流
 - [invoke-ai/InvokeAI](https://github.com/invoke-ai/InvokeAI)
-  - Apache 2.0
+  - Apache 2.0, TS, Python
   - 艺术家、设计师
 - [nat/openplayground](https://github.com/nat/openplayground)
   - https://nat.dev/
@@ -573,3 +587,5 @@ tags:
 > Reading, Learning, Tutorials, 教程, 阅读资料
 
 - https://github.com/NielsRogge/Transformers-Tutorials
+- https://github.com/AccumulateMore/CV
+- http://jalammar.github.io/illustrated-transformer/

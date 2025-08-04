@@ -2,22 +2,112 @@
 tags:
   - Development
   - Awesome
+  - Automation
 ---
 
 # AI Dev Awesome
 
-- [MCP](./mcp.md) / Model Context Protocol
+- [MCP](./mcp.md)
   - [muppet-dev/muppet](https://github.com/muppet-dev/muppet)
     - Toolkit for building MCPs using HonoJS
+  - https://www.claudemcp.com/servers
+  - [daodao97/chatmcp](https://github.com/daodao97/chatmcp)
+    - ChatMCP is an AI chat client implementing the Model Context Protocol
+  - NextChat MCP
+    - https://github.com/ChatGPTNextWeb/NextChat/issues/6114
+  - [patruff/ollama-mcp-bridge](https://github.com/patruff/ollama-mcp-bridge)
+    - MIT, TS
+  - [punkpeye/fastmcp](https://github.com/punkpeye/fastmcp)
+    - TypeScript framework for building MCP servers.
+- Coding
+  - [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
+    - Apache-2.0, TS
+    - terminal based, use the full scope of what is possible
+    - gemini code $20/month
+  - Windsurf $15/month
+  - Github Copilot - $10/month
+    - IDE based focus on using the tools inside project
+  - Claude Code
+    - $20/month
+  - https://www.augmentcode.com/
+    - $50/month
+- Agent Framework/RAG/Assistants
+  - [mastra-ai/mastra](https://github.com/mastra-ai/mastra)
+    - Apache-2.0, TS
+  - [cloudflare/agents](https://github.com/cloudflare/agents)
+    - MIT, TS
+    - Build and deploy AI Agents on Cloudflare
+  - [QwenLM/Qwen-Agent](https://github.com/QwenLM/Qwen-Agent)
+    - Apache-2.0, Python
+    - Agent framework and applications built upon Qwen>=3.0
+    - Function Calling, MCP, Code Interpreter, RAG, Chrome extension
+  - [VoltAgent/voltagent](https://github.com/VoltAgent/voltagent)
+    - MIT, TS
+  - [langchain-ai/langchainjs](https://github.com/langchain-ai/langchainjs)
+    - MIT, TS
+    - reusable components and integrations for building LLM applications
+  - LangGraph - build LLM agents as graphs
+  - [axar-ai/axar](https://github.com/axar-ai/axar)
+    - Apache-2.0, TS
+    - Minimal typescript agent framework
+  - [ax-llm/ax](https://github.com/ax-llm/ax)
+    - Apache-2.0, TS
+    - DSPy framework for Typescript
+  - [cloudwego/eino](https://github.com/cloudwego/eino)
+    - Apache-2.0, Go
+    - LLM/AI application development framework in Golang
+  - [google/langextract](https://github.com/google/langextract)
+    - Apache-2.0, Python
+- API/Aggregator/Gateway/Monitor
+  - [BerriAI/litellm](https://github.com/BerriAI/litellm)
+    - MIT, Python
+    - 将各种 LLM 适配为 OpenAI 的 API 格式
+  - [bricks-cloud/BricksLLM](./bricksllm.md)
+    - MIT, Golang
+    - Enterprise-grade API gateway
+    - 提供访问控制、监控
+    - 支持 OpenAI, Azure OpenAI, Anthropic, vLLM 等
+  - [Helicone/helicone](https://github.com/Helicone/helicone)
+    - Apache-2.0, TS
+    - observability platform for LLMs
+  - [langfuse/langfuse](https://github.com/langfuse/langfuse)
+    - MIT+EE, TS, React, Clikhouse, Minio, Redis, PostgreSQL
+    - LLM Observability, Prompt Management, LLM Evaluations, Datasets, LLM Metrics, Prompt Playground
+  - [comet-ml/opik](https://github.com/comet-ml/opik)
+    - Apache-2.0, Python, TS, MySQL, Clickhouse, Redis, Minio, Zookeeper
+  - https://openrouter.io
+  - https://together.ai
+  - [katanemo/archgw](https://github.com/katanemo/archgw)
+    - Apache-2.0, Rust, Python
+    - AI gateway for agents
+- Engine/Runtime
+  - [huggingface/transformers.js](https://github.com/huggingface/transformers.js)
+    - Apache-2.0, JS
 - Web/SDK/UI
   - [vercel/ai](https://github.com/vercel/ai)
     - Apache-2.0, TS
     - npm:ai
     - Build AI-powered applications with React, Svelte, Vue, and Solid
     - https://ai-sdk.dev/providers/openai-compatible-providers
-  - [xenova/transformers.js](https://github.com/xenova/transformers.js)
-    - Apache-2.0, JS
-- Vector/Search
+- Research/Planning/Agentic/Agent/智能体
+  - [mannaandpoem/OpenManus](https://github.com/mannaandpoem/OpenManus)
+    - MIT, Python
+    - agent, flow, tool, ReAct, Planning
+  - ReAct - 思考 - 行动 - 观察
+- Search/Web Crawler/Scraper
+  - [unclecode/crawl4ai](https://github.com/unclecode/crawl4ai)
+    - Apache-2.0, Python
+    - Web Crawler & Scraper
+  - [zaidmukaddam/scira](https://github.com/zaidmukaddam/scira)
+    - Apache-2.0, TS
+    - MiniPerplx
+  - [searxng](https://github.com/searxng/searxng)
+    - AGPLv3, Python
+    - Privacy-respecting metasearch engine
+  - [coder-hxl/x-crawl](https://github.com/coder-hxl/x-crawl)
+    - MIT, TS
+    - Node.js AI-assisted crawler library
+- Vector/Search Engine
   - [Stevenic/vectra](https://github.com/Stevenic/vectra)
     - MIT, TS
     - 本地, 文件存储
@@ -25,8 +115,91 @@ tags:
 - NLP
   - [winkjs/wink-nlp](https://github.com/winkjs/wink-nlp)
     - MIT, JS
-- [langchain-ai/langchainjs](https://github.com/langchain-ai/langchainjs)
-  - MIT, TS
-  - reusable components and integrations for building LLM applications
-- LangGraph - build LLM agents as graphs
+- Tools/Processing
+  - [microsoft/OmniParser](https://github.com/microsoft/OmniParser)
+    - screen parsing tool towards pure vision based GUI agent
+    - hf [microsoft/OmniParser-v2.0](https://huggingface.co/microsoft/OmniParser-v2.0)
+  - [supermemoryai/markdowner](https://github.com/supermemoryai/markdowner)
+    - MIT, TS
+    - convert any website into LLM-ready markdown data.
+  - [ysm-dev/cpdown](https://github.com/ysm-dev/cpdown)
+    - MIT, TS
+    - Copy to clipboard any webpage content/youtube subtitle as clean markdown with one click or shortcut
+    - Defuddle - For main content extraction & markdown cleanup
+    - Mozilla Readability - For main content extraction
+    - Turndown - For HTML to Markdown conversion
+  - [mixmark-io/turndown](https://github.com/mixmark-io/turndown)
+    - MIT, JS
+    - HTML to Markdown converter
+  - [kepano/defuddle](https://github.com/kepano/defuddle)
+    - MIT, TS, JSDOM
+    - Extract the main content from web pages.
+    - written for Obsidian Web Clipper
+    - Playround https://kepano.github.io/defuddle/
+    - Mozilla Readability 的替代品
+      - 跟宽松，移除更少的不确定元素。
+      - 为脚注、数学公式、代码块等提供一致的输出。
+      - 使用页面的移动端样式来猜测不必要的元素。
+      - 从页面中提取更多元数据，包括 schema.org 数据。
+  - [mozilla/readability](https://github.com/mozilla/readability)
+    - Apache-2.0, JS
+    - used for Firefox Reader View
+    - [go-shiori/go-readability](https://github.com/go-shiori/go-readability)
+      - MIT, Golang
+- Applications
+  - [dingyufei615/ai-goofish-monitor](https://github.com/dingyufei615/ai-goofish-monitor)
+    - 基于 Playwright 和AI过滤分析的闲鱼多任务实时监控与智能分析工具，配备了功能完善的 Web 管理界面。
+  - [a16z-infra/ai-town](https://github.com/a16z-infra/ai-town)
+    - MIT, TS
+- Operator/Mobile/iOS/Android/Device
+  - [droidrun/droidrun](https://github.com/droidrun/droidrun)
+  - [minhalvp/android-mcp-server](https://github.com/minhalvp/android-mcp-server)
+  - [mobile-next/mobile-mcp](https://github.com/mobile-next/mobile-mcp)
+- Browser
+  - browser-use
+  - [nanobrowser/nanobrowser](https://github.com/nanobrowser/nanobrowser)
+    - Apache-2.0, TS
+    - Chrome extension for AI-powered web automation. Run multi-agent workflows using your own LLM API key
+    - Alternative to OpenAI Operator.
+- OCR/GUI
+  - [microsoft/OmniParser](https://github.com/microsoft/OmniParser)
+    - 识别 UI 交互元素
+    - Pure Vision Based GUI Agent
+- Tasks/特定任务
+  - [andrewyng/translation-agent](https://github.com/andrewyng/translation-agent)
+    - Agentic translation using reflection workflow
+  - [kingjulio8238/memary](https://github.com/kingjulio8238/memary)
+    - Longterm Memory for Autonomous Agents
+- OpenAI
+  - OpenAI Operator
+  - https://platform.openai.com/docs/models/computer-use-preview
+  - https://platform.openai.com/docs/guides/tools-computer-use
+- Anthropic
+  - Claude MCP
+- Computer
+  - https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo
+  - OpenAI Computer Use
+    - https://platform.openai.com/docs/models/computer-use-preview
+    - https://platform.openai.com/docs/guides/tools-computer-use
+  - [browser-use/macOS-use](https://github.com/browser-use/macOS-use)
+- Components
+  - Tools
+  - Agent Core
+  - Planing
+    - with Feedback
+    - without Feedback
+  - Memory
+    - short
+    - long
+    - hybrid
+- usecase
+  - Conversational
+  - Task Oriented
+  - Creative
+  - Collaborative
 
+---
+
+- https://www.truefoundry.com/blog/llm-agents
+
+# FAQ
