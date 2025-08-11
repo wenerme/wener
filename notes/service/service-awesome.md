@@ -303,7 +303,9 @@ tags:
   - [toeverything/AFFiNE](https://github.com/toeverything/AFFiNE)
     - MIT, JS, Electron, React
     - alternative for Notion, Miro, Airtable
+    - 支持 iOS, Android, macOS, Windows
     - 基于 [toeverything/blocksuite](https://github.com/toeverything/blocksuite)
+      - MPLv2, TS
   - [usememos/memos](https://github.com/usememos/memos)
     - MIT, Go, TS
   - [laurent22/joplin](https://github.com/laurent22/joplin)

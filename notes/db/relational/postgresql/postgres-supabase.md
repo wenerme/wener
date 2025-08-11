@@ -33,7 +33,7 @@ docker run --rm -it \
   -p 5432:5432 \
   -e POSTGRES_INITDB_ARGS="--encoding=UTF-8 --lc-collate=C --lc-ctype=C" \
   -v $PWD/data:/var/lib/postgresql/data \
-  --name postgres supabase/postgres:17.4.1.049 \
+  --name postgres supabase/postgres:17.4.1.071 \
   -clisten_addresses="*" \
   -cshared_preload_libraries=pg_stat_statements,pg_stat_monitor,pgaudit,plpgsql,plpgsql_check,pg_cron,pg_net,timescaledb,auto_explain,pg_tle
 ```

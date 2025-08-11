@@ -26,11 +26,15 @@ openssl rand -hex 16
 openssl rand -base64 16
 head -c 16 /dev/urandom | hexdump -v -e '/1 "%02x"'
 cat /dev/urandom | tr -dc 'a-f0-9' | head -c 32
-for i in {1..16}; do printf "%02x" $((RANDOM % 256)); done; echo
+for i in {1..16}; do printf "%02x" $((RANDOM % 256)); done
+echo
 xxd -l 16 -p /dev/urandom
 
 # infinite loop
-while true; do echo "Hello, World!"; sleep 1; done
+while true; do
+  echo "Hello, World!"
+  sleep 1
+done
 
 # rm .DS_Store
 find . -name '.DS_Store' -type f -delete
@@ -38,7 +42,6 @@ find . -name '.DS_Store' -type f -delete
 find . -type d -empty -delete
 # rm empty file
 find . -type f -empty -delete
-
 
 # Shell 参数最大长度
 # 131072 -> 128KB
@@ -51,6 +54,13 @@ getconf ARG_MAX
   - `PS3` - select
   - `PS4` - debug
   - `%` non root, `#` root
+
+## env
+
+| env                         | for |
+| --------------------------- | --- |
+| INTELLIJ_ENVIRONMENT_READER |
+| ZSH_TMUX_AUTOSTART          |
 
 ## ip
 

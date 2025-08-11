@@ -46,17 +46,18 @@ tags:
   - 推理
 - 参考
   - https://github.com/Aider-AI/aider/issues/3362
+  - https://github.com/chrisdias/vscode-promptboost/blob/main/src/promptBoost.ts
 - https://prompthero.com/
 - https://stablediffusionweb.com/prompts
 - https://www.promptrepo.net/explore
 - https://promptingpixels.com/
 
-| topic                          | cite                                 |
-| ------------------------------ | ------------------------------------ |
-| Zero-shot Prompting            | https://arxiv.org/pdf/2109.01652.pdf |
-| Few-shot Prompting             | https://arxiv.org/abs/2005.14165     |
-| Chain-of-Thought Prompting     | https://arxiv.org/abs/2201.11903     |
-| Self-Consistency               | https://arxiv.org/pdf/2203.11171.pdf |
+| topic                          | cite                                 | description                                         |
+| ------------------------------ | ------------------------------------ | --------------------------------------------------- |
+| Zero-shot Prompting            | https://arxiv.org/pdf/2109.01652.pdf | No examples are given in the prompt.                |
+| Few-shot Prompting             | https://arxiv.org/abs/2005.14165     | A few examples are given in the prompt.             |
+| Chain-of-Thought Prompting     | https://arxiv.org/abs/2201.11903     | The model is prompted to think step-by-step.        |
+| Self-Consistency               | https://arxiv.org/pdf/2203.11171.pdf | The model's responses are compared for consistency. |
 | Generate Knowledge Prompting   | https://arxiv.org/pdf/2110.08387.pdf |
 | Automatic Prompt Engineer      | https://arxiv.org/abs/2211.01910     |
 | AutoPrompt                     | https://arxiv.org/abs/2010.15980     |

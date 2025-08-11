@@ -24,6 +24,12 @@ tags:
 
 :::
 
+```bash
+# for Container
+su -l postgres -s /bin/bash
+export PATH="/usr/lib/postgresql/17/bin:$PATH"
+```
+
 - [Unsupported Features](https://www.postgresql.org/docs/current/unsupported-features-sql-standard.html)
   - SQL:2016
 
@@ -813,6 +819,16 @@ preStop:
 - collate 不能创建 db 后修改，可以针对 column 或 table 修改。
 
 :::
+
+- --lc-collate=C --lc-ctype=C
+  - 影响排序、比较、字符操作
+  - 好处
+    - byte-level sorting
+    - 提升性能, text_pattern_ops, like
+  - 坏处
+    - 不支持 pg_trgm
+- 默认 en_US.utf8
+- C 是最小化的 locale
 
 ```sql
 create index on t (name COLLATE "C");

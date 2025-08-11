@@ -48,6 +48,8 @@ prettier --write src --cache --cache-strategy metadata
 
 prettier --support-info
 prettier --file-info a.js
+
+pnpm dlx --packages={prettier-plugin-sh,prettier} prettier  --write ./*.sh
 ```
 
 **prettier.config.js**

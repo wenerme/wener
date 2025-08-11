@@ -457,11 +457,32 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
       - ID 之类的
 
 ```
-| Header  | Title Search Filter                                      Action
+| Header  | Title Search Filter                                  Add Action
 |--------------------------------------------------------------------------
 | Sidebar | View                                            | Summary Panel
 |         |----------------------------------------------------------------
 |         | Footer  | PageInfo PageNav Refresh        ViewActionPlaceholder
+```
+
+---
+
+- ResourceSummaryList
+  - 用于侧边栏
+- CompactList
+- DenseList
+- Select List / Picker
+- Dropdown List
+- Preview List
+- MicroList
+- Thumbnail List
+- IconList
+
+```
+Title                           Actions
+---------------------------------------
+Item DisplayName
+---------------------------------------
+Page Info Nav Refresh
 ```
 
 ---
@@ -471,6 +492,9 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
   - 方便在任何上下文中引用资源
   - 显示资源的关键信息
   - 支持点击 Popup 预览
+    - ResourcePreview
+      - 多 tab
+      - 默认为 ResourcePreviewSummary
   - 支持提及功能
 
 ```
@@ -493,7 +517,7 @@ Icon | Title                     [Error/Loading] Refresh Toolbar Action/Simple
 -------------------------------------------------------------------------------
 Content
 -------------------------------------------------------------------------------
-Context Action                                                    Action/Submit
+Menu                                                              Cancel Submit
 ```
 
 ---
@@ -703,6 +727,16 @@ Context Action                                                    Action/Submit
   - needsProcessing
   - needsPostConfirmation
 - [Task entity reference](https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/entities/task)
+
+---
+
+- To-do
+  - Backlog - 待办
+  - Pending - 待处理
+  - Waiting Triage - 待分类
+  - In Progress - 进行中
+  - Done - 已完成
+  - Canceled - 已取消
 
 ## Work
 

@@ -845,6 +845,64 @@ tags:
   - 欧洲设备租赁行业 http://www.hae.org.uk
 - [Rental management software](https://en.wikipedia.org/wiki/Rental_management_software)
 
+## 人力资源 {#human-resources}
+
+> 人力资源 (Human Resources)、职业发展 (Career Development) 、求职招聘 (Job Seeking / Recruitment)
+
+| abbr. | stand for                    | cn           |
+| ----- | ---------------------------- | ------------ |
+| ATS   | Applicant Tracking System    | 招聘管理系统 |
+| CV    | Curriculum Vitae             | 个人简历     |
+| EAP   | Employee Assistance Program  | 员工援助计划 |
+| FTE   | Full-Time Equivalent         | 全职等效     |
+| HR    | Human Resources              | 人力资源     |
+| JD    | Job Description              | 职位描述     |
+| KPI   | Key Performance Indicator    | 关键绩效指标 |
+| L&D   | Learning and Development     | 学习与发展   |
+| OJT   | On-the-Job Training          | 在职培训     |
+| PIP   | Performance Improvement Plan | 绩效改进计划 |
+| PTO   | Paid Time Off                | 带薪休假     |
+| T&D   | Training and Development     | 培训与发展   |
+| TA    | Talent Acquisition           | 人才招聘     |
+
+**Resume vs CV vs Cover Letter**
+
+- Resume
+  - 简历
+  - Resume 是一个法语词，意为“总结”(summary)
+  - 一般指个人的工作经历、教育背景、技能等信息的简要概述
+  - 通常用于求职申请
+  - 强调个人的工作经验和技能
+  - 内容
+    - 个人信息
+    - 个人简介/职业目标
+    - 工作经历
+    - 教育背景
+    - 技能
+    - 可选部分: 奖项、证书、项目经验等（仅在与职位高度相关时加入）。
+- CV (Curriculum Vitae)
+  - 个人简历、学术简历、履历
+  - 更详细的个人履历
+  - 主要用于 学术、教育、科研、医学领域的职位申请
+  - Curriculum Vitae 是一个拉丁语词组，意为“人生的历程”(course of life)。
+  - 一份非常详尽的个人学术和职业历史记录。其目的在于提供一个全面、完整的个人资历概览。
+  - 包括教育背景、工作经历、研究成果、出版物等
+  - 通常用于学术界或专业领域的申请
+  - 内容
+    - 完整的教育背景
+    - 研究经历 - 详细描述每个研究项目。
+    - 教学经历 (Teaching Experience): 如果有的话。
+    - 发表著作 (Publications): 列出所有已发表的期刊文章、书籍章节、会议论文等。
+    - 学术会议 (Conference Presentations): 在学术会议上做的口头报告或海报展示。
+    - 所获奖项与荣誉 (Honors and Awards):
+    - 获得的奖学金与研究基金 (Grants and Fellowships):
+    - 专业协会会员资格 (Professional Affiliations):
+    - 推荐人信息 (References): 通常会单独列出或注明“可应要求提供”。
+- Cover Letter
+  - 求职信
+  - 附在简历或 CV 前的信件
+  - 用于介绍自己、表达对职位的兴趣、说明为什么适合该职位
+
 # FAQ
 
 ## customer vs account vs client vs consumer vs user

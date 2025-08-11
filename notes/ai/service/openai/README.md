@@ -44,7 +44,8 @@ curl https://chatgpt.com/public-api/conversation_limit
   - 256×256 $0.016/image
 - Audio
   - Whisper $0.006 / minute
-- https://openai.com/pricing
+- https://openai.com/chatgpt/pricing/
+- https://platform.openai.com/docs/pricing
 - https://chatgpt.com/public-api/conversation_limit
   - 检测 IP 是否可用
 

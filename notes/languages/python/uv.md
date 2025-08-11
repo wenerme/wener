@@ -38,7 +38,7 @@ uv pip sync requirements.lock
 
 # FAQ
 
-##  No module named 'setuptools'
+## No module named 'setuptools'
 
 ```bash
 uv pip install setuptools

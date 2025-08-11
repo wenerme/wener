@@ -114,6 +114,11 @@ github-latest-version kubernetes-sigs/nfs-subdir-external-provisioner
 language:"Protocol Buffer"
 ```
 
+```
+https://github.com/search?q=path:**/CLAUDE.md&type=code
+https://github.com/search?q=path:**/GEMINI.md&type=code
+```
+
 ## Markdown
 
 <img src="https://render.githubusercontent.com/render/math?math=\begin{equation}\sum_{n=0}^\infty\frac{1}{2^n}\end{equation}"/>

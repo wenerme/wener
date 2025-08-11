@@ -34,12 +34,12 @@ tags:
     - MiniPerplx -> scira
     - minimalistic AI-powered search engine
 - Workflow/Research
+  - [deepset-ai/haystack](https://github.com/deepset-ai/haystack)
   - [langgenius/dify](https://github.com/langgenius/dify)
     - ~~Apache-2.0~~, TS, React
   - [coze-dev/coze-studio](https://github.com/coze-dev/coze-studio)
     - Apache-2.0, TS, React, Go
   - n8n
-  - windmill
   - [FoundationAgents/OpenManus](https://github.com/FoundationAgents/OpenManus)
     - MIT, Python
   - [DahnM20/ai-flow](https://github.com/DahnM20/ai-flow)
@@ -48,11 +48,18 @@ tags:
     - MIT, Python, TS
   - [activepieces](https://github.com/activepieces/activepieces)
     - MIT+EE, TS
+  - [kestra-io/kestra](https://github.com/kestra-io/kestra)
+    - Apache-2.0, Java, Vue
+    - Event-Driven Declarative Orchestration Platform
   - [simstudioai/sim](https://github.com/simstudioai/sim)
     - Apache-2.0, TS
     - pgvector, socket.io, bun, next.js, Drizzle ORM, [trigger.dev](https://github.com/triggerdotdev/trigger.dev), [better-auth/better-auth](https://github.com/better-auth/better-auth), ReactFlow
   - https://github.com/enumura1/chatbot-flow-editor
     - Visual chatbot flow editor. GUI tool for designing chatbot flows. Create, test, and export as JSON.
+  - [autokitteh/autokitteh](https://github.com/autokitteh/autokitteh)
+    - Apache-2.0, Python
+    - Durable workflow automation
+  - [windmill-labs/windmill](https://github.com/windmill-labs/windmill)
 - Client/Desktop/App/Runner/Server
   - [danny-avila/LibreChat](https://github.com/danny-avila/LibreChat)
     - MIT, TS, JS, React, radix-ui, recoil, tailwindcss, zod, redis, meilisearch, mongodb, express, pgvector

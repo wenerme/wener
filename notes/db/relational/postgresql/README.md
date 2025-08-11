@@ -140,6 +140,28 @@ select version();
 select regexp_split_to_array('abc','');
 ```
 
+**Docker Image**
+
+| env                       | for                      |
+| ------------------------- | ------------------------ |
+| POSTGRES_USER             | postgres                 |
+| POSTGRES_DB               | $POSTGRES_USER           |
+| PGDATA                    | /var/lib/postgresql/data |
+| POSTGRES_INITDB_ARGS      |
+| POSTGRES_PASSWORD         |
+| POSTGRES_INITDB_WALDIR    |
+| POSTGRES_HOST_AUTH_METHOD |
+
+```bash
+echo "host all all all $POSTGRES_HOST_AUTH_METHOD" >> pg_hba.conf
+```
+
+- https://github.com/docker-library/postgres/blob/master/17/alpine3.22/docker-entrypoint.sh
+
+**libpq**
+
+- https://www.postgresql.org/docs/current/libpq-envars.html
+
 ## Notes
 
 ### 升级

@@ -56,13 +56,33 @@ https://github.com/git/git/tree/master/po
 
 <!-- ❓⭐️🌟🔴🟠🟡🟢🔵🟣⚫️⚪️🟤🔺🔻🔸🔹🔶🔷🔳🔲▪️▫️◾️◽️◼️◻️🟥🟧🟨🟩🟦🟪⬛️⬜️🟫❌⭕️⛔️✅❎ 🚧 -->
 
-| gly |
-| --- |
-| ‒   |
-| –   |
-| —   |
-| ⸺   |
-| ⸻   |
+## Blank and Fill Symbols
+
+| State | Symbol | Description           |
+| :---- | :----: | :-------------------- |
+| Blank | ⬜️    | White Large Square    |
+| Fill  | ⬛️    | Black Large Square    |
+| Blank | ⚪️    | White Circle          |
+| Fill  | ⚫️    | Black Circle          |
+| Blank | ☐      | Ballot Box            |
+| Fill  | ☑      | Ballot Box with Check |
+| Blank | 🔲    | Black Square Button   |
+| Fill  | 🔳    | White Square Button   |
+
+
+## Dashes and Hyphens
+
+| Glyph | Name                | Alias | HTML Entity |
+| :---: | :------------------ | :---: | :---------: |
+|   -   | Hyphen-Minus        |  `-`  |             |
+|   ‐   | Hyphen              |       | `&hyphen;`  |
+|   ‑   | Non-Breaking Hyphen |       |  `&#8209;`  |
+|   ‒   | Figure Dash         |       |  `&#8210;`  |
+|   –   | En Dash             | `--`  |  `&ndash;`  |
+|   —   | Em Dash             | `---` |  `&mdash;`  |
+|   ―   | Horizontal Bar      |       | `&horbar;`  |
+|   ⸺   | Two-Em Dash         |       | `&#11834;`  |
+|   ⸻   | Three-Em Dash       |       | `&#11835;`  |
 
 ## Emoji
 
@@ -122,7 +142,7 @@ https://github.com/git/git/tree/master/po
 | ^       | Option                                 |
 | ⌃       | Option                                 |
 | ❖       | Windows                                |
-| ↩ ↵ ⏎   | Enter                                  |
+| ↩ ↵ ⏎  | Enter                                  |
 | ▤ ☰ 𝌆   | Menu                                   |
 | ↹ ⇥     | Tab                                    |
 | ⇄ ⇤ ↤ ↦ | Tab symbol                             |
@@ -132,7 +152,7 @@ https://github.com/git/git/tree/master/po
 | ⌦       | Delete                                 |
 | ⌧       | Clear                                  |
 | ⌤       | Enter                                  |
-| ⏏       | Eject                                  |
+| ⏏      | Eject                                  |
 | ⎀       | Power                                  |
 
 - http://xahlee.info/kbd/apple_keyboard_key_symbols.html
@@ -157,7 +177,7 @@ https://github.com/git/git/tree/master/po
 | 💵  |
 | 💰  |
 | 💴  |
-| 🏷   |
+| 🏷  |
 | 💬  |
 | 🛒  |
 | 📆  |

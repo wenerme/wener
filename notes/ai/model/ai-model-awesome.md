@@ -11,6 +11,7 @@ tags:
 
 | Date       | Model            | Size                                                        | Context Window | Creator         | notes                                                                              |
 | :--------- | :--------------- | :---------------------------------------------------------- | :------------- | :-------------- | ---------------------------------------------------------------------------------- |
+| 2025-08-06 | GPT OSS          | [20B][gpt-oss-20b], [120B][gpt-oss-120b]                    | 128K           | OpenAI          | Reasoning, Tools                                                                   |
 | 2025-07-28 | Intern-S1        | 235B                                                        |                |                 | Qwen3 + 6B InternViT                                                               |
 | 2025-07-28 | GLM 4.5          | 355-32A, Air 106-12A                                        | 128K           | Zhipu           | Reasoning, Multilingual                                                            |
 | 2025-07-23 | Qwen3 2507       | Coder 480B-A35B, Coder-Flash 30B-A3B, 235B-A22B, 30B-A3B    | 256K, Yarn 1M  |
@@ -51,6 +52,9 @@ tags:
 | 2019-02-14 | GPT-2            | 1.5b                                                        | 1K             | OpenAI          |
 | 2018-06-11 | GPT-1            | 117m                                                        | 512            | OpenAI          |
 
+[gpt-oss-20b]: https://huggingface.co/openai/gpt-oss-20b
+[gpt-oss-120b]: https://huggingface.co/openai/gpt-oss-120b
+
 | date       | model        | author | notes                                   |
 | ---------- | ------------ | ------ | --------------------------------------- |
 | 2025-06    | MobileNet V5 | Google | 256x256, 512x512, 768x768, CNN,Gemma 3n |
@@ -81,6 +85,28 @@ tags:
   - https://github.com/facebookresearch/segment-anything
 - SAM v2
   - https://arxiv.org/abs/2408.00714
+
+**Diffusion/Image Models**
+
+| date       | model              | size                                      | author            | notes                                |
+| ---------- | ------------------ | ----------------------------------------- | ----------------- | ------------------------------------ |
+| 2025-08-04 | [Qwen-Image]       | 20B                                       | Alibaba           | Apache-2.0,MMDiT , T2I,Editing, Text |
+| 2025-07-16 | HiDream-E1-1       |                                           |                   | Editing                              |
+| 2025-05-29 | FLUX.1 Kontext     | dev 12B,~~max~~,~~pro~~                   | Black Forest Labs |                                      |
+| 2025-04-07 | HiDream-I1         | 17B, Fast 16step, Dev 28step, Full 50step |
+| 2025-01-25 | Lumina-Image 2.0   | 2B                                        | OpenGVLab         | Apache-2.0                           |
+| 2024-10-22 | SD 3.5             | turbo, large, medium ,2.5B, 8B            | Stability AI      |
+| 2024-08-01 | FLUX.1             | dev, schnell, 12B, ~~pro~~                | Black Forest Labs |
+| 2024-02    | SD 3.0             | 800M, 8B                                  | Stability AI      |
+| 2023-11    | SDXL Turbo         |                                           | Stability AI      |
+| 2023-07    | SDXL 1.0           | 3.5B                                      |
+| 2022-12    | SD v2.1            |
+| 2022-11    | SD v2.0            |                                           |
+| 2022-10    | SD 1.5             | 983M                                      | RunwayML          |
+| 2022-08    | SD 1.1 1.2 1.3 1.4 |                                           | CompVis           |
+| 2025-06-16 | OmniGen2           | 7B                                        | VectorSpaceLab    | T2I, Editing, Composing              |
+
+[Qwen-Image]: https://huggingface.co/Qwen/Qwen-Image
 
 **Proprietary Models**
 
@@ -899,22 +925,7 @@ make this image come alive, cinematic motion, smooth animation
 - In/Out-Painting
 - Structural Conditioning
 
-| date       | model              | size                                      | author            | notes                   |
-| ---------- | ------------------ | ----------------------------------------- | ----------------- | ----------------------- |
-| 2025-07-16 | HiDream-E1-1       |                                           |                   | Editing                 |
-| 2025-05-29 | FLUX.1 Kontext     | dev 12B,~~max~~,~~pro~~                   | Black Forest Labs |                         |
-| 2025-04-07 | HiDream-I1         | 17B, Fast 16step, Dev 28step, Full 50step |
-| 2025-01-25 | Lumina-Image 2.0   | 2B                                        | OpenGVLab         | Apache-2.0              |
-| 2024-10-22 | SD 3.5             | turbo, large, medium ,2.5B, 8B            | Stability AI      |
-| 2024-08-01 | FLUX.1             | dev, schnell, 12B, ~~pro~~                | Black Forest Labs |
-| 2024-02    | SD 3.0             | 800M, 8B                                  | Stability AI      |
-| 2023-11    | SDXL Turbo         |                                           | Stability AI      |
-| 2023-07    | SDXL 1.0           | 3.5B                                      |
-| 2022-12    | SD v2.1            |
-| 2022-11    | SD v2.0            |                                           |
-| 2022-10    | SD 1.5             | 983M                                      | RunwayML          |
-| 2022-08    | SD 1.1 1.2 1.3 1.4 |                                           | CompVis           |
-| 2025-06-16 | OmniGen2           | 7B                                        | VectorSpaceLab    | T2I, Editing, Composing |
+---
 
 - [Alpha-VLLM/Lumina-Image-2.0](https://github.com/Alpha-VLLM/Lumina-Image-2.0)
   - hf [Alpha-VLLM/Lumina-Image-2.0](https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0)

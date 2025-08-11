@@ -31,6 +31,25 @@ tags:
   - Backbone.js
   - Ember.js
   - Knockout
+- typesetting system/markup language/排版系统
+  - TeX
+    - since 1978
+    - by Donald Knuth
+  - LaTeX
+    - 基于 TeX 的宏包和文档准备系统
+    - since 1984
+    - by Leslie Lamport
+  - [typst/typst](https://github.com/typst/typst)
+    - Apache-2.0, Rust
+    - since 2019-02
+    - markup-based typesetting system
+    - 图灵完备 语言
+  - [sile-typesetter/sile](https://github.com/sile-typesetter/sile)
+    - MIT, Lua, C++, C
+  - Typora
+  - InDesign
+  - Microsoft Word
+  - Microsoft Publisher
 
 ## Playground
 

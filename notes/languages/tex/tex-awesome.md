@@ -6,6 +6,7 @@ tags:
 
 # TeX Awesome
 
+- LaTeX
 - texlive
   - latexmk
   - pdflatex
