@@ -10,6 +10,41 @@ title: ACL
 
 :::
 
+- DATABASE - 数据库
+  - `CONNECT` - 允许用户连接到数据库。
+  - `CREATE` - 允许用户在数据库中创建新的 Schema。
+  - `TEMPORARY` / `TEMP` - 允许用户在此数据库中创建临时表。
+- SCHEMA - 模式
+  - `USAGE` - 允许用户访问 Schema 中的对象。
+  - `CREATE` - 允许用户在此 Schema 中创建新对象（如表、视图、函数等）。
+- TABLE - 表
+  - `SELECT` - 允许从表或特定列读取数据。
+  - `INSERT` - 允许向表中插入新行。
+  - `UPDATE` - 允许更新表中已有的行。
+  - `DELETE` - 允许从表中删除行。
+  - `TRUNCATE` - 允许使用 `TRUNCATE` 命令快速清空表。
+  - `REFERENCES` - 允许创建指向此表的外键约束。
+  - `TRIGGER` - 允许在表上创建触发器。
+- COLUMN - 列
+  - `SELECT` - 允许从特定列读取数据。
+  - `INSERT` - 允许在 `INSERT` 命令中为特定列提供值。
+  - `UPDATE` - 允许在 `UPDATE` 命令中更新特定列。
+  - `REFERENCES` - 允许创建指向此列的外键约束。
+- SEQUENCE - 序列
+  - `USAGE` - 允许使用 `currval` 和 `nextval` 函数。
+  - `SELECT` - 允许使用 `currval` 函数。
+  - `UPDATE` - 允许使用 `nextval` 和 `setval` 函数。
+- FUNCTION / PROCEDURE - 函数 / 过程
+  - `EXECUTE` - 允许调用函数或过程。
+- VIEW - 视图
+  - 权限与表（TABLE）的权限类似（`SELECT`, `INSERT`, `UPDATE` 等）。
+- TYPE - 类型
+  - `USAGE` - 允许使用自定义类型（例如，在创建表、函数或进行类型转换时）。
+- TABLESPACE - 表空间
+  - `CREATE` - 允许在此表空间中创建数据库对象（如表、索引）。
+
+---
+
 - User -> Role - 新版都是 ROLE
 - 属性
   - LOGIN - 可登录 - `CREATE USER` 默认包含 LOGIN

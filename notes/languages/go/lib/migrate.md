@@ -12,7 +12,7 @@ title: migrate
 
 ```bash
 # macOS
-curl -LO https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.darwin-amd64.tar.gz
+curl -LO https://github.com/golang-migrate/migrate/releases/download/v4.18.3/migrate.darwin-amd64.tar.gz
 tar zxvf migrate.darwin-amd64.tar.gz
 migrate -v
 

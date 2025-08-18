@@ -59,6 +59,7 @@ tags:
   - https://db-engines.com/en/ranking
   - https://db-benchmarks.com/
     - by manticoresearch
+- https://github.com/mgramin/awesome-db-tools
 
 ## 理论
 
@@ -491,6 +492,10 @@ curl --request POST \
 
 :::
 
+- 平台/服务/工具
+  - [bytebase/bytebase](https://github.com/bytebase/bytebase)
+    - MIT, Go, Vue
+    - Safe database schema change and version control for DevOps teams.
 - Java
   - flywaydb
     - Apache-2.0, SQL
@@ -501,7 +506,9 @@ curl --request POST \
     - XML
 - Golang
   - [ariga/atlas](https://github.com/ariga/atlas)
-    - DSL, Go
+    - Apache-2.0, DSL, Go
+    - SQL, HCL, ORM
+    - database schema as code
   - [golang-migrate/migrate](../languages/go/lib/migrate.md)
     - MIT, Go
     - `VER_DESC.<up|down>.sql`
@@ -512,10 +519,11 @@ curl --request POST \
     - 注释分割 `-- migrate:up`
   - [pressly/goose](https://github.com/pressly/goose)
     - MIT, SQL/Go
-- 平台/服务/工具
-  - [bytebase/bytebase](https://github.com/bytebase/bytebase)
-    - MIT, Go, Vue
-    - Safe database schema change and version control for DevOps teams.
+    - Supports SQL migrations and Go functions.
+- NodeJS
+  - [salsita/node-pg-migrate](https://github.com/salsita/node-pg-migrate)
+    - MIT, TS
+    - Node.js database migration management for PostgreSQL
 - [djrobstep/migra](https://github.com/djrobstep/migra)
   - PG Schema Diff
 - [fabianlindfors/reshape](https://github.com/fabianlindfors/reshape)

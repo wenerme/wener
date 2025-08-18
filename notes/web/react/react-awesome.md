@@ -415,9 +415,11 @@ npm add date-fns lodash-es react-fast-compare
   - ~~[react-datasheet](https://github.com/nadbm/react-datasheet)~~
     - ⚠️ 不再维护
 - i18n - [Unicode Language and Locale Identifiers](https://www.unicode.org/reports/tr35/tr35-59/tr35.html#Identifiers)
-  - react-i18next
+  - [i18next/react-i18next](https://github.com/i18next/react-i18next)
+  - [i18next/next-i18next](https://github.com/i18next/next-i18next)
+    - Next.js 集成
   - react-intl
-  - lingui
+  - [lingui/js-lingui](https://github.com/lingui/js-lingui)
   - rosetta
   - next-intl
   - [formatjs](https://github.com/formatjs/formatjs)

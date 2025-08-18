@@ -15,6 +15,7 @@ title: Ideas
 - hn relay
   - 提供 Hacker news 的代理服务
   - 提供翻译为多个语言
+  - 提醒新回复
 - 站点评论浏览器插件
   - 浏览器插件
   - 提供 Hacker news 的评价

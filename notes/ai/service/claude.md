@@ -1,10 +1,8 @@
 ---
-title: claude
+title: Anthropic
 ---
 
-# claude
-
-> Anthropic
+# Anthropic
 
 - 160.79.104.0/23, 2607:6bc0::/48
   - https://docs.anthropic.com/claude/reference/ip-address-allowlisting
@@ -94,7 +92,6 @@ export DISABLE_BUG_COMMAND=1
 - 自定义 slash 命令 .claude/commands/fix-github-issue.md
 - https://docs.anthropic.com/en/docs/claude-code/settings
 
-
 ## CLAUDE.md
 
 - ~/.claude/CLAUDE.md
@@ -129,8 +126,12 @@ export DISABLE_BUG_COMMAND=1
 - 工作流
   - 探索、计划、编码、提交
     - 探索：要求 Claude 阅读相关文件、图片或 URL，但明确指示它暂时不要编写代码。
-    - 计划：让 Claude 制定一个计划。使用 "think"、"think hard" 或 "ultrathink" 等关键词可以为其分配更多计算时间进行深度思考 。  
+    - 计划：让 Claude 制定一个计划。使用 "think"、"think hard" 或 "ultrathink" 等关键词可以为其分配更多计算时间进行深度思考 。
     - 编码：指示 Claude 根据计划实现解决方案。
     - 提交：让 Claude 提交结果、创建拉取请求 (Pull Request)，并更新相关文档。
   - 测试驱动开发 (TDD)
   - 可视化驱动开发
+
+# FAQ
+
+## This organization has been disabled.

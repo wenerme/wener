@@ -5,20 +5,32 @@ tags:
 
 # Economics Glossary
 
-| abbr.               | en                                      | zh         |
-| ------------------- | --------------------------------------- | ---------- |
-| CD,COD              | Certificate of Deposit                  | 存单       |
-| CPA                 | Certified Public Accountant             | 注册会计师 |
-| SSE Composite Index | Shanghai Stock Exchange Composite Index | 上证指数   |
+| abbr.               | en                                                              | zh                   |
+| ------------------- | --------------------------------------------------------------- | -------------------- |
+| CAGR                | Compound Annual Growth Rate                                     | 年均复合增长率       |
+| CD,COD              | Certificate of Deposit                                          | 存单                 |
+| CPA                 | Certified Public Accountant                                     | 注册会计师           |
+| DCF                 | Discounted Cash Flow                                            | 折现现金流           |
+| EBITDA              | Earnings Before Interest, Taxes, Depreciation, and Amortization | 税息折旧及摊销前利润 |
+| IPO                 | Initial Public Offering                                         | 首次公开募股         |
+| M&A                 | Mergers and Acquisitions                                        | 并购                 |
+| P/B Ratio           | Price-to-Book Ratio                                             | 市净率               |
+| P/E Ratio           | Price-to-Earnings Ratio                                         | 市盈率               |
+| SSE Composite Index | Shanghai Stock Exchange Composite Index                         | 上证指数             |
 
-| en         | cn     |
-| ---------- | ------ |
-| Economics  | 经济学 |
-| Finance    | 金融   |
-| deposit    | 质押   |
-| accounting | 会计   |
-| financial  | 财务   |
-| auditing   | 审计   |
+| en                       | cn     |
+| ------------------------ | ------ |
+| Economics                | 经济学 |
+| Finance                  | 金融   |
+| Pledge                   | 质押   |
+| Deposit                  | 存款   |
+| Accounting               | 会计   |
+| Financial                | 财务   |
+| Auditing                 | 审计   |
+| Investment               | 投资   |
+| Financing                | 融资   |
+| Loan                     | 贷款   |
+| Investment and Financing | 投融资 |
 
 | en            | cn         |
 | ------------- | ---------- |

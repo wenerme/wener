@@ -10,7 +10,7 @@ title: dotenv
   - [motdotla/dotenv](https://github.com/motdotla/dotenv)
     - npm:[dotenv](https://npmjs.com/package/dotenv)
   - [dotenvx/dotenvx](https://github.com/dotenvx/dotenvx)
-    - `dotenvx run -- node index.js`
+    - `npx -y dotenvx run -- node index.js`
   - [kerimdzhanov/dotenv-flow](https://github.com/kerimdzhanov/dotenv-flow)
 - env tpl
   - [envsubst](https://www.gnu.org/software/gettext/manual/html_node/envsubst-Invocation.html)

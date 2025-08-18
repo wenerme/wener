@@ -8,5 +8,6 @@ tags:
 | en             | cn       |
 | -------------- | -------- |
 | cognitive bias | 认知偏差 |
+| psychology     | 心理学   |
 
 - [Curse of knowledge](https://en.wikipedia.org/wiki/Curse_of_knowledge) - 知识诅咒

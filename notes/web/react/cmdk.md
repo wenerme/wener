@@ -16,9 +16,10 @@ const CommandMenu = () => {
     <Command label='Command Menu'>
       <Command.Input />
       <Command.List>
+        {loading && <Command.Loading>Fetching words…</Command.Loading>}
         <Command.Empty>No results found.</Command.Empty>
 
-        <CommandItem value="-" className="hidden" />
+        <CommandItem value='-' className='hidden' />
 
         <Command.Group heading='Letters'>
           <Command.Item>a</Command.Item>
