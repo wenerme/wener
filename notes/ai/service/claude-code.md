@@ -1,21 +1,7 @@
 ---
-title: Anthropic
+title: Claude Code
+tags: [Claude, AI, Code, Agent]
 ---
-
-# Anthropic
-
-- 160.79.104.0/23, 2607:6bc0::/48
-  - https://docs.anthropic.com/claude/reference/ip-address-allowlisting
-- https://www.anthropic.com/earlyaccess
-- https://console.anthropic.com/
-- models
-  - claude-3-7-sonnet
-  - claude-3-5-haiku
-  - claude-3-5-sonnet
-  - claude-opus-4
-  - claude-sonnet-4
-- 参考
-  - https://www.anthropic.com/engineering/claude-code-best-practices
 
 # Claude Code
 
@@ -37,6 +23,19 @@ CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 claude
 
 npx -y ccusage blocks --live
 ```
+
+| cmd         | for                        |
+| ----------- | -------------------------- |
+| `!`         | 进入 bash 模式运行终端命令 |
+| `/`         | 执行 Claude Code 内置命令  |
+| `@`         | 快速引用或操作文件路径     |
+| `#`         | 记忆内容供后续使用         |
+| esc esc     | 清空当前输入               |
+| ctrl + \_   | 撤销操作                   |
+| shift + tab | 自动接受编辑建议           |
+| ctrl + r    | 启用详细输出模式           |
+| ctrl + z    | 暂停 Claude Code           |
+| shift + ⏎   | 换行（在输入框中）         |
 
 - ~/.claude/settings.json
 - .claude/settings.json
@@ -131,6 +130,20 @@ export DISABLE_BUG_COMMAND=1
     - 提交：让 Claude 提交结果、创建拉取请求 (Pull Request)，并更新相关文档。
   - 测试驱动开发 (TDD)
   - 可视化驱动开发
+
+# Claude Code Router
+
+- ~/.claude-code-router/config.json
+- ccr
+- https://github.com/musistudio/claude-code-router
+
+```bash
+npm install -g @musistudio/claude-code-router
+
+ccr code   # 启动 Claude Code
+ccr ui     # UI 模式
+ccr status # 状态
+```
 
 # FAQ
 

@@ -53,6 +53,27 @@ tags:
 | 2019-02-14 | GPT-2                | 1.5b                                                        | 1K             | OpenAI          |
 | 2018-06-11 | GPT-1                | 117m                                                        | 512            | OpenAI          |
 
+| date       | model         | parameters          | context length | hidden size | attention                | heads (Q/KV/Group) | act func | head size | layers | experts (total/active) | vocab size | data type    | tokenizer           |
+| ---------- | ------------- | ------------------- | -------------- | ----------- | ------------------------ | ------------------ | -------- | --------- | ------ | ---------------------- | ---------- | ------------ | ------------------- |
+| 2025-08-05 | gpt-oss-120b  | 117B (5.1B active)  | 128K           | 2880        | GQA + Sparse             | 64 / - / 8         | SwiGLU   | 64        | 36     | 128 / 4                | 201,088    | MXFP4 / bf16 | o200k_harmony (BPE) |
+| 2025-08-05 | gpt-oss-20b   | 21B (3.6B active)   | 128K           | 2880        | GQA + Sparse             | 64 / - / 8         | SwiGLU   | 64        | 24     | 32 / 4                 | 201,088    | MXFP4 / bf16 | o200k_harmony (BPE) |
+| 2025-08-23 | Seed-OSS-36B  | 36B                 | 512K           | 5120        | GQA                      | 80 / 8 / -         | SwiGLU   | 128       | 64     | N/A (Dense)            | 155K       | bf16         | BPE                 |
+| 2025-03-12 | Gemma3-27B    | 27B                 | 128K           | -           | Interleaved Local/Global | -                  | -        | -         | -      | N/A (Dense)            | 262K       | bf16         | SentencePiece       |
+| 2025-01-22 | Deepseek R1   | 671B (37B active)   | 128K           | -           | MLA                      | -                  | SwiGLU   | -         | 61     |                        |            | fp8 / bf16   |                     |
+| 2025-05    | Qwen3-30B-A3B | 30.5B (3.3B active) | 256K           | 4096        | GQA                      | 32 / 4 / -         | SwiGLU   | 128       | 48     | 128 / 8                | 151,669    | bf16         | BPE (Byte-level)    |
+| 2025-05    | Qwen3-32B     | 32.8B               | 128K           | -           | GQA                      | 64 / 8 / -         | SwiGLU   | -         | 64     | N/A (Dense)            | 151,936    | bf16         | BPE (Byte-level)    |
+| 2024-12    | Deepseek V3   | 671B (37B active)   | 128K           | -           | MLA                      | -                  | SwiGLU   | -         | 61     | 256 routed, 1 shared   |            | fp8 / bf16   |                     |
+| 2019-02-14 | GPT-2 1.5B    | 1.542B              | 1024           | 1600        | Multi-Head               | 25 / 25 / -        | GELU     | 64        | 48     | N/A (Dense)            | 50,257     | fp16         | BPE (Byte-level)    |
+
+- Qwen3 tokenizer
+  - https://huggingface.co/Qwen/Qwen3-235B-A22B/blob/main/tokenizer.json
+  - https://github.com/dqbd/tiktokenizer/issues/39
+
+<!--
+https://huggingface.co/xai-org/grok-2
+https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct
+-->
+
 [gpt-oss-20b]: https://huggingface.co/openai/gpt-oss-20b
 [gpt-oss-120b]: https://huggingface.co/openai/gpt-oss-120b
 [GLM-4.5V]: https://huggingface.co/zai-org/GLM-4.5V
@@ -391,6 +412,7 @@ tags:
 - https://huggingface.co/CohereLabs/aya-vision-32b
   - 多语言，23种语言
 - OCR/Document Understanding
+  - [opendatalab/OmniDocBench](https://github.com/opendatalab/OmniDocBench)
   - Demo
     - https://huggingface.co/spaces/prithivMLmods/Multimodal-OCR2
   - Qwen VL
@@ -432,6 +454,10 @@ tags:
     - Dolphin: Document Image Parsing via Heterogeneous Anchor Prompting
   - [ChatDOC/OCRFlux-3B](https://huggingface.co/ChatDOC/OCRFlux-3B)
     - 基于 Qwen/Qwen2.5-VL-3B-Instruct
+  - [ocrmypdf/OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF)
+    - adds an OCR text layer to scanned PDF
+  - [Topdu/OpenOCR](https://github.com/Topdu/OpenOCR)
+    - 复旦大学
 - Document Structure/Layout Analysis/OCR Toolkit
   - Marker
   - [rednote-hilab/dots.ocr](https://github.com/rednote-hilab/dots.ocr)

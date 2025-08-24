@@ -14,6 +14,24 @@ tags:
   - Number.EPSILON -> -2<sup>-52</sup> -> 2.220446049250313e-16
   - 安全整数长度: 15 位, 最大 16 位
 
+## 最佳实践 {#best-practices}
+
+- 总是使用 `===` 和 `!==`, `==` 和 `!=` 会进行类型转换
+- 不要使用 null
+
+```js
+console.log(undefined == undefined); // true
+console.log(null == undefined); // true
+console.log(0 == undefined); // false
+console.log('' == undefined); // false
+console.log(false == undefined); // false
+```
+
+- TypeScript 团队禁止使用 null
+  - https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines#null-and-undefined
+- https://github.com/sindresorhus/meta/discussions/7
+- https://hamednourhani.gitbooks.io/typescript-book/content/docs/tips/null.html
+
 ## base64
 
 - atob, btoa 经常弄不清
@@ -249,4 +267,3 @@ for (const prop in exports) {
 ```
 
 - decimal.js
-

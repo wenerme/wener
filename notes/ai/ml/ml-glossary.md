@@ -175,6 +175,36 @@ tags:
   - https://www.cvat.ai/post/yolo
   - https://github.com/dair-ai/ml-visuals
 
+## 层归一化 {#layer-norm}
+
+- Layer Normalization - 层归一化
+- 目的是在训练过程中稳定和加速神经网络的收敛。
+- mean of 0 - 0 均值
+  - 表示中心为 0
+  - 计算逻辑： 先计算出所有数据的平均值，然后让每个数据点都减去这个平均值。
+  - 数值基于平均水平来描述
+  - 例如: 两个人 20 岁和 30 岁，平均年龄是 25 岁，标准化后分别为 -5 和 5，描述年龄为 相较于平均 高 5 岁 和 低 5 岁
+- variance of 1 - 1 方差
+  - 表示尺度标准化为 1
+  - 标准差
+  - 在数据变成0均值之后，再让每个数据点都除以这组数据的“标准差”。（方差是标准差的平方，所以1方差等同于1标准差）。
+  - 例如: 上面标准化后分别为 -5 和 5，处理后为 -1.0 和 1.0，抛弃了 岁 的概念
+- 统一特征的强度
+- 含义：对每个样本沿特征维度做标准化，使该层的输入“居中并等尺度”。“0 均值”表示中心为 0；“1 方差”表示尺度标准化为 1。
+- 作用：稳定数值范围与梯度，减小内部协变量偏移，加速收敛；不依赖 batch 统计，适合小批量、RNN/Transformer。
+- 场景
+  - Nomalization Activation - Post-LN
+  - Pre-LN
+
+$$
+\mu=\frac{1}{H}\sum_{i=1}^H x_i,\quad
+\sigma^2=\frac{1}{H}\sum_{i=1}^H (x_i-\mu)^2,\quad
+\hat{x}_i=\frac{x_i-\mu}{\sqrt{\sigma^2+\varepsilon}},\quad
+y_i=\gamma\hat{x}_i+\beta
+$$
+
+其中 γ、β 为可学习参数，ε 为数值稳定项。
+
 ## Variational Autoencoder {#vae}
 
 - VAE - Variational Autoencoder - 变分自编码器

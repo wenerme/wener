@@ -60,15 +60,14 @@ https://github.com/git/git/tree/master/po
 
 | State | Symbol | Description           |
 | :---- | :----: | :-------------------- |
-| Blank | ⬜️    | White Large Square    |
-| Fill  | ⬛️    | Black Large Square    |
-| Blank | ⚪️    | White Circle          |
-| Fill  | ⚫️    | Black Circle          |
-| Blank | ☐      | Ballot Box            |
-| Fill  | ☑      | Ballot Box with Check |
-| Blank | 🔲    | Black Square Button   |
-| Fill  | 🔳    | White Square Button   |
-
+| Blank |   ⬜️   | White Large Square    |
+| Fill  |   ⬛️   | Black Large Square    |
+| Blank |   ⚪️   | White Circle          |
+| Fill  |  ⚫️   | Black Circle          |
+| Blank |   ☐    | Ballot Box            |
+| Fill  |   ☑   | Ballot Box with Check |
+| Blank |   🔲   | Black Square Button   |
+| Fill  |   🔳   | White Square Button   |
 
 ## Dashes and Hyphens
 
@@ -128,32 +127,33 @@ https://github.com/git/git/tree/master/po
 
 ## Keyboard
 
-| sym     | name                                   |
-| ------- | -------------------------------------- |
-| ⌘       | Command                                |
-| ⇧       | Shift                                  |
-| ⇮       | Alt,Option                             |
-| ⎇       | Alt                                    |
-| ⌥       | Alt - Apple                            |
-| ◆       | Alt - Sun Microsystems Type 6 Keyboard |
-| ⎈       | Ctrl,HELM                              |
-| ⇬       | CapsLock                               |
-| ⎆       | Enter                                  |
-| ^       | Option                                 |
-| ⌃       | Option                                 |
-| ❖       | Windows                                |
-| ↩ ↵ ⏎  | Enter                                  |
-| ▤ ☰ 𝌆   | Menu                                   |
-| ↹ ⇥     | Tab                                    |
-| ⇄ ⇤ ↤ ↦ | Tab symbol                             |
-| ⎋       | ESC                                    |
-| ⌫ ⟵     | Backspace                              |
-| 🌐      | Apple fn                               |
-| ⌦       | Delete                                 |
-| ⌧       | Clear                                  |
-| ⌤       | Enter                                  |
-| ⏏      | Eject                                  |
-| ⎀       | Power                                  |
+| sym     | name                                   | code point |
+| ------- | -------------------------------------- | ---------- |
+| ⌘       | Command                                | U+2318     |
+| ⇧       | Shift                                  | U+21E7     |
+| ⇮       | Alt,Option                             | U+2325     |
+| ⎇       | Alt                                    | U+2387     |
+| ⌥       | Alt - Apple macOS                      | U+2325     |
+| ◆       | Alt - Sun Microsystems Type 6 Keyboard | U+25C6     |
+| ⎈       | Ctrl,HELM                              | U+2388     |
+| ⇬       | CapsLock                               | U+21EA     |
+| ⎆       | Enter                                  | U+23B6     |
+| ^       | Option                                 | U+005E     |
+| ⌃       | Option                                 | U+2303     |
+| ❖       | Windows                                | U+2756     |
+| ↩ ↵ ⏎  | Enter                                  | U+21A9     |
+| ▤ ☰ 𝌆   | Menu                                   | U+25A0     |
+| ↹ ⇥     | Tab                                    | U+21B9     |
+| ⇥       | Tab                                    | U+21B9     |
+| ⇄ ⇤ ↤ ↦ | Tab symbol                             | U+21C4     |
+| ⎋       | ESC                                    | U+238B     |
+| ⌫ ⟵     | Backspace                              | U+232B     |
+| 🌐      | Apple fn                               | U+1F5A0    |
+| ⌦       | Delete                                 | U+2326     |
+| ⌧       | Clear                                  | U+2327     |
+| ⌤       | Enter                                  | U+23B6     |
+| ⏏      | Eject                                  | U+23CF     |
+| ⎀       | Power                                  | U+2380     |
 
 - http://xahlee.info/kbd/apple_keyboard_key_symbols.html
 - http://xahlee.info/comp/unicode_computing_symbols.html

@@ -44,6 +44,52 @@ https://ark.intel.com/content/www/us/en/ark/products/120479/intel-xeon-gold-6136
 >   - 容量越大，寿命越长。
 >   - SSD 本身相当于消耗品。
 
+- 3.5 英寸硬盘 (3.5-inch Drive)
+  - 宽度: 101.6mm, 4 inch
+  - 深度: 147mm, 5.8 inch
+  - 高度: 19 - 26mm , ~1 inch
+    - 全高 (Full Height) - 25.4mm
+- 2.5 英寸硬盘 (2.5-inch Drive)
+  - 宽度: 69.85mm, 2.75 inch
+  - 深度: 100mm, 3.9 inch
+  - 高度: 7 - 15mm, ~0.6 inch
+    - 15mm, 大容量 企业级 SAS 硬盘
+    - 以前笔记本常见高度
+    - 笔记本 7mm
+    - 超薄 5mm
+- Rack Unit (U) = 1.75 英寸 (44.45 毫米)
+  - 1U = 1.75 英寸 (44.45 毫米)
+  - 2U = 3.5 英寸 (88.9 毫米)
+  - 3U = 5.25 英寸 (133.35 毫米)
+  - 4U = 7.0 英寸 (177.8 毫米)
+- 机柜
+  - 宽度 19 英寸 (482.6 毫米)
+  - 深度 450mm - 1200mm
+  - 42U, 45U, 48U, 50U, 52U, 60U
+  - 2.5 英寸硬盘, 2U, 竖着放 24 个
+  - 3.5 英寸硬盘, 2U, 横着放 12 个, 4&times;3
+- 高密度存储服务器
+  - Supermicro (超微)
+    - StorageSuperServer / SuperStorage
+    - Top-Loading (顶装式)
+      - 4U, 60、90、100+ 个 3.5盘位
+  - Dell EMC (戴尔)
+    - PowerVault
+  - HPE (慧与)
+  - Chenbro (勤诚)
+  - Quanta / QCT (广达)
+
+## 2025-08
+
+- 1P 存储, ~¥30万, 60盘, 1P HDD + 100T SSD
+- 1P 配置参考
+  - 1500¥ 18T 二手 企业级 SATA HDD
+    - 18\*60 = 1P, 约 ¥10万
+- 服务器盘位
+  - 8 12 16 24 32 36 48 50 60 64 72 75 85 96
+  - 2U 12盘位
+  - 2.5/3.5 硬盘宽度 = 2U 高度
+
 ## 2025-05
 
 - 13000¥

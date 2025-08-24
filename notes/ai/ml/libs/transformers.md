@@ -8,6 +8,12 @@ title: transformers
 uv add transformers torch torchvision pillow accelerate
 ```
 
+- attn_implementation
+  - flash_attention_2
+    - fp16, bf16
+  - sdpa
+    - default for PyTorch v2.1.1
+  - https://huggingface.co/docs/transformers/perf_infer_gpu_one
 - https://github.com/dottxt-ai/outlines
   - 结构化文本
   - Vision https://dottxt-ai.github.io/outlines/latest/cookbook/atomic_caption/

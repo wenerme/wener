@@ -79,6 +79,9 @@ atlas migrate hash
 atlas migrate apply --env local --baseline 00000000000000
 
 atlas schema diff --to file://schemas/main.sql --dev-url "docker://postgres/17/dev" --from file://migrations
+
+# 修改了 migrations 需要重新 hash
+atlas migrate hash;atlas migrate diff --to 'file://schemas/main.sql' --dev-url "docker://postgres/17/dev"
 ```
 
 ```hcl title="atlas.hcl"

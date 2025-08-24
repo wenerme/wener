@@ -42,6 +42,13 @@ tags:
 - key code
   - https://www.w3.org/TR/uievents-key/
 
+| flag     | for                            |
+| -------- | ------------------------------ |
+| altKey   | Windows alt, macOS option      |
+| ctrlKey  | Windows ctrl, macOS control    |
+| metaKey  | Windows ⊞ Win, macOS ⌘ Command |
+| shiftKey | Shift                          |
+
 ```ts
 // if (e.pageX || pageY) -> MouseEvent
 // if (e.locale || location) -> KeyboardEvent

@@ -4,6 +4,18 @@ title: rustdesk
 
 # rustdesk
 
+:::tip
+
+为什么选择 RustDesk?
+
+- 免费
+- 无任何限制，链接数量，用户等
+- 功能完善 - 远程桌面、文件传输、端口转发、摄像头、可选的用户管理
+- 支持所有的平台 - Windows、macOS、移动端
+- 可以自己部署的中继服务器
+
+:::
+
 - [rustdesk/rustdesk](https://github.com/rustdesk/rustdesk)
   - AGPLv3, Rust
 - https://github.com/rustdesk/rustdesk/issues/3565

@@ -137,6 +137,14 @@ tags:
 - [Milkdown/milkdown](https://github.com/Milkdown/milkdown)
   - MIT, TS, React
   - prosemirror+remark
+- [panphora/overtype](https://github.com/panphora/overtype)
+  - MIT, JS
+  - markdown editor that's just a textarea
+- HyperMD
+  - CodeMirror
+- TUI Editor
+- EasyMDE
+  - CodeMirror
 
 ## Hex
 

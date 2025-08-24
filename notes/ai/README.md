@@ -1,5 +1,7 @@
 ---
 title: AI
+aliases:
+  - AI
 ---
 
 # AI
@@ -12,10 +14,41 @@ title: AI
 
 ---
 
+- AI - 人工智能
+  - Machine Learning - 机器学习
+    - Deep Learning - 深度学习
+      - Neural Network - 神经网络
+        - CNN - 卷积神经网络
+        - RNN - 循环神经网络
+        - Transformer - 变换器
+          - Attention - 注意力机制
+          - Self-Attention - 自注意力机制
+          - Multi-Head Attention - 多头注意力机制
+      - GAN - 生成对抗网络
+      - Diffusion Model - 扩散模型
+    - Reinforcement Learning - 强化学习
+  - NLP - Natural Language Processing - 自然语言处理
+  - Computer Vision - 计算机视觉
+  - Robotics - 机器人
+  - Expert System - 专家系统
+  - Recommendation System - 推荐系统
+  - Speech Recognition - 语音识别
+    - TTS - Text to Speech - 文字转语音
+    - ASR - Automatic Speech Recognition - 自动语音识别
+    - STT - Speech to Text - 语音转文字
+  - Autonomous System - 自主系统
+  - Knowledge Graph - 知识图谱
+  - Fuzzy Logic - 模糊逻辑
+  - OCR - Optical Character Recognition - 光学字符识别
+  - Autonomous Driving - 自动驾驶
+
+---
+
 - fundamentals
   - [机器学习](./ml/README.md)
   - Deep Learning
 - models
+  - [AI Model Awesome](./model/ai-model-awesome.md)
   - [LLM](./llm/README.md)
     - [GPT](./gpt/README.md)
   - [GAN](./gan/README.md)
@@ -27,17 +60,6 @@ title: AI
     - TTS, ASR, STT
 - services
   - OpenAI
-
-## 解释
-
-- 常见子领域
-  - 机器学习
-  - 图像识别、计算机视觉
-  - 语言处理
-  - 推荐系统
-  - 机器人
-  - 医疗诊断、专家系统
-  - 自动驾驶
 
 ## 阅读
 

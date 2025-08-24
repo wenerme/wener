@@ -1002,3 +1002,12 @@ echo 'host all all 0.0.0.0/0 md5' >> data/pg_hba.conf
 
 pg_ctl reload
 ```
+
+## 忘记密码
+
+- reset postgres password
+
+```bash
+psql -U postgres
+ALTER USER postgres PASSWORD 'newpassword';
+```

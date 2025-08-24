@@ -146,7 +146,7 @@ title: 档案管理
 : 以字符形式賦子档案实体的用以固定和反映档案排列顺序的一组代码。
 
 编目
-： cataloguing;description
+：cataloguing;description
 : 按照一定的规则进行档案 **著录** 并将 **条目** 组织成 **目录**的过程。
 
 条目

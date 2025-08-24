@@ -54,6 +54,24 @@ tags:
   - [YunaiV/ruoyi-vue-pro](https://github.com/YunaiV/ruoyi-vue-pro)
     - MIT, Java
     - Spring Boot + MyBatis Plus + Vue & Element
+- ide/editor
+  - Jetbrains IDE
+  - [zed-industries/zed](https://github.com/zed-industries/zed)
+  - vsc
+  - windsurf
+  - cursor
+  - Augment Code
+- AI Coding Assistant/agent
+  - Github Copilot
+  - ContinueDev
+  - Claude Code
+  - Gemini CLI
+  - Codex
+  - Sweep: AI
+    - for JetBrains IDEs
+  - https://zencoder.ai/
+  - https://lovable.dev/
+  - https://www.producthunt.com/categories/ai-coding
 
 ```bash
 # 使用 Bare Git Repository 管理 dotfiles

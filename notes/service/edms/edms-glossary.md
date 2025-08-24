@@ -34,57 +34,62 @@ https://cdarchive.chengdu.gov.cn/cdarchive/uploads/201808231539113wkmdljxvgl.pdf
 | -------------------------- | ---------- |
 | records retention schedule | 保管期限表 |
 
-| en                      | cn                |
-| ----------------------- | ----------------- |
-| access                  | 利用              |
-| accession               | 接收              |
-| acquisition             | 收集 征 集        |
-| administrative archives | 文书档案          |
-| aggregation             | 聚合              |
-| appraisal               | 鉴定              |
-| archival code           | 档号              |
-| archives                | 档案馆            |
-| association             | 关联              |
-| authenticity            | 真实性            |
-| capture                 | 捕获              |
-| compliance              | 合规性            |
-| conservation            | 保护              |
-| context                 | 背景 / 上下文     |
-| contingency plan        | 应急预案          |
-| deposit                 | 存放,寄存         |
-| description             | 著录              |
-| cataloguing             | 编目              |
-| destruction             | 销毁              |
-| destruction list        | 销毁清单 銷毀清册 |
-| digital archives        | 数字档案馆        |
-| disposition             | 处置              |
-| electronic signature    | 电子签名          |
-| encapsulation           | 封装              |
-| estray                  | 散存档案          |
-| file number             | 案卷号            |
-| filing                  | 归档              |
-| fonds number            | 全宗号            |
-| heterogeneous backup    | 异质备份          |
-| holdings                | 馆藏              |
-| information package     | 信息包            |
-| integrity               | 完整性            |
-| life-cycle management   | 全程管理          |
-| link                    | 挂接              |
-| off-site backup         | 异地备份          |
-| preservation            | 保存              |
-| reliability             | 可靠性            |
-| removed archives        | 散失档案          |
-| retention period        | 保管期限          |
-| series number           | 目录号            |
-| specialized archives    | 专业档案          |
-| transfer                | 移交              |
-| usability               | 可用性            |
-| Compact Shelving        | 密集架            |
-| Movable Rack            | 密集柜/移动棚     |
-| Filing cabinet          | 文件柜            |
-| Boxing                  | 装盒              |
-| Shelving                | 上架              |
-| Labeling                | 标记              |
+| en                            | cn                |
+| ----------------------------- | ----------------- |
+| access                        | 利用              |
+| accession                     | 接收              |
+| acquisition                   | 收集 征 集        |
+| administrative archives       | 文书档案          |
+| aggregation                   | 聚合              |
+| appraisal                     | 鉴定              |
+| archival code                 | 档号              |
+| archives                      | 档案馆            |
+| association                   | 关联              |
+| authenticity                  | 真实性            |
+| boxing                        | 装盒              |
+| capture                       | 捕获              |
+| cataloguing                   | 编目              |
+| compact shelving              | 密集架            |
+| compliance                    | 合规性            |
+| conservation                  | 保护              |
+| context                       | 背景 / 上下文     |
+| contingency plan              | 应急预案          |
+| deposit                       | 存放,寄存         |
+| description                   | 著录              |
+| Description at the File Level | 按卷著录          |
+| Description at the Item Level | 按件著录          |
+| destruction                   | 销毁              |
+| destruction list              | 销毁清单 銷毀清册 |
+| digital archives              | 数字档案馆        |
+| disposition                   | 处置              |
+| electronic signature          | 电子签名          |
+| encapsulation                 | 封装              |
+| estray                        | 散存档案          |
+| file level description        | 按卷著录          |
+| file number                   | 案卷号            |
+| filing                        | 归档              |
+| filing cabinet                | 文件柜            |
+| fonds number                  | 全宗号            |
+| heterogeneous backup          | 异质备份          |
+| holdings                      | 馆藏              |
+| information package           | 信息包            |
+| integrity                     | 完整性            |
+| item level description        | 按件著录          |
+| itemization                   | 分件              |
+| labeling                      | 标记              |
+| life-cycle management         | 全程管理          |
+| link                          | 挂接              |
+| movable rack                  | 密集柜/移动棚     |
+| off-site backup               | 异地备份          |
+| preservation                  | 保存              |
+| reliability                   | 可靠性            |
+| removed archives              | 散失档案          |
+| retention period              | 保管期限          |
+| series number                 | 目录号            |
+| shelving                      | 上架              |
+| specialized archives          | 专业档案          |
+| transfer                      | 移交              |
+| usability                     | 可用性            |
 
 - 移交 transfer
   - 按照国家规定将电子档案的保管权交给档案馆的过程。

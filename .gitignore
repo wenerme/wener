@@ -18,3 +18,8 @@ node_modules
 .history
 /etc
 /var
+.local
+*.local.md
+/.trash
+/.obsidian
+/wener

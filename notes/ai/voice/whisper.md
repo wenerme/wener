@@ -36,3 +36,18 @@ ffmpeg -i samples/hp0.ogg -ac 1 -ar 16000 samples/hp0.wav
 - 根据 CPU 不同，可能一般只能跑 base 或 small
 - hf 下载域名 cdn-lfs.huggingface.co
 - https://github.com/ggerganov/whisper.cpp/tree/master/models
+
+## owhisper
+
+- https://github.com/fastrepl/hyprnote/tree/main/owhisper
+
+```bash
+brew install fastrepl/hyprnote/owhisper
+
+owhisper pull whisper-cpp-base-q8 # 78MB
+owhisper run whisper-cpp-base-q8
+```
+
+- https://huggingface.co/ggerganov/whisper.cpp
+- https://huggingface.co/onnx-community/moonshine-base-ONNX
+- Models https://github.com/fastrepl/hyprnote/blob/main/owhisper/owhisper-model/src/lib.rs

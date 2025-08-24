@@ -34,9 +34,13 @@ title: AI/ML Study
 
 - https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison
 - https://magazine.sebastianraschka.com/p/from-gpt-2-to-gpt-oss-analyzing-the
-- https://arxiv.org/
-- https://yiyibooks.cn/
-  - 有一些 arxiv 的翻译
+- scholar
+  - https://scholar.google.com/
+    - https://excitation.tech/
+      - 增加 Citition Ranking
+  - https://arxiv.org/
+    - https://yiyibooks.cn/
+      - 有一些 arxiv 的翻译
 
 ## 正则化 {#Regularization}
 
@@ -74,111 +78,9 @@ title: AI/ML Study
   - 标签平滑 (Label Smoothing): 一种对标签添加噪声的方法。
     - 它将原本“非黑即白”的硬标签（比如，分类为“猫”的概率是100%，是“狗”的概率是0%），变成更“柔和”的标签（比如，“猫”的概率是95%，是“狗”的概率是5%），防止模型对自己的预测“过于自信”。
 
-
 | 类别      | 技术                    | 核心思想                                           |
 | --------- | ----------------------- | -------------------------------------------------- |
 | 参数惩罚  | L1, L2, Elastic Net     | 限制模型权重的大小，使其更“简单”。                 |
 | 架构/集成 | Dropout, Early Stopping | 随机改变网络结构或提前中断训练，避免过度学习。     |
 | 数据增强  | 图像/文本增强           | 在不改变标签的前提下，创造更多样化的训练数据。     |
 | 噪声注入  | 标签平滑等              | 向模型的权重、激活或标签中添加随机性，使其更鲁棒。 |
-
-## Transformer
-
-- Tokenization - Embedding - Positional encoding - Transformer block - Attention
-- Context QKV
-  - Attention Pattern
-- Self Attention
-- Cross Attention
-  - KV 不同 dataset
-- Multi-head Attention
-- Single Head Attention
-- Sparse Attention Mechanism
-- Blockwise Attention
-- Linformer
-- Reformer
-- Ring Attention
-- GQA - Grouped Query Attention
-- SwiGUL
-- 参考
-  - [What Are Transformer Models and How Do They Work?](https://cohere.com/blog/what-are-transformer-models)
-  - [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
-  - [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
-  - [The Transformer Family](https://lilianweng.github.io/posts/2020-04-07-the-transformer-family/)
-    - 2020
-  - https://www.zhihu.com/question/445556653/answer/3254012065
-
-![](./ModalNet-21.png)
-
-- GPT3
-  - Q 12,288x128
-  - K 12,288x128
-  - 96 heads
-  - 12 layers
-  - 175B params
-
-## Attention Is All You Need
-
-- 2017-06, Google
-- 引入 Transformer 模型架构，改变了自然语言处理领域
-- 打破了顺序处理的枷锁，实现了大规模并行计算。
-- 极大地提升了模型捕捉“长距离依赖”的能力。
-- RNN/LSTM 的时代与困境
-  - 计算效率低下 (无法并行) - 海量训练数据不现实
-  - 长距离依赖问题 (信息丢失)
-- 用自注意力机制 (Self-Attention) 实现并行计算
-- 用自注意力机制解决长距离依赖
-- 深远实际意义
-  - 奠定了现代大语言模型 (LLM) 的基础
-  - 开启了“预训练+微调”的新范式
-  - 推动了模型规模的“军备竞赛”
-  - 跨领域的范式转移
-- [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
-- https://yiyibooks.cn/arxiv/1706.03762v7/index.html
-- Dive in
-  - https://nlp.seas.harvard.edu/annotated-transformer/
-  - https://jalammar.github.io/illustrated-transformer/
-  - Attention in transformers, step-by-step | Deep Learning Chapter 6 https://www.youtube.com/watch?v=eMlx5fFNoYc
-- Decoder Only
-  - GPT-1, GPT-2, GPT-3
-  - 自回归语言模型 (Autoregressive LM) 逐字预测下一个词
-- Encoder Only
-  - BERT, RoBERTa, ALBERT
-  - 掩码语言模型 (Masked LM) 掩码预测被遮盖的词
-- Encoder-Decoder
-  - T5, BART
-  - 序列到序列 (Seq2Seq) 模型，适用于翻译等任务
-- Next
-  - https://jalammar.github.io/illustrated-gpt2/
-  - https://jalammar.github.io/illustrated-bert/
-  - LoRA https://arxiv.org/abs/2106.09685
-  - GTP https://arxiv.org/abs/2305.10435
-  - QLoRA https://arxiv.org/abs/2305.14314
-
----
-
-1. 生成 Q, K, V
-
-- 对于输入序列中的每一个词嵌入向量，都通过乘以 $W_Q$, $W_K$, $W_V$ 矩阵生成对应的 Q, K, V 向量。
-
-2. 计算注意力分数 (Score)
-
-- 当前处理的词的 Q 向量与所有词的 K 向量进行点积，得到注意力分数。
-
-$$
-Score(Q, K) = Q \cdot K^T
-$$
-
-3. 归一化 (Normalization)
-
-- 将分数转换成一个总和为 1 的概率分布
-- 得到 注意力权重
-
-$$
-Attention(Q, K, V) = softmax(QK^T / sqrt(d_k))V
-$$
-
-4. 加权求和 (Weighted Sum)
-
-$$
-Context Vector = Attention Weights \cdot V
-$$

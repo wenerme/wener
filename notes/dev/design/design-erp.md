@@ -274,7 +274,7 @@ export interface AnyResource {
 
   attributes?: Record<string, any>; // 面向客户端+服务端 - 客户端读写
   properties?: Record<string, any>; // 面向服务端 - 客户端只读
-  extensions?: Record<string, any>; // 面向客户端 - 客户端不可见
+  extensions?: Record<string, any>; // 面向服务端内部或集成方 - 客户端不可见
 
   // 常见级联关系
   parentId?: string;
@@ -299,6 +299,52 @@ export type UseSimpleQuery<T, V extends object = Record<string, any>> = (options
   refetch: () => void;
 };
 export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] }, ListQueryInput>;
+
+//region 复杂组件状态模式
+
+export type ViewComponentState = {
+  open?: boolean;
+  filters?: string[];
+  search?: string;
+  where?: Record<string, any>;
+  mounted?: boolean;
+  state?: Record<string, any>;
+  [key: string]: any;
+};
+
+type GeneralStoreState = {
+  error?: any;
+  loading: boolean;
+
+  events: Emittery<{}>; // 事件系统
+
+  // 所有的操作
+  actions: {
+    refresh: () => void;
+  };
+
+  components: Record<string, ViewComponentState>; // 扩展组件
+  states: Record<string, {}>; // 持久化状态
+  metadata: Record<string, any>;
+
+  // 数据
+  data?: any; // 单个或数组
+
+  // 数据列表
+
+  selected: string[];
+  active?: AnyResource;
+
+  search: string;
+  pageIndex: number;
+  pageSize: number;
+  sort: SortRule[];
+  filters: string[];
+
+  viewMode: ViewMode;
+};
+
+//endregion
 ```
 
 - https://commerce.nearform.com/open-source/urql/docs/api/urql/

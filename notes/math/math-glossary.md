@@ -11,9 +11,18 @@ tags:
 
 | en                    | cn       |
 | --------------------- | -------- |
-| symbolic computing    | 符号计算 |
-| symbolic manipulation | 符号操作 |
+| Symbolic computing    | 符号计算 |
 | Numerical Computation | 数值计算 |
+| Symbolic manipulation | 符号操作 |
+| Commutative           | 交换律   |
+| Associative           | 结合律   |
+| Distributive          | 分配律   |
+| Multiplication        | 乘法     |
+| Division              | 除法     |
+| Addition              | 加法     |
+| Subtraction           | 减法     |
+| Transpose             | 转置     |
+| Inverse               | 求逆     |
 
 ## 符号计算 {#symbolic-computation}
 
@@ -82,3 +91,46 @@ tags:
   - 任何一个复杂的矩阵，都可以被拆解成三个更简单、更有代表性的“基础矩阵”的乘积。
   - A = U · Σ · Vᵀ
 - 线性代数 (Linear Algebra)
+
+# 矩阵 {#matrix}
+
+- 加法
+- 转置
+- 求逆
+
+## 乘法 {#multiplication}
+
+- 行乘列
+- 前一个矩阵的列数 = 后一个矩阵的行数
+- m&times;n &times; n&times;p = m&times;p
+- 性质
+  - 结合律
+  - 分配律
+- 用途
+  - 复合线性变换
+  - 求解线性方程组
+  - 物理、计算机图形、机器学习中表示 旋转、缩放、投影 等几何变换
+
+$$
+C_{ij} = \sum_{k=1}^{n} A_{ik} B_{kj}
+$$
+
+$C_{ij}$ 为 $A$ 的第 $i$ 行与 $B$ 的第 $j$ 列的点乘结果。
+
+## 点乘 {#dot-product}
+
+- 两个矩阵维度相同
+- 结果维度相同
+- 性质
+  - 交换律
+  - 结合律
+  - 分配律
+- 用途
+  - 元素级操作
+  - 数据处理与信号处理 - 权重、掩码
+  - 图像处理 - 滤镜
+  - 机器学习 - RNN 卷积层门控机制 LSTM、GRU，控制信息流动
+
+$$
+C_{ij} = A_{ij} \cdot B_{ij}
+$$

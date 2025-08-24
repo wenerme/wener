@@ -281,3 +281,45 @@ pip install autoawq
 ```
 
 - https://github.com/casper-hansen/AutoAWQ
+
+## 开发框架 vs 推理框架 {#dev-framework-vs-inference-framework}
+
+- 定义
+  - 开发框架（训练/研究）：PyTorch、TensorFlow、JAX。强调易用性、调试体验、自动求导、分布式训练与算子生态。
+  - 推理框架（部署/服务）：TensorRT、ONNX Runtime、OpenVINO、TFLite、Core ML、TVM、Torch-TensorRT、vLLM/FasterTransformer（LLM 方向）。强调低延迟、高吞吐、低内存与跨平台部署。
+- 计算图与编译
+  - 开发：动态图为主（eager），也支持图与编译（TorchScript、torch.compile/Inductor、TF Graph）。
+  - 推理：静态图/AOT 编译为主；算子融合、常量折叠、布局/精度变换、kernel auto-tuning、batching。
+- 精度与量化
+  - 开发：以 FP32/FP16/BF16 训练为主，支持 QAT。
+  - 推理：PTQ/QAT 常见；INT8/FP8/INT4（硬件相关）；需校准/误差评估以平衡精度与性能。
+- 硬件/后端
+  - 开发：CPU、CUDA、ROCm、MPS、TPU（TF/JAX）。
+  - 推理：TensorRT/cuDNN（NVIDIA）、ONNX Runtime + CUDA/DirectML/XNNPACK、OpenVINO（CPU/iGPU/VPU）、TFLite（移动/边缘）、Core ML（Apple）、TVM（多后端）。
+- 模型兼容与导出
+  - PyTorch -> ONNX -> ONNX Runtime/TensorRT
+  - PyTorch -> torch.compile/Inductor 或 TorchScript -> LibTorch/TorchServe
+  - TensorFlow/Keras -> SavedModel -> TF-TRT/TFLite/TF Serving
+  - JAX -> XLA/StableHLO -> TPU/CPU/GPU 后端
+  - LLM 方向：PyTorch -> TensorRT-LLM / FasterTransformer / vLLM（KV cache、分页注意力、动态批处理）
+- 常见工作流
+  - 训练：开发框架建模/训练/验证；保存 checkpoint（.pt/.pth/.ckpt/safetensors）。
+  - 导出：冻结与转换（torch.onnx.export、torch_tensorrt、tf.saved_model、tflite_converter）。
+  - 优化：剪枝、蒸馏、量化、形状固定、operator 替换、图优化；LLM 使用 KV cache、speculative decoding。
+  - 部署：推理引擎加载与服务编排（Triton Inference Server、TF Serving、FastAPI、vLLM），结合动态/静态批处理与并发。
+- 优缺点速览
+  - 开发框架：灵活易迭代、生态丰富；但推理性能/内存占用通常不如专用引擎。
+  - 推理框架：低延迟/高吞吐/低内存；但导出/算子覆盖/自定义算子成本与调试难度更高。
+- 实践要点
+  - 约束模型以便导出（避免非确定性/动态控制流/不支持的自定义算子）。
+  - 做数值对齐测试（前后端同输入对比误差），再逐步应用量化与融合。
+  - 针对场景选择后端：数据中心（TensorRT/ONNX Runtime）、CPU/边缘（OpenVINO/TFLite/XNNPACK）、Apple 端侧（Core ML）、多硬件（TVM）。
+- 参考
+  - ONNX Runtime: https://onnxruntime.ai/
+  - TensorRT: https://developer.nvidia.com/tensorrt
+  - OpenVINO: https://docs.openvino.ai/
+  - TFLite: https://www.tensorflow.org/lite
+  - Core ML: https://developer.apple.com/machine-learning/core-ml/
+  - PyTorch 2.x/torch.compile: https://pytorch.org/get-started/pytorch-2.0/
+  - TVM: https://tvm.apache.org/
+  - vLLM: https://github.com/vllm-project/vllm
