@@ -8,6 +8,8 @@ tags:
 - API Schema
   - `https://open.feishu.cn/api_explorer/v1/api_definition?project=task&version=v2&resource=tasklist&apiName=tasks`
 - Meego
+- tenant_access_token
+- user_access_token
 
 ---
 
@@ -19,7 +21,7 @@ tags:
       - im.db
       - secretchat.db
       - contact.db
-      - search_v2_*.db
+      - `search_v2_*.db`
       - whisper.db
   - ~/Library/Containers/com.larksuite.macos.lark/ - 沙盒应用数据
 - 用户数据存储：
@@ -44,4 +46,9 @@ tags:
 npm add @larksuiteoapi/lark-mcp -g
 
 lark-mcp -V
+
+npx -y @larksuiteoapi/lark-mcp login -a $APP_ID -s $APP_SECRET
 ```
+
+- https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_installation#46d7e401
+- https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/advanced-configuration

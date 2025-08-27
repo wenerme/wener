@@ -22,4 +22,4 @@ node_modules
 *.local.md
 /.trash
 /.obsidian
-/wener
+#/wener
