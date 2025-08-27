@@ -11,3 +11,6 @@ title: AGENTS.md
 - 类似
   - CLAUDE.md
   - GEMINI.md
+- https://github.com/search?q=path:**/CLAUDE.md&type=code
+- https://github.com/search?q=path:**/settings.local.json&type=code
+

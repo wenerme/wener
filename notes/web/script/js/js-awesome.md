@@ -253,6 +253,13 @@ tags:
 - clone
   - structuredClone - Chrome 98
   - [lukeed/klona](https://github.com/lukeed/klona)
+- regex
+  - [pillarjs/path-to-regexp](https://github.com/pillarjs/path-to-regexp)
+  - [VerbalExpressions/JSVerbalExpressions](https://github.com/VerbalExpressions/JSVerbalExpressions)
+    - DSL 方式构建正则
+  - [francisrstokes/super-expressive](https://github.com/francisrstokes/super-expressive)
+    - MIT, JS
+  - [IonicaBizau/regex-parser.js](https://github.com/IonicaBizau/regex-parser.js)
 - json
   - [fast-json-patch](https://github.com/Starcounter-Jack/JSON-Patch)
   - [fastify/fast-json-stringify](https://github.com/fastify/fast-json-stringify)

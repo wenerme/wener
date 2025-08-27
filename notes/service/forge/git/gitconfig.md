@@ -5,6 +5,9 @@ tags:
 
 # gitconfig
 
+- 参考
+  - https://git-scm.com/docs/git-config
+
 ```bash
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"

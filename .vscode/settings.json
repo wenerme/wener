@@ -25,6 +25,8 @@
   "[nft]": {
     "editor.defaultFormatter": "omBratteng.nftables"
   },
+  "search.useIgnoreFiles": false,
+  "explorer.excludeGitIgnore": false,
   "makefile.configureOnOpen": false,
   "editor.fontFamily": "Sarasa Mono SC, Maple Mono NF CN, Menlo, Monaco, 'Courier New', monospace"
 }

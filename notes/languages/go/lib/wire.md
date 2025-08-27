@@ -1,8 +1,12 @@
 ---
 title: wire
+tags:
+  - IoC
 ---
 
 # wire
+
+> 项目进入维护状态
 
 - [google/wire](https://github.com/google/wire)
   - Compile-time DI
@@ -10,6 +14,8 @@ title: wire
     - 逻辑清晰明确
   - 不是 IoC 容器
     - 透明 - IoC 容器是一个不透明的盒子
+- 替代
+  - uber [fx](./fx.md), dig
 
 ```bash
 go install github.com/google/wire/cmd/wire@latest

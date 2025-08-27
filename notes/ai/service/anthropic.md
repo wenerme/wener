@@ -24,3 +24,5 @@ title: Anthropic
 | Claude Sonnet 4   | claude-sonnet-4-0        |
 | Claude Sonnet 3.7 | claude-3-7-sonnet-latest |
 | Claude Haiku 3.5  | claude-3-5-haiku-latest  |
+
+- https://docs.anthropic.com/en/api/overview

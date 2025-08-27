@@ -1,5 +1,7 @@
 ---
 title: Gitlab FAQ
+tags:
+- FAQ
 ---
 
 # Gitlab FAQ

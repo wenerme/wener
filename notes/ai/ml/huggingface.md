@@ -97,6 +97,15 @@ pip install modelscope
 - 模型缓存目录
   - cache_dir/MODEL_ID/THE_MODEL_FILES
 
+## Notes
+
+- config.json
+- chat_template.json
+- vocab.json
+- tokenizer.json
+- tokenizer_config.json
+
+
 # FAQ
 
 ## The model Qwen/Qwen2.5-VL-72B-Instruct is too large to be loaded automatically (146GB > 10GB).

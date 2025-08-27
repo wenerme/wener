@@ -50,6 +50,8 @@ tags:
   - 速度快
   - UD-Q4_K_XL
 - [QwenLM/Qwen3](https://github.com/QwenLM/Qwen3)
+- Qwen3 Technical Report
+  - https://arxiv.org/abs/2505.09388
 
 ## Qwen 2.5 VL
 
@@ -171,6 +173,39 @@ convert a.jpg -resize 25% -resize 'x28<' a.output.jpg
     - hf [daniel3303/QwenStoryteller](https://huggingface.co/daniel3303/QwenStoryteller)
     - https://arxiv.org/abs/2505.10292
     - https://www.reddit.com/r/LocalLLaMA/comments/1kw310h
+
+## Qwen 2.5
+
+- Qwen2.5 Technical Report
+  - https://arxiv.org/abs/2412.15115
+- [QwenLM/Qwen2.5-Omni](https://github.com/QwenLM/Qwen2.5-Omni)
+  - Qwen2.5-Omni Technical Report https://arxiv.org/abs/2503.20215
+- vs Qwen 2
+  - 引入 90B MoE
+  - 上下文 64K -> 256K
+- vs Qwen 2 VL
+  - 动态分辨率 Vision Tower
+  - mRoPE
+
+## Qwen 2 VL
+
+## Qwen 2
+
+- Qwen2 Technical Report
+  - https://arxiv.org/abs/2407.10671
+- 0.5B, 1.5B, 4B, 7B, 14B, 57B (MoE), 72B
+- vs Qwen 1.5
+  - 训练数据 3T -> 7T
+  - 57B MoE
+  - Tokenizer 扩展
+
+## Qwen 1.5
+
+## Qwen
+
+- 2023.8.3 Qwen-7B, Qwen-7B-Chat
+- https://github.com/QwenLM/Qwen
+- https://arxiv.org/abs/2309.16609
 
 ## FAQ
 

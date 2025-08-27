@@ -4,7 +4,7 @@ Grammar for doc code template
 grammar: https://github.com/wenerme/wener/blob/master/notes/languages/parser/peg/code-template.peggy
 playground: https://peggyjs.org/online
 ================================
-Base on path-to-regex syntax
+Based on path-to-regex syntax
 base syntax
   TEXT
   :PARAM
@@ -74,6 +74,15 @@ Options
 
 Option = key:ParamName "=" value:ParamValue { return { key, value }; }
 
+// abc
+// 你好
+// 'a-b'
+ParamName
+  = $([a-zA-Z_] [a-zA-Z0-9_]*)
+  / $([\u4e00-\u9fa5] [\u4e00-\u9fa5a-zA-Z0-9_]*)
+  / "'" v:[^']* "'" { return v.join(""); }
+  / "\"" v:[^"]* "\"" { return v.join(""); }
+
 ParamValue = json
 
 json
@@ -95,15 +104,6 @@ literal
 string
   = "\"" @$[^"]* "\""
   / "'" @$[^']* "'"
-
-// abc
-// 你好
-// 'a-b'
-ParamName
-  = $([a-zA-Z_] [a-zA-Z0-9_]*)
-  / $([\u4e00-\u9fa5] [\u4e00-\u9fa5a-zA-Z0-9_]*)
-  / "'" v:[^']* "'" { return v.join(""); }
-  / "\"" v:[^"]* "\"" { return v.join(""); }
 
 _ "whitespace" = white* { return ""; }
 

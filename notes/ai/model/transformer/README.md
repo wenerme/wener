@@ -14,7 +14,13 @@ title: Transformer
       - Normalization Activation
     - OutputHead = Linear(Embedding Dimension, Vocab Size)
   - 计算流程
-    - Token Embedding(Input Text) -> Token Embeddings
+    - Tokenization - Tokenizer(input) -> Token IDs
+      - Text -> Token IDs
+      - BPE
+      - CPU Bound
+    - Embeding Lookup -> Input Embeddings
+      - (vocab_size, hidden_dim)
+      - Embedding Matrix
     - Positional Embedding(Sequence Length) -> Positional Embeddings
     - Input Embeddings = Token Embeddings + Positional Embeddings
     - Input Embeddings = Dropout(Input Embeddings)
@@ -64,7 +70,6 @@ title: Transformer
 | BOS   | Beginning Of Sequence |         |                   |
 | EOS   | End Of Sequence       |         | `<\|endoftext\|>` |
 | PAD   | Padding               | 填充    |
-
 
 ---
 
@@ -193,14 +198,14 @@ while next_token is not "[END_OF_SEQUENCE]":
   - 过小的词汇表会再多语言场景导致性能问题
 - context length
   - 上下文长度
-- embedding dimension / d_model / residual / Hidden Size
-  - 嵌入维度 / 模型维度
+- embedding dimension / d_model / residual stream dimension / Hidden Size
+  - 嵌入维度、模型维度
   - 一个 token 的表示向量维度
 - Number of QKV Heads
   - 注意力头数
   - GQA 例如 80/8/8
 - Head Size - 每个注意力头的维度
-- layers
+- layers / hidden layers
   - Transformer 层数 / transformer blocks
 - dropout rate
   - Dropout 率

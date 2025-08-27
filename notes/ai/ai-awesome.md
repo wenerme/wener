@@ -147,6 +147,10 @@ tags:
   - Google Colab
   - Runpod
   - Autodl
+- Router
+  - openrouter
+  - artificialanalysis.ai
+  - zapier
 - Editor
   - cursor
   - windsurf
@@ -189,6 +193,9 @@ tags:
     - Apache-2.0, Rust
   - [lastmile-ai/mcp-agent](https://github.com/lastmile-ai/mcp-agent)
     - Apache-2.0, Python
+- Agent Sandbox/Code Interpreter
+  - [e2b-dev/e2b](https://github.com/e2b-dev/e2b)
+    - Apache-2.0
 - Vision
   - [microsoft/OmniParser](https://github.com/microsoft/OmniParser)
     - UI -> structured

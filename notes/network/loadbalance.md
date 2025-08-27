@@ -28,6 +28,7 @@ title: Load Balance
 ## 策略
 
 - roundrobin
+- WRR - 加权轮训
 - SMA - simple moving average
 - ewma - Exponentially Weighted Moving Average - 指数加权移动平均
   - 分析和预测时间序列数据

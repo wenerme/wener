@@ -20,6 +20,28 @@ tags:
 
 ---
 
+| metric      | stand for             | meaning                    |
+| ----------- | --------------------- | -------------------------- |
+| TTFT        | Time to First Token   | 首个Token延迟              |
+| TPOT        | Time Per Output Token | 每输出Token延迟            |
+| IPS         | Inferences Per Second | 每秒推理次数               |
+| TPS         | Tokens Per Second     | 每秒生成Token数            |
+| PTS         | Prefill Tokens/Second | Prefill阶段每秒处理Token数 |
+| PTT         | Prefill Total Time    | Prefill总耗时              |
+| DTT         | Decode Total Time     | Decode总耗时               |
+| KV Cache    | KV Cache Usage        | KV缓存使用量               |
+| KV Hit      |
+| RPS         | Requests Per Second   | 每秒请求数                 |
+| QPS         | Queries Per Second    | 每秒查询数                 |
+| CCU         | Concurrent Users      | 并发用户数                 |
+| ITL         | Input Token Length    | 输入Token长度              |
+| OTL         | Output Token Length   | 输出Token长度              |
+| P50/P95/P99 | Percentile Latency    | 百分位延迟                 |
+| GPU Util    | GPU Utilization       | GPU利用率                  |
+| Memory      | Memory Usage          | 内存使用量                 |
+| E2E Latency |
+| TkPS        |
+
 - 延迟
   - 单次推理延迟
   - 首个Token延迟 (Time to First Token, TTFT - LLM)

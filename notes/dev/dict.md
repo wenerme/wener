@@ -1656,6 +1656,31 @@ tags:
   - 提供服务类业务
   - 通常指专业服务公司，如律师事务所、会计师事务所
 
+---
+
+- Inc. (Incorporated) 股份有限公司
+  - 表示公司已注册成为法人实体，通常用于美国和加拿大的公司名称中。
+- Ltd. (Limited) 有限公司
+  - 表示股东的责任仅限于其投资额，常见于英国、印度和其他英联邦国家。
+- Corp. (Corporation) 公司
+  - 通常指大型、跨国公司，强调公司是一个独立的法人实体。
+- LLC (Limited Liability Company) 有限责任公司
+  - 结合了公司和合伙企业的特点，股东的责任仅限于其投资额，常见于美国。
+- LLP (Limited Liability Partnership) 有限责任合伙企业
+  - 合伙企业的一种形式，合伙人对企业债务的责任有限，通常用于专业服务公司如律师事务所和会计师事务所。
+- PLC (Public Limited Company) 上市公司
+  - 股份可以公开交易，通常用于英国和其他英联邦国家。
+- GmbH (Gesellschaft mit beschränkter Haftung) 有限责任公司
+  - 德语国家的有限责任公司形式，类似于 LLC。
+- S.A. (Sociedad Anónima) 股份有限公司
+  - 常见于西班牙语和法语国家，类似于 Inc. 或 Corp.。
+- Pty Ltd (Proprietary Limited) 私营有限公司
+  - 常见于澳大利亚，表示私人持股的有限责任公司。
+- Co., Ltd. (Company Limited) 有限公司
+  - 常见于亚洲国家，表示有限责任公司。
+- 株式会社 (Kabushiki Kaisha)
+  - 日本和韩国的公司形式，类似于 Inc. 或 Corp.。
+
 ## namespace 翻译 {#namespace}
 
 - 命名空间

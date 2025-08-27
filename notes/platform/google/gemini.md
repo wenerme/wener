@@ -163,6 +163,19 @@ gemini
   - getCoreSystemPrompt
   - getCompressionPrompt
 
+| env                    | for                  |
+| ---------------------- | -------------------- |
+| GEMINI_MODEL           | gemini-2.5-pro       |
+| GEMINI_FLASH_MODEL     | gemini-2.5-flash     |
+| GEMINI_EMBEDDING_MODEL | gemini-embedding-001 |
+| GOOGLE_GEMINI_BASE_URL |
+| GEMINI_API_KEY         |
+
+- 目前只支持 Gemini 模型
+  - https://github.com/google-gemini/gemini-cli/discussions/1974#discussioncomment-13591013
+  - LiteLLM 代理 https://docs.litellm.ai/docs/tutorials/litellm_gemini_cli
+  - multi provider fork https://github.com/acoliver/llxprt-code
+
 ### extensions
 
 ```json title="gemini-extension.json"

@@ -79,20 +79,26 @@ nvidia-smi --query-gpu=memory.total,memory.used,memory.free --format=csv,noheade
 
 ## Arch
 
+| CC     | ver   | Arch   | GPUs          |
+| ------ | ----- | ------ | ------------- |
+| CC 8.9 | sm_89 | Ada    | RTX 4090      |
+| CC 8.0 | sm_80 | Ampere | A100          |
+| CC 7.0 | sm_70 | Volta  | V100, Titan V |
+
 > microarchitecture
 
 Pascal (2016) > Volta (2017) > Turing (2018) > Ampere (2020) > Hopper (2022) >= Ada Lovelace (2022)
 
 | year    | code         | Consumer                          | Workstation               | Server/DC                      |      CC |
 | :------ | :----------- | --------------------------------- | ------------------------- | ------------------------------ | ------: |
-| 2016    | Pascal       | GeForce GTX 10                    | Quadro P                  | Tesla P4, P100, P40            | 6.0,6.1 |
-| 2017    | Volta        |                                   | Quadro GV100, Titan V     | Tesla V100                     |     7.0 |
-| 2018    | Turing       | GeForce GTX 16, RTX 20, Titan RTX | Quadro RTX                | Tesla T4                       |     7.5 |
-| 2020    | Ampere       | GeForce RTX 30                    | NVIDIA RTX A              | NVIDIA A100, A40, A30, A10, A2 | 8.0,8.6 |
-| 2022.09 | Hopper       |                                   |                           | NVIDIA H100， H200             |     9.0 |
-| 2022.12 | Ada Lovelace | GeForce RTX 40                    | NVIDIA RTX Ada Generation | NVIDIA L4, L40, L40S           |     8.9 |
-| 2024    | Blackwell    | GeForce RTX 50                    | NVIDIA RTX PRO            | NVIDIA B100, B200, GB200       |     9.0 |
 | 2026    | Rubin        |                                   |                           |                                |
+| 2024    | Blackwell    | GeForce RTX 50                    | NVIDIA RTX PRO            | NVIDIA B100, B200, GB200       |     9.0 |
+| 2022.12 | Ada Lovelace | GeForce RTX 40                    | NVIDIA RTX Ada Generation | NVIDIA L4, L40, L40S           |     8.9 |
+| 2022.09 | Hopper       |                                   |                           | NVIDIA H100， H200             |     9.0 |
+| 2020    | Ampere       | GeForce RTX 30                    | NVIDIA RTX A              | NVIDIA A100, A40, A30, A10, A2 | 8.0,8.6 |
+| 2018    | Turing       | GeForce GTX 16, RTX 20, Titan RTX | Quadro RTX                | Tesla T4                       |     7.5 |
+| 2017    | Volta        |                                   | Quadro GV100, Titan V     | Tesla V100                     |     7.0 |
+| 2016    | Pascal       | GeForce GTX 10                    | Quadro P                  | Tesla P4, P100, P40            | 6.0,6.1 |
 
 - 8.0 bfloat16
   - 不支持会 cast 为 fp16 或 fp32 - 性能影响很大

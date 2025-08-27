@@ -9,9 +9,24 @@ tags:
 ```bash
 git config --global core.ignorecase false
 
-git status --untracked-files=all # 未跟踪的文件
+git status --untracked-files=all         # 未跟踪的文件
 git ls-files --others --exclude-standard # 未跟踪的文件 - 考虑 .gitignore
+
+# 输出项目里的人员
+git log --pretty=format:"%an <%ae>" | sort -u
+
+git config user.name
+git config user.email
 ```
+
+## 不同仓库使用不同用户信息
+
+```ini
+[includeIf "gitdir:~/works/wener/"]
+  path = "~/works/wener/.gitconfig"
+```
+
+- 在 ~/works/wener/.gitconfig 中配置 user.name 和 user.email
 
 ## 修正用户名 {#amend-author}
 
