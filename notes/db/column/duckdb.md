@@ -45,6 +45,12 @@ duckdb -h
 ```sql
 SELECT * FROM 'myfile.csv';
 SELECT * FROM 'myfile.parquet';
+SELECT * FROM 'myfile.json';
+SELECT * FROM 'myfile.jsonl';
+
+-- 行模式
+.mode line
+SELECT * FROM users WHERE id = 1;
 
 -- csv, parquet
 SELECT * FROM 'https://domain.tld/file.extension';

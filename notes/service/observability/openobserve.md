@@ -11,7 +11,7 @@ title: OpenObserve
   - Log & Trace & Metrics
   - 存储 Parquet + Datafusion
 - HA
-  - Etcd + 对象存储
+  - Etcd/NATS/DB + 对象存储
   - 组件 Ingester、Querier、Compactor、AlterManager
 
 :::caution

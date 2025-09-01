@@ -44,7 +44,7 @@ title: Thanos
 ## 组件
 
 - Thanos 分为多个组件
-  - compactor, query, query-frontend,receive, rule, sidecar, store
+  - compactor, query, query-frontend, receive, rule, sidecar, store
 - compactor
   - 不参与集群
   - 压缩 OSS 数据

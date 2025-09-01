@@ -25,6 +25,7 @@
   "[nft]": {
     "editor.defaultFormatter": "omBratteng.nftables"
   },
+  "cursor.cpp.disabledLanguages": ["plaintext"],
   "search.useIgnoreFiles": false,
   "explorer.excludeGitIgnore": false,
   "makefile.configureOnOpen": false,

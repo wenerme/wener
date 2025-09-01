@@ -45,37 +45,6 @@ tags:
   - eventStore: databaseEventStore
 - Local state with message routing - 需要本地维护状态，所有属于同一会话的请求需路由到同一节点。可通过消息队列和发布/订阅系统实现。
 
-## inspector
-
-```bash
-# 默认  http://127.0.0.1:6277/ http://127.0.0.1:6274/
-npx @modelcontextprotocol/inspector node build/index.js
-
-# Proxy http://127.0.0.1:9000
-# Inspector http://127.0.0.1:8080
-CLIENT_PORT=8080 SERVER_PORT=9000 npx @modelcontextprotocol/inspector node build/index.js
-
-npx @modelcontextprotocol/inspector --config mcp.json --server everything
-```
-
-```json title="mcp.json"
-{
-  "mcpServers": {
-    "everything": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-everything"],
-      "env": {
-        "hello": "Hello MCP!"
-      }
-    },
-    "jetbrains": {
-      "command": "npx",
-      "args": ["-y", "@jetbrains/mcp-proxy"]
-    }
-  }
-}
-```
-
 # Spec
 
 - https://www.claudemcp.com/specification

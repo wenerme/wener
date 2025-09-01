@@ -40,10 +40,12 @@ title: Transformer
 - Single Head Attention
 - Sparse Attention Mechanism
 - Blockwise Attention
-- Linformer
-- Reformer
+- Blocked Sparse Attention
+- Page Attention
 - Ring Attention
 - GQA - Grouped Query Attention
+- Linformer
+- Reformer
 - SwiGUL
 - RMSNorm
 - YARN（Yet Another RoPE extensioN）
@@ -70,6 +72,10 @@ title: Transformer
 | BOS   | Beginning Of Sequence |         |                   |
 | EOS   | End Of Sequence       |         | `<\|endoftext\|>` |
 | PAD   | Padding               | 填充    |
+
+| abbr. | stand for              | meaning       | notes       |
+| ----- | ---------------------- | ------------- | ----------- |
+| MTP   | Multi-Token Prediction | 多 token 预测 | by DeepSeek |
 
 ---
 

@@ -411,6 +411,7 @@ npx --package @7nohe/openapi-react-query-codegen openapi-rq -i ./petstore.yaml
 ## 参考
 
 - [public-apis/public-apis](https://github.com/public-apis/public-apis)
+- https://www.postman.com/ai-engineer/generative-ai-apis/overview
 - [How Uber Engineering Evaluated JSON Encoding and Compression Algorithms to Put the Squeeze on Trip Data](https://eng.uber.com/trip-data-squeeze-json-encoding-compression/)
   - 2016-02
 

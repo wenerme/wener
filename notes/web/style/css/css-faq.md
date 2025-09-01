@@ -31,6 +31,11 @@ tags:
 }
 ```
 
+## Media Query
+
+- Print
+  - @media print {}
+
 ## border 渐变 {#border-gradient}
 
 - border 不支持渐变

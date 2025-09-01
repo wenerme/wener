@@ -19,6 +19,7 @@ tags:
 | OOM    | Out of memory                          | 内存溢出         |
 | RIIR   | Rewrite It In Rust                     | 使用 Rust 重写   |
 | RTTI   | Runtime Type Information               | 运行时类型信息   |
+| SDLC   | Software Development Life Cycle        | 软件开发生命周期 |
 
 [raii]: https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization
 
@@ -96,3 +97,6 @@ tags:
   - Vue Router
 
 ## 通信 {#communication}
+
+## SDLC
+

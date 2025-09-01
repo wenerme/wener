@@ -7,7 +7,7 @@ title: 测试
 :::tip
 
 - QPS=VU/RT
-- VU=QPS\*RT
+- VU=QPS&times;RT
 - RT=VU/QPS
 
 :::

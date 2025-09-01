@@ -112,6 +112,36 @@ openai api fine_tunes.create -t <TRAIN_FILE_ID_OR_PATH> -m <BASE_MODEL>
 openai api fine_tunes.follow -i <YOUR_FINE_TUNE_JOB_ID>
 ```
 
+## API
+
+1. Assistants - 构建可以调用模型和使用工具的助手
+1. Audio - 音频转文本或文本转音频
+1. Audit Logs - 列出组织内的用户操作和配置更改
+1. Batch - 创建大批量API请求以异步运行
+1. Chat - 根据对话消息列表返回响应
+1. Completions - 根据提示返回预测完成内容
+1. Conversations - 管理对话和对话项目
+1. Embeddings - 获取输入的向量表示
+1. Evals - 在OpenAI平台中管理和运行评估
+1. Files - 上传文档用于助手和微调等功能
+1. Fine-tuning - 管理微调作业以针对特定训练数据定制模型
+1. Graders - 在OpenAI平台中管理和运行评分器
+1. Images - 根据提示和/或输入图像生成新图像
+1. Models - 列出和描述API中可用的各种模型
+1. Moderations - 对文本和/或图像输入进行潜在有害性分类
+1. Uploads - 使用多部分上传大文件
+
+<!--
+Assistants
+Audio
+Batch
+Chat
+Completions
+Embeddings
+Images
+Models
+-->
+
 # FAQ
 
 - Sora - Supported Countries https://help.openai.com/en/articles/10250692

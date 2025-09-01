@@ -9,6 +9,11 @@ tags:
   - 3.12 之后移除
 - Python 3.12 需要 numpy > 1.26.4
   - paddlex 3.0.0b2 依赖 numpy 1.24.4
+- `__pycache__`
+  - 缓存目录
+  - 默认开启
+  - 可以通过 `python -B` 关闭
+  - 存储的文件名是 `__pycache__/module_name.cpython-312.pyc`
 
 ```bash
 python -V && pip -V

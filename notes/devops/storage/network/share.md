@@ -1,5 +1,4 @@
 ---
-id: share
 title: Share
 ---
 
@@ -39,13 +38,11 @@ groupadd ftpgroup
 # Add a user to the group (revoke the home directory and deny acces to shell login).
 useradd -g ftpgroup -d /dev/null -s /etc ftpuser
 
-
 # Create a directory for your ftp-files (you can also specify a specific user e.g.: /root/ftphome/bob).
 mkdir /root/ftphome
 
 # Create a ftp-user, in our example "bob" (again you can set "-d /root/ftphome/bob/" if you wish).
 pure-pw useradd bob -u ftpuser -g ftpgroup -d /root/ftphome/
-
 
 # Update the ftp database after adding our new user.
 pure-pw mkdb

@@ -42,6 +42,8 @@ find . -name '.DS_Store' -type f -delete
 find . -type d -empty -delete
 # rm empty file
 find . -type f -empty -delete
+# 找到 git 仓库
+find . -name '.git' -type d -maxdepth 5
 
 # Shell 参数最大长度
 # 131072 -> 128KB

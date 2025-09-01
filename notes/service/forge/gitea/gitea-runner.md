@@ -1,5 +1,7 @@
 ---
 title: Gitea Runner
+tags:
+  - Runner
 ---
 
 # Gitea Runner

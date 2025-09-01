@@ -1,5 +1,7 @@
 ---
 title: Gitea Action
+tags:
+  - Runner
 ---
 
 # Gitea Action

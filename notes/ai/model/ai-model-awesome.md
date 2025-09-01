@@ -11,6 +11,8 @@ tags:
 
 | Date       | Model                | Size                                                        | Context Window | Creator         | notes                                                                              |
 | :--------- | :------------------- | :---------------------------------------------------------- | :------------- | :-------------- | ---------------------------------------------------------------------------------- |
+| 2025-08-25 | InternVL3.5          | 1B - 241B - Qwen3, GPT OSS FT                               |
+| 2025-08-22 | Intern-S1            | Qwen3                                                       |
 | 2025-08-11 | [GLM 4.5V][GLM-4.5V] | based on GLM-4.5-Air-106-12A                                |                |                 | Hybrid Reasoning                                                                   |
 | 2025-08-06 | GPT OSS              | [20B][gpt-oss-20b], [120B][gpt-oss-120b]                    | 128K           | OpenAI          | Reasoning, Tools                                                                   |
 | 2025-07-28 | Intern-S1            | 235B                                                        |                |                 | Qwen3 + 6B InternViT                                                               |
@@ -70,6 +72,12 @@ tags:
   - https://github.com/dqbd/tiktokenizer/issues/39
 
 <!--
+https://github.com/InternLM/Intern-S1
+multimodal reasoning model
+
+https://github.com/OpenGVLab/InternVL
+https://huggingface.co/collections/OpenGVLab/internvl35-68ac87bd52ebe953485927fb
+
 https://huggingface.co/xai-org/grok-2
 https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct
 -->

@@ -16,6 +16,14 @@ tags: [Claude, AI, Code, Agent]
   - [ryoppippi/ccusage](https://github.com/ryoppippi/ccusage)
   - [eyaltoledano/claude-task-master](https://github.com/eyaltoledano/claude-task-master)
 
+:::caution
+
+- Add dynamic loading/unloading of MCP servers during active sessions [#6638](https://github.com/anthropics/claude-code/issues/6638)
+  - 目前 mcp 太多会导致 token 消耗过多
+  - 可以临时 deny 一些 mcp
+
+:::
+
 ```bash
 npm install -g @anthropic-ai/claude-code
 
