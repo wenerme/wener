@@ -16,6 +16,13 @@ tags:
 
 :::
 
+:::tip
+
+- 目前业内共识 OTEL
+- 大多场景直接选择 OpenTelemetry 即可
+
+:::
+
 - [getsentry/sentry](./tracing/sentry.md)
 - Uptime
   - [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma)
@@ -39,7 +46,12 @@ tags:
 - [clickvisual/clickvisual](https://github.com/clickvisual/clickvisual)
   - UI for Clickhouse
 - [highlight/highlight](https://github.com/highlight/highlight)
-
+- [keephq/keep](https://github.com/keephq/keep)
+  - MIT+EE, Python, Typescript
+  - AIOps and alert management platform
+- [prymitive/karma](https://github.com/prymitive/karma)
+  - Apache-2.0, Go, Typescript
+  - Alert dashboard for Prometheus Alertmanager
 
 ## Tracing
 

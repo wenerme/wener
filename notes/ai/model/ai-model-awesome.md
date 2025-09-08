@@ -9,51 +9,52 @@ tags:
 
 **Open Weights/Transformer**
 
-| Date       | Model                | Size                                                        | Context Window | Creator         | notes                                                                              |
-| :--------- | :------------------- | :---------------------------------------------------------- | :------------- | :-------------- | ---------------------------------------------------------------------------------- |
-| 2025-08-25 | InternVL3.5          | 1B - 241B - Qwen3, GPT OSS FT                               |
-| 2025-08-22 | Intern-S1            | Qwen3                                                       |
-| 2025-08-11 | [GLM 4.5V][GLM-4.5V] | based on GLM-4.5-Air-106-12A                                |                |                 | Hybrid Reasoning                                                                   |
-| 2025-08-06 | GPT OSS              | [20B][gpt-oss-20b], [120B][gpt-oss-120b]                    | 128K           | OpenAI          | Reasoning, Tools                                                                   |
-| 2025-07-28 | Intern-S1            | 235B                                                        |                |                 | Qwen3 + 6B InternViT                                                               |
-| 2025-07-28 | GLM 4.5              | 355-32A, Air 106-12A                                        | 128K           | Zhipu           | Reasoning, Multilingual                                                            |
-| 2025-07-23 | Qwen3 2507           | Coder 480B-A35B, Coder-Flash 30B-A3B, 235B-A22B, 30B-A3B    | 256K, Yarn 1M  |
-| 2025-07-28 | WAN-2.2              | TI2V-5B, T2V-27B-A14B, I2V-27B-A14B                         |                | Alibaba         | T2V, I2V, VACE, FLF2V, Reasoning, Multilingual                                     |
-| 2025-07-15 | Voxtral 1.0          | Mini 3B, Small 24B                                          | 32K            | Mistral AI      | Audio, 30min transcription, 40 min understanding                                   |
-| 2025-07-11 | Kimi k2              | 1T-A32B                                                     | 128K           | Moonshot AI     | MoE                                                                                |
-| 2025-07-02 | GLM-4.1V             | 9B                                                          | 64K            | Zhipu,THUDM     | Vision, Reasoning                                                                  |
-| 2025-06-11 | Magistral            | small 24B                                                   | 39K            | Mistral AI      | Reasoning, Multilingual                                                            |
-| 2025-06-07 | Comma v0.1           | 7B                                                          |                | EleutherAI      | Full OSS, English                                                                  |
-| 2025-06-05 | Qwen3-Embedding      | 0.6b, 4b, 8b                                                | 32K            | Alibaba         | Embedding, Reranking, Multilingual(100+), Instruction Aware, MRL(1024, 2560, 4096) |
-| 2025-05-28 | DeepSeek R1 0528     |                                                             |                | DeepSeek AI     | Update                                                                             |
-| 2025-05-26 | QwenLong-L1          | 32b                                                         | 120K           | Alibaba         | text                                                                               |
-| 2025-05-20 | Gemma3n              | 5b-e2b, 8b-e4b                                              |                | Google          | Edge, PLE                                                                          |
-| 2025-04-29 | Qwen3                | 0.6b, 1.7b, 4b, 8b, 14b, 30b, 32b, 235b, 30b-a3b, 235b-a22b | 40K            | Alibaba         | MoE, Reasoning                                                                     |
-| 2025-04-05 | Llama 4              | scout 109b-a17b ,marverik 400b-a17b, _2T_                   | 1M, 10M        | Meta            | MoE, Vision                                                                        |
-| 2025-03-26 | Qwen2.5-Omni         | 3B, 7B                                                      |                | Alibaba         | text, audio, image, video, speech                                                  |
-| 2025-03-12 | Gemma3               | 1b, 4b, 12b, 27b                                            | 128K           | Google DeepMind | Vision                                                                             |
-| 2025-02-25 | Wan 2.1              | 1.3b,14b                                                    |                | Alibaba         | t2v, 480P, 720p                                                                    |
-| 2025-02-24 | smollm2              | 135m, 360m, 1.7b                                            | 8K             | HuggingFaceTB   |
-| 2025-01-28 | Qwen2.5-VL           | 3b, 7b, 32b, 72b                                            | 125K           | Alibaba         | Vision                                                                             |
-| 2025-01-28 | Qwen2.5              | 0.5b, 1.5b, 3b, 7b, 14b, 32b, 72b                           | 32K,1M         | Alibaba         |
-| 2025-01-20 | DeepSeek R1          | 1.5b, 7b, 8b, 14b, 32b, 70b, 671b                           | 128K           | DeepSeek AI     | Reasoning                                                                          |
-| 2024-12-07 | Llama 3.3            | 70B                                                         | 128K           | Meta            |
-| 2024-12    | Phi-4                | 14b                                                         | 128K           | Microsoft       | mini-reasoning,reasoning,multimodal                                                |
-| 2024-11-21 | LTX-Video            | 2b, 13b                                                     |                | Lightricks      | T2V                                                                                |
-| 2024-10-05 | LLaVA                | 7b, 13b, 34b                                                | 4K, 32K        |                 | Vision                                                                             |
-| 2024-09-25 | Llama 3.2            | 1B, 3B, 11B, 90B                                            | 128K           | Meta            |
-| 2024-07-23 | Llama 3.1            | 8B, 70.6B, 405B                                             | 128K           | Meta            |
-| 2024-06-27 | Gemma 2              | 9b, 27.2b                                                   | 8K             | Google DeepMind |
-| 2024-06-07 | Qwen2                | 0.5b, 1.5b, 7b, 57b (A14b), 72b                             | 32K, 64K, 128K | Alibaba         |
-| 2024-04-23 | Phi-3                | 3.8b , 7b , 14b                                             | 4K, 128K       | Microsoft       |
-| 2024-04-18 | Llama 3              | 8b, 70.6b                                                   | 8K, 128K       | Meta            |
-| 2024-02-21 | Gemma                | 2b, 7b                                                      | 8K             | Google DeepMind |
-| 2023-12-11 | Mistral              | 7b, 46.7b (8x7B MoE)                                        | 33K            | Mistral AI      |
-| 2023-07-18 | Llama 2              | 6.7b, 13b, 69b                                              | 4K             | Meta            |
-| 2023-02-24 | LLaMA                | 6.7B, 13B, 32.5B, 65.2B                                     | 2K             | Meta            |
-| 2020-06-11 | GPT-3                | 175b                                                        | 2K             | OpenAI          |
-| 2019-02-14 | GPT-2                | 1.5b                                                        | 1K             | OpenAI          |
-| 2018-06-11 | GPT-1                | 117m                                                        | 512            | OpenAI          |
+| Date       | Model                 | Size                                                        | Context Window | Creator         | notes                                                                              |
+| :--------- | :-------------------- | :---------------------------------------------------------- | :------------- | :-------------- | ---------------------------------------------------------------------------------- |
+| 2025-09-01 | Hunyuan-MT-Chimera-7B | 7B                                                          |
+| 2025-08-25 | InternVL3.5           | 1B - 241B - Qwen3, GPT OSS FT                               |
+| 2025-08-22 | Intern-S1             | Qwen3                                                       |
+| 2025-08-11 | [GLM 4.5V]            | based on GLM-4.5-Air-106-12A                                |                |                 | Hybrid Reasoning                                                                   |
+| 2025-08-06 | GPT OSS               | [20B][gpt-oss-20b], [120B][gpt-oss-120b]                    | 128K           | OpenAI          | Reasoning, Tools                                                                   |
+| 2025-07-28 | Intern-S1             | 235B                                                        |                |                 | Qwen3 + 6B InternViT                                                               |
+| 2025-07-28 | GLM 4.5               | 355-32A, Air 106-12A                                        | 128K           | Zhipu           | Reasoning, Multilingual                                                            |
+| 2025-07-23 | Qwen3 2507            | Coder 480B-A35B, Coder-Flash 30B-A3B, 235B-A22B, 30B-A3B    | 256K, Yarn 1M  |
+| 2025-07-28 | WAN-2.2               | TI2V-5B, T2V-27B-A14B, I2V-27B-A14B                         |                | Alibaba         | T2V, I2V, VACE, FLF2V, Reasoning, Multilingual                                     |
+| 2025-07-15 | Voxtral 1.0           | Mini 3B, Small 24B                                          | 32K            | Mistral AI      | Audio, 30min transcription, 40 min understanding                                   |
+| 2025-07-11 | Kimi k2               | 1T-A32B                                                     | 128K           | Moonshot AI     | MoE                                                                                |
+| 2025-07-02 | GLM-4.1V              | 9B                                                          | 64K            | Zhipu,THUDM     | Vision, Reasoning                                                                  |
+| 2025-06-11 | Magistral             | small 24B                                                   | 39K            | Mistral AI      | Reasoning, Multilingual                                                            |
+| 2025-06-07 | Comma v0.1            | 7B                                                          |                | EleutherAI      | Full OSS, English                                                                  |
+| 2025-06-05 | Qwen3-Embedding       | 0.6b, 4b, 8b                                                | 32K            | Alibaba         | Embedding, Reranking, Multilingual(100+), Instruction Aware, MRL(1024, 2560, 4096) |
+| 2025-05-28 | DeepSeek R1 0528      |                                                             |                | DeepSeek AI     | Update                                                                             |
+| 2025-05-26 | QwenLong-L1           | 32b                                                         | 120K           | Alibaba         | text                                                                               |
+| 2025-05-20 | Gemma3n               | 5b-e2b, 8b-e4b                                              |                | Google          | Edge, PLE                                                                          |
+| 2025-04-29 | Qwen3                 | 0.6b, 1.7b, 4b, 8b, 14b, 30b, 32b, 235b, 30b-a3b, 235b-a22b | 40K            | Alibaba         | MoE, Reasoning                                                                     |
+| 2025-04-05 | Llama 4               | scout 109b-a17b ,marverik 400b-a17b, _2T_                   | 1M, 10M        | Meta            | MoE, Vision                                                                        |
+| 2025-03-26 | Qwen2.5-Omni          | 3B, 7B                                                      |                | Alibaba         | text, audio, image, video, speech                                                  |
+| 2025-03-12 | Gemma3                | 1b, 4b, 12b, 27b                                            | 128K           | Google DeepMind | Vision                                                                             |
+| 2025-02-25 | Wan 2.1               | 1.3b,14b                                                    |                | Alibaba         | t2v, 480P, 720p                                                                    |
+| 2025-02-24 | smollm2               | 135m, 360m, 1.7b                                            | 8K             | HuggingFaceTB   |
+| 2025-01-28 | Qwen2.5-VL            | 3b, 7b, 32b, 72b                                            | 125K           | Alibaba         | Vision                                                                             |
+| 2025-01-28 | Qwen2.5               | 0.5b, 1.5b, 3b, 7b, 14b, 32b, 72b                           | 32K,1M         | Alibaba         |
+| 2025-01-20 | DeepSeek R1           | 1.5b, 7b, 8b, 14b, 32b, 70b, 671b                           | 128K           | DeepSeek AI     | Reasoning                                                                          |
+| 2024-12-07 | Llama 3.3             | 70B                                                         | 128K           | Meta            |
+| 2024-12    | Phi-4                 | 14b                                                         | 128K           | Microsoft       | mini-reasoning,reasoning,multimodal                                                |
+| 2024-11-21 | LTX-Video             | 2b, 13b                                                     |                | Lightricks      | T2V                                                                                |
+| 2024-10-05 | LLaVA                 | 7b, 13b, 34b                                                | 4K, 32K        |                 | Vision                                                                             |
+| 2024-09-25 | Llama 3.2             | 1B, 3B, 11B, 90B                                            | 128K           | Meta            |
+| 2024-07-23 | Llama 3.1             | 8B, 70.6B, 405B                                             | 128K           | Meta            |
+| 2024-06-27 | Gemma 2               | 9b, 27.2b                                                   | 8K             | Google DeepMind |
+| 2024-06-07 | Qwen2                 | 0.5b, 1.5b, 7b, 57b (A14b), 72b                             | 32K, 64K, 128K | Alibaba         |
+| 2024-04-23 | Phi-3                 | 3.8b , 7b , 14b                                             | 4K, 128K       | Microsoft       |
+| 2024-04-18 | Llama 3               | 8b, 70.6b                                                   | 8K, 128K       | Meta            |
+| 2024-02-21 | Gemma                 | 2b, 7b                                                      | 8K             | Google DeepMind |
+| 2023-12-11 | Mistral               | 7b, 46.7b (8x7B MoE)                                        | 33K            | Mistral AI      |
+| 2023-07-18 | Llama 2               | 6.7b, 13b, 69b                                              | 4K             | Meta            |
+| 2023-02-24 | LLaMA                 | 6.7B, 13B, 32.5B, 65.2B                                     | 2K             | Meta            |
+| 2020-06-11 | GPT-3                 | 175b                                                        | 2K             | OpenAI          |
+| 2019-02-14 | GPT-2                 | 1.5b                                                        | 1K             | OpenAI          |
+| 2018-06-11 | GPT-1                 | 117m                                                        | 512            | OpenAI          |
 
 | date       | model         | parameters          | context length | hidden size | attention                | heads (Q/KV/Group) | act func | head size | layers | experts (total/active) | vocab size | data type    | tokenizer           |
 | ---------- | ------------- | ------------------- | -------------- | ----------- | ------------------------ | ------------------ | -------- | --------- | ------ | ---------------------- | ---------- | ------------ | ------------------- |
@@ -84,7 +85,7 @@ https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct
 
 [gpt-oss-20b]: https://huggingface.co/openai/gpt-oss-20b
 [gpt-oss-120b]: https://huggingface.co/openai/gpt-oss-120b
-[GLM-4.5V]: https://huggingface.co/zai-org/GLM-4.5V
+[GLM 4.5V]: https://huggingface.co/zai-org/GLM-4.5V
 
 | date       | model        | author | notes                                   |
 | ---------- | ------------ | ------ | --------------------------------------- |
@@ -496,6 +497,11 @@ https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct
   - [osmosis-ai/osmosis-mcp-4b](https://huggingface.co/osmosis-ai/osmosis-mcp-4b)
     - 基于 Qwen3-4B
     - multi step MCP-style tool usage
+  - [腾讯/Hunyuan-MT-Chimera-7B](https://huggingface.co/tencent/Hunyuan-MT-Chimera-7B)
+    - 多语言翻译
+    - 30+语言
+  - [腾讯/Hunyuan-MT-7B](https://huggingface.co/tencent/Hunyuan-MT-7B)
+    - 中英双语翻译
 - LLaMA based
   - Vicuna
 - [haotian-liu/LLaVA](https://github.com/haotian-liu/LLaVA)

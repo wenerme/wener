@@ -6,6 +6,10 @@ tags:
 
 # Debian FAQ
 
+- slim
+  - 100MB -> 30 - 70MB
+  - 移除 /usr/share/{doc,man,locale}
+
 ## 查找文件所属包
 
 ```bash

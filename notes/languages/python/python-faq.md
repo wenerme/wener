@@ -44,3 +44,15 @@ from module_name
 ```bash
 pip install pillow
 ```
+
+## decord
+
+```
+error: Distribution `decord==0.6.0 @ registry+https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple` can't be installed because it doesn't have a source distribution or wheel for the current platform
+hint: You're on Linux (`linux_x86_64`), but `decord` (v0.6.0) only has wheels for the following platforms: `manylinux2010_x86_64`, `win_amd64`; consider adding your platform to `tool.uv.required-environments` to ensure uv resolves to a version with compatible wheels
+error building image: error building stage: failed to execute command: waiting for process to exit: exit status 2
+```
+
+- https://github.com/dmlc/decord
+- [georgia-tech-db/eva-decord](https://github.com/georgia-tech-db/eva-decord)
+  - fork decord

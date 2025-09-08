@@ -5,9 +5,21 @@ tags:
 
 # Python Awesome
 
+| PEP     | tags                                                          | for                         |
+| ------- | --------------------------------------------------------------- | --------------------------- |
+| PEP 513 | manylinux1_x86_64, manylinux1_i686                              | CentOS 5, EOL on 2017-3-31  |
+| PEP 571 | manylinux2010_x86_64, manylinux2010_i686                        | CentOS 6, EOL on 2020-11-30 |
+| PEP 599 | manylinux2014\_{x86_64,i686,aarch64,armv7l,ppc64,ppc64le,s390x} | CentOS 7, EOL on 2024-06-30 |
+| PEP 656 | musllinux_x_y                                                   | musl >= x.y                 |
+| PEP 600 | manylinux_x_y                                                   | glibc >= x.y                |
+
 - https://pypa.io
   - PyPA -> Python Packaging Authority
 - PSF -> Python Software Foundation
+- Wheel -> A built-package format for Python
+- Spec
+  - [PEPs](./python-pep.md) - Python Enhancement Proposals
+  - [pypa/manylinux](https://github.com/pypa/manylinux)
 - Typing
   - [pydantic](https://github.com/pydantic/pydantic)
     - MIT
@@ -34,8 +46,9 @@ tags:
     - by Google
     - A Python type inferencer and static analyzer that checks and infers Python types, supporting legacy Python code.
 - Toolchain
-  - pip
-  - poetry
+  - [pip](./pip.md)
+  - [uv](./uv.md)
+  - [poetry](./poetry.md)
   - tox
   - pipx
 - QA/Fomatter/Linter

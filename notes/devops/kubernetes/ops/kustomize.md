@@ -46,6 +46,8 @@ title: kustomize
 ```bash
 # macOS
 brew install kustomize
+
+kubectl kustomize
 ```
 
 ## 目录结构

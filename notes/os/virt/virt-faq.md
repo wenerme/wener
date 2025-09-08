@@ -6,6 +6,13 @@ tags:
 
 # 虚拟化常见问题
 
+- https://man7.org/linux/man-pages/man2/memfd_create.2.html
+- hugetlb -> Huge Transparent Large Pages
+- [Cloning microVMs by sharing memory through userfaultfd](https://codesandbox.io/blog/cloning-microvms-using-userfaultfd)
+- https://e2b.dev/blog/firecracker-vs-qemu
+- hvc0 - hypervisor console
+  - virtio console
+
 ## KVM vs Vmware
 
 - [KVM vs. VMware](https://www.redhat.com/en/topics/virtualization/kvm-vs-vmware-comparison)

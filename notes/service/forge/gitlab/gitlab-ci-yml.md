@@ -4,7 +4,7 @@ title: gitlab-ci.yml
 
 # gitlab-ci.yml
 
-- Gitlab CI [YAML](https://docs.gitlab.com/ce/ci/yaml/index.html)
+- Gitlab CI [YAML](https://docs.gitlab.com/ci/yaml/)
 - [模板](https://gitlab.com/gitlab-org/gitlab/tree/master/lib/gitlab/ci/templates)
 - [示例](https://docs.gitlab.com/ee/ci/examples/)
 - [变量说明](https://docs.gitlab.com/ce/ci/variables/README.html)

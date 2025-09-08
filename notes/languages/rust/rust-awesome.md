@@ -16,6 +16,28 @@ tags:
 - [smoltcp-rs/smoltcp](https://github.com/smoltcp-rs/smoltcp)
   - tcp/ip stack
 
+```bash
+# /opt/homebrew/opt/rustup/bin
+# $(brew --prefix rustup)/bin
+brew install rustup
+
+# stable beta nightly
+rustup default stable
+rustup update
+rustup component list
+rustup doc
+rustup self-uninstall
+```
+
+| 命令            | 作用说明                 |
+| --------------- | ------------------------ |
+| `rustc`         | Rust 编译器。            |
+| `cargo`         | 项目构建工具和包管理器。 |
+| `rustdoc`       | 文档生成工具。           |
+| `rustfmt`       | formater                 |
+| `clippy`        | linter                   |
+| `rust-analyzer` | LSP Server               |
+
 ## Projects
 
 - [rustdesk/rustdesk](https://github.com/rustdesk/rustdesk)

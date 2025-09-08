@@ -31,11 +31,12 @@ tags:
 |       | [On-premises Software] | 本地软件   |
 | SaaS  | Software as a Service  | 软件即服务 |
 
-| en          | cn     |
-| ----------- | ------ |
-| Checksum    | 校验和 |
-| Check digit | 校验位 |
-| Check code  | 校验码 |
+| en              | cn     |
+| --------------- | ------ |
+| Checksum        | 校验和 |
+| Check digit     | 校验位 |
+| Check code      | 校验码 |
+| Circuit Breaker | 断路器 |
 
 - off-premises -> SaaS
 - on-premises - server-based software
@@ -100,3 +101,8 @@ tags:
 
 ## SDLC
 
+## 熔断 {#circuit-breaker}
+
+- Java: Resilience4j, Netflix Hystrix (目前已进入维护状态)
+- .NET: Polly
+- Go: go-circuitbreaker

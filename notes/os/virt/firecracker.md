@@ -41,20 +41,22 @@ title: Firecracker
 ```bash
 # download
 latest=$(basename $(curl -fsSLI -o /dev/null -w  %{url_effective} https://github.com/firecracker-microvm/firecracker/releases/latest))
-curl -LOJ https://github.com/firecracker-microvm/firecracker/releases/download/${latest}/firecracker-${latest}-$(uname -m)
-mv firecracker-${latest}-$(uname -m) firecracker
+curl -LOJ https://github.com/firecracker-microvm/firecracker/releases/download/${latest}/firecracker-${latest}-$(uname -m).tgz
+mkdir out
+tar zxvf firecracker-${latest}-$(uname -m).tgz --strip-components=1 -C out
+cp out/firecracker-${latest}-$(uname -m) firecracker
 chmod +x firecracker
 
 # rootfs
 # =========
 # qemu-img create -f raw alpine.rootfs.ext4 1G
-fallocate -l 1G ubuntu.rootfs.ext4
+fallocate -l 1G alpine.rootfs.ext4
 mkfs.ext4 ./alpine.rootfs.ext4
-mkdir /tmp/rootfs
+mkdir -p /tmp/rootfs
 sudo mount alpine.rootfs.ext4 /tmp/rootfs
 
-curl -OJ https://mirrors.aliyun.com/alpine/v3.12/releases/x86_64/alpine-minirootfs-3.12.0-x86_64.tar.gz
-sudo tar zxvf alpine-minirootfs-3.12.0-x86_64.tar.gz -C /tmp/rootfs/
+curl -OJ https://mirrors.aliyun.com/alpine/v3.19/releases/x86_64/alpine-minirootfs-3.19.8-x86_64.tar.gz
+sudo tar zxvf alpine-minirootfs-3.19.8-x86_64.tar.gz -C /tmp/rootfs/
 # for mirror
 sudo cp /etc/apk/repositories /tmp/rootfs/etc/apk/repositories
 sudo cp /etc/resolv.conf /tmp/rootfs/etc
@@ -64,12 +66,15 @@ apk add alpine-base util-linux linux-virt haveged
 rc-update add haveged
 echo root:root | chpasswd
 for svc in devfs procfs sysfs; do ln -fs /etc/init.d/$svc /etc/runlevels/boot; done
-exit
 
 ln -s agetty /etc/init.d/agetty.ttyS0
 echo ttyS0 > /etc/securetty
 rc-update add agetty.ttyS0 default
 
+exit
+
+# curl -LO https://mirrors.aliyun.com/alpine/latest-stable/releases/x86_64/netboot/initramfs-virt
+# curl -LO https://mirrors.aliyun.com/alpine/latest-stable/releases/x86_64/netboot/vmlinuz-virt
 # this initramfs contain required ext4 module
 sudo cp /tmp/rootfs/boot/initramfs-virt initramfs-virt
 sudo cp /tmp/rootfs/boot/vmlinuz-virt vmlinuz-virt
@@ -80,6 +85,8 @@ sudo umount /tmp/rootfs
 # ==========
 curl -LOC- https://raw.githubusercontent.com/torvalds/linux/master/scripts/extract-vmlinux
 chmod +x extract-vmlinux
+sudo apk add grep
+# uncompress
 ./extract-vmlinux $PWD/vmlinuz-virt > vmlinux-virt
 
 # config & start

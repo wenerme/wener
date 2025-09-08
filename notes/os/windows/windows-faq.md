@@ -26,12 +26,17 @@ shutdown /s /t 0 # 关机
 
 ## Windows 11 无账号安装 {#bypass-nro}
 
+> Windows 无账号进入系统
+> Windows login without account
+
+Windows 10/11 家庭版
+
 1. 国家页面 `Shift-F11`
 2. 输入 `oobe\BypassNRO`
 
 **也可以**
 
-```
+```batch
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE /v BypassNRO /t REG_DWORD /d 1 /f
 shutdown /r /t 0
 ```

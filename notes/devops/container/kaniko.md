@@ -4,6 +4,13 @@ title: Kaniko
 
 # Kaniko
 
+:::caution
+
+- 2025-06 项目已经 archived, 推荐 docker buildkit
+  - fork [chainguard-dev/kaniko](https://github.com/chainguard-dev/kaniko)
+
+:::
+
 - [GoogleContainerTools/kaniko](https://github.com/GoogleContainerTools/kaniko) 是什么？
   - 构建容器镜像的工具
   - 不依赖 Docker，不需要 root 权限
@@ -37,7 +44,7 @@ docker run --rm -it -w /workspace --entrypoint sh registry.cn-hongkong.aliyuncs.
 mkdir -p /workspace /images /cache
 cd /workspace
 
-cat <<DOCKERFILE > Dockerfile
+cat << DOCKERFILE > Dockerfile
 FROM wener/base
 RUN apk add coreutils
 DOCKERFILE
@@ -73,7 +80,7 @@ docker run \
 ## dockerhub
 
 ```bash
-cat <<JSON > config.json
+cat << JSON > config.json
 {
 	"auths": {
 		"https://index.docker.io/v1/": {
@@ -94,8 +101,10 @@ docker run --rm -it $PWD/config:/kaniko/.docker/config.json --destination=yourim
 # FAQ
 
 ## 性能问题
+
 - https://github.com/GoogleContainerTools/kaniko/issues/875
   Kaniko build's performance much slower comparing with DID solution
+- Unpacking rootfs as cmd COPY
 
 ## 拷贝根目录异常阻塞
 

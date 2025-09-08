@@ -93,6 +93,7 @@ tags:
 ## Alpine Linux
 
 ```bash
+# 判断 stale 程度
 curl https://dl-cdn.alpinelinux.org/alpine/last-updated
 curl https://mirrors.aliyun.com/alpine/last-updated
 curl https://mirrors.ustc.edu.cn/alpine/last-updated

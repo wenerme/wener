@@ -14,7 +14,7 @@ title: Alpine GLIBC
 - LD_LIBRARY_PATH=/usr/glibc-compat/sbin/ldconfig
 
 ```bash
-apk del gcompat
+# apk del gcompat libc6-compat
 
 # wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
 curl --remote-name-all -LC- https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r1/glibc{,-bin,-dev}-2.35-r1.apk
@@ -22,7 +22,6 @@ apk add glibc-2.35-r1.apk glibc-bin-2.35-r1.apk glibc-dev-2.35-r1.apk --allow-un
 ```
 
 - overwrite
-  - https://github.com/sgerrand/alpine-pkg-glibc/issues/185
 
 ## unsupported relocation type 37
 

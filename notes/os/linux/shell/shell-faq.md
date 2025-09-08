@@ -48,6 +48,9 @@ find . -name '.git' -type d -maxdepth 5
 # Shell 参数最大长度
 # 131072 -> 128KB
 getconf ARG_MAX
+
+# sed 获取第 N 行
+sed -n 'N p' file
 ```
 
 - prompt

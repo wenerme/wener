@@ -81,3 +81,5 @@ pip install https://github.com/huggingface/transformers/archive/refs/heads/main.
 # FAQ
 
 ## cannot import name 'get_full_repo_name' from 'huggingface_hub'
+
+## Message has tool role, but there was no previous assistant message with a tool call

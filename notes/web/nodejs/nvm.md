@@ -31,10 +31,12 @@ nvm alias default 16      #
 
 
 # clone ~/.nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
 ## AlpineLinux
+
+- musl
 
 ```bash
 export NVM_NODEJS_ORG_MIRROR=https://unofficial-builds.nodejs.org/download/release

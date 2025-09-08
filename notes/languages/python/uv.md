@@ -38,6 +38,59 @@ uv pip sync requirements.lock
 
 # FAQ
 
+```bash
+uv sync --extra cpu
+```
+
+```toml
+# 可选依赖组
+[project.optional-dependencies]
+cpu = [
+    "torch==2.8.0+cpu",
+    "torchvision==0.23.0+cpu",
+    "torchaudio==2.8.0+cpu",
+]
+cu128 = [
+    "torch==2.8.0+cu128",
+    "torchvision==0.23.0+cu128",
+    "torchaudio==2.8.0+cu128",
+]
+
+# 包索引 / 源
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+# 专用
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+# 关联 包 <-> Index
+[tool.uv.sources]
+torch = [
+	{ index = "pytorch-cpu", extra = "cpu" }, # 条件控制
+	{ index = "pytorch-cu128", extra = "cu128" },
+]
+torchvision = [
+	{ index = "pytorch-cpu", extra = "cpu" },
+	{ index = "pytorch-cu128", extra = "cu128" },
+]
+
+[tool.uv]
+index-url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+# 互斥
+conflicts = [[
+	{ extra = "cpu" },
+	{ extra = "cu128" },
+]]
+
+
+
+```
+
 ## No module named 'setuptools'
 
 ```bash

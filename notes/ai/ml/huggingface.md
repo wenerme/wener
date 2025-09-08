@@ -33,6 +33,12 @@ uvx --from huggingface_hub huggingface-cli
 - --repo-type dataset
 - --repo-type space
 - --revision v1.1
+- https://huggingface.co/docs/huggingface_hub/en/package_reference/environment_variables
+
+## API
+
+- https://huggingface.co/docs/hub/en/api
+- https://github.com/huggingface/huggingface.js
 
 ## Cache
 

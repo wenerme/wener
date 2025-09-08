@@ -51,6 +51,7 @@ title: Transformer
 - YARN（Yet Another RoPE extensioN）
 - DCA - Dual Chunk Attention - 双块注意力
 - 参考
+  - https://bbycroft.net/llm
   - [What Are Transformer Models and How Do They Work?](https://cohere.com/blog/what-are-transformer-models)
   - arxiv:1706.03762 [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
   - [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)

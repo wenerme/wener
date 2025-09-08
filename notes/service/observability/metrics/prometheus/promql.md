@@ -43,6 +43,22 @@ sum(unifiVapNumStations * on(unifiVapIndex,instance) group_left(unifiVapEssId) u
 label_replace(unifiIfMac, "unifiLabel", "$0", "unifiIfMac", ".+")
 ```
 
+
+```sql
+-- Histogram
+-- =========
+-- Heatmap
+-- increase 让 value 变为整数, rate 则是比例
+-- legend {{le}}
+sum(increase(body_size_bucket[5m])) by (le)
+
+--
+histogram_quantile(0.50, sum(rate(body_size_bucket[$__rate_interval])) by (le))
+histogram_quantile(0.90, sum(rate(body_size_bucket[$__rate_interval])) by (le))
+histogram_quantile(0.95, sum(rate(body_size_bucket[$__rate_interval])) by (le))
+histogram_quantile(0.99, sum(rate(body_size_bucket[$__rate_interval])) by (le))
+```
+
 ## 常用
 
 ```promql

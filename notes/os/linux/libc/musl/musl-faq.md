@@ -29,6 +29,20 @@ tags:
   - glusterfs 不支持 musl [glusterfs#268](https://github.com/gluster/glusterfs/issues/268)
 - [bugs-found-by-musl](https://wiki.musl-libc.org/bugs-found-by-musl.html)
   - 其他软件已知因为 musl 导致的 bug
+- posix_fallocate64
+
+| symbol not found           | desc                                                  |
+| -------------------------- | ----------------------------------------------------- |
+| posix_fallocate64          | 64位文件偏移版本的 posix_fallocate，musl 使用统一实现 |
+| fcntl64                    | 64位文件偏移版本的 fcntl，musl 使用统一实现           |
+| `__sched_cpufree`          | glibc 内部函数，释放 CPU 集合内存                     |
+| `__getpagesize`            | glibc 内部函数，获取内存页大小                        |
+| malloc_trim                | glibc 扩展，释放堆顶部未使用内存给系统                |
+| `__cxa_thread_atexit_impl` | C++ ABI 内部函数，线程退出时析构函数支持              |
+| `__sched_cpualloc`         | glibc 内部函数，分配 CPU 集合内存                     |
+| dlvsym                     | glibc 扩展，按版本查找动态库符号                      |
+
+- libjvm.so
 
 ## malloc
 

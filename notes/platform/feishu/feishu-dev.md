@@ -20,6 +20,10 @@ tags:
   - https://open.feishu.cn/api-explorer
     - 目录 https://open.feishu.cn/api_explorer/v1/api_catalog
       - 使用这里的 fullPath 信息
+      - https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json
+      - 两种格式的 URL 都可以
+      - https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=/server-docs/authentication-management/access-token/app_access_token_internal
+      - https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=/ukTMukTMukTM/ukDNz4SO0MjL5QzM/auth-v3/auth/app_access_token_internal
     - 详情 https://open.feishu.cn/api_explorer/v1/api_definition?project=task&version=v2&resource=tasklist&apiName=tasks
 
 ## Desktop Client

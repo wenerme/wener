@@ -67,6 +67,11 @@ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null admin@127.0.0.1 
 
 ## setting
 
+- Windows: `%APPDATA%\Code\User\settings.json`
+- macOS: `$HOME/Library/Application Support/Code/User/settings.json`
+- Linux: `$HOME/.config/Code/User/settings.json`
+- Project `.vscode/settings.json`
+
 ```json
 {
   "files.associations": {
@@ -74,3 +79,6 @@ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null admin@127.0.0.1 
   }
 }
 ```
+
+- 参考
+  - https://code.visualstudio.com/docs/configure/settings

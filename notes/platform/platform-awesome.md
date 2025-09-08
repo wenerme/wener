@@ -6,6 +6,13 @@ tags:
 
 # Platform Awesome
 
+- GPU Instance/GPU Cloud/ Cloud GPU Rental Provider
+  - https://www.sesterce.com/
+  - Runpod
+  - https://gist.github.com/devinschumacher/87dd5b87234f2d0e5dba56503bfba533
+- LLM Provider
+  - OpenRouter
+  - https://artificialanalysis.ai/leaderboards/providers
 - RPA
   - 影刀 RPA
     - 社区版 免费 - 简单易用，门槛低

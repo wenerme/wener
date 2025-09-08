@@ -237,7 +237,8 @@ tags:
 - [urql](./urql.md)
   - @urql/core+wonka
   - 40kB,15kB
-- [graphql-request](https://github.com/jasonkuhrt/graphql-request)
+- [graffle-js/graffle](https://github.com/graffle-js/graffle)
+  - graphql-request -> graffle
   - 58kB,16kB
   - fetch + gql
 - react-query+graphql-request

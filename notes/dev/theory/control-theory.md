@@ -6,6 +6,11 @@ title: 控制理论
 
 - [Control theory](https://en.wikipedia.org/wiki/Control_theory)
   - 基础理论
+  - 是一门学科
+  - 一个庞大的理论体系，隶属于工程学和数学。
+  - 使用微分方程等数学工具来分析、建模和设计动态系统。
+  - 关注点：稳定性分析 (Stability)、可控性 (Controllability)、鲁棒性 (Robustness) 等理论特性。
+  - 核心思想：反馈 (Feedback)
 - Controller
 - System
 - Sensor

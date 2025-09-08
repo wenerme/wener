@@ -19,6 +19,9 @@ docker context create svr --docker "host=ssh://admin@svr"
 
 # Docker transfer image over SSH
 docker save image | ssh svr docker load
+
+ssh -nNT -L /tmp/remote.docker.sock:/var/run/docker.sock user@host
+export DOCKER_HOST="unix:///tmp/remote.docker.sock"
 ```
 
 ## Host IP
