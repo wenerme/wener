@@ -20,6 +20,7 @@ tags:
 - workspace/session/multiplexer
   - [tmux](./tmux/README.md)
   - [zellij-org/zellij](https://github.com/zellij-org/zellij)
+    - MIT, Rust
   - [shell-pool/shpool](https://github.com/shell-pool/shpool)
 - remote/ssh
   - openssh

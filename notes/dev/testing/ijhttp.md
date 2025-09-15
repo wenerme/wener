@@ -11,6 +11,8 @@ cd ijhttp
 # Java 17+
 ./ijhttp
 
+brew install ijhttp
+
 ijhttp run.http --env-file my.env.json --env dev -V SERVER_HOST=http://staging-server:8080 -P PRIVATE_PATH=super-secure-parameter -L VERBOSE
 
 docker run --rm -i -t -v $PWD:/workdir \

@@ -8,6 +8,19 @@ tags:
 - 喷墨是摄影师和实验室优先选择的类型
 - L3250
 
+
+```bash
+# nmap 发现 printer
+nmap -p 9100 192.168.1.1
+
+dns-sd -B _ipps._tcp
+lpinfo -v
+ippfind
+
+# "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks /PrintCore.framework/Versions/A/Resources/Generic.ppd"
+lpadmin -p Printer_Name -L "Printer Location" -E -v ipp://10.1.20.12  -P /Library/Printers/PPDs/Contents/Resources/Printer_Driver.gz
+```
+
 ## 染料墨水 vs 颜料墨水
 
 - 染料/Dye

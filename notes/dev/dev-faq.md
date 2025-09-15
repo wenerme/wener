@@ -885,22 +885,15 @@ echo -n I | od -to2 | head -n1 | cut -f2 -d" " | cut -c6
 - [Writing Code Was Never the Bottleneck](https://ordep.dev/posts/writing-code-was-never-the-bottleneck)
   - [HN](https://news.ycombinator.com/item?id=44429789)
 
-## Backoff
+## Rate Limiting vs Circuit Breaking
 
-```ts
-type BackoffStragegy = {
-  limit?: number; // 最大重试次数
-  delay?: (attempt: number) => number; // 延迟函数，返回延迟时间（毫秒）
-  maxDelay?: number; // 最大延迟时间（毫秒）
-};
+| 维度     | 速率限制（Rate Limiting）            | 熔断（Circuit Breaking）           |
+| -------- | ------------------------------------ | ---------------------------------- |
+| 目的     | 保护后端服务，防止过载               | 保护调用方，避免级联故障           |
+| 实现方式 | 限制请求速率，平滑流量               | 监控失败率，动态切换请求状态       |
+| 状态管理 | 通过令牌桶、漏桶等算法实现流量控制   | 通过状态机管理请求的开放、关闭状态 |
+| 适用场景 | 高并发场景，防止单个用户占用过多资源 | 后端服务不稳定，避免故障蔓延       |
 
-type BackoffType =
-  | 'exponential' // 指数回退 - 例如：0.3 * (2 ** (attemptCount - 1)) * 1000
-  | 'linear' // 线性回退 - 例如：attemptCount * 1000
-  | 'constant'; // 固定延迟 - 例如：1000
-```
-
-- delay - 延迟函数，返回延迟时间（毫秒）
-  - `0.3 * (2 ** (attemptCount - 1)) * 1000` - 0.3 秒的指数回退
-    - 300ms, 600ms, 1200ms, 2400ms, 4800ms, 9600ms, ...
-- exponential backoff
+- [速率限制](./rate-limits.md)
+- [熔断器](./circuit-breaker.md)
+- 混沌工程是用来检验和增强“熔断器”与“速率限制”等韧性措施有效性的方法论和实践。

@@ -1,0 +1,58 @@
+---
+title: Placeholder
+---
+
+# Placeholder
+
+- image placeholder
+- https://unsplash.it/
+  - https://unsplash.it/300/200
+  - https://unsplash.it/300/200/?random
+  - https://unsplash.it/300/200?image=7
+  - https://unsplash.it/300/200/?blur
+- https://cataas.com/
+- https://placehold.co/
+  - https://placehold.co/600x400/png
+- https://picsum.photos
+  - https://picsum.photos/2000/2000
+- https://placehold.it
+  - https://placehold.it/300x200
+  - https://placehold.it/300x200/09f/fff.png
+  - https://placehold.it/300&text=world
+  - https://placehold.it/300x200/ff9900/fff.png?text=hello
+- https://lorempixel.com/
+  - https://lorempixel.com/300/200
+  - https://lorempixel.com/300/200/sports
+  - https://lorempixel.com/300/200/sports/C7SKY-COM
+- https://loremflickr.com
+  - https://loremflickr.com/640/480?lock=1234
+
+- https://fakeimg.pl/
+  - https://fakeimg.pl/300x200
+  - https://fakeimg.pl/300x200/333/EEE/
+  - https://fakeimg.pl/300/?text=C7SKY.COM&font=lobster
+- https://placekitten.com/
+  - https://placekitten.com/300/200
+  - https://placekitten.com/g/300/200
+- https://fpoimg.com/
+  - https://fpoimg.com/300x200
+  - https://fpoimg.com/300x200?bg_color=333&text_color=EEE
+  - https://fpoimg.com/300?text=C7SKY.COM
+- http://dummyimage.com/
+  - http://dummyimage.com/300x200
+  - http://dummyimage.com/300x4:3
+  - http://dummyimage.com/300x200/333/EEE.png
+  - http://dummyimage.com/300/&text=C7SKY.COM
+- https://placeimg.com/
+  - http://placeimg.com/300/200
+  - http://placeimg.com/300/200/nature
+  - http://placeimg.com/300/200/nature/sepia
+- http://temp.im/
+  - 国内、托管在腾讯云
+  - http://temp.im/300x200
+  - http://temp.im/300x200/333/EEE
+- Avatar
+  - https://avatars.githubusercontent.com/u/97165289
+  - https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/57.jpg
+- 参考
+  - https://fakerjs.dev/api/image

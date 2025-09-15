@@ -52,6 +52,9 @@ tags:
 - [prymitive/karma](https://github.com/prymitive/karma)
   - Apache-2.0, Go, Typescript
   - Alert dashboard for Prometheus Alertmanager
+- [google/mtail](https://github.com/google/mtail)
+  - Apache-2.0, Go
+  - extract internal monitoring data from application logs for collection in a timeseries database
 
 ## Tracing
 
@@ -61,6 +64,8 @@ tags:
 
 ## Metrics
 
+- Prometheus
+- InfluxDB
 - [victoria-metrics](./metrics/victoria-metrics/README.md)
   - 最好，最推荐
 - [m3db/m3](./metrics/m3.md)
@@ -78,6 +83,17 @@ tags:
 - [grafana/mimir](https://github.com/grafana/mimir)
   - AGPLv3, Go
   - 长期存储，使用 S3 存储
+- 商业
+  - Datadog - APM 和监控平台
+  - New Relic - 应用性能监控
+  - AWS CloudWatch - 云指标
+- [spinnaker/kayenta](https://github.com/spinnaker/kayenta)
+  - Automated Canary Service
+  - part of Spinnaker
+- [argoproj/argo-rollouts](https://github.com/argoproj/argo-rollouts)
+  - 利用 Kubernetes 生态，声明式地管理发布过程
+  - 渐进式交付（Progressive Delivery）
+
 
 ## APM
 

@@ -90,6 +90,14 @@ tags:
   - Anthropic https://open.bigmodel.cn/api/anthropic
 - [vercel/ai](https://github.com/vercel/ai)
 
+## Endpoints
+
+- OpenAI
+  - /v1/chat/completions
+  - /v1/completions
+- Anthropic
+  - /v1/messages
+
 ## Response
 
 ## BatchAPI

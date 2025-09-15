@@ -43,3 +43,26 @@ tags:
   - 目的：为一组接口提供一个统一的高层接口
   - 适用场景：当需要简化复杂系统的使用时
   - 例子：一个复杂子系统的简化接口
+
+## 断路器 vs 优雅降级 {#circuit-breaker-vs-graceful-degradation}
+
+断路器是实现优雅降级的关键触发机制之一。
+它们相辅相成，是构建现代化、高韧性（Resilient）系统的标准实践。
+
+- 断路器（Circuit Breaker）
+  - 一种“机制”
+  - 一种保护性的设计模式。
+  - 保护系统
+- 优雅降级（Graceful Degradation）
+  - 一种“策略”
+  - 一种系统设计的指导思想或策略。
+  - 保障核心功能和用户体验。
+  - 做什么来补救
+  - “B计划” (Contingency Plan)
+- 动态负载均衡 (Dynamic Load Balancing) / 自适应负载均衡 (Adaptive Load Balancing)
+  - 基于健康状况的自动降权 (Health-Based Automatic Weight Reduction)。
+  - 核心思想
+    - 负载均衡器不再是一个静态的、按预设规则（如轮询、IP哈希）分配流量的设备，而是一个智能的、能感知上游服务状态的决策者。
+  - 监控与健康检查 (Monitoring & Health Checking):
+  - 动态权重调整 (Dynamic Weight Adjustment)
+  - 自动恢复 (Automatic Recovery)

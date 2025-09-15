@@ -11,6 +11,10 @@ title: Google
   - Photoshop 插件
   - [Nik Software](https://en.wikipedia.org/wiki/Nik_Software)
 - https://labs.google/experiments
+- Pricing
+  - Workspace https://workspace.google.com/pricing
+  - One https://one.google.com/about/plans
+    - AI Credits https://support.google.com/googleone/answer/16287445
 
 ## AI
 

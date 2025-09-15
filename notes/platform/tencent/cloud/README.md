@@ -15,10 +15,10 @@ title: 腾讯云
 | DLC    | Data Lake Compute                        |
 
 - tccli
+- SDK https://cloud.tencent.com/document/sdk
 - https://tencent-cloud.com/
   - 国际
 - `<Region>.cls.tencentyun.com`
-
 
 ## API
 
@@ -36,46 +36,7 @@ title: 腾讯云
 - `<name>.tencentcloudcr.com`
   - Registry
 
-## 日志
+# FAQ
 
-- 查询语法支持 CQL, Lucene, SQL
-- 完整内容存储在 `__CONTENT__`
-
-**CQL**
-
-```
-(level:ERROR OR level:WARNING) AND pid:1234
-```
-
-**Lucene**
-
-```
-timeCost>=20 AND timeCost<=30
-warning OR error
-```
-
-**SQL**
-
-```
-status:4* | SELECT count(*) as error_count, avg(request_time) as avg_latency
-```
-
-- approx_distinct
-  - 估算 distinct 值
-- `__TIMESTAMP__`
-- ip_to_province
-
-| attr               | for       |
-| ------------------ | --------- |
-| `__FILENAME__`     | 文件名    |
-| `__HOSTNAME__`     | 主机名    |
-| `__INDEX_STATUS__` | 索引状态  |
-| `__PKGID__`        | 包 ID     |
-| `__PKG_LOGID__`    | 包日志 ID |
-| `__RAWLOG__`       | 原始日志  |
-| `__SOURCE__`       | 来源      |
-| `__TIMESTAMP__`    | 时间戳    |
-
-```
-request_body:* | SELECT json_extract_scalar(request_body, '$.model') AS model
-```
+- 金融云
+  - https://cloud.tencent.com/document/product/304/2766

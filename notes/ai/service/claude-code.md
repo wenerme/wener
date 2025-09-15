@@ -6,6 +6,7 @@ tags: [Claude, AI, Code, Agent]
 # Claude Code
 
 - [anthropics/claude-code](https://github.com/anthropics/claude-code)
+- https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md
 - Awesome
   - [musistudio/claude-code-router](https://github.com/musistudio/claude-code-router)
   - [Maciek-roboblog/Claude-Code-Usage-Monitor](https://github.com/Maciek-roboblog/Claude-Code-Usage-Monitor)

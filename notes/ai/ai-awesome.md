@@ -25,6 +25,9 @@ tags:
   - [huggingface/optimum](https://github.com/huggingface/optimum)
 - Search/RAG
   - Perplexity
+  - [Tencent/WeKnora](https://github.com/Tencent/WeKnora)
+    - Go, Python, Vue
+    - LLM-powered framework for deep document understanding, semantic retrieval, and context-aware answers using RAG paradigm.
   - [ItzCrazyKns/Perplexica](https://github.com/ItzCrazyKns/Perplexica)
     - MIT, TS
     - AI-powered search engine

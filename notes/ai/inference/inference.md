@@ -1,10 +1,12 @@
 ---
 title: 推理
-tags:
-  - Awesome
 ---
 
 # 推理
+
+- [Inference Awesome](./inference-awesome.md)
+
+---
 
 - 模型大小与架构 (Model Size & Architecture)
   - 参数量
@@ -17,6 +19,8 @@ tags:
   - 影响KV缓存
 - 输入输出特性
   - 文本、图片、音频
+- 缓存
+- 加速方案
 
 ---
 
@@ -52,53 +56,6 @@ tags:
 - 准确性 (Accuracy)
   - 优化（如量化、剪枝）后，模型在新数据上的表现是否仍在可接受范围内。
   - 需要在性能和精度之间做权衡。
-
-## Awesome
-
-- ollama
-- toruchrun
-- vLLM Virtual Large Language Model
-  - PagedAttention
-- SGLang
-- localai
-- [huggingface/text-generation-inference](https://github.com/huggingface/text-generation-inference)
-  - Apache-2.0, Python, Rust
-  - HF TGI
-- [triton-inference-server/server](https://github.com/triton-inference-server/server)
-  - BSD-3, Python, C++
-  - NVIDIA Triton
-- [bentoml/BentoML](https://github.com/bentoml/BentoML)
-  - Apache-2.0, Python
-  - Build Model Inference APIs, Job queues, LLM apps, Multi-model pipelines
-  - [bentoml/BentoDiffusion](https://github.com/bentoml/BentoDiffusion)
-- Image
-  - ComfyUI
-  - [AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
-    - A1111
-  - SD
-- Audio
-  - Whisper
-- Embeddings
-  - [michaelfeil/infinity](https://github.com/michaelfeil/infinity)
-    - MIT, Python
-- [exo-explore/exo](https://github.com/exo-explore/exo)
-  - GPLv3, Python
-- [Tencent/ncnn](https://github.com/Tencent/ncnn)
-  - BSD-3, C/C++
-  - neural network inference framework optimized for the mobile platform
-- [InternLM/lmdeploy](https://github.com/InternLM/lmdeploy)
-  - Apache-2.0, Python, C++
-  - based on [MMRazor](https://github.com/open-mmlab/mmrazor) and [MMDeploy](https://github.com/open-mmlab/mmdeploy)
-- [mit-han-lab/nunchaku](https://github.com/mit-han-lab/nunchaku)
-  - Apache-2.0, Python, C++
-  - Nunchaku is a high-performance inference engine optimized for 4-bit neural networks
-  - SVDQuant: Absorbing Outliers by Low-Rank Components for 4-Bit Diffusion Models
-- [theroyallab/tabbyAPI](https://github.com/theroyallab/tabbyAPI)
-  - AGPLv3, Python
-  - [turboderp-org/exllamav2](https://github.com/turboderp-org/exllamav2)
-    - MIT, Python
-  - [turboderp-org/exllamav3](https://github.com/turboderp-org/exllamav3)
-    - MIT, Python
 
 ## 模型大小 {#model-size}
 

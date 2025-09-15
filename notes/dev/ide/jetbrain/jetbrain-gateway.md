@@ -14,7 +14,13 @@ title: Gateway
 
 # FAQ
 
-## 不支持 musl
+## 默认不支持 musl {#support-musl}
+
+```bash
+apk add libxext libxrender libxtst libxi freetype procps gcompat
+
+echo REMOTE_DEV_SERVER_USE_SELF_CONTAINED_LIBS=0 >> ~/.profile
+```
 
 ```
 ldd /home/admin/.cache/JetBrains/RemoteDev/dist/7bbdfa250cf04_pycharm-2025.2.1.1/jbr/lib/server/libjvm.so

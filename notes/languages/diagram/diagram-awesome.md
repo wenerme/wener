@@ -13,7 +13,7 @@ tags:
 - UML
   - PlantUML
   - yworks
-- [kroki](./kroki)
+- [kroki](./kroki.md)
   - [yuzutech/kroki](https://github.com/yuzutech/kroki)
   - 统一支持多种语言
   - MIT, Java
@@ -43,6 +43,8 @@ tags:
 - [An introduction to binary decision digrams](https://www.cs.utexas.edu/~isil/cs389L/bdd.pdf)
   1997
   - [HN](https://news.ycombinator.com/item?id=32993015)
+- [mermaid-ascii](https://mermaid-ascii.art/)
+  - Mermaid 输出为 ASCII
 
 ## Library
 

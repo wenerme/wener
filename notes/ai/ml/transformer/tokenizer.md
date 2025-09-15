@@ -31,6 +31,10 @@ title: Tokenizer
   - 定义的模型 https://github.com/openai/tiktoken/blob/main/tiktoken_ext/openai_public.py
 - [huggingface/tokenizers](https://github.com/huggingface/tokenizers)
 - https://github.com/rsennrich/subword-nmt
+- add_special_tokens
+  - 序列标记
+  - 对话标记
+  - 功能标记
 
 ---
 

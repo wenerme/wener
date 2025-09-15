@@ -19,8 +19,13 @@ tags:
   - 重视“软件开发人员（Dev）”和“IT运维技术人员（Ops）”之间沟通合作的文化、运动或惯例。
   - 通过自动化“软件交付”和“架构变更”的流程，来使得构建、测试、发布软件能够更加地快捷、频繁和可靠。
   - Development & QA & Operations
+  - 一种文化哲学
+  - 指明目标
+- SRE - Site Reliability Engineering - 站点可靠性工程
+  - 一套工程方法论
+  - 操作手册
+  - 关注生产环境的可靠性、可扩展性和性能
 - AIOps 理念
-- SRE - 服务可靠性
 - FinOps - Cloud Financial Operations - 成本优化
 - 自动化运维
   - 控制回路 (Control Loop)

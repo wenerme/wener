@@ -316,7 +316,6 @@ export N_PREFIX=$HOME/n
 - Terminal Text Color
   - [chalk](https://github.com/chalk/chalk)
   - picocolors
-  - kleur
   - [sindresorhus/yoctocolors](https://github.com/sindresorhus/yoctocolors)
   - [jorgebucaran/colorette](https://github.com/jorgebucaran/colorette)
   - [lukeed/kleur](https://github.com/lukeed/kleur)

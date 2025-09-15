@@ -10,16 +10,19 @@ docker exec -u www-data -it nextcloud bash
 # root -> www-data
 su -l www-data -s /bin/bash
 cd /var/www/html
+
 export PHP_MEMORY_LIMIT=8G
 ./occ
 
 tail -f /var/www/html/data/nextcloud.log
-```
 
-```bash
+./occ log:tail 20 -f
+
 ./occ status
 
 ./occ user:list
+
+./occ user:list -d # list disabled
 
 ./occ user:enable admin
 ./occ user:disable admin

@@ -169,6 +169,10 @@ go env -w GOPRIVATE=github.com/myrepo
 # 整个组织
 go env -w GOPRIVATE=gitlab.com/myorg/*
 
+#
+go env -w GOPRIVATE="gitlab.wener.me/*"
+go env -w GONOSUMDB="gitlab.wener.me/*"
+
 # git 添加授权信息 - 如果本地有 ssh-agent 应该可以直接访问
 # 可以 SSH url."git@github.com".insteadOf "https://github.com"
 # 可以 netrc
