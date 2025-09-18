@@ -54,7 +54,7 @@ tags:
   - Alert dashboard for Prometheus Alertmanager
 - [google/mtail](https://github.com/google/mtail)
   - Apache-2.0, Go
-  - extract internal monitoring data from application logs for collection in a timeseries database
+  - 从应用程序日志中提取监控指标
 
 ## Tracing
 

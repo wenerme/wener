@@ -16,13 +16,13 @@ cat /var/lib/k0s/pki/admin.conf
 
 ```bash
 ver=$(curl https://docs.k0sproject.io/stable.txt)
-curl -LO "https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/${ver}/k0s-${ver}-amd64"
+curl -LO "https://echo.wener.cc/https://github.com/k0sproject/k0s/releases/download/${ver}/k0s-${ver}-amd64"
 chmod 755 k0s-${ver}-amd64
 cp $(which k0s) k0s.last
 sudo mkdir -p /usr/local/bin/
 sudo cp k0s-${ver}-amd64 /usr/local/bin/k0s
 
-curl -LOC- "https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/${ver}/k0s-airgap-bundle-${ver}-amd64"
+curl -LOC- "https://echo.wener.cc/https://github.com/k0sproject/k0s/releases/download/${ver}/k0s-airgap-bundle-${ver}-amd64"
 mkdir -p /var/lib/k0s/images
 sudo cp k0s-airgap-bundle-${ver}-amd64 /var/lib/k0s/images/bundle_file
 

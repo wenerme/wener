@@ -29,7 +29,7 @@ docker run --rm -it -v $PWD/nsc:/nsc natsio/nats-box:latest
 # 可直接下载 https://github.com/nats-io/nsc/releases
 
 # Download
-curl -LO https://ghproxy.com/https://github.com/nats-io/nsc/releases/download/v2.7.6/nsc-darwin-amd64.zip
+curl -LO https://echo.wener.cc/https://github.com/nats-io/nsc/releases/download/v2.7.6/nsc-darwin-amd64.zip
 unzip nsc-darwin-amd64.zip
 
 # 环境配置

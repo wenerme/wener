@@ -173,7 +173,7 @@ limactl shell apko sudo su -c "HOME=\"${HOME}\" ash"
 
 ```yaml
 images:
-  - location: https://ghproxy.com/https://github.com/lima-vm/alpine-lima/releases/download/v0.2.18/alpine-lima-std-3.16.0-x86_64.iso
+  - location: https://echo.wener.cc/https://github.com/lima-vm/alpine-lima/releases/download/v0.2.18/alpine-lima-std-3.16.0-x86_64.iso
     arch: x86_64
     digest: sha512:234e407867a8955b9835b08e605b38583815dbd63c5690b558fbbd7b519af115c53694ddc3ff498cddb112f113e350c9f8b2a3351be038aa443399a39eff6007
 
@@ -220,7 +220,7 @@ provision:
         >> /usr/bin/docker-credential-osxkeychain
       chmod +x /usr/bin/docker-credential-osxkeychain
       # Get the examples/ dir from GitHub release, place at /examples
-      wget https://ghproxy.com/github.com/chainguard-dev/apko/archive/refs/heads/main.zip
+      wget https://echo.wener.cc/github.com/chainguard-dev/apko/archive/refs/heads/main.zip
       unzip main.zip "apko-main/examples/*" -d /examples -j
       rm -f main.zip
 message: |-

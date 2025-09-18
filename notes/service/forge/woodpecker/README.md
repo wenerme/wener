@@ -56,7 +56,7 @@ WOODPECKER_BACKEND_DOCKER_VOLUMES=/etc/ssl/certs:/etc/ssl/certs:ro,/etc/timezone
 ```bash
 apk add curl git
 # 要下 next 版本
-# curl -Lo /usr/bin/plugin-git https://ghproxy.com/github.com/woodpecker-ci/plugin-git/releases/download/v2.0.3/linux-amd64_plugin-git
+# curl -Lo /usr/bin/plugin-git https://echo.wener.cc/github.com/woodpecker-ci/plugin-git/releases/download/v2.0.3/linux-amd64_plugin-git
 # chmod +x /usr/bin/plugin-git
 
 # woodpeckerci/plugin-git:next 是 AlpineLinux 3.17

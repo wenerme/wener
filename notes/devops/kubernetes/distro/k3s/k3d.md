@@ -9,7 +9,7 @@ title: K3S in Docker
   - [rancher/k3s/docker-compose.yml](https://github.com/rancher/k3s/blob/master/docker-compose.yml)
 
 ```bash
-curl -Lo k3d https://ghproxy.com/github.com/k3d-io/k3d/releases/download/v5.4.7/k3d-linux-arm64
+curl -Lo k3d https://echo.wener.cc/github.com/k3d-io/k3d/releases/download/v5.4.7/k3d-linux-arm64
 chmod +x k3d
 mv k3d /usr/local/bin
 

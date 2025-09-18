@@ -57,8 +57,8 @@ tags:
 # k0s 手动升级
 # ===========
 tag=$(curl -sfL https://apis.wener.me/api/github/r/k0sproject/k0s/version?range=1.25 | jq -r .name)
-curl -Lo k0s-$tag https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/$tag/k0s-$tag-amd64
-curl -LO https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/$tag/k0s-airgap-bundle-$tag-amd64
+curl -Lo k0s-$tag https://echo.wener.cc/https://github.com/k0sproject/k0s/releases/download/$tag/k0s-$tag-amd64
+curl -LO https://echo.wener.cc/https://github.com/k0sproject/k0s/releases/download/$tag/k0s-airgap-bundle-$tag-amd64
 sudo cp k0s-airgap-bundle-$tag-amd64 /var/lib/k0s/images/bundle_file
 chmod +x k0s-$tag
 sudo service k0scontroller stop
@@ -68,7 +68,7 @@ sudo service k0scontroller start
 # k3s 手动升级
 # ===========
 tag=$(curl -sfL https://apis.wener.me/api/github/r/k3s-io/k3s/version?range=1.25 | jq -r .name)
-curl -Lo k3s-$tag https://ghproxy.com/https://github.com/k3s-io/k3s/releases/download/v1.25.5+k3s2/k3s
+curl -Lo k3s-$tag https://echo.wener.cc/https://github.com/k3s-io/k3s/releases/download/v1.25.5+k3s2/k3s
 chmod +x k3s-$tag
 sudo cp k3s-$tag $(which k3s)
 sudo service k3s restart

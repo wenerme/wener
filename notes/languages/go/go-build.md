@@ -20,6 +20,9 @@ title: Go Build
   - windows 下构建 c-shared 需要使用 TDM-GCC
   - 无法 dlclose, offload c-shared [#11100](https://github.com/golang/go/issues/11100)
     - 涉及到 VM
+- aarch64 -> arm64
+  - aarch64 Linux 环境里常见
+  - arm64 GOARCH 使用
 
 :::
 

@@ -146,6 +146,9 @@ tags:
 - [silentmatt/expr-eval](https://github.com/silentmatt/expr-eval)
   - MIT, JS
   - Mathematical expression evaluator in JavaScript
+- [expr-lang/expr](https://github.com/expr-lang/expr)
+  - MIT, Go
+  - used by GCP, Uber, GoDaddy, Argo, OpenTelemetry, CoreDNS ...
 
 ## Rank
 

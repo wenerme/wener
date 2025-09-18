@@ -22,6 +22,8 @@ tags:
     - e.g. http https://example.com/mcp
 -->
 
+- [awslabs/mcp](https://github.com/awslabs/mcp)
+  - https://awslabs.github.io/mcp/servers/core-mcp-server
 - 项目管理与文档
   - [Asana](https://mcp.asana.com/sse)
     - 项目管理与协作
@@ -103,6 +105,9 @@ tags:
   - [Zapier](https://mcp.zapier.com)
     - 自动化平台，连接 8000+ 应用
     - 用户专属 URL https://mcp.zapier.com
+- Prometheus
+  - https://github.com/pab1it0/prometheus-mcp-server
+  - https://github.com/idanfishman/prometheus-mcp
 - [github/github-mcp-server](https://github.com/github/github-mcp-server)
   - MIT, Go
   - GitHub's official MCP Server

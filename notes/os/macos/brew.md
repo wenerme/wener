@@ -35,8 +35,8 @@ xcode-select --install              # 安装 xcode command line tools
 
 # 安装 - 如果失败，添加 https_proxy 代理
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# 走 ghproxy.com 避免代理
-/bin/bash -c "$(curl -fsSL https://ghproxy.com/raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# 走 echo.wener.cc 避免代理
+/bin/bash -c "$(curl -fsSL https://echo.wener.cc/raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # 配置镜像
 export HOMEBREW_NO_ANALYTICS=1

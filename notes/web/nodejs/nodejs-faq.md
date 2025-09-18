@@ -33,6 +33,9 @@ tags:
 
 ```bash
 npx envinfo --binaries --system
+
+# native 的 module
+find node_modules -name '*.node'
 ```
 
 ## typescript

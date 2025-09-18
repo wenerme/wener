@@ -6,6 +6,6 @@ title: ghproxy
 
 - [hunshcn/gh-proxy](https://github.com/hunshcn/gh-proxy)
 - 可用
-  - https://ghproxy.com
-  - https://mirror.ghproxy.com
+  - https://echo.wener.cc
+  - https://mirror.echo.wener.cc
   - https://gh-proxy.com/

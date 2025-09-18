@@ -49,7 +49,7 @@ mv clash-linux-amd64-v3-v1.14.0 clash
 cp clash /usr/local/bin/clash
 mkdir -p /var/lib/clash/ /etc/clash/
 
-# https://ghproxy.com/github.com/Dreamacro/maxmind-geoip/releases/download/20230312/Country.mmdb
+# https://echo.wener.cc/github.com/Dreamacro/maxmind-geoip/releases/download/20230312/Country.mmdb
 curl -o /var/lib/clash/Country.mmdb https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb
 
 clash -t -d /var/lib/clash/ -f /etc/clash/config.yaml

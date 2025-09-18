@@ -15,6 +15,12 @@ tags:
 | [fontawesome]  | free 2009+ | ✅      | ✅        | ✅     |
 | [tabler-icons] | 5237+      |
 
+:::tip
+
+- 代码使用首选 Phosphor Icons
+
+:::
+
 [tabler-icons]: https://github.com/tabler/tabler-icons
 [fontawesome]: https://fontawesome.com/
 [flaticon]: https://www.flaticon.com/

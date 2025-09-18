@@ -26,7 +26,7 @@ VERSION_K3S=$(curl -sf https://update.k3s.io/v1-release/channels | jq -r '.data[
 echo Upgrade $VERSION_K3S
 # GITHUB_URL=https://github.com/k3s-io/k3s/releases
 # 走代理
-GITHUB_URL=https://mirror.ghproxy.com/github.com/k3s-io/k3s/releases
+GITHUB_URL=https://mirror.echo.wener.cc/github.com/k3s-io/k3s/releases
 GITHUB_URL=https://github.com/k3s-io/k3s/releases
 curl --remote-name-all -L "${GITHUB_URL}/download/${VERSION_K3S}/sha256sum-${ARCH}.txt" "${GITHUB_URL}/download/${VERSION_K3S}/k3s${SUFFIX}"
 

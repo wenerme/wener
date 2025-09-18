@@ -13,7 +13,7 @@ brew install owenthereal/upterm/upterm
 # golang
 go install github.com/owenthereal/upterm/cmd/upterm@latest
 # downloaad
-curl -LO ghproxy.com/https://github.com/owenthereal/upterm/releases/download/v0.7.6/upterm_darwin_amd64.tar.gz
+curl -LO echo.wener.cc/https://github.com/owenthereal/upterm/releases/download/v0.7.6/upterm_darwin_amd64.tar.gz
 tar -zxvf upterm_darwin_amd64.tar.gz
 
 # Websocket

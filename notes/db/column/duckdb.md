@@ -35,7 +35,7 @@ title: DuckDB
 # by Homebre
 brew install duckdb
 # by Download
-curl -LO https://ghproxy.com/github.com/duckdb/duckdb/releases/download/v0.8.0/duckdb_cli-osx-universal.zip
+curl -LO https://echo.wener.cc/github.com/duckdb/duckdb/releases/download/v0.8.0/duckdb_cli-osx-universal.zip
 unzip duckdb_cli-osx-universal.zip
 ./duckdb
 

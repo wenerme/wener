@@ -92,7 +92,7 @@ containerd config default > /etc/k0s/containerd.toml
 k0s airgap list-images
 # 可直接下载
 # https://github.com/k0sproject/k0s/releases/download/v1.23.3%2Bk0s.1/k0s-airgap-bundle-v1.23.3+k0s.1-amd64
-curl -LOC- 'https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/v1.23.3%2Bk0s.1/k0s-airgap-bundle-v1.23.3+k0s.1-amd64'
+curl -LOC- 'https://echo.wener.cc/https://github.com/k0sproject/k0s/releases/download/v1.23.3%2Bk0s.1/k0s-airgap-bundle-v1.23.3+k0s.1-amd64'
 mkdir -p /var/lib/k0s/images
 cp k0s-airgap-bundle-v1.23.3+k0s.1-amd64 /var/lib/k0s/images/bundle_file
 
@@ -571,7 +571,7 @@ depend() {
 
 ```bash
 # https://github.com/k0sproject/k0s/releases/download/v1.23.7%2Bk0s.0/k0s-v1.23.7+k0s.0-amd64
-curl -LOC- 'https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/v1.23.7%2Bk0s.0/k0s-v1.23.7+k0s.0-amd64'
+curl -LOC- 'https://echo.wener.cc/https://github.com/k0sproject/k0s/releases/download/v1.23.7%2Bk0s.0/k0s-v1.23.7+k0s.0-amd64'
 chmod +x k0s-v1.23.7+k0s.0-amd64
 ./k0s-v1.23.7+k0s.0-amd64 sysinfo
 ```

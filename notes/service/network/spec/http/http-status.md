@@ -52,7 +52,7 @@ title: HTTP Status
 | 419    | Page Expired                                                                                | unofficial |
 | 420    | Enhance Your Calm                                                                           | unofficial |
 | 421    | Misdirected Request                                                                         |
-| 422    | Unprocessable Entity                                                                        |
+| 422    | Unprocessable Entity, Unprocessable Content                                                 |
 | 423    | Locked                                                                                      |
 | 424    | Failed Dependency                                                                           |
 | 425    | Too Early                                                                                   |

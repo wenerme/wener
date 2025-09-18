@@ -5,7 +5,6 @@ tags:
 
 # LLM Awesome
 
-- [Models](./llm-models.md)
 - Engine/Framework/Service/Inference
   - [ggerganov/llama.cpp](./llama.cpp.md)
     - MIT, C++

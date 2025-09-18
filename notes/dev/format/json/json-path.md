@@ -23,3 +23,15 @@ tags:
   - [RFC 9535](https://datatracker.ietf.org/doc/html/rfc9535)
     - 2024-02
   - [JSONPath: from blog post to RFC in 17 years](https://www.ietf.org/blog/jsonpath-rfc/)
+  - https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html
+
+# Syntax
+
+```txt
+
+```
+
+| syntax | for      |
+| ------ | -------- |
+| `$`    | 根节点   |
+| `@`    | 当前节点 |

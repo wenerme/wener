@@ -382,5 +382,13 @@ type NullableOptional<T> = PickRequired<T> & Nullable<PickOptional<T>>;
 ## SyntaxError: A type-only import can specify a default import or named bindings, but not both
 
 ```ts
-import type React, {type ReactNode} from 'react';
-````
+import type React, { type ReactNode } from 'react';
+```
+
+## TS2742
+
+- 当使 declaration:true 时会要求
+- 当 composite:true 时, 强制要求 declaration:true
+  - 用于配合 references 使用
+
+> TS2742: The inferred type of X cannot be named without a reference to Y. This is likely not portable. A type annotation is necessary.

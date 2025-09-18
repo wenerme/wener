@@ -112,7 +112,7 @@ curl https://mirrors.ustc.edu.cn/alpine/last-updated
 
 - https://gitcode.net
   - https://gitcode.net/mirrors/protocolbuffers/protobuf/-/releases/v3.19.1
-- https://ghproxy.com
+- https://echo.wener.cc
   - https://github.com/hunshcn/gh-proxy
 
 ## Apache
@@ -294,3 +294,10 @@ priority = "primary"
 - https://mirrors.ustc.edu.cn/ubuntu/
   - https://mirrors.ustc.edu.cn/libnvidia-container/
 - https://mirrors.163.com/.help/ubuntu.html
+
+## Proxy
+
+- github
+  - ghproxy
+  - https://github.com/sky22333/hubproxy
+  - https://echo.wener.cc/

@@ -75,7 +75,7 @@ uv pip install -r custom_nodes/comfyui-manager/requirements.txt
 uv pip install pip # 会使用 pip 安装依赖
 
 # 代理访问
-GITHUB_ENDPOINT=https://mirror.ghproxy.com \
+GITHUB_ENDPOINT=https://mirror.echo.wener.cc \
   HF_ENDPOINT=https://hf-mirror.com \
   uv run ./main.py
 ```

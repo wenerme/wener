@@ -91,6 +91,10 @@ title: 设计模式
   - https://www.baeldung.com/design-patterns-series
   - https://learn.microsoft.com/en-us/azure/architecture/patterns/
   - https://github.com/netflix/hystrix/wiki/how-it-works
+  - GCP Architecture Center https://cloud.google.com/architecture
+  - https://cloud.google.com/architecture/hybrid-multicloud
+    - GCP Multicloud Architecture & Design Pattern
+  - AWS [Cloud design patterns, architectures, and implementations](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/introduction.html)
 
 ## Retry Pattern
 

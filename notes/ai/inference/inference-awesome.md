@@ -1,0 +1,56 @@
+---
+tags:
+- Awesome
+---
+# Inference Awesome
+
+- ollama
+- toruchrun
+- vLLM Virtual Large Language Model
+  - PagedAttention
+- SGLang
+- localai
+- [NVIDIA/TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)
+  - Apache-2.0, C++, Python
+  - trt
+- [huggingface/text-generation-inference](https://github.com/huggingface/text-generation-inference)
+  - Apache-2.0, Python, Rust
+  - HF TGI
+- [triton-inference-server/server](https://github.com/triton-inference-server/server)
+  - BSD-3, Python, C++
+  - NVIDIA Triton
+- [bentoml/BentoML](https://github.com/bentoml/BentoML)
+  - Apache-2.0, Python
+  - Build Model Inference APIs, Job queues, LLM apps, Multi-model pipelines
+  - [bentoml/BentoDiffusion](https://github.com/bentoml/BentoDiffusion)
+  - [bentoml/OpenLLM](https://github.com/bentoml/OpenLLM)
+- Image
+  - ComfyUI
+  - [AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
+    - A1111
+  - SD
+- Audio
+  - Whisper
+- Embeddings
+  - [michaelfeil/infinity](https://github.com/michaelfeil/infinity)
+    - MIT, Python
+- [exo-explore/exo](https://github.com/exo-explore/exo)
+  - GPLv3, Python
+- [Tencent/ncnn](https://github.com/Tencent/ncnn)
+  - BSD-3, C/C++
+  - neural network inference framework optimized for the mobile platform
+- [InternLM/lmdeploy](https://github.com/InternLM/lmdeploy)
+  - Apache-2.0, Python, C++
+  - based on [MMRazor](https://github.com/open-mmlab/mmrazor) and [MMDeploy](https://github.com/open-mmlab/mmdeploy)
+- [mit-han-lab/nunchaku](https://github.com/mit-han-lab/nunchaku)
+  - Apache-2.0, Python, C++
+  - Nunchaku is a high-performance inference engine optimized for 4-bit neural networks
+  - SVDQuant: Absorbing Outliers by Low-Rank Components for 4-Bit Diffusion Models
+- [theroyallab/tabbyAPI](https://github.com/theroyallab/tabbyAPI)
+  - AGPLv3, Python
+  - [turboderp-org/exllamav2](https://github.com/turboderp-org/exllamav2)
+    - MIT, Python
+  - [turboderp-org/exllamav3](https://github.com/turboderp-org/exllamav3)
+    - MIT, Python
+- Reading
+  - https://github.com/bentoml/llm-inference-handbook

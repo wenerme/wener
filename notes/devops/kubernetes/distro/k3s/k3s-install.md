@@ -20,11 +20,11 @@ title: Install
 curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_START=true INSTALL_K3S_SKIP_ENABLE=true sh -
 ```
 
-下载不动可下载脚本自行修改镜像 `GITHUB_URL=https://ghproxy.com/github.com/k3s-io/k3s/releases`
+下载不动可下载脚本自行修改镜像 `GITHUB_URL=https://echo.wener.cc/github.com/k3s-io/k3s/releases`
 
 ```bash
 curl -o k3s-install.sh https://get.k3s.io
-sed '/GITHUB_URL=/a GITHUB_URL=https://ghproxy.com/github.com/k3s-io/k3s/releases' -i k3s-install.sh
+sed '/GITHUB_URL=/a GITHUB_URL=https://echo.wener.cc/github.com/k3s-io/k3s/releases' -i k3s-install.sh
 INSTALL_K3S_SKIP_START=true INSTALL_K3S_SKIP_ENABLE=true bash k3s-install.sh
 ```
 

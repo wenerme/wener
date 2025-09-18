@@ -359,7 +359,7 @@ configs:
 ## 快速启动
 
 ```bash
-curl -LO 'https://ghproxy.com/https://github.com/k3s-io/k3s/releases/download/v1.24.1%2Bk3s1/k3s'
+curl -LO 'https://echo.wener.cc/https://github.com/k3s-io/k3s/releases/download/v1.24.1%2Bk3s1/k3s'
 chmod +x k3s
 ./k3s server
 ```

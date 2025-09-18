@@ -337,3 +337,13 @@ ccr status # 状态
 # FAQ
 
 ## This organization has been disabled.
+
+## VSC multi session
+
+当多个 claude 的时候，VSC 只能 connect 到一个, 断开的一个可以使用 `/ide` 重连
+
+```bash
+VSCODE_PID= VSCODE_CWD= TERM_PROGRAM= command claude
+```
+
+- https://github.com/anthropics/claude-code/issues/1276
