@@ -17,8 +17,8 @@ title: Anthropic
   - https://docs.anthropic.com/en/docs/about-claude/models/overview
   - https://www.anthropic.com/engineering/claude-code-best-practices
 
-| Model             | Alias                    |
-| ----------------- | ------------------------ |
+| Model             | Alias                    | notes
+| ----------------- | ------------------------ | ----------------
 | Claude Opus 4.1   | claude-opus-4-1          |
 | Claude Opus 4     | claude-opus-4-0          |
 | Claude Sonnet 4   | claude-sonnet-4-0        |

@@ -297,6 +297,13 @@ mkdir /usr/local/share/ca-certificates/extra
 ## SSL routines:tls_process_server_certificate:certificate verify failed:ssl/statem/statem_clnt.c:1919
 
 ```bash
+# 1. 确认系统时间
+date
+chronyc tracking    # 查看当前状态
+chronyc sources     # 查看同步源
+chronyc -a makestep # 主动同步
+
+# 2.
 openssl s_client -connect wener.me:443 # 测试证书是否正确
 ```
 

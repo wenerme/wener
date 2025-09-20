@@ -5,6 +5,7 @@ title: 飞书 MCP
 # Lark MCP
 
 - https://github.com/larksuite/lark-openapi-mcp
+  - MIT, TS
 - Feishu / 飞书 / Lark MCP
 - 参考
   - https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_installation#46d7e401
@@ -21,4 +22,23 @@ npx -y @larksuiteoapi/lark-mcp login -a $APP_ID -s $APP_SECRET
 npx -y @larksuiteoapi/lark-mcp login -a cli_xxxx -s your_secret --scope offline_access docx:document
 # 使用自定义域名登录（适用于Lark国际版）
 npx -y @larksuiteoapi/lark-mcp login -a cli_xxxx -s your_secret -d https://open.larksuite.com
+
+# 飞书文档 MCP
+npx -y @larksuiteoapi/lark-mcp recall-developer-documents
+```
+
+
+```json
+{
+  "mcpServers": {
+    "feishu-docs": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@larksuiteoapi/lark-mcp",
+        "recall-developer-documents",
+      ]
+    }
+  }
+}
 ```

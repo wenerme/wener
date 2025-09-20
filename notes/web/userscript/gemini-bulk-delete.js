@@ -1,19 +1,17 @@
 // ==UserScript==
-// @name              Gemini Conversation Delete Shortcut
-// @namespace         https://greasyfork.org/ja/scripts/533285-gemini-conversation-delete-shortcut
+// @name              Gemini Conversation Bulk Delete
+// @namespace         https://github.com/wenerme/wener
 // @version           2.1.0
 // @description       Deletes the current Gemini conversation on desktop layout. Includes batch delete mode (Ctrl+Shift+B) for selecting and deleting multiple conversations at once. Uses simplified polling and timing; focuses and highlights the confirm button without automatic click. After confirm is clicked, conditionally opens side nav if its content width ≤72px.
-// @author            Takashi Sasasaki, enhanced by Claude
+// @author            wener (forked from Takashi Sasasaki)
 // @license           MIT
-// @homepageURL       https://x.com/TakashiSasaki
-// @supportURL        https://greasyfork.org/ja/scripts/533285-gemini-conversation-delete-shortcut
+// @homepageURL       https://github.com/wenerme/wener
+// @supportURL        https://github.com/wenerme/wener/issues
 // @match             https://gemini.google.com/app/*
 // @match             https://gemini.google.com/app
 // @icon              https://www.gstatic.com/lamda/images/gemini_favicon_f069958c85030456e93de685481c559f160ea06b.png
 // @grant             GM_registerMenuCommand
 // @run-at            document-idle
-// @downloadURL https://update.greasyfork.org/scripts/533285/Gemini%20Conversation%20Delete%20Shortcut.user.js
-// @updateURL https://update.greasyfork.org/scripts/533285/Gemini%20Conversation%20Delete%20Shortcut.meta.js
 // ==/UserScript==
 
 (function () {

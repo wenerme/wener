@@ -167,3 +167,26 @@ CREATE POLICY tenant_isolation_policy ON student USING (tid = current_setting('a
 - .rss
 - .atom
 - .png
+
+
+## API
+
+> 支持多 租户、多环境
+
+- Header 增加区分
+  - `X-Tenant-Id`
+  - Pros
+    - URL 干净
+    - 中间件、网关方便统一处理
+  - Cons
+    - 每次都需要设置 Header
+- 域名区分
+  - `https://tenant1.example.com`
+- 路径区分
+  - `https://example.com/tenant1/api`
+- 查询参数区分
+  - `https://example.com/api?tenant=tenant1`
+- 请求体区分
+  - `POST https://example.com/api`
+    - `tenant: tenant1`
+

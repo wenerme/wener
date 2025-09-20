@@ -23,6 +23,7 @@ tags:
 
 :::
 
+- o11y - Observability
 - [getsentry/sentry](./tracing/sentry.md)
 - Uptime
   - [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma)
@@ -93,7 +94,6 @@ tags:
 - [argoproj/argo-rollouts](https://github.com/argoproj/argo-rollouts)
   - 利用 Kubernetes 生态，声明式地管理发布过程
   - 渐进式交付（Progressive Delivery）
-
 
 ## APM
 

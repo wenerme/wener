@@ -11,14 +11,6 @@ tags:
 - https://github.com/modelcontextprotocol
   - [modelcontextprotocol/inspector](https://github.com/modelcontextprotocol/inspector)
 - MCP Hosts - Claude, IDEs, Tools
-- MCP Clients
-  - [punkpeye/awesome-mcp-clients](https://github.com/punkpeye/awesome-mcp-clients)
-- MCP Servers
-  - [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)
-  - [Dhravya/apple-mcp](https://github.com/Dhravya/apple-mcp)
-  - https://www.open-mcp.org/servers
-  - https://www.claudemcp.com/servers
-  - https://smithery.ai/
 
 ```json
 {

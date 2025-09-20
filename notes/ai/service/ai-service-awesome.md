@@ -25,7 +25,13 @@ tags:
     - https://novita.ai/model-api/model
   - https://civitai.com/
   - https://windowai.io/
-- Prompt IDE/Playrgound
+- MaaS/Model as a Service
+  - Google Cloud Vertex AI
+    - https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-partner-models
+  - Amazon Bedrock
+    - https://aws.amazon.com/bedrock/
+  - Microsoft Azure AI
+- Prompt IDE/Playground
 - RAG
 
 ## RAG

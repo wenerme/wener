@@ -188,6 +188,7 @@ tags:
 | TTYL   | Talk To You Later             | 回头见           |
 | YMMV   | Your Mileage May Vary         | 具体情况具体分析 |
 | ppl    | people                        | 人们             |
+| abbr.  | abbreviation                  | 缩写             |
 
 | abbr. | stand for              | mean         |
 | ----- | ---------------------- | ------------ |
@@ -2288,6 +2289,27 @@ try to get the other instance of the resource. In the unfortunate case it might 
 
 ## 参考 {#reference}
 
+**输出内容统称**
+
+| cn          | en                                | focus                                                        | e.g.                               |
+| ----------- | --------------------------------- | ------------------------------------------------------------ | ---------------------------------- |
+| 评论 / 回应 | Commentary / Response             | **最全面的统称**，指对原始材料产生的附加内容，是双向的互动。 | 对新闻事件的评论、学术文章的回应。 |
+| 观点 / 看法 | Viewpoint / Perspective / Opinion | **强调主观立场**，是“评论/回应”中的核心判断部分。            | 讨论会上表达“我的看法是...”。      |
+| 分析 / 总结 | Analysis / Summary                | **强调客观加工**，是对原文信息的拆解、归纳和整理。           | 市场分析报告、文献综述。           |
+
+**输出内容具体类型**
+
+| cn          | en                                   | focus                                                    | e.g.                                           |
+| ----------- | ------------------------------------ | -------------------------------------------------------- | ---------------------------------------------- |
+| 读后感      | Reading Response / Reflections       | **侧重感性**，个人的感受、共鸣与触动。                   | 阅读小说、诗歌后；电影观后感。                 |
+| 心得 (体会) | Key Takeaways / Learnings / Insights | **侧重理性**，知识性的收获、方法的领悟、实践的启发。     | 阅读技术文档、参加培训后的总结。               |
+| 书评        | Book Review                          | **侧重评价**，对作品进行正式、全面的分析与价值评判。     | 在媒体、博客等平台公开发表。                   |
+| 总结 / 概要 | Summary / Synopsis                   | **侧重客观**，对原文核心内容的归纳与概括，不含个人观点。 | 会议纪要、报告的执行摘要 (Executive Summary)。 |
+| 反思        | Reflection / Self-reflection         | **侧重内省**，将内容与自身经历、价值观进行深度关联。     | 个人日记、哲学思考、复盘总结。                 |
+| (读书)笔记  | Reading Notes                        | **过程记录**，在阅读中摘录、标注和记录的原始材料。       | 个人学习、资料整理，是形成其他类型的基础。     |
+
+---
+
 | en         | cn        |
 | ---------- | --------- |
 | primary    | 初级,主要 |
@@ -2330,7 +2352,7 @@ try to get the other instance of the resource. In the unfortunate case it might 
 
 ## Abbr
 
-| abbr       | latin           | en          |
+| abbr.       | latin           | en          |
 | ---------- | --------------- | ----------- |
 | no., №, Nº | numero          | number      |
 | lb         | lībra (balance) | pound       |

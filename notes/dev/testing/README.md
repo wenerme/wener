@@ -71,6 +71,24 @@ title: 测试
 - Soak testing - 浸泡测试 - 长时间负载，系统在什么节点出现降级
 - Spike testing - 峰值测试 - 突发负载验证系统功能
 - Stress testing- 压力测试 - 峰值负载验证系统功能
+- Probing / Dial Test / Monitoring - 拨测 - 模拟用户行为，验证系统功能
+  - 模拟用户行为
+  - 分布式
+  - 数据采集分析
+  - 主要用于
+    - 性能监控
+    - 可用性暴涨
+    - 体验提升
+    - 网络优化
+    - 早期故障发现
+  - Synthetic Monitoring - 综合监控/合成监控 - 脚本化的、模拟用户行为的方式来监控应用
+  - Uptime Monitoring / Availability Monitoring - 可用性监控
+  - Active Probing - 主动探测
+  - vs RUM  - RUM 是真实用户行为，Probing 是模拟用户行为， 是合成（Synthetic）测试
+  - e.g
+    - https://cloud.google.com/monitoring/uptime-checks/introduction
+- RUM / Real User Monitoring - 真实用户监控 - 模拟用户行为，验证系统功能
+- Testing / Monitoring - 测试 / 监控
 
 ## avg vs median
 

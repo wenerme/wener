@@ -48,6 +48,7 @@ tags:
 | WFST      | Weighted Finite-State Transducer                | 加权有限状态转换器   |
 | YaRN      | Yet another RoPE extensioN method               | 另一种 RoPE 扩展方法 |
 | YOLO      | You Only Look Once                              |                      |
+| MaaS      | Model as a Service                              | 模型即服务           |
 
 - ITN
   - 口语 -> 书面语 - 符合 自然书写习惯
@@ -97,22 +98,38 @@ tags:
 
 ## LLM 参数
 
-- temperature
+- temperature - 温度
   - 可以控制词元选择的随机性。较低的温度适合希望获得真实或正确回复的提示，而较高的温度可能会引发更加多样化或意想不到的结果。
   - 温度为 0 表示回复是确定的：系统始终会选择概率最高的词元。对于大多数应用场景，不妨先试着将温度设为 0.2。
-- top-k
+- top-k - 顶部 k
   - 可更改模型选择输出词元的方式。
   - 如果 Top-k 设为 1，表示所选词元是模型词汇表的所有词元中概率最高的词元（也称为贪心解码）。
   - 如果 Top-k 设为 3，则表示系统将从 3 个概率最高的词元（通过温度确定）中选择下一个词元。
-- top-p
+- top-p - 顶部 p
   - 可更改模型选择输出词元的方式。系统会按照概率从最高到最低的顺序选择词元，直到所选词元的概率总和等于 Top-p 的值。
   - 例如，如果词元 A、B 和 C 的概率分别是 0.3、0.2 和 0.1，并且 Top-p 的值为 0.5，则模型将选择 A 或 B 作为下一个词元（通过温度确定）。Top-p 的默认值为 0.8。
-- presence_penalty
-- frequency_penalty
-- logit_bias
-- max_tokens
+- repetition_penalty - 重复惩罚
+- presence_penalty - 出现惩罚
+- frequency_penalty - 频率惩罚
+- logit_bias - 对数偏差
+- max_tokens / max_completion_tokens - 最大 token 数量
   - 限制最大 token 数量，1 token 大约 4 字母，0.5 个汉字
-- stop
-  - 停止序列
-- n
-  - 生成 n 个结果
+- stop - 停止序列
+- n - 生成 n 个结果
+
+## MaaS vs Aggregator
+
+| spec     | MaaS                               | AI Gateway / Aggregator                          |
+| :------- | :--------------------------------- | :----------------------------------------------- |
+| 角色     | 模型生产者、直供方 (Producer)      | 模型路由器、中间商、聚合平台 (Router/Aggregator) |
+| 提供     | 自家或独家托管的 AI 模型 API       | 访问**多家**模型提供商的**统一 API**             |
+| 托管模型 | **是**，自己运行和维护模型         | **否**，它只是请求的转发者 (Proxy/Forwarder)     |
+| API 密钥 | 每个厂商都需要一个独立的 Key       | 只需要一个网关/聚合器的 Key                      |
+| 计费方式 | 直接向模型厂商付费                 | 通过网关/聚合器统一结算                          |
+| 主要价值 | 提供强大的、独特的模型**核心能力** | 提供**便利性、选择多样性、成本优化、可靠性**     |
+| 比喻     | 航空公司                           | 机票聚合平台                                     |
+
+- MaaS
+  - e.g. OpenAI, Anthropic, Google, Mistral AI
+- Aggregator
+  - e.g. OpenRouter, LiteLLM, Portkey.ai, Martian

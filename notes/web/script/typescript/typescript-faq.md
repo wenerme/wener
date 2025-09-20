@@ -20,6 +20,10 @@ tags:
 
 :::
 
+
+```bash
+```
+
 ## null
 
 > 用 `undefined` . 不要用 `null` .

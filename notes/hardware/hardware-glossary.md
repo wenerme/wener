@@ -14,6 +14,8 @@ tags:
 | AP    | Access Point                   | 接入点           |
 | WDS   | Wireless Distribution System   | 无线分布系统     |
 | DAWN  | Dynamic Access Windows Network | 动态访问窗口网络 |
+| CMOS  |
+| BSS   |
 
 - Form Factor
   - M.2 Type 2280-S3-M / 2280-D3-M

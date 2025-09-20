@@ -9,6 +9,7 @@ title: Cursor
 - 注意 可能会用非常多 Token
 - 参考
   - https://docs.cursor.com/en/models
+  - MCP https://cursor.com/docs/context/mcp/directory
 
 # FAQ
 

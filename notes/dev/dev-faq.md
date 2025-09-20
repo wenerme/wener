@@ -897,3 +897,20 @@ echo -n I | od -to2 | head -n1 | cut -f2 -d" " | cut -c6
 - [速率限制](./rate-limits.md)
 - [熔断器](./circuit-breaker.md)
 - 混沌工程是用来检验和增强“熔断器”与“速率限制”等韧性措施有效性的方法论和实践。
+
+## secrets naming
+
+- apiKey = token
+- code = authorization_code
+  - 临时的, 用于换取 access_token
+- access_token, refresh_token - OAuth2
+- tenant_id, tenant_secret - 租户身份
+- organization_id, organization_secret - 组织身份
+- username, password - 用户身份
+- app_id, app_secret - 应用身份
+- client_id, client_secret - 客户端身份
+- access_key_id, secret_access_key
+- access_key, secret_key / secret_access_key
+- app_access_token, tenant_access_token, user_access_token
+- pat - personal access token - 个人访问令牌
+- otp - one-time password - 一次性密码

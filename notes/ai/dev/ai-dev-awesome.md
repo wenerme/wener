@@ -7,7 +7,7 @@ tags:
 
 # AI Dev Awesome
 
-- [MCP](./mcp.md)
+- [MCP](./mcp/README.md)
   - [muppet-dev/muppet](https://github.com/muppet-dev/muppet)
     - Toolkit for building MCPs using HonoJS
   - https://www.claudemcp.com/servers

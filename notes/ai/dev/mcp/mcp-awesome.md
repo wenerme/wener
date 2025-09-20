@@ -22,8 +22,64 @@ tags:
     - e.g. http https://example.com/mcp
 -->
 
-- [awslabs/mcp](https://github.com/awslabs/mcp)
-  - https://awslabs.github.io/mcp/servers/core-mcp-server
+- MCP Clients
+  - [punkpeye/awesome-mcp-clients](https://github.com/punkpeye/awesome-mcp-clients)
+- MCP Servers
+  - [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)
+- Android/iOS/Mobile
+  - [minhalvp/android-mcp-server](https://github.com/minhalvp/android-mcp-server)
+  - [mobile-next/mobile-mcp](https://github.com/mobile-next/mobile-mcp)
+- Prometheus
+  - https://github.com/pab1it0/prometheus-mcp-server
+  - https://github.com/idanfishman/prometheus-mcp
+- Cloud Service/SaaS/Platform
+  - [awslabs/mcp](https://github.com/awslabs/mcp)
+    - https://awslabs.github.io/mcp/servers/core-mcp-server
+  - [github/github-mcp-server](https://github.com/github/github-mcp-server)
+    - MIT, Go
+    - GitHub's official MCP Server
+    - 支持 OAuth 和 PAT
+- ~~[Doist/todoist-mcp](https://github.com/Doist/todoist-mcp)~~
+- [Doist/todoist-ai](https://github.com/Doist/todoist-ai)
+  - TODOIST_API_KEY
+  - TODOIST_BASE_URL
+  - add-projects, update-projects, delete-object
+- [Upstash/context7](https://github.com/upstash/context7)
+  - MIT, JS, TS
+  - Up-to-date code documentation for LLMs and AI code editors
+  - `use context7`
+  - MCP mcp.context7.com/mcp
+    - Header CONTEXT7_API_KEY
+  - MCP mcp.context7.com/sse
+  - API context7.com/api/v1
+- Index/Aggregate
+  - https://modelscope.cn/mcp
+  - [Dhravya/apple-mcp](https://github.com/Dhravya/apple-mcp)
+  - https://www.open-mcp.org/servers
+  - https://www.claudemcp.com/servers
+  - https://smithery.ai/
+- [hangwin/mcp-chrome](https://github.com/hangwin/mcp-chrome)
+- [0xKoda/WireMCP](https://github.com/0xKoda/WireMCP)
+  - MIT, JS
+- [geelen/mcp-remote](https://github.com/geelen/mcp-remote)
+  - MIT, TS
+  - stdio -> HTTP
+- [crystaldba/postgres-mcp](https://github.com/crystaldba/postgres-mcp)
+  - restricted
+  - unrestricted
+- PostgreSQL MCP
+- Playwright MCP
+- Slack MCP
+- Google Sheets MCP
+- Sentry MCP
+- Docker MCP
+- AWS MCP
+- Weather MCP
+- File system MCP
+- Calendar MCP
+
+## Commercial
+
 - 项目管理与文档
   - [Asana](https://mcp.asana.com/sse)
     - 项目管理与协作
@@ -105,26 +161,6 @@ tags:
   - [Zapier](https://mcp.zapier.com)
     - 自动化平台，连接 8000+ 应用
     - 用户专属 URL https://mcp.zapier.com
-- Prometheus
-  - https://github.com/pab1it0/prometheus-mcp-server
-  - https://github.com/idanfishman/prometheus-mcp
-- [github/github-mcp-server](https://github.com/github/github-mcp-server)
-  - MIT, Go
-  - GitHub's official MCP Server
-  - 支持 OAuth 和 PAT
-- ~~[Doist/todoist-mcp](https://github.com/Doist/todoist-mcp)~~
-- [Doist/todoist-ai](https://github.com/Doist/todoist-ai)
-  - TODOIST_API_KEY
-  - TODOIST_BASE_URL
-  - add-projects, update-projects, delete-object
-- [Upstash/context7](https://github.com/upstash/context7)
-  - MIT, JS, TS
-  - Up-to-date code documentation for LLMs and AI code editors
-  - `use context7`
-  - MCP mcp.context7.com/mcp
-    - Header CONTEXT7_API_KEY
-  - MCP mcp.context7.com/sse
-  - API context7.com/api/v1
 
 ```json
 {
@@ -177,22 +213,79 @@ tags:
 }
 ```
 
-- [hangwin/mcp-chrome](https://github.com/hangwin/mcp-chrome)
-- [0xKoda/WireMCP](https://github.com/0xKoda/WireMCP)
-  - MIT, JS
-- [geelen/mcp-remote](https://github.com/geelen/mcp-remote)
-  - MIT, TS
-  - stdio -> HTTP
-- [crystaldba/postgres-mcp](https://github.com/crystaldba/postgres-mcp)
-  - restricted
-  - unrestricted
-- PostgreSQL MCP
-- Playwright MCP
-- Slack MCP
-- Google Sheets MCP
-- Sentry MCP
-- Docker MCP
-- AWS MCP
-- Weather MCP
-- File system MCP
-- Calendar MCP
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+      }
+    },
+    "playwright": {
+      "command": "pnpx",
+      "args": ["@playwright/mcp@latest", "--isolated"]
+    },
+    "gitlab": {
+      "command": "pnpx",
+      "args": ["@zereight/mcp-gitlab"],
+      "env": {
+        "GITLAB_PERSONAL_ACCESS_TOKEN": "your_gitlab_token",
+        "GITLAB_API_URL": "your_gitlab_api_url",
+        "GITLAB_PROJECT_ID": "your_project_id", // Optional: default project
+        "GITLAB_ALLOWED_PROJECT_IDS": "", // Optional: comma-separated list of allowed project IDs
+        "GITLAB_READ_ONLY_MODE": "false",
+        "USE_GITLAB_WIKI": "false", // use wiki api?
+        "USE_MILESTONE": "false", // use milestone api?
+        "USE_PIPELINE": "false" // use pipeline api?
+      }
+    }
+  }
+}
+```
+
+## Postgres
+
+```json
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-e", "DATABASE_URI", "crystaldba/postgres-mcp", "--access-mode=unrestricted"],
+      "env": {
+        "DATABASE_URI": "postgresql://username:password@localhost:5432/dbname"
+      }
+    }
+  }
+}
+```
+
+## Gitlab
+
+- https://github.com/zereight/gitlab-mcp
+
+```yaml
+services:
+  gitlab-mcp:
+    image: iwakitakuma/gitlab-mcp
+    container_name: gitlab-mcp
+    restart: unless-stopped
+    ports:
+      - 3002:3002
+    # http://localhost:3002/sse
+    environment:
+      - GITLAB_PERSONAL_ACCESS_TOKEN=${GITLAB_MCP_PAT}
+      - GITLAB_API_URL=https://gitlab.com/api/v4
+      - GITLAB_READ_ONLY_MODE=true
+      - USE_GITLAB_WIKI=false
+      - USE_MILESTONE=false
+      - USE_PIPELINE=false
+      - SSE=true
+```
+
+## 公众号
+
+- https://github.com/caol64/wenyan-mcp
+  - https://github.com/caol64/wenyan
+    - Markdown文章排版美化工具，支持微信公众号、今日头条、知乎等平台。
