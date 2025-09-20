@@ -25,4 +25,5 @@ title: Anthropic
 | Claude Sonnet 3.7 | claude-3-7-sonnet-latest |
 | Claude Haiku 3.5  | claude-3-5-haiku-latest  |
 
+- Opus > Sonnet > Haiku
 - https://docs.anthropic.com/en/api/overview

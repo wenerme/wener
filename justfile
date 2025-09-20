@@ -25,3 +25,6 @@ svgo:
 
 hello name:
     @echo "Hello, {{name}} !"
+
+ls-assets:
+  git ls-files | grep -v -E '.(mdx?|png|jpe?g|svg|pdf|fountain|ya?ml|sql|tikz|txt|sh)$'

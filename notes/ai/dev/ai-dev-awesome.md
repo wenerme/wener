@@ -135,7 +135,7 @@ tags:
     - MIT, TS, JSDOM
     - Extract the main content from web pages.
     - written for Obsidian Web Clipper
-    - Playround https://kepano.github.io/defuddle/
+    - Playground https://kepano.github.io/defuddle/
     - Mozilla Readability 的替代品
       - 跟宽松，移除更少的不确定元素。
       - 为脚注、数学公式、代码块等提供一致的输出。
@@ -153,8 +153,6 @@ tags:
     - MIT, TS
 - Operator/Mobile/iOS/Android/Device
   - [droidrun/droidrun](https://github.com/droidrun/droidrun)
-  - [minhalvp/android-mcp-server](https://github.com/minhalvp/android-mcp-server)
-  - [mobile-next/mobile-mcp](https://github.com/mobile-next/mobile-mcp)
 - Browser
   - browser-use
   - [nanobrowser/nanobrowser](https://github.com/nanobrowser/nanobrowser)
