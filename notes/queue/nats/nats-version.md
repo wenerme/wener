@@ -14,7 +14,8 @@ tags:
 
 | ver                    | date       | nats.go |
 | ---------------------- | ---------- | ------- |
-| [Nats 2.11](#nats-211) |            |
+| [Nats 2.12](#nats-212) | 2025-09-22 |
+| [Nats 2.11](#nats-211) | 2025-03-20 |
 | [Nats 2.10](#nats-210) | 2023-09-20 |
 | [Nats 2.9](#nats-29)   | 2022-09-09 |
 | [Nats 2.8](#nats-28)   | 2022-04-19 |         |
@@ -38,6 +39,40 @@ tags:
 
 - https://github.com/nats-io/nats-server/releases
 - https://github.com/nats-io/nats-architecture-and-design/tree/main/adr
+
+## Nats 2.12
+
+- JetStream API level -> 2
+- Added delayed message scheduling
+  - `Nats-Schedule: @at 2009-11-10T23:00:00Z` - 时间
+    - CORN
+    - @at
+    - preset @hourly, @yearly, @annually, @monthly, @weekly, @daily, @midnight
+    - Intervals @every 1m
+  - `Nats-Schedule-TTL: 5m`
+  - `Nats-Schedule-Target: orders` - 目标 Stream
+  - Nats-Schedule-Source - 从哪里读取 last message
+  - 返回
+    - Nats-Scheduler
+    - Nats-Schedule-Next - 下次调度时间, 只调度一次的为 `purge`
+    - `Nats-TTL` = `Nats-Schedule-TTL`
+  - https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-51.md
+- Atomic batch publishes
+  - 开启 Nats-Batch-Id:uuid, Nats-Batch-Sequence:1
+  - 增加 Nats-Batch-Id:uuid, Nats-Batch-Sequence:n
+  - 提交 Nats-Batch-Id:uuid, Nats-Batch-Sequence:n, Nats-Batch-Commit:1
+  - https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-50.md
+- Counter
+  - Nats-Incr
+  - https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-49.md
+- Prioritised mode for consumer priority groups
+  - https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-42.md
+- Support for trusted proxies
+  - https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-55.md
+- Added the ability to promote mirrors to normal streams by removing the mirror configuration
+- streams to opt into async writes
+- max_buffered_msgs 默认值 x10 -> 100,000
+- https://github.com/nats-io/nats-server/releases/tag/v2.12.0
 
 ## Nats 2.11
 

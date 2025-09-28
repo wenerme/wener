@@ -43,6 +43,10 @@ title: 指标
   - 示例: 请求响应时间分布、文件大小分布
 - **Summary** - 摘要
   - 时间窗口内的分位数统计
+  - vs histogram
+    - 在客户端聚合, 直接提供 quantile
+    - 不能在服务端重新计算，值不正确
+    - 主要用于预定义的 percentiles - 延迟、size 等
   - 聚合方式: quantiles, sum, count
   - 示例: 请求延迟的 P95、P99
 

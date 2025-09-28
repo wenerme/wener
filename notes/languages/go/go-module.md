@@ -42,6 +42,14 @@ go install github.com/path/to/bin@latest  # 安装
 go mod tidy -go=1.17
 # 用 1.6 选择逻辑 然后升级 1.7
 go mod tidy -go=1.16 && go mod tidy -go=1.17
+
+
+# 独立的工具 mod 能避免依赖冲突问题
+# go.tool.mod
+go mod init -modfile=go.tool.mod example.com/tool
+
+go get -tool -modfile=go.tool.mod github.com/golangci/golangci-lint/v2/cmd/golangci-lint
+go tool -modfile=go.tool.mod golangci-lint run
 ```
 
 ```go-mod

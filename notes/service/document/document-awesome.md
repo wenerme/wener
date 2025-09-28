@@ -24,7 +24,7 @@ tags:
 
 - Doc -> Word, Document, Doc, Writer, Pages
 - Sheet -> Excel, Table, Spreadsheet, Sheet, Calc, Numbers
-- Slice -> PPT, PowerPoint, Slide, Presentation, Impress, Keynote
+- Slide -> PPT, PowerPoint, Slide, Presentation, Impress, Keynote
 
 | .ext             | mime                                                                      | notes |
 | ---------------- | ------------------------------------------------------------------------- | ----- |

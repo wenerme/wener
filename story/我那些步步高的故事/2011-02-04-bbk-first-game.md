@@ -12,7 +12,7 @@ date: 2011-02-04 02:21:00
 
 原帖子[链接](http://club.eebbk.com/bbkbbs/showtopic/252670/1)
 
-![游戏截图](https://github.com/wenerme/wener/raw/master/story/%E6%88%91%E9%82%A3%E4%BA%9B%E6%AD%A5%E6%AD%A5%E9%AB%98%E7%9A%84%E6%95%85%E4%BA%8B/%E8%B6%A3%E5%91%B3%E6%8B%BC%E5%9B%BE/%E8%B6%A3%E5%91%B3%E6%8B%BC%E5%9B%BE.gif "运行效果")
+![游戏截图](https://github.com/wenerme/attic/raw/main/%E6%88%91%E9%82%A3%E4%BA%9B%E6%AD%A5%E6%AD%A5%E9%AB%98%E7%9A%84%E6%95%85%E4%BA%8B/%E8%B6%A3%E5%91%B3%E6%8B%BC%E5%9B%BE/%E8%B6%A3%E5%91%B3%E6%8B%BC%E5%9B%BE.gif "运行效果")
 
 <!-- more -->
 
@@ -46,14 +46,14 @@ date: 2011-02-04 02:21:00
 
 存放图片的文件是 PT_res.lib
 
-![命名格式](http://upload.eebbk.net/UploadFile/2011-2/2011242274888328.jpg)
+<!-- ![命名格式](http://upload.eebbk.net/UploadFile/2011-2/2011242274888328.jpg) -->
 以“_s”结尾的都是缩略图，也就是第 2n张是拼图的图，而 第2n+1张是第2n长的缩略图
 
 就是这么简单。
 
 关于一些特殊设置,在函数 specialGate 里面,比如像这样的图
 
-![特殊设置类型](http://upload.eebbk.net/UploadFile/2011-2/2011242305561677.jpg)
+<!-- ![特殊设置类型](http://upload.eebbk.net/UploadFile/2011-2/2011242305561677.jpg) -->
 
 我需要规定用户缺失的的是哪一块才能玩的正常，所以只需要这样设置：
 ```

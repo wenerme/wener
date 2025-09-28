@@ -31,6 +31,8 @@ npm install -g @anthropic-ai/claude-code
 
 CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 claude
 
+ANTHROPIC_BASE_URL= ANTHROPIC_AUTH_TOKEN= ANTHROPIC_MODEL= claude
+
 npx -y ccusage blocks --live
 npx -y ccusage session
 

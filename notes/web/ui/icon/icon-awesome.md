@@ -99,6 +99,10 @@ tags:
   - lottie
   - [useAnimations/react-useanimations](https://github.com/useAnimations/react-useanimations)
   - https://lordicon.com/
+- https://github.com/mono-company/mono-icons
+  - https://icons.mono.company/
+- https://github.com/ryanoasis/nerd-fonts
+  - https://www.nerdfonts.com/
 
 ## SVG
 

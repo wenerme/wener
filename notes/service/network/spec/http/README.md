@@ -28,6 +28,8 @@ title: HTTP
 - /.well-known/wasm-pkg/registry.json
   - WebAssembly registry
 - /.well-known/appspecific/com.chrome.devtools.json
+  - chrome://flags/#devtools-project-settings
+  - https://chromium.googlesource.com/devtools/devtools-frontend/+/main/docs/ecosystem/automatic_workspace_folders.md
 - /.well-known/assetlinks.json
   - 关联网站和 Android 应用 (App Links)
 

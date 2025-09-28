@@ -41,3 +41,8 @@ docker run --name langfuse-web \
   -a STDOUT \
   langfuse/langfuse:3
 ```
+
+## Insight
+
+- Trace - 一次完整执行会话
+- Observation - 执行过程中的具体步骤

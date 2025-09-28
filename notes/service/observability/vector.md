@@ -57,8 +57,7 @@ title: vector
 
 ```bash
 # macOS
-brew tap vectordotdev/brew
-brew install vector
+brew install vectordotdev/brew/vector
 
 # https://github.com/vectordotdev/vector/releases
 ```

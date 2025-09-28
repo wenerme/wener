@@ -251,3 +251,17 @@ var require, __filename, __dirname;
 ## Transforming JavaScript decorators to the configured target environment ("node18.16.0") is not supported yet
 
 - https://github.com/evanw/esbuild/issues/104
+
+# FAQ
+
+**不支持**
+
+- 函数体内的死代码消除
+- 函数内联
+- 跨语句的常量传播
+- 对象形状建模
+- 内存分配下沉
+- 方法去虚拟化
+- 符号执行
+- JSX 表达式提升
+- TypeScript 枚举的检测与内联

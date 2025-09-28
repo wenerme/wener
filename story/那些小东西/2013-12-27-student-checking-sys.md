@@ -22,9 +22,9 @@ tags:
 截图
 ----
 
-![登录页面](https://raw.github.com/wenerme/blog/master/%E9%82%A3%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F/screenshot.png "登录页面")
+![登录页面](https://raw.github.com/wenerme/attic/main/things/%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F/screenshot.png "登录页面")
 
-![查询,操作页面](https://raw.github.com/wenerme/blog/master/%E9%82%A3%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F/screenshot-main.png "查询,操作页面")
+![查询,操作页面](https://raw.github.com/wenerme/attic/main/things/%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F/screenshot-main.png "查询,操作页面")
 
 一些技巧
 ============

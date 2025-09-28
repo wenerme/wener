@@ -32,6 +32,10 @@ tags:
     - https://demo.uptime.kuma.pet/
     - [uptime-kuma](./uptime-kuma.md)
   - [upptime/upptime](https://github.com/upptime/upptime)
+- Alerting
+  - [ccfos/nightingale](https://github.com/ccfos/nightingale)
+    - Apache-2.0, Go
+  - [prometheus/alertmanager](https://github.com/prometheus/alertmanager)
 - [openobserve](./openobserve.md)
   - zincobserve -> openobserve
   - Apache-2.0, Rust

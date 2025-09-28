@@ -2267,6 +2267,31 @@ try to get the other instance of the resource. In the unfortunate case it might 
 
 - https://tjj.gz.gov.cn/stats_newtjyw/zjtj/tjzs/content/post_8540550.html
 
+## Cost vs Price
+
+- Cost - 成本
+  - 向内看
+  - 生产者（卖方） 所投入的全部资源和费用的总和
+  - 内部视角
+  - 通常包括
+    - 原材料成本：制造产品所需的材料费用。
+    - 人力成本：员工的工资、福利等。
+    - 研发成本：产品设计和技术开发过程中的投入。
+    - 运营成本：场地租金、水电费、设备折旧等。
+    - 营销和销售成本：广告、推广和销售人员的开销。
+- Price - 价格
+  - 向外看
+  - 销售时标定的金额
+  - 消费者（买方） 需要支付的钱
+  - 外部视角
+  - 影响因素
+    - 生产成本 (Cost)：价格必须高于成本才能盈利。
+    - 期望利润 (Profit Margin)：商家希望从每个产品中赚多少钱。
+    - 市场供需关系 (Supply and Demand)：商品稀缺时价格上涨，过剩时价格下跌。
+    - 品牌价值与定位 (Brand Value)：高端品牌可以设定更高的价格。
+    - 竞争对手定价 (Competition)：需要参考同类产品的市场价格。
+    - 消费者感知价值 (Perceived Value)：消费者认为这个产品值多少钱。
+
 ## 常见读音错误
 
 > 文字只是工具
@@ -2352,7 +2377,7 @@ try to get the other instance of the resource. In the unfortunate case it might 
 
 ## Abbr
 
-| abbr.       | latin           | en          |
+| abbr.      | latin           | en          |
 | ---------- | --------------- | ----------- |
 | no., №, Nº | numero          | number      |
 | lb         | lībra (balance) | pound       |

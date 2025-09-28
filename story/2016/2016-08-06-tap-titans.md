@@ -1,4 +1,6 @@
 ---
+title: Play Tap Titans using shell
+slug: tap-titans
 date: 2016-8-6 23:43
 tags:
   - Game

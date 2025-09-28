@@ -19,8 +19,12 @@ tags:
 
 | ver                | date   | macOS                   | Windows                                |
 | ------------------ | ------ | ----------------------- | -------------------------------------- |
-| [Go 1.21](#go-121) |        | macOS 10.15+            | Windows 10+, Server 2016+              |
-| [Go 1.20](#go-120) |        | macOS 10.13, 10.14      | Windows 7, 8, Server 2008, Server 2012 |
+| [Go 1.25](#go-125) | 2025-8 |                         |                                        |
+| [Go 1.24](#go-124) | 2025-2 |                         |                                        |
+| [Go 1.23](#go-123) | 2024-8 |                         |                                        |
+| [Go 1.22](#go-122) | 2024-2 |                         |                                        |
+| [Go 1.21](#go-121) | 2023-8 | macOS 10.15+            | Windows 10+, Server 2016+              |
+| [Go 1.20](#go-120) | 2023-2 | macOS 10.13, 10.14      | Windows 7, 8, Server 2008, Server 2012 |
 | [Go 1.19](#go-119) | 2022-8 | -                       | -                                      |
 | [Go 1.18](#go-118) | 2022-3 | -                       | 64-bit ARM                             |
 | [Go 1.17](#go-117) | 2021-8 | macOS 10.13 High Sierra |
@@ -38,6 +42,26 @@ tags:
 - 1.18 fuzz - https://go.dev/blog/fuzz-beta
 
 :::
+
+## Go 1.25
+
+- 参考
+  - https://tip.golang.org/doc/go1.25
+
+## Go 1.24
+
+- 参考
+  - https://tip.golang.org/doc/go1.24
+
+## Go 1.23
+
+- 参考
+  - https://tip.golang.org/doc/go1.23
+
+## Go 1.22
+
+- 参考
+  - https://tip.golang.org/doc/go1.22
 
 ## Go 1.21
 

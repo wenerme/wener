@@ -69,6 +69,7 @@ tags:
   - unrestricted
 - PostgreSQL MCP
 - Playwright MCP
+  - https://github.com/microsoft/playwright-mcp#tools
 - Slack MCP
 - Google Sheets MCP
 - Sentry MCP
@@ -289,3 +290,43 @@ services:
 - https://github.com/caol64/wenyan-mcp
   - https://github.com/caol64/wenyan
     - Markdown文章排版美化工具，支持微信公众号、今日头条、知乎等平台。
+
+## Prometheus
+
+- Prometheus
+  - https://github.com/pab1it0/prometheus-mcp-server
+  - https://github.com/idanfishman/prometheus-mcp
+
+## Chrome DevTool MCP
+
+- https://github.com/ChromeDevTools/chrome-devtools-mcp/
+
+```json
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "pnpx",
+      "args": ["chrome-devtools-mcp@latest"]
+    }
+  }
+}
+```
+
+```
+Verify in the browser that your change works as expected.
+
+A few images on localhost:8080 are not loading. What's happening?
+
+Why does submitting the form fail after entering an email address?
+
+The page on localhost:8080 looks strange and off. Check what's happening there.
+
+Localhost:8080 is loading slowly. Make it load faster.
+
+Please check the LCP of web.dev.
+```
+
+- Linux / MacOS `$HOME/.cache/chrome-devtools-mcp/chrome-profile-$CHANNEL`
+- Windows `%HOMEPATH%/.cache/chrome-devtools-mcp/chrome-profile-$CHANNEL`
+- https://github.com/ChromeDevTools/chrome-devtools-mcp#tools
+- --connect-url

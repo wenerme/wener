@@ -63,14 +63,17 @@ tags:
 - 参考
   - [VSC 配置倾斜字体](https://stackoverflow.com/questions/41320848)
 
-| abbr. | stand for             | meaning    |
-| ----- | --------------------- | ---------- |
-| Mono  |                       | 等宽字体   |
-| NF    | Nerd Font             | 包含图标   |
-| CN    | Chinese               | 中文字体   |
-| CL    | Classical orthography | 古典正体   |
-| SF    | Slab-serif            | 厚边字体   |
-| QP    | Quasi-proportional    | 准比例字体 |
+| abbr. | stand for             | meaning                                                                        |
+| ----- | --------------------- | ------------------------------------------------------------------------------ |
+| Mono  |                       | 等宽字体                                                                       |
+| NF    | Nerd Font             | 包含图标, 开发工具、命令行终端、代码编辑器                                     |
+| CN    | Chinese               | 中文字体                                                                       |
+| CL    | Classical orthography | 古典正体                                                                       |
+| SF    | Slab-serif            | 厚边字体                                                                       |
+| QP    | Quasi-proportional    | 准比例字体                                                                     |
+| NR    | CN Narrow             | 缩小中日字体间距, 中英文 / 日英文 不再 2:1 宽完美对齐                          |
+| HT    | Hinted                | 低分辨率 (<=1080P) 渲染更加均匀 (可能会导致字体在高分辨率屏幕上的渲染略微模糊) |
+| NL    | No Ligatures          | 不使用连字                                                                     |
 
 ```bash
 # macOS 查看系统字体

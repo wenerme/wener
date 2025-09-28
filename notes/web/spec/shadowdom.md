@@ -20,6 +20,9 @@ title: ShadowDOM
 
 :::
 
+- :host
+- :root
+
 **AntD**
 
 ```ts
@@ -60,4 +63,30 @@ function patchHeadlessUiPortalRoot(host) {
 }
 ```
 
+# FAQ
+
 ## Failed to execute 'attachShadow' on 'Element': Shadow root cannot be created on a host which already hosts a shadow tree.
+
+## open vs closed
+
+决定了外部脚本能否通过宿主元素访问 shadowRoot
+
+```js
+el.attachShadow({ mode: 'open' })
+```
+
+- open
+  - 外部可以通过 el.shadowRoot 访问到 shadow root
+  - 可以用 document.querySelector 等手段找到并操作内部 DOM、样式、adoptedStyleSheets 等。
+  - 适用场景：需要与宿主页面或第三方库交互（注入样式、portal、测试、调试）时优先使用。
+- closed
+  - el.shadowRoot 将返回 null，常规 API 无法直接访问内部 shadow DOM（即对外封装更严格）
+  - 注意浏览器的开发者工具可能仍能显示内部树，但脚本访问受限。
+  - 适用场景：追求更强封装、避免外部意外篡改内部实现时使用。但会给集成第三方库、样式注入和调试带来额外难度。
+
+```
+Shadow root cannot be created on a host which already hosts a shadow tree.
+```
+
+- 使用 shadowRoot.adoptedStyleSheets 注入样式
+  - closed 无法获取 shadowRoot， 也无法注入样式

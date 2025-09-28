@@ -95,6 +95,9 @@ tags:
     - S3 Gateway
     - Local -> S3, S3 -> S3
 - S3 to FS/FUSE
+  - [Barre/ZeroFS](https://github.com/Barre/ZeroFS)
+    - AGPLv3. Rust
+    - 9P/NFS/NBD on top of S3
   - [s3fs-fuse](https://github.com/s3fs-fuse/s3fs-fuse)
     - GPLv2, C++
     - inotify 不会检测到外部修改

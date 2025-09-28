@@ -17,6 +17,28 @@ pnpm add @orpc/client @orpc/react-query
 pnpm add @orpc/contract
 ```
 
+## Insight
+
+- 支持的数据类型
+  - string
+  - number - 包括 `NaN`
+  - boolean
+  - null
+  - undefined
+  - Date - 包括无效日期
+  - BigInt
+  - RegExp
+  - URL
+  - Record (object)
+  - Array
+  - Set
+  - Map
+  - Blob
+  - File
+  - AsyncIteratorObject -  SSE
+    - 不能返回 Blob, File
+    - withEventMeta 返回元信息
+
 ## Protocol
 
 - https://orpc.unnoq.com/docs/advanced/rpc-protocol

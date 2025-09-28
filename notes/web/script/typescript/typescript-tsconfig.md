@@ -17,6 +17,8 @@ typescript 配置文件。
   - https://esbuild.github.io/content-types/#tsconfig-json
 
 ```bash
+tsc --showConfig
+
 # 使用自定义的配置文件
 tsc --p tsconfig.page.json
 ```
