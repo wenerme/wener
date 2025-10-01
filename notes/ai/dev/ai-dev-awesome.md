@@ -89,6 +89,8 @@ tags:
     - npm:ai
     - Build AI-powered applications with React, Svelte, Vue, and Solid
     - https://ai-sdk.dev/providers/openai-compatible-providers
+  - [moeru-ai/xsai](https://github.com/moeru-ai/xsai)
+  - https://github.com/openai/openai-agents-js
 - Research/Planning/Agentic/Agent/智能体
   - [mannaandpoem/OpenManus](https://github.com/mannaandpoem/OpenManus)
     - MIT, Python

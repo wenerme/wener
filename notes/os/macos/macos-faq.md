@@ -27,6 +27,9 @@ cat /System/Library/CoreServices/SystemVersion.plist
 
 system_profiler SPDisplaysDataType -json | jq -r '.SPDisplaysDataType[0].sppci_cores'
 system_profiler
+
+# 获取 WiFi 密码
+security find-generic-password -ga "Home" | grep "password:"
 ```
 
 ## path_helper

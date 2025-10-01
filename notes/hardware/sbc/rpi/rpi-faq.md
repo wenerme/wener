@@ -11,6 +11,10 @@ tags:
 # SPI & i2c
 ls /dev/i2c-*
 ls /dev/spidev*
+
+apk add haveged
+rc-update add haveged
+service haveged start
 ```
 
 ```txt title="/boot/config.txt"
@@ -91,3 +95,5 @@ Call trace:
 ```
 
 - VCHIQ (Video Core Image Queue)
+
+## brcmf_set_channel: set chanspec 0x100e fail, reason -52

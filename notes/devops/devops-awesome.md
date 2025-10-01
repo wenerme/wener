@@ -5,6 +5,8 @@ tags:
 
 # DevOps Awesome
 
+- [1Panel-dev/1Panel](https://github.com/1Panel-dev/1Panel)
+  - GPLv3, Golang, Vue
 - [GoogleCloudPlatform/iap-desktop](https://github.com/GoogleCloudPlatform/iap-desktop)
   - IAP - TCP-over-HTTPS
   - [HN](https://news.ycombinator.com/item?id=28441104)

@@ -8,6 +8,10 @@ tags:
 - fieldset readonly
   - https://github.com/whatwg/html/issues/10293
 
+## double form submit
+
+- https://github.com/whatwg/html/issues/5312
+
 ## 响应式 {#responsive-meta-tag}
 
 ```html

@@ -23,7 +23,11 @@ apk add iwd
 service iwd start
 ```
 
-## iw
+## iwctl
+
+```bash
+iwctl
+```
 
 ```bash
 device list
@@ -32,16 +36,40 @@ device wlan0 set-property Powered on
 device wlan0 set-property Mode station
 
 station wlan0 scan
+station wlan0 get-networks
 # 连接 - 会提示输入密码
 station wlan0 connect <SSID>
 
 # 查看设备信息
 adapter list
 adapter wlan0 show
+
 # 查看连接过的网络
 # 可以设置 AutoConnect - 默认开启
 known-networks list
 
 # 查看支持 wsc 的设备
 wsc list
+```
+
+
+## conf
+
+- /var/lib/iwd
+- /var/lib/iwd/SSID.psk
+
+```bash
+sudo chmod 600 /var/lib/iwd/*.psk
+```
+
+# FAQ
+
+- WPS - Wi-Fi Protected Setup
+- WSC - Wi-Fi Simple Config
+- PBC - Push Button Configuration
+- SAE - Simultaneous Authentication of Equals
+
+
+```
+invalid HE capabilities
 ```

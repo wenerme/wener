@@ -12,6 +12,8 @@ tags:
 - https://docs.papermc.io/paper/reference/server-properties
 - 参考
   - Hard fork https://forums.papermc.io/threads/the-future-of-paper-hard-fork.1451/
+  - https://fill.papermc.io/v3/projects/paper/versions
+    - 版本信息
 
 :::caution
 

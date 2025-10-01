@@ -16,6 +16,8 @@ title: WeChat
   - [企业微信开发文档](https://work.weixin.qq.com/api/doc)
 - 微信
   - [微信公众平台技术文档](https://mp.weixin.qq.com/wiki)
+- 网页版
+  - https://web.wechat.com/
 - [chanxuehong/wechat.v2](https://github.com/chanxuehong/wechat.v2)
   - 微信 Go SDK
 - 微信小程序

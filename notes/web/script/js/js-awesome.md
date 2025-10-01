@@ -1062,7 +1062,7 @@ tags:
   - [andrewmd5/hako](https://github.com/andrewmd5/hako)
     - fork of PrimJS
   - [lynx-family/primjs](https://github.com/lynx-family/primjs)
-    - based on  QuickJS
+    - based on QuickJS
     - for [lynx](https://github.com/lynx-family/lynx)
       - 字节 跨平台框架
       - 目前 React 为主

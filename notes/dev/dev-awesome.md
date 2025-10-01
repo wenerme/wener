@@ -61,6 +61,12 @@ tags:
   - windsurf
   - cursor
   - Augment Code
+- HTTP
+  - https://github.com/Kong/httpsnippet
+    - HTTP Request snippet generator for many languages & libraries
+- JSON
+  - https://github.com/microsoft/node-jsonc-parser
+  - https://github.com/s3u/JSONPath
 - AI Coding Assistant/agent
   - Github Copilot
   - ContinueDev

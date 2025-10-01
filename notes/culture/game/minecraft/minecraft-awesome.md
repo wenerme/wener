@@ -102,6 +102,12 @@ tags:
   - [CloudburstMC/Protocol](https://github.com/CloudburstMC/Protocol)
     - Apache-2.0, Java
     - protocol library for Minecraft Bedrock Edition
+- Bot
+  - [PrismarineJS/mineflayer](https://github.com/PrismarineJS/mineflayer)
+    - MIT, JS
+    - Create Minecraft bots with a powerful, stable, and high level JavaScript API.
+  - [mindcraft-bots/mindcraft](https://github.com/mindcraft-bots/mindcraft)
+    - LLMs + Mineflayer
 - Community
   - https://minecraft.wiki/
   - https://minecraft.fandom.com/

@@ -107,4 +107,5 @@ title: IEEE 802.11
 - https://captivebehavior.wballiance.com/
 - [Captive Portals](https://textslashplain.com/2022/06/24/captive-portals/)
   - https://news.ycombinator.com/item?id=32092104
+
 ## station+AP
