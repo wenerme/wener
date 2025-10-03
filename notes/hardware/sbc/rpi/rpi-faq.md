@@ -6,15 +6,18 @@ tags:
 
 # Raspberry Pi 常见问题
 
-
 ```bash
 # SPI & i2c
 ls /dev/i2c-*
 ls /dev/spidev*
 
+# 使用 haveged 生成随机数，提高随机数生成速度，影响 SSH 等服务的性能
 apk add haveged
 rc-update add haveged
 service haveged start
+
+apk add raspberrypi-utils-vcgencmd
+vcgencmd get_throttled # 判断是否被限频 - 电量不足
 ```
 
 ```txt title="/boot/config.txt"
@@ -52,7 +55,6 @@ echo max_usb_current=1 >> /boot/config.txt
   - [Raspberry Pi admits to faulty USB-C design on the Pi 4](https://arstechnica.com/gadgets/2019/07/raspberry-pi-4-uses-incorrect-usb-c-design-wont-work-with-some-chargers/)
 
 ## 没有 wlan0
-
 
 ```bash
 lshw -short

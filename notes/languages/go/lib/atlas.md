@@ -38,7 +38,28 @@ title: atlas
     - 适用于复杂的变更
   - https://atlasgo.io/concepts/declarative-vs-versioned
 - HCL
-  - functions 和 procedures 需要登录了才能使用
+
+:::caution Pro 功能
+
+- 只有 付费 Pro 才能登陆 $9/月/开发者
+- Pro 功能
+  - function
+  - procedure
+  - sequence
+  - trigger
+  - extension
+  - partition
+  - system_versioned tables for SQL Server
+  - view
+  - materialized view
+  - event trigger
+  - domain
+  - Composite Type for PostgreSQL
+  - Range Type for PostgreSQL
+  - row-level security policy for PostgreSQL
+  - `server` Foreign Servers for PostgreSQL
+
+:::
 
 ```bash
 brew install ariga/tap/atlas # official tap
@@ -81,7 +102,26 @@ atlas migrate apply --env local --baseline 00000000000000
 atlas schema diff --to file://schemas/main.sql --dev-url "docker://postgres/17/dev" --from file://migrations
 
 # 修改了 migrations 需要重新 hash
-atlas migrate hash;atlas migrate diff --to 'file://schemas/main.sql' --dev-url "docker://postgres/17/dev"
+atlas migrate hash
+atlas migrate diff --to 'file://schemas/main.sql' --dev-url "docker://postgres/17/dev"
+
+# Workflow
+# 手动编辑 0_base.sql 文件 - 因为 atlas 免费帮不支持 function, procedure
+# 生成 1_baseline.sql 文件
+# 添加 IF NOT EXISTS - 因为不支持 function, procedure 有些依赖顺序有问题，需要手动在 base 里添加表
+atlas schema inspect -u file://schemas/main.sql --env local --format '{{ sql . "  " }}' > migrations/1_baseline.sql
+# TYPE 不支持 IF NOT EXISTS
+sed -i -E 's/^(CREATE (TABLE|SCHEMA|INDEX|SEQUENCE)) ([^I].*)/\1 IF NOT EXISTS \3/g' migrations/*.sql
+atlas migrate hash
+# 验证基于 SQL 的迁移可执行
+atlas migrate diff --to 'file://migrations' --dev-url "docker://postgres/17/dev"
+
+# 修改 schema 后生成 migration
+atlas migrate diff --to 'file://schemas/main.sql' --dev-url "docker://postgres/17/dev"
+
+# 验证基于 Schema 的迁移是否可执行
+# 由于不支持 function, procedure 所以可能失败
+atlas schema apply --to 'file://schemas/main.sql' -u "docker://postgres/17/dev" --dev-url "docker://postgres/17/dev"
 ```
 
 ```hcl title="atlas.hcl"

@@ -32,6 +32,10 @@ system_profiler
 security find-generic-password -ga "Home" | grep "password:"
 ```
 
+
+- coreduetd
+  - Handoff
+
 ## path_helper
 
 - /etc/paths

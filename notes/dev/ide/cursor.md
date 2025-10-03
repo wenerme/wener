@@ -8,8 +8,14 @@ title: Cursor
   - The AI Code Editor
 - 注意 可能会用非常多 Token
 - 参考
-- https://docs.cursor.com/en/models
+  - https://docs.cursor.com/en/models
   - MCP https://cursor.com/docs/context/mcp/directory
+
+# MCP
+
+- ~/.cursor/mcp.json
+- `%USERPROFILE%\.cursor\mcp.json`
+- `.cursor/mcp.json`
 
 # FAQ
 

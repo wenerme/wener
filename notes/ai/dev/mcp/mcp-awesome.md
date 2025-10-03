@@ -248,6 +248,11 @@ tags:
 
 ## Postgres
 
+- [crystaldba/postgres-mcp](https://github.com/crystaldba/postgres-mcp)
+  - restricted
+    -  read-only transactions
+  - unrestricted
+
 ```json
 {
   "mcpServers": {

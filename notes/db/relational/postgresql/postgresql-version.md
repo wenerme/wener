@@ -13,7 +13,7 @@ tags:
 
 | PostgreSQL      | Release Date |
 | --------------- | ------------ |
-| [PostgreSQL 18] |
+| [PostgreSQL 18] | 2025-09-25   |
 | [PostgreSQL 17] | 2024-09-26   |
 | [PostgreSQL 16] | 2023-09-14   |
 | [PostgreSQL 15] | 2022-10-13   |
@@ -39,29 +39,112 @@ tags:
 
 ## PostgreSQL 18
 
+- 异步 I/O 子系统
+  - 新的 AIO 子系统，支持并发 I/O 请求
+  - 支持 `worker` 和 `io_uring` 方法
+  - 顺序扫描、位图堆扫描、vacuum 操作性能提升高达 3 倍
+  - 通过 `io_method` 参数配置
 - 虚拟生成列
-  - `generated always as (EXPR) virtual`
+  - `generated always as (EXPR) virtual` - 查询时计算，默认选项
+  - 存储生成列支持逻辑复制
   - 提升写入性能、减少存储空间
-  - 影响查询性能
+- 升级优化
+  - 保留规划器统计信息通过主版本升级
+  - `pg_upgrade` 支持并行检查和 `--swap` 标志
+  - 减少升级后性能恢复时间
+- 查询性能增强
+  - 多列 B-tree 索引的 "skip scan" 查找
+  - `OR` 条件查询可使用索引优化
+  - 哈希连接和合并连接性能提升
+  - GIN 索引支持并行构建
+- 开发者体验
+  - `RETURNING` 子句支持访问 `OLD` 和 `NEW` 值
+  - `uuidv7()` 函数生成时间戳排序的 UUID
+  - `uuidv4()` 作为 `gen_random_uuid()` 的别名
+  - 时间约束支持 `WITHOUT OVERLAPS` 和 `PERIOD` 子句
+  - `CREATE FOREIGN TABLE ... LIKE` 命令
+- 文本处理改进
+  - `PG_UNICODE_FAST` 排序规则，加速 Unicode 比较
+  - 支持非确定性排序规则的 `LIKE` 比较
+  - 全文搜索使用集群默认排序规则提供程序
+- 认证和安全
+  - OAuth 2.0 认证支持
+  - FIPS 模式验证
+  - TLS v1.3 密码套件配置 `ssl_tls13_ciphers`
+  - 弃用 `md5` 密码认证，推荐使用 SCRAM
+  - `pgcrypto` 支持 SHA-2 加密
+- 复制增强
+  - 逻辑复制写冲突报告
+  - `CREATE SUBSCRIPTION` 默认使用并行流
+  - `pg_createsubscriber` 支持 `--all` 标志
+  - 自动删除空闲复制槽
+- 维护和可观测性
+  - 主动冻结更多页面，减少 vacuum 开销
+  - `EXPLAIN ANALYZE` 显示缓冲区访问信息
+  - `EXPLAIN ANALYZE VERBOSE` 包含 CPU、WAL 和平均读取统计
+  - `pg_stat_all_tables` 增加 vacuum 操作时间统计
+- 其他重要变更
+  - 默认启用页面校验和
+  - 新的 PostgreSQL 线协议版本 3.2
+  - 硬件加速支持 ARM NEON 和 SVE CPU 指令
+- 参考
+  - [PostgreSQL 18 Released!](https://www.postgresql.org/about/news/postgresql-18-released-3142/)
 
 ## PostgreSQL 17
 
-- libpq 支持 TLS `?sslnegotiation=direct`
-  - https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-SSLNEGOTIATION
+- 内存管理优化
+  - 新的 `VACUUM` 内存管理系统，减少内存消耗并提升整体 vacuum 性能
+- SQL/JSON 增强
+  - 新的 SQL/JSON 功能，包括构造函数、标识函数
+  - `JSON_TABLE()` 函数，将 JSON 数据转换为表表示
+- 查询性能改进
+  - 使用流式 I/O 的顺序读取性能提升
+  - 高并发下的写入吞吐量提升
+  - btree 索引中多值搜索优化
+- 逻辑复制增强
+  - 故障转移控制
+  - `pg_createsubscriber` 工具，从物理备用服务器创建逻辑副本
+  - `pg_upgrade` 现在保留发布者的逻辑复制槽和订阅者的完整订阅状态
+  - 支持未来主版本升级时继续逻辑复制而无需重新同步
+- 客户端连接优化 - libpq 支持 TLS `?sslnegotiation=direct`
+  - 执行直接 TLS 握手，避免往返协商
   - alpn postgresql
-  - 旧版本 应用层实现的 SSL - 无法利用现有基础设施
+  - 旧版本应用层实现的 SSL - 无法利用现有基础设施
+  - `?sslnegotiation=direct&sslmode=require`
+  - https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-SSLNEGOTIATION
   - https://www.postgresql.org/docs/17/protocol-flow.html#PROTOCOL-FLOW-SSL
   - PGJDBC v42.7.4
     - https://github.com/pgjdbc/pgjdbc/pull/3252
     - https://github.com/pgjdbc/pgjdbc/blob/master/pgjdbc/src/main/java/org/postgresql/PGProperty.java#L696
   - nodejs pg https://github.com/brianc/node-postgres/issues/3346
-  - `?sslnegotiation=direct&sslmode=require`
-- `JSON_TABLE()`
-- `pg_createsubscriber`
-- `pg_basebackup` 支持增量
-- `COPY ON_ERROR ignore`
+- 备份和恢复
+  - `pg_basebackup` 支持增量备份
+- 数据导入导出
+  - `COPY` 新增 `ON_ERROR ignore` 选项，允许在出错时继续复制操作
+- 优化器改进
+  - 允许优化器通过考虑早期行输出子句中引用列的统计信息和排序顺序来改进 CTE 计划
+  - 改进 `IS NOT NULL` 和 `IS NULL` 查询限制的优化
+  - 允许在布尔列上进行分区修剪，支持 `IS [NOT] UNKNOWN` 条件
+  - 改进使用包含操作符 `<@` 和 `@>` 时的范围值优化
+  - 允许相关 `IN` 子查询转换为连接
+  - 改进分区表、继承父表和 `UNION ALL` 查询的 `LIMIT` 子句优化
+  - 允许查询节点在更多情况下并行运行
+  - 允许 `GROUP BY` 列内部排序以匹配 `ORDER BY`
+  - 允许 `UNION`（无 `ALL`）使用 MergeAppend
+- 索引优化
+  - 允许 btree 索引更高效地查找一组值，如 `IN` 子句提供的常量
+  - 允许使用并行工作器创建 BRIN 索引
+  - 允许 GiST 和 SP-GiST 索引成为增量排序的一部分
+- 兼容性变更
+  - 维护操作期间使用安全 search_path 的函数变更
+  - 限制 `ago` 仅出现在 `interval` 值的末尾
+  - 移除服务器变量 `old_snapshot_threshold`
+  - 更改 `SET SESSION AUTHORIZATION` 处理初始会话用户的超级用户状态
+  - 移除模拟每数据库用户的功能 `db_user_namespace`
+  - 移除 adminpack contrib 扩展
+  - 移除 Windows 上的 `wal_sync_method` 值 `fsync_writethrough`
 - 参考
-  - https://www.postgresql.org/docs/current/release-17.html
+  - [PostgreSQL 17 Release Notes](https://www.postgresql.org/docs/current/release-17.html)
 
 ## PostgreSQL 16
 
@@ -79,7 +162,7 @@ tags:
   - libpq
 - `GRANT role_a TO role_b` 支持 `INHERIT | SET`
 - 参考
-  - https://www.postgresql.org/about/news/postgresql-16-released-2715/
+  - [PostgreSQL 16 Released](https://www.postgresql.org/about/news/postgresql-16-released-2715/)
 
 ## PostgreSQL 15
 

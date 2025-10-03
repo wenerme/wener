@@ -917,6 +917,14 @@ Menu                                                              Cancel Submit
   - 中间过程
   - 后置确认验收
 
+```
+Draft ─Submit→ Pending ─Approve→ Approved
+  ↑              ↓
+  └────Revise────Reject─→ Rejected
+  │                          ↑
+  └────────Cancel───────────┘
+```
+
 <!--
 - Entity
   - State

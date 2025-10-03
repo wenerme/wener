@@ -43,6 +43,14 @@ title: Jetbrain IDE
 
 :::
 
+```bash
+curl https://www.jetbrains.com/config/JetBrainsAIPlatform.json
+```
+
+- https://account.jetbrains.com/profile-details
+  - 修改 Region
+- AI 服务区域 https://www.jetbrains.com/legal/docs/terms/jetbrains-ai/service-territory/
+
 **特殊正则替换语法**
 
 | syntax | for                     |
@@ -52,6 +60,7 @@ title: Jetbrain IDE
 | \L     | 小写直到 \E 或 替换结束 |
 | \U     | 大写直到 \E 或 替换结束 |
 | \E     | \U, \L 结束标志         |
+| (?S)    | dotAll                    |
 
 - https://www.jetbrains.com/help/idea/regular-expressions.html
 

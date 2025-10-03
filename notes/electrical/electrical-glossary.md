@@ -41,6 +41,11 @@ tags:
 | Rectified current   |
 | Three-phase current | 三相电流   |
 
+- cadence - Cadence Design Systems，主流EDA（电子设计自动化）工具厂商，常用于IC、PCB设计
+- pads - Mentor Graphics（现为西门子）出品的PCB设计软件，适合中小型电路板设计
+- protel - 早期流行的PCB设计软件，现已发展为Altium Designer
+- altium designer - Altium公司出品的高端PCB设计工具，集成原理图、PCB、仿真等功能
+
 ## Symbols
 
 | Symbol | Symbol Name                    | Stand for |

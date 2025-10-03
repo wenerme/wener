@@ -4,6 +4,13 @@ title: just
 
 # just
 
+:::caution
+
+- just 能解决 Makefile 需要 escape `${}` 的问题
+- just 需要处理 `{{`,`}}` 的 escape 问题 -> `{{{{}}}}`
+
+:::
+
 - [casey/just](https://github.com/casey/just)
   - CC0-1.0, Rust
   - command runner, **不是** 构建工具
@@ -38,7 +45,7 @@ just foo/
 just bar::b # 搜索 foo.just, foo/mod.just, foo/justfile, foo/.justfile
 
 just --fmt --check --unstable
-just --dump # --dump-format json
+just --dump                                                  # --dump-format json
 just --timestamp recipe --timestamp-format '%H:%M:%S%.3f %Z' # strftime
 ```
 
@@ -53,7 +60,7 @@ just --timestamp recipe --timestamp-format '%H:%M:%S%.3f %Z' # strftime
 
 | opt      | for                                     |
 | -------- | --------------------------------------- |
-quite      | 静默模式         |
+| quite    | 静默模式                                |
 | fallback | 如果 recipe 不存在，尝试向上找 justfile |
 
 ```justfile
