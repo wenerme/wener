@@ -37,17 +37,25 @@ docker run --rm -it \
   -p 7070:7070 \
   --name versitygw versity/versitygw posix /data --sidecar /meta/metadata --versioning-dir /meta/versioning --bucketlinks
 
+docker exec -it versitygw sh
+
 ROOT_ACCESS_KEY=myaccess ROOT_SECRET_KEY=mysecret ./versitygw --cert $PWD/cert.pem --key $PWD/cert.key posix /tmp/gw
 
-ADMIN_ACCESS_KEY_ID=$ROOT_ACCESS_KEY
-ADMIN_SECRET_ACCESS_KEY=$ROOT_SECRET_KEY
-ADMIN_REGION=cn-sh-1
-ADMIN_ENDPOINT_URL=http://localhost:7070
-ADMIN_ALLOW_INSECURE=true
+export ADMIN_REGION=cn-sh-1
+export ADMIN_ACCESS_KEY_ID=$ROOT_ACCESS_KEY
+export ADMIN_SECRET_ACCESS_KEY=$ROOT_SECRET_KEY
+export ADMIN_ENDPOINT_URL=http://localhost:7070
+export ADMIN_ALLOW_INSECURE=true
 
 /app/versitygw admin list-buckets
 # 多用户模式
 /app/versitygw admin list-users
+
+
+# xattr
+apk add attr
+# user.policy={}
+getfattr -d ./buckets/contents/
 ```
 
 ```
@@ -76,3 +84,36 @@ IAM users.json
 # FAQ
 
 ## api error XAdminMethodNotSupported: The method is not supported in single root user mode.
+
+## Public Read
+
+```bash
+# 1. 配置 AWS CLI
+aws configure set aws_access_key_id your-root-access-key
+aws configure set aws_secret_access_key your-root-secret-key
+aws configure set default.region us-east-1
+aws configure set default.s3.signature_version s3v4
+
+# 2. 设置 endpoint
+export AWS_ENDPOINT_URL=http://your-versitygw-host:port
+
+# 3. 创建 bucket policy 文件
+cat > public-read-policy.json << EOF
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::your-bucket-name/*"
+    }
+  ]
+}
+EOF
+
+# 4. 应用 bucket policy
+aws s3api put-bucket-policy --bucket your-bucket-name --policy file://public-read-policy.json --endpoint-url $AWS_ENDPOINT_URL
+
+# 5. 或者设置 ACL
+aws s3api put-bucket-acl --bucket your-bucket-name --acl public-read --endpoint-url $AWS_ENDPOINT_URL
+```

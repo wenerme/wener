@@ -93,9 +93,9 @@ docker run -it --rm -p 6080:6080 x11vnc/inkscape-desktop
 DOCKER_HOST=tcp://192.168.0.1:2375 docker info # 单次请求修改
 export DOCKER_HOST=tcp://192.168.0.1:2375      # export 后持续使用
 
-ssh -L /var/run/docker.sock:/var/run/docker.sock remote           # 转发 sock 到 docker 默认 sock 位置 - 系统级可能权限不够
-ssh -L $HOME/.docker/run/docker.sock:/var/run/docker.sock remote  # 转发远程 docker 到用户目录 sock - 不需要那么高的权限
-DOCKER_HOST=unix://$HOME/.docker/run/docker.sock docker info      # 测试
+ssh -L /var/run/docker.sock:/var/run/docker.sock remote          # 转发 sock 到 docker 默认 sock 位置 - 系统级可能权限不够
+ssh -L $HOME/.docker/run/docker.sock:/var/run/docker.sock remote # 转发远程 docker 到用户目录 sock - 不需要那么高的权限
+DOCKER_HOST=unix://$HOME/.docker/run/docker.sock docker info     # 测试
 
 docker context list                                                           # 可管理多个连接上下文
 docker context create --docker host=unix://$HOME/.docker/run/docker.sock test # 创建上下文

@@ -117,9 +117,22 @@ tags:
 
 # FAQ
 
-## Limits
+## /v1/completions vs /v1/chat/completions vs /v1/responses
 
-**Anthropic**
+- /v1/chat/completions
+  - messages
+- /v1/completions
+  - **已弃用** 不推荐在新项目中使用
+  - prompt
+- /v1/responses
+- /v1/conversations
+  - 对话管理
+
+# Limits
+
+- https://deepinfra.com/docs/advanced/rate-limits
+
+## Anthropic
 
 | 类别     | 项目                              | 限制                                     | 触发条件/备注                  |
 | -------- | --------------------------------- | ---------------------------------------- | ------------------------------ |
@@ -135,7 +148,7 @@ tags:
 
 注意：图像限制同时受单图尺寸、单图文件大小与整体请求 32 MB 约束。超过任一限制返回 413 request_too_large。
 
-### OpenAI
+## OpenAI
 
 **组织级**
 
@@ -186,13 +199,32 @@ tags:
   - https://docs.anthropic.com/en/api/overview#request-size-limits
   - Azure AI Foundry Quotas & Limits https://learn.microsoft.com/en-us/azure/ai-foundry/openai/quotas-limits
 
-## /v1/completions vs /v1/chat/completions vs /v1/responses
+## Aliyun
 
-- /v1/chat/completions
-  - messages
-- /v1/completions
-  - **已弃用** 不推荐在新项目中使用
-  - prompt
-- /v1/responses
-- /v1/conversations
-  - 对话管理
+**Aliyun/Bailian/Aibabacloud**
+
+| item                                    |            limit |
+| --------------------------------------- | ---------------: |
+| QWen-VL, QVQ, QWen-Omini datauri/base64 |            10 MB |
+| QWen-VL, QVQ, QWen-Omini image          |            20 MB |
+| Qwen2.5-VL video                        |             1 GB |
+| QVQ, QWen-Omini video                   |           150 MB |
+| document                                |           150 MB |
+| batch file                              |           500 MB |
+| CosyVoice Voice Cloning audio           | > 16 kHz , 10 MB |
+| video                                   |           200 MB |
+| audio                                   |            15 MB |
+| image                                   |             5 MB |
+
+---
+
+- Exceeded limit on max bytes per data-uri item
+  - aliyun datauri 限制 10MB
+- String value length exceeds the maximum allowed (20000000, from `StreamReadConstraints.getMaxStringLength()`)
+  - string 字段不能超过 20MB 限制
+  - java jackson streaming 默认限制
+  - 2.15 之前是 5MB
+
+---
+
+- https://www.alibabacloud.com/help/en/model-studio/error-code

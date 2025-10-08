@@ -30,6 +30,9 @@ tags:
 - lint
   - eslint
   - go vet
+  - [ast-grep/ast-grep](https://github.com/ast-grep/ast-grep)
+    - MIT, Rust
+    - code structural search, lint and rewriting
 - pkgs
   - https://deps.dev
 - dotfiles

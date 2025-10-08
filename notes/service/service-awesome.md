@@ -521,6 +521,13 @@ tags:
   - nats
     - 支持 WebSocket， JWT 认证
   - [im-awesome](./im/im-awesome.md)
+  - [soketi/soketi](https://github.com/soketi/soketi)
+    - AGPL-3.0, TypeScript
+    - Next-gen, Pusher-compatible, open-source WebSockets server
+    - 基于 uWebSockets.js，性能比 Fastify 快 8.5x，比 Socket.IO 快 10x
+    - 支持 Pusher Protocol v7，现有 Pusher 项目只需最小改动
+    - 内置支持静态数组、DynamoDB 和 PostgreSQL
+    - 生产就绪，支持 Redis 扩展
   - [centrifugal/centrifugo](https://github.com/centrifugal/centrifugo)
     - 实时消息服务
       - 作为独立服务存在
@@ -546,7 +553,24 @@ tags:
 - Map/Geo
   - [protomaps](https://github.com/protomaps)
   - [maplibre](https://github.com/maplibre)
-- serverless/event driven
+- serverless/event driven/deployment/PaaS
+  - [coollabsio/coolify](https://github.com/coollabsio/coolify)
+    - Apache-2.0, PHP
+    - An open-source & self-hostable Heroku / Netlify / Vercel alternative
+    - 管理服务器、应用程序和数据库，只需 SSH 连接
+    - 支持 VPS、裸机、树莓派等
+    - 无供应商锁定，所有配置保存到服务器
+    - 提供云版本 app.coolify.io
+  - [hunvreus/devpush](https://github.com/hunvreus/devpush)
+    - MIT, Python
+    - Like Vercel, but open source and for all languages
+    - Git-based deployments with zero-downtime rollouts
+    - 支持 Python, Node.js, PHP 等多语言
+    - 实时监控和日志，团队协作，自定义域名
+    - 自动 Let's Encrypt SSL 证书
+    - 基于 Docker 运行
+  - [piku/piku](https://github.com/piku/piku)
+    - MIT, Python
   - [triggerdotdev/trigger.dev](https://github.com/triggerdotdev/trigger.dev)
     - background jobs platform for TypeScript
   - [fission/fission](https://github.com/fission/fission)

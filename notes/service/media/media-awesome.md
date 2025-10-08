@@ -191,6 +191,16 @@ tags:
 
 :::
 
+| format | ext                                                    | mime                                                                                            | stand for                                                     | since      |
+| ------ | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ---------- |
+| amr    | .amr, .3ga                                             | audio/amr, audio/3gpp, audio/3gpp2                                                              | Adaptive Multi-Rate, AMR-NB, GSM-AMR                          | 1999-06-23 |
+| mp3    | .mp3, .mpga, .bit                                      | audio/mpeg, audio/MPA, audio/mpa-robust                                                         | MPEG-1 Audio Layer III, MPEG-2 Audio Layer III                | 1991-12-06 |
+| ac3    | .ac3                                                   | audio/ac3,audio/eac3                                                                            | Dolby AC-3, Audio Codec 3, Advanced Codec 3, Acoustic Coder 3 |
+| aac    | .3gp, .aac, .adif, .adts, .m4a, .m4b, .m4p, .m4r, .mp4 | audio/aac, audio/aacp, audio/3gpp, audio/3gpp2, audio/mp4, audio/mp4a-latm, audio/mpeg4-generic | Advanced Audio Coding                                         | 1997-12    |
+| opus   | .opus                                                  | audio/ogg, audio/opus                                                                           | Opus Audio Codec                                              | 2012-09-11 |
+| wav    |                                                        | audio/wav                                                                                       | Waveform Audio File Format                                    |
+| pcm    |                                                        | audio/pcm                                                                                       | Pulse Code Modulation                                         |
+
 - amr - Adaptive Multi-Rate
   - 专为语音编码设计的压缩格式
   - 用于移动电话和语音
@@ -251,8 +261,6 @@ tags:
   - 无损转换JPEG - 对 JPEG 二次压缩体积能减少约20%
 
 :::
-
-
 
 | Initial    | format       | name                              | author                      | notes                                                        |
 | ---------- | ------------ | --------------------------------- | --------------------------- | ------------------------------------------------------------ |

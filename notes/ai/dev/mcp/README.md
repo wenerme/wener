@@ -37,10 +37,6 @@ tags:
   - eventStore: databaseEventStore
 - Local state with message routing - 需要本地维护状态，所有属于同一会话的请求需路由到同一节点。可通过消息队列和发布/订阅系统实现。
 
-# Spec
-
-- https://www.claudemcp.com/specification
-
 ## JetBrains
 
 - https://github.com/JetBrains/mcp-jetbrains

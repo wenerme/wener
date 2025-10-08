@@ -8,6 +8,17 @@ tags:
 ## Level
 
 - level - importance - severity
+- 日志级别有两种表示方式：
+  - SeverityText
+  - SeverityNumber - Priority
+    - 1-100
+    - 0-7
+- Severity, Urgency
+- Filtering
+- Actionability
+- Consistency
+- Customization
+- Extensibility
 
 | mean        | level  | syslog             | console | go/slog | OpenTelemetry | slf4j |
 | ----------- | ------ | ------------------ | ------- | ------- | ------------- | ----- |
@@ -23,9 +34,56 @@ tags:
 | Trace       | trace  |                    | ✅      |         | TRACE, 1-4    |       |
 
 - https://opentelemetry.io/docs/specs/otel/logs/
-  - SeverityText
-  - SeverityNumber
+  - 0 unspecified
+  - 每个级别 4 个数字
+  - 1-4	TRACE
+  - 5-8	DEBUG
+  - 9-12	INFO
+  - 13-16	WARN
+  - 17-20	ERROR
+  - 21-24	FATAL
+- consola
+  - -Inf silent
+  - 0 error, fatal
+  - 1 warn
+  - 2 log
+  - 3 info, success, fail, start, ready, box
+  - 4 debug
+  - 5 trace
+  - +Inf verbose
+  - https://github.com/unjs/consola/blob/main/src/constants.ts
+- Log4j
+  - Name - Priority
+  - OFF 0
+  - FATAL 100
+  - ERROR 200
+  - WARN 300
+  - INFO 400
+  - DEBUG 500
+  - TRACE 600
+  - ALL Integer.MAX_VALUE
+- zap
+  - https://github.com/uber-go/zap/blob/master/zapcore/level.go
+  - dpanic - 开发模式下 panic - 有点类似于 assert
 
+---
+
+- silent
+- fatal
+- error
+  - panic
+  - critical
+- warn
+  - warning
+- log
+- info
+  - success
+  - fail
+  - start
+  - ready
+- debug
+- trace
+- verbose
 
 ```
 

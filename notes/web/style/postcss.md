@@ -4,6 +4,16 @@ title: PostCSS
 
 # PostCSS
 
+- https://github.com/postcss/postcss-cli
+
+```bash
+pnpm add postcss autoprefixer
+
+pnpx postcss-cli -o dist/globals.css ./src/app/globals.cs
+```
+
+# FAQ
+
 ## Unknown error from PostCSS plugin. Your current PostCSS version is 8.4.24, but autoprefixer uses 7.0.39. Perhaps this is the source of the error below.
 
 ```bash

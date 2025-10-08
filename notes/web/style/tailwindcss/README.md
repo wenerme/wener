@@ -42,10 +42,11 @@ title: Tailwind CSS
 :::
 
 ```bash
+# 直接使用命令行构建
+pnpx @tailwindcss/cli -i ./src/app/globals.css -o dist/globals.css
+
 # 基础依赖
 npm add tailwindcss postcss autoprefixer
-# 兼容 storybook 5 - PostCSS 7
-# npm install tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 
 # 初始化配置
 # postcss.config.js tailwind.config.js

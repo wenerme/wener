@@ -53,6 +53,8 @@ tags:
 - [microsoft/clarity](https://github.com/microsoft/clarity)
   - behavioral analytics library that uses dom mutations and user interactions to generate aggregated insights
 - [DavidWells/analytics](https://github.com/DavidWells/analytics)
+  - MIT, JS
+  - Lightweight analytics abstraction layer for tracking page views, custom events, & identifying visitors
 
 ## 商业
 

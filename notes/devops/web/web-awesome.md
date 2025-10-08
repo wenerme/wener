@@ -18,6 +18,13 @@ tags:
   - library for building fast, reliable and evolvable network services
 - [vicanso/pingap](https://github.com/vicanso/pingap)
   - reverse proxy like nginx, built on pingora
+- Gateway
+  - [Kong/kong](https://github.com/Kong/kong)
+    - MIT, Lua
+    - API Gateway and Microservice Management
+  - [apache/shenyu](https://github.com/apache/shenyu)
+    - Apache-2.0, Java
+  - APISIX
 
 ## Framework
 

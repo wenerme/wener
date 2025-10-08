@@ -145,6 +145,8 @@ keywords:
 - ~~[runabol/piper](https://github.com/runabol/piper)~~
   - Apache-2.0, Java
   - distributed workflow engine
+- https://github.com/huginn/huginn
+  - MIT, Ruby
 
 ---
 

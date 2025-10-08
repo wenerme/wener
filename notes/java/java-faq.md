@@ -132,7 +132,6 @@ https://stackoverflow.com/q/1856242/1870054
 - `-Dspring.profiles.active=development`
 - `SPRING_PROFILES_ACTIVE`
 
-
 ## A fatal error has been detected by the Java Runtime Environment
 
 ```
@@ -201,7 +200,6 @@ jattach 1 properties
   - ftp.proxyPort
   - ftp.nonProxyHosts
 - Datagrip 支持 `?socksProxyHost=&socksProxyPort=`
-
 
 ```bash
 JAVA_FLAGS=-Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8087
@@ -284,3 +282,9 @@ public class VirtualthreadApplication {
     }
 }
 ```
+
+## String value length exceeds the maximum allowed (20000000, from `StreamReadConstraints.getMaxStringLength()`)
+
+- jackson
+- string 字段不能超过 20MB 限制
+- 2.15 之前是 5MB

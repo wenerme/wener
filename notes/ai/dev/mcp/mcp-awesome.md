@@ -44,14 +44,17 @@ tags:
   - TODOIST_API_KEY
   - TODOIST_BASE_URL
   - add-projects, update-projects, delete-object
-- [Upstash/context7](https://github.com/upstash/context7)
-  - MIT, JS, TS
-  - Up-to-date code documentation for LLMs and AI code editors
-  - `use context7`
-  - MCP mcp.context7.com/mcp
-    - Header CONTEXT7_API_KEY
-  - MCP mcp.context7.com/sse
-  - API context7.com/api/v1
+- search/repo/index/doc
+  - [oraios/serena](https://github.com/oraios/serena)
+  - https://ref.tools/
+  - [Upstash/context7](https://github.com/upstash/context7)
+    - MIT, JS, TS
+    - Up-to-date code documentation for LLMs and AI code editors
+    - `use context7`
+    - MCP mcp.context7.com/mcp
+      - Header CONTEXT7_API_KEY
+    - MCP mcp.context7.com/sse
+    - API context7.com/api/v1
 - Index/Aggregate
   - https://modelscope.cn/mcp
   - [Dhravya/apple-mcp](https://github.com/Dhravya/apple-mcp)

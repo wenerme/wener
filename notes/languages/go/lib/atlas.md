@@ -83,6 +83,8 @@ atlas migrate validate     # 对比 migrations/atlas.sum
 atlas migrate hash --force # 强制重新生成 migrations/atlas.sum
 
 # 生成 diff SQL 到 migrations
+# --to 目标状态
+# --dir 现在状态
 atlas migrate diff \
   --dir "file://migrations" \
   --to "file://schema.pg.hcl" \
@@ -99,7 +101,10 @@ atlas schema inspect -u file://schemas/main.sql --env local --format '{{ sql . "
 atlas migrate hash
 atlas migrate apply --env local --baseline 00000000000000
 
-atlas schema diff --to file://schemas/main.sql --dev-url "docker://postgres/17/dev" --from file://migrations
+atlas schema diff \
+--to file://schemas/main.sql \
+--from file://migrations \
+--dev-url "docker://postgres/17/dev"
 
 # 修改了 migrations 需要重新 hash
 atlas migrate hash
@@ -111,7 +116,8 @@ atlas migrate diff --to 'file://schemas/main.sql' --dev-url "docker://postgres/1
 # 添加 IF NOT EXISTS - 因为不支持 function, procedure 有些依赖顺序有问题，需要手动在 base 里添加表
 atlas schema inspect -u file://schemas/main.sql --env local --format '{{ sql . "  " }}' > migrations/1_baseline.sql
 # TYPE 不支持 IF NOT EXISTS
-sed -i -E 's/^(CREATE (TABLE|SCHEMA|INDEX|SEQUENCE)) ([^I].*)/\1 IF NOT EXISTS \3/g' migrations/*.sql
+# DO $$ BEGIN CREATE TYPE ...; EXCEPTION WHEN duplicate_object THEN null; END $$;
+sed -i -E 's/^(CREATE (TABLE|SCHEMA|(UNIQUE )?INDEX|SEQUENCE)) ([^I].*)/\1 IF NOT EXISTS \3/g' migrations/*.sql
 atlas migrate hash
 # 验证基于 SQL 的迁移可执行
 atlas migrate diff --to 'file://migrations' --dev-url "docker://postgres/17/dev"
