@@ -13,7 +13,7 @@ tags:
 - [NLP](../nlp/README.md)
   - [NLP Awesome](../nlp/nlp-awesome.md)
 - [GAN](./gan.md)
-- [img2img](./img2img.md)
+- [img2img](../model/img2img.md)
 - Framework
   - [PyTorch](./pytorch/README.md)
     - by Meta
@@ -27,7 +27,7 @@ tags:
     - [google/maxtext](https://github.com/google/maxtext)
       - simple, performant and scalable Jax LLM
   - [apple/corenet](https://github.com/apple/corenet)
-  - [Paddle](./paddle.md)
+  - [Paddle](./paddle/README.md)
     - by 百度
   - [OpenCV](./opencv/README.md)
   - Tensorflow
@@ -174,7 +174,7 @@ tags:
   - [facebookresearch/detectron2](https://github.com/facebookresearch/detectron2)
   - [open-mmlab/mmdetection](https://github.com/open-mmlab/mmdetection)
   - [google-research/big_vision](https://github.com/google-research/big_vision)
-  - [Yolo](./yolo/README.md) - You Only Look Once
+  - [Yolo](../model/yolo/README.md) - You Only Look Once
     - YOLO-NAS - Neural Architecture Search
     - [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
     - [YOLOv7 Breakdown](https://blog.roboflow.com/yolov7-breakdown/)

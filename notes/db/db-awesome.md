@@ -100,7 +100,7 @@ tags:
   - [citusdata/citus](./relational/postgresql/citus.md)
     - PostgreSQL Sharding
   - [cdb](./newsql/cockroachdb.md)
-  - [yugabyte/yugabyte-db](./newsql/yugabytedb.md)
+  - [yugabyte/yugabyte-db](./relational/yugabytedb.md)
   - [ydb-platform/ydb](https://github.com/ydb-platform/ydb)
 
 ## 时序数据库 {#time-series}
@@ -147,7 +147,7 @@ tags:
 ## Column Store
 
 - 面向分析
-- [Clickhouse](./column/clickhouse.md)
+- [Clickhouse](./column/clickhouse/README.md)
 - [DuckDB](./column/duckdb.md)
 - Apache Druid
 - Apache Pinot
@@ -164,7 +164,7 @@ tags:
 
 - 宽列 - 二维 KV
   - 并非标准列存储
-- [Scylla](./column/scylladb.md)
+- [Scylla](./column/scylladb/README.md)
 - [Apache Cassandra](./column/cassandra.md)
 - Apache Accumulo
 - Apache HBase

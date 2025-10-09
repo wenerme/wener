@@ -170,7 +170,7 @@ curl https://wener.me/cdn-cgi/trace
   - [SagerNet/sing-box](./sing-box/README.md)
     - GPLv3, Golang
     - universal proxy platform
-  - ~~[clash](./clash.md)~~
+  - ~~[clash](./clash/README.md)~~
     - rule based
 - Dashboard/GUI
   - [MetaCubeX/metacubexd](https://github.com/MetaCubeX/metacubexd)
@@ -320,7 +320,7 @@ rules:
   - macOS
 - Proxyman - 商业
   - macOS
-- [mitmproxy](./mitmproxy.md)
+- [mitmproxy](../mitmproxy.md)
   - [lqqyt2423/go-mitmproxy](https://github.com/lqqyt2423/go-mitmproxy)
     - MIT, Golang
   - [AdguardTeam/gomitmproxy](https://github.com/AdguardTeam/gomitmproxy)

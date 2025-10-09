@@ -41,7 +41,7 @@ tags:
 
 :::
 
-- [ULID](./ulid.md)
+- [ULID](../../db/ulid.md)
   - 128bit - 编码后 26 字符 - base32
   - timestamp 48bits + random 80bits
   - 有序 - 可以用于排序

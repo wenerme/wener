@@ -258,7 +258,7 @@ from test;
   - JSONB
   - 可以水平和垂直扩容
   - ACID
-  - [FerretDB](./relational/postgresql/ferretdb.md) 提供兼容协议
+  - [FerretDB](./document/ferretdb.md) 提供兼容协议
 
 ## MySQL vs PostgreSQL
 

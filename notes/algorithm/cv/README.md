@@ -6,8 +6,8 @@ keywords:
 # 计算机视觉
 
 - [CV Awesome](./cv-awesome.md)
-- [OpenCV](./opencv.md)
-- [ImageMagick](./imagemagick.md)
+- [OpenCV](../../ai/ml/opencv/README.md)
+- [ImageMagick](../../service/media/imagemagick.md)
 - jpegoptim
 - tesseract
 - vips

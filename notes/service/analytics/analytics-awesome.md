@@ -20,7 +20,7 @@ tags:
 - [milesmcc/shynet](https://github.com/milesmcc/shynet)
   - Apache-2.0, Python
   - without cookies or JS
-- [matomo-org/matomo](./matomo.md)
+- [matomo-org/matomo](./matomo/README.md)
   - GPLv3, PHP+MySQL
   - https://matomo.org/
 - [Countly/countly-server](https://github.com/Countly/countly-server)

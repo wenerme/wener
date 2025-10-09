@@ -158,7 +158,7 @@ tags:
     - Auto-magic file organisation for your machines
 - https://www.opensourcealternative.to/
 - secrets manager/security/KMS
-  - [Infisical/infisical](./secret/infisical.md)
+  - [Infisical/infisical](./security/infisical.md)
     - MIT + EE, Typescript
   - [envkey/envkey](https://github.com/envkey/envkey)
   - [dotenv-org/dotenv-vault](https://github.com/dotenv-org/dotenv-vault)

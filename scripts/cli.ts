@@ -16,6 +16,8 @@ program
   ])
   .option('-o, --output <file>', 'Output file for links.json', 'local/links.json')
   .option('-m, --output-meta <file>', 'Output file for links.meta.json', 'local/links.meta.json')
+  .option('-c, --check', 'Check if referenced local markdown files exist', true)
+  .option('--no-check', 'Disable checking for missing local markdown files')
   .action(async (options) => {
     try {
       // Handle multiple scan directories - commander collects multiple values into an array
@@ -28,11 +30,13 @@ program
       console.log(`📄 Output files:`);
       console.log(`   - Links: ${options.output}`);
       console.log(`   - Meta: ${options.outputMeta}`);
+      console.log(`🔍 Check local files: ${options.check ? 'enabled' : 'disabled'}`);
 
       await scanLinks({
         scanDirs,
         outputFile: options.output,
         outputMetaFile: options.outputMeta,
+        checkLocalFiles: options.check,
       });
     } catch (error) {
       console.error('❌ Error:', error);

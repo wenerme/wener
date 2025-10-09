@@ -6,7 +6,7 @@ tags:
 # LLM Awesome
 
 - Engine/Framework/Service/Inference
-  - [ggerganov/llama.cpp](./llama.cpp.md)
+  - [ggerganov/llama.cpp](../dev/llama.cpp.md)
     - MIT, C++
     - 有非常多的语言绑定
     - 支持最好最广泛使用的推理引擎
@@ -39,7 +39,7 @@ tags:
   - [vllm-project/vllm](https://github.com/vllm-project/vllm)
     - https://vllm.ai/
     - vLLM: Easy, Fast, and Cheap LLM Serving
-  - [jmorganca/ollama](./ollama.md)
+  - [jmorganca/ollama](../dev/ollama.md)
     - MIT, Golang
     - 快速启动任意模型
     - 提供模型管理
@@ -100,7 +100,7 @@ tags:
     - Apache-2.0
     - training, serving, and evaluating
 - Web/UI/Chat
-  - [Yidadaa/ChatGPT-Next-Web](./chatgpt-next-web.md)
+  - [Yidadaa/ChatGPT-Next-Web](../dev/chatgpt-next-web.md)
   - [nluxai/nlux](https://github.com/nluxai/nlux)
     - MPL-2.0, TS, React
     - UI for any LLM, supporting LangChain / HuggingFace / Vercel AI,

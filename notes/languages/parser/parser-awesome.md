@@ -5,7 +5,7 @@ tags:
 
 # Parser Awesome
 
-- [Antlr](./antlr4.md)
+- [Antlr](./antlr/README.md)
   - Adaptive LL(\*)
 - [JavaCC](./javacc.md)
   - LL(k)
@@ -54,9 +54,9 @@ tags:
     - 不生成代码，直接通过注解执行 - 简单易用
     - Elegant parsing in Java and Scala - lightweight, easy-to-use, powerful.
 - JavaScript
-  - [peggy](./peggy.md)
+  - [peggy](./peg/peggy.md)
     - successor of PEG.js
-  - [PEG.js](./pegjs.md)
+  - [PEG.js](./peg/pegjs.md)
     - ⚠️ 不再维护
     - 生成代码
     - [pegjs/pegjs](https://github.com/pegjs/pegjs)

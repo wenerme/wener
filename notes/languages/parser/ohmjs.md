@@ -13,7 +13,7 @@ title: ohmjs
   - 通过 semantics 添加执行逻辑 - 而不是在 grammar 里嵌入
 - 参考
   - https://ohmjs.org/editor/
-    - 因为执行逻辑是外部添加的，因此看不到实际执行效果 - 和 [PEG.js](./peggy.md) 主要区别
+    - 因为执行逻辑是外部添加的，因此看不到实际执行效果 - 和 [PEG.js](./peg/peggy.md) 主要区别
   - https://ohmjs.org/docs/syntax-reference
 
 :::tip

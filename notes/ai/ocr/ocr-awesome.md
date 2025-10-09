@@ -7,7 +7,7 @@ tags:
 
 - qwen2.5 vl
 - All in One OCR/OCR Toolkit
-  - [PaddleOCR](./paddleocr.md)
+  - [PaddleOCR](../ml/paddle/paddle-ocr.md)
     - Paddle
     - by 百度
     - https://paddlejs.baidu.com/ocr

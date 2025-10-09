@@ -6,6 +6,8 @@ import { writeFile } from 'fs/promises';
 import { join, dirname, resolve, relative } from 'path';
 import { URL } from 'url';
 import { existsSync } from 'fs';
+import { execSync } from 'child_process';
+import Fuse from 'fuse.js';
 
 export interface LinkRef {
   title: string;
@@ -30,6 +32,7 @@ export interface ScanOptions {
   scanDirs: string[];
   outputFile: string;
   outputMetaFile: string;
+  checkLocalFiles?: boolean;
 }
 
 // Regular expressions to match different markdown link formats
@@ -58,6 +61,57 @@ function findGitRoot(startPath: string = process.cwd()): string {
 
   // If no .git found, fall back to current working directory
   return process.cwd();
+}
+
+function getGitTrackedFiles(): string[] {
+  try {
+    const output = execSync('git ls-files', { encoding: 'utf-8' });
+    return output.trim().split('\n').filter(line => line.trim());
+  } catch (error) {
+    console.warn('⚠️  Could not get git tracked files:', error);
+    return [];
+  }
+}
+
+function findFuzzyMatches(missingFile: string, allFiles: string[], referencingFile: string): string[] {
+  // First resolve the missing file to relative path from git root
+  const gitRoot = findGitRoot();
+  const resolvedMissingPath = resolveToGitRoot(missingFile, referencingFile);
+
+  // Extract filename for matching
+  const filename = resolvedMissingPath.split('/').pop() || resolvedMissingPath;
+  const basename = filename.replace(/\.md$/, '');
+
+  // Create Fuse instance for fuzzy matching
+  const fuse = new Fuse(allFiles, {
+    keys: ['path'],
+    threshold: 0.4, // Lower threshold = more strict matching
+    includeScore: true,
+    includeMatches: true,
+  });
+
+  // Search for matches using resolved path
+  const results = fuse.search(resolvedMissingPath);
+
+  // Also search for filename and basename
+  const filenameResults = fuse.search(filename);
+  const basenameResults = fuse.search(basename);
+
+  // Combine and deduplicate results
+  const allResults = [...results, ...filenameResults, ...basenameResults];
+  const uniqueResults = new Map<string, any>();
+
+  for (const result of allResults) {
+    if (!uniqueResults.has(result.item)) {
+      uniqueResults.set(result.item, result);
+    }
+  }
+
+  // Sort by score (lower is better) and return top 3 matches
+  return Array.from(uniqueResults.values())
+    .sort((a, b) => (a.score || 0) - (b.score || 0))
+    .slice(0, 3)
+    .map(result => result.item);
 }
 
 // Utility function to resolve relative paths to git root
@@ -242,6 +296,64 @@ export async function scanLinks(options: ScanOptions): Promise<void> {
       }
     } catch (error) {
       console.warn(`⚠️  Error processing ${file}:`, error);
+    }
+  }
+
+  // Check for missing local markdown files (if enabled)
+  if (options.checkLocalFiles !== false) {
+    console.log('🔍 Checking for missing local markdown files...');
+    const missingFilesMap = new Map<string, string[]>();
+
+    for (const [baseUrl, linkData] of linkMap) {
+      // Check if this is a local markdown reference
+      if (linkData.path && !linkData.hostname) {
+        const gitRoot = findGitRoot();
+        const fullPath = join(gitRoot, linkData.path);
+
+        if (!existsSync(fullPath)) {
+          if (!missingFilesMap.has(linkData.path)) {
+            missingFilesMap.set(linkData.path, []);
+          }
+          // Add all referencing files
+          for (const ref of linkData.refs) {
+            missingFilesMap.get(linkData.path)!.push(ref.path);
+          }
+        }
+      }
+    }
+
+    if (missingFilesMap.size > 0) {
+      console.log(`❌ Missing local markdown files (${missingFilesMap.size}):`);
+
+      // Get all git tracked files for fuzzy matching
+      const allGitFiles = getGitTrackedFiles();
+      const markdownFiles = allGitFiles.filter(file => file.endsWith('.md'));
+
+      for (const [missingFile, refFiles] of Array.from(missingFilesMap.entries()).sort()) {
+        console.log(`   - ${missingFile}`);
+        // Show unique referencing files
+        const uniqueRefs = [...new Set(refFiles)].sort();
+        for (const refFile of uniqueRefs) {
+          console.log(`     ↳ Referenced by: ${refFile}`);
+        }
+
+        // Find fuzzy matches for each referencing file
+        const allMatches = new Set<string>();
+        for (const refFile of uniqueRefs) {
+          const fuzzyMatches = findFuzzyMatches(missingFile, markdownFiles, refFile);
+          fuzzyMatches.forEach(match => allMatches.add(match));
+        }
+
+        if (allMatches.size > 0) {
+          console.log(`     🔍 Possible matches:`);
+          const sortedMatches = Array.from(allMatches).sort();
+          for (const match of sortedMatches.slice(0, 3)) {
+            console.log(`       - ${match}`);
+          }
+        }
+      }
+    } else {
+      console.log('✅ All local markdown references are valid');
     }
   }
 

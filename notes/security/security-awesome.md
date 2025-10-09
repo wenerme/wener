@@ -235,7 +235,7 @@ docker run --rm -it \
 ## Tools
 
 - [samuel-lucas6/Kryptor](https://github.com/samuel-lucas6/Kryptor)
-- [FiloSottile/age](./age.md)
+- [FiloSottile/age](./crypto/age.md)
   - file encryption tool
   - [HN](https://news.ycombinator.com/item?id=28435613)
 - [FiloSottile/yubikey-agent](https://github.com/FiloSottile/yubikey-agent)

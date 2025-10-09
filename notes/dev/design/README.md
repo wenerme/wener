@@ -14,7 +14,7 @@ tags:
 
 - [服务](./design-service.md)
   - [CRM](./design-crm.md)
-  - [ERP](./design-erp.md) - ERP 建模
+  - [ERP](./erp/README.md) - ERP 建模
 - [数据库 Schema 设计](./design-schema.md) - 数据库设计基本原则
 - Architecture
   - [事件驱动](./design-event-driven.md)

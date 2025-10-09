@@ -6,7 +6,7 @@ tags:
 
 # CV Awesome
 
-- [OpenCV Awesome](./opencv-awesome.md)
+- [OpenCV Awesome](../../ai/ml/opencv/opencv-awesome.md)
 - [nenadmarkus/picojs](https://github.com/nenadmarkus/picojs)
   - face detection library in 200 lines of JavaScript
   - https://nenadmarkus.com/p/picojs-intro/

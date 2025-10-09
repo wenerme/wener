@@ -86,7 +86,7 @@ tags:
 
 ## Components
 
-- [Components](./components.md)
+- Components
 - https://storybook.js.org/blog/component-encyclopedia/
   - 组件大典
 - https://designvault.io/

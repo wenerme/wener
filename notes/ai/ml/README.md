@@ -4,7 +4,7 @@ title: 机器学习
 
 # 机器学习
 
-- [训练](./traning.md)
+- [训练](../traning/README.md)
 - [标记](./labeling.md)
 - [Comparing Deep Learning Frameworks](https://www.infoq.com/presentations/comparison-deep-learning-frameworks)
 

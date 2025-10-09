@@ -10,5 +10,5 @@ tags:
 
 
 ```bash
-pnpx @modelcontextprotocol/inspector tsx ./src/
+pnpx @modelcontextprotocol/inspector tsx ./src/main.ts
 ```

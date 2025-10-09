@@ -8,7 +8,7 @@ title: Argo
 
 | project                        | desc             |
 | ------------------------------ | ---------------- |
-| [workflow](./argo-workflow.md) | 工作流           |
+| [workflow](./workflow/argo-workflow-faq.md) | 工作流           |
 | [argocd](../argocd/README.md)  | 持续集成         |
 | notification                   |
 | rollouts                       | 增强 k8s rollout |

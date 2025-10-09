@@ -9,7 +9,7 @@ tags:
   - title
   - [meta](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
 - Core Web Vitals
-- [OpenGraphProtocol](./html-ogp.md)
+- [OpenGraphProtocol](../spec/ogp.md)
 
 ```html
 <html>

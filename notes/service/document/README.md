@@ -5,8 +5,8 @@ title: 办公套件
 # Document
 
 - Office 基本都与 Document 相关
-- [Awesome](./office-awesome.md)
-- [FAQ](./office-faq.md)
+- [Awesome](./document-awesome.md)
+- [FAQ](./document-faq.md)
 - OpenDocument
 - OOXML - Office Open XML
 

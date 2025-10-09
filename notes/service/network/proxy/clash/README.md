@@ -7,7 +7,7 @@ title: clash
 - ~~[Dreamacro/clash](https://github.com/Dreamacro/clash)~~
   - GPLv3, Golang
   - rule-based tunnel
-  - 于 2023-11-02 删库, [Clash.Meta](./clash-meta.md) 只是 Archive
+  - 于 2023-11-02 删库, [Clash.Meta](../mihomo/README.md) 只是 Archive
     - https://github.com/net4people/bbs/issues/303
 - 参考
   - [juewuy/ShellClash](https://github.com/juewuy/ShellClash)

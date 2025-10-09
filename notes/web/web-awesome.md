@@ -156,8 +156,8 @@ tags:
 ## 开发框架
 
 - React
-  - [remix](./framework/remix.md)
-  - [nextjs](./framework/nextjs.md)
+  - [remix](./framework/remix/README.md)
+  - [nextjs](./framework/nextjs/README.md)
   - [rakkasjs/rakkasjs](https://github.com/rakkasjs/rakkasjs)
     - 类似 NextJS
     - 使用 Vite

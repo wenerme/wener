@@ -49,4 +49,4 @@ Network 列表，使用 ID 标识，每个 Network 有自己的 本地货币/Nat
 - https://testnet.openswap.xyz/#/swap
 - PartySwap
   - https://tokenlists.org/token-list?url=https://raw.githubusercontent.com/PartySwapDEX/token-lists/main/fujiv2.tokenlist.json
-  - [PARTY](./swap/partyswap.md) 0x69A61f38Df59CBB51962E69C54D39184E21C27Ec
+  - [PARTY](../swap/partyswap.md) 0x69A61f38Df59CBB51962E69C54D39184E21C27Ec

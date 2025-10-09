@@ -8,7 +8,7 @@ tags:
 
 - EDMS - Electronic Document Management System - 电子文件管理系统
 - RMS - Records Management System - 档案管理系统
-- 中国 [DAT](./dat/README.md)/档案管理 标准
+- 中国 [DAT](./std/README.md)/档案管理 标准
 - ISO 15489 Information and Documentation - Records Management - 信息和文档 - 记录管理
   - ISO 15489-1:2016 信息和文档 - 记录管理 - 第1部分：概念和原则
   - ISO 15489-2:2001 信息和文档 - 记录管理 - 第2部分：指南

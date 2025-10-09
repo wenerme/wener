@@ -39,7 +39,7 @@ const reactElement = {
 };
 ```
 
-- [x-render](./x-render.md)
+- [x-render](../x-render.md)
   - 基于 JSON schema 扩展处理属性
 
 ## 百度 Aims

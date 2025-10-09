@@ -85,10 +85,10 @@ tags:
   - openio-sds
   - longhorn
 - [S3](./s3/README.md)
-  - [minio](./minio.md) - S3
+  - [minio](./minio/README.md) - S3
     - AGPLv3, Go
     - 支持作为 S3 代理
-  - [garage](./garage.md)
+  - [garage](./s3/garage.md)
     - Rust
   - [versity/versitygw](https://github.com/versity/versitygw)
     - Apache-2.0, Go
@@ -125,7 +125,7 @@ tags:
   - [9001/copyparty](https://github.com/9001/copyparty)
     - MIT, Python, JS
     - Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++
-  - [juicefs](./juicefs.md)
+  - [juicefs](./juicefs/README.md)
   - [moosefs](https://github.com/moosefs/moosefs)
     - GPLv2, C
   - [Alluxio/alluxio](https://github.com/Alluxio/alluxio)
@@ -165,7 +165,7 @@ tags:
   - 对象存储+filter 提供文件存储
   - S3 基于 filter 纬度
   - 开发活跃，作者活跃
-- [juicefs](./juicefs.md)
+- [juicefs](./juicefs/README.md)
   - Apache-2.0, Go
   - AGPL-3.0 -> Apache-2.0
   - 代理层
@@ -232,7 +232,7 @@ tags:
   - 支持加密
   - 支持快照
 - [rsync](./backup/rsync.md)
-- [rclone](./backup/rclone.md)
+- [rclone](./rclone/README.md)
 - [zsync](./backup/zsync.md)
 - [AppImageCommunity/zsync2](https://github.com/AppImageCommunity/zsync2)
 - sanoid

@@ -7,7 +7,7 @@ title: nestia
 - 基于 [NestJS](./README.md)
 - 生成类似 tRPC 的客户端
 - 使用 ts-patch 注入自定义 ts 插件实现高级功能
-  - 使用 [typia](./typia.md)
+  - 使用 [typia](../typia.md)
 
 ```bash
 pnpm add -D nestia @nestia/sdk

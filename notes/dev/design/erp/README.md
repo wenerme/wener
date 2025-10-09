@@ -7,11 +7,11 @@ tags:
 
 :::tip Seealso
 
-- [Design API](./design-api.md)
-- [Design Auth](./design-auth.md)
-- [Design Schema](./design-schema.md)
-- [Design CRM](./design-crm.md)
-- [Design Service](./design-service.md)
+- [Design API](../api/README.md)
+- [Design Auth](../design-auth.md)
+- [Design Schema](../design-schema.md)
+- [Design CRM](../design-crm.md)
+- [Design Service](../design-service.md)
 
 :::
 

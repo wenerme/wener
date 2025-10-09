@@ -6,9 +6,9 @@ tags:
 # 档案管理术语表
 
 - 档案工作基本术语 - Basic terminology for archives work
-  - [DA/T1-2000](./dat/dat-1.md)
+  - [DA/T1-2000](./std/dat-1.md)
 - 电子档案管理基本术语 - General terminology for electronic records management
-  - [DA/T58—2014](./dat/dt-58.md)
+  - [DA/T58—2014](./std/dat-58.md)
 
 <!--
 dt-58-2014

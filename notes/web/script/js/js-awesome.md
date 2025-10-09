@@ -945,7 +945,7 @@ tags:
     - 不支持 draft 2019-09 [#289](https://github.com/json-schema-faker/json-schema-faker/issues/289#issuecomment-383902618)
   - [@faker-js/faker](./lib/faker.md)
     - 2.8MB, 907kB
-  - [chance](./lib/chance.md)
+  - [chance](../lib/chance.md)
     - 206kB, 67kB
   - [danibram/mocker-data-generator](https://github.com/danibram/mocker-data-generator)
 - Presentation Slides

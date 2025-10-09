@@ -288,7 +288,7 @@ tags:
     - by Grafana
     - ArgoCD 不支持 https://github.com/argoproj/argo-cd/issues/3124
   - Terraform
-- [argocd](./app/argocd.md)
+- [argocd](./app/argocd/README.md)
 - [fleet](./app/fleet.md)
 - [flux](./app/flux.md)
 - [flux-subsystem-argo/flamingo](https://github.com/flux-subsystem-argo/flamingo)

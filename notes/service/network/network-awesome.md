@@ -34,8 +34,8 @@ tags:
   - Nginx
   - Hardware Load-balancer
 - [Overlay](https://en.wikipedia.org/wiki/Overlay_network)
-- [Tinc](./tinc/README.md)
-- [zeritier](./zerotier.md)
+- [Tinc](./vpn/tinc/README.md)
+- [zeritier](./vpn/zerotier.md)
 - https://github.com/quiet
   - TCP over Sound
 - DHCP
