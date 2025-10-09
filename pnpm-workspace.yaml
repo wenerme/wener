@@ -23,3 +23,6 @@ onlyBuiltDependencies:
 - "esbuild"
 - "sharp"
 - "workerd"
+
+patchedDependencies:
+  "@docusaurus/plugin-content-docs": patches/@docusaurus__plugin-content-docs.patch

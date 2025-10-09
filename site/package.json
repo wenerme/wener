@@ -86,10 +86,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "@docusaurus/plugin-content-docs": "patches/@docusaurus__plugin-content-docs.patch"
-    }
   }
 }
