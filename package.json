@@ -5,14 +5,25 @@
   "repository": "https://github.com/wenerme/wener",
   "author": "wener <wenermail@gmail.com>",
   "private": true,
+  "bin": {
+    "wener-cli": "./scripts/cli.ts"
+  },
   "devDependencies": {
-    "prettier": "^3.1.1",
+    "@types/node": "^24.7.0",
+    "@wener/utils": "^1.1.53",
+    "commander": "^14.0.1",
+    "consola": "^3.4.2",
+    "esbuild": "^0.25.10",
+    "globby": "^15.0.0",
+    "prettier": "^3.6.2",
     "prettier-plugin-pkg": "latest",
     "prettier-plugin-sh": "latest",
     "prettier-plugin-solidity": "latest",
     "prettier-plugin-sql": "latest",
-    "prettier-plugin-svelte": "^3.1.2",
+    "prettier-plugin-svelte": "^3.4.0",
     "prettier-plugin-toml": "latest",
-    "svgo": "^3.1.0"
+    "svgo": "^4.0.0",
+    "tldts": "^7.0.16",
+    "tsx": "^4.20.6"
   }
 }

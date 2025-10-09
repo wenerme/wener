@@ -16,3 +16,6 @@ tikz:
 
 svgo:
 	pnpm svgo ./notes/courses/cs221/assets/*.svg
+
+scan-links:
+	pnpm tsx ./scripts/cli.ts scan-links

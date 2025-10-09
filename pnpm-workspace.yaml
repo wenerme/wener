@@ -1,0 +1,25 @@
+packages:
+- site
+
+linkWorkspacePackages: true
+preferWorkspacePackages: true
+strictPeerDependencies: false
+
+# 180 3h
+# 1440 24h
+# 3600 1w
+minimumReleaseAge: 180
+minimumReleaseAgeExclude:
+- "@wener/*"
+
+onlyBuiltDependencies:
+- "@swc/core"
+- "@tailwindcss/oxide"
+- "argon2"
+- "bcrypt"
+- "better-sqlite3"
+- "canvas"
+- "duckdb"
+- "esbuild"
+- "sharp"
+- "workerd"

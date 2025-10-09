@@ -13,15 +13,22 @@ tags:
 
 ## Awesome
 
-- https://github.com/obsidianmd/obsidian-clipper
+- [obsidianmd/obsidian-clipper](https://github.com/obsidianmd/obsidian-clipper)
+  - MIT, TypeScript
+  - defuddle for content extraction
 - [webclipper/web-clipper](https://github.com/webclipper/web-clipper)
   - GPLv2+, TypeScript
   - for Notion,OneNote,Bear,Yuque,Joplin。Clip
 - [kepano/defuddle](https://github.com/kepano/defuddle)
   - MIT, TypeScript
   - Extract the main content from web pages.
+  - https://kepano.github.io/defuddle/
 - [wallabag/wallabag](https://github.com/wallabag/wallabag)
   - MIT, PHP
 - Mozilla Readability
 - ~~Mozilla Pocket~~
 - ~~Mozilla Fakespot~~
+
+```bash
+pnpx defuddle-cli parse https://github.com/kepano/defuddle-cli --md
+```

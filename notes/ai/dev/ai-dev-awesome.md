@@ -19,6 +19,10 @@ tags:
     - MIT, TS
   - [punkpeye/fastmcp](https://github.com/punkpeye/fastmcp)
     - TypeScript framework for building MCP servers.
+- A2A
+  - https://a2a-protocol.org/
+  - https://github.com/a2aproject/A2A
+  - /.well-known/agent.json
 - Coding
   - [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
     - Apache-2.0, TS
