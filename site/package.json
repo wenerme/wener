@@ -65,7 +65,7 @@
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.18.8",
     "@wener/utils": "^1.1.53",
-    "esbuild": "^0.24.2",
+    "esbuild": "^0.25.10",
     "esbuild-loader": "^4.4.0",
     "fs-extra": "^11.3.2",
     "globby": "^14.1.0",
@@ -73,7 +73,7 @@
     "tsx": "latest",
     "typescript": "^5.9.3",
     "yaml": "^2.8.1",
-    "zx": "^7.2.4"
+    "zx": "^8.8.4"
   },
   "browserslist": {
     "production": [
