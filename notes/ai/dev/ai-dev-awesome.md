@@ -23,11 +23,22 @@ tags:
   - https://a2a-protocol.org/
   - https://github.com/a2aproject/A2A
   - /.well-known/agent.json
-- Coding
-  - [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
-    - Apache-2.0, TS
-    - terminal based, use the full scope of what is possible
+- Coding/Agent/Terminal
+  - [anthropics/claude-code](https://github.com/anthropics/claude-code) - by Anthropic
+    - binary
+    - Claude Agent SDK
+  - [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) - by Google
+    - Apache-2.0, TypeScript
+    - 官方明确目前不会支持 OpenAI 兼容接口
     - gemini code $20/month
+    - 生态
+      - genai
+      - fork [QwenLM/Qwen3-Coder](https://github.com/QwenLM/Qwen3-Coder)
+  - [openai/codex](https://github.com/openai/codex) - by OpenAI
+    - Apache-2.0, Rust
+  - [sst/opencode](https://github.com/sst/opencode)
+    - MIT, TS, Go
+  - Cursor
   - Windsurf $15/month
   - Github Copilot - $10/month
     - IDE based focus on using the tools inside project
@@ -35,6 +46,14 @@ tags:
     - $20/month
   - https://www.augmentcode.com/
     - $50/month
+- Remote
+  - [slopus/happy](./happy.md)
+    - MIT, TS
+    - Mobile and Web Client for Claude Code & Codex
+    - 内置 Tunnel 逻辑
+  - https://github.com/siteboon/claudecodeui
+    - GPLv3, JS
+    - Claude Code or Cursor CLI on mobile and web with Claude Code UI
 - Agent Framework/RAG/Assistants
   - [mastra-ai/mastra](https://github.com/mastra-ai/mastra)
     - Apache-2.0, TS

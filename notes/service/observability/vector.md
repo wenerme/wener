@@ -56,8 +56,21 @@ title: vector
 :::
 
 ```bash
-# macOS
-brew install vectordotdev/brew/vector
+brew install vectordotdev/brew/vector # macOS
+
+# AlpineLinux
+apk add librdkafka zlib-ng # install deps
+apk add -X https://mirror.sjtu.edu.cn/alpine/edge/testing/ vector # install vector from testing
+# /etc/vector/vector.yaml
+# 测试配置
+sudo -u vector -E vector validate
+# auth 信息建议放在 /etc/conf.d/vector
+sudo bash -c 'source /etc/conf.d/vector && vector validate /etc/vector/vector.yaml'
+
+# 允许 vector 用户访问某些文件
+adduser vector adm
+adduser vector docker
+adduser vector wheel
 
 # https://github.com/vectordotdev/vector/releases
 ```

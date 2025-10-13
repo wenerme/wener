@@ -19,6 +19,11 @@ git log --pretty=format:"%h %an %ad %s" --shortstat -- :^graphql.schema.json :^p
 
 # --numstat COMMIT 来 debug
 git log --pretty=format:"%h %an %ad %s" --shortstat -- :^*/{graphql.schema.json,graphql.ts,manifest.json,manifest.md} :^pnpm-lock.yaml
+
+
+# .netrc
+# -n, --netrc
+curl -n https://api.github.com/user
 ```
 
 ## Github Pages CNAME

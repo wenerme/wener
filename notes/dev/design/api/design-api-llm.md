@@ -128,6 +128,13 @@ tags:
 - /v1/conversations
   - 对话管理
 
+## Cache
+
+- https://ai.google.dev/gemini-api/docs/caching
+  - 最小缓存 Token
+    - 2.5 Flash 1024
+    - 2.5 Pro 4096
+
 # Limits
 
 - https://deepinfra.com/docs/advanced/rate-limits

@@ -30,6 +30,16 @@ title: CloudFlare
 - Advanced Certificate Manager 10$/月
   - 增加额外域名
 
+:::caution
+
+- 默认 100s 超时
+- 524 默认 2min
+- Enterprise 最多可配置为 10m 超时
+- TCP Idle timeout 400s
+  - Keep-alive probes 75s
+
+:::
+
 ## Argo Tunnel
 
 - 实现源端和 Cloudflare 之间加密通讯 - ZeroTrust

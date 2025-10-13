@@ -27,6 +27,8 @@ title: Grafana
 
 :::caution
 
+- Grafana 8.0 2021年4月20日 Apache-2.0 -> AGPLv3
+  - [Grafana, Loki, and Tempo relicensed to AGPLv3](https://grafana.com/blog/2021/04/20/grafana-loki-tempo-relicensing-to-agplv3/)
 - Conditional formatting [#11418](https://github.com/grafana/grafana/issues/11418)
 - Legend 无法格式化，使用 prometheus 可以修改 label
   - `label_replace(my_vector, "short_hostname", "$1", "hostname", "(.*):.*")`

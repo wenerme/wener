@@ -176,4 +176,3 @@ sysctl -w net.core.rmem_max=2500000
 - UDP receive buffer
 - was: 208 kiB, wanted: 2048 kiB, got: 416 kiB
 - https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size
-

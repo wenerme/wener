@@ -22,7 +22,8 @@ tags: [Claude, AI, Code, Agent]
 - Add dynamic loading/unloading of MCP servers during active sessions [#6638](https://github.com/anthropics/claude-code/issues/6638)
   - 目前 mcp 太多会导致 token 消耗过多
   - 可以临时 deny 一些 mcp
--  Add --session-name and /session-name for custom session identification  https://github.com/anthropics/claude-code/issues/2112
+- Add --session-name and /session-name for custom session identification https://github.com/anthropics/claude-code/issues/2112
+- 官方正在 Work 把 CC 做到 Web 和 移动端
 
 :::
 
@@ -307,6 +308,68 @@ claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
     "OTEL_METRICS_EXPORTER": "otlp"
   }
 }
+```
+
+```bash
+# base
+awk
+cat
+date
+diff
+du
+find
+fzf
+grep
+head
+less
+ls
+man
+mkdir
+more
+ps
+pwd
+sed
+sort
+touch
+tree
+true
+uname
+whoami
+
+# git
+git diff
+git pull
+git checkout
+git fetch
+git log
+git stash
+git status
+git remote -v
+git shortlog
+git add
+git commit
+
+# golang
+go build
+go get
+go mod
+go test
+
+# node/npm/pnpm
+npm run lint
+npm run test
+pnpm run format
+pnpm run lint
+pnpm run test
+pnpm install
+pnpm dev
+pnpm ls
+
+# docker
+docker ps
+docker events
+docker logs
+docker inspect
 ```
 
 ## .claude/commands

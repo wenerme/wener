@@ -23,7 +23,7 @@ tags:
   - Basic Auth SecretId:SecretKey
 - 参考
   - https://cloud.tencent.com/document/product/614
-  - https://cloud.tencent.com/document/product/614/47044
+  - [语法规则](https://cloud.tencent.com/document/product/614/47044)
 
 | attr               | for       |
 | ------------------ | --------- |
