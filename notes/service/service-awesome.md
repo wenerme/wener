@@ -274,8 +274,9 @@ tags:
   - [kimios/kimios](https://github.com/kimios/kimios)
   - [mkucej/i-librarian-free](https://github.com/mkucej/i-librarian-free)
 - forum/BBS/论坛/社区/QA
-  - Discourse
-    - Ruby
+  - [discourse/discourse](https://github.com/discourse/discourse)
+    - GPLv2, Ruby
+    - used by GitLab, OpenAI, elastic, Docker, Unreal Engine
   - [flarum/flarum](https://github.com/flarum/flarum)
     - MIT, PHP, MySQL
     - https://discuss.flarum.org/d/32812-the-future-of-flarum-in-2023-balancing-open-source-and-success
@@ -315,9 +316,11 @@ tags:
     - 存储为 markdown
     - 闭源
 - BI/Busines Intelligence/Data Visualization/数据分析/Visualization UI builder
-  - Metabase
+  - [metabase/metabase](https://github.com/metabase/metabase)
+    - Apache-2.0, Clojure
   - Redash
   - Superset
+    - Apache-2.0, Python
   - [jitsucom/jitsu](https://github.com/jitsucom/jitsu)
     - open-source Segment alternative
     - [vs-segment](https://jitsu.com/vs-segment)

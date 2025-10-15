@@ -1,10 +1,15 @@
 #SHELL:=env bash -O extglob -O globstar
 SHELL:=env bash -O extglob
 
+-include local.mk
+
 status:
 	git add -u && git diff --color=always --staged --stat | tee
 
-pull:
+list-untracked:
+	git ls-files --others --exclude-standard
+
+update:
 	git pull --rebase --autostash origin $(shell git branch --show-current)
 
 prepare-tikz:

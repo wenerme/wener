@@ -13,3 +13,29 @@ Wiki 是一种可协作编辑的网页系统（Wiki 软件/引擎），用户可
 - 参考
   - https://en.wikipedia.org/wiki/Wiki_software
   - https://en.wikipedia.org/wiki/List_of_wiki_software
+
+---
+
+- PKM/Personal Knowledge Management/个人知识管理
+  - [silverbulletmd/silverbullet](https://github.com/silverbulletmd/silverbullet)
+    - MIT, TS, Go, Lua
+    - WPA Web 应用
+  - Obsidian
+    - 文件优先
+    - 官方 sync 4$/月
+    - 自建 CouchDB 体验较差
+  - Anytype
+    - Block, Object
+  - Logseq
+    - 后端转向数据库
+  - Joplin
+    - SQLite
+- 商业
+  - Notion
+  - Craft
+  - 语雀
+  - 飞书
+  - 石墨
+  - 有道云笔记
+  - 印象笔记
+  - 为知笔记

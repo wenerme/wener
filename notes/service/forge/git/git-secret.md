@@ -14,8 +14,8 @@ title: git-secret
 ```bash
 brew install git-secret # macOS
 
-git secret init # .gitsecret/
-git secret tell -m
+git secret init              # .gitsecret/
+git secret tell -m           #
 echo SECREY > secret.txt     # 希望隐藏的密钥信息
 echo secret.txt > .gitignore # 避免 git 处理
 git secret add secret.txt    # 加密

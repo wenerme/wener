@@ -36,9 +36,8 @@ title: GPG
 - Scute
 
 ```bash
-# macOS
 # pinentry-mac 对话框输入 密码
-brew install gpg pinentry-mac
+brew install gpg pinentry-mac # macOS
 
 # 生成秘钥 - RSA 推荐至少 4096
 gpg --default-new-key-algo rsa4096 --gen-key
@@ -46,6 +45,9 @@ gpg --default-new-key-algo rsa4096 --gen-key
 gpg --default-new-key-algo "ed25519/cert,sign+cv25519/encr" --quick-generate-key "wener@wener.me"
 # 完整生成逻辑
 gpg --full-generate-key
+
+# 自动化场景：创建无密码保护的密钥
+gpg --batch --passphrase '' --quick-generate-key "automation@example.com (Automation Key)" ed25519 default never
 
 gpg --list-keys --keyid-format=long # 完整的 keyid
 gpg --list-secret-keys
@@ -276,6 +278,17 @@ max-cache-ttl 120
 
 - https://github.com/drduh/config
 
+```
+~/.gnupg/
+├── common.conf             # 通用配置
+├── gpg-agent.conf          # GPG agent 配置
+├── pinentry-ide.sh         # 自定义的密码输入程序
+├── private-keys-v1.d/      # 私钥目录
+├── public-keys.d/          # 公钥目录（包含 pubring.db）
+├── trustdb.gpg             # 信任数据库
+└── S.keyboxd               # Keybox 守护进程 socket
+```
+
 # FAQ
 
 ## rsa2048
@@ -433,6 +446,105 @@ gpg --import-ownertrust < otrust.tmp
 ## subkeys
 
 - https://wiki.debian.org/Subkeys
+
+## 自动化和批处理模式
+
+### 快速生成自动化密钥
+
+```bash
+# 创建无密码保护的 Ed25519 密钥（用于自动化）
+gpg --batch --passphrase '' --quick-generate-key "automation@example.com (Automation Key)" ed25519 default never
+
+# 列出密钥
+gpg --list-keys --keyid-format=long
+
+# 导出私钥用于备份或在其他系统导入
+KEYID=ABCDEF
+gpg --armor --export-secret-keys $KEYID > automation-private.asc
+gpg --armor --export $KEYID > automation-public.asc
+
+# 在其他系统导入
+gpg --import automation-private.asc
+```
+
+### 批处理模式参数文件
+
+使用参数文件生成密钥，适合复杂配置（包含签名和加密子密钥）：
+
+```bash
+# 创建参数文件 - Ed25519 签名 + Curve25519 加密
+cat > key-params.txt <<'EOF'
+%echo Generating automation key with encryption support
+Key-Type: EDDSA
+Key-Curve: ed25519
+Key-Usage: sign
+Subkey-Type: ECDH
+Subkey-Curve: cv25519
+Subkey-Usage: encrypt
+Name-Real: Automation Key
+Name-Email: automation@example.com
+Expire-Date: 0
+%no-protection
+%commit
+%echo Key generation completed
+EOF
+
+# 使用参数文件生成密钥
+gpg --batch --generate-key key-params.txt
+
+# RSA 方式（传统算法）
+cat > key-params-rsa.txt <<'EOF'
+Key-Type: RSA
+Key-Length: 4096
+Key-Usage: sign
+Subkey-Type: RSA
+Subkey-Length: 4096
+Subkey-Usage: encrypt
+Name-Real: Automation Service
+Name-Email: automation@example.com
+Expire-Date: 0
+%no-protection
+%commit
+EOF
+
+gpg --batch --generate-key key-params-rsa.txt
+```
+
+### 自动化签名和加密
+
+```bash
+KEYID=ABCDEF
+
+# 签名文件（无交互）
+gpg --batch --yes --local-user $KEYID --detach-sign file.txt
+
+# 验证签名
+gpg --verify file.txt.sig file.txt
+
+# 加密文件
+gpg --batch --yes --recipient $KEYID --encrypt file.txt
+
+# 解密文件（需要私钥）
+gpg --batch --yes --decrypt file.txt.gpg > file.txt
+
+# 签名并加密
+gpg --batch --yes --local-user $KEYID --recipient $KEYID --sign --encrypt file.txt
+```
+
+### 批处理模式参数说明
+
+- `%no-protection` - 创建无密码保护的密钥（仅用于测试和自动化）
+- `%transient-key` - 使用更快但不太安全的随机数生成器（需配合 `%no-protection`）
+- `%dry-run` - 检查语法但不实际生成密钥
+- `%echo` - 输出诊断信息
+- `%commit` - 提交密钥生成操作
+- `--batch` - 批处理模式，禁用所有交互提示
+- `--yes` - 对所有问题自动回答 yes
+- `--passphrase ''` - 使用空密码
+
+### 参考
+
+- [GnuPG Unattended Key Generation](https://www.gnupg.org/documentation/manuals/gnupg/Unattended-GPG-key-generation.html)
 
 ## No pinentry
 

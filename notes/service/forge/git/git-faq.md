@@ -17,6 +17,9 @@ git log --pretty=format:"%an <%ae>" | sort -u
 
 git config user.name
 git config user.email
+
+# clean untrack
+git clean -d -f
 ```
 
 ## 不同仓库使用不同用户信息

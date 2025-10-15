@@ -14,7 +14,7 @@
     "editor.defaultFormatter": "DotJoshJohnson.xml"
   },
   "[yaml]": {
-    "editor.defaultFormatter": "kennylong.kubernetes-yaml-formatter"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[helm]": {
     "editor.defaultFormatter": "kennylong.kubernetes-yaml-formatter"
