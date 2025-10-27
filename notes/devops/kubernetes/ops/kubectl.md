@@ -36,6 +36,20 @@ kubectl drain node-3 --delete-local-data --ignore-daemonsets --force
 # kubectl uncordon node-3
 ```
 
+| command                                          | for                                        |
+| ------------------------------------------------ | ------------------------------------------ |
+| kubectl version                                  | 显示客户端和服务端版本信息                 |
+| kubectl cluster-info                             | 显示集群主节点与服务信息                   |
+| kubectl get nodes                                | 查询所有节点信息                           |
+| kubectl get pods -A                              | 查询所有命名空间下的 Pod                   |
+| kubectl get events -A --sort-by='.lastTimestamp' | 查看集群最新的事件（方便排查集群异常）     |
+| kubectl describe node `<node-name>`              | 查看节点详细信息                           |
+| kubectl describe pod `<pod-name>` -n `<ns>`      | 查看指定 Pod 详情                          |
+| kubectl logs `<pod-name>` -n `<ns>`              | 查看 Pod 日志                              |
+| kubectl exec -it `<pod-name>` -n `<ns>` -- bash  | 进入 Pod 容器终端（需容器有 bash）         |
+| kubectl config get-contexts                      | 查询所有已配置的上下文                     |
+| kubectl config view --minify                     | 显示当前上下文配置（便于核对当前集群信息） |
+
 ## 端口映射
 
 ```bash

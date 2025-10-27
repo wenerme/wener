@@ -113,7 +113,8 @@ tags:
     - Build AI-powered applications with React, Svelte, Vue, and Solid
     - https://ai-sdk.dev/providers/openai-compatible-providers
   - [moeru-ai/xsai](https://github.com/moeru-ai/xsai)
-  - https://github.com/openai/openai-agents-js
+  - [openai/openai-agents-js](https://github.com/openai/openai-agents-js)
+    - MIT, TS
 - Research/Planning/Agentic/Agent/智能体
   - [mannaandpoem/OpenManus](https://github.com/mannaandpoem/OpenManus)
     - MIT, Python
@@ -189,6 +190,12 @@ tags:
     - 识别 UI 交互元素
     - Pure Vision Based GUI Agent
 - Tasks/特定任务
+  - [Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec)
+    - 比 spec-kit 好点，
+    - 适合已有项目使用
+  - [github/spec-kit](https://github.com/github/spec-kit)
+    - 适合从 0-1
+    - 太过于繁杂
   - [andrewyng/translation-agent](https://github.com/andrewyng/translation-agent)
     - Agentic translation using reflection workflow
   - [kingjulio8238/memary](https://github.com/kingjulio8238/memary)

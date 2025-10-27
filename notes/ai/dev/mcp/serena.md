@@ -26,4 +26,21 @@ title: serena
 
 
 ```bash
+uvx --from git+https://github.com/oraios/serena serena start-mcp-server
+
+uvx --from git+https://github.com/oraios/serena serena project generate-yml
+uvx --from git+https://github.com/oraios/serena serena project index
+
+# --transport streamable-http --port 9121
+docker run --rm -it --network host \
+  -v $PWD:/workspaces/projects \
+  --name serena ghcr.io/oraios/serena:latest serena start-mcp-server --transport stdio
+```
+
+- .serena/serena_config.yml
+
+
+```yaml
+# csharp, python, rust, java, typescript, go, cpp, or ruby
+language:
 ```

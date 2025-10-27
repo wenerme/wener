@@ -980,7 +980,7 @@ tags:
   - [chakra-ui/zag](https://github.com/chakra-ui/zag)
     - React, Vue, Solid
     - from chakra-ui
-- search
+- search/fuzz
   - [nextapps-de/flexsearch](https://github.com/nextapps-de/flexsearch)
     - size min.mjs 16kB
   - [krisk/fuse](https://github.com/krisk/fuse)
@@ -998,6 +998,13 @@ tags:
   - [kentcdodds/match-sorter](https://github.com/kentcdodds/match-sorter)
     - MIT, TS
     - npm:match-sorter
+  - [leeoniya/uFuzzy](https://github.com/leeoniya/uFuzzy)
+    - MIT, JS
+  - [Nozbe/microfuzz](https://github.com/Nozbe/microfuzz)
+    - MIT, JS
+    - npm:microfuzz
+  - [m31coding/fuzzy-search](https://github.com/m31coding/fuzzy-search)
+    - MIT, TS
   - https://npmtrends.com/flexsearch-vs-fuse.js-vs-fuzzysort-vs-match-sorter-vs-minisearch
 - security/fuzzer
   - https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/jsfuzz

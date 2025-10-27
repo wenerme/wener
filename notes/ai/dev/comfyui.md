@@ -94,28 +94,28 @@ No module named pip
 
 ### ComfyUI Models 目录结构详解
 
-| dir                | for                                                                                                                                                       |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `checkpoints`      | 核心基础模型，也叫“大模型”。这是文生图的起点，决定了图像生成的基础风格和能力。例如 Stable Diffusion v1.5, SDXL, 以及社区训练的各种整合模型。              |
-| `loras`            | LoRA 模型。这些是小型微调文件，用于向基础模型添加特定的角色、画风、概念或服装，灵活性极高。                                         |
-| `vae`              | VAE  模型。用于图像的编码和解码。独立的 VAE 文件可以修正图像的色彩（如改善灰蒙蒙的问题）或修复手部等细节问题。SDXL 模型通常不需要额外 VAE。 |
-| `controlnet`       | ControlNet 模型。用于精确控制图像的生成，例如通过姿势骨架、深度图、线稿、二维码等来引导构图和内容。                                                       |
-| `upscale_models`   | 图像放大模型。用于“图像放大 (模型)”节点，提升图片分辨率并优化细节。例如 ESRGAN, SwinIR, 4x-UltraSharp 等。                                                |
-| `embeddings`       | 文本反演 (Textual Inversion) 嵌入，也叫 Embedding。这些是极小的文件，通过一个关键词触发特定的概念、角色或画风。常用于负面提示词（如 `bad-hands-5`）。     |
-| `clip`             | CLIP 文本编码器模型。通常 ComfyUI 会自动从大模型中加载，但你也可以把独立的 CLIP 模型放在这里，供高级工作流使用。                                          |
-| `clip_vision`      | CLIP Vision 模型。用于分析图像内容，是 IPAdapter、PhotoMaker 等“图像提示”功能的核心组件。                                                                 |
-| `style_models`     | 风格模型。主要用于 T2I-Adapter，功能与 ControlNet 类似，但更侧重于风格的迁移。                                                                            |
-| `hypernetworks`    | Hypernetwork 模型。一种比 LoRA 更早出现的微调技术，现在已不常用，但 ComfyUI 仍然支持加载。                                                                |
-| `unet`             | U-Net 模型。U-Net 是 Stable Diffusion 模型的核心降噪网络。普通用户几乎不会用到这个目录，主要用于模型开发和研究，将 U-Net 单独分离出来加载。               |
-| `text_encoders`    | 文本编码器模型。与 `unet` 类似，用于模型研究，允许单独加载和替换文本编码器部分。                                                                          |
-| `photomaker`       | PhotoMaker 模型。一种专门用于根据输入人脸照片生成统一角色的模型。                                                                                         |
-| `sams`             | SAM (Segment Anything Model) 模型。由 Meta 开发的图像分割模型，在 ComfyUI 中用于精确地创建和分离遮罩 (Mask)。                                             |
-| `gligen`           | GLIGEN 模型。用于“限定区域生成”，允许你通过画框来指定某个物体在图像中的特定位置和大小。                                                                   |
-| `diffusers`        | 用于存放 Hugging Face 的 Diffusers 格式模型。这种格式是一个包含多个子目录和文件的文件夹，而不是单个文件。ComfyUI 可以直接加载这种格式。                   |
-| `configs`          | 配置文件。存放一些旧的 `.ckpt` 模型所需要的 `.yaml` 配置文件，以帮助 ComfyUI 识别其模型架构（如 v1 或 v2）。现在的 `.safetensors` 模型通常不需要。        |
-| `vae_approx`       | VAE 近似解码器模型。这些是极小的、速度极快的模型，用于在 KSampler 采样过程中生成快速预览图，而不是每次都调用完整的 VAE。                                  |
-| `onnx`             | ONNX 模型。用于存放已转换为 ONNX (Open Neural Network Exchange) 格式的模型，通常用于在非 NVIDIA 硬件（如 AMD 显卡）上通过 DirectML 或 Olive 进行推理。    |
-| `diffusion_models` | 扩散模型组件。一个更通用的目录，类似于 `unet`，用于存放扩散模型的某些部分。主要供模型开发者使用。                                                         |
+| dir                | for                                                                                                                                                    |
+| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `checkpoints`      | 核心基础模型，也叫“大模型”。这是文生图的起点，决定了图像生成的基础风格和能力。例如 Stable Diffusion v1.5, SDXL, 以及社区训练的各种整合模型。           |
+| `loras`            | LoRA 模型。这些是小型微调文件，用于向基础模型添加特定的角色、画风、概念或服装，灵活性极高。                                                            |
+| `vae`              | VAE 模型。用于图像的编码和解码。独立的 VAE 文件可以修正图像的色彩（如改善灰蒙蒙的问题）或修复手部等细节问题。SDXL 模型通常不需要额外 VAE。             |
+| `controlnet`       | ControlNet 模型。用于精确控制图像的生成，例如通过姿势骨架、深度图、线稿、二维码等来引导构图和内容。                                                    |
+| `upscale_models`   | 图像放大模型。用于“图像放大 (模型)”节点，提升图片分辨率并优化细节。例如 ESRGAN, SwinIR, 4x-UltraSharp 等。                                             |
+| `embeddings`       | 文本反演 (Textual Inversion) 嵌入，也叫 Embedding。这些是极小的文件，通过一个关键词触发特定的概念、角色或画风。常用于负面提示词（如 `bad-hands-5`）。  |
+| `clip`             | CLIP 文本编码器模型。通常 ComfyUI 会自动从大模型中加载，但你也可以把独立的 CLIP 模型放在这里，供高级工作流使用。                                       |
+| `clip_vision`      | CLIP Vision 模型。用于分析图像内容，是 IPAdapter、PhotoMaker 等“图像提示”功能的核心组件。                                                              |
+| `style_models`     | 风格模型。主要用于 T2I-Adapter，功能与 ControlNet 类似，但更侧重于风格的迁移。                                                                         |
+| `hypernetworks`    | Hypernetwork 模型。一种比 LoRA 更早出现的微调技术，现在已不常用，但 ComfyUI 仍然支持加载。                                                             |
+| `unet`             | U-Net 模型。U-Net 是 Stable Diffusion 模型的核心降噪网络。普通用户几乎不会用到这个目录，主要用于模型开发和研究，将 U-Net 单独分离出来加载。            |
+| `text_encoders`    | 文本编码器模型。与 `unet` 类似，用于模型研究，允许单独加载和替换文本编码器部分。                                                                       |
+| `photomaker`       | PhotoMaker 模型。一种专门用于根据输入人脸照片生成统一角色的模型。                                                                                      |
+| `sams`             | SAM (Segment Anything Model) 模型。由 Meta 开发的图像分割模型，在 ComfyUI 中用于精确地创建和分离遮罩 (Mask)。                                          |
+| `gligen`           | GLIGEN 模型。用于“限定区域生成”，允许你通过画框来指定某个物体在图像中的特定位置和大小。                                                                |
+| `diffusers`        | 用于存放 Hugging Face 的 Diffusers 格式模型。这种格式是一个包含多个子目录和文件的文件夹，而不是单个文件。ComfyUI 可以直接加载这种格式。                |
+| `configs`          | 配置文件。存放一些旧的 `.ckpt` 模型所需要的 `.yaml` 配置文件，以帮助 ComfyUI 识别其模型架构（如 v1 或 v2）。现在的 `.safetensors` 模型通常不需要。     |
+| `vae_approx`       | VAE 近似解码器模型。这些是极小的、速度极快的模型，用于在 KSampler 采样过程中生成快速预览图，而不是每次都调用完整的 VAE。                               |
+| `onnx`             | ONNX 模型。用于存放已转换为 ONNX (Open Neural Network Exchange) 格式的模型，通常用于在非 NVIDIA 硬件（如 AMD 显卡）上通过 DirectML 或 Olive 进行推理。 |
+| `diffusion_models` | 扩散模型组件。一个更通用的目录，类似于 `unet`，用于存放扩散模型的某些部分。主要供模型开发者使用。                                                      |
 
 **AI Art**
 
@@ -212,7 +212,7 @@ No module named pip
 ## API
 
 ```bash
-
+[object Object]
 ```
 
 ## 参考 {#reference}
@@ -298,6 +298,36 @@ CUDA kernel errors might be asynchronously reported at some other API call, so t
 For debugging consider passing CUDA_LAUNCH_BLOCKING=1
 Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 ```
+
+## Why ComfyUI
+
+**优点**
+
+- **速度与灵活性**
+  ComfyUI 可以很快地搭建和调整流程，没有固定套路，想怎么用都行。
+- **过程可视化**
+  整个生成流程都能看到，每个节点做什么一目了然，方便理解图片是怎么一步步生成的。
+- **分享和协作简单**
+  搭好的流程可以很容易分享给别人，也能导入他人的流程，合作很方便。
+- **不需要编程**
+  不会写代码也能用，拉节点、连线就行，谁都能上手。
+- **高度自定义**
+  可以根据自己的需求调整流程，功能很丰富，适合各种场景。
+
+**缺点**
+
+- **界面不统一**
+  每个人搭建的流程节点可能布局都不一样，看别人的流程可能要花点时间理解和改动。
+- **细节太多**
+  会显示很多底层细节，对新手来说可能有点复杂，有些人只想简单用用会觉得信息量太大。
+- **上手有门槛**
+  虽然不用代码，但理解节点怎么用、流程如何搭比较花时间，新手需要适应。
+- **性能受限**
+  流程复杂或者电脑性能不够时，运行会变慢，尤其是硬件达不到推荐要求的时候。
+- **协作有难度**
+  虽然共享流程很方便，但大家布局风格不同，把不同人的流程拼一起不太容易。
+- **自定义带来的负担**
+  可调的地方太多，有时候会在调细节上花太多时间，影响效率。
 
 ## ImportError: cannot import name 'guidedFilter' from 'cv2.ximgproc'
 

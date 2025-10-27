@@ -72,6 +72,14 @@ tags:
   - https://www.martinfowler.com/
   - https://web.stanford.edu/~ouster/cgi-bin/decisions.php
 
+## Cursed Knowledge
+
+- UGC 域名需要加入到 Public Suffix List -  https://publicsuffix.org
+  - 否则会被标记为恶意域名
+  - Chrome 使用这个做检测 https://developers.google.com/safe-browsing/reference/URLs.and.Hashing
+  - https://publicsuffix.org/list/public_suffix_list.dat
+- https://immich.app/cursed-knowledge
+
 ## 常见命名格式 {#case}
 
 | case                            | demo                    | for                            |

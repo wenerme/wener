@@ -74,6 +74,10 @@ can('*', '*');
 
 ## Notes
 
+- 主语 (S) + 谓语 (V) + 宾语 (O)
+- User (S) + reads (V) + Order (O)
+  - `can(谓语, 宾语)`
+  - action, subject, fields, conditions
 - Builder
   - can, cannot -> rules -> build -> createAbility -> Ability
   - createAbility -> createMongoAbility
@@ -113,3 +117,15 @@ interface BaseRawRule<Conditions> {
   - elemMatch
 - 参考
   - http://docs.mongodb.org/manual/reference/operator/query/
+
+# FAQ
+
+## view page
+
+
+```ts
+// Route-as-Subject
+can('view', '/xyz')
+// Entity-as-Subject
+can('view', 'Page', { path: '/xyz' })
+```

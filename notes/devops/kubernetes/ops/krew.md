@@ -12,13 +12,16 @@ title: krew
 ```bash
 # 安装
 (
-  set -x; cd "$(mktemp -d)" &&
-  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.{tar.gz,yaml}" &&
-  tar zxvf krew.tar.gz &&
-  KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" &&
-  "$KREW" install --manifest=krew.yaml --archive=krew.tar.gz &&
-  "$KREW" update
+  set -x
+  cd "$(mktemp -d)" \
+    && curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.{tar.gz,yaml}" \
+    && tar zxvf krew.tar.gz \
+    && KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" \
+    && "$KREW" install --manifest=krew.yaml --archive=krew.tar.gz \
+    && "$KREW" update
 )
+
+brew install krew # macOS Homebrew 安装
 
 # 默认目录 ~/.krew/bin/
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -26,6 +29,8 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 kubectl krew update
 kubectl krew search whoami
 kubectl krew install whoami
+
+kubectl krew install ctx ns
 
 kubectl whoami
 kubectl krew upgrade
@@ -52,3 +57,14 @@ kubectl krew install ingress-nginx
 
 [cert-manager]: https://cert-manager.io/docs/usage/kubectl-plugin/
 [access-matrix]: https://github.com/corneliusweig/rakkess
+
+
+## kubecm
+
+```bash
+krew install kubecm
+brew install kubecm
+
+kubecm add -f conf.yaml
+kubecm rename
+```

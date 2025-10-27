@@ -19,6 +19,20 @@ tags:
   - [poteto/hiring-without-whiteboards](https://github.com/poteto/hiring-without-whiteboards)
   - http://goo.gl/FsgnGi
     Salaries
+- Task Runner
+  - Makefile
+  - Justfile
+  - Magefile
+  - [joerdav/xc](https://github.com/joerdav/xc)
+    - MIT, Go
+    - Markdown defined task runner.
+  - [runme-ai/runme](https://github.com/runme-ai/runme)
+    - MIT, Go
+    - DevOps Notebooks Built with Markdown
+  - [go-task/task](https://github.com/go-task/task)
+    - MIT, Go
+    - A task runner / simpler Make alternative
+    - Taskfile.yml
 - Github Copilot
   - [CodedotAl/gpt-code-clippy](https://github.com/CodedotAl/gpt-code-clippy)
 - formatter

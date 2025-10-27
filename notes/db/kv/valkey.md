@@ -18,3 +18,22 @@ title: valkey
   - sponsored and supported by AWS
 - 参考
   - Wishlist [valkey-io/valkey#17](https://github.com/valkey-io/valkey/issues/17)
+
+# Version
+
+## Valkey 9.0
+
+- HASH field ttl
+  - HEXPIRE
+  - HEXPIREAT
+  - HEXPIRETIME
+  - HGETEX
+  - HPERSIST
+  - HPEXPIRE
+  - HPEXPIREAT
+  - HPEXPIRETIME
+  - HPTTL
+  - HSETEX
+  - HTTL
+- CLuster 模式支持多 DB
+- 原子 SLOT 迁移

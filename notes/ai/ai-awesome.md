@@ -36,6 +36,13 @@ tags:
     - MIT, TS
     - MiniPerplx -> scira
     - minimalistic AI-powered search engine
+- Tools
+  - [Unstructured-IO/unstructured-api](https://github.com/Unstructured-IO/unstructured-api)
+    - Apache-2.0, Python
+    - [Unstructured-IO/unstructured](https://github.com/Unstructured-IO/unstructured)
+  - [MODSetter/SurfSense](https://github.com/MODSetter/SurfSense)
+    - Apache-2.0, Python, TS
+    - Open Source Alternative to NotebookLM / Perplexity, connected to external sources such as Search Engines, Slack, Linear, Jira, ClickUp, Confluence, Notion, YouTube, GitHub
 - Workflow/Research
   - [deepset-ai/haystack](https://github.com/deepset-ai/haystack)
   - [langgenius/dify](https://github.com/langgenius/dify)

@@ -15,6 +15,32 @@ tags:
   - https://docs.cursor.com/en/models
   - MCP https://cursor.com/docs/context/mcp/directory
 
+## INFO
+
+| 类型                      | 域名/地址                                                                | 用途描述                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+| **Core API Domains**      | api2.cursor.sh<br>api3.cursor.sh<br>api4.cursor.sh                       | 主要 API 请求<br>Cursor Tab 请求（仅 HTTP/2）<br>基于地理位置的 Cursor Tab 请求（仅 HTTP/2） |
+| **Regional API Domains**  | us-asia.gcpp.cursor.sh<br>us-eu.gcpp.cursor.sh<br>us-only.gcpp.cursor.sh | 区域性 Cursor Tab 请求（仅 HTTP/2）                                                          |
+| **Codebase Indexing**     | repo42.cursor.sh                                                         | 代码库索引（仅 HTTP/2）                                                                      |
+| **Extension and Updates** | marketplace.cursorapi.com<br>cursor-cdn.com<br>download.todesktop.com    | 下载扩展<br>下载扩展<br>检查和下载更新                                                       |
+
+- `api2.cursor.sh` - 用于大部分 API 请求
+- `api3.cursor.sh` - 用于 Cursor Tab 请求（仅 HTTP/2）
+- `api4.cursor.sh` - 用于基于位置的 Cursor Tab 请求（仅 HTTP/2）
+
+- 区域性 API 域名（仅用于 Cursor Tab，HTTP/2）:
+  - `us-asia.gcpp.cursor.sh`
+  - `us-eu.gcpp.cursor.sh`
+  - `us-only.gcpp.cursor.sh`
+
+- 代码索引:
+  - `repo42.cursor.sh` - 用于代码库索引（仅 HTTP/2）
+
+- 扩展与更新:
+  - `marketplace.cursorapi.com` - 用于下载扩展
+  - `cursor-cdn.com` - 用于下载扩展
+  - `download.todesktop.com` - 用于检测和下载更新
+
 # 配置 {#conf}
 
 ## 配置文件位置
@@ -114,6 +140,17 @@ tags:
   }
 }
 ```
+
+## Pricing
+
+- Pro $20/mo, $16/mo/y
+  - ~225 credits/mo
+- Pro+ = Pro &times; 3
+  - ~675 credits/mo
+- Ultra = Pro &times; 10 的价格, Pro &times; 20 credits/mo
+  - ~2250 credits/mo
+- Team $40/seat/mo
+  - 500 credits/seat/mo
 
 # FAQ
 

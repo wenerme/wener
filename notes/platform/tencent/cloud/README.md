@@ -19,6 +19,8 @@ title: 腾讯云
 - https://tencent-cloud.com/
   - 国际
 - `<Region>.cls.tencentyun.com`
+- 参考
+  - 地域和可用区 https://www.tencentcloud.com/zh/document/product/213/6091
 
 ## API
 

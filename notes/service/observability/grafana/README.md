@@ -63,6 +63,7 @@ tar -zxvf grafana-7.1.1.darwin-amd64.tar.gz
 # default.log.mode=console
 docker run --rm -it -e TZ=Asia/Shanghai \
   -p 3000:3000 \
+  -v $PWD/data:/var/lib/grafana \
   --name=grafana grafana/grafana
 
 # 默认服务端配置
