@@ -30,8 +30,35 @@ system_profiler
 
 # 获取 WiFi 密码
 security find-generic-password -ga "Home" | grep "password:"
+
+# 获取 Dock 右下角角
+# 14 Notes
+defaults read com.apple.dock wvous-br-corner
+defaults write com.apple.dock wvous-br-corner -int 1
+killall Dock # restart dock
 ```
 
+| val | for              | en                   | desc                           |
+| --- | ---------------- | -------------------- | ------------------------------ |
+| 1   | 禁用             | Disabled             | 无任何操作                     |
+| 2   | 调度中心         | Mission Control      | 显示所有窗口和桌面             |
+| 3   | 应用程序窗口     | Application Windows  | 显示当前应用的所有窗口         |
+| 4   | 桌面             | Desktop              | 显示桌面，隐藏所有窗口         |
+| 5   | 启动屏幕保护程序 | Start Screen Saver   | 立即启动屏保                   |
+| 6   | 禁用屏幕保护程序 | Disable Screen Saver | 防止屏保启动                   |
+| 7   | 仪表盘           | Dashboard            | 显示小组件（新版本已废弃）     |
+| 10  | 显示器睡眠       | Put Display to Sleep | 关闭显示器                     |
+| 11  | 启动台           | Launchpad            | 显示应用程序启动器             |
+| 12  | 通知中心         | Notification Center  | 打开通知中心                   |
+| 13  | 锁定屏幕         | Lock Screen          | 立即锁定 Mac                   |
+| 14  | 快速备忘录       | Quick Note           | 打开备忘录应用（你当前的设置） |
+
+| suffix | position | full            |
+| ------ | -------- | --------------- |
+| tl     | 左上角   | wvous-tl-corner |
+| tr     | 右上角   | wvous-tr-corner |
+| bl     | 左下角   | wvous-bl-corner |
+| br     | 右下角   | wvous-br-corner |
 
 - coreduetd
   - Handoff
@@ -547,4 +574,3 @@ auth sufficient pam_tid.so
 ## 外部显示器鼠标卡顿 {#mouse-lag-on-external-display}
 
 - https://discussions.apple.com/thread/254666579
-

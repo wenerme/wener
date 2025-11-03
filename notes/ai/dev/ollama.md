@@ -14,6 +14,7 @@ title: ollama
     - 客户端
   - [sgomez/ollama-ai-provider](https://github.com/sgomez/ollama-ai-provider)
     - provider for vercel ai
+  - OpenAI compatibility https://docs.ollama.com/api/openai-compatibility
 - https://ollama.ai/library
 - 默认地址 http://localhost:11434
 - OLLAMA_HOST

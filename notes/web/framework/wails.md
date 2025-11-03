@@ -26,6 +26,7 @@ title: wails
 :::
 
 ```bash
+# for V2
 go install github.com/wailsapp/wails/v2/cmd/wails@latest
 
 brew install upx nsis # macOS 开发额外依赖
@@ -124,6 +125,8 @@ window.wails;
 
 ```bash
 go install -v github.com/wailsapp/wails/v3/cmd/wails3@latest
+
+wails3 version
 
 wails3 init -n my-app
 cd my-app

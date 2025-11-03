@@ -41,6 +41,7 @@ tags:
 
 | version                              | date       | note                                       |
 | ------------------------------------ | ---------- | ------------------------------------------ |
+| [AlpineLinux 3.22](#alpinelinux-322) | 2025-05-30 |
 | [AlpineLinux 3.21](#alpinelinux-321) | 2024-05-22 | nodejs 22.16, go 1.24                      |
 | [AlpineLinux 3.20](#alpinelinux-320) | 2024-12-22 | nodejs 22, go 1.23, php8.4                 |
 | [AlpineLinux 3.19](#alpinelinux-319) | 2023-12-07 | nodejs 20, go 1.21, php8.3, php8.2, php8.1 |
@@ -106,6 +107,7 @@ tags:
   - 之前的 gummiboot-efistub 目前无法使用了, 移到了 testing
 - ~~LXD~~ -> incus
 - https://beacondb.net/
+- https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.22.0
 
 ## AlpineLinux 3.21
 

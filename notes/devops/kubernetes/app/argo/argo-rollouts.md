@@ -77,6 +77,16 @@ steps:
   - setWeight: 50 # 放量 100%
 ```
 
+- AnalysisTemplate
+  - name
+  - interval
+  - count
+  - successCondition
+  - failureCondition
+  - failureLimit
+  - provider
+- AnalysisRun
+
 # FAQ
 
 ## Why Rollouts

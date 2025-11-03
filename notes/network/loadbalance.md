@@ -27,10 +27,28 @@ title: Load Balance
 
 ## 策略
 
-- roundrobin
-- WRR - 加权轮训
-- SMA - simple moving average
-- ewma - Exponentially Weighted Moving Average - 指数加权移动平均
+- 静态策略 - 适用于冷启动
+  - RR - Round Robin
+  - WRR - Weighted Round Robin - 加权轮训
+- 简单动态策略
+  - least_conn - 最少连接
+    - 只知道“忙不忙”（连接数），但不知道“为什么忙”
+    - 无法区分“处理快但连接多”和“处理慢但连接少”
+    - 对网络抖动（导致连接建立慢）不敏感
+- Hash-Based
+  - 适用于状态场景；需要会话保持
+  - chash - consistent hashing - 一致性哈希
+  - uri
+  - source
+  - url_param
+  - hdr
+  - request_id
+- SMA - simple moving average - 简单移动平均
+  - 计算最近 N 次请求的平均延迟
+  - 局限性
+    - 反应慢，对峰值不敏感
+    - 如果 N=10 上游突然变慢，需要 10 个慢请求才能完全意识到问题，对于恢复也是一样。
+- EWMA - Exponentially Weighted Moving Average - 指数加权移动平均
   - 分析和预测时间序列数据
   - adopted by Linkerd, Apisix, NGINX Ingress
   - 优点
@@ -48,8 +66,6 @@ title: Load Balance
     - https://twitter.github.io/finagle/guide/Clients.html#power-of-two-choices-p2c-peak-ewma
     - [envoyproxy/envoy#20907](https://github.com/envoyproxy/envoy/issues/20907)
     - [haproxy#1570](https://github.com/haproxy/haproxy/issues/1570)
-- least_conn
-- chash
 - aperture
 - p2c - power of two choices
 - HAProxy [balance](https://docs.haproxy.org/2.9/configuration.html#4.2-balance)
@@ -72,3 +88,10 @@ nginx.ingress.kubernetes.io/upstream-hash-by: ewma
   - 支持的协议层级
   - 支持的应用协议
   - 支持的负载权重因子
+- LB
+  - 优化 性能/Latency/Throughput
+  - 优化 可靠性/Reliability/Error Rate
+- 复杂场景 - 多维度目标优化策略
+  - 价格
+  - 性能
+  - 可靠性

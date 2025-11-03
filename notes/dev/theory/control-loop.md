@@ -18,6 +18,7 @@ title: 控制回路
 - 闭环控制 (Closed-loop control)
 - “观察 -> 分析 -> 行动” (Observe/Measure -> Analyze/Decide -> Act)
 - OODA - Observe - Orient - Decide - Act https://en.wikipedia.org/wiki/OODA_loop
+  - 军事策略、决策科学
   - 认知 (Orient)
     - 将孤立的数据转化为有意义的、可供决策的“情报”和“态势感知”
     - 分析 (Analysis)
@@ -38,6 +39,18 @@ title: 控制回路
   - 可操作性 (Operability)
   - 可自动化 (Automatability)
   - 为一个系统或服务，除了其核心业务逻辑接口外，还应该提供一个独立的、标准化的接口，专门用于对其进行监控、管理和自动化操作。
+- Autonomous Systems - 自治系统
+  - 在没有持续人类干预的情况下，能够感知其环境、做出决策并执行任务以实现特定目标。
+- Feedback Control Systems - 反馈控制回路 / 反馈控制系统
+  - 自我管理、自我决策
+  - 感知 (Perception): 拥有传感器或数据输入来观察世界。
+  - 推理与规划 (Reasoning & Planning): 能够基于观察和内部知识模型来分析情况并制定行动计划。
+  - 行动 (Action): 能够通过执行器或API来改变自身或环境的状态。
+  - 学习与适应 (Learning & Adaptation): 能够根据行动的反馈来优化未来的决策。
+- Data-Driven Automation Framework - 数据驱动自动化框架
+  - 现代的工程范式
+  - Rule-Based Automation -> Model Based Automation
+  - 动态学习
 - 可操作性接口模式 (Operability Interface Pattern)
 - 管理平面模式 (Management Plane Pattern)
 - Webhook Action Pattern

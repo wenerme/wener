@@ -39,3 +39,10 @@ lsmod | grep nvidia
 # reload
 nvidia-smi
 ```
+
+
+```
+rmmod: ERROR: Module nvidia_uvm is in use
+```
+
+- 注意关闭 nvtop

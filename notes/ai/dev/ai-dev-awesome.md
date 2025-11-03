@@ -112,6 +112,7 @@ tags:
     - npm:ai
     - Build AI-powered applications with React, Svelte, Vue, and Solid
     - https://ai-sdk.dev/providers/openai-compatible-providers
+    - https://github.com/vercel/ai/tree/main/packages/provider/src/language-model
   - [moeru-ai/xsai](https://github.com/moeru-ai/xsai)
   - [openai/openai-agents-js](https://github.com/openai/openai-agents-js)
     - MIT, TS

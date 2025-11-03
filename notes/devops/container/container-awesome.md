@@ -177,6 +177,16 @@ sources:
 - 参考
   - [构建容器的最佳做法](https://cloud.google.com/solutions/best-practices-for-building-containers)
 
+```bash
+crane copy docker.io/wener/base:3.22 quay.io/wener/base:3.22
+skopeo copy docker.io/wener/base:3.22 docker://quay.io/wener/base:3.22
+regctl image copy docker.io/wener/base:3.22 quay.io/wener/base:3.22
+
+regctl manifest digest docker.io/wener/base:3.22
+# sha256:abcd
+regctl manifest get quay.io/wener/base:3.22
+```
+
 ## 库
 
 - [google/go-containerregistry]

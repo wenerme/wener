@@ -35,6 +35,9 @@ tags:
 - Alerting
   - [ccfos/nightingale](https://github.com/ccfos/nightingale)
     - Apache-2.0, Go
+  - [opsre/WatchAlert](https://github.com/opsre/WatchAlert)
+    - MIT, Go
+    - Alerting for Prometheus
   - [prometheus/alertmanager](https://github.com/prometheus/alertmanager)
 - [openobserve](./openobserve.md)
   - zincobserve -> openobserve

@@ -49,3 +49,7 @@ diff \
   <(crane export docker.io/wener/base:v3.14 - | tar -tvf - | sort) \
   <(crane export docker.io/wener/base:v3.15 - | tar -tvf - | sort)
 ```
+
+# FAQ
+
+## crane copy UNAUTHORIZED: project not found

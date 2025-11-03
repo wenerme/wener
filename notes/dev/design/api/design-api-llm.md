@@ -110,6 +110,22 @@ tags:
 - 参考
   - https://docs.together.ai/docs/batch-inference
 
+## Routing
+
+- 价格
+- 性能
+  - TTFT
+  - TPOT
+  - E2E Latency
+- 可靠性
+  - Error Rate
+  - Uptime/Availability
+
+```
+Find Upstream U that minimizes Score(U)
+Score(U) = w_cost * P(U) + w_latency * L(U) + w_reliability * R(U)
+```
+
 ## Mock
 
 - https://exampleopenaiendpoint-production.up.railway.app/

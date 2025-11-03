@@ -23,6 +23,7 @@ title: dexie
 - NodeJS 持久化 [#480](https://github.com/dexie/Dexie.js/issues/480)
   - [dumbmatter/fakeIndexedDB](https://github.com/dumbmatter/fakeIndexedDB)
     - 内存实现 IndexedDB API - mock 用
+- 默认不支持自动生成 uuid 这样的 id
 
 :::
 

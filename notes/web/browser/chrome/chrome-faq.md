@@ -33,6 +33,7 @@ curl -LOJC- https://dl.google.com/chrome/mac/universal/stable/gcem/GoogleChrome.
 
 # 获取版本号
 strings ChromeStandaloneSetup64.exe | grep -i '<manifest version='
+strings ChromeStandaloneSetup64.zh-CN.exe | grep -i '<manifest version='
 ```
 
 | Brand Code | Name Fragments             | Notes                                                                        |

@@ -36,6 +36,12 @@ tags:
   - 渐进式上下文扩展（progressive context scaling）
   - 数据集 [DocQA-RL-1.6K](https://huggingface.co/datasets/Tongyi-Zhiwen/DocQA-RL-1.6K)
 
+## Qwen3 VL
+
+- https://github.com/QwenLM/Qwen3-VL
+- 用回了绝对坐标
+  - https://github.com/QwenLM/Qwen3-VL/issues/1623
+
 ## Qwen 3 Embedding
 
 - [QwenLM/Qwen3-Embedding](https://github.com/QwenLM/Qwen3-Embedding)

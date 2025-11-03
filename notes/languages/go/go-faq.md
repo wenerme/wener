@@ -568,3 +568,32 @@ type SysProcAttr struct {
 - `// +build linux` < go 1.17
 - `//go:build linux` >= go 1.17
 - https://github.com/golang/go/issues/36060
+
+
+## ld: warning: object file was built for newer 'macOS' version (15.0) than being linked (11.0)
+
+```bash
+go clean -cache
+CGO_CFLAGS="-mmacosx-version-min=15.0" CGO_LDFLAGS="-mmacosx-version-min=15.0" MACOSX_DEPLOYMENT_TARGET=15.0 go build -o bin/explorer .
+```
+
+```bash
+export MACOSX_DEPLOYMENT_TARGET=11.0
+```
+
+- MACOSX_DEPLOYMENT_TARGET 控制最小 macOS 支持版本
+- for cc `-mmacosx-version-min`
+
+- CLT - CommandLineTools
+
+```bash
+xcode-select --install
+
+# 升级所有
+softwareupdate --all --install --force
+# 可以指定版本
+sudo xcode-select --switch /Library/Developer/CommandLineTools
+```
+
+- 也可以手动下载
+  - https://developer.apple.com/download/all/

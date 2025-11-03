@@ -30,6 +30,11 @@ tags:
 
 :::
 
+
+```bash
+brew install bufbuild/buf/buf
+```
+
 ## Awesome
 
 - [Connect Protocol Reference](https://connect.build/docs/protocol/)

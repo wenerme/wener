@@ -197,7 +197,6 @@ tags:
 ## 俚语 {#slang}
 
 - [bruh](https://www.urbandictionary.com/define.php?term=Bruh)
-
   - best answer to literally anything
   - 嘲笑别人的问题很傻
 
@@ -2291,6 +2290,13 @@ try to get the other instance of the resource. In the unfortunate case it might 
     - 品牌价值与定位 (Brand Value)：高端品牌可以设定更高的价格。
     - 竞争对手定价 (Competition)：需要参考同类产品的市场价格。
     - 消费者感知价值 (Perceived Value)：消费者认为这个产品值多少钱。
+
+## chat vs conversation
+
+- chat - 聊天
+  - 强调即时性、互动性
+- conversation - 对话
+  - 强调上下文、完整性
 
 ## 常见读音错误
 
