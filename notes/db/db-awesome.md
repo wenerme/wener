@@ -136,6 +136,13 @@ tags:
   - by LinkedIn
 - Apache [Doris](https://github.com/apache/doris)
   - by 百度
+- pgduck_server
+- [Snowflake-Labs/pg_lake](https://github.com/Snowflake-Labs/pg_lake)
+  - Apache-2.0, C
+  - Iceberg, DuckDB
+  - Postgres for Iceberg and Data lakes
+- [Mooncake-Labs/pg_mooncake](https://github.com/Mooncake-Labs/pg_mooncake)
+  - MIT, Rust
 - [Comparison of OLAP servers](https://en.wikipedia.org/wiki/Comparison_of_OLAP_servers)
 
 ## OLTP

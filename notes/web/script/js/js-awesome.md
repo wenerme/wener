@@ -111,14 +111,17 @@ tags:
 - io/fs/storage
   - [good-lly/s3mini](https://github.com/good-lly/s3mini)
     - 16kB, 6kB
-    - 不支持高级功能，不支持 CopyObject
-  - [sentienhq/ultralight-s3](https://github.com/sentienhq/ultralight-s3)
-    - lightweight S3 client
+    - 不支持高级功能
+    - 单纯作为 s3 访问足够
+  - [bradenmacdonald/s3-lite-client](https://github.com/bradenmacdonald/s3-lite-client)
+    - 从 minio 的修改而来
   - [good-lly/lowstorage](https://github.com/good-lly/lowstorage)
     - MIT, JS, TS
     - object pseudo-database for S3-compatible storages using JSON or Msgpack
   - minio
     - 460kB, 120kB
+  - [sentienhq/ultralight-s3](https://github.com/sentienhq/ultralight-s3)
+    - lightweight S3 client
   - npm:readable-stream
     - node:stream
   - [willfarrell/datastream](https://github.com/willfarrell/datastream)

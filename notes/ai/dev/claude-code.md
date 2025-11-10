@@ -146,6 +146,10 @@ claude config list
 | ANTHROPIC_BASE_URL                       | 自定义 API 端点 URL                                                                                                 |
 | ANTHROPIC_CUSTOM_HEADERS                 | 添加到请求的自定义头（Name: Value 格式）                                                                            |
 | ANTHROPIC_MODEL                          | 要使用的自定义模型名称（如 claude-sonnet-4-20250514）                                                               |
+| ANTHROPIC_DEFAULT_HAIKU_MODEL            |
+| ANTHROPIC_DEFAULT_OPUS_MODEL             |
+| ANTHROPIC_DEFAULT_SONNET_MODEL           |
+| CLAUDE_CODE_SUBAGENT_MODEL               |
 | ANTHROPIC_SMALL_FAST_MODEL               | Haiku 类模型名称，用于后台任务                                                                                      |
 | ANTHROPIC_SMALL_FAST_MODEL_AWS_REGION    | 使用 Bedrock 时小型快速模型的 AWS 区域覆盖                                                                          |
 | ANTHROPIC_BEDROCK_BASE_URL               | AWS Bedrock 端点 URL                                                                                                |

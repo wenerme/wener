@@ -68,15 +68,17 @@ title: AIOps
 - Open-loop Automation - 开环自动化 - Human in the loop
 - Event Correlation - 事件关联
 
-| abbr. | stand for                  | meaning          |
-| ----- | -------------------------- | ---------------- |
-| MTTD  | Mean Time To Detection     | 平均检测时间     |
-| MTTR  | Mean Time To Repair        | 平均修复时间     |
-| MTBF  | Mean Time Between Failures | 平均故障间隔时间 |
-| MTTF  | Mean Time To Failure       | 平均故障时间     |
-| MTTR  | Mean Time To Recovery      | 平均恢复时间     |
-| MTTA  | Mean Time To Alert         | 平均告警时间     |
-| RCA   | Root Cause Analysis        | 根因分析         |
+| abbr. | stand for                       | meaning          |
+| ----- | ------------------------------- | ---------------- |
+| MTTD  | Mean Time To Detection          | 平均检测时间     |
+| MTTR  | Mean Time To Repair             | 平均修复时间     |
+| MTBF  | Mean Time Between Failures      | 平均故障间隔时间 |
+| MTTF  | Mean Time To Failure            | 平均故障时间     |
+| MTTR  | Mean Time To Recovery           | 平均恢复时间     |
+| MTTA  | Mean Time To Alert              | 平均告警时间     |
+| RCA   | Root Cause Analysis             | 根因分析         |
+| MOO   | Multiple Objective Optimization | 多目标优化       |
+| SOO   | Single Objective Optimization   | 单目标优化       |
 
 | en                      | cn                 |
 | ----------------------- | ------------------ |
@@ -155,6 +157,7 @@ title: AIOps
   - Moogsoft
   - Splunk ITSI
 - Grafana OnCall, Alerta, GoAlert
+
 # FAQ
 
 ## AIOps vs. 金融量化交易

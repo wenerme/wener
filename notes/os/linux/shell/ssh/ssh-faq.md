@@ -5,6 +5,12 @@ tags:
 
 # SSH FAQ
 
+```bash
+chmod 400 ~/.ssh/id_*
+chmod 644 ~/.ssh/id_*.pub
+chmod 700 ~/.ssh/authorized_keys
+```
+
 ## SOCKS Proxy
 
 ```bash
@@ -368,16 +374,16 @@ ssh-keygen -R HOSTNAME
 ```bash
 SSH_ENV="$HOME/.ssh/agent.env"
 function start_agent {
-    ssh-agent -s > "$SSH_ENV"
-    . "$SSH_ENV" > /dev/null
+  ssh-agent -s > "$SSH_ENV"
+  . "$SSH_ENV" > /dev/null
 }
 if [ -f "$SSH_ENV" ]; then
-    . "$SSH_ENV" > /dev/null
-    if ! kill -0 "$SSH_AGENT_PID" 2>/dev/null; then
-        start_agent
-    fi
-else
+  . "$SSH_ENV" > /dev/null
+  if ! kill -0 "$SSH_AGENT_PID" 2> /dev/null; then
     start_agent
+  fi
+else
+  start_agent
 fi
 
 unset SSH_ENV

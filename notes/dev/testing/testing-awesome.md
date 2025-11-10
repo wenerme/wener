@@ -25,6 +25,10 @@ tags:
   - Apache-2.0, C
 - [artilleryio/artillery](https://github.com/artilleryio/artillery)
   - MPLv2, Node.js
+- Reports
+  - CTRF - Common Test Report Format
+    - Unified JSON Test Report With Seamless Developer Tool Integration
+    - https://ctrf.io/
 - Examples
   - [fastify/benchmarks](https://github.com/fastify/benchmarks)
 

@@ -5,11 +5,19 @@ tags:
 
 # Philosophy Glossary
 
-| en             | cn   |
-| -------------- | ---- |
-| paradox        | 悖论 |
-| Philosophy     | 哲学 |
-| Self-Reference | 自指 |
+| en             | cn       |
+| -------------- | -------- |
+| paradox        | 悖论     |
+| Philosophy     | 哲学     |
+| Self-Reference | 自指     |
+| Deconstruction | 解构     |
+| Construction   | 构建     |
+| Constructivism | 建构主义 |
+| Epistemology   | 认识论   |
+| Metaphysics    | 形而上学 |
+| Ethics         | 伦理学   |
+| Aesthetics     | 美学     |
+| Logic          | 逻辑学   |
 
 - Self-Reference
   - https://plato.stanford.edu/entries/self-reference/

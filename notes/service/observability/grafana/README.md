@@ -110,4 +110,8 @@ reporting_enabled = false
 
 ## FAQ
 
-## msg="Failed to look up user based on cookie" logger=context error="user token not found"
+## reset password
+
+```bash
+grafana cli admin reset-admin-password $NEW_PASSWORD
+```

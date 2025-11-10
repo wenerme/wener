@@ -27,6 +27,7 @@ tags:
 - Python Implementation [connectrpc/connectrpc.com#71](https://github.com/connectrpc/connectrpc.com/pull/71)
   - https://github.com/mattrobenolt/connect-python
   - https://github.com/i2y/connecpy
+- 如果需要 REST / google.api.http 注解支持，可以使用 [connectrpc/vanguard-go](https://github.com/connectrpc/vanguard-go)
 
 :::
 

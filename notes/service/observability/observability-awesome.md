@@ -23,6 +23,15 @@ tags:
 
 :::
 
+> If you can't measure it, you can't manage it.
+> If you can't measure it, you can't improve it.
+>
+> -- by Peter Drucker
+
+> When a measure becomes a target, it ceases to be a good measure.
+>
+> -- by The Risk of Goodhart's Law
+
 - o11y - Observability
 - [getsentry/sentry](./tracing/sentry.md)
 - Uptime
