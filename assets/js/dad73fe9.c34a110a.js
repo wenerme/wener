@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["60269"],{34357:function(e){e.exports=JSON.parse('{"tag":{"label":"IDE","permalink":"/notes/tags/ide","allTagsPath":"/notes/tags","count":1,"items":[{"id":"dev/ide/cursor","title":"Cursor","description":"- getcursor/cursor","permalink":"/notes/dev/ide/cursor"}],"unlisted":false}}')}}]);
