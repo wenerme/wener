@@ -43,6 +43,8 @@ title: 正则表达式
   - https://benhoyt.com/writings/rob-pike-regex/
     Rob Pike’s simple C regex matcher in Go
     - [HN](https://news.ycombinator.com/item?id=32434412)
+  - https://github.com/slevithan/regex
+    - 使用 regex 定义的 jinja 解析 https://github.com/davidodenwald/prettier-plugin-jinja-template/blob/master/src/regex_editable.ts
 
 [pcre2]: https://github.com/PhilipHazel/pcre2
 

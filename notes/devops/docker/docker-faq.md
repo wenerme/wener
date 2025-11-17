@@ -8,6 +8,13 @@ tags:
 
 - [Docker Best Practices](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5)
 
+:::caution
+
+- 避免 bind 文件，而是 bind 目录
+  - bind 文件是跟踪 inode, Host mv x.txt y.txt 会导致映射的 y.txt 文件 inode 变化, 容器内看不到新的内容
+
+:::
+
 ```bash
 docker system df # 查看磁盘使用情况
 
@@ -64,6 +71,8 @@ getaddrinfo ENOTFOUND host.docker.internal
 # volume bind 文件不会更新
 
 - 尝试 bind 目录，不要 bind 文件
+- 文件 bind 是 inode
+- 因为有些修改是直接替代文件，导致 inode 变化
 
 ## 在 docker 中使用 docker
 

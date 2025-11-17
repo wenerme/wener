@@ -349,6 +349,9 @@ curl --request POST \
 
 :::
 
+- [tensorchord/VectorChord](https://github.com/tensorchord/VectorChord)
+  - AGPLv3, ELv2, Rust
+  - successor to pgvecto.rs
 - [pgvector/pgvector](https://github.com/pgvector/pgvector)
   - PostgreSQL/MIT, C
   - since 2021-07

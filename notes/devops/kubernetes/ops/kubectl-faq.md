@@ -12,6 +12,11 @@ tags:
 
 :::
 
+```bash
+# 合并 kubeconfig
+KUBECONFIG=~/.kube/config:$PWD/kubeconfig.yaml kubectl config view --flatten > tmp.yaml && mv tmp.yaml ~/.kube/config
+```
+
 ## 删除 Evicted 的 Pod
 
 - status.phase=Fialed & state.reason=Evicted
@@ -47,7 +52,7 @@ kubectl port-forward -n postgres-operator svc/postgres-operator-ui 8080:80 --req
 Shell 循环
 
 ```bash
-while :;do kubectl port-forward -n postgres-operator svc/postgres-operator-ui 8080:80; done
+while :; do kubectl port-forward -n postgres-operator svc/postgres-operator-ui 8080:80; done
 ```
 
 Windows BAT 循环

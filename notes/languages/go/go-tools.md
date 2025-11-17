@@ -9,9 +9,9 @@ title: Tools
   - eg, gomvpkg, gorename
 
 ```bash
-# 增强版 go fmt
+# gofumpt 增强版 go fmt
 go install mvdan.cc/gofumpt@latest
-# 排序 imports
+# goimports 排序 imports
 go install golang.org/x/tools/cmd/goimports@latest
 
 # stringer
@@ -26,4 +26,22 @@ gomodifytags -file dto.go -struct Server -add-tags json -add-options json=omitem
 # gowrap
 # 为 interface 生成 实现 - 修饰模式
 go install github.com/hexdigest/gowrap/cmd/gowrap@latest
+
+# gopls for VSCode
+go install golang.org/x/tools/gopls@latest
+```
+
+- go 1.25+ 支持 tool 管理
+
+```txt title="go.mod"
+toolchain  go1.21.0
+
+tool golang.org/x/tools/cmd/stringer
+```
+
+> 目前 go.mod 里添加 tool 可能会影响项目依赖，建议额外开个 tools.mod 管理工具依赖
+
+```bash
+
+go tool -modfile=tools.mod stringer
 ```

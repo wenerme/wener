@@ -4,10 +4,15 @@ title: Headphone
 
 # Headphone
 
-| abbr. | for                   | cn       |
-| ----- | --------------------- | -------- |
-| ANC   | Active noise control  | 主动降噪 |
-|       | passive noise control | 被动降噪 |
+| abbr. | for                         | cn              |
+| ----- | --------------------------- | --------------- |
+| ANC   | Active noise control        | 主动降噪        |
+|       | passive noise control       | 被动降噪        |
+| AMB   | Ambient noise control       | 环境噪音控制    |
+| AAC   | Advanced Audio Coding       | 高级音频编码    |
+| AD-DA | Analog-to-Digital Converter | 模拟-数字转换器 |
+| DSP   | Digital Signal Processor    | 数字信号处理器  |
+| EQ    | Equalizer                   | 均衡器          |
 
 | spec                                  | cn               |
 | ------------------------------------- | ---------------- |

@@ -50,12 +50,20 @@ tags:
 - Toolchain
   - [bytecodealliance/javy](https://github.com/bytecodealliance/javy)
     - Apache-2.0, Rust
+    - JavaScript to Webassembly toolchain
+  - [bytecodealliance/ComponentizeJS](https://github.com/bytecodealliance/ComponentizeJS)
+    - Apache-2.0, Rust
+    - JS -> WebAssembly Component
   - [CanadaHonk/porffor](https://github.com/CanadaHonk/porffor)
     - MIT, JS, TS
     - AOT JS engine
   - [tc39/test262](https://github.com/tc39/test262)
     - ECMAScript Conformance Test Suite
     - 测试 JS 兼容性
+- Javascript
+  - [bytecodealliance/StarlingMonkey](https://github.com/bytecodealliance/StarlingMonkey)
+    - Apache-2.0, C, C++
+    - SpiderMonkey based
 - bytecodealliance
   - [bytecodealliance/lucet](https://github.com/bytecodealliance/lucet)
     Sandboxing WebAssembly Compiler.
@@ -71,6 +79,10 @@ tags:
     - WebAssembly Pre-Initializer
     - 空间换时间
   - [bytecodealliance/wit-bindgen](https://github.com/bytecodealliance/wit-bindgen)
+- [spinframework/spin](https://github.com/spinframework/spin)
+  - Apache-2.0, Rust
+  - building and running serverless applications powered by WebAssembly
+  - 支持 JS, Rust, Go, Python, Zig
 - [aduros/wasm4](https://github.com/aduros/wasm4)
   - Build retro games using WebAssembly
 - [suborbital/sat](https://github.com/suborbital/sat)
@@ -109,7 +121,6 @@ tags:
   - Apache-2, Rust
   - developer tool for building and running serverless applications
 - [renderlet/wander](https://github.com/renderlet/wander)
-
 
 ## JS
 

@@ -19,6 +19,26 @@ tags:
 :::
 
 ```sql
+pragma journal_mode;                -- 查看/设置日志模式（如 WAL, DELETE 等）
+pragma synchronous;                 -- 事务同步级别，影响性能和稳定性（FULL/NORMAL/OFF）
+pragma cache_size;                  -- 设置页缓存大小（单位页数，负值代表 KB）
+pragma temp_store;                  -- 临时表/索引的存储方式（DEFAULT, MEMORY, FILE）
+pragma foreign_keys;                -- 是否启用外键支持 (ON/OFF)
+pragma mmap_size;                   -- 映射文件大小，提升查询性能
+pragma busy_timeout = 5000;         -- 设置数据库被锁时时的等待时间（毫秒）
+pragma optimize;                    -- 自动执行分析和优化命令
+pragma page_size;                   -- 单页大小（默认 4096），一般无需修改
+pragma wal_autocheckpoint = 1000;   -- WAL 日志自动 checkpoint 频率（单位页）
+pragma auto_vacuum;                 -- 垃圾回收模式，节省磁盘空间
+
+pragma journal_mode = WAL;
+pragma synchronous = NORMAL;
+
+-- 查看 PRAGMA 当前状态
+pragma pragma_list;
+```
+
+```sql
 select hex(randomblob(16));
 select lower(hex(randomblob(16)));
 -- 伪 UUIv4

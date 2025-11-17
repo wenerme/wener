@@ -13,6 +13,8 @@ tags:
 - [unoplatform/uno](https://github.com/unoplatform/uno)
 - [ocornut/imgui](https://github.com/ocornut/imgui)
   - Dear ImGui: Bloat-free Graphical User interface for C++ with minimal dependencies
+  - [tmikov/imgui-react-runtime](https://github.com/tmikov/imgui-react-runtime)
+    - React + Dear ImGui + Static Hermes
 - [CanvasKit - Skia + WebAssembly](https://skia.org/docs/user/modules/canvaskit)
 - Render
   - [mitsuba-renderer/drjit](https://github.com/mitsuba-renderer/drjit)

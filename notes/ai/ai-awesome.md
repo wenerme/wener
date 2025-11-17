@@ -259,6 +259,11 @@ tags:
     - QR Code Art
   - https://ideogram.ai/
   - https://github.com/diff-usion/Awesome-Diffusion-Models
+  - [allweonedev/presentation-ai](https://github.com/allweonedev/presentation-ai)
+    - Gamma Alternative
+- security
+  - [usestrix/strix](https://github.com/usestrix/strix)
+    - Apache-2.0, Python
 - SVG/vector
   - https://logodiffusion.com/
   - https://github.com/GeorgLegato/stable-diffusion-webui-vectorstudio
@@ -350,6 +355,7 @@ tags:
 - from scratch
   - [jsbaan/transformer-from-scratch](https://github.com/jsbaan/transformer-from-scratch)
   - [GeeeekExplorer/nano-vllm](https://github.com/GeeeekExplorer/nano-vllm)
+  - [jingyaogong/minimind](https://github.com/jingyaogong/minimind)
 - https://github.com/microsoft/generative-ai-for-beginners
 - https://www.promptingguide.ai/zh/readings
 - https://jalammar.github.io/
