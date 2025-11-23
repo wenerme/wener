@@ -19,8 +19,15 @@ services.msc # 服务
 
 shutdown /r /t 0 # 重启
 shutdown /s /t 0 # 关机
+
+# start a cmd as administrator
+runas /user:Administrator "cmd.exe"
+
+# PS
+Start-Process cmd -Verb RunAs
 ```
 
+- gsudo
 - mmc - Microsoft Management Console
 - .msc - Microsoft Common Console
 
@@ -51,6 +58,20 @@ shutdown /r /t 0
 | LDAP     | 389  | UDP      |
 | LDAP     | 636  | TCP      |
 | LDAP     | 3268 | TCP      |
+
+## Windows 11 此应用无法在你电脑上运行
+
+> This app can't run on your PC
+
+```batch
+# 修复系统映像
+dism /online /cleanup-image /restorehealth
+# 修复系统文件
+sfc /scannow
+```
+
+- C:\Windows\WinSxS
+- /online 使用 Windows Update
 
 ## tuntap
 

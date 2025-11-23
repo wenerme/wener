@@ -28,6 +28,10 @@ title: Size
   - 会跟随缩放变化
   - CSS resolution
   - window.devicePixelRatio
+- 300 dpi
+  - -> 150 dpi - 0.5
+  - -> 92 dpi - 0.3
+  - -> 72 dpi - 0.24
 - DPCM - dots per cm
 - 银行卡/身份证
   - 8.56 cm × 5.398 cm

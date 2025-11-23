@@ -42,6 +42,7 @@ tags:
 - 用回了绝对坐标
   - https://github.com/QwenLM/Qwen3-VL/issues/1623
 
+
 ## Qwen 3 Embedding
 
 - [QwenLM/Qwen3-Embedding](https://github.com/QwenLM/Qwen3-Embedding)
@@ -58,6 +59,10 @@ tags:
 - [QwenLM/Qwen3](https://github.com/QwenLM/Qwen3)
 - Qwen3 Technical Report
   - https://arxiv.org/abs/2505.09388
+- Instrut
+  - Temperature=0.7, TopP=0.8, TopK=20, MinP=0
+- Thinking
+  - Temperature=0.6, TopP=0.95, TopK=20, MinP=0
 
 ## Qwen 2.5 VL
 

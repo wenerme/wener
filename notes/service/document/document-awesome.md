@@ -166,11 +166,16 @@ tags:
     - for React PDF
       - https://react-pdf-repl.vercel.app/
       - [aanckar/react-pdf-tailwind](https://github.com/aanckar/react-pdf-tailwind)
+- Golang
+  - [go-pdf/fpdf](https://codeberg.org/go-pdf/fpdf)
+  - [pdfcpu/pdfcpu](https://github.com/pdfcpu/pdfcpu)
+    - Apache-2.0, Go
 - OFD
   - [ofdrw/ofdrw](https://github.com/ofdrw/ofdrw)
     - Apache-2.0, Java
   - 商业产品
     - https://www.suwell.cn/product/
+
 
 ## Sheet/Excel
 

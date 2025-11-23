@@ -13,6 +13,8 @@ tags:
 ```bash
 # 单独查看内存使用情况
 nvidia-smi --query-gpu=memory.total,memory.used,memory.free --format=csv,noheader,nounits
+
+nvidia-smi --query-gpu=index,memory.total,memory.used,memory.free --format=csv
 ```
 
 | abbr. | stand for                           | meaning                                      |

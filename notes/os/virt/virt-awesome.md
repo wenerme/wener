@@ -20,6 +20,9 @@ tags:
 - GUI
   - [utmapp/UTM](https://github.com/utmapp/UTM)
 - Qemu
+  - [nemuTUI/nemu](https://github.com/nemuTUI/nemu)
+  - BSD-2, C
+  - TUI for QEMU
 - Bochs
   - 2021年开发停滞
 - [box86](https://github.com/ptitSeb/box86)

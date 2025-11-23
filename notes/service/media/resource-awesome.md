@@ -25,6 +25,27 @@ tags:
   - [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
 - ebooks
   - [bookstairs/bookhunter](https://github.com/bookstairs/bookhunter)
+- comics
+  - https://github.com/kanasimi/work_crawler
+  - https://github.com/lanyeeee/copymanga-downloader
+- comic sites
+  - animelon.com
+  - https://nihonkuni.com/
+  - https://mangagun.net
+  - rawmanga.net
+  - https://dl-raw.ac
+  - https://rawkuma.com/
+  - https://www.agedm.org/
+  - https://www.bimiacg4.net/
+  - https://myself-bbs.com/
+  - http://www.dmand5.com/
+  - excnn.com
+  - bszip.com/category/manga
+  - dlraw.to/raw/
+  - raw-zip.com/
+  - nyaa.si
+  - https://jpmdblog.com/media/comic/manga/
+  - Raw Manga Sites - https://claraiscute.neocities.org/Guides/rawmangaz/
 - 网盘检索/网盘聚合搜索
   - https://qkpanso.com/
   - https://jujuso.com/

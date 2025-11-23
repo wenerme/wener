@@ -14,6 +14,8 @@ tags:
 - 参考
   - https://docs.cursor.com/en/models
   - MCP https://cursor.com/docs/context/mcp/directory
+- CURSOR_AGENT
+  - 可用于检测是否是 cursor agent 环境
 
 ## INFO
 

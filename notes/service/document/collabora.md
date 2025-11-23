@@ -38,6 +38,19 @@ docker run --rm -it \
 docker cp collabora:/etc/loolwsd/loolwsd.xml loolwsd.xml
 ```
 
+**extra_params**
+
+```
+--o:ssl.enable=false
+--o:ssl.termination=true
+--o:allowed_languages=zh_CN
+--o:welcome.enable=false
+--o:net.connection_timeout_secs=60
+--o:net.http_timeout_secs=60
+```
+
+- 超时默认 30s
+
 ## CODE
 
 - `https://<DOMAIN>/browser/dist/admin/admin.html`

@@ -13,6 +13,7 @@ tags:
 | COM        | Component Object Model                           | 组件对象模型                |
 | CSP        | configuration service provider                   | 配置服务提供者              |
 | DC         | Domain Controller                                | 域控制器                    |
+| DISM       | Deployment Image Servicing and Management        | 部署映像服务和管理          |
 | GPO        | Group Policy Object                              | 组策略对象                  |
 | IFC        | Install From Media                               | 媒体安装                    |
 | NCSI       | Network Connectivity Status Indicator            | 网络连接状态指示器          |
@@ -22,6 +23,8 @@ tags:
 | OMA-URI    | Open Mobile Alliance Uniform Resource Identifier | 开放移动联盟统一资源标识符  |
 | OOBE       | Out-Of-Box Experience                            | 开箱即用体验                |
 | SDIO       | Snappy Driver Installer Origin                   | Snappy 驱动程序安装程序来源 |
+| SFC        | System File Checker                              | 系统文件检查器              |
+| UAC        | User Account Control                             | 用户账户控制                |
 | WCF        | Windows Communication Foundation                 | Windows 通信基础            |
 | Windows PE | Windows Preinstallation Environment              | Windows 预安装环境          |
 | WinRM      | Windows Remote Management                        | Windows 远程管理            |

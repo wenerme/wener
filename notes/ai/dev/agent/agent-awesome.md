@@ -32,3 +32,6 @@ tags:
   - MIT, JS, TS
 - [sugyan/claude-code-webui](https://github.com/sugyan/claude-code-webui)
   - MIT, TS, React
+- [rowboatlabs/rowboat](https://github.com/rowboatlabs/rowboat)
+  - Apache-2.0, TypeScript
+  - AI-powered CLI for background agents

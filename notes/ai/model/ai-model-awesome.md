@@ -9,8 +9,12 @@ tags:
 
 **Open Weights/Transformer**
 
-| Date       | Model                 | Size                                                        | Context Window | Creator         | notes                                                                              |
+| Date       | Model Series          | Size                                                        | Context Window | Creator         | notes                                                                              |
 | :--------- | :-------------------- | :---------------------------------------------------------- | :------------- | :-------------- | ---------------------------------------------------------------------------------- |
+| 2025-10-21 | Qwen3-VL              | {2B,32B}-{Instruct,Thinking}                                |
+| 2025-10-15 | Qwen3-VL              | {4B,8B}-{Instruct,Thinking}                                 |
+| 2025-10-04 | Qwen3-VL              | 30B-A3B-{Instruct,Thinking}                                 |
+| 2025-09-23 | Qwen3-VL              | 235B-A22B-{Instruct,Thinking}                               |
 | 2025-09-15 | Qwen3-Next            | 80B                                                         |
 | 2025-09-01 | Hunyuan-MT-Chimera-7B | 7B                                                          |
 | 2025-08-25 | InternVL3.5           | 1B - 241B - Qwen3, GPT OSS FT                               |
@@ -968,7 +972,6 @@ make this image come alive, cinematic motion, smooth animation
 - 数字人
 - HunyuanVideo-Avatar
 - [tencent-ailab/IP-Adapter](https://github.com/tencent-ailab/IP-Adapter)
-
   - Text-to-Image
 
 - Pony
