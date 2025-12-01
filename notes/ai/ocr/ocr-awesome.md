@@ -57,10 +57,22 @@ tags:
   - [AlibabaResearch/AdvancedLiterateMachinery](https://github.com/AlibabaResearch/AdvancedLiterateMachinery)
     - Apache-2.0, Python, C++
     - by 阿里巴巴
+- PDF
+  - [ocrmypdf/OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF)
+    - MPL-2.0, Python
+    - adds an OCR text layer to scanned PDF
+    - paperless-ngx 使用 ocrmypdf
+  - paperless-ngx
+  - [Stirling-Tools/Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF)
+    - Apache-2.0, Python, PyTorch
+    - PDF to Image, OCR, Text Extraction
+    - 替代掉了了 OCRMyPDF
 - Formula
   - [OleehyO/TexTeller](https://github.com/OleehyO/TexTeller)
     - 使用 PaddleOCR, ONNX
     - image to latex formulas
+- Index/Arena
+  - https://www.ocrarena.ai/
 - [getomni-ai/zerox](https://github.com/getomni-ai/zerox)
   - MIT
   - PDF to Markdown

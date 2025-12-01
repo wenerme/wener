@@ -127,6 +127,7 @@ https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct
 
 | date       | model              | size                                      | author            | notes                                |
 | ---------- | ------------------ | ----------------------------------------- | ----------------- | ------------------------------------ |
+| 2025-11-26 | FLUX.2 dev         | 32B                                       | Black Forest Labs | Apache-2.0 klein 商业 pro, flex      |
 | 2025-08-04 | [Qwen-Image]       | 20B                                       | Alibaba           | Apache-2.0,MMDiT , T2I,Editing, Text |
 | 2025-07-16 | HiDream-E1-1       |                                           |                   | Editing                              |
 | 2025-05-29 | FLUX.1 Kontext     | dev 12B,~~max~~,~~pro~~                   | Black Forest Labs |                                      |
@@ -522,15 +523,6 @@ https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct
   - https://huggingface.co/CohereForAI/c4ai-command-a-03-2025
 - llama2
   - 7B, 13B, 70B
-- uncensored/abliterated/CensorTune
-  - [Sumandora/remove-refusals-with-transformers](https://github.com/Sumandora/remove-refusals-with-transformers)
-  - https://huggingface.co/NSFW-API/NSFW_Wan_1.3b
-  - https://huggingface.co/huihui-ai
-  - https://huggingface.co/datasets/Guilherme34/uncensor
-  - https://huggingface.co/models?search=uncensored
-  - https://erichartford.com/uncensored-models
-  - https://www.pixiv.net/novel/show.php?id=21039830
-    - https://huggingface.co/a686d380/rwkv-5-h-world
 - [microsoft/BitNet](https://github.com/microsoft/BitNet)
   - MIT, C++, Python
   - by Microsoft
@@ -584,16 +576,40 @@ https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct
   - https://news.ycombinator.com/item?id=38020109
   - https://huggingface.co/jinaai/jina-embeddings-v2-base-en
   - https://huggingface.co/jinaai/jina-embeddings-v2-small-en
-- Models
+- Index/Repository/Models
   - https://huggingface.co/models
   - https://www.modelscope.cn/models
+- Loras/Gallery/ComfyUI/Workflow
   - https://civitai.com/
   - https://openmodeldb.info/
+  - https://www.runninghub.ai
+  - https://www.liblib.art
+  - https://tusi.cn
 
 ```bash
 # AVX = 1 | AVX2 = 0 | AVX512 = 0 | FMA = 0 | NEON = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 0 | SSE3 = 1 | VSX = 0 |
 grep avx /proc/cpuinfo --color # x86_64
 ```
+
+## Abliterated
+
+- uncensored/abliterated/CensorTune
+- UGI - Uncensored General Intelligence - 通用无限制智能
+- Norm-Preserving Biprojected Abliteration - 规范化双投影消除
+  - https://huggingface.co/blog/grimjim/norm-preserving-biprojected-abliteration
+- https://huggingface.co/blog/mlabonne/abliteration
+- https://huggingface.co/spaces/DontPlanToEnd/UGI-Leaderboard
+- https://huggingface.co/ArliAI/GLM-4.5-Air-Derestricted
+- Maker
+  - https://huggingface.co/ArliAI
+  - https://huggingface.co/huihui-ai
+- [Sumandora/remove-refusals-with-transformers](https://github.com/Sumandora/remove-refusals-with-transformers)
+- https://huggingface.co/NSFW-API/NSFW_Wan_1.3b
+- https://huggingface.co/datasets/Guilherme34/uncensor
+- https://huggingface.co/models?search=uncensored
+- https://erichartford.com/uncensored-models
+- https://www.pixiv.net/novel/show.php?id=21039830
+  - https://huggingface.co/a686d380/rwkv-5-h-world
 
 ## Domains
 
@@ -626,13 +642,16 @@ grep avx /proc/cpuinfo --color # x86_64
   - [Is Gemini 2.5 good at bounding boxes?](https://simedw.com/2025/07/10/gemini-bounding-boxes/)
     - https://news.ycombinator.com/item?id=44520292
 
-## Computer Agent
+## Agent
 
+- Computer Agent
 - Qwen 2.5 VL 72B
 - UI-TARS
 - [web-infra-dev/Midscene](https://github.com/web-infra-dev/Midscene)
   - MIT, TypeScript
   - UI-TARS, Qwen-2.5-VL
+- Fara 7B
+- https://huggingface.co/spaces/galileo-ai/agent-leaderboard
 - https://platform.openai.com/docs/models/computer-use-preview
   - $3 / $12
 - https://arena.xlang.ai/leaderboard

@@ -5,6 +5,14 @@ tags:
 
 # MySQL FAQ
 
+:::tips
+
+- 列可以使用 after 指定位置
+- `datetime(3) DEFAULT CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)`
+  - MySQL 5.6.5
+
+:::
+
 ```sql
 select version(); -- 查看版本
 SELECT USER(); -- 查看用户
@@ -30,6 +38,14 @@ SELECT NOW();
 
 SHOW SLAVE STATUS; -- 查看从库状态
 SHOW MASTER STATUS; -- 查看主库状态
+
+SELECT
+    VERSION() AS 'MySQL版本',
+    @@character_set_server AS 'Server字符集',
+    @@collation_server AS 'Server排序规则',
+    @@time_zone AS '系统时区',
+    CONCAT(ROUND(@@innodb_buffer_pool_size / 1024 / 1024, 0), ' MB') AS 'InnoDB缓冲池大小',
+    @@max_connections AS '最大连接数';
 ```
 
 - db
@@ -37,6 +53,20 @@ SHOW MASTER STATUS; -- 查看主库状态
   - information_schema
   - performance_schema
   - mysql
+- utf8mb4_0900_ai_ci
+  - MySQL 8.0
+  - ai - Accent Insensitive - `a 等于 á`
+  - ci - Case Insensitive - `a 等于 A`
+- utf8mb4_unicode_ci
+  - MySQL 5.7
+- utf8mb4_uca1400_ai_ci
+  - MariaDB
+
+| 类型定义               | 精度            | 格式示例                   | 常见用途                 |
+| ---------------------- | --------------- | -------------------------- | ------------------------ |
+| DATETIME / DATETIME(0) | 秒 (Standard)   | 2025-11-25 16:40:30        | 普通业务时间、创建时间   |
+| DATETIME(3)            | 毫秒 (Millisec) | 2025-11-25 16:40:30.123    | 高并发日志、接口耗时统计 |
+| DATETIME(6)            | 微秒 (Microsec) | 2025-11-25 16:40:30.123456 | 极高频交易、科学计算     |
 
 ```sql
 -- is not allowed to connect to this MySQL server

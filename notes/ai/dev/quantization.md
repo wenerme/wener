@@ -28,8 +28,12 @@ title: Quantization
 - K-quantizations
   - S, M, L
 - IQ - Importance-aware Quantization
+  - 主要针对 4bit 以下
   - NL - No Limit
   - XS - eXtra Small
+  - IQ4_XS / IQ4_NL - 比 Q4_K_M 更小，准确度差不多
+  - 利用 imatrix
+- Imatrix - Importance Matrix
 - PTQ - Post Training Quantization - 训练后量化
 - QAT - Quantization Aware Training - 量化感知训练
 - AWQ - Adaptive Weight Quantization

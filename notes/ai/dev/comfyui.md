@@ -67,6 +67,33 @@ else:
   - https://huggingface.co/Comfy-Org
     - https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive
 
+## Awesome
+
+- https://cdn.comfy.org
+- Examples/Workflows
+  - https://github.com/comfyanonymous/ComfyUI_examples
+- [city96/ComfyUI-GGUF](https://github.com/city96/ComfyUI-GGUF)
+- ZImage
+  - [Z Image Lora Training on a 3060 12GB + AI Toolkit Guide that a child can use](https://www.reddit.com/r/StableDiffusion/comments/1p9k8td/z_image_lora_training_on_a_3060_12gb_ai_toolkit/)
+  - https://comfyanonymous.github.io/ComfyUI_examples/z_image/
+
+```bash
+# 从图片 EXIF 获取 prompt, workflow 等信息
+exiftool -Parameters -Prompt -Workflow image.png
+
+# ZImage
+
+# https://huggingface.co/Comfy-Org/z_image_turbo/blob/main/split_files/text_encoders/qwen_3_4b.safetensors
+curl -LO https://www.modelscope.cn/models/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors --output-dir models/text_encoders
+
+# https://huggingface.co/Comfy-Org/z_image_turbo/blob/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors
+curl -LO https://www.modelscope.cn/models/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors --output-dir models/diffusion_models
+
+# 这个如果之前玩过，应该都已经有了
+# https://huggingface.co/Comfy-Org/z_image_turbo/blob/main/split_files/vae/ae.safetensors
+curl -LO https://www.modelscope.cn/models/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors --output-dir models/vae
+```
+
 ## ComfyUI Manager
 
 ```bash
@@ -75,7 +102,7 @@ uv pip install -r custom_nodes/comfyui-manager/requirements.txt
 uv pip install pip # 会使用 pip 安装依赖
 
 # 代理访问
-GITHUB_ENDPOINT=https://mirror.echo.wener.cc \
+GITHUB_ENDPOINT=https://echo.wener.cc \
   HF_ENDPOINT=https://hf-mirror.com \
   uv run ./main.py
 ```
@@ -89,10 +116,6 @@ No module named pip
 使用 uv 的时候会出现
 
 ## Notes
-
-好的，遵照您的要求，这里是精简后的版本，仅包含**目录**和**主要用途说明**两列。
-
-### ComfyUI Models 目录结构详解
 
 | dir                | for                                                                                                                                                    |
 | :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -338,3 +361,21 @@ uv pip install opencv-contrib-python
 ```
 
 - https://github.com/chflame163/ComfyUI_LayerStyle/issues/5
+
+## filename_prefix
+
+```
+%date:yyyy-MM-dd%/%date:hhmmss%_%Seed.seed%
+%year%-%month%-%day%_%hour%-%minute%-%second%
+```
+
+| 变量     | 说明       |
+| -------- | ---------- |
+| %year%   | 年 (2025)  |
+| %month%  | 月 (01-12) |
+| %day%    | 日 (01-31) |
+| %hour%   | 时 (00-23) |
+| %minute% | 分 (00-59) |
+| %second% | 秒 (00-59) |
+| %width%  | 图片宽度   |
+| %height% | 图片高度   |

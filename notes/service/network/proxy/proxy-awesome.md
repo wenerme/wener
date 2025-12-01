@@ -64,6 +64,7 @@ tags:
 - brook wss
   - https://github.com/txthinking/brook
 - [enfein/mieru](https://github.com/enfein/mieru)
+  - TCP or UDP protocol-based socks5 / HTTP / HTTPS
   - 一些设计思考 https://github.com/enfein/mieru/issues/8
 - naive
 - http proxy
@@ -586,9 +587,15 @@ robloxdev.cn
 ## Testing
 
 - HTTP 204 无内容（No Content）
+- http://www.apple.com/library/test/success.html
 - https://i.ytimg.com/generate_204
 - https://www.gstatic.com/generate_204
 - https://cp.cloudflare.com
+- https://edge.microsoft.com/captiveportal/generate_204
+- https://cp.cloudflare.com/generate_204
+- https://www.qualcomm.cn/generate_204
+- https://connectivity.samsung.com.cn/generate_204
+- https://captiveportal.kuketz.de
 - 中国国内
   - http://wifi.vivo.com.cn/generate_204
 - 参考

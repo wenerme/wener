@@ -42,6 +42,9 @@ PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
 
 ```bash
 npx @dotenvx/dotenvx run -f .env.frpc.local -- frpc -c frpc.yaml
+npm add -g @dotenvx/dotenvx
+
+dotenvx run -- node index.js
 ```
 
 ## .env

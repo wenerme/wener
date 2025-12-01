@@ -52,6 +52,7 @@ tags:
     - fake-ip
     - normal
     - hosts
+- https://wiki.metacubex.one/en/config/general/
 
 ```yaml
 log-level: warning

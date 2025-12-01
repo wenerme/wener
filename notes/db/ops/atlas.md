@@ -42,7 +42,7 @@ title: atlas
 :::caution Pro 功能
 
 - 只有 付费 Pro 才能登陆 $9/月/开发者
-- Pro 功能
+- Pro 功能 - 免费版功能非常受限
   - function
   - procedure
   - sequence
@@ -111,13 +111,15 @@ atlas migrate hash
 atlas migrate diff --to 'file://schemas/main.sql' --dev-url "docker://postgres/17/dev"
 
 # Workflow
-# 手动编辑 0_base.sql 文件 - 因为 atlas 免费帮不支持 function, procedure
+# =======================================================================
+# 手动编辑 0_base.sql 文件 - 因为 atlas 免费版本不支持 function, procedure
 # 生成 1_baseline.sql 文件
 # 添加 IF NOT EXISTS - 因为不支持 function, procedure 有些依赖顺序有问题，需要手动在 base 里添加表
 atlas schema inspect -u file://schemas/main.sql --env local --format '{{ sql . "  " }}' > migrations/1_baseline.sql
 # TYPE 不支持 IF NOT EXISTS
 # DO $$ BEGIN CREATE TYPE ...; EXCEPTION WHEN duplicate_object THEN null; END $$;
-sed -i -E 's/^(CREATE (TABLE|SCHEMA|(UNIQUE )?INDEX|SEQUENCE)) ([^I].*)/\1 IF NOT EXISTS \3/g' migrations/*.sql
+sed -i -E 's/^(CREATE (TABLE|SCHEMA|(UNIQUE )?INDEX|SEQUENCE)) ([^I].*)/\1 IF NOT EXISTS \4/g' migrations/*.sql
+# 更新 atlas.sum
 atlas migrate hash
 # 验证基于 SQL 的迁移可执行
 atlas migrate diff --to 'file://migrations' --dev-url "docker://postgres/17/dev"
@@ -128,7 +130,14 @@ atlas migrate diff --to 'file://schemas/main.sql' --dev-url "docker://postgres/1
 # 验证基于 Schema 的迁移是否可执行
 # 由于不支持 function, procedure 所以可能失败
 atlas schema apply --to 'file://schemas/main.sql' -u "docker://postgres/17/dev" --dev-url "docker://postgres/17/dev"
+
+
+# 查看 docker 镜像的 tag
+regctl tag ls arigaio/mysql
 ```
+
+- docker 官方镜像是 arigaio/ 下的镜像
+- docker+mysql://
 
 ```hcl title="atlas.hcl"
 # atlas migrate hash --env diff
@@ -252,6 +261,9 @@ CREATE TABLE "atlas_schema_revisions"."atlas_schema_revisions" (
 ```sql
 -- atlas:import ./schemas
 ```
+
+## atlas.hcl
+
 
 ## DSL
 

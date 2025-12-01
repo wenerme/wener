@@ -23,3 +23,23 @@ tags:
     - lottie 适配
     - sm 加密
   - https://developers.weixin.qq.com/minigame/dev/wxcloud/guide/web/sdk.html
+- 聊天数据
+  - https://github.com/sunnyyoung/WeChatTweak-CLI
+    - https://github.com/JettChenT/WeChatTweak-CLI
+  - chatlog
+  - Key
+    - https://github.com/ycccccccy/wx_key
+    - https://github.com/recarto404/WxDatDecrypt
+      - 将微信缓存的 .dat 文件解密为原始图片格式。
+  - https://github.com/git-jiadong/wechatDataBackup
+- WxAM (wxgf)
+
+<!--
+https://github.com/imldy/chatlog
+
+https://github.com/xaoyaoo/PyWxDump
+https://github.com/xaoyaoo/pywxdumpmini
+https://github.com/coderwpf/PyWxDump
+
+https://xlight.github.io/chatlog-session/
+-->

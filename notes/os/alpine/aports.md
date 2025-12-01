@@ -1,55 +1,38 @@
 ---
-title: Alpine 包维护
+tags:
+  - Build
 ---
 
-# Alpine Package
+# aports
 
+- [aports](https://gitlab.alpinelinux.org/alpine/aports)
+  - 所有 Alpine 包
+  - 编码规范 [CODINGSTYLE.md](https://gitlab.alpinelinux.org/alpine/aports/-/blob/master/CODINGSTYLE.md)
+  - [How to contribute](https://github.com/alpinelinux/aports/blob/master/.github/CONTRIBUTING.md)
+- [alpinelinux/abuild](https://github.com/alpinelinux/abuild)
+- 构建状态 [build.alpinelinux.org](https://build.alpinelinux.org/)
 - [Creating an Alpine package](https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package)
 - https://wiki.alpinelinux.org/wiki/APKBUILD_Reference
 - [Apkindex format](https://wiki.alpinelinux.org/wiki/Apkindex_format)
 - [Abuild and Helpers](https://wiki.alpinelinux.org/wiki/Abuild_and_Helpers)
 - 镜像状态 https://mirrors.alpinelinux.org/status.json
 - 镜像列表 http://nl.alpinelinux.org/alpine/MIRRORS.txt
-- Golang
-  - https://git.alpinelinux.org/cgit/aports/tree/community/godep/APKBUILD
-- aports [How to contribute](https://github.com/alpinelinux/aports/blob/master/.github/CONTRIBUTING.md)
-- 提交新的包
-  - fork aports
-  - 添加新的包
-  - 提交 PR
-  - 新的包只能添加到 `testing/`, 在结果一段时间测试后才会移动到 `main/` 或 `community/`
-  - 提交的信息格式
-    - `${repo}/${pkgname}: new aport`
-    - `${repo}/${pkgname}: move from testing`
-    - `${repo}/${pkgname}: upgrade to 3.1.0`
-  - 确保 ABUILD 使用 Tab 而不是 空格
-- 参考
-  - [alpinelinux/abuild](https://github.com/alpinelinux/abuild) - abuild 源码
-  - [build.alpinelinux.org](https://build.alpinelinux.org/)
-    构建状态
-  - apk-audit
-  - 移除了 non-free https://gitlab.alpinelinux.org/alpine/aports/-/commit/f7fff70bb1f1a2b9756ec19318dfc4c9cc3c5f1c
-    - 3dm2
-    - b43-firmware
-    - bcwc_pcie-src
-    - chromium-widevine
-    - cockroach
-    - compcert
-    - facetimehd-firmware
-    - mongodb
-    - mspdebugstack
-    - netperf
-    - postgresql-timescaledb-tsl
-    - py-flask-mongoengine
-    - py-flask-pymongo
-    - py-flask-views
-    - unifi
-    - unrar
-    - urbanterror-data
-    - urbanterror
-    - vlmcsd
-    - yed
+- apkbuild-lint
+- abuild
 
+**提交新的包**
+
+- fork aports
+- 添加新的包
+- 提交 PR
+- 新的包只能添加到 `testing/`, 在结果一段时间测试后才会移动到 `main/` 或 `community/`
+- 提交的信息格式
+  - `${repo}/${pkgname}: new aport`
+  - `${repo}/${pkgname}: move from testing`
+  - `${repo}/${pkgname}: upgrade to 3.1.0`
+- 确保 ABUILD 使用 Tab 而不是 空格
+
+---
 
 ```bash
 # 准备
@@ -110,7 +93,9 @@ rsync -avz --no-perms --no-owner --no-group --exclude='src,pkg' mnt/wener abuild
 ## abuild
 
 ```bash
-
+# 移除所有构建时安装的依赖
+# 直接编辑 /etc/apk/world 然后 apk fix 也可以
+apk del '.makedepends-*'
 ```
 
 ```bash
@@ -127,6 +112,7 @@ builddir=${builddir:-"$srcdir/$pkgname-$pkgver"}
 
 ## abuild.conf
 
+- ~/.abuild/abuild.conf
 - [abuild.conf](https://github.com/alpinelinux/abuild/blob/master/abuild.conf)
 
 ```shell
@@ -164,6 +150,8 @@ CLEANUP="srcdir bldroot pkgdir deps"
 
 # what to cleanup after a failed build
 ERROR_CLEANUP="bldroot deps"
+
+PACKAGER_PRIVKEY=/home/dev/.abuild/abuild.rsa
 ```
 
 ## 生成和使用 Patch
@@ -338,12 +326,49 @@ To activate cross compilation specify in environment:
   CTARGET     Arch or hostspec of machine to generate compiler for
 ```
 
-## virtual
+## non-free
 
-- 相当于一个临时的 /etc/apk/world
+- 3dm2
+- b43-firmware
+- bcwc_pcie-src
+- chromium-widevine
+- cockroach
+- compcert
+- facetimehd-firmware
+- mongodb
+- mspdebugstack
+- netperf
+- postgresql-timescaledb-tsl
+- py-flask-mongoengine
+- py-flask-pymongo
+- py-flask-views
+- unifi
+- unrar
+- urbanterror-data
+- urbanterror
+- vlmcsd
+- yed
+
+---
+
+- 2022-02 移除了 non-free 构建 https://gitlab.alpinelinux.org/alpine/aports/-/commit/f7fff70bb1f1a2b9756ec19318dfc4c9cc3c5f1c
+
+## Cheatsheet
 
 ```bash
-apk add --virtual .my-temp-proj foo bar
+# 合并 merge request
+git fetch https://gitlab.alpinelinux.org/alpine/aports.git merge-requests/92349/head && git cherry-pick FETCH_HEAD
+curl -sL "https://gitlab.alpinelinux.org/alpine/aports/-/merge_requests/92349.patch" | git apply
+glab mr checkout 92349 --repo alpine/aports
+
+
+# 跳过 check 阶段
+ABUILD_SKIP_CHECK=1 abuild -Kr
+abuild -Kr fetch verify unpack prepare build rootpkg
+
+# ccache
+apk add ccache
+echo USE_CCACHE=1 >> ~/.abuild/abuild.conf
 ```
 
 # FAQ
@@ -413,4 +438,12 @@ grep 'github.com' community/*/APKBUILD -l | sort -u | cut -f 2 -d '/'
 
 # rclone frp grpc seaweedfs postgresql-timescaledb grpc-java
 pnpm tsx src/aports/upgrade.ts --cwd $PWD seaweedfs
+```
+
+## virtual
+
+- 相当于一个临时的 /etc/apk/world
+
+```bash
+apk add --virtual .my-temp-proj foo bar
 ```

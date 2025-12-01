@@ -29,6 +29,12 @@ title: just
 brew install just # macOS brew
 apk add just      # AlpineLinux
 
+curl -LO https://github.com/casey/just/releases/download/1.43.1/just-1.43.1-x86_64-unknown-linux-musl.tar.gz
+tar -xzvf just-1.43.1-x86_64-unknown-linux-musl.tar.gz just
+./just --version
+sudo mv just /usr/local/bin/
+just --version
+
 just --list
 just --list PATH # PATH 支持 :: 分割多个
 just --summary   # 空格分割的所有 target

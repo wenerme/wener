@@ -27,7 +27,7 @@ ccache -s
 
 ## 配置
 
-- ～/.ccache/ccache.conf
+- ~/.ccache/ccache.conf
 - /etc/ccache.conf
 
 ```ini

@@ -16,7 +16,7 @@ title: mihomo
 brew install mihomo # macOS
 
 # https://github.com/MetaCubeX/mihomo/releases
-VERSION=1.19.2
+VERSION=1.19.16
 # macOS
 curl -L -o mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v${VERSION}/mihomo-darwin-arm64-v${VERSION}.gz
 # Linux

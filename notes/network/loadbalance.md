@@ -82,6 +82,20 @@ nginx.ingress.kubernetes.io/load-balance: ewma
 nginx.ingress.kubernetes.io/upstream-hash-by: ewma
 ```
 
+## EWMA
+
+- EWMA  - Exponentially Weighted Moving Average - 指数加权移动平均
+- 计算最近 N 次请求的平均延迟
+$$
+EWMA = \alpha \times Y + (1 - \alpha) \times EWMA_{t-1}
+$$
+
+- `\alpha` - 权重因子
+  - 0.3 简单选择
+- `Y` - 当前请求的延迟
+- `EWMA_{t-1}` - 上一次请求的 EWMA 值
+
+
 ## NOTE
 
 - LB 需要考虑

@@ -7,7 +7,9 @@ tags:
 # AlpineLinux Awesome
 
 ```bash
+# 获取 Alpine 版本信息
 curl https://alpinelinux.org/releases.json
+# 获取镜像信息
 curl https://mirrors.alpinelinux.org/mirrors.json
 ```
 

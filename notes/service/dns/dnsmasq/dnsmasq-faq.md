@@ -6,6 +6,19 @@ tags:
 
 # Dnsmasq FAQ
 
+## avoid ipv6
+
+disable return AAAA record
+
+```
+# v2.86+
+filter-AAAA
+
+
+# 针对屏蔽
+address=/google.com/::
+```
+
 ## dnsmasq: failed to create inotify: No file descriptors available
 
 ```bash

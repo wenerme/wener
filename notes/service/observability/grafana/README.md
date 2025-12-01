@@ -100,14 +100,6 @@ type=sqlite3
 reporting_enabled = false
 ```
 
-
-## plugins
-
-- https://grafana.com/grafana/plugins/
-- grafana-clock-panel
-- grafana-polystat-panel
-- marcusolsson-hexmap-panel
-
 ## FAQ
 
 ## reset password

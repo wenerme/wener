@@ -47,6 +47,8 @@ tags:
   - [deepset-ai/haystack](https://github.com/deepset-ai/haystack)
   - [langgenius/dify](https://github.com/langgenius/dify)
     - ~~Apache-2.0~~, TS, React
+  - [dataelement/bisheng](https://github.com/dataelement/bisheng)
+    - Apache-2.0, Python, TS
   - [coze-dev/coze-studio](https://github.com/coze-dev/coze-studio)
     - Apache-2.0, TS, React, Go
   - n8n
@@ -153,6 +155,18 @@ tags:
     - https://getomni.ai/ocr-benchmark
   - [allenai/olmocr](https://github.com/allenai/olmocr)
     - Toolkit for linearizing PDFs for LLM datasets/training
+- Wiki
+  - [AsyncFuncAI/deepwiki-open](https://github.com/AsyncFuncAI/deepwiki-open)
+    - MIT, Python, TS
+  - [AIDotNet/OpenDeepWiki](https://github.com/AIDotNet/OpenDeepWiki)
+  - [Muvon/octocode](https://github.com/Muvon/octocode)
+    - Apache-2.0, Rust
+    - Intelligent Code Indexer and Graph Builder
+    - 依赖 Voyage AI API Key
+  - https://codewiki.google/
+  - https://deepwiki.org/
+- Financial/金融/炒股/投资
+  - [Alpha Arena](https://nof1.ai/)
 - Provider
   - Google Colab
   - Runpod

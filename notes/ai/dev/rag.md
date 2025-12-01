@@ -4,6 +4,13 @@ title: RAG
 
 # RAG
 
+:::tips
+
+- chunk 一般选择 512, 256, 192
+- overlap 25-128
+
+:::
+
 - RAG - Retrieval-Augmented Generation - 检索增强生成
 - 检索优化 (Advanced Retrieval) - “如何找得更准？”
   - 混合搜索 (Hybrid Search)
@@ -36,6 +43,25 @@ title: RAG
   - LLM-as-a-Judge
 - 评估框架
   - RAGAs, ARES, TruLens
+- On-Device RAG - 端侧 RAG
+
+## Awesome
+
 - [chonkie-inc/chonkie](https://github.com/chonkie-inc/chonkie)
   - MIT, Python
   - RAG chunking library
+- [yichuan-w/LEANN](https://github.com/yichuan-w/LEANN)
+  - MIT, Python
+  - vector database, graph-based selective recomputation, high-degree preserving pruning, CSR/Compressed Sparse Row
+  - 内置了对 PDF, Markdown, 微信/iMessage 聊天记录、浏览器历史的解析
+
+## Datasource
+
+- iMessage - ~/Library/Messages/chat.db
+  - TCC, Transparency, Consent, and Control
+  - 系统设置 -> 隐私与安全性 -> 完全磁盘访问权限
+- 微信
+  - `~/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/[UserHash]/Message/msg_[Hash].db`
+  - SQLCipher3
+  - 内存提取 frida/pymem/lldb
+  - 工具导出

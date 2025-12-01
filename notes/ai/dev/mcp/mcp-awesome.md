@@ -253,7 +253,7 @@ tags:
 
 - [crystaldba/postgres-mcp](https://github.com/crystaldba/postgres-mcp)
   - restricted
-    -  read-only transactions
+    - read-only transactions
   - unrestricted
 
 ```json
@@ -338,3 +338,35 @@ Please check the LCP of web.dev.
 - Windows `%HOMEPATH%/.cache/chrome-devtools-mcp/chrome-profile-$CHANNEL`
 - https://github.com/ChromeDevTools/chrome-devtools-mcp#tools
 - --connect-url
+
+## gitea-mcp
+
+- https://gitea.com/gitea/gitea-mcp
+
+
+```bash
+# 推荐命令行使用
+go install -v gitea.com/gitea/gitea-mcp@latest
+```
+
+```json
+{
+  "mcpServers": {
+    "gitea": {
+      "command": "gitea-mcp",
+      "args": [
+        "-t",
+        "stdio",
+        "--host",
+        "https://gitea.com"
+        // "--token", "<your personal access token>"
+      ],
+      "env": {
+        // "GITEA_HOST": "https://gitea.com",
+        // "GITEA_INSECURE": "true",
+        "GITEA_ACCESS_TOKEN": "<your personal access token>"
+      }
+    }
+  }
+}
+```

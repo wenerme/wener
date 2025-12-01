@@ -16,6 +16,12 @@ tags: [Claude, AI, Code, Agent]
     - MIT, TS, JS
   - [ryoppippi/ccusage](https://github.com/ryoppippi/ccusage)
   - [eyaltoledano/claude-task-master](https://github.com/eyaltoledano/claude-task-master)
+  - https://github.com/Piebald-AI/tweakcc
+    - `npx -y tweakcc`
+  - https://github.com/sirmalloc/ccstatusline
+    - `npx -y ccstatusline@latest`
+    - https://github.com/powerline/fonts
+      - brew install font-powerline-symbols
 
 :::caution
 

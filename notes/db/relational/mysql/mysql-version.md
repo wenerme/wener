@@ -17,4 +17,10 @@ tags:
 
 ## MySQL 5.7
 
-## MySQL 5.6
+## MySQL 5.6.5
+
+- `DATETIME(3)` 支持
+
+## MySQL 5.6.4
+
+- 动态默认值

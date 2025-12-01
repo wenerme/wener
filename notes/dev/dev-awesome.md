@@ -49,6 +49,21 @@ tags:
     - code structural search, lint and rewriting
 - pkgs
   - https://deps.dev
+- package mamager/version manager/env manager
+  - https://github.com/jdx/mise
+- Terminal UI
+  - kitty
+  - hyper
+  - Tabby
+  - [iTerm2]
+  - [withfig/autocomplete](https://github.com/withfig/autocomplete)
+    - for bash, zsh, fish
+  - [wavetermdev/waveterm](https://github.com/wavetermdev/waveterm)
+    - Electron
+    - 重新定义 terminal 概念
+  - [wezterm/wezterm](https://github.com/wezterm/wezterm)
+    - Rust, Lua
+    - Lua 配置
 - dotfiles
   - [twpayne/chezmoi](https://github.com/twpayne/chezmoi)
   - https://dotfiles.github.io/utilities/

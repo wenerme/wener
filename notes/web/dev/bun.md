@@ -50,10 +50,21 @@ title: bun
 # Manually Install
 # =======================
 # macOS
-curl -LO https://github.com/oven-sh/bun/releases/download/bun-v1.2.19/bun-darwin-x64.zip
+curl -LO https://github.com/oven-sh/bun/releases/download/bun-v1.3.3/bun-darwin-x64.zip
 unzip bun-darwin-x64.zip
 mv bun-darwin-x64/bun ~/bin/
 xattr -r -d com.apple.quarantine ~/bin/bun
+
+# AlpineLinux
+curl -LO https://github.com/oven-sh/bun/releases/download/bun-v1.3.3/bun-linux-x64-musl.zip
+unzip bun-linux-x64-musl.zip
+sudo mv bun-linux-x64-musl/bun /usr/local/bin/
+
+# Linux
+curl -LO https://github.com/oven-sh/bun/releases/download/bun-v1.3.3/bun-linux-x64.zip
+unzip bun-linux-x64.zip
+sudo mv bun-linux-x64/bun /usr/local/bin/
+
 bun -v
 
 bun upgrade          # 升级
