@@ -51,19 +51,37 @@ tags:
   - https://deps.dev
 - package mamager/version manager/env manager
   - https://github.com/jdx/mise
+  - [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
+    - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash`
+  - [tj/n](https://github.com/tj/n)
+    - `curl -fsSL https://raw.githubusercontent.com/tj/n/master/bin/n | bash -s install lts`
 - Terminal UI
   - kitty
+    - Kitty Graphics Protocol
+    - icat 看图
   - hyper
   - Tabby
   - [iTerm2]
   - [withfig/autocomplete](https://github.com/withfig/autocomplete)
     - for bash, zsh, fish
+  - [ghostty-org/ghostty](https://github.com/ghostty-org/ghostty)
+    - MIT, Zig, Swift
+    - `brew install --cask ghostty`
+    - 支持 Tmux Control Mode
   - [wavetermdev/waveterm](https://github.com/wavetermdev/waveterm)
     - Electron
     - 重新定义 terminal 概念
+    - ⚠️ ssh config 不支持 Include, tmux 不能复制, claude code 滚动有问题, AI 目前不支持 BYOK
   - [wezterm/wezterm](https://github.com/wezterm/wezterm)
     - Rust, Lua
     - Lua 配置
+  - https://github.com/warpdotdev/Warp
+    - https://warp.dev
+    - 闭源, 商业 https://www.warp.dev/pricing
+      - $20/month
+      - BYOK 需要 $20/month 的 Build License
+        - https://github.com/warpdotdev/warp/issues/7936
+    - `brew install --cask warp`
 - dotfiles
   - [twpayne/chezmoi](https://github.com/twpayne/chezmoi)
   - https://dotfiles.github.io/utilities/

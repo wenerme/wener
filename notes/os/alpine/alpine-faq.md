@@ -383,12 +383,23 @@ apk update
 
 - apk 升级如果检测到本地修改，则会创建 .apk-new 文件
 - --clean-protected 不创建 .apk-new 文件
+- 有时候可能是 mod 变了
 
 ```bash
 find /etc -name '*.apk-new'
 
+# 这些可以考虑直接清理
+rm /etc/{hosts,hostname,rc.conf,passwd,shadow,group,sudoers,fstab,sysctl.conf,profile}.apk-new
+
+# 这些可以观察下，看是否保留或者参考下做调整
+diff /etc/inittab{,.apk-new}
+
+
 # rebase
 mv /etc/conf.d/k3s{.apk-new,}
+
+# 总是保留这些
+mv /etc/os-release{.apk-new,}
 ```
 
 ## ping: permission denied (are you root?)

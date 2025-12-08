@@ -13,3 +13,15 @@ title: mdev
 # %s      %d:%d       %s
 # device  user:group  mode
 ```
+
+```bash
+# Scan /sys and populate /dev
+mdev -s
+
+# /etc/blkid.tab
+# /run/blkid/blkid.tab
+
+blkid -g # 缓存清理
+# echo change | sudo tee /sys/block/sdb/uevent
+# echo add | sudo tee /sys/block/sdb/uevent
+```

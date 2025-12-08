@@ -77,7 +77,71 @@ tags:
 
 <!-- ❓⭐️🌟🔴🟠🟡🟢🔵🟣⚫️⚪️🟤🔺🔻🔸🔹🔶🔷🔳🔲▪️▫️◾️◽️◼️◻️🟥🟧🟨🟩🟦🟪⬛️⬜️🟫❌⭕️⛔️✅❎ -->
 
+## AlpineLinux 3.23
+
+**版本升级**
+
+- Linux 6.18
+- Node 24
+- Go 1.25
+- PostgreSQL 18
+- OpenJDK 25
+- Valkey 9 - 替代 Redis
+  - 虽然现在 Redis 已经协议又改回来了，但是替代过程应该不可逆了
+  - 支持 **HASH field ttl**
+  - Cluster 模式支持多 DB
+  - 原子 SLOT 迁移
+- ZFS 2.4
+  - 官方还没正式发布，目前是包含的 RC 版本
+  - Scrub Error Only
+    - `zpool scrub -e`
+    - 只会去扫描和修复它已知有错误的那些块, 不再需要全盘扫描
+    - 数据修复时间大幅降低: 几天 -> 几分钟
+  - VDEV Properties
+    - 以前是 pool 和 dataset 维度, 现在支持 vdev 维度
+    - 例如可以针对 SSD 和 HDD 分别设置不同的属性
+- Docker 29
+  - 可能会有些调用 Docker 的出现不兼容情况，Docker 29 变化较大
+- apk-tools v3
+  - 依赖优化: SAT Solver, Backtracking
+  - 网络优化: HTTP/2, 并行下载, 重试, 断电续传
+  - 为未来 APK v2 -> APKv3 做准备: ADB - Alpine Data Blob
+  - 支持 Xattr & ACL
+  - 去掉了 ftp 支持
+  - https://gitlab.alpinelinux.org/alpine/apk-tools/-/releases/v3.0.0
+- ffmpeg 8
+
+**变化**
+
+- linux-edge -> linux-stable
+  - 更接近滚动更新
+  - 配置和 linux-lts 相同
+- nftables-rulesets
+  - 包含可用的一些规则 /usr/share/nftables.avail/
+- udev rules 被拆分到了 `$pkgname-udev`
+- systemd 服务子包 `$pkgname-systemd`
+  - systemd 已经在官方支持 musl 了
+  - 目前还主要是面向 postmarketOS
+- curl HTTP/3
+  - nghttp3, openssl-quic
+
+**其他**
+
+- 延后了 /usr 合并
+
 ## AlpineLinux 3.22
+
+
+**升级**
+
+- Go 1.24
+- NodeJS 22
+
+**变化**
+
+- gummiboot -> systemd-efistub
+
+**其他**
 
 - /usr-merge
   - 3.21 做了大部分准备

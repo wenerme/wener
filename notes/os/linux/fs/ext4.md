@@ -20,6 +20,7 @@ title: ext4
 - resize2fs 可以 on-line grow 但 **不能 on-line shrinking**
 - e2image 可以从 QCOW2 读取 - 但如果 QCOW2 不是由 e2imaghe 生成则不一定支持
 - QCOW2 不是 spare，因此默认空间更小，更方便下载
+- 默认保留 5% 空间用于 root 用户使用, 也可以避免碎片, 如果大硬盘应该设置小一点
 
 :::
 
@@ -34,7 +35,10 @@ e2fsck -p /dev/sda3    # 检测修复
 resize2fs /dev/sda3 100000         # 缩小分区
 e2image -ra -p /dev/sda1 /dev/sdb1 # 复制分区 - 只复制用到的块 - 效率更高
 
-e2image -rap /dev/vda3 vda3.img    # backup
+tune2fs -l /dev/sda3 | grep UUID
+# tune2fs -U random /dev/sdY1 # 随机生成 UUID, e2image 会复制 UUID
+
+e2image -rap /dev/vda3 vda3.img # backup
 resize2fs -P vda3.img
 e2fsck -p vda3.img
 e2fsck -f vda3.img
@@ -64,6 +68,9 @@ e2image -ra -p /dev/vda3 /dev/vdb2
 
 mount -o remount,ro / # 不能成功 - 从 ro 到 rw 可以
 mount | column -t
+
+# 8 inode
+sudo debugfs -R "stat <8>" /dev/sda1
 ```
 
 | resize2fs      | for                    |
@@ -98,6 +105,14 @@ mount | column -t
 | -Q            | QCOW2                                                   |
 | -r            | raw 格式                                                |
 | -s            |
+
+| cmd       | for    |
+| --------- | ------ |
+| e2fsck    | fsck   |
+| e2image   | clone  |
+| resize2fs | resize |
+| tune2fs   | tune   |
+
 
 ## 测试 fs
 
@@ -286,7 +301,7 @@ fsck.ext4: unable to set superblock flags on /dev/sda2
 1. 离线方式
 
 - AlpineLinux 通过配置启动参数 rootflags=ro 重启挂载为只读
-- `tune2fs -O read-only /dev/sda1`  设置后重启，会被挂载为 ro
+- `tune2fs -O read-only /dev/sda1` 设置后重启，会被挂载为 ro
 
 2. 在线
 
@@ -326,3 +341,11 @@ sudo tune2fs -o usrquota /dev/sda1
 ```bash
 mkfs.ext4 -E discard /dev/nvme0n1 # 启用 TRIM
 ```
+
+## 优化
+
+- atime -> relatime -> noatime
+  - 避免频繁更新 atime
+  - relatime 只有在修改时间或更新时间变化时更新 atime, 或者现在的 atime 有 24h 未更新
+- commit=5 -> commit=60
+  - 每 60s 写入一次

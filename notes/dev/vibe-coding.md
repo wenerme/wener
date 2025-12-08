@@ -46,3 +46,10 @@ title: Vibe Coding
 - 记录特殊规则和例外情况
 - 定期回顾和更新配置设置
 - 实施模块化设计原则
+
+## 参考
+
+- Time to Edit (TTE)
+- https://cognition.ai/blog/devin-annual-performance-review-2025
+- https://cursor.com/blog/productivity
+

@@ -778,6 +778,9 @@ tags:
     - finding memory leaks in web apps
   - [sverweij/dependency-cruiser](https://github.com/sverweij/dependency-cruiser)
 - i18n
+  - [lingodotdev/lingo.dev](https://github.com/lingodotdev/lingo.dev)
+    - Apache-2.0, TS
+    - AI-powered i18n toolkit
   - [lingui/js-lingui](https://github.com/lingui/js-lingui)
     - core - 30kB, 8kB
     - react + 7kB, 2.5kB

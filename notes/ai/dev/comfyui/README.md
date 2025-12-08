@@ -73,9 +73,17 @@ else:
 - Examples/Workflows
   - https://github.com/comfyanonymous/ComfyUI_examples
 - [city96/ComfyUI-GGUF](https://github.com/city96/ComfyUI-GGUF)
-- ZImage
-  - [Z Image Lora Training on a 3060 12GB + AI Toolkit Guide that a child can use](https://www.reddit.com/r/StableDiffusion/comments/1p9k8td/z_image_lora_training_on_a_3060_12gb_ai_toolkit/)
-  - https://comfyanonymous.github.io/ComfyUI_examples/z_image/
+- API
+  - https://github.com/SaladTechnologies/comfyui-api
+    - 适合固定流程的任务
+    - 作为 Worker 方式运行
+    - 自动上传 S3
+  - https://docs.comfy.org/development/comfyui-server/comms_routes
+
+**z-image-turbo**
+
+- [Z Image Lora Training on a 3060 12GB + AI Toolkit Guide that a child can use](https://www.reddit.com/r/StableDiffusion/comments/1p9k8td/z_image_lora_training_on_a_3060_12gb_ai_toolkit/)
+- https://comfyanonymous.github.io/ComfyUI_examples/z_image/
 
 ```bash
 # 从图片 EXIF 获取 prompt, workflow 等信息

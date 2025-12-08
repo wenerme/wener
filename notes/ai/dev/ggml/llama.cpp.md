@@ -12,6 +12,10 @@ tags:
   - BLAST
 - 参考
   - [withcatai/node-llama-cpp](https://github.com/withcatai/node-llama-cpp)
+- libllama
+- libggml
+  - cpu, blas, metal, cuda
+- libmtmd
 
 :::cautiom
 
@@ -269,3 +273,13 @@ NODE_LLAMA_CPP_SKIP_DOWNLOAD=1 pnpm add node-llama-cpp
   - Taxicab/L1 - 曼哈顿距离
   - Max absolute - `[-1, 1]`
   - P-Norm
+
+## lib
+
+| 库文件   | 说明                                     |
+| -------- | ---------------------------------------- |
+| libllama | 主要的 llama 库                          |
+| libggml  | GGML 核心库: 后端 Metal, CPU, BLAS, CUDA |
+| libmtmd  | 多模态支持                               |
+
+- libmtmd -> libllama -> libggml

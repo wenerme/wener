@@ -45,3 +45,9 @@ LIMIT 50;
 
 - `$__timeFilter(created_at)`
   - -> `created_at BETWEEN '2023-11-28 10:00:00' AND '2023-11-28 11:00:00'`
+- Quota 问题
+  - multi value 的时候
+  - `${var:raw}` 得到原始，然后自己做 quote 处理
+
+
+## Variable Formatting Options

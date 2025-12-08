@@ -194,6 +194,14 @@ cat /proc/sys/fs/file-max
 Authentication Suites (2) : PSK unknown (6)
 ```
 
+## /tmp
+
+/tmp 是应该放在 tmpfs 还是放在 磁盘 上
+
+- /tmp 放在 tmpfs 上
+  - 内存溢出风险
+- /var/tmp 放在磁盘上
+
 # TBD
 
 https://stackoverflow.com/questions/332629/rm-not-freeing-diskspace

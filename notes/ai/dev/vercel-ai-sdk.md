@@ -6,6 +6,8 @@ title: Vercel AI SDK
 
 - [vercel/ai](https://github.com/vercel/ai)
   - Apache-2.0, TS
+- 参考
+  - 如何设计持久化存储 https://github.com/vercel/ai/discussions/4845
 
 ## Notes
 

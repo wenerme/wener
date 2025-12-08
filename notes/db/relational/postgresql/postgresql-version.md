@@ -65,6 +65,9 @@ tags:
   - `CREATE FOREIGN TABLE ... LIKE` 命令
 - 文本处理改进
   - `PG_UNICODE_FAST` 排序规则，加速 Unicode 比较
+    - `CREATE DATABASE mydatabase WITH ENCODING 'UTF8' LC_COLLATE 'PG_UNICODE_FAST' LC_CTYPE 'PG_UNICODE_FAST';`
+    - `--encoding=UTF-8 --locale-provider=builtin --lc-collate=PG_UNICODE_FAST --lc-ctype=PG_UNICODE_FAST`
+    - `--encoding=UTF-8 --locale-provider=builtin --builtin-locale=PG_UNICODE_FAST`
   - 支持非确定性排序规则的 `LIKE` 比较
   - 全文搜索使用集群默认排序规则提供程序
 - 认证和安全

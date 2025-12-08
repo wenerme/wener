@@ -6,6 +6,9 @@ tags:
 
 # 指标服务常见问题
 
+- 抓取默认 16M
+  - 如果 Unique Label 太多可能导致抓取失败, 可以调整大小
+
 ## Four Golden Signals
 
 - Latency

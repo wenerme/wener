@@ -11,6 +11,9 @@ title: Visual Studio Code
 
 :::
 
+- Web
+  - https://github.com/microsoft/vscode/issues/135856
+
 ## 常用快捷键 {#shortcuts}
 
 | 快捷键                        | 功能                                 |
