@@ -16,6 +16,8 @@ title: bun
 
 :::caution
 
+- bun 还有很多不支持的 addon 库 [#4290](https://github.com/oven-sh/bun/issues/4290)
+  - better-sqlite3
 - Roadmap [#159](https://github.com/oven-sh/bun/issues/159)
 - bun:ffi 能力是独一无二的
   - 可以为了 ffi 而使用 bun

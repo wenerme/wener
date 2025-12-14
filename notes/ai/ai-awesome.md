@@ -322,9 +322,6 @@ tags:
   - Near-Realtime audio transcription using self-hosted Whisper and WebSocket in Python/JS
 - [SJTU-IPADS/PowerInfer](https://github.com/SJTU-IPADS/PowerInfer)
   - High-speed Large Language Model Serving on PCs with Consumer-grade GPUs
-- [Portkey-AI/gateway](https://github.com/Portkey-AI/gateway)
-  - MIT, Typescript
-  - Blazing Fast AI Gateway. Route to 100+ LLMs with 1 fast & friendly API
 - 字幕
   - [melon/qingwu-zimu](https://github.com/melon/qingwu-zimu)
     - whisper
@@ -376,6 +373,15 @@ tags:
 - https://karpathy.ai/zero-to-hero.html
 - https://github.com/premAI-io/state-of-open-source-ai
 - https://theaisummer.com/diffusion-models/
+- [From GPT-2 to gpt-oss: Analyzing the Architectural Advances](https://magazine.sebastianraschka.com/p/from-gpt-2-to-gpt-oss-analyzing-the)
+-   - gpt-oss 20B/120B 开源，MXFP4 量化单卡可跑
+-   - RoPE + SwiGLU + GQA/KV 优化；可调 “reasoning effort” 平衡成本与精度
+-   - 体量更小但推理能力接近 Qwen3，偏重推理需检索/工具弥补事实性
+- [The Big LLM Architecture Comparison](https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison)
+-   - 综述 2024-2025 旗舰架构：DeepSeek、Qwen3、Llama4、gpt-oss 等
+-   - 趋势：GQA/MLA 降 KV，SwiGLU，RoPE/YaRN，MoE 稀疏增容
+-   - 个案：DeepSeek MLA+MoE；Kimi Delta Attention/DeltaNet 改进长程；Olmo3 透明公开、滑窗/GQA+YaRN
+-   - 结论：整体是 Transformer 精修与工程优化，而非颠覆式变化
 
 ## Prompt
 

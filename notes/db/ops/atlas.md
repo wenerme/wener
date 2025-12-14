@@ -102,9 +102,9 @@ atlas migrate hash
 atlas migrate apply --env local --baseline 00000000000000
 
 atlas schema diff \
---to file://schemas/main.sql \
---from file://migrations \
---dev-url "docker://postgres/17/dev"
+  --to file://schemas/main.sql \
+  --from file://migrations \
+  --dev-url "docker://postgres/17/dev"
 
 # 修改了 migrations 需要重新 hash
 atlas migrate hash
@@ -130,7 +130,6 @@ atlas migrate diff --to 'file://schemas/main.sql' --dev-url "docker://postgres/1
 # 验证基于 Schema 的迁移是否可执行
 # 由于不支持 function, procedure 所以可能失败
 atlas schema apply --to 'file://schemas/main.sql' -u "docker://postgres/17/dev" --dev-url "docker://postgres/17/dev"
-
 
 # 查看 docker 镜像的 tag
 regctl tag ls arigaio/mysql
@@ -264,7 +263,6 @@ CREATE TABLE "atlas_schema_revisions"."atlas_schema_revisions" (
 
 ## atlas.hcl
 
-
 ## DSL
 
 - 默认 DSL 名字 atlas.hcl
@@ -343,4 +341,44 @@ env "local" {
 
   schemas = ["main"]
 }
+```
+
+# FAQ
+
+## avoid diff schema
+
+```hcl
+diff {
+	add_table {
+		if_not_exists = true
+	}
+	drop_table {
+		if_exists = true
+	}
+	skip {
+		modify_schema = true
+	}
+}
+```
+
+```
+Error: *schema.ModifySchema is not allowed when migration plan is scoped to one schema
+```
+
+**wrong alter schema**
+
+```sql
+-- Modify "" schema
+ALTER DATABASE CHARSET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+```
+
+## migrate set version
+
+```bash
+atlas migrate set
+```
+
+```sql
+-- 直接更改 SQL 设置
+update atlas_schema_revisions set applied=total,error='',error_stmt='' where version='20251126'
 ```

@@ -81,15 +81,9 @@ tags:
     - LLM/AI application development framework in Golang
   - [google/langextract](https://github.com/google/langextract)
     - Apache-2.0, Python
-- API/Aggregator/Gateway/Monitor
-  - [BerriAI/litellm](https://github.com/BerriAI/litellm)
-    - MIT, Python
-    - 将各种 LLM 适配为 OpenAI 的 API 格式
-  - [bricks-cloud/BricksLLM](./bricksllm.md)
-    - MIT, Golang
-    - Enterprise-grade API gateway
-    - 提供访问控制、监控
-    - 支持 OpenAI, Azure OpenAI, Anthropic, vLLM 等
+- Monitor/Trace/Observability
+  - [langwatch/langwatch](https://github.com/langwatch/langwatch)
+    - Apache-2.0, TS
   - [Helicone/helicone](https://github.com/Helicone/helicone)
     - Apache-2.0, TS
     - observability platform for LLMs
@@ -98,11 +92,31 @@ tags:
     - LLM Observability, Prompt Management, LLM Evaluations, Datasets, LLM Metrics, Prompt Playground
   - [comet-ml/opik](https://github.com/comet-ml/opik)
     - Apache-2.0, Python, TS, MySQL, Clickhouse, Redis, Minio, Zookeeper
-  - https://openrouter.io
-  - https://together.ai
+  - [Scale3-Labs/langtrace](https://github.com/Scale3-Labs/langtrace)
+    - AGPLv3, TS
+- API/Aggregator/Gateway
+  - [envoyproxy/ai-gateway](https://github.com/envoyproxy/ai-gateway)
+    - Apache-2.0, Go
+  - [alibaba/higress](https://github.com/alibaba/higress)
+    - Apache-2.0, Go, C++
+  - [BerriAI/litellm](https://github.com/BerriAI/litellm)
+    - MIT, Python
+    - 将各种 LLM 适配为 OpenAI 的 API 格式
+  - [maximhq/bifrost](https://github.com/maximhq/bifrost)
+    - Apache-2.0, Go, Typescript
+  - [Portkey-AI/gateway](https://github.com/Portkey-AI/gateway)
+    - MIT, Typescript
+    - Blazing Fast AI Gateway. Route to 100+ LLMs with 1 fast & friendly API
+  - [bricks-cloud/BricksLLM](./bricksllm.md)
+    - MIT, Golang
+    - Enterprise-grade API gateway
+    - 提供访问控制、监控
+    - 支持 OpenAI, Azure OpenAI, Anthropic, vLLM 等
   - [katanemo/archgw](https://github.com/katanemo/archgw)
     - Apache-2.0, Rust, Python
     - AI gateway for agents
+  - https://openrouter.io
+  - https://together.ai
 - Engine/Runtime
   - [huggingface/transformers.js](https://github.com/huggingface/transformers.js)
     - Apache-2.0, JS

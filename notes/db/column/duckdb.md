@@ -12,22 +12,11 @@ title: DuckDB
   - 向量引擎，并行查询
   - 官方支持 SDK: Python, Java, C++, NodeJS, R
   - 语法类似 pg - 使用 libpg_query
-- 参考
-  - [duckdb/pg_duckdb](https://github.com/duckdb/pg_duckdb)
-    - 作为 PG 插件使用 DuckDB
-    - [supabase/postgres#1106](https://github.com/supabase/postgres/issues/1106)
-  - [duckdb/duckdb-wasm](https://github.com/duckdb/duckdb-wasm)
-    - 在 Web 内执行，基于 FS API 进行 IO 交互
-  - https://news.ycombinator.com/item?id=32684424
-  - https://h2oai.github.io/db-benchmark/
-  - [duckdblabs/arrow](https://github.com/duckdblabs/arrow)
-    - Arrow - Python Binding
-  - [evanwashere/duckdb](https://github.com/evanwashere/duckdb)
-    - bun binding
+
 
 :::caution
 
-- 不能更新 unique 列 [#5771](https://github.com/duckdb/duckdb/issues/5771)
+- external table [#14422](https://github.com/duckdb/duckdb/discussions/14422)
 
 :::
 
@@ -115,6 +104,40 @@ EXPORT DATABASE 'target_directory' (FORMAT CSV, DELIMITER '|');
 EXPORT DATABASE 'target_directory' (FORMAT PARQUET);
 -- 导入
 IMPORT DATABASE 'target_directory'
+```
+
+## Awesome
+
+- [duckdb/pg_duckdb](https://github.com/duckdb/pg_duckdb)
+  - 作为 PG 插件使用 DuckDB
+  - [supabase/postgres#1106](https://github.com/supabase/postgres/issues/1106)
+- [duckdb/duckdb-wasm](https://github.com/duckdb/duckdb-wasm)
+  - 在 Web 内执行，基于 FS API 进行 IO 交互
+- https://news.ycombinator.com/item?id=32684424
+- https://h2oai.github.io/db-benchmark/
+- [duckdblabs/arrow](https://github.com/duckdblabs/arrow)
+  - Arrow - Python Binding
+- [evanwashere/duckdb](https://github.com/evanwashere/duckdb)
+  - bun binding
+- [duckdb/ducklake](https://github.com/duckdb/ducklake)
+  - integrated data lake and catalog format
+- DuckDB UI 的 API https://github.com/duckdb/duckdb-ui/discussions/83
+- https://github.com/ibero-data/duck-ui
+  - duckui.com
+- extendsion
+  - https://duckdb.org/community_extensions/list_of_extensions
+  - [Query-farm/httpserver](https://github.com/Query-farm/httpserver)
+
+```sql
+INSTALL httpserver FROM community;
+LOAD httpserver;
+
+-- curl -X POST -d "SELECT 'hello', version()" "http://user:pass@localhost:9999/"
+-- default_format=JSONEachRow,JSONCompact
+-- curl -X POST -d "SELECT 'hello', version()" "http://localhost:9999/?default_format=JSONCompact"
+-- SELECT httpserve_start('localhost', 9999, 'user:pass');
+-- X-API-Key
+SELECT httpserve_start('localhost', 9999, 'supersecretkey');
 ```
 
 ## Inspect

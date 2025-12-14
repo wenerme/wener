@@ -13,6 +13,11 @@ curl https://alpinelinux.org/releases.json
 curl https://mirrors.alpinelinux.org/mirrors.json
 ```
 
+## Awesome
+
+- https://chimera-linux.org/
+  - BSD + APK
+
 ## Community
 
 - [Alpine Linux](https://alpinelinux.org/)

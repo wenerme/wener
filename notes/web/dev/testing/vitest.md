@@ -11,6 +11,7 @@ title: vitest
   - jsdom/happy-dom - DOM & browser API mocking
   - tinypool - worker
   - tinybench - benchmarking
+- [Vitest API Reference](https://vitest.dev/api)
 - 如果已经用 Vite 开发，则非常推荐
 - 参考
   - webstrom [Vitest Runner](https://plugins.jetbrains.com/plugin/19220-vitest-runner)

@@ -27,12 +27,11 @@ tags:
 ## OpenZFS 2.4
 
 - Linux: 4.18 - 6.17 kernels
-
-- VDEV Properties
-  - 以前是 pool 和 dataset 维度, 现在支持 vdev 维度
-  - 例如可以针对 SSD 和 HDD 分别设置不同的属性
-- ZStandard (Zstd) Early Abort
-  - 如果发现压缩效果不理想会提前中断压缩，节约 CPU
+- Uncached IO - 当 IO 请求不对齐时, fallback to a light-weight uncached IO
+- `zpool scrub -S -E` - Scrub 限定时间范围
+- 优化 deduplication 性能
+- 优化 AVX2 AES-GCM 加密性能
+- 引入新算法降低 vdev 碎片
 - 支持 user/group/project 设置 quota
 
 ## OpenZFS 2.3

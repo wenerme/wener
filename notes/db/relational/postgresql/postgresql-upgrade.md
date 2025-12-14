@@ -24,6 +24,7 @@ title: PostgreSQL Upgrade
   - NEW/data
 
 ```bash
+# --link hard link
 docker run --rm \
 	-v DIR:/var/lib/postgresql \
 	tianon/postgres-upgrade:OLD-to-NEW \
@@ -32,7 +33,13 @@ docker run --rm \
 docker run --rm \
 	-v PGDATAOLD:/var/lib/postgresql/OLD/data \
 	-v PGDATANEW:/var/lib/postgresql/NEW/data \
-	tianon/postgres-upgrade:OLD-to-NEW
+	tianon/postgres-upgrade:OLD-to-NEW \
+  --link
+
+
+# 升级后
+vacuumdb --all --analyze-in-stages --missing-stats-only
+vacuumdb --all --analyze-only
 ```
 
 ```
@@ -59,4 +66,10 @@ Failure, exiting
 
 ```bash
 docker exec -it -u postgres postgres pg_ctl stop
+```
+
+## old cluster does not use data checksums but the new one does
+
+```
+POSTGRES_INITDB_ARGS='--no-data-checksums'
 ```

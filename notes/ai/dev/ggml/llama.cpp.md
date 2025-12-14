@@ -203,8 +203,39 @@ docker logs llama | grep 'stop processing: n_tokens'
   - 支持批处理
 
 ```
-sampler chain: logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist
 ```
+
+| sample                                  | params/flags                                                                                                |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| logit-bias                              | `--logit-bias <id> <bias>`                                                                                  |
+| penalties (repeat/presence/freq)        | `--repeat-penalty`, `--repeat-last-n`, `--presence-penalty`, `--frequency-penalty`                          |
+| dry                                     | `--dry-multiplier`, `--dry-base`, `--dry-allowed-length`, `--dry-penalty-last-n`, `--dry-sequence-breakers` |
+| top-n-sigma                             | `--top-n-sigma`                                                                                             |
+| top-k                                   | `--top-k`, `--min-keep`                                                                                     |
+| typical                                 | `--typical-p`, `--min-keep`                                                                                 |
+| top-p                                   | `--top-p`, `--min-keep`                                                                                     |
+| min-p                                   | `--min-p`, `--min-keep`                                                                                     |
+| xtc                                     | `--xtc-probability`, `--xtc-threshold`, `--min-keep`, `--seed`                                              |
+| temp-ext (temperature / 动态温度)       | `--temp`, `--dynatemp-range`, `--dynatemp-exp`                                                              |
+| dist (最终采样)                         | `--seed`                                                                                                    |
+| mirostat (替代链，启用后跳过上面大部分) | `--mirostat {1\|2}`, `--temp`, `--mirostat-tau`, `--mirostat-eta`                                           |
+| grammar（非 sampler，但会前/后置约束）  | `--grammar`, `--grammar-lazy`, `--grammar-trigger-*`                                                        |
+
+说明：
+
+- 默认 sampler 顺序：penalties → dry → top-n-sigma → top-k → typical → top-p → min-p → xtc → temperature → dist，前面固定有 logit-bias，末尾固定 dist。
+- `--min-keep` 影响 top-k/top-p/min-p/typical/xtc 的保留下限。
+
+mirostat 是一种自适应采样算法，通过调节温度让输出熵稳定在目标值，以减少跑偏/重复。
+启用后会替换默认的 top-k/p/typical 链，仅保留 temp + mirostat 组合。
+
+| param                                  | flag                   |
+| -------------------------------------- | ---------------------- |
+| mirostat（0=关，1=v1，2=v2）           | --mirostat {0\|1\|2}   |
+| mirostat_tau（目标熵，常用 5.0）       | --mirostat-tau <float> |
+| mirostat_eta（学习率，常用 0.1）       | --mirostat-eta <float> |
+| temperature（mirostat 也需要基础温度） | --temp <float>         |
 
 ```
 原始 Logits (模型输出)

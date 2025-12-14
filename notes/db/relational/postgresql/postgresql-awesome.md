@@ -56,6 +56,9 @@ tags:
         - gt,gte,lt,lte,ne,in,nin,null,notnull,true,nottrue,false,notfalse,like,ilike,nilike,ltreelanc, ltreerdesc,ltreematch,ltreematchtxt
   - supabase
   - Hasura
+- Variants
+  - https://github.com/chumaky/docker-images
+  - [supabase/postgres](./postgres-supabase.md)
 
 ## Extension
 

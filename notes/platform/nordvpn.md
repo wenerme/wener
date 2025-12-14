@@ -83,7 +83,7 @@ curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]
 # TR Turkey
 curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=220&filters[servers_technologies][identifier]=proxy_ssl&limit=1'
 # US
-curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=228&filters[servers_technologies][identifier]=proxy_ssl&limit=1'
+curl -gs 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=228&filters[servers_technologies][identifier]=proxy_ssl&limit=1' | jq -r '.[0].hostname'
 ```
 
 - filters
@@ -97,6 +97,68 @@ curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]
     - 227, United Kingdom
     - 228, United States
     - https://github.com/bubuntux/nordlynx/discussions/8
+
+| country_id | Country                | 中文名               |
+| ---------- | ---------------------- | -------------------- |
+| 2          | Albania                | 阿尔巴尼亚           |
+| 10         | Argentina              | 阿根廷               |
+| 13         | Australia              | 澳大利亚             |
+| 14         | Austria                | 奥地利               |
+| 21         | Belgium                | 比利时               |
+| 27         | Bosnia and Herzegovina | 波斯尼亚和黑塞哥维那 |
+| 30         | Brazil                 | 巴西                 |
+| 33         | Bulgaria               | 保加利亚             |
+| 38         | Canada                 | 加拿大               |
+| 43         | Chile                  | 智利                 |
+| 52         | Costa Rica             | 哥斯达黎加           |
+| 54         | Croatia                | 克罗地亚             |
+| 56         | Cyprus                 | 塞浦路斯             |
+| 57         | Czech Republic         | 捷克共和国           |
+| 58         | Denmark                | 丹麦                 |
+| 68         | Estonia                | 爱沙尼亚             |
+| 73         | Finland                | 芬兰                 |
+| 74         | France                 | 法国                 |
+| 80         | Georgia                | 格鲁吉亚             |
+| 81         | Germany                | 德国                 |
+| 84         | Greece                 | 希腊                 |
+| 97         | Hong Kong              | 香港                 |
+| 98         | Hungary                | 匈牙利               |
+| 99         | Iceland                | 冰岛                 |
+| 100        | India                  | 印度                 |
+| 101        | Indonesia              | 印度尼西亚           |
+| 104        | Ireland                | 爱尔兰               |
+| 105        | Israel                 | 以色列               |
+| 106        | Italy                  | 意大利               |
+| 108        | Japan                  | 日本                 |
+| 114        | South Korea            | 韩国                 |
+| 119        | Latvia                 | 拉脱维亚             |
+| 125        | Lithuania              | 立陶宛               |
+| 126        | Luxembourg             | 卢森堡               |
+| 128        | North Macedonia        | 北马其顿             |
+| 131        | Malaysia               | 马来西亚             |
+| 140        | Mexico                 | 墨西哥               |
+| 142        | Moldova                | 摩尔多瓦             |
+| 153        | Netherlands            | 荷兰                 |
+| 156        | New Zealand            | 新西兰               |
+| 163        | Norway                 | 挪威                 |
+| 174        | Poland                 | 波兰                 |
+| 175        | Portugal               | 葡萄牙               |
+| 179        | Romania                | 罗马尼亚             |
+| 192        | Serbia                 | 塞尔维亚             |
+| 195        | Singapore              | 新加坡               |
+| 196        | Slovakia               | 斯洛伐克             |
+| 197        | Slovenia               | 斯洛文尼亚           |
+| 200        | South Africa           | 南非                 |
+| 202        | Spain                  | 西班牙               |
+| 208        | Sweden                 | 瑞典                 |
+| 209        | Switzerland            | 瑞士                 |
+| 211        | Taiwan                 | 台湾                 |
+| 214        | Thailand               | 泰国                 |
+| 220        | Turkey                 | 土耳其               |
+| 225        | Ukraine                | 乌克兰               |
+| 227        | United Kingdom         | 英国                 |
+| 228        | United States          | 美国                 |
+| 234        | Vietnam                | 越南                 |
 
 ## NordWhisper
 

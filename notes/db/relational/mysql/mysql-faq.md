@@ -79,6 +79,10 @@ FLUSH PRIVILEGES; -- 重载权限
 ALTER USER 'root'@'%' IDENTIFIED BY '123456';
 ```
 
+**参考**
+
+- 关键词 https://dev.mysql.com/doc/refman/8.4/en/keywords.html
+
 ## 限制 {#limits}
 
 - bind 参数 65535

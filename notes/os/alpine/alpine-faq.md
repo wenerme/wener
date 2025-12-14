@@ -394,12 +394,37 @@ rm /etc/{hosts,hostname,rc.conf,passwd,shadow,group,sudoers,fstab,sysctl.conf,pr
 # 这些可以观察下，看是否保留或者参考下做调整
 diff /etc/inittab{,.apk-new}
 
-
 # rebase
 mv /etc/conf.d/k3s{.apk-new,}
 
 # 总是保留这些
 mv /etc/os-release{.apk-new,}
+```
+
+```bash
+for f in /etc/init.d/*.apk-new; do
+  echo "=== $f ==="
+  diff "${f%.apk-new}" "$f"
+done
+```
+
+- 逐个文件分析
+  - pidfile 变化
+  - 参数变化
+  - 用户变化
+  - license 头变化
+
+## symbol not found
+
+```bash
+# 检查包是否有修改情况
+apk.static audit --system
+
+# 完整检查是不是有遗留的 lib 导致的
+apk.static audit --full --check-permissions --ignore-busybox-symlinks > audit.log
+
+# 检查不要是因为多出来的  lib 导致的
+grep '^A lib'
 ```
 
 ## ping: permission denied (are you root?)

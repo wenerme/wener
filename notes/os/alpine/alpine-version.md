@@ -104,7 +104,7 @@ tags:
   - 可能会有些调用 Docker 的出现不兼容情况，Docker 29 变化较大
 - apk-tools v3
   - 依赖优化: SAT Solver, Backtracking
-  - 网络优化: HTTP/2, 并行下载, 重试, 断电续传
+  - 网络优化: HTTP/2, 并行下载, 重试, 断点续传
   - 为未来 APK v2 -> APKv3 做准备: ADB - Alpine Data Blob
   - 支持 Xattr & ACL
   - 去掉了 ftp 支持
@@ -113,6 +113,9 @@ tags:
 
 **变化**
 
+- ~~sudo~~ -> dosa-sudo-shim
+  - 不是完全兼容
+  - ansible 需要调整配置使用 doas
 - linux-edge -> linux-stable
   - 更接近滚动更新
   - 配置和 linux-lts 相同

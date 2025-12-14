@@ -27,3 +27,20 @@ debug[!01].log
 **/logs/
 /config.json # Only ignores config.json in the root directory
 ```
+
+**local**
+
+```
+local/
+*.private.env.json
+*.local.json
+*.local.md
+*.local.http
+*.local.yaml
+*.local.sql
+local.test.ts
+*.local.sh
+.env
+.env*.local
+TODO*.md
+```

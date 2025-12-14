@@ -11,10 +11,8 @@ title: Nginx
 - [核心变量](http://nginx.org/en/docs/http/ngx_http_core_module.html#variables)
 - 可在日志中使用 `$request_time $upstream_response_time` 来记录访问使用时间
 - [ngx_http_auth_request_module](http://nginx.org/en/docs/http/ngx_http_auth_request_module.html)
-
   - 可将授权交由其他请求处理
   - [教程](https://developers.shopware.com/blog/2015/03/02/sso-with-nginx-authrequest-module/)
-
 - Reference
   - [agentzh's Nginx Tutorials ](http://openresty.org/download/agentzh-nginx-tutorials-en.html)
   - [Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
@@ -27,6 +25,12 @@ title: Nginx
     - NAXSI means Nginx Anti XSS & SQL Injection.
 - [denji/homebrew-nginx](https://github.com/denji/homebrew-nginx)
 - [Virtual Hosts on nginx](https://gist.github.com/soheilhy/8b94347ff8336d971ad0)
+- WebUI
+  - [NginxProxyManager/nginx-proxy-manager](https://github.com/NginxProxyManager/nginx-proxy-manager)
+    - MIT, JS
+  - [0xJacky/nginx-ui](https://github.com/0xJacky/nginx-ui)
+    - AGPLv3, Go, Vue
+    - Demo https://demo.nginxui.com admin/admin
 
 ```bash
 # brew 安装
