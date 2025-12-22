@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["12786"],{59785:function(e,s,c){c.d(s,{createPacketServices:()=>t.$});var t=c(93182);c(5716)}}]);
