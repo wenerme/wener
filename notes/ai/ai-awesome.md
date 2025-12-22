@@ -185,7 +185,11 @@ tags:
   - [RooVetGit/Roo-Code](https://github.com/RooVetGit/Roo-Code)
     - fork cline
 - Eval
+  - Evalscope
   - [stanford-crfm/helm](https://github.com/stanford-crfm/helm)
+  - https://github.com/Roblox/open-game-eval
+  - https://artificialanalysis.ai/evaluations/omniscience
+    - AA-Omniscience: Knowledge and Hallucination Benchmark
 - Agent/MCP
   - [microsoft/autogen](https://github.com/microsoft/autogen)
     - Multi Agent

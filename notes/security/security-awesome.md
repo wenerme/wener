@@ -75,6 +75,9 @@ tags:
   - Geetest
     - [yanglbme/geetest-crack](https://github.com/yanglbme/geetest-crack)
     - https://github.com/topics/geetest
+- Index
+  - https://grayhatwarfare.com/
+  - https://www.shodan.io/
 - https://github.com/zmap
 - [jtesta/ssh-audit](https://github.com/jtesta/ssh-audit)
   - [ssh-audit.com](https://www.ssh-audit.com/)
@@ -107,6 +110,10 @@ docker run --rm -it \
 | nghttp3 |
 | nghttp2 |
 | quictls |
+
+| abbr   | stand for                                    | cn  |
+| ------ | -------------------------------------------- | --- |
+| Shodan | Sentient Hyper-Optimized Data Access Network |
 
 ## Topic
 

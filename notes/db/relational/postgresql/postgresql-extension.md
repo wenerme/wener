@@ -37,6 +37,14 @@ make install USE_PGXS=1
   - MIT, Rust
   - Postgres Extensions with Rust
 
+```
+# https://github.com/Mooncake-Labs/pg_mooncake/blob/main/Dockerfile
+```
+
+- mooncakelabs/pg_mooncake
+  - FROM pgduckdb/pgduckdb:18-main AS base
+- https://github.com/duckdb/pg_duckdb
+
 ## TLE
 
 - 避免直接访问文件系统

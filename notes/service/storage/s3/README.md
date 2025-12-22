@@ -138,3 +138,13 @@ aws --profile project01 --endpoint-url http://localhost:9000 s3 ls s3://my-bucke
   - s3.oss-cn-hongkong.aliyuncs.com
   - 内网 s3.oss-cn-hongkong-internal.aliyuncs.com
   - https://help.aliyun.com/zh/oss/developer-reference/compatibility-with-amazon-s3-1/
+- Testing
+  - https://buckets.grayhatwarfare.com/
+  - https://registry.opendata.aws/
+  - https://aws.amazon.com/opendata/
+
+## API
+
+- listObjects
+  - 如果传入了 delimiter, 会返回 CommonPrefixes, 类似于目录列表
+- https://docs.aws.amazon.com/s3/

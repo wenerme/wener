@@ -304,3 +304,7 @@ npx mikro-orm migration:create --initial
 
 pnpm --package=@mikro-orm/cli dlx mikro-orm migration:create --initial
 ```
+
+## ObjectHydrator
+- DB -> ORM
+- 动态编译的 Code

@@ -154,6 +154,28 @@ table ip nat {
   - 需要额外加密层
   - 兼容性要求高的场景
 
+## Reality Domains
+
+- www.microsoft.com
+- learn.microsoft.com
+- itunes.apple.com
+- swdist.apple.com
+- gateway.icloud.com
+- www.amazon.com
+
+也可以根据区域选择不同的域名
+
+## Reality vs Mieru
+
+- Reality
+  - 伪装
+  - Fake TLS
+- Mieru
+  - 混沌
+  - 抗干扰强，能开多个端口，支持 TCP、UDP
+  - 不需要 TLS
+  - 比较新，支持的较少
+
 ## XTLS vs Xray vs V2Ray vs V2Fly
 
 - Xray-core 是 v2ray-core 的超集

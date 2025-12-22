@@ -47,9 +47,9 @@ export ADMIN_SECRET_ACCESS_KEY=$ROOT_SECRET_KEY
 export ADMIN_ENDPOINT_URL=http://localhost:7070
 export ADMIN_ALLOW_INSECURE=true
 
-/app/versitygw admin list-buckets
+versitygw admin list-buckets
 # 多用户模式
-/app/versitygw admin list-users
+versitygw admin list-users
 
 
 # xattr

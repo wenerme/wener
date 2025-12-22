@@ -20,6 +20,9 @@ git config user.email
 
 # clean untrack
 git clean -d -f
+
+# git stat one line
+git log --pretty=format:"%h %an %ad %s" --shortstat
 ```
 
 ## 不同仓库使用不同用户信息

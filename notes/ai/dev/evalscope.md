@@ -143,3 +143,13 @@ outputs/20251213_141531/
     └── qwen3-vl-4b-instruct/
         └── *.jsonl (61个文件)
 ```
+
+## datasets
+
+- DEFAULT_EVALSCOPE_CACHE_DIR=~/.cache/evalscope
+- ~/.cache/evalscope/datasets
+- evalscope/api/dataset/loader.py
+- `~/.cache/evalscope/datasets/{dataset_name}-{hash}/`
+- 配置
+  - datasets=[]
+  - dataset_hub=HuggingFace|ModelScope

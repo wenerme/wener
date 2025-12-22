@@ -27,7 +27,8 @@ huggingface-cli download Qwen/Qwen2.5-VL-7B-Instruct        # 下载模型
 huggingface-cli login
 huggingface-cli whoami
 
-uvx --from huggingface_hub huggingface-cli
+# 查看本地缓存内容
+uvx --from huggingface_hub huggingface-cli scan-cache
 ```
 
 - --repo-type dataset
@@ -88,20 +89,6 @@ completion = client.chat.completions.create(
 )
 ```
 
-## modelscope
-
-```bash
-# 国内镜像下载 HF Repo
-pip install modelscope
-```
-
-- cache_dir= ~/.cache/modelscope/hub
-- allow_patterns
-- ignore_patterns
-- --include
-- --exclude
-- 模型缓存目录
-  - cache_dir/MODEL_ID/THE_MODEL_FILES
 
 ## Notes
 

@@ -34,6 +34,7 @@ tags: [Claude, AI, Code, Agent]
 :::
 
 ```bash
+brew install claude-code
 npm install -g @anthropic-ai/claude-code
 
 CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 claude

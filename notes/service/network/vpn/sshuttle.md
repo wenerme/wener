@@ -53,5 +53,18 @@ sshuttle --method=tproxy
 ## cleanup pfctl anchor
 
 ```bash
-sudo pfctl -sr | grep -o -E 'sshuttle[^"]+' | xargs -i sudo pfctl -a {} -F  all
+sudo pfctl -sr | grep -o -E 'sshuttle[^"]+' | xargs -i sudo pfctl -a {} -F all
+```
+
+## timeout
+
+- 注意检查 source ip
+- 例如 sshuttle 10.1.0.0/24， 但是已经有一个 vpn 是 10.10.0.0/24， 这时候可能选贼 10.10 作为 src ip, 会导致 sshuttle 无法正常工作
+- 使用 `sshuttle -x 10.10.0.0/24` 排除地址
+
+```bash
+# 如果还是不行，就强制 期望走 sshuttle 的流量走 非 10 接口
+sudo route add -net 10.1.0.0/24 192.168.1.1
+
+#sudo route add -net 10.1.0.0/24 -interface lo
 ```

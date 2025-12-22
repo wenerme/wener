@@ -20,6 +20,7 @@ tags:
   - Apache-2.0, TS
   - Gemini CLI fork
 - Claude Code
+- Kilocode
 - [openai/codex](https://github.com/openai/codex)
   - Apache-2.0, Rust
 - [a2aproject/A2A](https://github.com/a2aproject/A2A)
@@ -35,3 +36,28 @@ tags:
 - [rowboatlabs/rowboat](https://github.com/rowboatlabs/rowboat)
   - Apache-2.0, TypeScript
   - AI-powered CLI for background agents
+
+# FAQ
+
+## Notification
+
+- macOS terminal-notifier
+- Linux notify-send
+
+```json
+{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title '🔔 Claude Code: Input Needed' -message 'Claude is waiting for your input'"
+          }
+        ]
+      }
+    ]
+  }
+}
+```

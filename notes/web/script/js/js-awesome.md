@@ -1136,6 +1136,8 @@ tags:
     - GPLv2, C
   - [ccxvii/mujs](https://github.com/ccxvii/mujs)
     - ISC, C
+  - [fastschema/qjs](https://github.com/fastschema/qjs)
+    - MIT, Go, Wazero
 - Sandbox
   - v8 isolate
   - [WICG/portals](https://github.com/WICG/portals)

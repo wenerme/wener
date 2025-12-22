@@ -47,6 +47,7 @@ tags: [Agent, CLI]
     - Selection Context
 
 ```bash
+brew install gemini-cli
 npm install -g @google/gemini-cli@latest
 
 gemini
