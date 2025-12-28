@@ -66,8 +66,8 @@ tags:
     - https://browsercraft.cheerpj.com/
   - Eaglercraft
     - 最新 1.12.2
-    - https://git.eaglercraft.rip/eaglercraft
-    - https://servers.eaglercraft.com/
+    - [Eaglercraft 1.12.2](https://eaglercraft.dev/clients/Release%201.12.2%20JS/index.html)
+    - [Server List](https://topeaglerservers.com/)
   - https://classic.minecraft.net/
 - World/Map/Editor
   - LevelDB 存储
