@@ -26,16 +26,15 @@ title: PostgreSQL Upgrade
 ```bash
 # --link hard link
 docker run --rm \
-	-v DIR:/var/lib/postgresql \
-	tianon/postgres-upgrade:OLD-to-NEW \
-	--link
-
-docker run --rm \
-	-v PGDATAOLD:/var/lib/postgresql/OLD/data \
-	-v PGDATANEW:/var/lib/postgresql/NEW/data \
-	tianon/postgres-upgrade:OLD-to-NEW \
+  -v DIR:/var/lib/postgresql \
+  tianon/postgres-upgrade:OLD-to-NEW \
   --link
 
+docker run --rm \
+  -v PGDATAOLD:/var/lib/postgresql/OLD/data \
+  -v PGDATANEW:/var/lib/postgresql/NEW/data \
+  tianon/postgres-upgrade:OLD-to-NEW \
+  --link
 
 # 升级后
 vacuumdb --all --analyze-in-stages --missing-stats-only
@@ -65,6 +64,7 @@ Failure, exiting
 重启服务，然后 `pg_ctl stop`
 
 ```bash
+docker update postgres --restart=no
 docker exec -it -u postgres postgres pg_ctl stop
 ```
 
@@ -73,3 +73,7 @@ docker exec -it -u postgres postgres pg_ctl stop
 ```
 POSTGRES_INITDB_ARGS='--no-data-checksums'
 ```
+
+## database user "postgres" is not the install user
+
+supabase 使用 supabase_admin

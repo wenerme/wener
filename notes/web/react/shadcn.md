@@ -9,6 +9,7 @@ title: shadcn
   - 基于 preset 的模板生成组件到本地
   - 更多是强调怎么组织组件
   - 依赖
+    - v4 支持多 icon 支持 @base-ui/react 了
     - [@radix-ui/primitive](./radix.md) - 基础组件
       - Headless UI
     - [cva](https://github.com/joe-bell/cva)
@@ -22,3 +23,5 @@ title: shadcn
 npx shadcn-ui@latest init
 npx shadcn-ui@latest add select
 ```
+
+## Registry

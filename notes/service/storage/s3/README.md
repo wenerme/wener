@@ -148,3 +148,4 @@ aws --profile project01 --endpoint-url http://localhost:9000 s3 ls s3://my-bucke
 - listObjects
   - 如果传入了 delimiter, 会返回 CommonPrefixes, 类似于目录列表
 - https://docs.aws.amazon.com/s3/
+- https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html

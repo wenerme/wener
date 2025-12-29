@@ -12,6 +12,8 @@ title: promxy
 ```bash
 # http://127.0.0.1:8082
 promxy --config config.yaml
+
+# https://hub.docker.com/r/jacksontj/promxy
 ```
 
 ```yaml

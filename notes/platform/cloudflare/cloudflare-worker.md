@@ -45,3 +45,13 @@ title: Cloudflare Workers
 ```bash
 node $(dirname $(realpath $(which wrangler)))/install-wrangler.js
 ```
+
+## Cannot perform I/O on behalf of a different request.
+
+- Hyperdriver 这种需要每个请求都初始化
+- 全局只能缓存类似 dbUrl 这种
+
+
+```
+Cannot perform I/O on behalf of a different request. I/O objects (such as streams, request/response bodies, and others) created in the context of one request handler cannot be accessed from a different request's handler. This is a limitation of Cloudflare Workers which allows us to improve overall performance. (I/O type: Writable)
+```

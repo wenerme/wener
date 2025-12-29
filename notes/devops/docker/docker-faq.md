@@ -433,3 +433,20 @@ docker login
 1. 不使用 docker-desktop 作为 credsStore
 
 移除 ~/.docker/config.json 中的 `"credsStore": "desktop"`
+
+## change mount propagation through procfd
+
+是因为定义了 Volume 但是挂载的位置没有配置对
+
+```
+failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error mounting "/data/wener/postgres/data" to rootfs at "/var/lib/postgresql/data": change mount propagation through procfd: open o_path procfd: open /var/lib/docker/overlay2/3bf68d0318bef526ef74ace5351a73e876f7ce22cdd08cce88bc77d499c10529/merged/var/lib/postgresql/data: no such file or directory: unknown
+```
+
+- 18+
+  - /var/lib/postgresql/18/docker
+- 之前 /var/lib/postgresql/data
+
+```yaml
+volumes:
+  - ./postgres/data:/var/lib/postgresql/
+```

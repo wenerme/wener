@@ -30,6 +30,9 @@ sling run --src-conn MSSQL --src-stream 'dbo.Users' --tgt-conn DUMP
 sling run --src-conn MSSQL --src-stream 'dbo.Users' --tgt-object file://$PWD/dump.json
 
 sling run -r sling.dump.yaml
+
+# 执行 SQL
+sling sling run --src-conn INFRA --src-stream "SELECT schema_name FROM information_schema.schemata WHERE schema_name NOT IN ('pg_catalog', 'information_schema', 'pg_toast')" --stdout
 ```
 
 ```yaml title="replication.yaml"

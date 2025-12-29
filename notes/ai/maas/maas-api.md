@@ -7,7 +7,7 @@ title: MaaS API
 - Google Generative AI API
   - https://ai.google.dev/api/rest
   - Google AI Studio, Gemini API
-  - https://generativelanguage.googleapis.com/v1beta
+  - BaseURL https://generativelanguage.googleapis.com/v1beta
   - https://generativelanguage.googleapis.com/v1beta/openai - OpenAI API compatible
   - 接口
     - `/models/{model_id}:streamGenerateContent`
@@ -41,6 +41,10 @@ title: MaaS API
 - "Fat Tail" (肥尾)
 - 3+Sigma + 15-30min 窗口检查异动
 
+## Gemini API
+
+- https://ai.google.dev/api/rest
+
 ## streaming
 
 - 第一个 chunk 和最后一个 chunk 不应该包含 content
@@ -72,7 +76,6 @@ title: MaaS API
 - 参考
   - https://github.com/BerriAI/litellm/issues/12417
     - LiteLLM 添加最后一个 chunk 的 content 为 空
-
 
 ## ToolChoice
 

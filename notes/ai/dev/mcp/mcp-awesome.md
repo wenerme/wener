@@ -308,6 +308,8 @@ services:
 ## Chrome DevTool MCP
 
 - https://github.com/ChromeDevTools/chrome-devtools-mcp/
+  - --autoConnect/--auto-connect
+    - Chrome 145+
 
 ```json
 {
@@ -343,7 +345,6 @@ Please check the LCP of web.dev.
 
 - https://gitea.com/gitea/gitea-mcp
 
-
 ```bash
 # 推荐命令行使用
 go install -v gitea.com/gitea/gitea-mcp@latest
@@ -370,3 +371,8 @@ go install -v gitea.com/gitea/gitea-mcp@latest
   }
 }
 ```
+
+## Memory
+
+- https://github.com/modelcontextprotocol/servers/tree/main/src/memory
+- https://github.com/thedotmack/claude-mem

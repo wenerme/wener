@@ -55,19 +55,19 @@ tags:
 
 | Release    | Name                                         | zh-CN                     | Status        |
 | ---------- | -------------------------------------------- | ------------------------- | ------------- |
-| 2023-11-16 | Super Mario RPG ￼                            | 超级马力欧RPG             |
-| 2023-02-23 | OCTOPATH TRAVELER II ￼                       | 歧路旅人 II               |
+| 2023-11-16 | Super Mario RPG                              | 超级马力欧RPG             |
+| 2023-02-23 | OCTOPATH TRAVELER II                         | 歧路旅人 II               |
 | 2022-10    | PERSONA 5 ROYAL                              | 女神异闻录 5 皇家版       |               |
 | 2022-09    | Splatoon 3                                   | 斯普拉遁 3                |               |
 | 2022-06    | Portal: Companion Collection                 | 传送门：同伴合集          |               |
 | 2021-10    | Metroid Dread                                | 密特罗德 生存恐惧         |               |
-| 2021-02-11 | Super Mario 3D World + Bowser's Fury ￼       | 超级马力欧3D世界+狂怒世界 |
-| 2020-11-19 | Hyrule Warriors: Age of Calamity ￼           | 塞尔达无双 灾厄启示录     | Trial         |
+| 2021-02-11 | Super Mario 3D World + Bowser's Fury         | 超级马力欧3D世界+狂怒世界 |
+| 2020-11-19 | Hyrule Warriors: Age of Calamity             | 塞尔达无双 灾厄启示录     | Trial         |
 | 2020-09    | Ori and the Will of the Wisps                | 精灵与萤火意志            |               |
-| 2020-05-28 | Xenoblade Chronicles: Definitive Edition ￼   | 异度神剑：终极版          | 2010 的重制版 |
+| 2020-05-28 | Xenoblade Chronicles: Definitive Edition     | 异度神剑：终极版          | 2010 的重制版 |
 | 2019-09    | Ori and the Blind Forest: Definitive Edition | 精灵与森林 决定版         |               |
 | 2018-07    | OCTOPATH TRAVELER                            | 歧路旅人                  |               |
-| 2017-11-30 | Xenoblade Chronicles 2 ￼                     | 异度神剑 2                |
+| 2017-11-30 | Xenoblade Chronicles 2                       | 异度神剑 2                |
 | -          |                                              | 弹丸论破                  |
 | -          |                                              | 幽灵诡计                  |
 | -          |                                              | 土豆兄弟                  |
@@ -76,16 +76,18 @@ tags:
 
 | Release    | Name                                               | zn-CN                       | Status     |
 | ---------- | -------------------------------------------------- | --------------------------- | ---------- |
-| 2024-05-22 | Paper Mario: The Thousand-Year Door ￼              | 纸片马力欧RPG 千年之门      | WIP        |
-| 2024-03-21 | Princess Peach: Showtime! ￼                        | 碧姬公主 表演时刻！         | 通关       |
-| 2023-11-02 | WarioWare: Move It! ￼                              | 超级舞动 瓦力欧制造         | WIP        |
-| 2022-11-17 | Pokémon Violet ￼                                   | 宝可梦 紫                   | 通关       |
-| 2022-01-27 | Pokémon Legends: Arceus ￼                          | 宝可梦传说 阿尔宙斯         | 通关       |
-| 2024-09-25 | The Legend of Zelda: Echoes of Wisdom ￼            | 塞尔达传说：智慧的再现      |
-| 2024-10-16 | Super Mario Party Jamboree ￼                       | 超级马力欧派对 空前盛会     |
-| 2023-07-20 | Pikmin 4 ￼                                         | 皮克敏 4                    | 通关       |
+| 2025       |                                                    | 银河2                       | WIP        |
+| 2025       |                                                    | 银河1                       |
+| 2024-05-22 | Paper Mario: The Thousand-Year Door                | 纸片马力欧RPG 千年之门      | WIP        |
+| 2024-03-21 | Princess Peach: Showtime!                          | 碧姬公主 表演时刻！         | 通关       |
+| 2023-11-02 | WarioWare: Move It!                                | 超级舞动 瓦力欧制造         | WIP        |
+| 2022-11-17 | Pokémon Violet                                     | 宝可梦 紫                   | 通关       |
+| 2022-01-27 | Pokémon Legends: Arceus                            | 宝可梦传说 阿尔宙斯         | 通关       |
+| 2024-09-25 | The Legend of Zelda: Echoes of Wisdom              | 塞尔达传说：智慧的再现      |
+| 2024-10-16 | Super Mario Party Jamboree                         | 超级马力欧派对 空前盛会     |
+| 2023-07-20 | Pikmin 4                                           | 皮克敏 4                    | 通关       |
 | 2023-05-11 | The Legend of Zelda: Tears of the Kingdom          | 塞尔达传说：王国之泪        | 通关       |
-| 2019-07-25 | Fire Emblem: Three Houses ￼                        | 火焰纹章：风花雪月          | WIP        |
+| 2019-07-25 | Fire Emblem: Three Houses                          | 火焰纹章：风花雪月          | WIP        |
 | 2022-10    | Bayonetta 3                                        | 蓓优妮塔 3                  | WIP        |
 | 2023-01-19 | Fire Emblem Engage                                 | 火焰纹章 Engage             | 通关,110h  |
 | 2022-10-19 | Mario + Rabbids Sparks of Hope                     | 玛利欧 + 疯狂兔子 希望之星  | 通关,52h   |

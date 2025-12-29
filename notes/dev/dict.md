@@ -2266,7 +2266,7 @@ try to get the other instance of the resource. In the unfortunate case it might 
 
 - https://tjj.gz.gov.cn/stats_newtjyw/zjtj/tjzs/content/post_8540550.html
 
-## Cost vs Price
+## Cost vs Price vs Money
 
 - Cost - 成本
   - 向内看
@@ -2290,6 +2290,8 @@ try to get the other instance of the resource. In the unfortunate case it might 
     - 品牌价值与定位 (Brand Value)：高端品牌可以设定更高的价格。
     - 竞争对手定价 (Competition)：需要参考同类产品的市场价格。
     - 消费者感知价值 (Perceived Value)：消费者认为这个产品值多少钱。
+- Money - 金钱
+  - 泛指货币
 
 ## chat vs conversation
 

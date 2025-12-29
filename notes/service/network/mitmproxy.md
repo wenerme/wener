@@ -35,6 +35,8 @@ brew install mitmproxy # macOS brew
 
 mitmweb --mode regular --no-web-open-browser --web-port 8080 --listen-port 8888
 
+mitmweb --mode upstream:http://127.0.0.1:7890 --no-web-open-browser --web-port 8080 --listen-port 8888
+
 openssl genrsa -out cert.key 2048
 openssl req -new -x509 -key cert.key -out cert.crt
 cat cert.key cert.crt > cert.pem
@@ -84,14 +86,22 @@ ip6tables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 
 mitmproxy --mode transparent --showhost
 ```
 
-
 ## 添加证书
+
+- 走代理访问 http://mitm.it/ 能看到证书
 
 ```bash
 curl --proxy 127.0.0.1:8080 --cacert ~/.mitmproxy/mitmproxy-ca-cert.pem https://wener.me
 
-# macOS
+# macOS 全局添加
 sudo security add-trusted-cert -d -p ssl -p basic -k /Library/Keychains/System.keychain ~/.mitmproxy/mitmproxy-ca-cert.pem
+# macOS 全局删除
+sudo security delete-certificate -c "mitmproxy" /Library/Keychains/System.keychain
+
+# NodeJS
+NODE_EXTRA_CA_CERTS=~/.mitmproxy/mitmproxy-ca-cert.pem
+# 或
+NODE_TLS_REJECT_UNAUTHORIZED=0
 ```
 
 - https://docs.mitmproxy.org/stable/concepts-certificates/

@@ -30,6 +30,8 @@ tags:
 - 商业
   - https://opencorporates.com
     - https://api.opencorporates.com/documentation/API-Reference
+- Hacker News
+  - https://huggingface.co/datasets/OpenPipe/hacker-news
 
 ## UID
 
@@ -306,3 +308,10 @@ Author, A. (2023). Title. _Journal_, 1(1), 1-10. https://doi.org/10.1000/182
 - https://www.kaggle.com/datasets
 - IMDB
   - https://huggingface.co/datasets/minato-ryan/imdb-wiki
+
+```bash
+curl -N -H "Accept: text/event-stream" https://hacker-news.firebaseio.com/v0/updates.json
+
+# {"path":"/","data":46411161}
+curl -N -H "Accept: text/event-stream" https://hacker-news.firebaseio.com/v0/maxitem.json
+```

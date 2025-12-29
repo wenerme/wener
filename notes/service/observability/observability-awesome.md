@@ -48,6 +48,10 @@ tags:
     - MIT, Go
     - Alerting for Prometheus
   - [prometheus/alertmanager](https://github.com/prometheus/alertmanager)
+- Storage
+  - [trickstercache/trickster](https://github.com/trickstercache/trickster)
+    - Apache-2.0, Go
+    - HTTP Reverse Proxy Cache and Time Series Dashboard Accelerator
 - [openobserve](./openobserve.md)
   - zincobserve -> openobserve
   - Apache-2.0, Rust
