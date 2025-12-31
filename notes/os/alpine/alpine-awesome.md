@@ -11,6 +11,9 @@ tags:
 curl https://alpinelinux.org/releases.json
 # 获取镜像信息
 curl https://mirrors.alpinelinux.org/mirrors.json
+
+#
+curl https://mirrors.aliyun.com/alpine/last-updated
 ```
 
 ## Awesome

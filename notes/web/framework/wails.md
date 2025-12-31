@@ -90,7 +90,7 @@ window._wails;
 window.wails;
 ```
 
-- https://github.com/wailsapp/wails/tree/v3-alpha/v3/internal/runtime/desktop
+- [Wails v3 Desktop Runtime](https://github.com/wailsapp/wails/tree/v3-alpha/v3/internal/runtime/desktop)
 
 ## wails v3
 
@@ -109,8 +109,8 @@ window.wails;
       - `wlm-event` - emit 事件
         - `wlm-trigger` - 触发条件
           - 例如 mouseover
-- https://github.com/wailsapp/wails/tree/v3-alpha
-- https://v3alpha.wails.io/
+- [Wails v3 Alpha Source](https://github.com/wailsapp/wails/tree/v3-alpha)
+- [Wails v3 Alpha Docs](https://v3alpha.wails.io/)
 - events
   - 三种类型
     - ApplicationEvent
@@ -146,7 +146,7 @@ wails3 build
     - GetSystemDefaultLocaleName
     - https://github.com/cloudfoundry-attic/jibber_jabber
 - wails.exe.manifest
-  - https://github.com/tc-hib/winres/blob/master/manifest.go
+  - [winres manifest.go](https://github.com/tc-hib/winres/blob/master/manifest.go)
 
 ```json title="info.json"
 {

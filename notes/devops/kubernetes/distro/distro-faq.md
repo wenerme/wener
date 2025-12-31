@@ -1,0 +1,6 @@
+---
+tags:
+  - FAQ
+---
+
+# Distro FAQ

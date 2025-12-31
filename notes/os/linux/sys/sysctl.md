@@ -1,22 +1,31 @@
 ---
-title: sysctl
+title: Linux Kernel Tuning (sysctl)
+tags:
+  - Linux
+  - Kernel
+  - Tuning
+  - SysAdmin
+  - sysctl
 ---
 
-# sysctl
+# Linux Kernel Tuning (sysctl) {#linux-kernel-tuning}
 
-- [/etc/sysctl.d](https://man7.org/linux/man-pages/man5/sysctl.d.5.html)
-- [sysctl.8](https://man7.org/linux/man-pages/man8/sysctl.8.html)
-- 配置文件
-  - `/etc/sysctl.d/*.conf`
-  - `/run/sysctl.d/*.conf`
-  - `/usr/local/lib/sysctl.d/*.conf`
-  - `/usr/lib/sysctl.d/*.conf`
-  - `/lib/sysctl.d/*.conf`
-  - `/etc/sysctl.conf`
-- /proc/sys
-- [networking/ip-sysctl.txt](https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt)
-- https://sysctl-explorer.net/
-  - [proudier/sysctl-explorer](https://github.com/proudier/sysctl-explorer)
+- Documents:
+  - [sysctl.d(5)](https://man7.org/linux/man-pages/man5/sysctl.d.5.html)
+  - [sysctl(8)](https://man7.org/linux/man-pages/man8/sysctl.8.html)
+  - [ip-sysctl.txt](https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt)
+- Tools:
+  - [Sysctl Explorer](https://sysctl-explorer.net/) ([GitHub](https://github.com/proudier/sysctl-explorer))
+
+## Configuration Paths
+
+- `/etc/sysctl.d/*.conf`
+- `/run/sysctl.d/*.conf`
+- `/usr/local/lib/sysctl.d/*.conf`
+- `/usr/lib/sysctl.d/*.conf`
+- `/lib/sysctl.d/*.conf`
+- `/etc/sysctl.conf`
+- Runtime: `/proc/sys`
 
 ```bash
 sysctl -p                              # 加载 文件 - 默认为 /etc/sysctl.conf

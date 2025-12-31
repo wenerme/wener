@@ -136,7 +136,6 @@ date: 2021-11-30
 
 # Awesome
 
-
 - rules
   - unix-like 不允许 `/`
   - Windows 不允许 `<>:"/\|?*\u0000-\u001F`
@@ -147,8 +146,8 @@ const WindowsReservedNameRegex = /^(con|prn|aux|nul|com\d|lpt\d)$/i;
 ```
 
 - 参考
-  - https://github.com/sindresorhus/filenamify
-  - https://github.com/sindresorhus/filename-reserved-regex
+  - [sindresorhus/filenamify](https://github.com/sindresorhus/filenamify)
+  - [sindresorhus/filename-reserved-regex](https://github.com/sindresorhus/filename-reserved-regex)
 
 # 实现方案分析
 
@@ -213,11 +212,11 @@ file --mime-type --mime-encoding $PWD
 
 ## meta
 
-- https://www.freedesktop.org/wiki/Specifications/shared-filemetadata-spec/
-- https://www.freedesktop.org/wiki/CommonExtendedAttributes/
-- http://0pointer.de/lennart/projects/mod_mime_xattr/
-- https://man7.org/linux/man-pages/man1/setfattr.1.html
-- https://man7.org/linux/man-pages/man7/xattr.7.html
+- [Freedesktop: Shared File Metadata](https://www.freedesktop.org/wiki/Specifications/shared-filemetadata-spec/)
+- [Freedesktop: Common Extended Attributes](https://www.freedesktop.org/wiki/CommonExtendedAttributes/)
+- [mod_mime_xattr](http://0pointer.de/lennart/projects/mod_mime_xattr/)
+- [man7: setfattr(1)](https://man7.org/linux/man-pages/man1/setfattr.1.html)
+- [man7: xattr(7)](https://man7.org/linux/man-pages/man7/xattr.7.html)
 
 ```
 namespace.attribute
@@ -233,7 +232,7 @@ security.selinux
   - trusted
   - user
 - 255 bytes and values of up to 64 KiB
-- https://en.wikipedia.org/wiki/Extended_file_attributes
+- [Wiki: Extended file attributes](https://en.wikipedia.org/wiki/Extended_file_attributes)
 
 ## file manager
 
@@ -246,21 +245,21 @@ security.selinux
 
 ## thumb
 
-- https://en.wikipedia.org/wiki/Windows_thumbnail_cache
+- [Wiki: Windows thumbnail cache](https://en.wikipedia.org/wiki/Windows_thumbnail_cache)
   - [Windows Explorer Thumbnail Cache database file format specification](https://github.com/libyal/libwtcdb/blob/main/documentation/Windows%20Explorer%20Thumbnail%20Cache%20database%20format.asciidoc)
 - WebDAV REPORT
-  - https://lists.w3.org/Archives/Public/w3c-dist-auth/2009AprJun/0012.html
-- https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#SHARED
-- https://github.com/jesjimher/genthumbs/blob/master/genthumbs.sh
+  - [WebDAV REPORT](https://lists.w3.org/Archives/Public/w3c-dist-auth/2009AprJun/0012.html)
+- [Thumbnail Spec](https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#SHARED)
+- [genthumbs.sh](https://github.com/jesjimher/genthumbs/blob/master/genthumbs.sh)
 
 ## filemeta
 
-- https://elixir.bootlin.com/linux/latest/source/include/linux/fs.h#L623
+- [Linux source: fs.h](https://elixir.bootlin.com/linux/latest/source/include/linux/fs.h#L623)
 - The Inode Object
-  - http://books.gigatux.nl/mirror/kerneldevelopment/0672327201/ch12lev1sec6.html
-- https://en.wikipedia.org/wiki/Fork_(file_system)
+  - [Understanding the Linux Kernel: The Inode Object](http://books.gigatux.nl/mirror/kerneldevelopment/0672327201/ch12lev1sec6.html)
+- [Wiki: Fork (file system)](<https://en.wikipedia.org/wiki/Fork_(file_system)>)
   - alternate data streams - ADS
-- https://en.wikipedia.org/wiki/Sidecar_file
+- [Wiki: Sidecar file](https://en.wikipedia.org/wiki/Sidecar_file)
 
 ```c
 struct inode {
@@ -378,11 +377,11 @@ struct inode_operations {
 
 ## PHP
 
-- https://github.com/nextcloud/server/blob/master/lib/private/Files/Storage/Storage.php
-- https://flysystem.thephpleague.com/
+- [Nextcloud Storage.php](https://github.com/nextcloud/server/blob/master/lib/private/Files/Storage/Storage.php)
+- [Flysystem](https://flysystem.thephpleague.com/)
   - filesystem abstraction for PHP
-  - https://flysystem.thephpleague.com/docs/advanced/creating-an-adapter/
-- https://laravel.com/docs/master/filesystem
+  - [Flysystem: Creating an Adapter](https://flysystem.thephpleague.com/docs/advanced/creating-an-adapter/)
+- [Laravel Filesystem](https://laravel.com/docs/master/filesystem)
   - [Illuminate\Support\Facades\Storage](https://laravel.com/api/master/Illuminate/Support/Facades/Storage.html)
 
 ## flystorage
@@ -474,12 +473,12 @@ export type TemporaryUrlOptions = MiscellaneousOptions & {
 };
 ```
 
-- https://github.com/duna-oss/flystorage/blob/main/packages/file-storage/src/file-storage.ts
+- [flystorage source](https://github.com/duna-oss/flystorage/blob/main/packages/file-storage/src/file-storage.ts)
 - [duna-oss/flystorage](https://github.com/duna-oss/flystorage)
   - by the maintainer of Flysystem
   - File storage abstraction for Node / TypeScript
   - [flystorage.dev](https://flystorage.dev/)
-- https://flystorage.dev/architecture/
+- [Flystorage Architecture](https://flystorage.dev/architecture/)
 
 ## Object Storage
 
@@ -501,8 +500,8 @@ export type TemporaryUrlOptions = MiscellaneousOptions & {
     - `HASH-sSIZE--FILENAME`
     - 对象为 symlink / pointer
   - 参考
-    - https://git-annex.branchable.com/internals/
-    - https://git-annex.branchable.com/internals/hashing/
+    - [git-annex Internals](https://git-annex.branchable.com/internals/)
+    - [git-annex Hashing](https://git-annex.branchable.com/internals/hashing/)
 
 **garage**
 

@@ -1,36 +1,37 @@
 ---
-title: Inside
+title: React Inside
 tags:
   - Insight
+  - React
 ---
 
 # React Inside
 
-- React
+- **React**
   - 定义各种元素类型
   - 定义上下文、状态规则
-- ReactDOM
+- **ReactDOM**
   - 按约定渲染各种元素类型
   - 事件 - 状态
-- jsx - ReactElement
-  - Fragment
-  - jsx - jsxWithValidationDynamic
+- **jsx - ReactElement**
+  - `Fragment`
+  - `jsx` (Runtime) -> `jsxWithValidationDynamic`
     - 校验 type
     - 校验 children
     - 校验 children key
     - 校验属性
       - Fragment 只允许 children 和 key, 不允许存在 ref
       - propTypes 校验
-  - jsxs - jsxWithValidationStatic
+  - `jsxs` (Static) -> `jsxWithValidationStatic`
     - children 为数组
-  - Prod 环境 jsx=jsxs，且没有校验
+  - Prod 环境 `jsx=jsxs`，且没有校验
   - 保留属性
-    - ref
-    - key - 会转为 string
-    - `__self` - 辅助判断 this != owner
+    - `ref`
+    - `key` - 会转为 string
+    - `__self` - 辅助判断 `this != owner`
     - `__source` - 转译时添加的辅助信息
 - 新的 jsx 避免 spread key
-- feature
+- **Feature**
   - ScopeAPI
   - DebugTracing
   - TransitionTracing
@@ -41,69 +42,69 @@ tags:
   - LegacyHidden
   - UseRefAccessWarning
   - StrictMode
-    - createRootStrictEffectsByDefault
+    - `createRootStrictEffectsByDefault`
   - 实验
     - Cache
     - CacheElement
     - CPUSuspense
-- API - React.
-  - Component
-  - PureComponent - 没有 setState 和 forceUpdate 方法
-  - memo
+- **API - React**
+  - `Component`
+  - `PureComponent` - 没有 `setState` 和 `forceUpdate` 方法
+  - `memo`
   - 创建
-    - createElement(type,props,children)
-    - createFactory(type)
+    - `createElement(type,props,children)`
+    - `createFactory(type)`
   - 转换
-    - cloneElement(element, config, children)
-      - 会应用 defaultProps 到 props
+    - `cloneElement(element, config, children)`
+      - 会应用 `defaultProps` 到 props
       - 会复制 children
-    - isValidElement()
-      - $$typeof === REACT_ELEMENT_TYPE
-    - Children
-  - Fragment
-  - createRef
-  - forwardRef
-  - lazy, Suspense
-  - startTransition, useTransition
-  - hooks - 由 ReactCurrentDispatcher.current Dispatcher 处理 - 在 FC 渲染时设置
-    - Basic - useState,useEffect,useContext
-    - Additional - useReducer, useCallback,useMemo,useRef,useImperativeHandle,useDebugValue
-      - useLayoutEffect = useEffect
-        - DOM 操作后执行 - componentDidMount,componentDidUpdate
-      - useDeferredValue - 低优先级
+    - `isValidElement()`
+      - `$$typeof === REACT_ELEMENT_TYPE`
+    - `Children`
+  - `Fragment`
+  - `createRef`
+  - `forwardRef`
+  - `lazy`, `Suspense`
+  - `startTransition`, `useTransition`
+  - **Hooks** - 由 `ReactCurrentDispatcher.current` Dispatcher 处理 - 在 FC 渲染时设置
+    - Basic - `useState`, `useEffect`, `useContext`
+    - Additional - `useReducer`, `useCallback`, `useMemo`, `useRef`, `useImperativeHandle`, `useDebugValue`
+      - `useLayoutEffect` = `useEffect`
+        - DOM 操作后执行 - `componentDidMount`, `componentDidUpdate`
+      - `useDeferredValue` - 低优先级
         - 类似于 debounce
       - `const [isPending,startTransition]=useTransition()`
         - Transition - 相对不那么着急更新的状态，耗时比较久的状态
         - 用户基于已经更新的状态进行交互
-      - useId - 生成唯一 ID
+      - `useId` - 生成唯一 ID
     - Library
-      - useSyncExternalStore
+      - `useSyncExternalStore`
         - `const state = useSyncExternalStore(subscribe, getSnapshot[, getServerSnapshot])`
         - 同步外部存储 - 例如 zustand
-      - useInsertionEffect = useEffect
+      - `useInsertionEffect` = `useEffect`
         - DOM 操作之前执行 - 用于 css-in-js 库
-- 模块
-  - react-is - 类型判断
-  - react-reconciler - 用于实现自定义渲染
-    - react-native-renderer
-    - react-dom
-    - react-art
-    - react-noop-renderer - used for debug fiber
-    - Fiber - 之前为 同步 Stack Reconciler
+- **模块**
+  - `react-is` - 类型判断
+  - `react-reconciler` - 用于实现自定义渲染
+    - `react-native-renderer`
+    - `react-dom`
+    - `react-art`
+    - `react-noop-renderer` - used for debug fiber
+    - **Fiber** - 之前为 同步 Stack Reconciler
     - [Building a simple custom renderer to DOM](https://medium.com/@agent_hunt/hello-world-custom-react-renderer-9a95b7cd04bc)
     - [Building a simple custom renderer to native](https://medium.com/@agent_hunt/introduction-to-react-native-renderers-aka-react-native-is-the-java-and-react-native-renderers-are-828a0022f433)
-  - react-refresh - bundlers 集成 fast refresh
-  - scheduler - 堆、优先级队列
-  - shared
-  - use-subscription
-  - use-sync-external-store
-  - experimental
-    - react-server - react-server-{dom-relay,dom-webpack,native-relay}
-    - react-pg
-    - react-cache
-    - react-client - consuming React streaming models
-    - react-fetch
-    - react-fs - for react-server - experimental - bindings for the filesystem
+  - `react-refresh` - bundlers 集成 fast refresh
+  - `scheduler` - 堆、优先级队列
+  - `shared`
+  - `use-subscription`
+  - `use-sync-external-store`
+  - **Experimental**
+    - `react-server` - `react-server-{dom-relay,dom-webpack,native-relay}`
+    - `react-pg`
+    - `react-cache`
+    - `react-client` - consuming React streaming models
+    - `react-fetch`
+    - `react-fs` - for react-server - experimental - bindings for the filesystem
 
 ```ts
 // React 相关 Symbol - react.<nname>
@@ -215,26 +216,26 @@ class Component {
 
 ## Fiber
 
-- 工作单位
-- 两个阶段
-  - render - 异步、优先级、可中断、beginWork
-  - commit - 同步、commitWork
+- **工作单位**
+- **两个阶段**
+  - **render** - 异步、优先级、可中断、`beginWork`
+  - **commit** - 同步、`commitWork`
     - WIP tree -> current tree
-- 支持 HMR 能力 - Function,Class,ForwardRef
-- 复用 ReactElement 的 type 和 key
-- createFiberFromXyz
-- createFiberFromTypeAndProps
-  - Fragment,Profiler,Suspense,SuspenseList,Offscreen,LegacyHidden
-  - Scope,Cache
+- 支持 HMR 能力 - `Function`, `Class`, `ForwardRef`
+- 复用 `ReactElement` 的 type 和 key
+- `createFiberFromXyz`
+- `createFiberFromTypeAndProps`
+  - Fragment, Profiler, Suspense, SuspenseList, Offscreen, LegacyHidden
+  - Scope, Cache
   - TracingMarker
-  - MemoComponent,LazyComponent
-  - ContextProvider,ContextConsumer
+  - MemoComponent, LazyComponent
+  - ContextProvider, ContextConsumer
   - HostComponent
   - ClassComponent
-- beginWork
-- HooksDispatcherOnMount - 第一次 无状态时
-- HooksDispatcherOnUpdate - 存在之前状态时
-- Lanes - 不同优先级队列
+- `beginWork`
+- `HooksDispatcherOnMount` - 第一次 无状态时
+- `HooksDispatcherOnUpdate` - 存在之前状态时
+- **Lanes** - 不同优先级队列
   - SyncLane
   - InputContinuousHydrationLane
   - InputContinuousLane
@@ -247,10 +248,10 @@ class Component {
   - IdleHydrationLane
   - IdleLane
   - OffscreenLane
-- Dispatcher - memoizedState
-  - useCallback - [callback, deps]
-  - useDeferredValue - OnlyNonUrgentLanes
-  - useContext
+- **Dispatcher** - `memoizedState`
+  - `useCallback` - `[callback, deps]`
+  - `useDeferredValue` - `OnlyNonUrgentLanes`
+  - `useContext`
 
 ```ts
 interface Fiber {
@@ -368,17 +369,17 @@ export const StrictEffectsMode = /*              */ 0b010000;
 export const ConcurrentUpdatesByDefaultMode = /* */ 0b100000;
 ```
 
-## fast refresh
+## Fast Refresh
 
 ```js
 /* @refresh reset */
 ```
 
 - 重置 state
-- https://nextjs.org/docs/basic-features/fast-refresh
-- https://github.com/pmmmwh/react-refresh-webpack-plugin/blob/main/docs/API.md
+- [Next.js Fast Refresh](https://nextjs.org/docs/basic-features/fast-refresh)
+- [React Refresh Webpack Plugin API](https://github.com/pmmmwh/react-refresh-webpack-plugin/blob/main/docs/API.md)
 
-## mhr
+## HMR - Hot Module Replacement
 
 ```js
 // vite
@@ -398,8 +399,8 @@ import.meta.webpackHot.accept(
 );
 ```
 
-- https://vitejs.dev/guide/api-hmr.html
-  - import.meta.hot
+- [Vite HMR API](https://vitejs.dev/guide/api-hmr.html)
+  - `import.meta.hot`
     - accept
     - dispose
     - data
@@ -407,13 +408,13 @@ import.meta.webpackHot.accept(
     - invalidate
     - on
     - send
-- https://webpack.js.org/api/hot-module-replacement/
-  - cjs module.hot
-  - esm import.meta.webpackHot
+- [Webpack HMR API](https://webpack.js.org/api/hot-module-replacement/)
+  - cjs `module.hot`
+  - esm `import.meta.webpackHot`
 
 ## react-is
 
-- 通过构造的 $$typeof 来判断是否为内部对象类型
+- 通过构造的 `$$typeof` 来判断是否为内部对象类型
 - `.$$typeof`
   - ELEMENT
     - `.type`
@@ -429,13 +430,13 @@ import.meta.webpackHot.accept(
   - LAZY
   - MEMO
   - PROVIDER
-- isAsyncMode
+- `isAsyncMode`
 - ReactIS
-  - https://github.com/facebook/react/blob/main/packages/react-is/src/ReactIs.js
+  - [react-is/src/ReactIs.js](https://github.com/facebook/react/blob/main/packages/react-is/src/ReactIs.js)
 - ReactSymbols
-  - react.element
-  - react.fragment
-  - https://github.com/facebook/react/blob/main/packages/shared/ReactSymbols.js
+  - `react.element`
+  - `react.fragment`
+  - [shared/ReactSymbols.js](https://github.com/facebook/react/blob/main/packages/shared/ReactSymbols.js)
 
 ## Offscreen
 
@@ -451,33 +452,33 @@ const Hello = () => {
 ```
 
 - 还在 experimental
-- React.unstable_Offscreen
-- https://jser.dev/react/2022/04/17/offscreen-component.html
+- `React.unstable_Offscreen`
+- [Offscreen Component](https://jser.dev/react/2022/04/17/offscreen-component.html)
 
-## experimental
+## Experimental
 
 - react act
-  - https://reactjs.org/docs/test-utils.html#act
+  - [docs/test-utils.html#act](https://reactjs.org/docs/test-utils.html#act)
 - Cache
-  - getCacheSignal
-  - getCacheForType
-  - useCacheRefresh
-  - useMemoCache
-  - use
-- experimental_useEvent
-- DebugTraceMode
-- Offscreen
-- SuspenseList
-- https://github.com/facebook/react/blob/main/packages/react/index.experimental.js
+  - `getCacheSignal`
+  - `getCacheForType`
+  - `useCacheRefresh`
+  - `useMemoCache`
+  - `use`
+- `experimental_useEvent`
+- `DebugTraceMode`
+- `Offscreen`
+- `SuspenseList`
+- [react/index.experimental.js](https://github.com/facebook/react/blob/main/packages/react/index.experimental.js)
 
 ## Server Component
 
 - 不支持特性
-  - React.Component
-  - React.PureComponent
-  - React.createContext
+  - `React.Component`
+  - `React.PureComponent`
+  - `React.createContext`
   - hooks
 - 约定
-  - `"use client";`,`"use server";` 标记组件类型
+  - `"use client"`, `"use server"` 标记组件类型
   - 会使用 `react-server` exports
-- https://github.com/reactjs/rfcs/blob/main/text/0227-server-module-conventions.md
+- [RFC: Server Module Conventions](https://github.com/reactjs/rfcs/blob/main/text/0227-server-module-conventions.md)

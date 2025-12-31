@@ -44,23 +44,45 @@ tags:
   - TODOIST_API_KEY
   - TODOIST_BASE_URL
   - add-projects, update-projects, delete-object
-- search/repo/index/doc
+- search/repo/index/doc/code search/RAG
   - [oraios/serena](https://github.com/oraios/serena)
+    - MIT, Python
+    - 语义索引
+  - https://github.com/idosal/git-mcp
+    - Apache-2.0, TS
+    - 可以 Selfhost
+    - `gitmcp.io/{owner}/{repo}`
+    - `{owner}.gitmcp.io/{repo}`
+    - `fetch_<repo-name>_documentation`
+    - `search_<repo-name>_documentation`
+    - `fetch_url_content`
+    - `search_<repo-name>_code`
   - https://ref.tools/
+  - https://deepwiki.org
+    - https://docs.devin.ai/work-with-devin/deepwiki-mcp
+      - https://mcp.deepwiki.com/
+      - `read_wiki_structure(repoName)`
+      - `read_wiki_contents(repoName)`
+      - `ask_question(repoName,question)`
   - [Upstash/context7](https://github.com/upstash/context7)
     - MIT, JS, TS
     - Up-to-date code documentation for LLMs and AI code editors
     - `use context7`
-    - MCP mcp.context7.com/mcp
+    - MCP https://mcp.context7.com/mcp
       - Header CONTEXT7_API_KEY
     - MCP mcp.context7.com/sse
     - API context7.com/api/v1
+- Ops/Trace/Debugging
+  - https://openobserve.ai/docs/integration/mcp/#available-mcp-tools
 - Index/Aggregate
   - https://modelscope.cn/mcp
   - [Dhravya/apple-mcp](https://github.com/Dhravya/apple-mcp)
   - https://www.open-mcp.org/servers
   - https://www.claudemcp.com/servers
   - https://smithery.ai/
+- Debug/Dev
+  - https://github.com/web-mcp/mcp-inspector-online
+    - https://mcp.ziziyi.com/inspector
 - [hangwin/mcp-chrome](https://github.com/hangwin/mcp-chrome)
 - [0xKoda/WireMCP](https://github.com/0xKoda/WireMCP)
   - MIT, JS
@@ -308,8 +330,11 @@ services:
 ## Chrome DevTool MCP
 
 - https://github.com/ChromeDevTools/chrome-devtools-mcp/
+  - 官方
   - --autoConnect/--auto-connect
     - Chrome 145+
+
+- playwright-mcp
 
 ```json
 {
@@ -375,4 +400,12 @@ go install -v gitea.com/gitea/gitea-mcp@latest
 ## Memory
 
 - https://github.com/modelcontextprotocol/servers/tree/main/src/memory
-- https://github.com/thedotmack/claude-mem
+- [steveyegge/beads](https://github.com/steveyegge/beads)
+  - MIT, Go, Python
+  - Git-backed issue tracker，专为AI代理设计，持久化结构化记忆系统，支持依赖跟踪、记忆压缩
+- [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem)
+  - AGPL-3.0, TypeScript
+  - Claude Code插件，自动捕获编码会话，AI压缩并注入上下文，支持混合搜索、多语言
+- [ossa-ma/double](https://github.com/ossa-ma/double)
+  - MIT, Shell, Python
+  - AI代理本地记忆系统，基于Markdown和Git的持久上下文管理，避免数据库和MCP服务器

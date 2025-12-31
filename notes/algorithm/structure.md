@@ -1,4 +1,10 @@
-# Structure
+---
+title: Data Structures
+tags:
+  - Data Structure
+---
+
+# Data Structures
 
 - http://courses.csail.mit.edu/6.851/spring12/lectures/
 

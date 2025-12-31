@@ -107,6 +107,50 @@ ALTER TABLE tbl_name MAX_ROWS=1000000000 AVG_ROW_LENGTH=nnn;
 SHOW TABLE STATUS FROM db_name LIKE 'tbl_name';
 ```
 
+## performance_schema
+
+`performance_schema` 是 MySQL 内置的性能监控和诊断专用的元数据库（Schema）。它用于收集和存储数据库运行时的低级别性能数据，比如等待事件、表/索引 I/O、执行计划、锁、线程状态等，有助于定位慢 SQL、瓶颈和资源占用等问题。
+
+- 打开必须重启 MySQL
+
+**如何开启**
+
+- 默认很多发行版已开启（5.6+ 常启）。
+- 查看当前状态：
+  ```sql
+  SHOW VARIABLES LIKE 'performance_schema';
+  ```
+  返回值为 `ON` 则已启用。
+- 启动时控制（my.cnf 或命令行）：
+  ```
+  performance_schema=ON
+  ```
+  或使用
+  ```
+  --performance_schema=ON
+  ```
+- 若未开启需重启 mysqld。
+- 不建议生产环境关闭该功能，开销通常很小。
+
+### 有什么作用
+
+- 提供丰富的 SQL 诊断和优化依据（慢 SQL、锁争用、资源瓶颈）。
+- 可辅助 GUI 或监控平台（如 MySQL Workbench、Prometheus Exporter 等）进行实时性能展示。
+- 支持查询内部视图（如 events_statements_summary_by_digest、events_waits_summary_global_by_event_name 等）分析热点 SQL、等待事件、I/O 操作等。
+- 是 MySQL 推荐的核心性能分析手段。
+
+### 有何影响／用还是不用
+
+- 性能消耗微小，默认监控粒度优化过
+- 如需精确诊断建议开启
+- 禁用后将无法从库内直接获取详细的实时性能分析数据，仅能依赖慢查询日志等其他工具
+- 大量连接或极端高负载场景极少量性能开销可忽略
+
+**常用参考**
+
+- [官方文档 Performance Schema](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html)
+- [简明用法与最佳实践](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-quick-start.html)
+
 ## debug connections
 
 ```sql

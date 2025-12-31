@@ -8,57 +8,49 @@ title: fio
 - 测试
   - IOPS - 一般 4k-64k 随机
   - 吞吐 - 一般 512k+ 顺序
-- 参考
-  - [HOWTO](https://github.com/axboe/fio/blob/master/HOWTO)
-  - [文档](http://fio.readthedocs.io/en/latest/)
-  - [IOPS](https://en.wikipedia.org/wiki/IOPS)
-    - HDD IOPS 一般 55-180
-    - SSD IOPS 一般 3,000 – 40,000
-  - [Fio Output Explained](https://tobert.github.io/post/2014-04-17-fio-output-explained.html)
-  - [IO Plumbing tests with FIO](https://blog.purestorage.com/io-plumbing-tests-with-fio/)
+- [fio - HOWTO](https://github.com/axboe/fio/blob/master/HOWTO)
+- [fio - Read the Docs](http://fio.readthedocs.io/en/latest/)
+- [IOPS - Wikipedia](https://en.wikipedia.org/wiki/IOPS)
+  - HDD IOPS usually 55-180
+  - SSD IOPS usually 3,000 – 40,000
+- [Fio Output Explained](https://tobert.github.io/post/2014-04-17-fio-output-explained.html)
+- [IO Plumbing tests with FIO](https://blog.purestorage.com/io-plumbing-tests-with-fio/)
+- [fio - Flexible I/O Tester Synthetic Benchmark](http://www.storagereview.com/fio_flexible_i_o_tester_synthetic_benchmark)
+- [linux.die.net/man/1/fio](https://linux.die.net/man/1/fio)
 
-| opt             | mean                         |
-| --------------- | ---------------------------- |
-| filename        | 文件名                       |
-| directory       | 文件目录                     |
-| name            | Job 名字                     |
-| direct          | true 无 io buffer            |
-| engine          | 执行引擎                     |
-| iodepth         |
-| rw              | 读写模式                     |
-| bs              | Block size - 默认 4k         |
-| size            | Job 处理的文件大小           |
-| numjobs         | Job/线程数                   |
-| time_based      | 优先满足 runtime 而不是 size |
-| runtime         | 运行时长                     |
-| group_reporting | numjobs 时分组显示           |
-| parse-only      | 只解析选项，不执行           |
-| section         | 执行配置中的指定 section     |
+| opt             | mean                           |
+| --------------- | ------------------------------ |
+| filename        | 文件名                         |
+| directory       | 文件目录                       |
+| name            | Job 名字                       |
+| direct          | true 无 io buffer              |
+| engine          | 执行引擎                       |
+| iodepth         | 异步 ioengine 一批提交的单元数 |
+| rw              | 读写模式                       |
+| bs              | Block size - 默认 4k           |
+| size            | Job 处理的文件大小             |
+| numjobs         | Job/线程数                     |
+| time_based      | 优先满足 runtime 而不是 size   |
+| runtime         | 运行时长                       |
+| group_reporting | numjobs 时分组显示             |
+| parse-only      | 只解析选项，不执行             |
+| section         | 执行配置中的指定 section       |
 
-- engine
-  - sync - 同步，操作等待完成
-  - psync - 默认
-  - io_uring
-  - libaio - Linux AIO
-  - http
-  - mtd
-  - nbd
-  - libiscsi
-  - nfs
-- iodepth
-  - 异步 ioengine 一批提交的单元数
-  - =queue depth
-  - 使用效果取决于 engine
-- rw
-  - read - 随机写
-  - write
-  - trim - Linux block devices & SCSI
-  - randread - 随机读
-  - randwrite
-  - randtrim
-  - rw,readwrite - 读写混合 - 默认 50/50
-  - randrw
-  - trimwrite - trim & write
+- **engine**
+  - `sync`: 同步，操作等待完成
+  - `psync`: 默认
+  - `io_uring`
+  - `libaio`: Linux AIO
+  - `http`, `mtd`, `nbd`, `libiscsi`, `nfs`
+- **iodepth**
+  - Number of I/O units to keep in flight regarding async engine
+  - = queue depth
+  - Effectiveness depends on engine
+- **rw**
+  - `read`, `write`, `trim`
+  - `randread`, `randwrite`, `randtrim`
+  - `rw`, `readwrite` (mixed, default 50/50), `randrw`
+  - `trimwrite`
 
 :::caution
 
@@ -94,7 +86,7 @@ fio -direct=1 -iodepth=64 -rw=randread -ioengine=libaio -bs=64k -size=10G -numjo
 fio --name=randwrite --ioengine=libaio --iodepth=1 --rw=randwrite --bs=4k --direct=0 --size=512M --numjobs=2 --runtime=240 --group_reporting
 
 # Sequential Reads – Async mode – 8K block size – Direct IO – 100% Reads
-fio --name=seqread --rw=read --direct=1 --ioengine=libaio --bs=8k --numjobs=8 --size=1G --runtime=600  --group_reporting
+fio --name=seqread --rw=read --direct=1 --ioengine=libaio --bs=8k --numjobs=8 --size=1G --runtime=600 --group_reporting
 # Sequential Writes – Async mode – 32K block size – Direct IO – 100% Writes
 fio --name=seqwrite --rw=write --direct=1 --ioengine=libaio --bs=32k --numjobs=4 --size=2G --runtime=600 --group_reporting
 # Random Reads – Async mode – 8K block size – Direct IO – 100% Reads

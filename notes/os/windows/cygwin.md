@@ -1,8 +1,12 @@
 ---
-title: cygwin
+title: Cygwin
+tags:
+  - Windows
+  - POSIX
+  - Cygwin
 ---
 
-# cygwin
+# Cygwin {#cygwin}
 
 ::: tip
 

@@ -1,7 +1,10 @@
 ---
-title: Ubuntu Version
+title: Ubuntu Versions
 tags:
+  - Linux
+  - Ubuntu
   - Version
+  - Lifecycle
 ---
 
 # Ubuntu Version

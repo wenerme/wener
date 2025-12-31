@@ -21,9 +21,9 @@ tags:
 ---
 
 - CSF - Component Story Format
-  - https://github.com/ComponentDriven/csf
-  - https://storybook.js.org/docs/react/api/csf/
-- https://www.componentdriven.org/
+  - [ComponentDriven/csf](https://github.com/ComponentDriven/csf)
+  - [Component Story Format (CSF)](https://storybook.js.org/docs/react/api/csf/)
+- [Component Driven](https://www.componentdriven.org/)
   - How to be Component Driven
     1. Build one component at a time - Avatar, Button, Input, Tooltip
     2. Combine components - Form, Header, List, Table
@@ -72,7 +72,7 @@ Component.yourStaticFunctionOrSomethingLikeThat = () => {};
 ---
 
 - Compound Components
-- https://github.com/DefinitelyTyped/DefinitelyTyped/issues/34757#issuecomment-894053907
+- [Compound Components with TypeScript](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/34757#issuecomment-894053907)
 
 ## StrictMode
 
@@ -94,7 +94,7 @@ Component.yourStaticFunctionOrSomethingLikeThat = () => {};
 
 ---
 
-- https://reactjs.org/docs/strict-mode.html
+- [React Strict Mode](https://reactjs.org/docs/strict-mode.html)
 
 ## useEffect 无依赖 vs. 直接执行
 
@@ -375,8 +375,8 @@ React.JSX.IntrinsicElements['button'];
 
 - HTMLProps
   - 包含更多的内容，例如 ref
-- https://github.com/typescript-cheatsheets/react
-- https://github.com/typescript-cheatsheets/react/blob/main/docs/advanced/patterns_by_usecase.md
+- [React TypeScript Cheatsheets](https://github.com/typescript-cheatsheets/react)
+- [Patterns by Use Case](https://github.com/typescript-cheatsheets/react/blob/main/docs/advanced/patterns_by_usecase.md)
 
 ## ref props
 
@@ -390,7 +390,7 @@ React.JSX.IntrinsicElements['button'];
   - HOC
 - 部分场景存在 introspect ref 并做合并修改
 - 参考
-  - https://www.youtube.com/watch?v=m4QbeS9BTNU
+  - [Merging Refs](https://www.youtube.com/watch?v=m4QbeS9BTNU)
 
 ## as props
 
@@ -419,3 +419,47 @@ isDefined('YourComponentName');
 ## NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
 
 - 替代 Fragment 为 div
+
+## Reference: Web Components & React
+
+- [reactjs/rfcs#64](https://github.com/reactjs/rfcs/pull/64#issuecomment-431507924)
+- [webcomponents/polyfills](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs#custom-elements-es5-adapterjs)
+- [React Web Components](https://reactjs.org/docs/web-components.html)
+
+```jsx
+const Button = lazy(() => import('./components').then((module) => ({ default: module.Button })));
+
+function BrickFlipbox() {
+  return (
+    <brick-flipbox class='demo'>
+      <div>front</div>
+      <div>back</div>
+    </brick-flipbox>
+  );
+}
+
+class XSearch extends HTMLElement {
+  connectedCallback() {
+    const mountPoint = document.createElement('span');
+    this.attachShadow({ mode: 'open' }).appendChild(mountPoint);
+
+    const name = this.getAttribute('name');
+    const url = 'https://www.google.com/search?q=' + encodeURIComponent(name);
+    ReactDOM.render(<a href={url}>{name}</a>, mountPoint);
+  }
+}
+customElements.define('x-search', XSearch);
+```
+
+```js
+// 修改属性
+React.cloneElement(child, {
+  className: className || null,
+});
+```
+
+## Performance Resources
+
+- [react-performance.md](https://github.com/markerikson/react-redux-links/blob/master/react-performance.md)
+- [React Performance Optimization](https://gist.github.com/slikts/e224b924612d53c1b61f359cfb962c06)
+- [React Optimization Checklist](https://gist.github.com/slikts/fd3768de1493419ed9506002b452fcdc)

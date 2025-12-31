@@ -1,10 +1,13 @@
 ---
-title: 代理
+title: Proxy Awesome
 tags:
+  - Service
+  - Network
+  - Proxy
   - Awesome
 ---
 
-# 代理
+# Proxy Awesome
 
 ## 协议 {#protocol}
 
@@ -57,6 +60,7 @@ tags:
   - 支持非常复杂的协议配置
   - 有点过于复杂和臃肿
 - [XTLS/REALITY](https://github.com/XTLS/REALITY)
+  - MPL-2.0, Go
   - 替代 TLS，消除服务端 TLS 指纹特征
 - [snell]
 - hysteria
@@ -64,7 +68,8 @@ tags:
 - brook wss
   - https://github.com/txthinking/brook
 - [enfein/mieru](https://github.com/enfein/mieru)
-  - TCP or UDP protocol-based socks5 / HTTP / HTTPS
+  - Apache-2.0, Go
+  - TCP or UDP protocol-based socks5 / HTTP / HTTPS proxy
   - 一些设计思考 https://github.com/enfein/mieru/issues/8
 - naive
 - http proxy
@@ -94,6 +99,8 @@ tags:
 ## Tunnel
 
 - [XX-net/XX-Net](https://github.com/XX-net/XX-Net)
+  - LGPL-3.0, Python
+  - A proxy tool to bypass GFW
 - [snail007/goproxy](https://github.com/snail007/goproxy)
   - GPL-3.0, Go
 - [frp](./frp/README.md)
@@ -212,6 +219,8 @@ curl https://wener.me/cdn-cgi/trace
     - reject
   - [hiddify/Hiddify-Manager](https://github.com/hiddify/Hiddify-Manager)
     - GPLv3, Python
+  - [MHSanaei/3x-ui](https://github.com/MHSanaei/3x-ui)
+    - Xray panel supporting multi-protocol multi-user expire day & traffic & IP limit (Vmess, Vless, Trojan, ShadowSocks, Wireguard, Tunnel, Mixed, HTTP)
 - Transparent/Protocol
   - [mezantrop/ts-warp](https://github.com/mezantrop/ts-warp)
     - BSD-2, C
@@ -227,9 +236,15 @@ curl https://wener.me/cdn-cgi/trace
 - 命令行/CLI
   - [proxychain-ng](./proxychain-ng.md)
 - [anderspitman/awesome-tunneling](https://github.com/anderspitman/awesome-tunneling)
+  - MIT
+  - List of ngrok alternatives and other tunneling solutions
 - https://github.com/hunshcn/gh-proxy
 - [heiher/hev-socks5-tproxy](https://github.com/heiher/hev-socks5-tproxy)
+  - MIT, C
+  - A transparent proxy for Socks5 that supports Linux TProxy
 - [sower-proxy/sower](https://github.com/sower-proxy/sower)
+  - MIT, Go
+  - High-performance proxy server
   - 透明代理
   - https://github.com/sower-proxy/sower/wiki
 - 规则
@@ -256,6 +271,10 @@ curl https://wener.me/cdn-cgi/trace
   - [Loyalsoldier/domain-list-custom](https://github.com/Loyalsoldier/domain-list-custom)
   - geoip2
     - http://dev.maxmind.com/geoip/geoip2/geolite2/
+- Subscription Management
+  - [sub-store-org/Sub-Store](https://github.com/sub-store-org/Sub-Store)
+    - GPL-3.0, TypeScript, JavaScript
+    - Advanced Subscription Manager for QX, Loon, Surge, Stash, Egern and Shadowrocket
 
 ```bash
 script:
@@ -361,12 +380,17 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - Apachev2, Rust
 - [Koolson/Qure](https://github.com/Koolson/Qure)
   - Quantumult X Policy Icon Set
-- [crossutility/Quantumult-X/](https://github.com/crossutility/Quantumult-X/)
+- [crossutility/Quantumult-X](https://github.com/crossutility/Quantumult-X)
+  - Quantumult X scripts and rules
 
 ## Golang
 
 - [p4gefau1t/trojan-go](https://github.com/p4gefau1t/trojan-go)
+  - GPL-3.0, Go
+  - A Trojan proxy written in Go
 - [mingcheng/socks5lb](https://github.com/mingcheng/socks5lb)
+  - MIT, Go
+  - A simple socks5 load balancer
 - [httputil.ReverseProxy](https://golang.org/pkg/net/http/httputil/#ReverseProxy)
 - [google/huproxy](https://github.com/google/huproxy)
   - Server/Client 结构
@@ -374,16 +398,23 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - 支持 Path
   - 利用 Connection-Upgrade 升级为其他协议
 - [google/inverting-proxy](https://github.com/google/inverting-proxy)
+  - Apache-2.0, Go
   - Reverse proxy that inverts the direction of traffic
 - [google/martian](https://github.com/google/martian)
-  - library for building custom HTTP/S proxies
+  - Apache-2.0, Go
+  - Library for building custom HTTP/S proxies
 - [antoniomika/sish](https://github.com/antoniomika/sish)
-  - HTTP(S)/WS(S)/TCP Tunnels to localhost using only SSH.
-- [jamescun/switcher](https://github.com/jamescun/switcher) - ssh http same port
+  - MIT, Go
+  - HTTP(S)/WS(S)/TCP Tunnels to localhost using only SSH
+- [jamescun/switcher](https://github.com/jamescun/switcher)
+  - MIT, Go
+  - SSH and HTTP server on the same port
 - [inetaf/tcpproxy](https://github.com/inetaf/tcpproxy)
-  - TCP over HTTP
-  - 支持静态规则 - Host 头、SNI
+  - MIT, Go
+  - TCP proxy with support for static rules (Host header, SNI)
 - [akutz/memconn](https://github.com/akutz/memconn)
+  - Apache-2.0, Go
+  - In-memory network stack for Go
   - [MemConn: an in-memory network stack for Go](https://akutz.wordpress.com/2018/04/20/memconn/)
   - 可用于测试或虚拟内部代理网络
 - [dshulyak/uring](https://github.com/dshulyak/uring)
@@ -412,19 +443,27 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 ## 其他语言
 
-- [yrutschle/sslh](https://github.com/yrutschle/sslh) - Applicative Protocol Multiplexer
-  - C
-  - HTTP, TLS/SSL (including SNI and ALPN), SSH, OpenVPN, tinc, XMPP, SOCKS5
+- [yrutschle/sslh](https://github.com/yrutschle/sslh)
+  - GPL-2.0, C
+  - Applicative Protocol Multiplexer (SSH, SSL, HTTP, etc.)
 - [joeferner/node-http-mitm-proxy](https://github.com/joeferner/node-http-mitm-proxy)
-  - NodeJS
+  - MIT, JavaScript
+  - HTTP Man-in-the-Middle Proxy
 
 ## GFW
 
 - [ValdikSS/GoodbyeDPI](https://github.com/ValdikSS/GoodbyeDPI)
+  - Apache-2.0, C
+  - Deep Packet Inspection circumvention utility
   - https://news.ycombinator.com/item?id=32199468
 - [SadeghHayeri/GreenTunnel](https://github.com/SadeghHayeri/GreenTunnel)
+  - MIT, JavaScript
+  - GreenTunnel is an anti-censorship utility designed to bypass the DPI systems implemented by various ISPs
 - [comwrg/FUCK-GFW](https://github.com/comwrg/FUCK-GFW)
-- https://github.com/haoel/haoel.github.io
+  - WTFPL, Shell
+  - A shell script to fuck GFW
+- [haoel/haoel.github.io](https://github.com/haoel/haoel.github.io)
+  - Personal blog about GFW bypass techniques
 
 ## 线路
 
@@ -520,18 +559,26 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 ## Rules
 
-- https://github.com/Loyalsoldier/v2ray-rules-dat
-- https://github.com/Loyalsoldier/clash-rules
-- https://github.com/Loyalsoldier/surge-rules
-- https://github.com/Loyalsoldier/geoip
+- [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
+  - Enhanced edition of V2Ray rules dat files
+- [Loyalsoldier/clash-rules](https://github.com/Loyalsoldier/clash-rules)
+  - Clash rules
+- [Loyalsoldier/surge-rules](https://github.com/Loyalsoldier/surge-rules)
+  - Surge rules
+- [Loyalsoldier/geoip](https://github.com/Loyalsoldier/geoip)
+  - Enhanced edition of geoip dat files
 - https://github.com/DustinWin/clash-geosite
 - https://github.com/MetaCubeX/meta-rules-dat
 - [felixonmars/dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
 - [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
-- https://github.com/SagerNet/sing-box/commit/439f181f80fef985cb1d8cc8e71d6d0fd36dbb75
+  - iOS rule script
+- [SagerNet/sing-box](https://github.com/SagerNet/sing-box)
+  - The universal proxy platform
 - https://sing-box.sagernet.org/configuration/rule-set/adguard/
-- https://github.com/AdguardTeam/AdGuardSDNSFilter
-- https://github.com/peiyingyao/Rule-for-OCD
+- [AdguardTeam/AdGuardSDNSFilter](https://github.com/AdguardTeam/AdGuardSDNSFilter)
+  - AdGuard DNS filter
+- [peiyingyao/Rule-for-OCD](https://github.com/peiyingyao/Rule-for-OCD)
+  - Rules for OCD
 
 # Game
 
@@ -575,6 +622,7 @@ robloxdev.cn
 # Misc
 
 - [net4people/bbs](https://github.com/net4people/bbs)
+  - AGPL-3.0
   - Forum for discussing Internet censorship
 
 ## Limits

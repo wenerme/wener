@@ -24,3 +24,9 @@ svgo:
 
 scan-links:
 	pnpm tsx ./scripts/cli.ts scan-links
+
+fmt-commit:
+	prettier --write $(shell git diff --name-only --diff-filter=d HEAD~1 -- "*.md")
+
+stat-commit:
+	git show --stat --format="" --color HEAD | tee

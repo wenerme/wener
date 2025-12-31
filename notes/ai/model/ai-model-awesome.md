@@ -11,16 +11,25 @@ tags:
 
 | Date       | Model Series          | Size                                                        | Context Window | Creator         | notes                                                                              |
 | :--------- | :-------------------- | :---------------------------------------------------------- | :------------- | :-------------- | ---------------------------------------------------------------------------------- |
-| 2025-12-09 | GLM 4.6V              | 9B, 108B                                                    |
+| 2025-12-30 | HY-MT1.5              | 1.8B, 7B                                                    |                | Tencent         | Translation, 33 languages, WMT25 champion upgrade, Edge deployment                 |
+| 2025-12-23 | GLM 4.7               | 358B                                                        |                | Zhipu           | MoE, Text generation, Multilingual (EN, ZH), Coding                                |
 | 2025-12-21 | Deepseek V3.2         | 685B                                                        |
+| 2025-12-20 | MiniMax M2.1          | 228B                                                        |                | MiniMaxAI       | Text generation, Conversational                                                    |
+| 2025-12-16 | MiMo-V2-Flash         | 310B                                                        |                | Xiaomi          | Text generation, Conversational                                                    |
+| 2025-12-09 | GLM 4.6V              | 9B, 108B                                                    |                | Zhipu           | Vision, Reasoning                                                                  |
+| 2025-10-31 | Ministral 3           | 3B, 8B, 14B                                                 |                | Mistral         | Text generation, Multilingual (11 languages)                                       |
 | 2025-10-21 | Qwen3-VL              | {2B,32B}-{Instruct,Thinking}                                |
 | 2025-10-15 | Qwen3-VL              | {4B,8B}-{Instruct,Thinking}                                 |
 | 2025-10-04 | Qwen3-VL              | 30B-A3B-{Instruct,Thinking}                                 |
+| 2025-09-29 | DeepSeek-V3.2-Exp     | 685B                                                        |                | DeepSeek        | Text generation, Conversational                                                    |
 | 2025-09-23 | Qwen3-VL              | 235B-A22B-{Instruct,Thinking}                               |
 | 2025-09-15 | Qwen3-Next            | 80B                                                         |
-| 2025-09-01 | Hunyuan-MT-Chimera-7B | 7B                                                          |
+| 2025-09-01 | Hunyuan-MT            | 7B                                                          |
 | 2025-08-25 | InternVL3.5           | 1B - 241B - Qwen3, GPT OSS FT                               |
 | 2025-08-22 | Intern-S1             | Qwen3                                                       |
+| 2025-08-22 | grok-2                |                                                             |                | xAI             | Text generation, Conversational                                                    |
+| 2025-08-20 | Seed-OSS-36B-Instruct | 36B                                                         |                | ByteDance-Seed  | Text generation, Conversational                                                    |
+| 2025-07-24 | Intern-S1             |                                                             |                | InternLM        | Multimodal reasoning, Image-text-to-text                                           |
 | 2025-08-11 | [GLM 4.5V]            | based on GLM-4.5-Air-106-12A                                |                |                 | Hybrid Reasoning                                                                   |
 | 2025-08-06 | GPT OSS               | [20B][gpt-oss-20b], [120B][gpt-oss-120b]                    | 128K           | OpenAI          | Reasoning, Tools                                                                   |
 | 2025-07-28 | Intern-S1             | 235B                                                        |                |                 | Qwen3 + 6B InternViT                                                               |
@@ -45,6 +54,7 @@ tags:
 | 2025-01-28 | Qwen2.5-VL            | 3b, 7b, 32b, 72b                                            | 125K           | Alibaba         | Vision                                                                             |
 | 2025-01-28 | Qwen2.5               | 0.5b, 1.5b, 3b, 7b, 14b, 32b, 72b                           | 32K,1M         | Alibaba         |
 | 2025-01-20 | DeepSeek R1           | 1.5b, 7b, 8b, 14b, 32b, 70b, 671b                           | 128K           | DeepSeek AI     | Reasoning                                                                          |
+| 2024-11-20 | InternVL2_5           | 1B, 4B, 8B                                                  |                | OpenGVLab       | Vision-language, Multimodal                                                        |
 | 2024-12-07 | Llama 3.3             | 70B                                                         | 128K           | Meta            |
 | 2024-12    | Phi-4                 | 14b                                                         | 128K           | Microsoft       | mini-reasoning,reasoning,multimodal                                                |
 | 2024-11-21 | LTX-Video             | 2b, 13b                                                     |                | Lightricks      | T2V                                                                                |
@@ -80,23 +90,19 @@ tags:
   - https://github.com/dqbd/tiktokenizer/issues/39
 
 <!--
-https://github.com/InternLM/Intern-S1
-multimodal reasoning model
-
-https://github.com/OpenGVLab/InternVL
-https://huggingface.co/collections/OpenGVLab/internvl35-68ac87bd52ebe953485927fb
-
-https://huggingface.co/xai-org/grok-2
-https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct
 -->
 
 [gpt-oss-20b]: https://huggingface.co/openai/gpt-oss-20b
 [gpt-oss-120b]: https://huggingface.co/openai/gpt-oss-120b
 [GLM 4.5V]: https://huggingface.co/zai-org/GLM-4.5V
 
-| date       | model        | author | notes                                   |
-| ---------- | ------------ | ------ | --------------------------------------- |
-| 2025-06    | MobileNet V5 | Google | 256x256, 512x512, 768x768, CNN,Gemma 3n |
+**其他模型**
+
+| date       | model        | author | notes                                              |
+| ---------- | ------------ | ------ | -------------------------------------------------- |
+| 2025-11    | [SAM] 3      | Meta   | Unified segmentation, Text prompts, Video tracking |
+| 2024-09-24 | [SAM] 2.1    | Meta   | Hiera architecture, Video segmentation             |
+| 2025-06    | MobileNet V5 | Google | 256x256, 512x512, 768x768, CNN,Gemma 3n            |
 | 2025-02-19 | [YOLOv12]    |
 | 2024-08    | [SAM] v2     | Meta   |
 | 2024-04    | MobileNet V4 | Google |
@@ -109,42 +115,29 @@ https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct
 [SAM]: https://github.com/facebookresearch/segment-anything
 [YOLOv12]: https://github.com/sunsmarterjie/yolov12
 
-- MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
-  - https://arxiv.org/abs/1704.04861
-  - https://en.wikipedia.org/wiki/MobileNet
-  - MobileNetV3 https://arxiv.org/abs/1905.02244
-  - MobileNetV4 https://arxiv.org/abs/2404.10518
-- YOLO
-  - YOLO12 Attention-Centric Object Detection
-    - [sunsmarterjie/yolov12](https://github.com/sunsmarterjie/yolov12)
-    - https://arxiv.org/abs/2502.12524
-    - https://github.com/sunsmarterjie/yolov12/issues/74
-  - https://github.com/ultralytics/ultralytics
-- SAM - Segment Anything Model
-  - https://github.com/facebookresearch/segment-anything
-- SAM v2
-  - https://arxiv.org/abs/2408.00714
-
 **Diffusion/Image Models**
 
-| date       | model              | size                                      | author            | notes                                |
-| ---------- | ------------------ | ----------------------------------------- | ----------------- | ------------------------------------ |
-| 2025-11-26 | FLUX.2 dev         | 32B                                       | Black Forest Labs | Apache-2.0 klein 商业 pro, flex      |
-| 2025-08-04 | [Qwen-Image]       | 20B                                       | Alibaba           | Apache-2.0,MMDiT , T2I,Editing, Text |
-| 2025-07-16 | HiDream-E1-1       |                                           |                   | Editing                              |
-| 2025-05-29 | FLUX.1 Kontext     | dev 12B,~~max~~,~~pro~~                   | Black Forest Labs |                                      |
-| 2025-04-07 | HiDream-I1         | 17B, Fast 16step, Dev 28step, Full 50step |
-| 2025-01-25 | Lumina-Image 2.0   | 2B                                        | OpenGVLab         | Apache-2.0                           |
-| 2024-10-22 | SD 3.5             | turbo, large, medium ,2.5B, 8B            | Stability AI      |
-| 2024-08-01 | FLUX.1             | dev, schnell, 12B, ~~pro~~                | Black Forest Labs |
-| 2024-02    | SD 3.0             | 800M, 8B                                  | Stability AI      |
-| 2023-11    | SDXL Turbo         |                                           | Stability AI      |
-| 2023-07    | SDXL 1.0           | 3.5B                                      |
-| 2022-12    | SD v2.1            |
-| 2022-11    | SD v2.0            |                                           |
-| 2022-10    | SD 1.5             | 983M                                      | RunwayML          |
-| 2022-08    | SD 1.1 1.2 1.3 1.4 |                                           | CompVis           |
-| 2025-06-16 | OmniGen2           | 7B                                        | VectorSpaceLab    | T2I, Editing, Composing              |
+| date       | model                | size                                      | author            | notes                                |
+| ---------- | -------------------- | ----------------------------------------- | ----------------- | ------------------------------------ |
+| 2025-12-17 | Qwen-Image-Edit-2511 |                                           | Alibaba           | Image editing, T2I, I2I, Enhanced    |
+| 2025-11-26 | FLUX.2 dev           | 32B                                       | Black Forest Labs | Apache-2.0 klein 商业 pro, flex      |
+| 2025-11-25 | Z-Image-Turbo        |                                           | Tongyi-MAI        | Fast image generation, T2I           |
+| 2025-08-17 | Qwen-Image-Edit      |                                           | Alibaba           | Image editing, T2I, I2I, Base model  |
+| 2025-08-04 | [Qwen-Image]         | 20B                                       | Alibaba           | Apache-2.0,MMDiT , T2I,Editing, Text |
+| 2025-07-16 | HiDream-E1-1         |                                           |                   | Editing                              |
+| 2025-05-29 | FLUX.1 Kontext       | dev 12B,~~max~~,~~pro~~                   | Black Forest Labs |                                      |
+| 2025-04-07 | HiDream-I1           | 17B, Fast 16step, Dev 28step, Full 50step |
+| 2025-01-25 | Lumina-Image 2.0     | 2B                                        | OpenGVLab         | Apache-2.0                           |
+| 2024-10-22 | SD 3.5               | turbo, large, medium ,2.5B, 8B            | Stability AI      |
+| 2024-08-01 | FLUX.1               | dev, schnell, 12B, ~~pro~~                | Black Forest Labs |
+| 2024-02    | SD 3.0               | 800M, 8B                                  | Stability AI      |
+| 2023-11    | SDXL Turbo           |                                           | Stability AI      |
+| 2023-07    | SDXL 1.0             | 3.5B                                      |
+| 2022-12    | SD v2.1              |
+| 2022-11    | SD v2.0              |                                           |
+| 2022-10    | SD 1.5               | 983M                                      | RunwayML          |
+| 2022-08    | SD 1.1 1.2 1.3 1.4   |                                           | CompVis           |
+| 2025-06-16 | OmniGen2             | 7B                                        | VectorSpaceLab    | T2I, Editing, Composing              |
 
 [Qwen-Image]: https://huggingface.co/Qwen/Qwen-Image
 
@@ -508,8 +501,25 @@ https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct
   - [腾讯/Hunyuan-MT-Chimera-7B](https://huggingface.co/tencent/Hunyuan-MT-Chimera-7B)
     - 多语言翻译
     - 30+语言
+  - [Tencent-Hunyuan/HY-MT](https://github.com/Tencent-Hunyuan/HY-MT)
+    - 混元翻译模型1.5版本，包含1.8B和7B模型
+    - 支持33种语言互译，包含5种民族语言和方言变体
+    - WMT25冠军模型升级版，优化说明翻译和混合语言场景
+    - 支持术语干预、上下文翻译、格式化翻译，可部署在边缘设备
   - [腾讯/Hunyuan-MT-7B](https://huggingface.co/tencent/Hunyuan-MT-7B)
     - 中英双语翻译
+  - [MiniMaxAI/MiniMax-M2.1](https://huggingface.co/MiniMaxAI/MiniMax-M2.1)
+    - MiniMax M2.1 通用文本生成模型
+    - 228B参数，minimax_m2架构
+    - 支持对话和文本生成
+  - [XiaomiMiMo/MiMo-V2-Flash](https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash)
+    - 小米MiMo-V2-Flash文本生成模型
+    - 310B参数，mimo_v2_flash架构
+    - 支持对话和文本生成
+  - [mistralai/Ministral-3-14B-Instruct-2512](https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512), [mistralai/Ministral-3-8B-Instruct-2512](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512), [mistralai/Ministral-3-3B-Instruct-2512](https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512)
+    - Ministral 3系列指令微调模型
+    - 包含3B、8B、14B三个版本
+    - 支持11种语言，mistral3架构
 - LLaMA based
   - Vicuna
 - [haotian-liu/LLaVA](https://github.com/haotian-liu/LLaVA)
@@ -587,6 +597,21 @@ https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct
   - https://www.runninghub.ai
   - https://www.liblib.art
   - https://tusi.cn
+- MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
+  - https://arxiv.org/abs/1704.04861
+  - https://en.wikipedia.org/wiki/MobileNet
+  - MobileNetV3 https://arxiv.org/abs/1905.02244
+  - MobileNetV4 https://arxiv.org/abs/2404.10518
+- YOLO
+  - YOLO12 Attention-Centric Object Detection
+    - [sunsmarterjie/yolov12](https://github.com/sunsmarterjie/yolov12)
+    - https://arxiv.org/abs/2502.12524
+    - https://github.com/sunsmarterjie/yolov12/issues/74
+  - https://github.com/ultralytics/ultralytics
+- SAM - Segment Anything Model
+  - https://github.com/facebookresearch/segment-anything
+- SAM v2
+  - https://arxiv.org/abs/2408.00714
 
 ```bash
 # AVX = 1 | AVX2 = 0 | AVX512 = 0 | FMA = 0 | NEON = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 0 | SSE3 = 1 | VSX = 0 |

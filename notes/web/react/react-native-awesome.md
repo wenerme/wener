@@ -6,14 +6,14 @@ tags:
 # React Native Awesome
 
 - [jondot/awesome-react-native](https://github.com/jondot/awesome-react-native)
-- https://reactnative.directory/
+- [React Native Directory](https://reactnative.directory/)
 - [vhpoet/react-native-styling-cheat-sheet](https://github.com/vhpoet/react-native-styling-cheat-sheet)
 - platform
   - [microsoft/react-native-macos](https://github.com/microsoft/react-native-macos)
   - [microsoft/react-native-windows](https://github.com/microsoft/react-native-windows)
   - [microsoft/react-native-code-push](https://github.com/microsoft/react-native-code-push)
     - [microsoft/code-push](https://github.com/microsoft/code-push)
-  - https://github.com/expo
+  - [expo/expo](https://github.com/expo)
 - ui
   - [react-native-elements/react-native-elements](https://github.com/react-native-elements/react-native-elements)
   - [necolas/react-native-web](https://github.com/necolas/react-native-web)
@@ -59,7 +59,7 @@ tags:
   - [callstack/haul](https://github.com/callstack/haul)
   - [facebook/metro](https://github.com/facebook/metro)
 - storage/network
-  - rxdb
+  - [rxdb](https://github.com/pubkey/rxdb)
   - [feathersjs/feathers](https://github.com/feathersjs/feathers)
   - [zo0r/react-native-push-notification](https://github.com/zo0r/react-native-push-notification)
 - animation

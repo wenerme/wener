@@ -45,6 +45,12 @@ title: MaaS API
 
 - https://ai.google.dev/api/rest
 
+## Multiple tools are supported only when they are all search tools
+
+- 内置 tool 和 functionDeclaration 工具不能同时使用
+- openai 里的 tool 映射为一个 functionDeclaration
+- 其他的 tool 是内置 tool，语义上有点区别
+
 ## streaming
 
 - 第一个 chunk 和最后一个 chunk 不应该包含 content

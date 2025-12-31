@@ -28,7 +28,6 @@ tags: [Agent, CLI]
   - [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code)
     - based on Gemini CLI
   - https://cloud.google.com/gemini/docs/codeassist/gemini-cli
-  - https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md
   - https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/commands.md
 - env
   - TERM_PROGRAM=vscode
@@ -45,18 +44,30 @@ brew install gemini-cli
 npm install -g @google/gemini-cli@latest
 
 gemini
+gemini -r # 恢复会话
 
 # 支持修改 Provider
 export GEMINI_API_KEY=""
 export GOOGLE_GEMINI_BASE_URL=""
+# 只能通过 ENV 配置主要模型，无法修改 Flash 模型，Flash 模型需要通过 settings.json 修改
 export GEMINI_MODEL=""
 gemini "Hello"
 ```
 
-- 环境变量加载:
+## 配置 {#configuration}
+
+- 环境变量加载 - 用来配置 API KEY 和 BaseURL
   - .env
   - .env 往上搜索到 .git
+  - .gemini/.env
   - ~/.env
+  - ~/.gemini/.env
+- 配置加载 - 用来配置模型、工具等
+  - .gemini/settings.json
+  - ~/.gemini/settings.json
+  - 默认配置 https://github.com/google-gemini/gemini-cli/blob/main/packages/core/src/config/defaultModelConfigs.ts
+- 参考
+  - https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md
 
 | 变量名                            | 默认值              | 用途说明                                                                                                                                                                                    |
 | --------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -97,6 +108,181 @@ gemini "Hello"
 
 - 支持多配置文件优先级（如 `~/.gemini/settings.json`、`.gemini/settings.json`、`/etc/gemini-cli/settings.json` 等）
 - `.env` 文件中可用 shell 变量（如 `"$MY_API_TOKEN"`）进行变量展开
+
+## 自定义模型
+
+- 例如修改 gemini-3-pro-preview -> google/gemini-3-pro-preview
+  - 用于第三方 Provider 场景
+
+```json
+{
+  "model": {
+    "name": "google/gemini-3-pro-preview"
+  },
+  "modelConfigs": {
+    "customAliases": {
+      "gemini-2.5-pro": {
+        "extends": "chat-base-2.5",
+        "modelConfig": {
+          "model": "google/gemini-3-pro-preview"
+        }
+      },
+      "gemini-3-pro-preview": {
+        "extends": "chat-base-3",
+        "modelConfig": {
+          "model": "google/gemini-3-pro-preview"
+        }
+      },
+      "gemini-2.5-flash": {
+        "extends": "chat-base-2.5",
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview"
+        }
+      },
+      "gemini-2.5-flash-lite": {
+        "extends": "chat-base-2.5",
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview"
+        }
+      },
+      "gemini-3-flash-preview": {
+        "extends": "chat-base-3",
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview"
+        }
+      },
+      "gemini-2.5-flash-base": {
+        "extends": "base",
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview"
+        }
+      },
+      "classifier": {
+        "extends": "base",
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview",
+          "generateContentConfig": {
+            "maxOutputTokens": 1024,
+            "thinkingConfig": {
+              "thinkingBudget": 512
+            }
+          }
+        }
+      },
+      "prompt-completion": {
+        "extends": "base",
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview",
+          "generateContentConfig": {
+            "temperature": 0.3,
+            "maxOutputTokens": 16000,
+            "thinkingConfig": {
+              "thinkingBudget": 0
+            }
+          }
+        }
+      },
+      "edit-corrector": {
+        "extends": "base",
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview",
+          "generateContentConfig": {
+            "thinkingConfig": {
+              "thinkingBudget": 0
+            }
+          }
+        }
+      },
+      "summarizer-default": {
+        "extends": "base",
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview",
+          "generateContentConfig": {
+            "maxOutputTokens": 2000
+          }
+        }
+      },
+      "summarizer-shell": {
+        "extends": "base",
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview",
+          "generateContentConfig": {
+            "maxOutputTokens": 2000
+          }
+        }
+      },
+      "web-search": {
+        "extends": "gemini-2.5-flash-base",
+        "modelConfig": {
+          "generateContentConfig": {
+            "tools": [{ "googleSearch": {} }]
+          }
+        }
+      },
+      "web-fetch": {
+        "extends": "gemini-2.5-flash-base",
+        "modelConfig": {
+          "generateContentConfig": {
+            "tools": [{ "urlContext": {} }]
+          }
+        }
+      },
+      "web-fetch-fallback": {
+        "extends": "gemini-2.5-flash-base",
+        "modelConfig": {}
+      },
+      "loop-detection": {
+        "extends": "gemini-2.5-flash-base",
+        "modelConfig": {}
+      },
+      "loop-detection-double-check": {
+        "extends": "base",
+        "modelConfig": {
+          "model": "google/gemini-3-pro-preview"
+        }
+      },
+      "llm-edit-fixer": {
+        "extends": "gemini-2.5-flash-base",
+        "modelConfig": {}
+      },
+      "next-speaker-checker": {
+        "extends": "gemini-2.5-flash-base",
+        "modelConfig": {}
+      },
+      "chat-compression-3-pro": {
+        "modelConfig": {
+          "model": "google/gemini-3-pro-preview"
+        }
+      },
+      "chat-compression-3-flash": {
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview"
+        }
+      },
+      "chat-compression-2.5-pro": {
+        "modelConfig": {
+          "model": "google/gemini-3-pro-preview"
+        }
+      },
+      "chat-compression-2.5-flash": {
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview"
+        }
+      },
+      "chat-compression-2.5-flash-lite": {
+        "modelConfig": {
+          "model": "google/gemini-3-flash-preview"
+        }
+      },
+      "chat-compression-default": {
+        "modelConfig": {
+          "model": "google/gemini-3-pro-preview"
+        }
+      }
+    }
+  }
+}
+```
 
 ## commands
 
@@ -242,6 +428,35 @@ gemini "Hello"
 ```
 
 - https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md
+
+## conductor
+
+- https://github.com/gemini-cli-extensions/conductor
+- CDD - Context Driven Development - 上下文驱动开发
+- 不依赖聊天记录，而是将项目的上下文（Context）、技术栈（Tech Stack）、代码规范（Style Guide）等信息以 Markdown 文件的形式存储在代码仓库中。AI 会始终遵循这些文件，确保开发的一致性。
+- 相比于 SpecIt 或 OpenSpec 等类似工具，Conductor 与 Gemini CLI 集成更紧密
+
+```bash
+gemini extensions install https://github.com/gemini-cli-extensions/conductor
+
+# CONTEXT.md
+gemini /conductor:setup
+
+# spec, plan
+gemini /conductor:newTrack
+```
+
+```bash
+/conductor setup
+# tracks/
+/conductor newTrack
+
+/conductor implement
+/conductor status
+/conductor revert
+```
+
+- .conductor/tracks/
 
 ## GEMINI.md
 

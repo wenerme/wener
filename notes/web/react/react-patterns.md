@@ -2,6 +2,7 @@
 title: React Patterns
 tags:
   - Pattern
+  - React
 ---
 
 # React Patterns
@@ -27,11 +28,11 @@ tags:
 | [Hooks from Context](#hooks-from-context)                 | `useTableHooks()`                            |
 | [Portal cross boundary](#portal-cross-boundary)           |
 
-- `innerRef`, `elementRef` - forwardRef 透传内部引用
+- `innerRef`, `elementRef` - `forwardRef` 透传内部引用
 - `mergeRefs` - 合并多个 ref，使得外部和内部都能拿到 ref
 - `defaultValue`, `defaultValues`, `initialValues` - 初始状态 props
 - Prop Collections and Getters
-  - 传递 getXyzProps 返回的 props 到 Component
+  - 传递 `getXyzProps` 返回的 props 到 Component
 - State Initializers - 状态初始器 - `<Comp createState={()=>({})}/>`
 - Array as children
 - Style component - 同 Proxy component 但关注样式属性
@@ -48,7 +49,7 @@ tags:
 
 ---
 
-- https://reactpatterns.com/
+- [React Patterns](https://reactpatterns.com/)
 
 ## Sidecar
 
@@ -87,7 +88,7 @@ const Sidecar = () => {
 - Raw State
   - 直接、易于理解、灵活
   - 直接暴露 state 和操作方法
-  - actions 封装部分预设的操作逻辑
+  - `actions` 封装部分预设的操作逻辑
 - State Wrapper
   - 封装、可维护（没有暴露过多细节）、易扩展、适用于复杂场景
   - 本质还是维护和操作 state
@@ -116,9 +117,9 @@ type ReactTable = {
 - 原子组件
 - 组合、复用
 - 参考
-  - cmdk
-  - radix-ui
-  - base-ui
+  - [cmdk](https://github.com/pacocoursey/cmdk)
+  - [radix-ui](https://www.radix-ui.com/)
+  - [base-ui](https://mui.com/base-ui/)
 
 ```tsx
 const MyList = ()=>{
@@ -159,10 +160,10 @@ export const CurrentListTableQueryReactor = () => {
 
 ## Portal cross boundary {#portal-cross-boundary}
 
-- createPortal 可以跨越边界, 且共享状态
-- 可以直接渲染到 window.open 的窗口
-- 可以直接渲染到 iframe
-- 可以直接渲染到 shadow dom
+- `createPortal` 可以跨越边界, 且共享状态
+- 可以直接渲染到 `window.open` 的窗口
+- 可以直接渲染到 `iframe`
+- 可以直接渲染到 `shadow dom`
 
 # 自定义 Hooks {#custom-hooks}
 
@@ -175,8 +176,8 @@ export const CurrentListTableQueryReactor = () => {
 - Control Props Pattern
 - 传递一个 opaque/不透明 的 controller
 - 隐藏内部实现
-- 例如: react-hook-form 的 control 参数
-- 例如: 直接传递 zustand 的 store
+- 例如: `react-hook-form` 的 `control` 参数
+- 例如: 直接传递 `zustand` 的 `store`
 - Material UI
 
 ## flex render
@@ -254,8 +255,8 @@ const Counter = () => {
 ## as props
 
 - 允许自定义组件类型
-- 例如 Button 组件可以是 button, a, div, Link 等
-- 例如 Container 组建可以时 form, div, fieldset 等
+- 例如 `Button` 组件可以是 `button`, `a`, `div`, `Link` 等
+- 例如 `Container` 组建可以时 `form`, `div`, `fieldset` 等
 
 ```tsx
 const Button: React.FC<{ as?: any }> = ({ as: As = 'button', ...props }) => {
@@ -326,15 +327,15 @@ const Layout = ({ sidebar, status, menu,children }) => (
 
 - React 的 IoC
 - Provider/Context
-- createContext
+- `createContext`
   - 按需创建 Context
   - 多个相同 Context 并存
 
 :::caution
 
-- memo 会导致 Context 变化无法被检测到
-- useContext 不支持 select 可能导致性能问题 - 大状态需要注意
-  - 可以使用 out of tree state 解决
+- `memo` 会导致 Context 变化无法被检测到
+- `useContext` 不支持 select 可能导致性能问题 - 大状态需要注意
+  - 可以使用 `out of tree state` 解决
 
 :::
 

@@ -26,11 +26,20 @@ node_modules
 /out
 
 /local
+local/
 .local
 *.local.md
 local.mk
 *.local.json
 *.local.txt
+*.local.http
+*.local.ldif
+*.local.tf
+*.local.js
+*.local.conf
+*.local.ts
+*.local.sql
+*.local.sh
 
 /.cursor
 .cursorrules
@@ -39,3 +48,15 @@ local.mk
 *.cert
 *.pem
 .mcp.json
+.claude/
+.gemini/
+AGENTS.md
+/*.jpg
+mcps.json
+*.graphql
+*.graphqls
+*.drawio
+*.puml
+
+/notes/embedded/NES
+/tbd

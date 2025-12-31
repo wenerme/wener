@@ -285,3 +285,60 @@ npm install gist/gist_id
 ```bash
 npx -y check-engine
 ```
+
+## Reference Snippets
+
+- [What's what Package.json cheatsheet](https://areknawo.com/whats-what-package-json-cheatsheet/)
+- [StackOverflow: New package.json "exports" field not working with TypeScript](https://stackoverflow.com/questions/58990498/new-package-json-exports-field-not-working-with-typescript)
+- [Node.js: Package Entry Points](https://nodejs.org/api/esm.html#esm_package_entry_points)
+- [Node.js: Conditional Exports](https://nodejs.org/api/esm.html#esm_conditional_exports)
+- [Nexmo CLI Issue #186: deprecated 'prepublish'](https://github.com/Nexmo/nexmo-cli/issues/186)
+  - As of npm@5, `prepublish` scripts are deprecated.
+  - Use `prepare` hook instead to keep the current behavior.
+  - Recommend using `prepublishOnly` hook to build the project only before publishing, and not after each npm install runs.
+
+### GitHub Package Registry
+
+- [How to publish packages to the GitHub Package Registry](https://dev.to/jgierer12/how-to-publish-packages-to-the-github-package-repository-4bai)
+
+```json
+{
+  "name": "@OWNER/PACKAGE",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": "https://github.com/OWNER/REPO"
+}
+```
+
+Or via CLI:
+`npm publish --ignore-scripts --@OWNER:registry='https://registry.npmjs.org'`
+
+### Exports & TypeScript
+
+- [TypeScript Issue #33079: Support for NodeJS 12.7+ package exports](https://github.com/microsoft/TypeScript/issues/33079)
+
+```json
+{
+  "name": "my-package",
+  "type": "module",
+  "exports": {
+    ".": {
+      // Entry-point for `import "my-package"` in ESM
+      "import": "./esm/index.js",
+
+      // Entry-point for `require("my-package") in CJS
+      "require": "./commonjs/index.cjs",
+
+      // Entry-point for TypeScript resolution
+      "types": "./types/index.d.ts"
+    }
+  },
+
+  // CJS fall-back for older versions of Node.js
+  "main": "./commonjs/index.cjs",
+
+  // Fall-back for older versions of TypeScript
+  "types": "./types/index.d.ts"
+}
+```

@@ -79,7 +79,6 @@ zfs set atime=off relatime=on xattr=sa compression=lz4 sync=disabled POOL
 zfs get all POOL | grep -E 'compression|atime|xattr|sync|primarycache|recordsize'
 ```
 
-
 ## ZIL SLOG
 
 - ZIL - ZFS Intent Log
@@ -169,13 +168,14 @@ vfs.zfs.vdev.write_gap_limit=0     # max gap between any two aggregated writes, 
 - https://www.truenas.com/blog/zfs-zil-and-slog-demystified/
 
 ## logbias
+
 - logbias=latency
   - 无 SLOG，block 较大能提升性能
 - logbias=throughput
   - 小 block 写入产生非常多碎片
 
 ```bash
-zfs send dataset >/dev/null
+zfs send dataset > /dev/null
 
 zpool iostat -r 1
 ```
@@ -275,3 +275,332 @@ atime 总是为 on
 - [Module Parameters](https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Module%20Parameters.html)
 - https://calomel.org/freebsd_network_tuning.html
 - https://docs.freebsd.org/en/books/handbook/zfs/#zfs-advanced-tuning
+  \n## Tuning Reference\n
+
+---
+
+id: zfs-tuning
+title: 调优
+
+---
+
+# ZFS Tuning
+
+## RAIDZ
+
+https://serverfault.com/a/1021299/190601
+
+record size 默认 128KiB
+Valid options are 512b to 1024KiB in powers of 2.
+sector size / ashift = 512/4096
+zfs set recordsize=64k mypool/myfs
+
+ARC Adaptive Replacement Cache
+
+cat /proc/spl/kstat/zfs/arcstats
+c 目标 arc
+c_max 最大 arc
+size 当前 arc
+
+modprobe zfs zfs_arc_max=N
+/sys/module/zfs/parameters/zfs_arc_max
+
+awk '/^size/ { print $1 " " $3 / 1048576 }' < /proc/spl/kstat/zfs/arcstats
+
+https://superuser.com/a/1137417/242730
+https://github.com/openzfs/zfs/blob/384328e544b1847236a07df231e1b7b10e4cc6ce/cmd/arc_summary/arc_summary.py
+
+- [Performance tuning](http://open-zfs.org/wiki/Performance_tuning)
+  https://docs.oracle.com/cd/E18752_01/html/819-5461/ftyue.html
+
+| 属性       | 默认 | 说明                                                                                         |
+| ---------- | ---- | -------------------------------------------------------------------------------------------- |
+| recordsize | 128K | 内部 COW 的基本单位, 可选值 x^2 can be set to any power of 2 from 512 bytes to 128 kilobytes |
+
+zdb
+
+### recordsize
+
+内部 COW 的基本单位
+可选值 x^2
+对新的文件生效
+
+ZFS: Performance and Capacity Impact of Ashift=9 on 4K Sector Drives
+http://louwrentius.com/zfs-performance-and-capacity-impact-of-ashift9-on-4k-sector-drives.html
+
+ZAP (ZFS Attribute Processor)
+
+basic unit of data used for internal copy-on-write on files
+
+read from either ARC (cheap) or disk (expensive)
+
+- https://wiki.freebsd.org/ZFSTuningGuide
+- http://fibrevillage.com/storage/171-zfs-on-linux-performance-tuning
+
+Introducing ZFS Properties
+https://docs.oracle.com/cd/E53394_01/html/E54801/gazss.html
+
+```bash
+# 设置和查看 dedup
+# 开启 dedup 后只对新写入的数据有效
+zfs set dedup=on main
+zfs get dedup main
+# Simulated DDT histogram
+# 模拟使用 dedup 会带来的好处
+zdb -S main
+
+# 获取 pool 的 dedup 率
+zpool get dedupratio main
+# 查看 dedup 状态
+# Total allocated blocks 实际使用大小 Total referenced blocks 去重前的大小
+# 内存占用 DDT entries 2530438, size 682B on disk, 151B in core = 2530438*151/1024/1024 = 364m
+zpool status -D main
+#  dedup: DDT entries 2530438, size 682B on disk, 151B in core
+#
+# bucket              allocated                       referenced
+# ______   ______________________________   ______________________________
+# refcnt   blocks   LSIZE   PSIZE   DSIZE   blocks   LSIZE   PSIZE   DSIZE
+# ------   ------   -----   -----   -----   ------   -----   -----   -----
+#      1    2.37M    285G    276G    276G    2.37M    285G    276G    276G
+#      2    42.5K   5.30G   5.18G   5.18G    92.5K   11.5G   11.3G   11.3G
+#      4    2.01K    255M    239M    239M    8.89K   1.10G   1.04G   1.04G
+#      8      444   55.5M   54.1M   54.0M    4.74K    606M    594M    594M
+#     16      108   13.5M   13.5M   13.5M    2.21K    282M    282M    282M
+#  Total    2.41M    290G    281G    282G    2.47M    298G    289G    289G
+
+# atime - 上次访问时间, 一般不需要, 并且非常影响读性能
+zfs set atime=off main
+# relatime - atime 的折中方案, 类似于 ext4/xfs atime 语义, 只有在修改时间或更新时间变化时更新 atime, 或者现在的 atime 有 24h 未更新
+# 只有在开启 atime 时才会生效
+zfs set atime=on relatime=on main
+
+# compression - 压缩, 默认 lz4, 可选值 on, off, zstd, lzjb, lz4, gzip, gzip-N
+# 目前设置为 lzjb, gzip, or gzip-N 等同于设置为 on
+# 属性可缩写为 compress
+# 设置压缩后只对新的数据有影响
+zfs set compression=lz4 main
+# 只读属性, 获取当前的压缩率
+zfs get compressratio main
+
+# logbias - 控制 zfs 如何优化同步请求, 默认 latency
+# latency 以优化延迟为主, 使用额外的日志设备来处理
+# throughput 不会使用额外的日志设备
+# 在没有 log 设备时, 默认会在 pool 上预留部分空间用于存储 ZIL, zfs 使用 ZIL 用于崩溃恢复
+zfs set logbias=all main
+# 但数据库一般都会直接做同步操作, 开启该功能相当于对磁盘进行两次提交, 影响性能
+# 在非数据库文件系统和一级配置了 log 设备的文件系统上, 设置这个可能对性能有不好的影响
+zfs set logbias=throughput main/postgres
+
+# recordsize - 推荐块大小, 默认情况下, 使用默认值即可, 默认 128KiB
+# 可使用缩写  recsize
+# 该属性主要针对数据库设计, 每次访问文件都是固定大小. ZFS 会根据内部算法自动调整块大小, 数据库会创建比较大的文件, 但每次访问都是非常小的随机块.
+# 但针对数据库, 建议使用数据库记录大小, 大多数关系型数据库都是 8K 的块
+zfs set recordsize=8K main/postgres
+zfs get recordsize main/archive
+
+# primarycache - 控制什么会被缓存在主要缓存中 ARC, 默认 all 可选值 all, none, metadata
+# 一般数据库都会用自己的方式实现缓存, 因此没有必要让 zfs 再缓存数据
+zfs set primarycache=metadata main/postgres
+
+# secondarycache - 控制什么会进入到二级缓存 L2ARC, 默认 all, 可选值  all, none, metadata
+zfs get secondarycache main
+
+# type - 只读, 获取数据集类型 filesystem, volume, 或 snapshot.
+zfs get type main
+# used - 只读, 获取已使用空间
+zfs get used main
+# available - 只读, 可用空间
+zfs get available main
+# creation - 只读, 创建时间
+zfs get creation main
+# mounted - 只读, 是否已经挂载
+# mountpoint - 挂载点
+# quota - 限额
+# readonly - 是否只读
+
+# version - 只读, 磁盘文件系统版本, 独立于 pool 版本
+zfs get version main
+# xattr - 是否启用扩展属性
+zfs get xattr main
+
+# 所有配置参数
+# ======
+zfs get all p1
+# NAME  PROPERTY              VALUE           SOURCE
+# p1    type                  filesystem      -
+# p1    creation              1507714508      -
+# p1    used                  400K            -
+# p1    available             138M            -
+# p1    referenced            128K            -
+# p1    compressratio         1.00x           -
+# p1    mounted               yes             -
+# p1    quota                 none            default
+# p1    reservation           none            default
+# p1    recordsize            128K            default
+# p1    mountpoint            /mnt/data       local
+# p1    sharenfs              off             default
+# p1    checksum              on              default
+# p1    compression           off             default
+# p1    atime                 on              default
+# p1    devices               on              default
+# p1    exec                  on              default
+# p1    setuid                on              default
+# p1    readonly              off             default
+# p1    zoned                 off             default
+# p1    snapdir               hidden          default
+# p1    aclinherit            restricted      default
+# p1    canmount              on              default
+# p1    xattr                 on              default
+# p1    copies                1               default
+# p1    version               5               -
+# p1    utf8only              off             -
+# p1    normalization         none            -
+# p1    casesensitivity       sensitive       -
+# p1    vscan                 off             default
+# p1    nbmand                off             default
+# p1    sharesmb              off             default
+# p1    refquota              none            default
+# p1    refreservation        none            default
+# p1    primarycache          all             default
+# p1    secondarycache        all             default
+# p1    usedbysnapshots       0               -
+# p1    usedbydataset         128K            -
+# p1    usedbychildren        272K            -
+# p1    usedbyrefreservation  0               -
+# p1    logbias               latency         default
+# p1    dedup                 off             default
+# p1    mlslabel              none            default
+# p1    sync                  standard        default
+# p1    refcompressratio      1.00x           -
+# p1    written               128K            -
+# p1    logicalused           92.5K           -
+# p1    logicalreferenced     40K             -
+# p1    filesystem_limit      none            default
+# p1    snapshot_limit        none            default
+# p1    filesystem_count      none            default
+# p1    snapshot_count        none            default
+# p1    snapdev               hidden          default
+# p1    acltype               off             default
+# p1    context               none            default
+# p1    fscontext             none            default
+# p1    defcontext            none            default
+# p1    rootcontext           none            default
+# p1    relatime              off             default
+# p1    redundant_metadata    all             default
+# p1    overlay               off             default
+```
+
+## Tuning
+
+- [#9375](https://github.com/openzfs/zfs/issues/9375) - Subpar performance of RAIDZ, reads are slower than writes
+- [模块参数](https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/ZFS%20on%20Linux%20Module%20Parameters.html)
+- [zfs.8](https://openzfs.github.io/openzfs-docs/man/8/zfs.8.html)
+- [zfsprops.8](https://openzfs.github.io/openzfs-docs/man/8/zfsprops.8.html)
+- [zpoolprops.8](https://openzfs.github.io/openzfs-docs/man/8/zpoolprops.8.html)
+
+zpool get -o all all main | egrep 'ashift'
+zfs get all main/data | egrep 'ashift|relatime|canmount|compression|xattr|dnodesize|acltype|normalization'
+
+ashift=12
+relatime=on
+canmount=off
+compression=lz4
+xattr=sa
+dnodesize=auto
+acltype=posixacl
+normalization=formD
+
+```bash
+# https://jrs-s.net/2018/03/13/zvol-vs-qcow2-with-kvm/
+# 4k 随机
+# randread - 随机读
+fio --name=random-write --ioengine=sync --iodepth=4 \
+  --rw=randwrite --bs=4k --direct=0 --size=256m --numjobs=2 \
+  --end_fsync=1
+```
+
+## RESULT
+
+### raidz1 randwrite 4k x 2
+
+```bash
+fio --name=random-write --ioengine=sync --iodepth=4 \
+  --rw=randwrite --bs=4k --direct=0 --size=256m --numjobs=2 \
+  --end_fsync=1
+```
+
+```
+Jobs: 1 (f=1): [F(1),_(1)][100.0%][w=232MiB/s][w=59.5k IOPS][eta 00m:00s]
+random-write: (groupid=0, jobs=1): err= 0: pid=27959: Thu Jul 16 00:22:03 2020
+  write: IOPS=2338, BW=9353KiB/s (9578kB/s)(256MiB/28027msec); 0 zone resets
+    clat (usec): min=4, max=495041, avg=415.40, stdev=4703.61
+     lat (usec): min=4, max=495042, avg=415.48, stdev=4703.63
+    clat percentiles (usec):
+     |  1.00th=[     5],  5.00th=[     5], 10.00th=[     5], 20.00th=[     6],
+     | 30.00th=[     6], 40.00th=[     6], 50.00th=[     6], 60.00th=[     6],
+     | 70.00th=[     6], 80.00th=[     7], 90.00th=[    12], 95.00th=[    54],
+     | 99.00th=[ 13042], 99.50th=[ 20841], 99.90th=[ 67634], 99.95th=[ 82314],
+     | 99.99th=[149947]
+   bw (  KiB/s): min=   71, max=14744, per=4.02%, avg=751.23, stdev=2173.43, samples=47
+   iops        : min=   17, max= 3686, avg=187.70, stdev=543.36, samples=47
+  lat (usec)   : 10=89.76%, 20=2.80%, 50=2.36%, 100=2.50%, 250=0.21%
+  lat (usec)   : 500=0.23%, 750=0.02%, 1000=0.01%
+  lat (msec)   : 2=0.03%, 4=0.09%, 10=0.81%, 20=0.65%, 50=0.38%
+  lat (msec)   : 100=0.12%, 250=0.04%, 500=0.01%
+  cpu          : usr=0.33%, sys=3.28%, ctx=2037, majf=0, minf=13
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,65536,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=4
+random-write: (groupid=0, jobs=1): err= 0: pid=27960: Thu Jul 16 00:22:03 2020
+  write: IOPS=3768, BW=14.7MiB/s (15.4MB/s)(256MiB/17392msec); 0 zone resets
+    clat (usec): min=4, max=122329, avg=253.68, stdev=2705.38
+     lat (usec): min=4, max=122329, avg=253.78, stdev=2705.40
+    clat percentiles (usec):
+     |  1.00th=[    5],  5.00th=[    5], 10.00th=[    5], 20.00th=[    6],
+     | 30.00th=[    6], 40.00th=[    6], 50.00th=[    6], 60.00th=[    6],
+     | 70.00th=[    7], 80.00th=[   15], 90.00th=[   20], 95.00th=[   57],
+     | 99.00th=[10159], 99.50th=[18220], 99.90th=[39584], 99.95th=[52167],
+     | 99.99th=[82314]
+   bw (  KiB/s): min=  312, max=209976, per=45.19%, avg=8454.06, stdev=36298.89, samples=33
+   iops        : min=   78, max=52494, avg=2113.52, stdev=9074.72, samples=33
+  lat (usec)   : 10=78.23%, 20=13.08%, 50=2.80%, 100=4.46%, 250=0.05%
+  lat (usec)   : 500=0.18%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.16%, 20=0.59%, 50=0.37%
+  lat (msec)   : 100=0.05%, 250=0.01%
+  cpu          : usr=0.65%, sys=5.59%, ctx=1290, majf=0, minf=12
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,65536,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=4
+
+Run status group 0 (all jobs):
+  WRITE: bw=18.3MiB/s (19.2MB/s), 9353KiB/s-14.7MiB/s (9578kB/s-15.4MB/s), io=512MiB (537MB), run=17392-28027msec
+```
+
+### raidz1 seqwrite 512k x 2
+
+```bash
+fio --name=seq-write --ioengine=libaio --iodepth=4 \
+  --rw=seqread --bs=4k --direct=0 --size=256m --numjobs=2 \
+  --end_fsync=1
+```
+
+https://superuser.com/questions/1137416/how-can-i-determine-the-current-size-of-the-arc-in-zfs-and-how-does-the-arc-rel
+https://www.unixarena.com/2013/07/zfs-zpool-cache-and-log-devices.html/
+
+缓存使用情况
+zpool iostat -v
+
+ZFS Caches:
+ZFS Caching mechanisms will also use LRU (Least Recently Used) caching algorithm which is used processor caching technology. ZFS has two type of caches.1.ZFS ARC 2.ZFS L2ARC
+
+ZFS ARC:
+ZFS Adjustable Replacement Cache will typically occupy 7/8 of available physical memory and this memory will be released for applications whenever required, ZFS ARC will adjust the memory usage according to the kernel needs.
+
+ZFS L2ARC:
+ZFS L2ARC is level 2 adjustable replacement cache and normally L2ARC resides on fastest LUNS or SSD.L2ARC Cache devices provide an additional layer of caching between main memory and disk.It increases the great performance of random-read workloads of static content.Here we will see how to setup L2ARC on physical disks.
+
+https://www.servethehome.com/zfs-on-ubuntu-create-zfs-pool-with-nvme-l2arc-and-share-via-smb/

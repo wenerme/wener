@@ -4,9 +4,9 @@ tags:
   - FAQ
 ---
 
-# 存储硬件常见问题
+# 存储硬件常见问题 {#storage-hardware-faq}
 
-## NAND flash cell
+## NAND 闪存单元 {#nand-flash-cell}
 
 | abbr. |         stand for | bits/cell | first ssd            | P/E                         | cn       |
 | ----- | ----------------: | --------- | -------------------- | --------------------------- | -------- |
@@ -25,7 +25,7 @@ tags:
   - 低错误率
 - [Multi-level cell](https://en.wikipedia.org/wiki/Multi-level_cell)
 
-## NOR vs NAND
+## NOR vs NAND {#nor-vs-nand}
 
 - NOR
   - 可以随机读写
@@ -35,7 +35,7 @@ tags:
   - 低面积、高容量、低成本
   - 顺序方式连接
 
-## HPC 存储系统
+## HPC 存储系统 {#hpc-storage-systems}
 
 | System      | Year | Peak PFLOPS | # Cores | Storage Capacity | # Disks  |
 | ----------- | ---- | ----------- | ------- | ---------------- | -------- |
@@ -45,7 +45,7 @@ tags:
 
 - https://www.usenix.org/legacy/events/lisa11/tech/slides/deenadhayalan.pdf
 
-## 4K block size
+## 4K 块大小 {#4k-block-size}
 
 - 2010 年 - 512 -> 4096
   - 高级格式化

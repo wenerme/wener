@@ -6,11 +6,11 @@ tags:
 # HTML FAQ
 
 - fieldset readonly
-  - https://github.com/whatwg/html/issues/10293
+  - [Note: fieldset readonly issue](https://github.com/whatwg/html/issues/10293)
 
 ## double form submit
 
-- https://github.com/whatwg/html/issues/5312
+- [Note: double form submit issue](https://github.com/whatwg/html/issues/5312)
 
 ## 响应式 {#responsive-meta-tag}
 
@@ -31,7 +31,7 @@ tags:
 
 ---
 
-- https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag
+- [MDN: Viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag)
 
 ## offscreen
 
@@ -43,7 +43,7 @@ tags:
   - On-screen but non-interactive content - pointer-events: none，user-select: none
   - jsx `inert={i !== tab ? '' : null}`
 - 参考
-  - https://developer.chrome.com/articles/inert/
+  - [Chrome Developers: inert](https://developer.chrome.com/articles/inert/)
   - [WICG/inert](https://github.com/WICG/inert)
   - React Offscreen
   - CSS [content-visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility)
@@ -52,7 +52,7 @@ tags:
     - hidden 时，engine 可直接跳过渲染
     - offscreen 部分降低优先级
     - 和 contain 相关
-    - https://web.dev/articles/content-visibility
+    - [web.dev: content-visibility](https://web.dev/articles/content-visibility)
   - CSS display: none
     - 不占用布局
   - CSS visibility: hidden

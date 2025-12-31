@@ -90,7 +90,7 @@ export interface IResourceComponents {
   - auth
     - 必须方法: login, check, logout, onError
     - 可选方法: register, forgotPassword, updatePassword, getPermissions, getIdentity
-    - https://refine.dev/docs/api-reference/core/providers/auth-provider/
+    - [AuthProvider API](https://refine.dev/docs/api-reference/core/providers/auth-provider/)
   - [data](#data-provider)
     - 实现: simple rest, graphql, nestjs CRUD, airtable, strapi, supabase, hasura, appwrite, medusa
     - [medusa](https://github.com/medusajs/medusa)

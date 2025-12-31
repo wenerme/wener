@@ -1,8 +1,14 @@
 ---
-title: 闪存
+title: 闪存 (Flash Memory)
+tags:
+  - Hardware
+  - Storage
+  - Flash
+  - SD
+  - MicroSD
 ---
 
-# 闪存
+# 闪存 (Flash Memory) {#flash-memory}
 
 | abbr.     | stand for                              | meaning                |
 | --------- | -------------------------------------- | ---------------------- |
@@ -71,7 +77,7 @@ title: 闪存
 
 - [SD card](https://en.wikipedia.org/wiki/SD_card)
 
-# FAQ
+## 常见问题 {#faq}
 
 - [Five things you never knew about flash drives](https://www.zdnet.com/article/five-things-you-never-knew-about-flash-drives/)
   (2007)

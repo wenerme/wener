@@ -6,14 +6,13 @@ title: Hugging Face
 
 - HF_HOME
 - git lfs
-- 参考
-  - https://huggingface.co/pricing
+- [HF Pricing](https://huggingface.co/pricing)
 - XET Storage
-  - https://huggingface.co/xet-team
-  - https://xethub.com/
+  - [huggingface/xet-team](https://huggingface.co/xet-team)
+  - [xethub.com](https://xethub.com/)
   - transfer.xethub.hf.co - CloudFront, 能直联
   - cas-server.xethub.hf.co
-- Pro https://huggingface.co/subscribe/pro
+- [HF Pro](https://huggingface.co/subscribe/pro)
   - $9.00 / month
 
 ```bash
@@ -38,8 +37,8 @@ uvx --from huggingface_hub huggingface-cli scan-cache
 
 ## API
 
-- https://huggingface.co/docs/hub/en/api
-- https://github.com/huggingface/huggingface.js
+- [HF Hub API](https://huggingface.co/docs/hub/en/api)
+- [huggingface/huggingface.js](https://github.com/huggingface/huggingface.js)
 
 ## Cache
 
@@ -52,7 +51,7 @@ uvx --from huggingface_hub huggingface-cli scan-cache
 
 ---
 
-- https://huggingface.co/docs/datasets/en/cache
+- [Datasets Cache](https://huggingface.co/docs/datasets/en/cache)
 
 ## Inference
 
@@ -89,7 +88,6 @@ completion = client.chat.completions.create(
 )
 ```
 
-
 ## Notes
 
 - config.json
@@ -97,7 +95,6 @@ completion = client.chat.completions.create(
 - vocab.json
 - tokenizer.json
 - tokenizer_config.json
-
 
 # FAQ
 
@@ -123,7 +120,7 @@ We couldn't connect to 'https://huggingface.co' to load this file
 
 ---
 
-- https://huggingface.co/docs/hub/en/models-gated#access-gated-models-as-a-user
+- [Access Gated Models](https://huggingface.co/docs/hub/en/models-gated#access-gated-models-as-a-user)
 
 ```py
 from huggingface_hub import login

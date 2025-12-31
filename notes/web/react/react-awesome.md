@@ -65,7 +65,7 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 通用 UI 组件 {#ui-framework}
 
-- tailwindcss+[daisyui](../style/daisy.md)
+- tailwindcss+[daisyui](../style/daisy/README.md)
   - 如果开发人员能力足够
   - 如果想要完全控制样式
   - 如果想要做自己的产品
@@ -260,7 +260,7 @@ npm add date-fns lodash-es react-fast-compare
     - 移动端屏高问题
   - [caplin/FlexLayout](https://github.com/caplin/FlexLayout)
     - Docking Layout Manager
-  - golden-layout
+  - [golden-layout/golden-layout](https://github.com/golden-layout/golden-layout)
     - multi window layout manager
   - [thebuilder/react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
     - 检测元素是否在窗口可见
@@ -305,8 +305,8 @@ npm add date-fns lodash-es react-fast-compare
   - https://www.npmjs.com/package/@atlaskit/tree
   - [brimdata/react-arborist](https://github.com/brimdata/react-arborist)
     - npm:react-arborist
-  - https://geist-ui.dev/en-us/components/file-tree
-  - https://github.com/radix-ui/primitives/issues/1456
+  - [Geist UI File Tree](https://geist-ui.dev/en-us/components/file-tree)
+  - [radix-ui/primitives#1456](https://github.com/radix-ui/primitives/issues/1456)
 - carousel/image zoom/view
   - [malaman/react-image-zoom](https://github.com/malaman/react-image-zoom)
     - 放大一块区域
@@ -325,7 +325,7 @@ npm add date-fns lodash-es react-fast-compare
     - ~30kB
     - react-easy-swipe +5kB
   - [akiran/react-slick](https://github.com/akiran/react-slick)
-  - https://alvarotrigo.com/blog/react-carousels/
+  - [React Carousels](https://alvarotrigo.com/blog/react-carousels/)
 - image editor/crop/rotate/scale/processing
   - [DominicTobias/react-image-crop](https://github.com/DominicTobias/react-image-crop)
     - ISC, TS
@@ -358,8 +358,8 @@ npm add date-fns lodash-es react-fast-compare
 - gannt
   - [frappe/gantt](https://github.com/frappe/gantt)
     - MIT
-  - https://dhtmlx.com/docs/products/dhtmlxGantt/
-    - https://github.com/DHTMLX
+  - [dhtmlxGantt](https://dhtmlx.com/docs/products/dhtmlxGantt/)
+    - [DHTMLX](https://github.com/DHTMLX)
     - GPL
 - Block Editor/Page Builder
   - [blocks/blocks](https://github.com/blocks/blocks)
@@ -448,9 +448,9 @@ npm add date-fns lodash-es react-fast-compare
     - [openmaptiles/openmaptiles](https://github.com/openmaptiles/openmaptiles)
       - BSD-3, CC-BY-4.0
       - by MapTiler
-    - https://github.com/maplibre/demotiles
-    - https://www.maptiler.com/
-    - https://github.com/mapbox/awesome-vector-tiles
+    - [maplibre/demotiles](https://github.com/maplibre/demotiles)
+    - [MapTiler](https://www.maptiler.com/)
+    - [mapbox/awesome-vector-tiles](https://github.com/mapbox/awesome-vector-tiles)
 
 ---
 
@@ -484,9 +484,9 @@ npm add date-fns lodash-es react-fast-compare
 - notion
   - [splitbee/react-notion](https://github.com/splitbee/react-notion)
   - [NotionX/react-notion-x](https://github.com/NotionX/react-notion-x)
-- https://github.com/bvaughn/planner
+- [bvaughn/planner](https://github.com/bvaughn/planner)
 - [ReactTooltip/react-tooltip](https://github.com/ReactTooltip/react-tooltip)
-- floatingui
+- [floatingui](https://floating-ui.com/)
 - [reaviz](https://github.com/reaviz)
   - [reaviz](https://github.com/reaviz/reaviz)
     - Data visualization
@@ -647,7 +647,7 @@ npm add date-fns lodash-es react-fast-compare
     - Zod
 - [alibaba/formily](https://github.com/alibaba/formily)
   - [alibaba/designable](https://github.com/alibaba/designable)
-  - https://designable-antd.formilyjs.org/
+  - [designable-antd](https://designable-antd.formilyjs.org/)
 - 商业
   - [form.io](https://www.form.io)
 - ~~[unform/unform](https://github.com/unform/unform)~~
@@ -745,7 +745,7 @@ npm add date-fns lodash-es react-fast-compare
   - atom, outside-react - voltio
   - state machine, in-react - redux
   - state machine, outside-react - zustand
-  - https://github.com/pmndrs/valtio/issues/141#issuecomment-891214314
+  - [pmndrs/valtio#141](https://github.com/pmndrs/valtio/issues/141#issuecomment-891214314)
 - pmndrs - 状态相关主要开发者也是 dai-shi
   - [zustand](./zustand.md)
     - 3kB/1.1kB - use-sync-external-store
@@ -1010,3 +1010,39 @@ npm add date-fns lodash-es react-fast-compare
   - [Level Up Your Reverse Engineering Skills](https://indepth.dev/posts/1005/level-up-your-reverse-engineering-skills)
 - [why on React’s usage of linked list in Fiber to walk the component’s tree](https://medium.com/react-in-depth/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-67f1014d0eb7)
 - [Why Do React Elements Have a $$typeof Property?](https://overreacted.io/why-do-react-elements-have-typeof-property/)
+
+## Reference Snippets
+
+- [codepen: Calculator](https://codepen.io/mjijackson/pen/xOzyGX)
+- [Bit.dev](https://bitsrc.io/)
+- [PrimeReact](https://www.primefaces.org/primereact/#/)
+- `react-fast-compare` - Fast deep equal comparison for React
+- `react-hotkeys-hook` - React hook for hotkeys
+- `hotkeys-js` - A simple micro-library for defining and dispatching keyboard shortcuts
+
+## Design & UI
+
+- [Container Components](https://medium.com/@learnreact/container-components-c0e67432e005)
+
+### Keyboard Shortcuts UX
+
+- [How to choose keyboard shortcuts for web applications](https://medium.com/@sashika/j-k-or-how-to-choose-keyboard-shortcuts-for-web-applications-a7c3b7b408ee)
+
+**Reference Implementations:**
+
+- **Gmail**: [Keyboard shortcuts](https://support.google.com/mail/answer/6594?co=GENIE.Platform%3DDesktop&hl=en)
+- **Google Drive**: [Keyboard shortcuts](https://support.google.com/drive/answer/2563044?hl=en)
+- **Google Docs**: [Keyboard shortcuts](https://support.google.com/docs/answer/179738?co=GENIE.Platform%3DDesktop&hl=en)
+  - `Ctrl + /` (Win) / `Cmd + /` (Mac): Open shortcuts list
+  - `Alt + /` (Win) / `Option + /` (Mac): Search menus
+  - `Alt + Shift + z`
+- **Google Chrome**: `Alt + z`
+
+**Symbols:**
+
+- `⌘` Command
+- `⌃` Control
+- `⌥` Option (Alt)
+- `⇧` Shift
+- `⇪` Caps Lock
+- `↩︎` Return/Enter

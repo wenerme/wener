@@ -19,3 +19,19 @@ tags:
 - [CSS Nesting Module](https://www.w3.org/TR/css-nesting-1/)
 - [CSS Nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting)
 - caniuse [css-nesting](https://caniuse.com/css-nesting)
+
+## Media Queries
+
+```css
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { ... }
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { ... }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { ... }
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { ... }
+```

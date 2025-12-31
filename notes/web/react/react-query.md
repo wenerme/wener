@@ -89,7 +89,7 @@ const unsubscribe = observer.subscribe((result) => {
 });
 ```
 
-- https://github.com/TanStack/query/blob/main/packages/query-core/src/queryObserver.ts
+- [queryObserver.ts](https://github.com/TanStack/query/blob/main/packages/query-core/src/queryObserver.ts)
 
 ## Persist
 
@@ -146,8 +146,8 @@ const [unsubscribe, promise] = persistQueryClient({
     - 持有类型信息
 - 移除 onSuccess 和 onError
   - 从 cache 返回时不会触发
-  - https://tkdodo.eu/blog/breaking-react-querys-api-on-purpose
-  - https://github.com/TanStack/query/discussions/5279
+  - [Breaking React Query's API on purpose](https://tkdodo.eu/blog/breaking-react-querys-api-on-purpose)
+  - [RFC: remove callbacks from useQuery #5279](https://github.com/TanStack/query/discussions/5279)
 - cacheTime -> gcTime
 - keepPreviousData -> placeholderData
 - loading -> pending
@@ -158,8 +158,8 @@ const [unsubscribe, promise] = persistQueryClient({
   - `useSuspenseQueries`
 - createPersister
   - 可单独缓存 Query - 之前只能全量缓存
-  - https://tanstack.com/query/v5/docs/react/plugins/createPersister
-- https://tanstack.com/blog/announcing-tanstack-query-v5
+  - [createPersister](https://tanstack.com/query/v5/docs/react/plugins/createPersister)
+- [Announcing TanStack Query v5](https://tanstack.com/blog/announcing-tanstack-query-v5)
 
 ## React Query v4
 

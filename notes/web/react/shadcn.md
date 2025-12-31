@@ -18,10 +18,16 @@ title: shadcn
 - 参考
   - 类似的 NextUI
 
-
 ```bash
 npx shadcn-ui@latest init
 npx shadcn-ui@latest add select
 ```
+
+- components - 组件 - 原子级
+  - 按钮、输入框、下拉菜单、卡片
+- blocks - 区块 - 组织级
+  - 仪表盘侧边栏、带有验证的登录框、定价页、数据分析图表区
+- CVA (class-variance-authority)
+  - 组件变体
 
 ## Registry

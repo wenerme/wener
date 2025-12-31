@@ -1,11 +1,17 @@
 ---
+title: Alpine PXE
 tags:
+  - OS
+  - Alpine
   - Netboot
+  - PXE
 ---
 
-# pxe
+# Alpine PXE
 
-- https://pkgs.alpinelinux.org/package/edge/testing/x86_64/alpine-ipxe
+- [alpine-ipxe](https://pkgs.alpinelinux.org/package/edge/testing/x86_64/alpine-ipxe)
+- [boot.alpinelinux.org](http://boot.alpinelinux.org/)
+- [gdamjan/alpine-netboot](https://gist.github.com/gdamjan/3063636)
 
 ```bash
 # 使用 alpine 启动脚本
@@ -13,7 +19,42 @@ tags:
 chain --autofree http://boot.alpinelinux.org/boot.ipxe
 ```
 
-### boot.ipxe
+```bash
+apk add qemu-system-x86_64 alpine-ipxe
+qemu-system-x86_64 -m 512M -enable-kvm -kernel /usr/share/alpine-ipxe/ipxe.lkrn -curses
+```
+
+## DHCP Config
+
+```conf
+dhcp-boot=pxelinux.0
+enable-tftp
+tftp-root=/tftp/pxeboot
+```
+
+```bash
+curl http://boot.alpinelinux.org/alpine-ipxe/x86_64/ipxe.pxe -O tftp/ipxe.pxe
+```
+
+## QEMU
+
+```bash
+/usr/bin/qemu-system-$ARCH \
+  -enable-kvm \
+  -m $MEM \
+  -boot n \
+  -net nic \
+  -net tap,ifname=$TAPIF,script=no,downscript=no \
+  "$@"
+
+# BIOS
+qemu-system-x86_64 -boot n -net nic
+
+# UEFI
+# BIOS="-bios OVMF.fd"
+```
+
+## boot.ipxe
 
 ```bash
 #!ipxe
@@ -159,4 +200,4 @@ clear menu
 exit 0
 ```
 
-- http://boot.alpinelinux.org/boot.ipxe
+- [boot.ipxe origin](http://boot.alpinelinux.org/boot.ipxe)

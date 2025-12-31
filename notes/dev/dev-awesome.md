@@ -6,10 +6,10 @@ tags:
 
 # Dev Awesome
 
-- https://roadmap.sh/
-- [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
-- [sw-yx/spark-joy](https://github.com/sw-yx/spark-joy)
-- [mtdvio/every-programmer-should-know](https://github.com/mtdvio/every-programmer-should-know)
+- [Roadmap](https://roadmap.sh/)
+- [The Book of Secret Knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
+- [Spark Joy](https://github.com/sw-yx/spark-joy)
+- [Every Programmer Should Know](https://github.com/mtdvio/every-programmer-should-know)
 - [Bogdanp/awesome-advent-of-code](https://github.com/Bogdanp/awesome-advent-of-code)
 - [mehdihadeli/awesome-software-architecture](https://github.com/mehdihadeli/awesome-software-architecture)
 - [geek-cookbook/geek-cookbook](https://github.com/geek-cookbook/geek-cookbook)
@@ -48,9 +48,9 @@ tags:
     - MIT, Rust
     - code structural search, lint and rewriting
 - pkgs
-  - https://deps.dev
+  - [deps.dev](https://deps.dev)
 - package mamager/version manager/env manager
-  - https://github.com/jdx/mise
+  - [mise](https://github.com/jdx/mise)
   - [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
     - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash`
   - [tj/n](https://github.com/tj/n)
@@ -75,16 +75,16 @@ tags:
   - [wezterm/wezterm](https://github.com/wezterm/wezterm)
     - Rust, Lua
     - Lua 配置
-  - https://github.com/warpdotdev/Warp
-    - https://warp.dev
-    - 闭源, 商业 https://www.warp.dev/pricing
+  - [warpdotdev/Warp](https://github.com/warpdotdev/Warp)
+    - [Warp Home](https://warp.dev)
+    - 闭源, 商业 [Pricing](https://www.warp.dev/pricing)
       - $20/month
       - BYOK 需要 $20/month 的 Build License
         - https://github.com/warpdotdev/warp/issues/7936
     - `brew install --cask warp`
 - dotfiles
   - [twpayne/chezmoi](https://github.com/twpayne/chezmoi)
-  - https://dotfiles.github.io/utilities/
+  - [Dotfiles Utilities](https://dotfiles.github.io/utilities/)
   - yadm
   - bare git repository
   - symlinks
@@ -112,11 +112,11 @@ tags:
   - cursor
   - Augment Code
 - HTTP
-  - https://github.com/Kong/httpsnippet
+  - [Kong/httpsnippet](https://github.com/Kong/httpsnippet)
     - HTTP Request snippet generator for many languages & libraries
 - JSON
-  - https://github.com/microsoft/node-jsonc-parser
-  - https://github.com/s3u/JSONPath
+  - [microsoft/node-jsonc-parser](https://github.com/microsoft/node-jsonc-parser)
+  - [s3u/JSONPath](https://github.com/s3u/JSONPath)
 - AI Coding Assistant/agent
   - Github Copilot
   - ContinueDev
@@ -125,9 +125,14 @@ tags:
   - Codex
   - Sweep: AI
     - for JetBrains IDEs
-  - https://zencoder.ai/
-  - https://lovable.dev/
-  - https://www.producthunt.com/categories/ai-coding
+  - [ZenCoder](https://zencoder.ai/)
+  - [Lovable](https://lovable.dev/)
+  - [vllm-project/vllm-omni](https://github.com/vllm-project/vllm-omni)
+    - Apache-2.0, Python
+    - A framework for efficient model inference with omni-modality models
+  - [midday-ai/ai-sdk-tools](https://github.com/midday-ai/ai-sdk-tools)
+    - Essential utilities for building production-ready AI applications with Vercel AI SDK
+  - [Product Hunt: AI Coding](https://www.producthunt.com/categories/ai-coding)
 
 ```bash
 # 使用 Bare Git Repository 管理 dotfiles
@@ -149,15 +154,13 @@ dotfiles push
 
 ## Design
 
-- https://docs.microsoft.com/en-us/azure/architecture/patterns/
-- https://microservices.io/patterns/
+- [Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
+- [Microservices Patterns](https://microservices.io/patterns/)
 - [每个架构师都应该研究下康威定律](http://www.infoq.com/cn/articles/every-architect-should-study-conway-law)
 - [度量驱动开发](http://www.infoq.com/cn/articles/metrics-driven-development)
-- [Conway's law]
-- https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar
+- [Conway's law](https://en.wikipedia.org/wiki/Conway%27s_law)
+- [Sidecar pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar)
 - 《Building Evolutionary Architectures》
-
-[Conway's law](https://en.wikipedia.org/wiki/Conway%27s_law)
 
 ## Book
 
@@ -167,9 +170,8 @@ dotfiles push
     - https://www.cs.bham.ac.uk/research/projects/lics/
   - https://www.lix.polytechnique.fr/Labo/Samuel.Mimram/teaching/INF551/
   - https://slc.openlogicproject.org/
-- Software Engineering at Google
-  - https://abseil.io/resources/swe-book
-- https://ebookfoundation.github.io/free-programming-books/books/free-programming-books-langs.html
+- [Software Engineering at Google](https://abseil.io/resources/swe-book)
+- [Free Programming Books](https://ebookfoundation.github.io/free-programming-books/books/free-programming-books-langs.html)
 
 ## Read
 
@@ -181,12 +183,12 @@ dotfiles push
   - [HN](https://news.ycombinator.com/item?id=29347885)
 - [cs-books/influential-cs-books](https://github.com/cs-books/influential-cs-books)
 - [The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
-- http://static.googleusercontent.com/media/research.google.com/en/us/people/jeff/stanford-295-talk.pdf
+- [Jeff Dean: Building Software Systems At Google and Lessons Learned](http://static.googleusercontent.com/media/research.google.com/en/us/people/jeff/stanford-295-talk.pdf)
 - [42 things I learned from building a production database](https://maheshba.bitbucket.io/blog/2021/10/19/42Things.html)
 - [Fundamental theorem of software engineering](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering)
 - [Indirection](https://en.wikipedia.org/wiki/Indirection)
 - [The Architect Elevator](https://architectelevator.com)
-- https://learninpublic.org/
+- [Learn In Public](https://learninpublic.org/)
 - [Developer-Y/cs-video-courses](https://github.com/Developer-Y/cs-video-courses)
 - [The Configuration Complexity Clock](http://mikehadlow.blogspot.com/2012/05/configuration-complexity-clock.html?m=1)
   - 硬编码 - 配置 - 规则引擎 - DSL
@@ -283,8 +285,8 @@ scc --exclude-dir={vendor,.gen,node_modules} --by-file --sort=lines --include-ex
 
 ## Graph
 
-- https://www.singlestore.com/blog/creating-visual-explain/
-- https://github.com/d3/d3-hierarchy
+- [Creating Visual Explain](https://www.singlestore.com/blog/creating-visual-explain/)
+- [d3/d3-hierarchy](https://github.com/d3/d3-hierarchy)
 
 ## Tools
 
@@ -304,7 +306,7 @@ scc --exclude-dir={vendor,.gen,node_modules} --by-file --sort=lines --include-ex
 - [ASCII progress indicators](https://glama.ai/blog/2024-09-25-ascii-progress-indicators)
 - [denigma](https://denigma.app/)
 - [Leetcode has taught me that I'm a bad engineer](https://news.ycombinator.com/item?id=29804607)
-- https://github.com/afatcoder/LeetcodeTop
+- [afatcoder/LeetcodeTop](https://github.com/afatcoder/LeetcodeTop)
   - 各大互联网公司容易考察的高频 leetcode 题
 
 ## Books
@@ -319,7 +321,7 @@ scc --exclude-dir={vendor,.gen,node_modules} --by-file --sort=lines --include-ex
 - [tategakibunko/nehan](https://github.com/tategakibunko/nehan)
   - MIT, TS
   - paged-media - 书籍
-  - https://tategakibunko.github.io/nehan-playe
+  - [nehan-player](https://tategakibunko.github.io/nehan-playe)
 
 ## CICD
 
@@ -330,16 +332,16 @@ scc --exclude-dir={vendor,.gen,node_modules} --by-file --sort=lines --include-ex
 
 ## Jobs
 
-- https://github.com/Nithur-M/work-from-anywhere
-- https://cofounderslab.com/
-- https://www.jobsdb.com/
+- [Nithur-M/work-from-anywhere](https://github.com/Nithur-M/work-from-anywhere)
+- [CoFoundersLab](https://cofounderslab.com/)
+- [JobsDB](https://www.jobsdb.com/)
 - Frelance
   - [upwork](https://www.upwork.com/)
-  - https://freehunter.hk/
+  - [FreeHunter](https://freehunter.hk/)
 - Remote
-  - https://weworkremotely.com/
-  - https://remote.co/
-  - https://www.workingnomads.com/
+  - [We Work Remotely](https://weworkremotely.com/)
+  - [Remote.co](https://remote.co/)
+  - [Working Nomads](https://www.workingnomads.com/)
 
 ## Code quality
 
@@ -358,7 +360,7 @@ scc --exclude-dir={vendor,.gen,node_modules} --by-file --sort=lines --include-ex
 ---
 
 - [analysis-tools-dev/static-analysis](https://github.com/analysis-tools-dev/static-analysis)
-- https://github.com/topics/code-quality
+- [Code Quality Topics](https://github.com/topics/code-quality)
 
 ## 合规
 
@@ -386,14 +388,17 @@ scc --exclude-dir={vendor,.gen,node_modules} --by-file --sort=lines --include-ex
   - PostgreSQL https://postgresweekly.com/
   - React https://thisweekinreact.com/
 - 非技术相关 Weekly Newsletter
-  - Github 趋势 https://github.com/trending
-  - https://softwareleadweekly.com/
-  - https://www.devopsweekly.com/
+  - [Github 趋势](https://github.com/trending)
+  - [Software Lead Weekly](https://softwareleadweekly.com/)
+  - [DevOps Weekly](https://www.devopsweekly.com/)
 - 技术博客
-  - https://web.dev/blog
+  - [技术博客](https://web.dev/blog)
   - 官方网站博客/Docs
-- https://trendshift.io/
+- [TrendShift](https://trendshift.io/)
 - Awesome - 发现项目和技术
-  - https://wener.me/notes/tags/awesome
+  - [Wener Notes Tags: Awesome](https://wener.me/notes/tags/awesome)
   - [sindresorhus/awesome](https://github.com/sindresorhus/awesome)
   - [zudochkin/awesome-newsletters](https://github.com/zudochkin/awesome-newsletters)
+  - [davidgasquez/awesome-duckdb](https://github.com/davidgasquez/awesome-duckdb)
+    - Apache-2.0, Shell
+    - 🦆 A curated list of awesome DuckDB resources

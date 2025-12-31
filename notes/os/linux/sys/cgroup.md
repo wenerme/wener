@@ -1,13 +1,20 @@
 ---
-title: cgroup
+title: Linux Control Groups (cgroups)
+tags:
+  - Linux
+  - SysAdmin
+  - Cgroup
+  - Resource
 ---
 
-# cgroup
+# Linux Control Groups (cgroups) {#linux-control-groups}
 
-- /sys/fs/cgroup
-  - /proc/self/cgroup
-- /sys/fs/cgroup/unified - v2/unified - fstype=63677270
-  - /sys/fs/cgroup/cgroup.controllers
+- Path: `/sys/fs/cgroup`
+  - Process cgroup: `/proc/self/cgroup`
+- Unified Hierarchy (v2): `/sys/fs/cgroup/unified` (fstype=63677270)
+  - Controllers: `/sys/fs/cgroup/cgroup.controllers`
+
+## 常用操作 (Common Operations) {#common-operations}
 
 ```bash
 # 创建 group
@@ -21,37 +28,60 @@ cgdelete "memory:slack_group"
 
 # 禁止 swap
 echo 0 > /sys/fs/cgroup/memory/slack_group/memory.swappiness
-# OOM kill 评分
-# /proc/${PID}/oom_score
-```
 
-
-```bash
+# 检查内存使用
 cat /sys/fs/cgroup/memory/memory.usage_in_bytes
 cat /sys/fs/cgroup/memory/memory.limit_in_bytes
 ```
 
-## cgroup v2
+## OOM Killing
 
-## 内存使用情况
+- OOM Score: `/proc/${PID}/oom_score`
 
-- /sys/fs/cgroup/memory
-  - memory.stat
-  - memory.usage_in_bytes - RSS+CACHE = free.used + free.(buff/cache) - (buff)
-  - memory.max_usage_in_bytes
-  - docker/ - 子 group
-    - ID/ - 单个容器内存信息
+## 内存统计 (Memory Stats) {#memory-stats}
 
-# FAQ
+- `/sys/fs/cgroup/memory`
+  - `memory.stat`
+  - `memory.usage_in_bytes`
+    - `RSS + CACHE`
+    - `free.used + free.(buff/cache) - (buff)`
+  - `memory.max_usage_in_bytes`
+  - `docker/` (Docker sub-groups)
+    - `ID/` (Container memory info)
 
-## cgroup: "memory" requires setting use_hierarchy to 1 on the root."
+## 常见问题 {#faq}
 
-- `/sys/fs/cgroup/memory/memory.use_hierarchy`
-- 推荐开启
-- 在汇报内存使用时，会统计子 cgroup 的情况
+### "memory" requires setting use_hierarchy to 1 on the root
 
-## cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory
+```text
+cgroup: "memory" requires setting use_hierarchy to 1 on the root.
+```
+
+- File: `/sys/fs/cgroup/memory/memory.use_hierarchy`
+- 建议开启 (Recommended: 1)
+- 开启后，统计内存使用会包含子 cgroup 的使用情况。
+
+### Check cgroup support
 
 ```bash
 cat /proc/cgroups
+```
+
+## 参考资料 {#references}
+
+- [Cgroups - Wikipedia](https://en.wikipedia.org/wiki/Cgroups)
+- [Control Group v1 Documentation](https://www.kernel.org/doc/Documentation/cgroup-v1/)
+- [Control Group v2 Documentation](https://www.kernel.org/doc/Documentation/cgroup-v2.txt)
+- [Cgroups - ArchWiki](https://wiki.archlinux.org/index.php/Cgroups)
+- [cgmanager - Alpine Linux](https://pkgs.alpinelinux.org/package/edge/community/x86_64/cgmanager)
+- [Kernel Knowledge Behind Docker: cgroups Resource Isolation](http://www.infoq.com/cn/articles/docker-kernel-knowledge-cgroups-resource-isolation)
+
+### v1 vs v2 vs hybrid
+
+- [cgroup v1 memory](https://www.kernel.org/doc/Documentation/cgroup-v1/memory.txt)
+
+### Reference Snippets
+
+```bash
+mount -t cgroup cgroup /sys/fs/cgroup
 ```

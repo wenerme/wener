@@ -1,18 +1,22 @@
 ---
-title: SanDisk
+title: 闪迪 (SanDisk)
+tags:
+  - Hardware
+  - Storage
+  - SanDisk
 ---
 
-# SanDisk
+# 闪迪 (SanDisk) {#sandisk}
 
 - SanDisk 只读保护和损坏后可以退换
 
-# FAQ
+## 常见问题 {#faq}
 
-## U 盘 变为只读
+### U 盘变为只读 {#usb-drive-read-only}
 
 - U 盘损坏、只读保护模式
 
-## SanDisk Anisha 64MB
+### SanDisk Anisha 64MB {#sandisk-anisha-64mb}
 
 - U 盘异常后变为这样的状态
 - 分区也都不见了、数据也丢失了

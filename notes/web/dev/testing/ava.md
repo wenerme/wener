@@ -8,7 +8,7 @@ title: Ava
   - 小、快、简单
 - process.env.NODE_ENV=test
 - node_modules/.cache/ava
-- React https://github.com/avajs/ava/blob/main/docs/recipes/react.md
+- React [Recipe](https://github.com/avajs/ava/blob/main/docs/recipes/react.md)
   - 配合 enzyme 测试 react
 
 :::tip
@@ -23,7 +23,7 @@ title: Ava
 
 - 无 Suite/Group 概念 [#222](https://github.com/avajs/ava/issues/222)
   - 文件纬度划分
-  - https://thoughtbot.com/blog/mystery-guest
+  - [Mystery Guest](https://thoughtbot.com/blog/mystery-guest)
 
 :::
 
@@ -102,9 +102,9 @@ npx ava --tap | npx tap-nyan
 
 ---
 
-- https://github.com/avajs/ava/blob/main/docs/06-configuration.md
+- [Ava Configuration](https://github.com/avajs/ava/blob/main/docs/06-configuration.md)
 - 使用 [watson/is-ci](https://github.com/watson/is-ci) 检测 CI
-  - https://github.com/watson/ci-info/blob/master/index.js
+  - [ci-info source](https://github.com/watson/ci-info/blob/master/index.js)
 
 ## 测试文件匹配逻辑 {#test-files}
 

@@ -65,3 +65,12 @@ tags:
 
 - [nepaul/awesome-web-components](https://github.com/nepaul/awesome-web-components)
 - [obetomuniz/awesome-webcomponents](https://github.com/obetomuniz/awesome-webcomponents)
+
+## Web Components Reference
+
+# WebComponent
+
+- [Server-side rendering web components](https://medium.com/@treshugart/e5df705f3f48)
+- [MDN: Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+- [webcomponents.org](https://www.webcomponents.org/)
+- [Can I use: Web Components](https://caniuse.com/#search=web%20component)

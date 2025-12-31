@@ -6,7 +6,7 @@ title: SaaS
 
 ## Database
 
-- https://sso.tax/
+- [sso.tax](https://sso.tax/)
   - SSO Wall of Shame
 - [Designing a SaaS Database for Scale with Postgres](https://www.citusdata.com/blog/2016/10/03/designing-your-saas-database-for-high-scalability/)
   - [HN](https://news.ycombinator.com/item?id=12649734)
@@ -144,7 +144,7 @@ title: SaaS
 
 ## Tenant
 
-- https://cloud.google.com/identity-platform/docs/reference/rest/v2/projects.tenants
+- [Google Cloud: Identity Platform Tenants](https://cloud.google.com/identity-platform/docs/reference/rest/v2/projects.tenants)
 
 ## PostgreSQL
 
@@ -158,7 +158,7 @@ CREATE POLICY tenant_isolation_policy ON student USING (tid = current_setting('a
 ```
 
 - 参考
-  - https://fabian.ski/posts/nestjs-tenants/
+  - [NestJS Tenants](https://fabian.ski/posts/nestjs-tenants/)
 
 ## 预留后缀
 
@@ -167,7 +167,6 @@ CREATE POLICY tenant_isolation_policy ON student USING (tid = current_setting('a
 - .rss
 - .atom
 - .png
-
 
 ## API
 
@@ -189,4 +188,3 @@ CREATE POLICY tenant_isolation_policy ON student USING (tid = current_setting('a
 - 请求体区分
   - `POST https://example.com/api`
     - `tenant: tenant1`
-

@@ -1,5 +1,10 @@
 ---
 title: IEEE 802.11
+tags:
+  - Network
+  - Wireless
+  - WiFi
+  - Protocol
 ---
 
 # IEEE 802.11
@@ -104,8 +109,32 @@ title: IEEE 802.11
 - WPA2 只能抓包爆破
 - [d33tah/call-for-wpa3](https://github.com/d33tah/call-for-wpa3)
 - [derv82/wifite2](https://github.com/derv82/wifite2)
-- https://captivebehavior.wballiance.com/
-- [Captive Portals](https://textslashplain.com/2022/06/24/captive-portals/)
-  - https://news.ycombinator.com/item?id=32092104
 
-## station+AP
+## Tips
+
+- [Captive Portal](https://captivebehavior.wballiance.com/)
+- [Captive Portals - text/plain](https://textslashplain.com/2022/06/24/captive-portals/)
+  - [HN Discussion](https://news.ycombinator.com/item?id=32092104)
+
+- [IEEE 802.11 - Wikipedia](https://en.wikipedia.org/wiki/IEEE_802.11)
+- [Wifi BSS ESS SSID ESSID BSSID](https://note-on-clouds.blogspot.com/2018/11/wifi-bss-ess-ssid-essid-bssid.html)
+- [IEEE 802.11 frame format vs IEEE 802.3 frame format](https://dot11ap.wordpress.com/ieee-802-11-frame-format-vs-ieee-802-3-frame-format)
+
+  802.11na 非官方
+
+  802.11n can run in either the 2.4 GHz or 5.8 GHz bands.
+  802.11a is 5.8GHz only.
+  802.11g is 2.4 GHz only.
+
+Juniper uses the terms 80.211na to mean "5.8 GHz 802.11n" and 802.11ng to mean "2.4 GHz 802.11n."
+
+- [Understand Wi-Fi 4/5/6/6E/7 (802.11 n/ac/ax/be)](https://www.duckware.com/tech/wifi-in-the-us.html)
+
+Wi-Fi 4 (2.4 GHz 802.11n) to Wi-Fi 5 (5 GHz 802.11ac), and now to Wi-Fi 6 (6 GHz 802.11ax
+802.11ac wireless device will likely max out at around 600 Mbps (±60 Mbps) for 2x2 MIMO, to 1000 Mbps (±200 Mbps) for 4x4 MIMO
+
+Gen Spec Year Speeds Unofficial name
+802.11 1997 2 Mbps Wi-Fi 0 (beta)
+First 802.11b 1999 11 Mbps Wi-Fi 1
+Second 802.11a 1999 54 Mbps Wi-Fi 2
+Third 802.11g 2003 54 Mbps Wi-Fi 3

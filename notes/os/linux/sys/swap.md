@@ -1,8 +1,13 @@
 ---
-title: Swap
+title: Linux Swap 管理 (Swap Management)
+tags:
+  - Linux
+  - SysAdmin
+  - Swap
+  - Memory
 ---
 
-# Swap
+# Linux Swap 管理 (Swap Management) {#linux-swap-management}
 
 ```bash
 apk add util-linux-misc # util-linux 提供全功能的 swap 工具
@@ -11,57 +16,45 @@ swapon --show   # 查看交换区
 cat /proc/swaps #
 ```
 
-- swap 文件
-  - Ubuntu /swap.img
-  - macOS `/private/var/vm/swapfile*`
-  - Windows C:\pagefile.sys
-  - /swapfile
+- Swap Files:
+  - Ubuntu: `/swap.img`
+  - macOS: `/private/var/vm/swapfile*`
+  - Windows: `C:\pagefile.sys`
+  - Generic: `/swapfile`
 
-Linux 中的交换文件称为 `swappiness`,swappiness 的值为当内存达到某个百分比时会进行交换. 0 为不使用交换, 10 为 当内存达到 90% 后会使用交换.
+Linux uses `swappiness` to control swap usage.
 
-> 该值修改后需要重启
+- `vm.swappiness` (0-100), default 60.
+- 0: Avoid swap as much as possible.
+- 10: Use swap when 90% memory is filled (10% free).
+- 100: Aggressive swapping.
+
+> [!NOTE]
+> `vm.swappiness` modification requires reboot or `sysctl -p` to persist, but takes effect immediately if written to `/proc`.
 
 ```bash
 # Linux
-# 可直接修改 /etc/sysctl.conf 中的值,之后需要 sysctl -p 加载新的配置
-# 在系统运行时修改交换
-# 默认 60
-# 当内存还有多少空闲时使用交换区 - 10 则时当内存还有 10% 空闲 - 即已经使用 90% 的时候激活交换
+# 永久修改 /etc/sysctl.conf -> sysctl -p
+# 运行时修改:
 sysctl vm.swappiness=10
 
-# 清除所有交换
-swapoff -a
-# 启用所有交换.
-swapon -a
-# 查看交换区的使用
-cat /proc/meminfo
-free
-top
-# 查看哪些设备作为交换
-cat /proc/swaps
-# 当前虚拟内存的使用统计
-vmstat
-
-# 查看当前 swap
-cat /proc/swaps
-# 查看 swap 设备和大小
-swapon -s
-# 虚拟内存统计
-vmstat
+# Operations
+swapoff -a        # Disable all swap
+swapon -a         # Enable all swap
+cat /proc/meminfo # Check memory/swap
+free -h           # Show usage
+top               # Monitor
+cat /proc/swaps   # List swap devices
+vmstat            # Virtual memory stats
 
 # macOS
-# 查看虚拟内存使用量即交换区
-vm_stat
-# 查看使用的交换文件
-ls -lh /private/var/vm/swapfile*
+vm_stat                          # Virtual memory stats
+ls -lh /private/var/vm/swapfile* # List swap files
 
-# AlpineLinux
-# 自动设置参数
+# Alpine Linux
 echo vm.swappiness=10 > /etc/sysctl.d/swap.conf
-# 可以重新加载
-/etc/init.d/sysctl rstart
-# 开机挂载 swap
-rc-update add swap
+/etc/init.d/sysctl restart
+rc-update add swap boot
 ```
 
 ## 添加 swap

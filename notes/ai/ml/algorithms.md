@@ -8,16 +8,16 @@ title: Algorithms
 
 ## Top 10 Machine Learning Algorithms
 
-0. Naïve Bayes Classifier Algorithm
-1. K Means Clustering Algorithm
-2. Support Vector Machine Algorithm
-3. Apriori Algorithm
-4. Linear Regression
-5. Logistic Regression
-6. Artificial Neural Networks
-7. Random Forests
-8. Decision Trees
-9. Nearest Neighbours
+1. Naïve Bayes Classifier Algorithm
+2. K Means Clustering Algorithm
+3. Support Vector Machine Algorithm
+4. Apriori Algorithm
+5. Linear Regression
+6. Logistic Regression
+7. Artificial Neural Networks
+8. Random Forests
+9. Decision Trees
+10. Nearest Neighbours
 
 ---
 

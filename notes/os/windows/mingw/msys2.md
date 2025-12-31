@@ -1,8 +1,14 @@
 ---
-title: msys2
+title: MSYS2
+tags:
+  - Windows
+  - MSYS2
+  - MinGW
+  - ArchLinux
+  - Pacman
 ---
 
-# msys2
+# MSYS2 {#msys2}
 
 - https://www.msys2.org/
 - msys -> Minimal System

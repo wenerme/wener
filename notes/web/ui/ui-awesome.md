@@ -9,13 +9,13 @@ tags:
 - [dimitropoulos/react-ui-roundup](https://github.com/dimitropoulos/react-ui-roundup)
   - [online](https://react-ui-roundup.dimitrimitropoulos.com/)
   - 对比不同 UI 框架中相同组件
-- Guide http://thedesignsystem.guide
-- Checklist http://designsystemchecklist.com
-- Database  http://designsystems.surf
-- Resources  http://designsystemsrepo.com
-- Component research  http://component.gallery
-- https://cloudfour.com/thinks/responsive-images-101-definitions/
-- https://magicui.design/
+- [Design System Guide](http://thedesignsystem.guide)
+- [Design System Checklist](http://designsystemchecklist.com)
+- [Design Systems Database](http://designsystems.surf)
+- [Design Systems Repo](http://designsystemsrepo.com)
+- [Component Gallery](http://component.gallery)
+- [Responsive Images 101 Definitions](https://cloudfour.com/thinks/responsive-images-101-definitions/)
+- [Magic UI](https://magicui.design/)
   - [HN](https://news.ycombinator.com/item?id=40450128)
 
 ## Reading
@@ -46,4 +46,9 @@ tags:
       - Availability/Status
       - Script injections
   - Third-party service states
-- https://blog.jim-nielsen.com/2024/ui-fn-org/
+
+## Animate
+
+- [easings.net](https://easings.net/)
+- [cubic-bezier.com](http://cubic-bezier.com/)
+- [What is the iPhone's default keyboard animation rate?](https://stackoverflow.com/questions/1419221/what-is-the-iphones-default-keyboard-animation-rate)

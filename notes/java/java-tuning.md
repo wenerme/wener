@@ -17,11 +17,11 @@ tags:
 | MaxRAMPercentage     | 最大 **堆内存** 比例 |
 | MinRAMPercentage     | 最小 **堆内存** 比例 |
 
-```
--Xmx12g -Xms12g -Xmn8g -XX:MaxMetaspaceSize=512m -XX:MaxDirectMemorySize=256M  -XX:+UseContainerSupport -XX:+UseG1GC -XX:MaxGCPauseMillis=200
+```bash
+-Xmx12g -Xms12g -Xmn8g -XX:MaxMetaspaceSize=512m -XX:MaxDirectMemorySize=256M -XX:+UseContainerSupport -XX:+UseG1GC -XX:MaxGCPauseMillis=200
 ```
 
-```
+```bash
 -XX:+UseContainerSupport -XX:InitialRAMPercentage=70.0 -XX:MaxRAMPercentage=70.0 -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:/home/admin/nas/gc-${POD_IP}-$(date '+%s').log -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/admin/nas/dump-${POD_IP}-$(date '+%s').hprof
 ```
 
@@ -60,7 +60,6 @@ java -Xlog:os+container=trace -version
 | > 2GB     | 75%    |
 
 - `-Xcompressedrefs`
-
   - 3-bit shift
   - heap size 25GB 上限
   - 可通过 `-XX:MaxRAMPercentage` 或者 `-Xmx` 覆盖
@@ -91,3 +90,26 @@ cat /sys/fs/cgroup/cpu/cpu.shares
 ## GC
 
 - https://docs.oracle.com/en/java/javase/17/gctuning/ergonomics.html
+
+## PrintFlagsFinal
+
+```bash
+docker run --rm wener/java java -XX:+PrintFlagsFinal -version
+```
+
+### Flag List Example
+
+```plaintext
+[Global flags]
+    uintx AdaptiveSizeDecrementScaleFactor          = 4                                   {product}
+    ...
+     intx CICompilerCount                          := 3                                   {product}
+    ...
+    uintx InitialHeapSize                          := 33554432                            {product}
+    ...
+    uintx MaxHeapSize                              := 524288000                           {product}
+    ...
+     bool UseG1GC                                   = false                               {product}
+     bool UseParallelGC                            := true                                {product}
+    ...
+```

@@ -11,7 +11,7 @@ tags:
     - v22.5.0+
     - `node:sqlite`
     - --experimental-sqlite
-    - https://nodejs.org/api/sqlite.html
+    - [Node.js SQLite API](https://nodejs.org/api/sqlite.html)
   - 纯 JS 没有好的存储实现
   - SQLite 依赖 addon
   - SQLite over WASM 还不成熟
@@ -23,7 +23,7 @@ tags:
   - [Koromix/koffi](https://github.com/Koromix/koffi)
     - source https://github.com/Koromix/rygel/tree/master/src/koffi
   - [nodejs/node#46905](https://github.com/nodejs/node/pull/46905) ffi implementation
-  - [nodejs/node#46233](https://github.com/nodejs/node/issues/46233) Reconsider adding FFI to the core
+  - [nodejs/node#46233 Reconsider adding FFI to the core](https://github.com/nodejs/node/issues/46233)
     - tinycc does not support all of the platforms that node does
 - `import.meta.main`
   - [nodejs/node#32223](https://github.com/nodejs/node/pull/32223)
@@ -408,8 +408,8 @@ NODE_OPTIONS="--max-old-space-size=8192" node -e 'console.log(v8.getHeapStatisti
 - 7168
 - 8192
 - 16384
-- https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes
-- https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.3.129/src/heap/heap.cc#314
+- [Node.js CLI: max-old-space-size](https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes)
+- [V8 Heap Implementation](https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.3.129/src/heap/heap.cc#314)
 - [v8](../browser/v8.md)
 
 ## Can't resolve 'pg-native'
@@ -461,7 +461,7 @@ node -i -e "$(< rc.js)"
 ```
 
 - `.load`
-  - https://nodejs.org/api/repl.html#repl_design_and_features
+  - [REPL Design and Features](https://nodejs.org/api/repl.html#repl_design_and_features)
 
 ## error:0308010C:digital envelope routines::unsupported
 
@@ -469,7 +469,7 @@ node -i -e "$(< rc.js)"
 export NODE_OPTIONS=--openssl-legacy-provider
 ```
 
-- https://stackoverflow.com/questions/69692842
+- [StackOverflow: error:0308010C:digital envelope routines::unsupported](https://stackoverflow.com/questions/69692842)
 
 ## snapshot / compile
 
@@ -574,8 +574,8 @@ PKG_ROOT ?= $(shell pnpm node -e 'process.stdout.write(path.resolve(__dirname))'
   - fork ioredis
   - 目前开发还不太活跃
   - [valkey-io/iovalkey](https://github.com/valkey-io/iovalkey)
-- https://www.reddit.com/r/node/comments/uymb7w/redis_vs_ioredis/
-- https://ably.com/blog/migrating-from-node-redis-to-ioredis
+- [Reddit: Redis vs IORedis](https://www.reddit.com/r/node/comments/uymb7w/redis_vs_ioredis/)
+- [Ably: Migrating from node-redis to ioredis](https://ably.com/blog/migrating-from-node-redis-to-ioredis)
   - ably 从 node-redis 迁移为 ioredis
 
 ## The operation failed for an operation-specific reason: Cipher job failed

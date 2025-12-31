@@ -149,4 +149,17 @@ const App = () => {
   - hidden
   - custom
 - 序列化会排出默认的 type、props、isCanvas、name 然后序列化组件
-- https://craft.js.org/r/docs/acknowledgements/
+- [Acknowledgements](https://craft.js.org/r/docs/acknowledgements/)
+- [Concepts: Nodes](https://craft.js.org/r/docs/concepts/nodes/)
+
+## Troubleshooting
+
+### Failed to execute 'contains' on 'Node': parameter 1 is not of type 'Node'.
+
+- 绑定的节点类型不对
+
+### Input Cursor Jump (Reverse)
+
+This happens in React when you have a `contentEditable` element which consumes a state/prop, and you update that state/prop `onKeyUp`. When the state/prop value changes, React will re-render the element again, thus you'll lose the caret position.
+
+- Solution: Use [react-contenteditable](https://github.com/lovasoa/react-contenteditable) component to solve this issue.

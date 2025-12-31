@@ -5,91 +5,97 @@ title: Go Build
 # Go Build
 
 - [Go package guidelines](https://wiki.archlinux.org/title/Go_package_guidelines)
-- 常用 `-trimpath -ldflags '-s -w -extldflags "-static"'`
-- 参考
-  - [GoArm](https://github.com/golang/go/wiki/GoArm)
-  - [go-os-arch.md](https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63)
-  - [PortingPolicy](https://github.com/golang/go/wiki/PortingPolicy)
-  - [Installing Go from source](https://go.dev/doc/install/source)
+- Common Flags: `-trimpath -ldflags '-s -w -extldflags "-static"'`
+
+## References
+
+- [GoArm](https://github.com/golang/go/wiki/GoArm)
+- [go-os-arch.md](https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63)
+- [PortingPolicy](https://github.com/golang/go/wiki/PortingPolicy)
+- [Installing Go from source](https://go.dev/doc/install/source)
 
 :::caution
 
-- c-shared
-  - musl 环境不支持构建 c-shared [golang/go#13492](https://github.com/golang/go/issues/13492)
-    runtime: c-shared builds fail with musllibc
-  - windows 下构建 c-shared 需要使用 TDM-GCC
-  - 无法 dlclose, offload c-shared [#11100](https://github.com/golang/go/issues/11100)
-    - 涉及到 VM
-- aarch64 -> arm64
-  - aarch64 Linux 环境里常见
-  - arm64 GOARCH 使用
+- **c-shared**
+  - runtime: c-shared builds fail with musllibc [golang/go#13492](https://github.com/golang/go/issues/13492)
+  - windows c-shared requires TDM-GCC
+  - Cannot dlclose, offload c-shared [golang/go#11100](https://github.com/golang/go/issues/11100) (Related to VM)
+- **aarch64 -> arm64**
+  - `aarch64` is common in Linux environments.
+  - Use `arm64` for GOARCH.
 
 :::
 
-| env        | note        | macOS                                |
-| ---------- | ----------- | ------------------------------------ |
-| GOENV      |             | ~/Library/Application Support/go/env |
-| GOCACHE    |             | ~/Library/Caches/go-build            |
-| GOMODCACHE |             | ~/go/pkg/mod                         |
-| GOTOOLDIR  |             |
-| GOMOD      | go.mod 位置 |
-| GOWORK     |
+## Environment Variables
+
+| Env          | Note                 | macOS                                  |
+| :----------- | :------------------- | :------------------------------------- |
+| `GOENV`      |                      | `~/Library/Application Support/go/env` |
+| `GOCACHE`    |                      | `~/Library/Caches/go-build`            |
+| `GOMODCACHE` |                      | `~/go/pkg/mod`                         |
+| `GOTOOLDIR`  |                      |                                        |
+| `GOMOD`      | go.mod location      |                                        |
+| `GOWORK`     |                      |                                        |
+| `GOMAXPROCS` | Max Thread           |                                        |
+| `GOGC`       | 100 (off to disable) |                                        |
+| `GOOS`       |                      |                                        |
+| `GOARCH`     |                      |                                        |
+
+## Flags and Options
 
 ```bash
-# 所有交叉编译列表
+# List all cross-compilation targets
 go tool dist list
-# 包含 cgo 支持情况
+# Include cgo support status
 go tool dist list -json
 
-# 移除 mod 缓存
+# Remove mod cache
 go clean -modcache
 ```
 
-| buildmode  | desc                                           |
-| ---------- | ---------------------------------------------- |
-| archive    | build non-main, `.a`                           |
-| c-archive  | main+imports, cgo `//export`                   |
-| c-shared   | main+imports, cgo `//export`                   |
-| default    | main+non-main, exec， `.a`                     |
-| exe        | main+imports,exec, 忽略非 main 包              |
-| pie        | main+imports, exec, pie                        |
-| plugin     | main+imports, plugin, 忽略非 main 包           |
-| ~~shared~~ | non-main, for -linkshared - module 出来后 异常 |
+### Build Modes (`-buildmode`)
 
-| ldflags                             | desc                     |
-| ----------------------------------- | ------------------------ |
-| -w                                  | disable DWARF generation |
-| -s                                  | disable symbol table     |
-| -X 'wener.me/gou/build.Version=123' | add definition           |
-| -linkmode=external                  |
-| -extldflags "$LDFLAGS"              |
+| Mode         | Description                                     |
+| :----------- | :---------------------------------------------- |
+| `archive`    | build non-main, `.a`                            |
+| `c-archive`  | main+imports, cgo `//export`                    |
+| `c-shared`   | main+imports, cgo `//export`                    |
+| `default`    | main+non-main, exec, `.a`                       |
+| `exe`        | main+imports, exec, ignores non-main packages   |
+| `pie`        | main+imports, exec, pie                         |
+| `plugin`     | main+imports, plugin, ignores non-main packages |
+| ~~`shared`~~ | non-main, for -linkshared (deprecated/broken)   |
 
-| gcflags | desc                  |
-| ------- | --------------------- |
-| -N      | Disable optimizations |
-| -l      | Disable inlining      |
+### Linker Flags (`-ldflags`)
 
-| flags                 | desc                             |
-| --------------------- | -------------------------------- |
-| -modcacherw           | 新的 mod 缓存 rw - 可以 `rm -rf` |
-| -trimpath             | 移除环境相关路径，reproduceable  |
-| -ldflags "$GOLDFLAGS" |
-| -mod=readonly         | 不动 go.mod                      |
-| -buildmode=pie        |
+| Flag                     | Description              |
+| :----------------------- | :----------------------- |
+| `-w`                     | disable DWARF generation |
+| `-s`                     | disable symbol table     |
+| `-X 'pkg.Var=Value'`     | add string definition    |
+| `-linkmode=external`     |                          |
+| `-extldflags "$LDFLAGS"` |                          |
 
-```bash
-# https://pkg.go.dev/cmd/compile
-go tool compile -help
-```
+### GC Flags (`-gcflags`)
 
-| env        | default | desc        |
-| ---------- | ------- | ----------- |
-| GOMAXPROCS |         | Max Thread  |
-| GOGC       | 100     | off 关闭 GC |
-| GOOS       |
-| GOARCH     |
+| Flag | Description           |
+| :--- | :-------------------- |
+| `-N` | Disable optimizations |
+| `-l` | Disable inlining      |
 
-## 自定义常量
+### Common Flags
+
+| Flag                    | Description                                   |
+| :---------------------- | :-------------------------------------------- |
+| `-modcacherw`           | New mod cache rw - allows `rm -rf`            |
+| `-trimpath`             | Remove environment paths, reproducible builds |
+| `-ldflags "$GOLDFLAGS"` |                                               |
+| `-mod=readonly`         | Don't update go.mod                           |
+| `-buildmode=pie`        |                                               |
+
+## Custom Version Variables
+
+Inject version info at build time:
 
 ```go
 package main
@@ -110,20 +116,13 @@ DEF_FLAGS="
 go build -o bin/cli -ldflags "$DEF_FLAGS" ./cmd/cli
 ```
 
-## 限定 Build Tag
-
-- 内置 Tag
-  - 版本 - 例如 go1.18
-  - cgo
-  - gc, gccgo
-  - GOOS
-  - GOARCH
+## Build Constraints (Tags)
 
 ```go
 //go:build tag
 //+build tag1,tag2
 
-// 复杂限定
+// Complex constraints
 //go:build (linux && 386) || (darwin && !cgo)
 
 package main
@@ -133,51 +132,22 @@ package main
 go build -tags "tag1 tag2"
 ```
 
-- https://pkg.go.dev/cmd/go#hdr-Build_constraints
+[Build constraints documentation](https://pkg.go.dev/cmd/go#hdr-Build_constraints)
 
-## 交叉编译
-
-- [GoArm](https://github.com/golang/go/wiki/GoArm)
-- [GOOS and GOARCH](https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63)
+## Cross Compilation
 
 ```bash
-CC_FOR_TARGET=/path/to/arm-unknown-linux-gnueabi-gcc CXX_FOR_TARGET=/path/to/arm-unknown-linux-gnueabi-g++ RANLIB_FOR_TARGET=/path/to/arm-unknown-linux-gnueabi-ranlib
+# Example cross compilation commands
+CC=i586-mingw32-gcc GOOS=windows GOARCH=386 CGO_ENABLED=1 \
+  go build -v -o myprogram.exe -ldflags="-extld=$CC"
 
-CC=i586-mingw32-gcc GOOS=windows GOARCH=386 CGO_ENABLED=1 go build -v -o myprogram.exe -ldflags="-extld=$CC"
-CC=x86_64-pc-linux-gcc GOOS=linux GOARCH=amd64 CGO_ENABLED=1 go build -v -o myprogram -ldflags="-extld=$CC"
-CC=arm-linux-gnueabihf-gcc GOOS=linux GOARCH=arm GOARM=6 CGO_ENABLED=1 go build -v -o myprogram -ldflags="-extld=$CC"
+CC=x86_64-pc-linux-gcc GOOS=linux GOARCH=amd64 CGO_ENABLED=1 \
+  go build -v -o myprogram -ldflags="-extld=$CC"
 ```
 
-## 构建缓存
+## Docker Builder
 
-```bash
-# macOS $HOME/Library/Caches/go-build
-# linux $HOME/.cache/go-build
-go env GOCACHE
-
-# CI 的时候可修改 GOPATH 更好利用缓存
-export GOPATH="$PWD/.cache"
-export PATH="$PWD/.cache/bin:$PATH"
-export GO111MODULE=on
-export GOPROXY=https://goproxy.io
-
-# 清除缓存
-go clean -cache
-```
-
-## musl static
-
-```bash
--linkmode external -extldflags "-static"
-```
-
-## docker builder
-
-- [prometheus/golang-builder](https://github.com/prometheus/golang-builder)
-  - arm
-    - arm-linux-gnueabi
-    - arm64-apple-darwin20.2
-    - arm64e-apple-darwin20.2
+Using [prometheus/golang-builder](https://github.com/prometheus/golang-builder) for multi-arch builds.
 
 ```bash
 docker pull quay.io/prometheus/golang-builder:arm
@@ -185,11 +155,7 @@ docker run --rm -it --entrypoint bash \
   --name go-builder quay.io/prometheus/golang-builder:arm
 ```
 
-# Ports
-
-- [MinimumRequirements](https://github.com/golang/go/wiki/MinimumRequirements)
-
-## GOAMD64
+## Architecture Levels (GOAMD64)
 
 > go 1.18 新增 GOAMD64 环境变量
 
@@ -209,83 +175,13 @@ docker run --rm -it --entrypoint bash \
   - [Microarchitecture levels](https://en.wikipedia.org/wiki/X86-64#Microarchitecture_levels)
 
 ```bash
-# AMDv3
-# avx 可能有，但可能没 avx2
-grep -oE 'avx2|bmi1|bmi2|f16|fma' /proc/cpuinfo  | sort -u
-# AMDv4
-grep -oE 'avx512' /proc/cpuinfo  | sort -u
+# Check support
+grep -oE 'avx2|bmi1|bmi2|f16|fma' /proc/cpuinfo | sort -u
 ```
 
-## GOARM
+## FAQ
 
-- ARM 浮点数逻辑
-
-> 默认基于构建环境自动监测，监测失败则使用 6
-
-- GOARM=5: use software floating point; when CPU doesn't have VFP co-processor
-- GOARM=6: use VFPv1 only; default if cross compiling; usually ARM11 or better cores (VFPv2 or better is also supported)
-- GOARM=7: use VFPv3; usually Cortex-A cores
-
-# FAQ
-
-## unrecognized command-line option '-marm'
-
-```bash
-CC=arm-linux-gnueabi-gcc
-```
-
-## arm-none-eabi-gcc: error: unrecognized command-line option '-pthread'
-
-需要 arm-linux-eabi
-
-```bash
-# musl 不包含 pthread 可创建空包满足
-# 空包
-# ar -rc /usr/lib/libpthread.a
-# 交叉编译环境
-arm-none-eabi-ar -rc /usr/arm-none-eabi/lib/libpthread.a
-```
-
-- gcc-arm-none-eabi
-  - Cortex-M0/M0+/M3/M4, Cortex-R4/R5/R7, Cortex-A
-  - 不支持线程
-
-## loadinternal: cannot find runtime/cgo
-
-```bash
-CGO_ENABLED=1
-```
-
-## FATAL: kernel too old
-
-注意 gcc 版本
-
-```bash
-CC=arm-linux-gnueabi-gcc
-echo 'int main(){}' > test.c
-# ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, for GNU/Linux 3.2.0, BuildID[sha1]=a839e1b10daec5d9c348eef8854bb271f8097d34, not stripped
-# 注意 GNU/Linux 3.2.0
-$CC -o test test.c
-file test
-```
-
-- [prometheus/node_exporter#914](https://github.com/prometheus/node_exporter/issues/914)
-- debian [gcc-arm-linux-gnueabi](https://packages.debian.org/unstable/gcc-arm-linux-gnueabi)
-
-## implicit declaration of function '\_beginthread'; did you mean 'OpenThread'
-
-换 C 编译器, 尝试用 [TDM-GCC](https://github.com/jmeubank/tdm-gcc)
-
-```bash
-export PATH=/c/TDM-GCC-64/bin:$PATH
-LC_ALL=c gcc -v
-```
-
-- https://github.com/golang/go/wiki/InstallFromSource
-- https://github.com/golang/go/issues/12029
-
-## c-shared 内存泄漏
-
-使用 c-shared 的方式很难能保证最后 valgrind 不显示有溢出
-
-- https://github.com/golang/go/issues/30490
+- **`unrecognized command-line option '-marm'`**: Check `CC` path.
+- **`arm-none-eabi-gcc: error: unrecognized command-line option '-pthread'`**: Use `arm-linux-eabi` or manage empty pthread lib.
+- **`loadinternal: cannot find runtime/cgo`**: Ensure `CGO_ENABLED=1`.
+- **`FATAL: kernel too old`**: Check target kernel version support in GCC.

@@ -6,8 +6,8 @@ tags:
 
 # 开发相关概念
 
-- [](./theory/12factor.md)
-- https://bootstrappable.org/projects.html
+- [12 Factor App](./theory/12factor.md)
+- [Bootstrappable Builds](https://bootstrappable.org/projects.html)
 - thoughtworks [search](https://www.thoughtworks.com/zh-cn/radar/search)
 
 ## CD Four key metrics
@@ -27,14 +27,14 @@ tags:
 - Traffic - 带宽
 - Errors - 错误率
 - Saturation - 饱和度
-- https://sre.google/sre-book/monitoring-distributed-systems
+- [Google SRE Book: Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems)
 
 ## Zero trust architecture
 
 - ZTA
 - 企业网络
 - 例如 Tailscale、 Hashicorp 的 Boundry
-- https://csrc.nist.gov/publications/detail/sp/800-207/final
+- [NIST SP 800-207](https://csrc.nist.gov/publications/detail/sp/800-207/final)
 
 ## Software Bill of Materials
 

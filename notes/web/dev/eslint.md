@@ -116,3 +116,28 @@ module.exports = {
   }
 }
 ```
+
+\n## Reference Snippets\n
+
+```bash
+npx eslint --init
+```
+
+```bash
+yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+
+yarn add eslint-config-prettier eslint-plugin-jest eslint-plugin-react eslint-plugin-react-hooks
+```
+
+```js
+module.exports = {
+  root: true,
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
+};
+```

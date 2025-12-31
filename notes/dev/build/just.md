@@ -184,3 +184,14 @@ git *args:
 # 确保是单个命令 - 以免把 serve 当成参数
 just --one build serve
 ```
+
+# FAQ
+
+## Non-default parameter `args` follows default parameter
+
+- 不支持
+  - https://github.com/casey/just/issues/1804
+
+```justfile
+schema-diff schema=DB_SCHEMA env=DB_ENV stage=DB_STAGE *args:
+```

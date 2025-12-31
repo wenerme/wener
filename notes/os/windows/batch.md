@@ -1,15 +1,21 @@
 ---
-title: Batch
+title: Windows Batch Scripting
+tags:
+  - Windows
+  - Batch
+  - CLI
+  - Scripting
 ---
 
-# Batch
+# Batch Configuration & Tips {#batch}
 
-- Windows 批处理
-- https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands
+- [Windows Commands Reference](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands)
 
-| cmd  | for            |
-| ---- | -------------- |
-| chcp | 修改 code Page |
+## Common Commands
+
+| Command | Description      |
+| :------ | :--------------- |
+| `chcp`  | Change Code Page |
 
 ```batch
 :: 设置代码页为 UTF-8 - Windows 7+
@@ -26,7 +32,9 @@ START /B xxx.exe
 :: SC 服务操作 http://support.microsoft.com/kb/251192
 sc create svnserve binpath= "\"C:\Program Files\CollabNet Subversion Server\svnserve.exe\" --service -r \"C:\my repositories\"  " displayname= "Subversion Server" depend= Tcpip start= auto
 
+:: Create Aspera Central service
 sc create asperacentral binPath= "C:\Program Files\Aspera\Enterprise Server\bin\Debug\asperacentral.exe" DisplayName= "Aspera Central" start= auto
+```
 
 :: CMD 续行符号为 ^ 相当于 linux的 \
 
@@ -35,6 +43,7 @@ sc create asperacentral binPath= "C:\Program Files\Aspera\Enterprise Server\bin\
 
 :: 跳转菜单中的最近列表
 :: %appdata%\microsoft\windows\recent\automaticdestinations
+
 ```
 
 | cp    | country/region/language |
@@ -57,3 +66,4 @@ sc create asperacentral binPath= "C:\Program Files\Aspera\Enterprise Server\bin\
   - 可以修改默认的 code page
 - `HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\Autorun`
   - 可以设置自动运行的脚本
+```

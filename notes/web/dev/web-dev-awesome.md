@@ -6,8 +6,8 @@ tags:
 # Web Dev Awesome
 
 - bundle size
-  - https://bundlejs.com/
-  - https://bundlephobia.com/
+  - [bundlejs](https://bundlejs.com/)
+  - [Bundlephobia](https://bundlephobia.com/)
     - [pastelsky/bundlephobia](https://github.com/pastelsky/bundlephobia)
 - [privatenumber/minification-benchmarks](https://github.com/privatenumber/minification-benchmarks)
 - [JamieMason/syncpack](https://github.com/JamieMason/syncpack)
@@ -25,7 +25,7 @@ tags:
 - [facebook/memlab](https://github.com/facebook/memlab)
   - 内存泄露检测
 - .browserslistrc
-  - https://github.com/browserslist/browserslist
+  - [browserslist](https://github.com/browserslist/browserslist)
 - [antfu/node-modules-inspector](https://github.com/antfu/node-modules-inspector)
 
 ```bash
@@ -41,7 +41,6 @@ npm exec --workspaces -- prettier -w package.json
 # npx native-modules
 find node_modules -type f -name "*.node" 2> /dev/null | grep -v "obj\.target"
 find node_modules -type f -name "*.node" 2> /dev/null | grep -v "obj\.target" | xargs ldd
-
 
 # 依赖分析
 pnpx node-modules-inspector

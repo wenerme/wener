@@ -33,9 +33,9 @@ title: Single SPA
 - `--moduleType`
   - root-config - import 路由
     - 主要用于配置 import map
-      - https://www.jsdelivr.com/
-      - https://unpkg.com/browse/@wener/ui/
-      - https://unpkg.com/browse/react@16.13.1/
+      - [jsDelivr](https://www.jsdelivr.com/)
+      - [unpkg: @wener/ui](https://unpkg.com/browse/@wener/ui/)
+      - [unpkg: react@16.13.1](https://unpkg.com/browse/react@16.13.1/)
     - 基础的 systemjs 依赖
     - 可以在这里添加公共依赖 - 例如 react、react-dom
   - app-parcel - 应用 - 默认
@@ -56,7 +56,6 @@ yarn create single-spa --framework react --dir dash
 # 默认位置 http://localhost:8500/<OrgName>-<ProjectName>.js
 # 例如 http://localhost:8500/wener-spa-dash.js
 yarn start --port 8500
-
 
 yarn create single-spa --framework react --moduleType util-module --dir utils \
   --packageManager yarn --typescript

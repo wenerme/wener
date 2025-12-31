@@ -1,5 +1,8 @@
 ---
-title: Windows
+title: Windows OS
+tags:
+  - Windows
+  - OS
 ---
 
 # Windows

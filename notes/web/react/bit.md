@@ -37,8 +37,9 @@ bit 会为每个组件建立 git “仓库”，维护每个组件的生命周�
 # 下载缓存 ~/.bvm/temp/bit-0.0.762.tar.gz
 # 安装位置 ～/.bvm/versions/0.0.762
 # 非常大 - 约 1.2G node_modules
-# https://bvm.bit.dev/
-# https://bvm.bit.dev/versions/dev/Darwin/0.0.762/bit-0.0.762.tar.gz
+# 非常大 - 约 1.2G node_modules
+# [BVM](https://bvm.bit.dev/)
+# [bit-0.0.762.tar.gz](https://bvm.bit.dev/versions/dev/Darwin/0.0.762/bit-0.0.762.tar.gz)
 npx @teambit/bvm install
 
 # 新项目
@@ -305,7 +306,7 @@ export class MyEnv implements PackageEnv {
 - my-env.main.runtime.ts
   - provider - 合并 pkg
 - 维护组件的 package.json
-- https://bit.dev/teambit/pkg/pkg
+- [teambit/pkg](https://bit.dev/teambit/pkg/pkg)
 
 ## 通过代码获取组件信息
 

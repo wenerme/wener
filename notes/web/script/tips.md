@@ -49,11 +49,11 @@ document.head.appendChild(
 
 ## 常用脚本
 
-- https://rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js
-- https://code.jquery.com/jquery-1.12.3.js
-- https://code.jquery.com/jquery-2.2.3.js
-- https://raw.githubusercontent.com/lodash/lodash/4.12.0/dist/lodash.js
-- https://cdn.socket.io/socket.io-1.4.5.js
+- [js.cookie.js](https://rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js)
+- [jquery-1.12.3.js](https://code.jquery.com/jquery-1.12.3.js)
+- [jquery-2.2.3.js](https://code.jquery.com/jquery-2.2.3.js)
+- [lodash.js](https://raw.githubusercontent.com/lodash/lodash/4.12.0/dist/lodash.js)
+- [socket.io.js](https://cdn.socket.io/socket.io-1.4.5.js)
 
 ## Unicode 符号
 
@@ -61,7 +61,7 @@ document.head.appendChild(
 
 ## Emmet
 
-http://docs.emmet.io/cheat-sheet/
+[Emmet Cheat Sheet](http://docs.emmet.io/cheat-sheet/)
 
 ## 修改日期显示格式
 

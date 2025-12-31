@@ -13,7 +13,7 @@ title: Prisma
 - 参考
   - [prisma/studio](https://github.com/prisma/studio)
     - 闭源
-  - https://playground.prisma.io/
+  - [Prisma Playground](https://playground.prisma.io/)
 
 ```bash
 npm install prisma --save-dev

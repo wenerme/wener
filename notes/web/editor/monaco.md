@@ -6,10 +6,10 @@ title: monaco
 
 - [Microsoft/monaco-editor](https://github.com/Microsoft/monaco-editor)
 - 参考
-  - https://github.com/microsoft/fluentui/blob/master/packages/monaco-editor/README.md
-  - https://github.com/microsoft/fluentui/blob/master/packages/react-monaco-editor/src/components/TsxEditor.tsx
+  - [monaco-editor README](https://github.com/microsoft/fluentui/blob/master/packages/monaco-editor/README.md)
+  - [TsxEditor.tsx](https://github.com/microsoft/fluentui/blob/master/packages/react-monaco-editor/src/components/TsxEditor.tsx)
     - TsxEditor
-  - https://cdn.jsdelivr.net/npm/monaco-editor/
+  - [CDN: monaco-editor](https://cdn.jsdelivr.net/npm/monaco-editor/)
 - [suren-atoyan/monaco-react](https://github.com/suren-atoyan/monaco-react)
   - npm:@monaco-editor/react
   - -> @monaco-editor/loader
@@ -31,3 +31,7 @@ title: monaco
 - provider
   - LPS - Language Protocol Server
   - 补全
+
+[Monaco Editor API](https://microsoft.github.io/monaco-editor/api/index.html)
+[Sample: browser-amd-localized](https://github.com/Microsoft/monaco-editor-samples/blob/master/browser-amd-localized/index.html)
+[Sample: browser-esm-webpack-typescript](https://github.com/microsoft/monaco-editor-samples/blob/master/browser-esm-webpack-typescript/src/index.ts)

@@ -250,7 +250,7 @@ tags:
 - Error
   - verror
   - @netflix/nerror
-  - [voxpelli/pony-cause](github.com/voxpelli/pony-cause)
+  - [voxpelli/pony-cause](https://github.com/voxpelli/pony-cause)
   - Error Cause [tc39/proposal-error-cause](https://github.com/tc39/proposal-error-cause)
     - Chrome 93+, Safari 15+, Firefox 91+, Node 16+
 - clone
@@ -314,7 +314,7 @@ tags:
 - diff
   - [microdiff](https://github.com/AsyncBanana/microdiff)
 - fs/filesystem/virtual file
-  - https://github.com/isomorphic-git/isomorphic-git
+  - [isomorphic-git](https://github.com/isomorphic-git/isomorphic-git)
   - lighting-fs
   - [jvilk/BrowserFS](https://github.com/jvilk/BrowserFS)
     - MIT, JS
@@ -329,9 +329,9 @@ tags:
   - [browserify/path-browserify](https://github.com/browserify/path-browserify)
   - [vfile/vfile](https://github.com/vfile/vfile)
   - [gulpjs/vinyl](https://github.com/gulpjs/vinyl)
-  - https://github.com/ebidel/idb.filesystem.js/blob/2f9e8fb3ece3aeca8388e60ba75d622dd354e6da/src/idb.filesystem.js
+  - [ebidel/idb.filesystem.js](https://github.com/ebidel/idb.filesystem.js/blob/2f9e8fb3ece3aeca8388e60ba75d622dd354e6da/src/idb.filesystem.js)
   - [LiteCode-IDE/virtual-file-system](https://github.com/LiteCode-IDE/virtual-file-system)
-  - https://manual.os-js.org/tutorial/vfs/
+  - [OS.js vfs tutorial](https://manual.os-js.org/tutorial/vfs/)
   - [aaronhuggins/jsvfs](https://github.com/aaronhuggins/jsvfs)
 - files
   - tar
@@ -383,8 +383,8 @@ tags:
     - skia binding to Node.js
 - 3d rendering/canvas/webgl
   - threejs
-  - https://wiggle.three.tools/
-  - https://www.shadertoy.com/
+  - [Wiggle Tools](https://wiggle.three.tools/)
+  - [Shadertoy](https://www.shadertoy.com/)
   - [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
     - React renderer for Three.js
   - [3d-dice/dice-box](https://github.com/3d-dice/dice-box)
@@ -421,8 +421,8 @@ tags:
     - Image Tracking, Face Tracking. Tensorflow.js
   - [AR-js-org/studio](https://github.com/AR-js-org/studio)
   - Demo
-    - https://github.com/a86861636/webAR-demo
-      - https://blog.csdn.net/qq_28864105/article/details/119609531
+    - [webAR-demo](https://github.com/a86861636/webAR-demo)
+      - [CSDN Blog](https://blog.csdn.net/qq_28864105/article/details/119609531)
 - color
   - randomcolor
   - [Evercoder/culori](https://github.com/Evercoder/culori)
@@ -528,7 +528,7 @@ tags:
   - ~~[felipeleivav/yboard](https://github.com/felipeleivav/yboard)~~
     - Vue
     - multiplayer desktop-like workspace
-  - https://news.ycombinator.com/item?id=30983770
+  - [HN Discussion](https://news.ycombinator.com/item?id=30983770)
   - [partykit/partykit](https://github.com/partykit/partykit)
     - MIT, TS
   - [streamich/json-joy](https://github.com/streamich/json-joy)
@@ -598,8 +598,8 @@ tags:
   - console
   - [pino](../../nodejs/pino.md)
     - 6.5kB/2.5kB
-  - https://www.npmjs.com/package/picocolors
-    - https://github.com/alexeyraspopov/picocolors/blob/main/picocolors.js
+  - [picocolors](https://www.npmjs.com/package/picocolors)
+    - [picocolors source](https://github.com/alexeyraspopov/picocolors/blob/main/picocolors.js)
   - roarr
     - 13kB/4kB
   - winston
@@ -668,8 +668,8 @@ tags:
     - Uniswap SDK
     - Chrome 67+, Opera 54+, Firefox 68+, Edge 79+, Safari 14+, Node.js v10.4+
     - babel 插件可 transpile
-    - https://tc39.es/proposal-bigint/
-    - https://github.com/GoogleChromeLabs/jsbi
+    - [BigInt Proposal](https://tc39.es/proposal-bigint/)
+    - [jsbi](https://github.com/GoogleChromeLabs/jsbi)
   - bn.js
     - 44kB/11.5kB
     - ether.js
@@ -724,7 +724,7 @@ tags:
 - Phy
 - stat/bi/data
   - [jstat](https://github.com/jstat/jstat)
-  - cubejs
+  - [cubejs](https://cube.dev/)
   - [uwdata/arquero](https://github.com/uwdata/arquero)
   - [pbeshai/tidy](https://github.com/pbeshai/tidy)
 - markdown
@@ -756,7 +756,7 @@ tags:
   - [react-syntax-highlighter/react-syntax-highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter)
     - 基于 lowlight, refractor
     - prismjs, highlightjs
-  - https://lezer.codemirror.net
+  - [Lezer](https://lezer.codemirror.net)
   - [antonmedv/codejar](https://github.com/antonmedv/codejar)
     - embeddable code editor
   - [react-simple-code-editor/react-simple-code-editor](https://github.com/react-simple-code-editor/react-simple-code-editor)
@@ -871,7 +871,7 @@ tags:
     - Web Server
   - [pillarjs/path-to-regexp](https://github.com/pillarjs/path-to-regexp)
     - React router 之前版本
-  - hono RegExpRouter https://hono.dev/docs/concepts/routers
+  - [hono RegExpRouter](https://hono.dev/docs/concepts/routers)
 - audio/sound
   - [katspaugh/wavesurfer.js](https://github.com/katspaugh/wavesurfer.js)
     - BSD-3, TS
@@ -1011,9 +1011,9 @@ tags:
     - npm:microfuzz
   - [m31coding/fuzzy-search](https://github.com/m31coding/fuzzy-search)
     - MIT, TS
-  - https://npmtrends.com/flexsearch-vs-fuse.js-vs-fuzzysort-vs-match-sorter-vs-minisearch
+  - [flexsearch vs fuse.js vs fuzzysort vs match-sorter vs minisearch](https://npmtrends.com/flexsearch-vs-fuse.js-vs-fuzzysort-vs-match-sorter-vs-minisearch)
 - security/fuzzer
-  - https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/jsfuzz
+  - [jsfuzz](https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/jsfuzz)
 - layout
   - [gridstack/gridstack.js](https://github.com/gridstack/gridstack.js)
     - MIT, TS
@@ -1428,4 +1428,9 @@ npx -y @biomejs/biome check ./src
 
 ## Reading
 
-- https://javascript.info/
+- [The Modern JavaScript Tutorial](https://javascript.info/)
+
+## Debugging
+
+- [vConsole](https://github.com/Tencent/vConsole/blob/dev/README_CN.md)
+- [samdenty/console-feed](https://github.com/samdenty/console-feed)

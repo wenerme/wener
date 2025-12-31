@@ -1,8 +1,14 @@
 ---
-title: SSD
+title: 固态硬盘 (SSD)
+tags:
+  - Hardware
+  - Storage
+  - SSD
+  - NVMe
+  - SATA
 ---
 
-# SSD
+# 固态硬盘 (SSD) {#ssd}
 
 :::tip
 
@@ -19,12 +25,12 @@ title: SSD
 | write     | 560 MB/s | 560 MB/s | 3400 MB/s     |
 | read      | 510 MB/s | 510 MB/s | 3400 MB/s     |
 
-## 寿命
+## 寿命 {#lifespan}
 
 | abbr. | stand for                  | cn               |
 | ----- | -------------------------- | ---------------- |
 | TBW   | TotalBytes Written         | 总写入量         |
-| TBW   | TB Written
+| TBW   | TB Written                 |
 | DWPD  | Drive Write Per Day        | 每日写入量       |
 | MTBF  | Mean time between failures | 平均故障间隔时间 |
 | WAF   | Write Amplification Factor | 写放大因子       |
@@ -45,7 +51,7 @@ title: SSD
 - JESD219A Solid-State Drive
   - TWB 计算标准
 
-# FAQ
+## 常见问题 {#faq}
 
 - RAPID Mode - Realtime Accelerated Processing of I/O Data
   - 三星 EVO 专利技术
@@ -55,9 +61,9 @@ title: SSD
 - fast write-back cache
   - SSD 的写入缓存，当写入量超过时可能会变得很慢
 
-# 监控
+## 监控 {#monitoring}
 
-## Samsung
+### 三星 (Samsung) {#samsung}
 
 - 三星
   - Total_LBAs_Written
@@ -90,7 +96,7 @@ Thermal Temp. 1 Total Time:         22
 
 - https://askubuntu.com/a/865793/267103
 
-## Intel
+### 英特尔 (Intel) {#intel}
 
 - Host_Writes_32MIB
 - Media_Wearout_Indicator

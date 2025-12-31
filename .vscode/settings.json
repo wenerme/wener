@@ -29,5 +29,8 @@
   "search.useIgnoreFiles": false,
   "explorer.excludeGitIgnore": false,
   "makefile.configureOnOpen": false,
-  "editor.fontFamily": "Sarasa Mono SC, Maple Mono NF CN, Menlo, Monaco, 'Courier New', monospace"
+  "editor.fontFamily": "Sarasa Mono SC, Maple Mono NF CN, Menlo, Monaco, 'Courier New', monospace",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }

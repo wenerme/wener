@@ -6,7 +6,7 @@ title: Lit
 
 - [lit/lit](https://github.com/lit/lit)
   - Web Components
-- https://lit.dev/playground
+- [Lit Playground](https://lit.dev/playground)
 - [rollup.config.js](https://lit.dev/docs/tools/production/#modern-only-build)
 - [@web/dev-server](https://modern-web.dev/docs/dev-server/overview/)
   - 开发环境

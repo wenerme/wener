@@ -396,6 +396,12 @@ tags:
   - 使用表达式 validate
 - [BWbwchen/MapReduce](https://github.com/BWbwchen/MapReduce)
 
+## AI/ML
+
+- [sjwhitworth/golearn](https://github.com/sjwhitworth/golearn) - Machine Learning for Go
+- [gorgonia/gorgonia](https://github.com/gorgonia/gorgonia) - Go machine learning library
+- [galeone/tfgo](https://github.com/galeone/tfgo) - TensorFlow bindings for Go
+
 ## 网络/Network {#networking}
 
 - [cloudwego/netpoll](https://github.com/cloudwego/netpoll)

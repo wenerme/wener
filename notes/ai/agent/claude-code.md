@@ -410,6 +410,14 @@ ccr status # 状态
   - statusline-setup
   - output-style-setup
 
+## cc-switch
+
+- https://github.com/farion1231/cc-switch
+
+```bash
+brew install farion1231/ccswitch/cc-switch
+```
+
 # FAQ
 
 ## This organization has been disabled.

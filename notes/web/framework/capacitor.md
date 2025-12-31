@@ -8,8 +8,8 @@ title: capacitor
   - MIT, Typescript, Java, Swift, ObjectiveC
 - 参考
   - [ionic-team/capacitor-plugins](https://github.com/ionic-team/capacitor-plugins)
-  - https://github.com/capacitor-community
-- https://ionic.io/portals
+  - [Capacitor Community](https://github.com/capacitor-community)
+- [Ionic Portals](https://ionic.io/portals)
   - 部分页面元素替换
 
 ```bash

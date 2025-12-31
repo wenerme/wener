@@ -61,7 +61,6 @@ https://github.com/qwopqwop200/GPTQ-for-LLaMa
 https://www.reddit.com/r/LocalLLaMA/comments/11o6o3f/how_to_install_llama_8bit_and_4bit/
 -->
 
-
 # Ref
 
 <!--
@@ -85,8 +84,6 @@ magnet:?xt=urn:btih:481dee5424b7024433504803a90efd32dae40fdf&dn=LLaMA-ggml-4bit_
 
 #->/lmg/ Model Links and Torrents <-
 
-[TOC2]
-
 ## Changelog (MDY)
 
 [05-10-2023] - Added WizardLM 13B Uncensored
@@ -96,7 +93,8 @@ magnet:?xt=urn:btih:481dee5424b7024433504803a90efd32dae40fdf&dn=LLaMA-ggml-4bit_
 
 ## 4-bit GPU Model Requirements
 
-!!! note VRAM Required takes full context (2048) into account. You may be able to load the model on GPU's with slightly lower VRAM, but you will not be able to run at full context. If you do not have enough RAM to load model, it will load into swap. Groupsize models will increase VRAM usage, as will running a LoRA alongside the model.
+> [!NOTE]
+> VRAM Required takes full context (2048) into account. You may be able to load the model on GPU's with slightly lower VRAM, but you will not be able to run at full context. If you do not have enough RAM to load model, it will load into swap. Groupsize models will increase VRAM usage, as will running a LoRA alongside the model.
 
 | Model Parameters | VRAM Required | GPU Examples                                             | RAM to Load |
 | ---------------- | ------------- | -------------------------------------------------------- | ----------- |
@@ -107,7 +105,8 @@ magnet:?xt=urn:btih:481dee5424b7024433504803a90efd32dae40fdf&dn=LLaMA-ggml-4bit_
 
 ## 4-bit CPU/llama.cpp RAM Requirements
 
-!!! note 5bit to 8bit Quantized models are becoming more common, and will obviously require more RAM. Will update these with the numbers when I have them.
+> [!NOTE]
+> 5bit to 8bit Quantized models are becoming more common, and will obviously require more RAM. Will update these with the numbers when I have them.
 
 | Model | 4-bit   | 5-bit | 8-bit |
 | ----- | ------- | ----- | ----- |
@@ -120,11 +119,10 @@ magnet:?xt=urn:btih:481dee5424b7024433504803a90efd32dae40fdf&dn=LLaMA-ggml-4bit_
 
 ## LLaMA 16-bit Weights
 
-!!! info
-
-    The original LLaMA weights converted to Transformers @ 16bit. A torrent is available as well, but it uses outdated configuration files that will need to be updated. Note that these aren't for general use, as the VRAM requirements are beyond consumer scope.
-
-    >Filtering : None
+> [!NOTE]
+> The original LLaMA weights converted to Transformers @ 16bit. A torrent is available as well, but it uses outdated configuration files that will need to be updated. Note that these aren't for general use, as the VRAM requirements are beyond consumer scope.
+>
+> Filtering : None
 
 | Model         | Type      | Download                                                                                                                                                                                                             |
 | ------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

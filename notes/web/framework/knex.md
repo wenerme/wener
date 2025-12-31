@@ -10,7 +10,7 @@ title: knex
 - knex-types 基于 db schema 生成 ts
 - 参考
   - [kysely](./kysely.md)
-  - https://michaelavila.com/knex-querylab/
+  - [Knex QueryLab](https://michaelavila.com/knex-querylab/)
     - Knex to SQL
 - pool
   - **默认** `min: 2, max: 10`
@@ -73,6 +73,19 @@ db.raw('PRAGMA journal_mode = WAL');
 
 - 用 `=any(?)`
 - pg 的 in 不支持 array
-- https://github.com/knex/knex/issues/2053#issuecomment-300523807
-- https://github.com/knex/knex/issues/1537#issuecomment-281888969
-- https://github.com/knex/knex/issues/1537
+- [knex/knex#2053 (comment)](https://github.com/knex/knex/issues/2053#issuecomment-300523807)
+- [knex/knex#1537 (comment)](https://github.com/knex/knex/issues/1537#issuecomment-281888969)
+- [knex/knex#1537](https://github.com/knex/knex/issues/1537)
+
+## Reference Snippets
+
+[knex/knex#3186](https://github.com/knex/knex/issues/3186)
+
+Crossdb support for INSERT ... ON CONFLICT / MERGE upsert
+
+[Medium Response](https://medium.com/p/bf410349856c/responses/show)
+
+- knex 的核心理念是 composite - 解耦构建最终 query 的过程
+- 对于基础的访问模式提供跨库支持
+
+* knex-types 基于 db schema 生成 ts

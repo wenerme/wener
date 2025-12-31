@@ -27,8 +27,8 @@ npm i -D @vitest/coverage-istanbul
 # runtime
 npm i -D happy-dom
 npm i -D jsdom
-# https://www.npmjs.com/package/edge-runtime
-# https://github.com/vercel/edge-runtime
+# [edge-runtime package](https://www.npmjs.com/package/edge-runtime)
+# [edge-runtime repo](https://github.com/vercel/edge-runtime)
 npm i -D @edge-runtime/vm
 
 vitest list ./src/           # 列出测试

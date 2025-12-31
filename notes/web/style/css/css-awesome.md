@@ -24,10 +24,10 @@ tags:
   - [parcel-bundler/lightningcss](https://github.com/parcel-bundler/lightningcss)
     - MPLv2, Rust
     - CSS parser, transformer, bundler, and minifier
-- https://lea.verou.me/2012/04/background-attachment-local/
+- [background-attachment: local](https://lea.verou.me/2012/04/background-attachment-local/)
   - Overflow 显示阴影
-- https://noti.st/rachelandrew/IQsXZC/css-layout-workshop
-- https://web.dev/patterns/layout/
+- [CSS Layout Workshop](https://noti.st/rachelandrew/IQsXZC/css-layout-workshop)
+- [Layout Patterns](https://web.dev/patterns/layout/)
 - [ethantw/Han](https://github.com/ethantw/Han)
   - 汉子注音排版
 - [Things I Wish I’d Known About CSS ](https://news.ycombinator.com/item?id=23868355)
@@ -48,7 +48,7 @@ tags:
     - Material Design Components in HTML/CSS/JS
 - [PostCSS.parts](https://www.postcss.parts/)
   - A searchable catalog of PostCSS plugins
-- https://css-tricks.com/snippets/
+- [CSS Tricks Snippets](https://css-tricks.com/snippets/)
 - [Loaders Loading!](https://codepen.io/collection/jifIK)
 - [CSS Portal Ring ✨](https://codepen.io/jh3y/pen/eYMPmJW)
 - Animation
@@ -57,13 +57,12 @@ tags:
   - [ghosh/uiGradients](https://github.com/ghosh/uiGradients)
 
 * CSS 参考手册
-
-  - https://tympanus.net/codrops/css_reference/
-  - https://css-tricks.com/almanac/
+  - [Codrops CSS Reference](https://tympanus.net/codrops/css_reference/)
+  - [CSS-Tricks Almanac](https://css-tricks.com/almanac/)
   - [cssreference](http://cssreference.io/)
     - [HN](https://news.ycombinator.com/item?id=13031492)
     - 可视化的方式解释 CSS 属性
-  - (htmlreference.io)[http://htmlreference.io/]
+  - [htmlreference.io](http://htmlreference.io/)
 
 * scss
   - long shadow http://codepen.io/danieltott/pen/AjKay
@@ -134,7 +133,7 @@ HTML 默认样式
 - [hawkz/gdcss](https://github.com/hawkz/gdcss)
 - [emareg/classlesscss](https://github.com/emareg/classlesscss)
 - [kevquirk/simple.css](https://github.com/kevquirk/simple.css)
-- https://picocss.com/examples/preview/
+- [Pico CSS Preview](https://picocss.com/examples/preview/)
 
 ## Tricks
 
@@ -148,9 +147,9 @@ HTML 默认样式
   - CSS Selector 游戏
 - [Selectors Explained](https://kittygiraudel.github.io/selectors-explained/)
 - [Guide to Advanced CSS Selectors - Part One](https://moderncss.dev/guide-to-advanced-css-selectors-part-one/)
-- https://every-layout.dev/
-- https://inclusive-components.design/
-- https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/
+- [Every Layout](https://every-layout.dev/)
+- [Inclusive Components](https://inclusive-components.design/)
+- [Axiomatic CSS and Lobotomized Owls](https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/)
 
 ## Loader
 
@@ -169,3 +168,17 @@ HTML 默认样式
     linear-gradient(120deg, hsl(278, 44%, 73%), hsl(35, 81%, 73%)) border-box;
 }
 ```
+
+## Patterns & Modules
+
+- [bansal-io/pattern.css](https://github.com/bansal-io/pattern.css)
+- [Show HN: Pattern.css](https://news.ycombinator.com/item?id=22933697)
+
+# CSS Frameworks
+
+- [pure-css/pure](https://github.com/pure-css/pure)
+- [NPM Trends: frameworks](https://www.npmtrends.com/bulma-vs-purecss-vs-uikit-vs-tailwindcss)
+- [CSS in 2020](https://dev.to/wilsmex/css-in-2020-a-practical-guide-2p6g)
+- [Foundation](https://get.foundation/)
+- [Semantic UI](https://semantic-ui.com/)
+- [Tailwind CSS Examples](https://github.com/tailwindcss/setup-examples/tree/master/examples/nextjs)

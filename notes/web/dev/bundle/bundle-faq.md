@@ -1,6 +1,6 @@
 ---
 tags:
-- FAQ
+  - FAQ
 ---
 
 # Bundle FAQ
@@ -15,16 +15,15 @@ tags:
 /* @__PURE__ */
 ```
 
-
 ## .js 文件后缀 {#js-extension}
 
 - 有些场景需要 esm import 包含后缀，目前 esbuild 不好添加
 - 可以考虑 rollup
-- https://github.com/evanw/esbuild/issues/2435
+- [esbuild#2435](https://github.com/evanw/esbuild/issues/2435)
 - SWC - 不支持
   - Output mjs file extension [swc#3067](https://github.com/swc-project/swc/issues/3067)
-  - https://github.com/swc-project/swc/issues/5346
-- https://github.com/microsoft/TypeScript/pull/35148
+  - [swc#5346](https://github.com/swc-project/swc/issues/5346)
+- [TypeScript#35148](https://github.com/microsoft/TypeScript/pull/35148)
 - NextJS [库 import 必须要有 .js 后缀](../../framework/nextjs/nextjs-faq.md#js-extension)
 - [GervinFung/ts-add-js-extension](https://github.com/GervinFung/ts-add-js-extension)
   - 添加 js 后缀
@@ -83,7 +82,6 @@ import { GeneralResponseDto } from 'server/src/common/dto/index.ts';
   }
 }
 ```
-
 
 3. sed
 

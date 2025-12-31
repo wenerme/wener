@@ -43,7 +43,7 @@ tags:
   - [sequelize/sequelize](./sequelize.md)
     - Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server.
     - 因为需要支持很多 DB 类型，丢失一定的特性
-    - Use better-sqlite3 [#11400](https://github.com/sequelize/sequelize/issues/11400)
+    - [Use better-sqlite3 #11400](https://github.com/sequelize/sequelize/issues/11400)
   - prisma
   - [mikro-orm/mikro-orm](https://github.com/mikro-orm/mikro-orm)
     - MIT, Typescript
@@ -95,7 +95,7 @@ tags:
   - [Automattic/mongoose](https://github.com/Automattic/mongoose)
     - object modeling
 - 有趣
-  - [tndrle/node-sqlite3-wasm](https://github.com/tndrle/node-sqlite3-wasm)
+  - [node-sqlite3-wasm](https://github.com/tndrle/node-sqlite3-wasm)
     - WebAssembly port of SQLite3 for Node.js with file system access
   - [oguimbal/pg-mem](https://github.com/oguimbal/pg-mem)
   - [oguimbal/pgsql-ast-parser](https://github.com/oguimbal/pgsql-ast-parser)
@@ -123,7 +123,7 @@ await client.end();
 
 - [nvm](./nvm.md)
   - 独立 shell 脚本
-  - Alpine https://github.com/nvm-sh/nvm/issues/1102#issuecomment-683291852
+  - [nvm-sh/nvm#1102 (comment)](https://github.com/nvm-sh/nvm/issues/1102#issuecomment-683291852)
 - [n](https://github.com/tj/n)
   - node module
   - 👍 推荐
@@ -163,8 +163,8 @@ export N_PREFIX=$HOME/n
   - 缓存 n/versions
   - bin, include, lib, share
 - 非 root 可以考虑 $HOME/n
-- https://npmmirror.com/mirrors/node-unofficial-builds/
-- https://registry.npmmirror.com/binary.html?path=node-unofficial-builds/
+- [Node Unofficial Builds Mirror](https://npmmirror.com/mirrors/node-unofficial-builds/)
+- [NPM Mirror Binary](https://registry.npmmirror.com/binary.html?path=node-unofficial-builds/)
 
 ## Library
 
@@ -199,7 +199,7 @@ export N_PREFIX=$HOME/n
     - MIT, SQL/DSL
     - used by
       - sequelize
-      - @mikro-orm/migrations https://mikro-orm.io/docs/migrations
+      - [MikroORM Migrations](https://mikro-orm.io/docs/migrations)
   - [salsita/node-pg-migrate](https://github.com/salsita/node-pg-migrate)
     - MIT, DSL
   - [graphile/migrate](https://github.com/graphile/migrate)
@@ -219,7 +219,7 @@ export N_PREFIX=$HOME/n
 - KV/Cache
   - [jaredwray/keyv](https://github.com/jaredwray/keyv)
 - Performance
-  - https://github.com/zertosh/v8-compile-cache
+  - [zertosh/v8-compile-cache](https://github.com/zertosh/v8-compile-cache)
     - cjs
 - [runk/node-chardet](https://github.com/runk/node-chardet)
   - Character encoding detection
@@ -246,7 +246,7 @@ export N_PREFIX=$HOME/n
 
 ## Web
 
-- [hono]
+- [hono](https://github.com/honojs/hono)
 - [fastify](./fastify.md)
   - 🌟 推荐
 - [@whatwg-node/server](https://github.com/ardatan/whatwg-node)
@@ -259,7 +259,7 @@ export N_PREFIX=$HOME/n
 
 - [nestjs](../framework/nestjs.md)
   - trpc -> nestjs
-    - https://github.com/macstr1k3r/trpc-nestjs-adapter/tree/master/src/lib
+    - [trpc-nestjs-adapter](https://github.com/macstr1k3r/trpc-nestjs-adapter/tree/master/src/lib)
     - 只支持 express
 - TypeScript
   - [ts-rest](https://github.com/ts-rest/ts-rest)
@@ -289,9 +289,9 @@ export N_PREFIX=$HOME/n
     - V8 bytecode
 - Scraper/爬虫
   - [apify/crawlee](https://github.com/apify/crawlee)
-  - [coder-hxl/x-crawl](https://github.com/coder-hxl/x-crawl)
-  - https://www.webscrapingapi.com/
-  - [rchipka/node-osmosis](https://github.com/rchipka/node-osmosis)
+  - [x-crawl](https://github.com/coder-hxl/x-crawl)
+  - [WebScrapingAPI](https://www.webscrapingapi.com/)
+  - [node-osmosis](https://github.com/rchipka/node-osmosis)
 - JQuery/DOM
   - [jsdom/jsdom](https://github.com/jsdom/jsdom)
   - [cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
@@ -312,8 +312,8 @@ export N_PREFIX=$HOME/n
     - used by
       - built out of [heroku/cli](https://github.com/heroku/cli)
       - [salesforcecli/cli](https://github.com/salesforcecli/cli)
-      - https://shopify.dev/docs/apps/tools/cli
-      - https://www.twilio.com/docs/twilio-cli
+      - [Shopify CLI Tools](https://shopify.dev/docs/apps/tools/cli)
+      - [Twilio CLI](https://www.twilio.com/docs/twilio-cli)
 - Terminal Text Color
   - [chalk](https://github.com/chalk/chalk)
   - picocolors
@@ -355,7 +355,7 @@ export N_PREFIX=$HOME/n
 - ~~[bitair-org/linker.js](https://github.com/bitair-org/linker.js)~~
   - Access Python & C-shared from Node.js
   - `@bitair/linker.js`
-- https://dyncall.org/
+- [dyncall](https://dyncall.org/)
 
 ## Sandbox/VM
 

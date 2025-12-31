@@ -29,7 +29,7 @@ tags:
 - Operation Transform
 - [Implementing Regular Expressions](https://swtch.com/~rsc/regexp/)
 - [Using Finite State Transducers in Lucene](https://blog.mikemccandless.com/2010/12/using-finite-state-transducers-in.html)
-- Static B-Trees: A data structure for faster binary search  [HN](https://news.ycombinator.com/item?id=30376140)
+- Static B-Trees: A data structure for faster binary search [HN](https://news.ycombinator.com/item?id=30376140)
 - [Differentiable Finite State Machines](https://google-research.github.io/self-organising-systems/2022/diff-fsm/)
   - [HN](https://news.ycombinator.com/item?id=31663702)
 - twitter/the-algorithm
@@ -37,3 +37,4 @@ tags:
 ## Reading
 
 - [krahets/hello-algo](https://github.com/krahets/hello-algo)
+- [GavinClarke0/LocklessGenericRingBuffer](https://github.com/GavinClarke0/LocklessGenericRingBuffer)

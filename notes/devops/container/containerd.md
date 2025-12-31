@@ -1,5 +1,9 @@
 ---
 title: containerd
+tags:
+  - DevOps
+  - Container
+  - containerd
 ---
 
 # containerd
@@ -21,67 +25,14 @@ title: containerd
 
 :::
 
-
 ```bash
 ctr plugin ls
 ```
 
-```
-TYPE                                   ID                       PLATFORMS      STATUS
-io.containerd.service.v1               introspection-service    -              ok
-io.containerd.event.v1                 exchange                 -              ok
-io.containerd.content.v1               content                  -              ok
-io.containerd.snapshotter.v1           btrfs                    linux/amd64    skip
-io.containerd.snapshotter.v1           native                   linux/amd64    ok
-io.containerd.snapshotter.v1           overlayfs                linux/amd64    ok
-io.containerd.snapshotter.v1           fuse-overlayfs           linux/amd64    ok
-io.containerd.snapshotter.v1           stargz                   linux/amd64    ok
-io.containerd.metadata.v1              bolt                     -              ok
-io.containerd.service.v1               containers-service       -              ok
-io.containerd.service.v1               content-service          -              ok
-io.containerd.differ.v1                walking                  linux/amd64    ok
-io.containerd.service.v1               diff-service             -              ok
-io.containerd.gc.v1                    scheduler                -              ok
-io.containerd.service.v1               images-service           -              ok
-io.containerd.service.v1               namespaces-service       -              ok
-io.containerd.service.v1               snapshots-service        -              ok
-io.containerd.runtime.v1               linux                    linux/amd64    ok
-io.containerd.runtime.v2               task                     linux/amd64    ok
-io.containerd.runtime.v2               shim                     -              ok
-io.containerd.monitor.v1               cgroups                  linux/amd64    ok
-io.containerd.service.v1               tasks-service            -              ok
-io.containerd.grpc.v1                  introspection            -              ok
-io.containerd.lease.v1                 manager                  -              ok
-io.containerd.nri.v1                   nri                      -              ok
-io.containerd.sandbox.store.v1         local                    -              ok
-io.containerd.sandbox.controller.v1    local                    -              ok
-io.containerd.streaming.v1             manager                  -              ok
-io.containerd.transfer.v1              local                    -              ok
-io.containerd.internal.v1              restart                  -              ok
-io.containerd.grpc.v1                  containers               -              ok
-io.containerd.grpc.v1                  content                  -              ok
-io.containerd.grpc.v1                  diff                     -              ok
-io.containerd.grpc.v1                  events                   -              ok
-io.containerd.grpc.v1                  healthcheck              -              ok
-io.containerd.grpc.v1                  images                   -              ok
-io.containerd.grpc.v1                  leases                   -              ok
-io.containerd.grpc.v1                  namespaces               -              ok
-io.containerd.internal.v1              opt                      -              ok
-io.containerd.grpc.v1                  sandbox-controllers      -              ok
-io.containerd.grpc.v1                  sandboxes                -              ok
-io.containerd.grpc.v1                  snapshots                -              ok
-io.containerd.grpc.v1                  streaming                -              ok
-io.containerd.grpc.v1                  tasks                    -              ok
-io.containerd.grpc.v1                  transfer                 -              ok
-io.containerd.grpc.v1                  version                  -              ok
-io.containerd.grpc.v1                  cri                      linux/amd64    error
-```
-
-
 ## containerd.toml
 
-- /etc/containerd/config.toml
-- /var/lib/containerd/
+- `/etc/containerd/config.toml`
+- `/var/lib/containerd/`
 - [containerd-config.toml.5](https://github.com/containerd/containerd/blob/main/docs/man/containerd-config.toml.5.md)
 
 ```bash
@@ -142,9 +93,9 @@ key_file  = "key.pem"
 insecure_skip_verify = true
 ```
 
-- /etc/containerd/certs.d/
-  - docker.io/
-    - hosts.toml
+- `/etc/containerd/certs.d/`
+  - `docker.io/`
+    - `hosts.toml`
 
 ```ini title="hosts.toml"
 server = "https://docker.io"
@@ -169,40 +120,40 @@ snapshotter = "zfs"
 
 ## Notes
 
-- io.containerd.content.v1.content
+- `io.containerd.content.v1.content`
   - 存储镜像内容数据
   - [docs/content-flow.md](https://github.com/containerd/containerd/blob/main/docs/content-flow.md)
-  - blobs/sha254/SHA256 - gzip
-- io.containerd.metadata
+  - `blobs/sha254/SHA256` - gzip
+- `io.containerd.metadata`
   - 存储镜像元信息
-  - io.containerd.metadata.v1.bolt/meta.db
-- io.containerd.grpc.v1.cri
+  - `io.containerd.metadata.v1.bolt/meta.db`
+- `io.containerd.grpc.v1.cri`
   - 提供 CRI 接口
-- io.containerd.runtime.v1.linux
-- io.containerd.runtime.v2.task
-  - k8s.io
-- io.containerd.snapshotter.v1 - 默认 overlayfs - container 运行时快照
-  - btrfs
-  - native
-  - overlayfs
-  - zfs
-  - aufs
-  - devmapper
-- io.containerd.service.v1
-- io.containerd.monitor.v1
-  - cgroups
-- tmpmounts
+- `io.containerd.runtime.v1.linux`
+- `io.containerd.runtime.v2.task`
+  - `k8s.io`
+- `io.containerd.snapshotter.v1` - 默认 overlayfs - container 运行时快照
+  - `btrfs`
+  - `native`
+  - `overlayfs`
+  - `zfs`
+  - `aufs`
+  - `devmapper`
+- `io.containerd.service.v1`
+- `io.containerd.monitor.v1`
+  - `cgroups`
+- `tmpmounts`
 
 # FAQ
 
 ## 映射常用仓库为镜像仓库
 
-- 镜像仓库可直接同步上游 - 例如 harbor 可指定 prpject 同步上游
-- docker.io 可使用现有的服务
+- 镜像仓库可直接同步上游 - 例如 harbor 可指定 project 同步上游
+- `docker.io` 可使用现有的服务
 - 其他 仓库 没有现有的镜像服务
   - harbor 子域名映射需要特殊配置
-- 假设: harbor 地址 cr.example.com, 添加项目 quay 镜像 quay.io
-  - 需要配置域名映射 quay.cr.example.com 到 cr.example.com/quay
+- 假设: harbor 地址 `cr.example.com`, 添加项目 quay 镜像 `quay.io`
+  - 需要配置域名映射 `quay.cr.example.com` 到 `cr.example.com/quay`
   - 配置方式参考 [#13579](https://github.com/goharbor/harbor/issues/13579)
 
 ```toml
@@ -217,7 +168,7 @@ endpoint = ["https://quay.cr.example.com"]
 
 ## 映射常用仓库为单个私有仓库
 
-- 假设仓库为 https://registry:5000
+- 假设仓库为 `https://registry:5000`
 - 将常用仓库映射为单个内部仓库 - 用于 **airgap** 场景
   - 因为拉取不存在的镜像不能从上游同步，只能拉预先导入的镜像
 
@@ -253,10 +204,23 @@ insecure_skip_verify = true
 mount through procfd: open o_path procfd: open /run/k0s/containerd/io.containerd.runtime.v2.task/k8s.io/promxy/rootfs/etc/promxy/secrets: not a directory
 ```
 
-
 ## failed to reserve sandbox name: name is reserved for
 
 最终会自己修复，可能花费 20m-30m 时间。
 
 - containerd 1.6 修复
 - [containerd#4604](https://github.com/containerd/containerd/issues/4604)
+
+## Additional Registry Notes
+
+[docs/registry.md](https://github.com/containerd/cri/blob/master/docs/registry.md)
+
+- `ctr` is an unsupported debug and administrative client for interacting with the containerd daemon
+- `crictl`
+
+## Errors
+
+- `/sys/devices/system/cpu/cpu0/cache: no such file or directory`
+  - [google/cadvisor#2229](https://github.com/google/cadvisor/issues/2229)
+- `k3s failed start server`
+  - [rancher/k3s#399](https://github.com/rancher/k3s/issues/399)

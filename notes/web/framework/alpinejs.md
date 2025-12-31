@@ -10,7 +10,7 @@ title: AlpineJS
   - 相当于增强 HTML 语法
   - 配合 tailwind 在不需要额外 js 的前提下即可实现较为丰富的前端
     - 项目受 tailwind 资助
-    - codepen [AlpineJS+TailwindCSS](https://codepen.io/wenerme/pen/MWjemLX)
+    - [CodePen: AlpineJS + TailwindCSS](https://codepen.io/wenerme/pen/MWjemLX)
 - 参考
   - [ryangjchandler/spruce](https://github.com/ryangjchandler/spruce) - 全局状态管理
 

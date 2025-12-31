@@ -13,7 +13,7 @@ title: ESBuild
   - https://esbuild.github.io/
     - 包含性能对比
     - 目前暂无 swc
-      - https://github.com/evanw/esbuild/issues/762
+      - [esbuild#762](https://github.com/evanw/esbuild/issues/762)
       - swc not ready
 - [Playground](https://esbuild.github.io/try/)
 
@@ -30,7 +30,7 @@ title: ESBuild
 
 - ES5+
 - 不支持 emitDecoratorMetadata
-  - [#257](https://github.com/evanw/esbuild/issues/257)
+  - [esbuild#257](https://github.com/evanw/esbuild/issues/257)
   - [thomaschaaf/esbuild-plugin-tsc](https://github.com/thomaschaaf/esbuild-plugin-tsc)
     - 会慢
   - reflect-metadata
@@ -38,16 +38,16 @@ title: ESBuild
 - 不支持 HTML, CSS
 - 不支持 TLA - WIP, iife
   - `--banner:js='(async () => {' --footer:js='})()'`
-  - [#253](https://github.com/evanw/esbuild/issues/253)
+  - [esbuild#253](https://github.com/evanw/esbuild/issues/253)
 - 不支持 systemjs, amd
-  - [#192](https://github.com/evanw/esbuild/issues/192)
-- 不支持 umd - [#507](https://github.com/evanw/esbuild/issues/507)
-- 不支持 Bundle CSS Module [#20](https://github.com/evanw/esbuild/issues/20)
-- tsconfig.paths 不 bundled 时不会处理 [#394](https://github.com/evanw/esbuild/issues/394)
+  - [esbuild#192](https://github.com/evanw/esbuild/issues/192)
+- 不支持 umd - [esbuild#507](https://github.com/evanw/esbuild/issues/507)
+- 不支持 Bundle CSS Module [esbuild#20](https://github.com/evanw/esbuild/issues/20)
+- tsconfig.paths 不 bundled 时不会处理 [esbuild#394](https://github.com/evanw/esbuild/issues/394)
   - 写库只能用相对路径
-- Support dynamic imports [#700](https://github.com/evanw/esbuild/issues/700)
+- Support dynamic imports [esbuild#700](https://github.com/evanw/esbuild/issues/700)
   - dynamic import **不会** 被 bundle
-- Support jsx automatic runtime [#334](https://github.com/evanw/esbuild/issues/334)
+- Support jsx automatic runtime [esbuild#334](https://github.com/evanw/esbuild/issues/334)
   - 目前必须 `import React`, 需要调整 lint 配置
   - Bundle 可考虑一次 inject https://esbuild.github.io/content-types/#jsx
   - eslint `'react/react-in-jsx-scope': 'error'`
@@ -96,6 +96,7 @@ echo 'export const OK = process.env.NODE_ENV === "producation"' | pnpm exec esbu
 
 - --platform
   - browser
+    - 隐含: --format=iife --condition=browser --define:process.env.NODE_ENV="production" --main-fields=browser,module,main
     - 隐含: --format=iife --condition=browser --define:process.env.NODE_ENV="production" --main-fields=browser,module,main
     - 使用 package.json 中的 [browser](https://gist.github.com/defunctzombie/4339901/49493836fb873ddaa4b8a7aa0ef2352119f69211)
       - 例如: path -> path-browserify
@@ -212,7 +213,7 @@ esbuild home.ts about.ts --bundle --splitting --outdir=out --format=esm
 
 ## Dynamic require of "fs" is not supported
 
-- https://github.com/evanw/esbuild/issues/1921
+- [esbuild#1921](https://github.com/evanw/esbuild/issues/1921)
 
 ## `__dirname` and `__filename`
 
@@ -238,7 +239,7 @@ var require, __filename, __dirname;
 }
 ```
 
-- https://github.com/evanw/esbuild/issues/1921
+- [esbuild#1921](https://github.com/evanw/esbuild/issues/1921)
 
 ## The presence of "exports" here makes importing a directory forbidden:
 
@@ -246,11 +247,11 @@ var require, __filename, __dirname;
 
 ## transpiling external modules
 
-- https://github.com/remix-run/remix/issues/1423
+- [remix#1423](https://github.com/remix-run/remix/issues/1423)
 
 ## Transforming JavaScript decorators to the configured target environment ("node18.16.0") is not supported yet
 
-- https://github.com/evanw/esbuild/issues/104
+- [esbuild#104](https://github.com/evanw/esbuild/issues/104)
 
 # FAQ
 

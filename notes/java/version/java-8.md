@@ -4,55 +4,86 @@ title: Java 8
 
 # Java 8
 
-## 新特性 {#feature}
+- Java SE 8
+- Released: 2014-03-18
+- 里程碑版本，引入 Lambda 和 Stream，改变了 Java 编程范式。
 
-- 语法
-  - Lambda
-  - interface default method
-- API
-  - CompletableFuture
-  - Optional
+## Features
 
-## Contents
+### Language
 
-- [JSR-000337 JavaTM SE 8 Release Contents](https://jcp.org/aboutJava/communityprocess/mrel/jsr337/index.html)
+- **Lambda Expressions**
+  - 允许把函数作为一个方法的参数。
 
-## Java EE 8
+  ```java
+  list.forEach(item -> System.out.println(item));
+  ```
 
-- [JSR-000366 JavaTM Platform, Enterprise Edition 8](https://jcp.org/aboutJava/communityprocess/edr/jsr366/index.html)
+- **Functional Interfaces**
+  - 只有一个抽象方法的接口。
+  - `@FunctionalInterface` 注解。
+  - 内置函数式接口: `Predicate`, `Function`, `Supplier`, `Consumer`, `BinaryOperator` 等。
 
-## CompletableFuture
+- **Method References**
+  - 方法引用 `::`。
 
-- 类似于 JS 中的 Promise
-- 相当于 Guava 中的 SettableFuture, ListenableFuture
-- 和 ExecutorCompletionService 也有些类似
-- 很好的支持 Lambda
-- [Java 8: CompletableFuture in action](https://dzone.com/articles/java-8-completablefuture)
-- 缺点
-  - `CompletableFuture.allOf()` 返回 `CompletableFuture<Void>`
-  - 将 Guava 中 `settable` 和 `listenable` future 的功能混合在了一起. `complete()` 方法可能错误的被用户端程序调用,导致程序异常.
-  - API 数量过多.
-    - 如果分离 `settable` 和 `listenable` 的功能会解决很多问题.
+  ```java
+  list.forEach(System.out::println);
+  ```
 
-## vJUG24 Session on Optional
+- **Default Methods**
+  - 接口支持默认方法实现。
+  ```java
+  interface MyInterface {
+      default void test() {
+          System.out.println("Default");
+      }
+  }
+  ```
 
-- [vJUG24 Session on Optional](https://stuartmarks.wordpress.com/2016/09/27/vjug24-session-on-optional/)
-  - [PDF](https://stuartmarks.files.wordpress.com/2016/09/optionalmotherofallbikesheds3.pdf)
-- Optional is intended to provide a limited mechanism for library method return types where there is a clear need to represent “no result,” and where using null for that is overwhelmingly likely to cause errors.
-- 基本规则
-  1. 不要使用 `null` 作为 Optional 变量或返回值
-  2. 除非你能保证 Optional 值存在否则不要使用 `Optional.get()`
-  3. 尽量选择或实现其他的接口来避免进行 `Optional.isPresent()` 或 `Optional.get()` 操作
-  4. 避免通过使用 Optional 来获取一个值. `Optional.ofNullable(x).orElse(y)` -> `x == null? y: x`
-  5. 如果 Optional 的内容还是一个 Optional, 那这就太过于复杂了
-- 避免事项
-  - 不要用在字段
-  - 不要用在方法参数
-  - 不要用在集合
-- 记住 Optional 是一个封装, 每个 Optional 是个额外的对象会占用 16 字节的资源, 会创建更多的待被 gc 的对象
+### Library
 
-## BUGS
+- **Stream API**
+  - `java.util.stream`
+  - 函数式风格的集合操作: `filter`, `map`, `reduce`, `collect` 等。
+  - 支持串行和并行 (`parallelStream`) 操作。
 
-### JDK-8064803
+- **Date Time API (JSR 310)**
+  - `java.time` 包。
+  - 不可变且线程安全。
+  - 核心类: `LocalDate`, `LocalTime`, `LocalDateTime`, `ZonedDateTime`, `Duration`, `Period`。
 
-- [Story of a Java 8 Compiler Bug (JDK-8064803)](https://blog.dogan.io/2015/03/02/java-8-compiler-bug/)
+- **Optional**
+  - `java.util.Optional` 用于包含或不包含非空值的容器对象。
+  - 旨在减少 `NullPointerException`。
+
+- **CompletableFuture**
+  - 异步编程增强，支持链式调用和组合。
+
+### Tools
+
+- **Nashorn JavaScript Engine**
+  - 新的 JS 引擎，替代 Rhino (Java 15 中移除)。
+
+## Best Practices
+
+### Optional
+
+- 旨在为库方法返回类型提供一种明确表示“无结果”的机制。
+- **基本规则**:
+  1. 不要使用 `null` 作为 Optional 变量或返回值。
+  2. 除非你能保证 Optional 值存在否则不要直接使用 `Optional.get()`，推荐 `orElse`, `ifPresent` 等。
+  3. 尽量避免使用 Optional 作为字段、方法参数或集合元素 (Optional 不可序列化)。
+- **误用**: `Optional.ofNullable(x).orElse(y)` 优于 `x == null ? y : x` (可读性更好，但注意性能开销)。
+
+### CompletableFuture
+
+- 类似于 JS Promise。
+- 缺点:
+  - `allOf` 返回 `Void`，获取结果需要额外处理。
+  - `complete` 方法公开，可能被意外调用。
+- [CompletableFuture in action](https://dzone.com/articles/java-8-completablefuture)
+
+## References
+
+- [JDK 8 Documentation](https://docs.oracle.com/javase/8/docs/)

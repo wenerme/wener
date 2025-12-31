@@ -35,7 +35,7 @@ tags:
     - v6.4+
 - useSearchParams 会导致任意参数变化都会 rerender - 无法只监听一个参数
   - 只能尝试通过 history 重新封装
-  - https://github.com/remix-run/react-router/discussions/9851
+  - [useSearchParams renders too often](https://github.com/remix-run/react-router/discussions/9851)
 - 没有过多暴露 low-level 接口
   - 导致部分特殊功能不好实现
 
@@ -106,7 +106,7 @@ window.__reactRouterVersion; // ReactRouter
   - RouteErrorContext
 - createMemoryRouter
   - -> createRouter+createMemoryHistory
-- https://github.com/remix-run/react-router/blob/main/packages/react-router/index.ts
+- [remix-run/react-router/packages/react-router/index.ts](https://github.com/remix-run/react-router/blob/main/packages/react-router/index.ts)
 
 ```ts
 interface DataRouterContextObject extends Omit<NavigationContextObject, 'future'> {
@@ -133,7 +133,7 @@ interface RouteContextObject {
 ## @remix-run/router
 
 - history + Router
-- https://github.com/remix-run/react-router/blob/main/packages/router/router.ts
+- [remix-run/react-router/packages/router/router.ts](https://github.com/remix-run/react-router/blob/main/packages/router/router.ts)
 
 ## Router
 
@@ -448,7 +448,7 @@ export interface RouterState {
 - element 替代 component 和 render
 - 基于 rank 的路由优先级
 - 不再使用 path-to-regexp - 因此路径写法会有区别
-  - https://github.com/remix-run/react-router/discussions/8132
+  - [Regex paths](https://github.com/remix-run/react-router/discussions/8132)
   - [What Happened to Regexp Routes Paths?](https://reactrouter.com/docs/en/v6/getting-started/faq#what-happened-to-regexp-routes-paths)
     - 无法 Rank 路径
     - bundle size 较大- 1/3 of react-router
@@ -456,7 +456,7 @@ export interface RouterState {
       - react-router - 11kB/4kB
         - history - 6kB/2kB
       - react-router-dom + 7kB/2kB
-- https://remix.run/blog/react-router-v6
+- [React Router v6](https://remix.run/blog/react-router-v6)
 
 :::caution
 
@@ -469,7 +469,7 @@ export interface RouterState {
 
 ---
 
-- https://reactrouter.com/docs/en/v6/upgrading/v5#upgrade-to-react-router-v6
+- [Upgrade to React Router v6](https://reactrouter.com/docs/en/v6/upgrading/v5#upgrade-to-react-router-v6)
 - Switch -> Routes
 - Redirect -> Navigate
 - Link 移除 component 熟悉
@@ -489,7 +489,7 @@ export interface RouterState {
   - 路由没找到时调用 `unstable_patchRoutesOnMiss({ path, patch })`, 在 createBrowserRouter 指定
     - 通过 patch 对 router 进行补丁
   - 也可以考虑在 route 的 handle 增加 自定义逻辑，然后在 onMiss 时发现进行调用
-  - https://reactrouter.com/en/main/routers/create-browser-router#optsunstable_patchroutesonmiss
+  - [unstable_patchRoutesOnMiss](https://reactrouter.com/en/main/routers/create-browser-router#optsunstable_patchroutesonmiss)
 - 2023-10-31 v6.18 增加 Fetcher
   - useFetcher, useFetchers
   - Form, useSubmit 增加 navigate/fetcherKey 可指向 fetcher
@@ -507,7 +507,7 @@ export interface RouterState {
 - 2022-12-16 v6.5 支持 `?` 表示可选 `:lang?/about/us?`
 - 2022-09-13 v6.4 增加 Remix Data APIs `<RouterProvider>`
   - 将 remix 的 Data APIs 集成到 react-router 中
-  - https://remix.run/blog/react-routering-remix
+  - [Remixing React Router](https://remix.run/blog/react-routering-remix)
 
 # FAQ
 
