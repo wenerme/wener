@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["202"],{940175:function(e){e.exports=JSON.parse('{"tag":{"label":"Drupal","permalink":"/notes/tags/drupal","allTagsPath":"/notes/tags","count":1,"items":[{"id":"ops/service/drupal","title":"Drupal","description":"- Drupal","permalink":"/notes/ops/service/drupal"}],"unlisted":false}}')}}]);

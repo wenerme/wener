@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["416455"],{305339:function(e){e.exports=JSON.parse('{"tag":{"label":"Zhihu","permalink":"/notes/tags/zhihu","allTagsPath":"/notes/tags","count":1,"items":[{"id":"platform/zhihu","title":"Zhihu","description":"- lzjun567/zhihu-api","permalink":"/notes/platform/zhihu"}],"unlisted":false}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["783332"],{440541:function(e){e.exports=JSON.parse('{"tag":{"label":"One","permalink":"/notes/tags/one","allTagsPath":"/notes/tags","count":1,"items":[{"id":"platform/google-one","title":"Google One","description":"","permalink":"/notes/platform/google-one"}],"unlisted":false}}')}}]);
