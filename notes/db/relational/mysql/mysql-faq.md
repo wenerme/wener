@@ -10,6 +10,7 @@ tags:
 - 列可以使用 after 指定位置
 - `datetime(3) DEFAULT CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)`
   - MySQL 5.6.5
+- 注意可能大小写不敏感会导致 UNIQUE 索引唯一了，但是值可能变了大小写，其他信息关联失败
 
 :::
 

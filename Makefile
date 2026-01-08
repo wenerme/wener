@@ -30,3 +30,9 @@ fmt-commit:
 
 stat-commit:
 	git show --stat --format="" --color HEAD | tee
+
+scan-leak:
+	gitleaks detect -v
+
+scan-staged:
+	gitleaks protect -v --staged

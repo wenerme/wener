@@ -12,6 +12,13 @@ tags:
   - [modelcontextprotocol/inspector](https://github.com/modelcontextprotocol/inspector)
 - MCP Hosts - Claude, IDEs, Tools
 
+
+:::tip
+
+- Claude Code 2.1 支持 `list_changed` notification 来 reload 工具列表
+
+:::
+
 ```json
 {
   "servers": {

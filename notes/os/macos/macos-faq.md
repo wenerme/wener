@@ -574,3 +574,14 @@ auth sufficient pam_tid.so
 ## 外部显示器鼠标卡顿 {#mouse-lag-on-external-display}
 
 - https://discussions.apple.com/thread/254666579
+
+## 避免休眠
+
+```bash
+# -i 避免 Idle
+# -s 避免 System Sleep
+# 依然会被 display closed 中断
+caffeinate -i -s
+# 可以结合命令使用
+caffeinate -i make build
+```

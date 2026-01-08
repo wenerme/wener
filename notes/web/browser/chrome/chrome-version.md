@@ -157,6 +157,14 @@ tags:
 
 # Versions
 
+## Chrome 145
+
+- 支持开启 Remote Debugging
+  - chrome://inspect/#remote-debugging
+  - https://github.com/ChromeDevTools/chrome-devtools-mcp/ 能直连
+    - --autoConnect/--auto-connect
+      - Chrome 145+
+
 ## Chrome 137
 
 - CSS if()

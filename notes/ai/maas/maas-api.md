@@ -132,3 +132,19 @@ title: MaaS API
   - 强调规则
 - system
   - 强调角色
+
+# FAQ
+
+## Unable to submit request because thinking_budget and thinking_level are not supported together
+
+Gemini 限制
+
+## Claude temperature, top_p 不能一起传
+
+- Claude Sonnet 4.5 and Claude Haiku 4.5 only support specification of one of temperature or top_p parameters, but cannot handle both.
+- 思考与 temperature、top_p 或 top_k 修改不兼容，也不兼容强制使用工具。
+- 启用思考后，您无法预先填写响应。
+- 对思考预算进行更改，会导致包含消息的缓存提示前缀失效。但是，当思考的参数发生变化时，缓存系统提示和工具定义将继续起作用。
+- 参考
+  - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-request-response.html
+  - https://docs.aws.amazon.com/zh_cn/bedrock/latest/userguide/claude-messages-extended-thinking.html

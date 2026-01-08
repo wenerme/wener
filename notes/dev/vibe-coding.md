@@ -1,5 +1,7 @@
 ---
 title: Vibe Coding
+tags:
+  - Thoughs
 ---
 
 # Vibe Coding
@@ -8,6 +10,20 @@ title: Vibe Coding
 
 - 如果你 review 了所有的代码，那就不算是 vibe coding。
 - AI 无法完全完成 当事人 也无法理解的任务。
+- 让 Agent 能 Loop 起来是关键，因此人类的主要工作是
+  - 准备工具 - 例如 访问浏览器、访问日志、访问数据
+    - 对应 MCP, tools
+  - 准备环境 - 例如 测试环境、.env 配置、Terminal 环境
+    - 对应 项目配置
+  - 准备上下文 - 例如 描述现象，描述触发逻辑，描述需求，描述验收
+    - 对应 skills, AGENTS.md, rules
+  - 准备工作流 - 例如 自动知乎回答问题流程
+    - 对应 skills, subagent
+    - 对于 Coding 类任务 AI 已经非常熟悉 工作流程
+- 工程中最难的不是“造出一个能用的东西”，而是以正确的方式构建它，让它易于理解，也易于扩展。
+  - 但 过早的优化是万恶之源
+  - 过于 "right" 的架构设计得到可能是不需要的产出
+  - Make it DONE, Make it Right, Make it Fast
 
 :::
 
@@ -16,6 +32,7 @@ title: Vibe Coding
 - 记录所有约束和限制
 - 创建并维护包含信息的 markdown 文件，便于客户端访问
 - 只有在完成上述步骤后再启动编码过程
+- OODA - Observe Orient Decide Act - 观察 认知 决策 执行
 
 ## 提示词
 
@@ -49,7 +66,8 @@ title: Vibe Coding
 
 ## 参考
 
+- 2025-11 Claude Opus 4.5 标志着 AI Codeing Agent 从 Copilot -> Coworker 的转变
 - Time to Edit (TTE)
 - https://cognition.ai/blog/devin-annual-performance-review-2025
 - https://cursor.com/blog/productivity
-
+- https://news.ycombinator.com/item?id=46515696

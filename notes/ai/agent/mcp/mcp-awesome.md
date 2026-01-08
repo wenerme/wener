@@ -188,6 +188,8 @@ tags:
     - 自动化平台，连接 8000+ 应用
     - 用户专属 URL https://mcp.zapier.com
 
+**mcp.json**
+
 ```json
 {
   "mcpServers": {
@@ -201,10 +203,6 @@ tags:
       "headers": {
         "Authorization": "Bearer ${GITHUB_MCP_PAT}"
       }
-    },
-    "gitlab": {
-      "type": "sse",
-      "url": "http://localhost:3002/sse"
     },
     "todoist": {
       "type": "stdio",
@@ -234,6 +232,45 @@ tags:
         "-t",
         "preset.default,im.v1.message,im.v1.message.resource"
       ]
+    },
+    "playwright": {
+      "command": "pnpx",
+      "args": ["@playwright/mcp@latest", "--isolated"]
+    },
+    "gitlab": {
+      "command": "pnpx",
+      "args": ["@zereight/mcp-gitlab"],
+      "env": {
+        "GITLAB_PERSONAL_ACCESS_TOKEN": "${GITLAB_PAT}",
+        "GITLAB_API_URL": "https://gitlab.com/api/v4",
+        "GITLAB_READ_ONLY_MODE": "true",
+        "USE_GITLAB_WIKI": "false",
+        "USE_MILESTONE": "false",
+        "USE_PIPELINE": "true"
+      }
+    },
+    "Linear": {
+      "url": "https://mcp.linear.app/sse",
+      "headers": {}
+    },
+    "grafana": {
+      "command": "mcp-grafana",
+      "args": [],
+      "env": {
+        "GRAFANA_URL": "http://localhost:3300",
+        "GRAFANA_SERVICE_ACCOUNT_TOKEN": "",
+        "GRAFANA_ORG_ID": "1"
+      }
+    },
+    "huggingface": {
+      "url": "https://huggingface.co/mcp"
+    },
+    "deepwiki": {
+      "url": "https://mcp.deepwiki.com/mcp"
+    },
+    "chrome-devtools": {
+      "command": "bunx",
+      "args": ["chrome-devtools-mcp@latest", "--autoConnect", "--channel=canary"]
     }
   }
 }

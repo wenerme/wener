@@ -8,12 +8,12 @@ typescript 配置文件。
 
 - tslib 会用于 polyfill 特性
 - 参考
+  - [tsconfig/bases](https://github.com/tsconfig/bases) 配置推荐
   - https://www.typescriptlang.org/tsconfig
   - [tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
     - [中文](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/tsconfig.json.html)
   - [tsconfig.json.schema](http://json.schemastore.org/tsconfig)
   - [reference](https://www.typescriptlang.org/tsconfig)
-  - [tsconfig/bases](https://github.com/tsconfig/bases) 配置推荐
   - https://esbuild.github.io/content-types/#tsconfig-json
 
 ```bash

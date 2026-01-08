@@ -19,3 +19,11 @@ title: lingo.dev
 # 初始化
 npx lingo.dev init -s zh -t 'zh-Hant,en,es,fr,ja' -b yaml
 ```
+
+- .lingo/metadata.json
+- .lingo/cache
+- `__LINGO_DEV_WS_URL__`
+  -  `__SERVER_URL__`
+- @lingo.dev/compiler/virtual/locale/client
+  - locale-resolver.client.ts
+- metadata-dev.json

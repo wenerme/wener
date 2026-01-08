@@ -412,10 +412,40 @@ ccr status # 状态
 
 ## cc-switch
 
+- GUI 切换 .claude/settings.json 文件
 - https://github.com/farion1231/cc-switch
 
 ```bash
 brew install farion1231/ccswitch/cc-switch
+```
+
+## cc-mirror
+
+- https://github.com/numman-ali/cc-mirror
+- 创建多个 claude 这样的命令行，使用预设的环境变量
+- ~/.cc-mirror/NAME/
+  - npm/ Claude Code installation
+  - config/ API keys, sessions, MCP servers
+  - tweakcc/ Theme & prompt customization
+  - variant.json Metadata
+- ~/.local/bin/NAME
+
+```bash
+npx -y cc-mirror quick --provider custom --no-tweak --no-prompt-pack \
+  --base-url http://localhost:7180 \
+  --api-key dummy \
+  --model-opus claude-opus-4-5-thinking \
+  --model-sonnet claude-sonnet-4-5-thinking \
+  --model-haiku claude-sonnet-4-5 \
+  --name cc-anti
+
+npx -y cc-mirror quick --provider custom --no-tweak --no-prompt-pack \
+  --base-url http://localhost:7180 \
+  --api-key dummy \
+  --model-opus gemini-3-pro-high \
+  --model-sonnet gemini-3-flash \
+  --model-haiku gemini-2.5-flash-lite \
+  --name cc-gemini
 ```
 
 # FAQ
@@ -431,3 +461,24 @@ VSCODE_PID= VSCODE_CWD= TERM_PROGRAM= command claude
 ```
 
 - https://github.com/anthropics/claude-code/issues/1276
+
+# Version
+
+| version | date       | notes |
+| ------- | ---------- | ----- |
+| 2.1     | 2026-01-07 |
+
+## Claude Code 2.1
+
+- hot reload skill
+  - ~/.claude/skills
+  - .claude/skills
+- skill `context: fork` to run skill in forked sub-agent context
+- `list_changed` notification to reload mpc tools
+- 支持 `language` 设置
+- `Shift+Enter` 能正常使用
+- permission Bash 支持 `*` 通配符在任意位置
+  - 例如 `Bash(git * main)`
+  - 之前必须 `:*` 例如 `Bash(git checkout:*)`
+- `Ctrl+B` 能同时控制 Bash 和 Agent 在后台运行
+- `CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS` 能控制文件读取的输出 token 数

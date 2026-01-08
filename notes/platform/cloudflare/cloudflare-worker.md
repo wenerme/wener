@@ -28,6 +28,8 @@ title: Cloudflare Workers
 - Cloudflare Workers [serverless-next.js#111](https://github.com/serverless-nextjs/serverless-next.js/issues/111)
 - worker 没有本地临时 存储
   - 使用 KV 或 R2
+- 免费版 3MB 大小限制
+- 付费版 10MB 大小限制
 
 :::
 

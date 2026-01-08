@@ -1,18 +1,31 @@
 ---
 title: skill
+tags:
+  - Awesome
 ---
 
 # skill
 
 - [agentskills.io](https://agentskills.io/)
+  - 由 Anthropic 推动
 - [agentskills/agentskills](https://github.com/agentskills/agentskills)
   - 规范和文档
 - [skillsmp.com](https://skillsmp.com/)
   - Agent Skills文档和使用指南
 - 参考
   - [What are skills](https://support.claude.com/en/articles/12512176-what-are-skills)
-  - [vercel/ai#11446](https://github.com/vercel/ai/issues/11446)
-    - vercel/ai Add native support for skills
+
+
+:::tip
+
+- claude code 2.1 支持 hot reload skill, 支持 context: fork 让 skill 独立运行
+- [vercel/ai#11446](https://github.com/vercel/ai/issues/11446)
+  - vercel/ai Add native support for skills
+- Cursor Skill
+  - https://cursor.com/docs/context/skills
+- [google-gemini/gemini-cli#15327](https://github.com/google-gemini/gemini-cli/issues/15327)
+
+:::
 
 ```bash
 /plugin marketplace add anthropics/skills
@@ -24,7 +37,7 @@ title: skill
 - .github/skills/
 - .codex/skills/
 - .gemini/skills/
-  - [google-gemini/gemini-cli#15327](https://github.com/google-gemini/gemini-cli/issues/15327)
+
 
 ```
 skill-name/

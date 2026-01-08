@@ -21,7 +21,15 @@ tags:
 :::
 
 
-```ts
+```bash
+# type checking
+pnpm add -Dw @typescript/native-preview
+
+# 无法排除 node_modules 问题 https://github.com/microsoft/TypeScript/issues/40426
+npx tsc -p tsconfig.json --skipLibCheck --maxNodeModuleJsDepth 0 --noEmit
+
+# 减少 node_modules 输出
+npx tsc -p tsconfig.json --skipLibCheck --maxNodeModuleJsDepth 0 --noEmit | grep -v '/node_modules'
 ```
 
 - https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html

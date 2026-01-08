@@ -142,7 +142,7 @@ https://github.com/git/git/tree/master/po
 | ⌃       | Option                                 | U+2303     |
 | ❖       | Windows                                | U+2756     |
 | ↩ ↵ ⏎  | Enter                                  | U+21A9     |
-| ▤ ☰ 𝌆   | Menu                                   | U+25A0     |
+| ▤ ☰ 𝌆 | Menu                                   | U+25A0     |
 | ↹ ⇥     | Tab                                    | U+21B9     |
 | ⇥       | Tab                                    | U+21B9     |
 | ⇄ ⇤ ↤ ↦ | Tab symbol                             | U+21C4     |
@@ -204,3 +204,19 @@ https://github.com/git/git/tree/master/po
 ## space
 
 - `&nbsp;&ensp;&emsp;&thinsp;&zwnj;&zwj;`
+
+## math
+
+| sym  | name                     | html                       | latex    |
+| ---- | ------------------------ | -------------------------- | -------- |
+| `+`  | plus                     | &plus;                     | $+$      |
+| `-`  | minus                    | &minus;                    | $-$      |
+| `*`  | times                    |                            | $\times$ |
+| `×`  | times                    | &times;                    | $\times$ |
+| `/`  | divide                   |                            | $\div$   |
+| `÷`  | divide                   | &divide;                   | $\div$   |
+| `=`  | equal                    | &equal;                    | $=$      |
+| `<`  | less than                | &less than;                | $<$      |
+| `>`  | greater than             | &greater than;             | $>$      |
+| `<=` | less than or equal to    | &less than or equal to;    | $\leq$   |
+| `>=` | greater than or equal to | &greater than or equal to; | $\geq$   |
