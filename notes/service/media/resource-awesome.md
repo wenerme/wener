@@ -15,6 +15,19 @@ tags:
   - Disney+
   - Hulu
   - Apple TV+
+-  Torrent
+  - https://nyaa.land/ - 动漫资源为主
+  - https://sukebei.nyaa.si/ - 成人动漫资源
+  - https://nyaa.si/ - Nyaa 英文版
+  - https://thepiratebay.org/ - 综合 Torrent 搜索引擎
+  - https://rarbg.to/ - 高质量影视资源
+  - https://1337x.to/ - 影视、游戏、软件
+  - https://yts.mx/ - 高清电影
+  - https://torrentz2.nz/ - Torrent 元搜索引擎
+- 客户端
+  - qBittorrent
+  - Transmission
+  - Deluge
 - open library/Sci-Hub/LibGen/Z-Lib/DuXiu
   - https://annas-archive.org/
   - https://z-lib.org/

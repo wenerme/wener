@@ -468,9 +468,13 @@ VSCODE_PID= VSCODE_CWD= TERM_PROGRAM= command claude
 | ------- | ---------- | ----- |
 | 2.1     | 2026-01-07 |
 
+- https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md
+- https://claudelog.com/claude-code-changelog/
+- ENABLE_EXPERIMENTAL_MCP_CLI
+
 ## Claude Code 2.1
 
-- hot reload skill
+- 技能热重载
   - ~/.claude/skills
   - .claude/skills
 - skill `context: fork` to run skill in forked sub-agent context

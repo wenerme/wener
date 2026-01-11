@@ -11,6 +11,12 @@ sudo networksetup -listallnetworkservices        # 列出所有网络服务
 sudo networksetup -listnetworkserviceorder       # 优先级
 sudo networksetup -getdnsservers Wi-Fi           # 获取 DNS
 sudo networksetup -setdnsservers Wi-Fi 127.0.0.1 # 设置 DNS
+sudo networksetup -setdnsservers Wi-Fi 223.5.5.5 # 设置 DNS
+
+# 有线网络
+sudo networksetup -setdnsservers "USB 10/100/1000 LAN" 127.0.0.1
+sudo networksetup -setdnsservers "USB 10/100/1000 LAN" 223.5.5.5
+sudo networksetup -setdnsservers "USB 10/100/1000 LAN" Empty # 恢复
 
 scutil --dns # 查看 DNS 配置
 

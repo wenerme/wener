@@ -23,7 +23,21 @@ npx lingo.dev init -s zh -t 'zh-Hant,en,es,fr,ja' -b yaml
 - .lingo/metadata.json
 - .lingo/cache
 - `__LINGO_DEV_WS_URL__`
-  -  `__SERVER_URL__`
+  - `__SERVER_URL__`
 - @lingo.dev/compiler/virtual/locale/client
   - locale-resolver.client.ts
 - metadata-dev.json
+- https://github.com/lingodotdev/lingo.dev/blob/3e91e1c5f74128e51f63dd25c423dd93f9d12e20/packages/new-compiler/src/translators/lingo/prompt.ts
+
+**.lingo/cache/LOCAL.json**
+
+```json
+{
+  "version": "1.0",
+  "locale": "es",
+  "entries": {
+    "hash123": "Hola Mundo",
+    "hash456": "Bienvenido"
+  }
+}
+```

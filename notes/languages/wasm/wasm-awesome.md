@@ -44,9 +44,9 @@ tags:
     - WebAssembly runtime for cloud native, edge, and decentralized applications
     - [second-state/dapr-wasm](https://github.com/second-state/dapr-wasm)
       - [WasmEdge Runtime for Dapr](https://www.infoq.com/articles/webassembly-dapr-wasmedge/)
-  - [tetratelabs/wazero](https://github.com/tetratelabs/wazero)
+  - [wazero/wazero](https://github.com/wazero/wazero)
     - Apache-2.0, Go
-    - 无依赖
+    - 不依赖 CGO
 - Toolchain
   - [bytecodealliance/javy](https://github.com/bytecodealliance/javy)
     - Apache-2.0, Rust
