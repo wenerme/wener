@@ -37,7 +37,9 @@ tags:
 - .github/skills/
 - .codex/skills/
 - .gemini/skills/
-
+- Antigravity
+  - `<workspace-root>/.agent/skills/<skill-folder>/`
+  - `~/.gemini/antigravity/skills/<skill-folder>/`
 
 ```
 skill-name/

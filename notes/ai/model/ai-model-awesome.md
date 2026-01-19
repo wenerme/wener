@@ -117,17 +117,18 @@ tags:
 
 **Diffusion/Image Models**
 
-| date       | model                | size                                      | author            | notes                                |
-| ---------- | -------------------- | ----------------------------------------- | ----------------- | ------------------------------------ |
-| 2025-12-17 | Qwen-Image-Edit-2511 |                                           | Alibaba           | Image editing, T2I, I2I, Enhanced    |
-| 2025-11-26 | FLUX.2 dev           | 32B                                       | Black Forest Labs | Apache-2.0 klein 商业 pro, flex      |
-| 2025-11-25 | Z-Image-Turbo        |                                           | Tongyi-MAI        | Fast image generation, T2I           |
-| 2025-08-17 | Qwen-Image-Edit      |                                           | Alibaba           | Image editing, T2I, I2I, Base model  |
-| 2025-08-04 | [Qwen-Image]         | 20B                                       | Alibaba           | Apache-2.0,MMDiT , T2I,Editing, Text |
-| 2025-07-16 | HiDream-E1-1         |                                           |                   | Editing                              |
-| 2025-05-29 | FLUX.1 Kontext       | dev 12B,~~max~~,~~pro~~                   | Black Forest Labs |                                      |
+| date       | model                | size                                      | author            | notes                                              |
+| ---------- | -------------------- | ----------------------------------------- | ----------------- | -------------------------------------------------- |
+| 2026-01-14 | [GLM-Image]          | 9B+7B (AR+Diffusion)                      | Z.ai              | Hybrid AR+Diffusion, T2I, I2I, Text rendering, MIT |
+| 2025-12-17 | Qwen-Image-Edit-2511 |                                           | Alibaba           | Image editing, T2I, I2I, Enhanced                  |
+| 2025-11-26 | FLUX.2 dev           | 32B                                       | Black Forest Labs | Apache-2.0 klein 商业 pro, flex                    |
+| 2025-11-25 | Z-Image-Turbo        |                                           | Tongyi-MAI        | Fast image generation, T2I                         |
+| 2025-08-17 | Qwen-Image-Edit      |                                           | Alibaba           | Image editing, T2I, I2I, Base model                |
+| 2025-08-04 | [Qwen-Image]         | 20B                                       | Alibaba           | Apache-2.0,MMDiT , T2I,Editing, Text               |
+| 2025-07-16 | HiDream-E1-1         |                                           |                   | Editing                                            |
+| 2025-05-29 | FLUX.1 Kontext       | dev 12B,~~max~~,~~pro~~                   | Black Forest Labs |                                                    |
 | 2025-04-07 | HiDream-I1           | 17B, Fast 16step, Dev 28step, Full 50step |
-| 2025-01-25 | Lumina-Image 2.0     | 2B                                        | OpenGVLab         | Apache-2.0                           |
+| 2025-01-25 | Lumina-Image 2.0     | 2B                                        | OpenGVLab         | Apache-2.0                                         |
 | 2024-10-22 | SD 3.5               | turbo, large, medium ,2.5B, 8B            | Stability AI      |
 | 2024-08-01 | FLUX.1               | dev, schnell, 12B, ~~pro~~                | Black Forest Labs |
 | 2024-02    | SD 3.0               | 800M, 8B                                  | Stability AI      |
@@ -137,9 +138,42 @@ tags:
 | 2022-11    | SD v2.0              |                                           |
 | 2022-10    | SD 1.5               | 983M                                      | RunwayML          |
 | 2022-08    | SD 1.1 1.2 1.3 1.4   |                                           | CompVis           |
-| 2025-06-16 | OmniGen2             | 7B                                        | VectorSpaceLab    | T2I, Editing, Composing              |
+| 2025-06-16 | OmniGen2             | 7B                                        | VectorSpaceLab    | T2I, Editing, Composing                            |
 
+[GLM-Image]: https://huggingface.co/zai-org/GLM-Image
 [Qwen-Image]: https://huggingface.co/Qwen/Qwen-Image
+
+**Video Models**
+
+| date       | model                   | size         | author         | notes                                   |
+| ---------- | ----------------------- | ------------ | ------------- | --------------------------------------- |
+| 2026-01-03 | [LTX-2]                 | 19B          | Lightricks    | T2V, I2V, V2V, High quality, MIT        |
+| 2025-11-18 | [HunyuanVideo-1.5]      |              | Tencent       | T2V, I2V, High quality, Apache-2.0      |
+| 2025-10-24 | [LongCat-Video]         |              | Meituan       | T2V, I2V, Video continuation, MIT       |
+| 2025-07-24 | [Wan2.2-T2V-A14B]       | 14B          | Wan-AI        | T2V, Apache-2.0, High resolution        |
+| 2025-07-18 | [Wan2.2-TI2V-5B]        | 5B           | Wan-AI        | I2V, Apache-2.0, Fast generation        |
+| 2025-02-25 | [Wan2.1-T2V-14B]        | 14B          | Wan-AI        | T2V, Apache-2.0, Original version       |
+| 2025-02-25 | [Wan2.1-T2V-1.3B]       | 1.3B         | Wan-AI        | T2V, Apache-2.0, Lightweight            |
+| 2025-03-04 | [Open-Sora-v2]          |              | hpcai-tech    | T2V, Apache-2.0, Open-source            |
+| 2024-12-01 | [HunyuanVideo]          |              | Tencent       | T2V, Original version                   |
+| 2024-09-13 | [Open-Sora-Plan-v1.3.0] |              | LanguageBind  | T2V, MIT, Open-source                    |
+| 2024-08-17 | [CogVideoX-5b]          | 5B           | ZhipuAI       | T2V, Apache-2.0, High quality           |
+| 2024-08-05 | [CogVideoX-2b]          | 2B           | ZhipuAI       | T2V, Apache-2.0, Efficient              |
+| 2024-03-19 | [AnimateDiff-Lightning] | 1.8B adapter | ByteDance     | Fast T2V, CreativeML OpenRAIL-M          |
+
+[LTX-2]: https://huggingface.co/Lightricks/LTX-2
+[HunyuanVideo-1.5]: https://huggingface.co/tencent/HunyuanVideo-1.5
+[LongCat-Video]: https://huggingface.co/meituan-longcat/LongCat-Video
+[Wan2.2-T2V-A14B]: https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B
+[Wan2.2-TI2V-5B]: https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B
+[Wan2.1-T2V-14B]: https://huggingface.co/Wan-AI/Wan2.1-T2V-14B
+[Wan2.1-T2V-1.3B]: https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B
+[Open-Sora-v2]: https://huggingface.co/hpcai-tech/Open-Sora-v2
+[HunyuanVideo]: https://huggingface.co/tencent/HunyuanVideo
+[Open-Sora-Plan-v1.3.0]: https://huggingface.co/LanguageBind/Open-Sora-Plan-v1.3.0
+[CogVideoX-5b]: https://huggingface.co/zai-org/CogVideoX-5b
+[CogVideoX-2b]: https://huggingface.co/zai-org/CogVideoX-2b
+[AnimateDiff-Lightning]: https://huggingface.co/ByteDance/AnimateDiff-Lightning
 
 **Proprietary Models**
 

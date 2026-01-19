@@ -24,6 +24,10 @@ tags:
 
 - MCP Clients
   - [punkpeye/awesome-mcp-clients](https://github.com/punkpeye/awesome-mcp-clients)
+  - [philschmid/mcp-cli](https://github.com/philschmid/mcp-cli)
+    - MIT, TS
+    - ./mcp_servers.json
+    - ~/.config/mcp/mcp_servers.json
 - MCP Servers
   - [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)
 - Android/iOS/Mobile
@@ -103,6 +107,20 @@ tags:
 - Weather MCP
 - File system MCP
 - Calendar MCP
+
+---
+
+- Claude
+  - ./.mcp.json
+  - ~/.claude.json#mcpServers
+- Cursor
+  - ./.cursor/mcp.json
+  - ~/.cursor/mcp.json
+- Gemini CLI
+  - ./.gemini/mcp_config.json
+- Antigravity
+  - ./.gemini/antigravity/mcp_config.json
+  - ~/.gemini/antigravity/mcp_config.json
 
 ## Commercial
 
@@ -195,7 +213,10 @@ tags:
   "mcpServers": {
     "linear": {
       "type": "http",
-      "url": "https://mcp.linear.app/mcp"
+      "url": "https://mcp.linear.app/mcp",
+      "headers": {
+        "Authorization": "Bearer ${LINEAR_API_KEY}"
+      }
     },
     "github": {
       "type": "http",

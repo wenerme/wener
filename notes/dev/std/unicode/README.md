@@ -161,7 +161,50 @@ https://github.com/git/git/tree/master/po
 
 ## 希腊字母
 
+| sym | upper | for     |
+| :-- | :---- | :------ |
+| α   | Α     | alpha   |
+| β   | Β     | beta    |
+| γ   | Γ     | gamma   |
+| δ   | Δ     | delta   |
+| ε   | Ε     | epsilon |
+| ζ   | Ζ     | zeta    |
+| η   | Η     | eta     |
+| θ   | Θ     | theta   |
+| ι   | Ι     | iota    |
+| κ   | Κ     | kappa   |
+| λ   | Λ     | lambda  |
+| μ   | Μ     | mu      |
+| ν   | Ν     | nu      |
+| ξ   | Ξ     | xi      |
+| ο   | Ο     | omicron |
+| π   | Π     | pi      |
+| ρ   | Ρ     | rho     |
+| σ   | Σ     | sigma   |
+| τ   | Τ     | tau     |
+| υ   | Υ     | upsilon |
+| φ   | Φ     | phi     |
+| χ   | Χ     | chi     |
+| ψ   | Ψ     | psi     |
+| ω   | Ω     | omega   |
+
 - https://unicode-table.com/cn/sets/greek-symbols/
+
+## 罗马数字
+
+| sym | num  |
+| --- | ---- |
+| I   | 1    |
+| V   | 5    |
+| X   | 10   |
+| L   | 50   |
+| C   | 100  |
+| D   | 500  |
+| M   | 1000 |
+
+- 小的在前面是减法，大的在前面是加法
+  - 11 -> XI
+  - 4 -> IV
 
 ## 常用
 

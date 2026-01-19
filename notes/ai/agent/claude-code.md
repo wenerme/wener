@@ -196,6 +196,12 @@ claude config list
 | VERTEX_REGION_CLAUDE_4_0_SONNET          | 使用 Vertex AI 时 Claude 4.0 Sonnet 的区域覆盖                                                                      |
 | VERTEX_REGION_CLAUDE_4_1_OPUS            | 使用 Vertex AI 时 Claude 4.1 Opus 的区域覆盖                                                                        |
 
+- MAX_THINKING_TOKENS
+  - 499
+  - 有些 provider 需要至少 1024
+  - 会让所有请求变成思考请求
+  - https://github.com/anthropics/claude-code/issues/5257
+
 ```bash
 export ANTHROPIC_AUTH_TOKEN=sk-1234
 export ANTHROPIC_BASE_URL=http://localhost:4000
@@ -467,10 +473,17 @@ VSCODE_PID= VSCODE_CWD= TERM_PROGRAM= command claude
 | version | date       | notes |
 | ------- | ---------- | ----- |
 | 2.1     | 2026-01-07 |
+| 2.0     | 2025-09-29 |
 
 - https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md
 - https://claudelog.com/claude-code-changelog/
 - ENABLE_EXPERIMENTAL_MCP_CLI
+
+| env                                     | since |
+| --------------------------------------- | ----- |
+| CLAUDE_CODE_TMPDIR                      | 2.1.5 |
+| CLAUDE_CODE_DISABLE_BACKGROUND_TASKS    | 2.1.4 |
+| CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS | 2.1.0 |
 
 ## Claude Code 2.1
 

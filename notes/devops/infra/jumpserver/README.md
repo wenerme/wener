@@ -14,14 +14,14 @@ title: jumpserver
 - 企业版功能
   - 角色管理
   - 工单
-  - 权限 -  资产登录、连接方式
+  - 权限 - 资产登录、连接方式
   - 账号收集、账号改密、账号备份
   - 组织管理、界面设置
   - Auth - SSO、OpenID、SAML2、
 
 | port        | for                       |
 | ----------- | ------------------------- |
-| 22          | SSH, 安装升级
+| 22          | SSH, 安装升级             |
 | 80          |
 | 443         |
 | 3306        |
@@ -33,6 +33,13 @@ title: jumpserver
 | 54320       | Magnus PostgreSQL Client  |
 | 63709       | Magnus Redis Client       |
 | 30000-30100 | Magnus Oracle Client      |
+
+```bash
+# ssh -J <jumpserver_username>@<jumpserver_host>:<jumpserver_port> <asset_username>@<asset_ip>
+
+ssh -p 2222 user@jumpserver.example.com
+ssh -p 2222 JumpServerUsername@SystemUsername@AssetIP@JumpServerHostIP
+```
 
 - 存储使用 MySQL+Redis
 - 组件
@@ -60,3 +67,18 @@ title: jumpserver
 ## Conf
 
 - https://docs.jumpserver.org/zh/master/admin-guide/env/
+
+# FAQ
+
+## Welcome to JumpServer SSH Server
+
+- 关闭了非交互式 shell
+
+```bash
+tssh -t js <<< "echo hello; exit"
+```
+
+```
+Welcome to JumpServer SSH Server
+No support vscode like requested.
+```

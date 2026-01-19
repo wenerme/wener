@@ -56,3 +56,7 @@ ENABLE_EXPERIMENTAL_MCP_CLI=true claude -c
 ```
 
 - https://github.com/linwanxiaoyehua/AntiProxy
+
+# FAQ
+
+- Your current account is not eligible for Antigravity, because it is not currently available in your location. Learn more by visiting the FAQ.

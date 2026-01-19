@@ -136,7 +136,8 @@ tags:
     - Receive by ZMODEM
   - `sz a.txt` 下载
     - Send by ZMODEM
-  - tmux 不支持 [tmux#906](https://github.com/tmux/tmux/issues/906), [tmux#1439](https://github.com/tmux/tmux/issues/1439)
+  - tmux 不支持  [tmux#906](https://github.com/tmux/tmux/issues/906), [tmux#1439](https://github.com/tmux/tmux/issues/1439)
+    - Zmodem sz/rz command support ?
   - `brew install lrzsz`
   - https://iterm2.com/documentation-triggers.html
     - /usr/local/bin/ iterm2-send-zmodem.sh, iterm2-recv-zmodem.sh

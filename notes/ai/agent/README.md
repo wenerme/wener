@@ -22,4 +22,19 @@ tags:
 
 :::
 
+- 规则 - 提供决策依据
+  - 默认包含的上下文
+  - 可以基于规则动态添加的规则
+  - AGENTS.md, rules
+- 流程 - 定义执行路径
+  - 重复性任务
+  - Workflow, Subagent, Command
+- 技能 - 整合所需能力
+  - 上下文、环境、配套工具、参考、动态发现、组合
+  - skills
+- 工具 - 实现具体操作
+  - MCP, cli , tools
+
+---
+
 - OODA - Observe Orient Decide Act - 观察 认知 决策 执行

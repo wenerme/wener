@@ -28,6 +28,12 @@ tags:
 - [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer)
 - [Microsoft/playwright](https://github.com/Microsoft/playwright)
   - 统一 API 支持 Chromium, Firefox, WebKit
+- [Kaliiiiiiiiii-Vinyzu/patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright)
+  - 基于 playwright
+  - 增加补丁避免被检测
+- [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser)
+  - Apache-2.0, TS, Rust
+  - Browser automation CLI for AI agents
 - [matthewmueller/x-ray](https://github.com/matthewmueller/x-ray)
   - web scraper
 - [segmentio/nightmare](https://github.com/segmentio/nightmare)

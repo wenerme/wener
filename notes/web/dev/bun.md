@@ -51,6 +51,9 @@ title: bun
 ```bash
 # Manually Install
 # =======================
+# ~/.bun/bin/bun
+curl -fsSL https://bun.com/install | bash
+
 # macOS
 curl -LO https://github.com/oven-sh/bun/releases/download/bun-v1.3.3/bun-darwin-x64.zip
 unzip bun-darwin-x64.zip
@@ -183,3 +186,17 @@ Failed to find Response internal state key
 ## Failed to open library. This is usually caused by a missing library or an invalid library path.
 
 检查下是不是 arch 错了。
+
+## request timed out after 10 seconds. Pass `idleTimeout` to configure.
+
+```js
+Bun.serve({
+  ...app,
+  // timeout in 60s
+  idleTimeout: 60
+})
+```
+
+## Bun.serve expects idleTimeout to be 255 or less
+
+- idleTimeout 可以为 0

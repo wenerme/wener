@@ -47,7 +47,8 @@ src/
 │   ├── _root.tsx            # HTML 根元素
 │   ├── index.tsx            # 首页 (/)
 │   ├── about.tsx            # 关于页 (/about)
-│   ├── _components/         # 忽略 _ 开头目录
+│   ├── _components/         # 忽略
+│   ├── _hooks/              # 忽略
 │   ├── foo/
 │   │   └── index.tsx        # 嵌套页 (/foo)
 │   └── nested/
@@ -63,6 +64,8 @@ src/
 - `[...catchAll].tsx`: 捕获所有路由
 - `getConfig()`: 配置渲染模式 (`'static'` 或 `'dynamic'`)
 - **不支持路由分组**: 文件路由基于目录结构，无 `(group)` 语法
+- pages.gen.ts
+  - 由 fs-router-typegen.ts 生成
 
 ### createPages
 

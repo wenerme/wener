@@ -16,7 +16,7 @@ title: MaaS API
   - GCP, 企业级、全托管的机器学习 (ML) 平台
   - Model Garden + MLOps
 - Anthropic
-  - https://docs.claude.com/en/api/overview
+  - https://platform.claude.com/docs/en/api/overview
   - SDK
     - https://github.com/anthropics/anthropic-sdk-typescript
     - https://github.com/anthropics/anthropic-sdk-typescript/blob/main/src/resources/beta/messages/messages.ts
@@ -31,6 +31,8 @@ title: MaaS API
   - https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-partner-models
 - 错误码
   - https://support.huaweicloud.com/usermanual-maas-modelarts/maas-modelarts-0080.html
+- 参考
+  - https://www.openresponses.org/
 
 | openai              | anthropic                 | google |
 | ------------------- | ------------------------- | ------ |
@@ -124,6 +126,29 @@ title: MaaS API
 }
 ```
 
+## role
+
+- developer
+- system
+- user
+- assistant
+- tool
+  - 新版本 openai
+  - Anthropic 使用 user role
+- function
+  - 旧版本 openai
+
+# Gemini
+
+## Missing thought_signature in function call
+
+## Please ensure that the number of function response parts is equal to the number of function call parts of the function call turn.
+
+- 非常多类似的错误
+- https://github.com/google-gemini/gemini-cli/issues?q=Please%20ensure%20that%20the%20number%20of%20function%20response%20parts%20is%20equal%20to%20the%20number%20of%20function%20call%20parts%20of%20the%20function%20call%20turn.
+
+# FAQ
+
 ## role developer vs system
 
 - OpenAI o1-2024-12-17 之后推出的
@@ -132,8 +157,6 @@ title: MaaS API
   - 强调规则
 - system
   - 强调角色
-
-# FAQ
 
 ## Unable to submit request because thinking_budget and thinking_level are not supported together
 
