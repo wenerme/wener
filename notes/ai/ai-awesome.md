@@ -227,7 +227,7 @@ tags:
 - Vision
   - [microsoft/OmniParser](https://github.com/microsoft/OmniParser)
     - UI -> structured
-- Application
+- Translate/Transcript/i18n
   - [Huanshere/VideoLingo](https://github.com/Huanshere/VideoLingo)
     - Apache-2.0, Python
     - subtitle cutting, translation, alignment, even dubbing

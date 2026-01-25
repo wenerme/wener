@@ -84,6 +84,60 @@ split-window -h # 水平分割
 split-window -v # 垂直分割
 ```
 
+## 管理
+
+```bash
+tmux list-panes -t main -F "#S:#I.#P" # 所有 pane
+
+# PANE Title CMD PWD
+tmux list-panes -t main -F "#S:#I.#P #T #{pane_current_command} @ #{pane_current_path}"
+
+tmux display-message -p "#S:#I.#P"         # 当前 pane 位置
+tmux display-message -p "#{pane_title}"    # 获取当前 pane title
+tmux select-pane -T "My Title"             # 设置当前 pane title
+tmux select-pane -t main:1.0 -T "My Title" # 设置指定 pane title
+
+tmux send-keys -t main:1.0 "ls" C-m        # 发送命令到 pane
+tmux send-keys -t main:1.0 "clear" C-m     # 清屏
+tmux capture-pane -t main:1.0 -p           # 捕获 pane 内容
+tmux capture-pane -t main:1.0 -p -S -10    # 捕获最近 10 行
+tmux capture-pane -t main:1.0 -p -S - -E - # 捕获全部历史
+
+tmux pipe-pane -t main:1.0 "cat >> /tmp/log" # 持续输出到文件
+tmux pipe-pane -t main:1.0                   # 停止输出
+
+tmux respawn-pane -t main:1.0 -k # 重启 pane
+tmux kill-pane -t main:1.0       # 关闭 pane
+```
+
+| format                    | 说明             |
+| :------------------------ | :--------------- |
+| `#S`                      | 会话名           |
+| `#I`                      | 窗口索引         |
+| `#P`                      | pane 索引        |
+| `#W`                      | 窗口名           |
+| `#T`                      | pane 标题        |
+| `#F`                      | 窗口标志 (\*-#~) |
+| `#H`                      | 主机名           |
+| `#h`                      | 短主机名         |
+| `#D`                      | pane 唯一标识    |
+| `#{pane_current_command}` | 当前命令         |
+| `#{pane_current_path}`    | 当前目录         |
+| `#{pane_pid}`             | pane PID         |
+| `#{pane_width}`           | pane 宽度        |
+| `#{pane_height}`          | pane 高度        |
+| `#{pane_active}`          | 是否活动 pane    |
+| `#{window_name}`          | 窗口名           |
+| `#{window_index}`         | 窗口索引         |
+| `#{window_active}`        | 是否活动窗口     |
+| `#{window_panes}`         | 窗口 pane 数量   |
+| `#{session_name}`         | 会话名           |
+| `#{session_windows}`      | 会话窗口数量     |
+| `#{session_attached}`     | 会话连接数       |
+| `#{client_tty}`           | 客户端 tty       |
+| `#{host}`                 | 主机名           |
+| `#{pid}`                  | tmux 服务 PID    |
+
 ## 窗口管理
 
 - 会话 - session

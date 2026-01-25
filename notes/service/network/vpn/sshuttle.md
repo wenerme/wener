@@ -68,3 +68,24 @@ sudo route add -net 10.1.0.0/24 192.168.1.1
 
 #sudo route add -net 10.1.0.0/24 -interface lo
 ```
+
+## macOS 干扰问题
+
+- macOS Sequoia 的 com.apple.internet-sharing pf anchor 干扰了 sshuttle 的 rdr 规则
+- https://github.com/sshuttle/sshuttle/issues/975
+
+```bash
+# 先执行
+sudo pfctl -f /etc/pf.conf
+# 再启动
+```
+
+- com.apple.internet-sharing
+  - 系统偏好设置 → 共享 → 互联网共享
+
+```bash
+sudo pfctl -a com.apple.internet-sharing -sr 2> /dev/null
+
+# 网络
+defaults read /Library/Preferences/SystemConfiguration/com.apple.nat 2> /dev/null
+```

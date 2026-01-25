@@ -12,9 +12,13 @@ tags:
   - 规范和文档
 - [skillsmp.com](https://skillsmp.com/)
   - Agent Skills文档和使用指南
+- registry
+  - https://skills.sh
+    - `npx skills add <owner/repo>`
+  - https://context7.com/?tab=skills
+    - `npx ctx7 skills search pdf`
 - 参考
   - [What are skills](https://support.claude.com/en/articles/12512176-what-are-skills)
-
 
 :::tip
 
@@ -66,6 +70,10 @@ skill-name/
   - 动态能力
 - SubAgent
   - 人设，Persona
+
+## BayramAnnakov/claude-reflect
+
+- https://github.com/BayramAnnakov/claude-reflect
 
 # spec
 

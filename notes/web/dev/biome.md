@@ -32,6 +32,8 @@ time npx biome check ./src --use-server # 一般项目 user 快 0.2s
 npx @biomejs/biome check ./src
 npx @biomejs/biome check ./src --apply
 
+biome format --write ./src package.json
+
 # 单个规则 v1.7.4+
 # https://biomejs.dev/linter/rules/
 biome lint --only=style/useNamingConvention --apply ./src

@@ -48,6 +48,41 @@ tags:
 { "user_id": "12345", "project_id": "proj_abc", "request_type": "chat_completion" }
 ```
 
+## cache
+
+- 用于高频相同问题场景
+- `${namespace}:${sha256("model:${model}+messages+paramrs")}`
+
+## semantic cache
+
+- messages → embedding
+  - 不同措辞但意思相近的问题
+  - 降低 LLM 调用成本
+- 支持存储
+  - Redis, RedisVL
+    - https://github.com/redis/redis-vl-python
+    - litellm_semantic_cache_index
+  - Qdrant
+
+```json
+{
+  "id": "uuid",
+  "vector": [],
+  "payload": {
+    "text": "prompt",
+    "response": "value"
+  }
+}
+```
+
+```yaml
+litellm_settings:
+  cache: true
+  cache_params:
+    type: qdrant-semantic
+    qdrant_collection_name: 'cache_tenant_${team_id}'
+```
+
 ## config.yaml
 
 ```yaml
@@ -58,15 +93,15 @@ model_list: []
 litellm_settings:
   num_retries: 3 # retry call 3 times on each model_name (e.g. zephyr-beta)
   request_timeout: 10 # raise Timeout error if call takes longer than 10s. Sets litellm.request_timeout
-  fallbacks: [{"zephyr-beta": ["gpt-4o"]}] # fallback to gpt-4o if call fails num_retries
-  context_window_fallbacks: [{"zephyr-beta": ["gpt-3.5-turbo-16k"]}, {"gpt-4o": ["gpt-3.5-turbo-16k"]}] # fallback to gpt-3.5-turbo-16k if context window error
+  fallbacks: [{ 'zephyr-beta': ['gpt-4o'] }] # fallback to gpt-4o if call fails num_retries
+  context_window_fallbacks: [{ 'zephyr-beta': ['gpt-3.5-turbo-16k'] }, { 'gpt-4o': ['gpt-3.5-turbo-16k'] }] # fallback to gpt-3.5-turbo-16k if context window error
   allowed_fails: 3 # cooldown model if it fails > 1 call in a minute.
 router_settings: # router_settings are optional
   routing_strategy: simple-shuffle # Literal["simple-shuffle", "least-busy", "usage-based-routing","latency-based-routing"], default="simple-shuffle"
-  model_group_alias: {"gpt-4": "gpt-4o"} # all requests with `gpt-4` will be routed to models with `gpt-4o`
+  model_group_alias: { 'gpt-4': 'gpt-4o' } # all requests with `gpt-4` will be routed to models with `gpt-4o`
   num_retries: 2
-  timeout: 30                                  # 30 seconds
-  redis_host: <your redis host>                # set this when using multiple litellm proxy deployments, load balancing state stored in redis
+  timeout: 30 # 30 seconds
+  redis_host: <your redis host> # set this when using multiple litellm proxy deployments, load balancing state stored in redis
   redis_password: <your redis password>
   redis_port: 1992
 general_settings: {}
@@ -118,20 +153,20 @@ litellm_params:
   model: openai/facebook/opt-125m
   api_base: http://0.0.0.0:4000/v1
   api_key: none
-  api_version: "2023-05-15"
-  rpm: 60      # Optional[int]: When rpm/tpm set - litellm uses weighted pick for load balancing. rpm = Rate limit for this deployment: in requests per minute (rpm).
-  tpm: 1000   # Optional[int]: tpm = Tokens Per Minute
-  azure_ad_token: ""
+  api_version: '2023-05-15'
+  rpm: 60 # Optional[int]: When rpm/tpm set - litellm uses weighted pick for load balancing. rpm = Rate limit for this deployment: in requests per minute (rpm).
+  tpm: 1000 # Optional[int]: tpm = Tokens Per Minute
+  azure_ad_token: ''
   seed: 1234
   max_token: 1024
   temperature: 0.2
-  organization: "org-12345"
-  aws_region_name: "us-west-2"
-  extra_headers: {"AI-Resource Group": "ishaan-resource"}
+  organization: 'org-12345'
+  aws_region_name: 'us-west-2'
+  extra_headers: { 'AI-Resource Group': 'ishaan-resource' }
 model_info:
   version: 2
   access_groups: ['restricted-models']
-  supported_environments: ["development", "production", "staging"]
+  supported_environments: ['development', 'production', 'staging']
   custom_tokenizer:
     identifier: deepseek-ai/DeepSeek-V3-Base
     revision: main

@@ -15,6 +15,13 @@ tags:
 - [bjorn3/browser_wasi_shim](https://github.com/bjorn3/browser_wasi_shim)
 - [mame/xterm-pty](https://github.com/mame/xterm-pty)
 - [containers/gvisor-tap-vsock](https://github.com/containers/gvisor-tap-vsock)
+- https://github.com/joelseverin/linux-wasm/
+  - fast, buggy
+  - 把 linux 编译为 wasm
+  - 不是 emu 或者 vm
+  - binfmt_wasm
+  - https://news.ycombinator.com/item?id=45783074
+- https://github.com/webassembly/wasi-libc
 - cheerpx
   - https://cheerpx.io/
   - 虚拟化引擎
@@ -44,6 +51,25 @@ tags:
   - x86_64
 - QEMU TCG JIT
   - QEMU WASM https://github.com/ktock/qemu-wasm
+
+```bash
+# 简单性能测试
+# 精度为 1000 位小数
+# 4*arctan(1) -> π
+time sh -c 'echo "scale=1000; 4*a(1)" | bc -lq' > /dev/null
+
+# linux-wasm 不支持 vfork
+date +%s
+echo "scale=1000; 4*a(1)" | bc -lq > /dev/null
+date +%s
+```
+
+| env/scale              | 500 | 1000  | 5000  |
+| ---------------------- | --: | ----- | ----- |
+| macOS M2 MAX           |     | 0.01s | 0.75s |
+| alpine riscv64 TinyEMU |     | 22s   |       |
+| alpine x86 v86         | 23s |       |       |
+| linux-wasm             |     | 1s    |       |
 
 | abbr. | stand for                    | cn             |
 | ----- | ---------------------------- | -------------- |

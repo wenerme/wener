@@ -57,3 +57,14 @@ tags:
 
 - https://code.claude.com/docs/en/settings
 - https://claudelog.com/claude-code-changelog/
+
+## Browser
+
+- chrome-devtools
+- agent-browser
+  - 依赖 playwright
+
+```bash
+npm add -g agent-browser
+npx skills add vercel-labs/agent-browser
+```
