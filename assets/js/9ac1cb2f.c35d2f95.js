@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["32523"],{238644:function(e){e.exports=JSON.parse('{"tag":{"label":"Ory","permalink":"/notes/tags/ory","allTagsPath":"/notes/tags","count":1,"items":[{"id":"service/auth/ory","title":"Ory","description":"- Ory Ecosystem","permalink":"/notes/service/auth/ory"}],"unlisted":false}}')}}]);
