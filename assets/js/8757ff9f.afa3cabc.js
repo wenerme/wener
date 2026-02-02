@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["587378"],{605236:function(e){e.exports=JSON.parse('{"tag":{"label":"Port","permalink":"/notes/tags/port","allTagsPath":"/notes/tags","count":1,"items":[{"id":"network/service","title":"Network Services","description":"","permalink":"/notes/network/service"}],"unlisted":false}}')}}]);
