@@ -454,6 +454,10 @@ npx -y cc-mirror quick --provider custom --no-tweak --no-prompt-pack \
   --name cc-gemini
 ```
 
+## plugin
+
+- hooks/hooks.json
+
 # FAQ
 
 ## This organization has been disabled.
@@ -467,6 +471,11 @@ VSCODE_PID= VSCODE_CWD= TERM_PROGRAM= command claude
 ```
 
 - https://github.com/anthropics/claude-code/issues/1276
+
+## Teammate
+
+- 类似 Claude Flow
+- https://gist.github.com/kieranklaassen/4f2aba89594a4aea4ad64d753984b2ea
 
 # Version
 
@@ -484,6 +493,43 @@ VSCODE_PID= VSCODE_CWD= TERM_PROGRAM= command claude
 | CLAUDE_CODE_TMPDIR                      | 2.1.5 |
 | CLAUDE_CODE_DISABLE_BACKGROUND_TASKS    | 2.1.4 |
 | CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS | 2.1.0 |
+
+## Claude Code 2.1.20
+
+- CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD
+  - 支持读取 --add-dir 目录下的 CLAUDE.md
+
+## Claude Code 2.1.17
+
+- TOOD -> Task
+  - 支持依赖
+  - 支持多个共同使用
+  - CLAUDE_CODE_TASK_LIST_ID
+  - ~/.claude/tasks
+  - ~/.claude/tasks/ID/N.json
+  - 以前的 ~/.claude/todos/ID.json
+
+```json title="~/.claude/tasks/ID/N.json"
+{
+  "id": "3",
+  "subject": "",
+  "description": "",
+  "activeForm": "",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}
+```
+
+```json title="~/.claude/todos/ID.json"
+[
+  {
+    "content": "",
+    "status": "completed",
+    "activeForm": ""
+  }
+]
+```
 
 ## Claude Code 2.1
 

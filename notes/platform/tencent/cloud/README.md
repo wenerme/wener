@@ -4,15 +4,20 @@ title: 腾讯云
 
 # 腾讯云
 
-| abbr.  | stand for                                | meaning  | notes |
-| ------ | ---------------------------------------- | -------- | ----- |
-| TKE    | Tencent Kubernetes Engine                |
-| CLS    | Cloud Log Service                        |
-|        | Ad-hoc analysis                          | 即席分析 |
-| COS    | Cloud Object Storage                     |
-| TCADP  | Tencent Cloud Agent Development Platform |
-| CKafka | Cloud Kafka                              |
-| DLC    | Data Lake Compute                        |
+| abbr.  | stand for                                | meaning            |
+| ------ | ---------------------------------------- | ------------------ |
+| TKE    | Tencent Kubernetes Engine                | 容器服务           |
+| CLS    | Cloud Log Service                        | 日志服务           |
+|        | Ad-hoc analysis                          | 即席分析           |
+| COS    | Cloud Object Storage                     | 对象存储           |
+| TCADP  | Tencent Cloud Agent Development Platform | 云原生应用开发平台 |
+| CKafka | Cloud Kafka                              | 消息队列 CKafka    |
+| DLC    | Data Lake Compute                        | 数据湖计算         |
+| CVM    | Cloud Virtual Machine                    | 云服务器           |
+| VPC    | Virtual Private Cloud                    | 私有网络           |
+| CAM    | Cloud Access Management                  | 访问管理           |
+| CBS    | Cloud Block Storage                      | 云硬盘             |
+| CDB    | Cloud Database                           | 云数据库           |
 
 - tccli
 - SDK https://cloud.tencent.com/document/sdk

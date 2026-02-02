@@ -173,6 +173,12 @@ tags:
 - [WebAssembly/binaryen](https://github.com/WebAssembly/binaryen)
   - Optimizer and compiler/toolchain library for WebAssembly
 
+## tool chain
+
+- wasm-tools
+- wasm-objdump
+- wasm2wat
+
 ## TBD
 
 https://github.com/petersalomonsen/wasm-git/blob/master/README.md

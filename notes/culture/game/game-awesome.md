@@ -16,6 +16,13 @@ https://www.game-game.com.ua/
   - https://bloxd.io/
 - MUD / Multi-User Dungeon / Multi-User Domain / 多用户地牢 / 多用户领域
   - [MUD](https://en.wikipedia.org/wiki/MUD)
+- Emulator/RetroGame/PlayStation/NES/GBA/SEGA
+  - [EmulatorJS](https://github.com/EmulatorJS/EmulatorJS)
+    - GPLv3, JS
+  - https://github.com/MattCruikshank/emu_ape
+  - https://romm.app/
+  - https://www.retroarch.com/
+  - https://playjs.purei.org/
 - 文字冒险游戏 / Text Adventure Game
   - https://textadventures.co.uk/
 - AI 生成类

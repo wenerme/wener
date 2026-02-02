@@ -464,6 +464,40 @@ go install -v gitea.com/gitea/gitea-mcp@latest
 - [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem)
   - AGPL-3.0, TypeScript
   - Claude Code插件，自动捕获编码会话，AI压缩并注入上下文，支持混合搜索、多语言
+  - ~/.claude-mem
+  - http://localhost:37777/
 - [ossa-ma/double](https://github.com/ossa-ma/double)
   - MIT, Shell, Python
   - AI代理本地记忆系统，基于Markdown和Git的持久上下文管理，避免数据库和MCP服务器
+
+```bash
+sqlite3 -header -column ~/.claude-mem/claude-mem.db "SELECT id, project, type, substr(text, 1, 50) as summary, created_at FROM observations ORDER BY created_at DESC LIMIT 10;"
+
+cd ~/.claude/plugins/cache/thedotmack/claude-mem/*/
+bun plugin/scripts/worker-service.cjs start
+```
+
+## claude-mem
+
+- 项目隔离 `basename(cwd)`
+- Lifecycle Hook
+  - SessionStart
+    - bun start
+    - 确保 bun 在 PATH, 非标准 path 的 bun 找不到
+  - UserPromptSubmit
+    - 初始化绘画
+  - Stop
+    - summary
+- Worker Service
+  - :37777
+- SQLite
+- MCP
+- Observation 类型
+  - `discovery`: 发现 (探索代码库、学习新知识、理解架构)
+  - `change`: 变更 (通用的代码修改记录)
+  - `bugfix`: 修复 (明确的 Bug 修复)
+  - `feature`: 功能 (新功能的实现)
+  - `refactor`: 重构 (代码结构调整)
+  - `decision`: 决策 (重要的设计决策或架构选择)
+- user_prompts
+- session_summaries

@@ -2300,6 +2300,44 @@ try to get the other instance of the resource. In the unfortunate case it might 
 - conversation - 对话
   - 强调上下文、完整性
 
+## discount
+
+> N 折 = (1 - discountRate) × 100%
+
+- discount - 折扣
+  - 名词，表示折扣这个概念
+- discountRate - 折扣率
+  - X% off = X% discountRate
+  - 8 折 = 20% off = 0.2 discountRate
+  - 范围 0-1 或 0%-100%
+- discountAmount - 折扣金额
+  - 实际减免的金额
+  - discountAmount = originalPrice × discountRate
+- originalPrice - 原价
+- finalPrice / discountedPrice - 折后价 / 最终价格
+  - finalPrice = originalPrice × (1 - discountRate)
+  - finalPrice = originalPrice - discountAmount
+
+**中英对照**
+
+| 中文     | 英文                      | 说明             |
+| -------- | ------------------------- | ---------------- |
+| N 折     | (100-N×10)% off           | 8折 = 20% off    |
+| 打 N 折  | give N×10% discount       | 打8折 = give 80% |
+| 折扣率   | discount rate/percentage  | 减免的比例       |
+| 折后价   | discounted price          | 最终支付价格     |
+| 满减     | threshold discount        | 满100减20        |
+| 买一送一 | buy one get one free/BOGO | -                |
+
+**示例**
+
+```
+原价 100 元，8 折优惠：
+- discountRate = 0.2 (20% off)
+- discountAmount = 100 × 0.2 = 20 元
+- finalPrice = 100 × 0.8 = 80 元
+```
+
 ## 常见读音错误
 
 > 文字只是工具

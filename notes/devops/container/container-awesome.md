@@ -171,7 +171,10 @@ sources:
 - [containers/skopeo](./skopeo.md)
   - remote images registries - retrieving information, images, signing content
 - [oras](./oras.md)
-- regctl
+- [regclient/regclient](https://github.com/regclient/regclient)
+  - regctl
+  - regbot
+  - regsync
 - [GoogleContainerTools/container-diff](https://github.com/GoogleContainerTools/container-diff)
 - [jwilder/dockerize](https://github.com/jwilder/dockerize)
 - 参考

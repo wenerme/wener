@@ -89,8 +89,14 @@ split-window -v # 垂直分割
 ```bash
 tmux list-panes -t main -F "#S:#I.#P" # 所有 pane
 
-# PANE Title CMD PWD
-tmux list-panes -t main -F "#S:#I.#P #T #{pane_current_command} @ #{pane_current_path}"
+# 窗口
+tmux rename-window "My Window"                  # 重命名当前窗口
+tmux rename-window -t main:1 "My Window"        # 重命名指定窗口
+tmux display-message -p "#{window_name}"        # 获取当前窗口名
+tmux list-windows -F "#I: #W"                   # 列出所有窗口名
+
+# PANE WindowTitle PaneTitle CMD PWD
+tmux list-panes -t main -F "#S:#I.#P #W #T #{pane_current_command} @ #{pane_current_path}"
 
 tmux display-message -p "#S:#I.#P"         # 当前 pane 位置
 tmux display-message -p "#{pane_title}"    # 获取当前 pane title
@@ -137,6 +143,30 @@ tmux kill-pane -t main:1.0       # 关闭 pane
 | `#{client_tty}`           | 客户端 tty       |
 | `#{host}`                 | 主机名           |
 | `#{pid}`                  | tmux 服务 PID    |
+
+| 按键  | ASCII | 作用               |
+| ----- | ----- | ------------------ |
+| `C-a` | 1     | 光标移到行首       |
+| `C-b` | 2     | 光标后退一字符     |
+| `C-c` | 3     | 中断进程 (SIGINT)  |
+| `C-d` | 4     | EOF/退出           |
+| `C-e` | 5     | 光标移到行尾       |
+| `C-f` | 6     | 光标前进一字符     |
+| `C-h` | 8     | 退格 (Backspace)   |
+| `C-i` | 9     | Tab                |
+| `C-j` | 10    | 换行 (LF)          |
+| `C-k` | 11    | 删除光标后全部     |
+| `C-l` | 12    | 清屏               |
+| `C-m` | 13    | 回车 (Enter/CR)    |
+| `C-n` | 14    | 下一条命令         |
+| `C-p` | 16    | 上一条命令         |
+| `C-q` | 17    | 恢复输出 (XON)     |
+| `C-r` | 18    | 反向搜索历史       |
+| `C-s` | 19    | 暂停输出 (XOFF)    |
+| `C-u` | 21    | 删除光标前全部     |
+| `C-w` | 23    | 删除光标前一个词   |
+| `C-z` | 26    | 挂起进程 (SIGTSTP) |
+| `C-[` | 27    | Escape             |
 
 ## 窗口管理
 

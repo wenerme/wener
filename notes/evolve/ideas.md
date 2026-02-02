@@ -37,6 +37,7 @@ title: Ideas
   - 例如 14B
   - 针对行业
 - 课程表生成器
+- Proxy SubStore, SubEditor
 
 ## 记账软件
 

@@ -57,15 +57,19 @@ title: MaaS API
 - openai 里的 tool 映射为一个 functionDeclaration
 - 其他的 tool 是内置 tool，语义上有点区别
 
-## streaming
+## OpenAI API
 
-- 第一个 chunk 和最后一个 chunk 不应该包含 content
-- 有些供应商在第二个 chunk 返回 role
+### streaming
+
+- 第一个chunk 有 role 没内容，之后的 chunk 有 内容没有 role
+- 最后的 chunk，usage 和 finish_reason 分开
 - stream_options
   - continuous_usage_stat
     - 连续发送 usage
   - include_usage
     - 最后一个 chunk 包含 usage
+- 第一个 chunk 和最后一个 chunk 不应该包含 content
+- 有些供应商在第二个 chunk 返回 role
 - 参考
   - https://github.com/BerriAI/litellm/blob/4a8629ce/tests/local_testing/test_streaming.py
 
@@ -229,6 +233,47 @@ title: MaaS API
 ---
 
 - Token usage unavailable during streaming abort/interruption https://github.com/vercel/ai/issues/7628
+
+## Prompt Cache
+
+| 模型 / 场景                             | 最小缓存 Token 数 |
+| :-------------------------------------- | :---------------- |
+| Claude Opus 4.5                         | 4096              |
+| Claude Opus 4.1, 4                      | 1024              |
+| Claude Sonnet 4.5, 4, ~~3.7~~           | 1024              |
+| Claude Haiku 4.5                        | 4096              |
+| Claude Haiku ~~3.5~~, 3                 | 2048              |
+| Gemini 3 Pro Preview                    | 4096              |
+| Gemini 3 Flash Preview                  | 1024              |
+| Gemini 2.5 Pro                          | 4096              |
+| Gemini 2.5 Flash                        | 1024              |
+| Gemini Explicit Caching (Vertex AI)     | 4096              |
+| Gemini Context Caching (Early Versions) | 32768             |
+| OpenAI GPT                              | 1024              |
+
+- **Implicit Caching**: 提供 75% - 90% 的输入 Token 折扣。
+- **Explicit Caching**: 按生存时间 (TTL) 收取存储费用。
+- **容量**: 最大缓存大小等同于模型完整上下文窗口（可超过 100 万 Token）。
+- **Gemini 3 优化**: 在 Gemini 3 系列中，建议 Prompt 前缀或缓存数据至少达到 **4096 Token** 以确保缓存生效并有效降低 API 成本。
+- Google OpenAI API extra body
+
+```json
+{
+  "google": {
+    "cached_content": "cachedContents/XXX",
+    "thinking_config": {
+      "thinking_level": "low",
+      "include_thoughts": true
+    }
+  }
+}
+```
+
+---
+
+- https://ai.google.dev/gemini-api/docs/caching
+- https://platform.claude.com/docs/en/build-with-claude/prompt-caching
+- https://platform.openai.com/docs/guides/prompt-caching
 
 # FAQ
 
