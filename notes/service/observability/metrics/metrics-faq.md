@@ -6,8 +6,16 @@ tags:
 
 # 指标服务常见问题
 
-- 抓取默认 16M
+
+- VictoriaMetrics
+  - promscrape.maxScrapeSize 抓取默认 16M
+  - scrape_response_size_bytes
   - 如果 Unique Label 太多可能导致抓取失败, 可以调整大小
+  - remote_write maxInsertRequestSize 默认 32MB
+- prometheus body_size_limit=0
+  - 解压后的 body size
+  - 是 stream 解析
+  - 默认不限制大小
 
 ## 合理指标数量
 

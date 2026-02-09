@@ -63,3 +63,10 @@ tags:
 - JSON.parse throw SyntaxError
 - https://github.com/vercel/ai/blob/main/packages/ai/src/generate-object/generate-object.ts#L191-L195
 - https://github.com/RealAlexandreAI/json-repair
+
+## Cache
+
+- Prompt Cache: 缓存完整的 Prompt 及其计算结果，减少重复请求的延迟和成本。
+- Prefix Cache: 缓存 Prompt 的公共前缀部分，在多轮对话或相似任务中复用计算状态。
+- KV Cache: 在 Transformer 推理过程中，缓存已生成 Token 的 Key 和 Value 向量，避免重复计算，加速自回归生成。
+- Context Caching: 缓存对话历史或上下文信息，避免重复传输和处理，提升多轮对话的效率。

@@ -84,17 +84,17 @@ nginx.ingress.kubernetes.io/upstream-hash-by: ewma
 
 ## EWMA
 
-- EWMA  - Exponentially Weighted Moving Average - 指数加权移动平均
+- EWMA - Exponentially Weighted Moving Average - 指数加权移动平均
 - 计算最近 N 次请求的平均延迟
-$$
-EWMA = \alpha \times Y + (1 - \alpha) \times EWMA_{t-1}
-$$
+
+  $$
+  EWMA = \alpha \times Y + (1 - \alpha) \times EWMA_{t-1}
+  $$
 
 - `\alpha` - 权重因子
   - 0.3 简单选择
 - `Y` - 当前请求的延迟
 - `EWMA_{t-1}` - 上一次请求的 EWMA 值
-
 
 ## NOTE
 
@@ -109,3 +109,109 @@ $$
   - 价格
   - 性能
   - 可靠性
+
+## Samples
+
+| 窗口 | RPM 阈值 | 窗口内请求数 | 说明               |
+| ---- | -------- | ------------ | ------------------ |
+| 1m   | ≥300     | ≥300         | 数据充足，快速响应 |
+| 3m   | ≥100     | ≥300         | 数据充足           |
+| 5m   | ≥30      | ≥150         | 基本够用           |
+| 10m  | <30      | <300         | 低频，需要更长窗口 |
+
+核心原则: 保证窗口内至少有 ~150-300 个请求，确保统计显著性。
+
+150 个样本：在 95% 置信水平下，能够保证相对误差控制在约 8% 以内。这对于一般的负载均衡（发现明显的节点变慢）已经足够。
+300 个样本：可以将相对误差降至约 5%。如果你需要非常精准的 P99 抖动识别，300 是一个更稳妥的底线。
+
+抽样误差（Margin of Error）
+
+$$
+SE = \frac{s}{\sqrt{n}}
+$$
+
+$$
+RSE = \frac{SE}{\bar{x}} = \frac{s}{\bar{x}\sqrt{n}} = \frac{CV}{\sqrt{n}}
+$$
+
+$CV$ (Coefficient of Variation) 是变异系数（标准差/均值）。
+
+在生产环境的 AI 推理（MaaS）中，RT（响应时间）的 $CV$ 通常在 0.8 到 1.2 之间（因为长尾分布的存在，抖动较大）。
+
+假设我们取一个典型的变异系数 $CV = 0.9$：
+当 $n = 100$ 时：$RSE = 0.9 / \sqrt{100} = 0.09 = 9\%$
+当 $n = 300$ 时：$RSE = 0.9 / \sqrt{300} \approx 0.9 / 17.32 \approx 0.0519 = \mathbf{5.19\%}$
+
+P99（长尾延迟）
+更特殊
+
+| 样本数 (n) | 相对误差 (RSE) | 适用场景                                |
+| :--------- | :------------- | :-------------------------------------- |
+| 50         | ~13%           | 粗略监控，仅判断实例是否存活（Up/Down） |
+| 150        | ~7.5%          | 普通负载均衡（WRR/LeastConns）调整权重  |
+| 300        | ~5%            | 自适应调度、P99 阈值告警、自动熔断      |
+| 1000+      | < 3%           | 高精度 A/B Test 性能对比                |
+
+概率论与数理统计（Probability and Statistics）
+质量控制（Quality Control）
+可靠性工程与 SRE (Site Reliability Engineering)
+
+$$
+CV = \frac{\sigma}{\mu}
+$$
+
+- $\sigma$ (Sigma)：标准差（Standard Deviation），代表数据的离散程度（绝对波动）。
+- $\mu$ (Mu)：算术平均值（Mean），代表数据的基准水平。
+
+如果 $CV > 1$，通常意味着数据分布非常不均匀（存在严重的“长尾”或“重尾”现象）。
+
+调度策略：
+
+- 当 $CV < 1$：说明请求比较均匀，你的调度器可以大胆使用平均值预测。
+- 当 $CV > 1$：说明系统有严重的抖动（Burst），此时仅靠均值会失灵，必须看 P99 或增加样本量来减小统计误差。
+
+sigma 是波动的 “绝对值”
+CV 是波动的 “相对比例”
+
+- CV<1 低离散
+- CV=1 指数分布
+- CV>1 高离散/长尾
+  - 均值失去意义
+  - 参考 P99 或 中位数
+
+Welford
+
+```go
+type Stat struct {
+    n    float64
+    mean float64
+    m2   float64
+}
+
+func (s *Stat) Update(x float64) {
+    s.n++
+    delta := x - s.mean
+    s.mean += delta / s.n
+    delta2 := x - s.mean
+    s.m2 += delta * delta2
+}
+
+func (s *Stat) Sigma() float64 {
+    if s.n < 2 { return 0 }
+    return math.Sqrt(s.m2 / (s.n - 1)) // 样本标准差
+}
+
+func (s *Stat) CV() float64 {
+    m := s.mean
+    if m == 0 { return 0 }
+    return s.Sigma() / m
+}
+```
+
+通过实时计算请求分布的变异系数 (CV)，在保证 95% 置信度（基于 ~300 个样本窗口） 的前提下，动态调整采样和分发策略。这能确保在模型出现长尾延迟时，调度器能比传统算法快 3-5 倍做出切流决策。
+
+
+- https://github.com/hashicorp/go-metrics
+- https://github.com/CrowdStrike/go-metrics-sliding-window
+- https://github.com/axiomhq/variance∑
+z

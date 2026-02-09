@@ -204,15 +204,6 @@ title: MaaS API
 - function
   - 旧版本 openai
 
-# Gemini
-
-## Missing thought_signature in function call
-
-## Please ensure that the number of function response parts is equal to the number of function call parts of the function call turn.
-
-- 非常多类似的错误
-- https://github.com/google-gemini/gemini-cli/issues?q=Please%20ensure%20that%20the%20number%20of%20function%20response%20parts%20is%20equal%20to%20the%20number%20of%20function%20call%20parts%20of%20the%20function%20call%20turn.
-
 # usage
 
 - 付费
@@ -256,6 +247,7 @@ title: MaaS API
 - **容量**: 最大缓存大小等同于模型完整上下文窗口（可超过 100 万 Token）。
 - **Gemini 3 优化**: 在 Gemini 3 系列中，建议 Prompt 前缀或缓存数据至少达到 **4096 Token** 以确保缓存生效并有效降低 API 成本。
 - Google OpenAI API extra body
+- ⚠️ Tool call 缓存实际缓存的是 schema+描述 等
 
 ```json
 {
@@ -274,59 +266,226 @@ title: MaaS API
 - https://ai.google.dev/gemini-api/docs/caching
 - https://platform.claude.com/docs/en/build-with-claude/prompt-caching
 - https://platform.openai.com/docs/guides/prompt-caching
+- https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
 
-# FAQ
+## Anthropic
 
-## role developer vs system
+### beta
 
-- OpenAI o1-2024-12-17 之后推出的
-- developer 权重比 system 高
-- developer
-  - 强调规则
-- system
-  - 强调角色
+```
+anthropic-beta: A,B
+# SSE, 去掉 data: [DONE], named event
+anthropic-version: 2023-06-01
+# 第一个版本
+anthropic-version: 2023-01-01
+```
 
-## Unable to submit request because thinking_budget and thinking_level are not supported together
+---
 
-Gemini 限制
+- https://platform.claude.com/docs/en/api/beta-headers
 
-## Claude temperature, top_p 不能一起传
+### output-128k-2025-02-19
 
-- Claude Sonnet 4.5 and Claude Haiku 4.5 only support specification of one of temperature or top_p parameters, but cannot handle both.
-- 思考与 temperature、top_p 或 top_k 修改不兼容，也不兼容强制使用工具。
-- 启用思考后，您无法预先填写响应。
-- 对思考预算进行更改，会导致包含消息的缓存提示前缀失效。但是，当思考的参数发生变化时，缓存系统提示和工具定义将继续起作用。
-- 参考
-  - https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-request-response.html
-  - https://docs.aws.amazon.com/zh_cn/bedrock/latest/userguide/claude-messages-extended-thinking.html
+允许输出 128K
 
-## AI_APICallError: Error while downloading [URL REDACTED].
+### extended-cache-ttl-2025-04-11
 
-openai 相关似乎不允许 wikimedia 来源图片
+- `messages[*].content[*].cache_control.ephemeral.ttl`
 
-## Output Speed
+### code-execution-2025-05-22
 
-| 参考      | TPS     |
-| --------- | ------- |
-| 朗读/听书 | 3-4     |
-| 正常默读  | 5-10    |
-| 快速略读  | 15 - 25 |
+```bash
+curl https://api.anthropic.com/v1/messages \
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "content-type: application/json" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: code-execution-2025-05-22" \
+  -d '{
+      "model": "claude-sonnet-4-20250514",
+      "max_tokens": 4096,
+      "tools": [
+        {
+          "type": "code_execution_20250522",
+          "name": "code_execution"
+        }
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "content": "Calculate the first 20 Fibonacci numbers"
+        }
+      ]
+    }'
+```
 
-| Model                  |  TPS   |
-| ---------------------- | :----: |
-| Claude Sonnet 4.5      |   40   |
-| gemini-3-flash-preview | 80-100 |
+```bash
+curl https://api.anthropic.com/v1/messages \
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "content-type: application/json" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: code-execution-2025-05-22" \
+  -d '{
+      "model": "claude-sonnet-4-20250514",
+      "max_tokens": 4096,
+      "tools": [
+        {
+          "type": "code_execution_20250522",
+          "name": "code_execution"
+        },
+        {
+          "name": "get_stock_price",
+          "description": "Get the current stock price for a given ticker symbol",
+          "allowed_callers": ["direct", "code_execution_20250825"],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "ticker": { "type": "string" }
+            },
+            "required": ["ticker"]
+          }
+        }
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write Python code to fetch AAPL and GOOGL stock prices and calculate which one is more expensive"
+        },
+        {
+          "role": "assistant",
+          "content": [
+            { "type": "text", "text": "I will write code to compare the stock prices." },
+            {
+              "type": "tool_use",
+              "id": "toolu_code_01",
+              "name": "code_execution",
+              "input": { "code": "aapl = tool.get_stock_price(ticker='AAPL')" }
+            },
+            {
+              "type": "tool_use",
+              "id": "toolu_stock_01",
+              "name": "get_stock_price",
+              "input": { "ticker": "AAPL" },
+              "caller": {
+                "type": "code_execution_20250825",
+                "tool_id": "toolu_code_01"
+              }
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_stock_01",
+              "content": "{\"price\": 195.50, \"currency\": \"USD\"}"
+            }
+          ]
+        }
+      ]
+    }'
+```
 
-| 级别                |    TPS     | 典型应用场景             |
-| :------------------ | :--------: | :----------------------- |
-| **超快 (Instant)**  | 800 - 1200 | 实时语音助手、搜索建议   |
-| **快速 (Fast)**     | 150 - 250  | 简单翻译、摘要、简单对话 |
-| **标准 (Standard)** |  70 - 100  | 复杂指令、代码生成、字幕 |
-| **重型 (Heavy)**    |  20 - 50   | 深度写作、复杂逻辑推理   |
+```
+用户请求
+  ↓
+模型发起 code_execution (toolu_code_01)
+  ↓
+sandbox 代码调用 get_stock_price → 产生 tool_use + caller
+  ↓                                         ↑
+  ↓                              caller.tool_id = "toolu_code_01"
+  ↓                              caller.type = "code_execution_20250825"
+  ↓
+API 返回 stop_reason: "tool_use"，你处理 tool_result 回传
+  ↓
+模型拿到结果，sandbox 继续执行（或请求下一个工具）
+  ↓
+最终输出结果
+```
 
-- Prefill Speed
-  - 一般 > 2000t/s
-  - Context Caching 加速 Prefill
-- TPS / Token Per Seconds
-- 思考影响速度
-  - 思考 budget 影响思考深度
+- allowed_callers：在 tools 定义中，控制谁可以调用 → 请求侧
+- caller：在 tool_use block 中，标识谁实际触发了调用 → 响应侧
+- 如果去掉 "code_execution_20250825" 只保留 ["direct"]，sandbox 代码就无权调用 get_stock_price，也不会出现带 caller 的 tool_use
+
+### context-management-2025-06-27
+
+### advanced-tool-use-2025-11-20
+
+- Claude API, Microsoft Foundry, 所有模型
+- 模型按需取搜索 tool
+- 工具可以定义 defer_loading: true
+  - 只保留 name, description
+  - 本质是 SDK 去做 RAG 相关逻辑，然后自动提供相关的检索
+  - 有点类似 SKILL 的概念
+  - 渐进式披露
+- 实现上千工具的使用
+- ⚠️ 用户实现 search_tools
+  - 高效准确的工具搜索
+  - 字符匹配、语义、分类
+
+```json
+{
+  "tools": [
+    { "type": "tool_search_tool_regex_20251119", "name": "tool_search_tool_regex" },
+    {
+      "name": "github.createPullRequest",
+      "description": "Create a pull request",
+      "input_schema": {},
+      "defer_loading": true
+    }
+  ]
+}
+```
+
+---
+
+- https://github.com/BerriAI/litellm/pull/19841/changes
+  - Translate advanced-tool-use to Bedrock-specific headers for Claude Opus 4.5
+  - advanced-tool-use-2025-11-20 -> tool-search-tool-2025-10-19 + tool-examples-2025-10-29
+- https://www.anthropic.com/engineering/advanced-tool-use
+- https://github.com/anthropics/claude-cookbooks/blob/main/tool_use/tool_search_with_embeddings.ipynb
+
+## tool-examples-2025-10-29
+
+- Opus 4.5+
+- Vertex AI, Amazon Bedrock
+- input_examples 字段
+
+## effort
+
+- `output: { effort: 'high' }`
+- 支持 Opus 4.5, Opus 4.6
+- max, high, medium, low
+- 默认 high
+- Opus 4.6+ 替代以前的 budget_tokens
+
+## adaptive thinking
+
+- Opus 4.6+
+- thinking.type=adaptive
+- 弃用 `thinking: {type: "enabled", budget_tokens: N}`
+
+```bash
+curl https://api.anthropic.com/v1/messages \
+  --header "x-api-key: $ANTHROPIC_API_KEY" \
+  --header "anthropic-version: 2023-06-01" \
+  --header "content-type: application/json" \
+  --data \
+  '{
+    "model": "claude-opus-4-6",
+    "max_tokens": 16000,
+    "thinking": {
+        "type": "adaptive"
+    },
+    "messages": [
+        {
+            "role": "user",
+            "content": "Explain why the sum of two even numbers is always even."
+        }
+    ]
+}'
+```
+
+```
+adaptive thinking is not supported on this model
+```

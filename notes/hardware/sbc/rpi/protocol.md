@@ -48,16 +48,38 @@ Uses specific characters embedded in the data stream to control the flow.
 
 ---
 
-## I2C (Inter-Integrated Circuit)
+## I2C
 
-I2C is a multi-master, multi-slave, packet-switched, single-ended, serial communication bus.
+I2C 是一种多主从、同步、半双工的串行通信总线，主要用于板级短距离通信。
 
-- **Pins**: Uses two wires: **SDA** (Serial Data) and **SCL** (Serial Clock).
-- **Addressing**: Each device on the bus has a unique 7-bit or 10-bit address.
-- **Speed**: Standard mode (100 kbit/s), Fast mode (400 kbit/s), and High-speed mode (up to 3.4 Mbit/s).
-- **Usage**: Common for EEPROMs, RTCs (DS3231), and simple sensors (MPU6050).
+- I2C - Inter-Integrated Circuit - 芯片间总线
+- **寻址**: 每个设备拥有唯一的 7 位或 10 位地址，支持一主多从或多主多从。
+- **特点**: 硬件连接简单（仅需上拉电阻），支持热插拔，但传输速率受总线电容限制。
 
----
+| pin | for               | cn   |
+| --- | ----------------- | ---- |
+| VCC | 3.3V or 5V        | 电源 |
+| GND | Ground            | 接地 |
+| SDA | Serial Data Line  | 数据 |
+| SCL | Serial Clock Line | 时钟 |
+
+- 接线
+  - SDA <-> SDA
+  - SCL <-> SCL
+- 标准 4-pin I2C
+
+| 模式            | 速率 (Bit Rate) | 备注                         |
+| :-------------- | :-------------- | :--------------------------- |
+| Standard-mode   | 100 kbit/s      | 最常用的标准速率             |
+| Fast-mode       | 400 kbit/s      | 多数传感器支持的速率         |
+| Fast-mode Plus  | 1 Mbit/s        | 增强型快速模式               |
+| High-speed mode | 3.4 Mbit/s      | 高速模式                     |
+| 电平标准        | 3.3V / 5V       | 漏极开路结构，必须接上拉电阻 |
+
+- **传感器数据采集**: 如 MPU6050 (陀螺仪)、BME280 (温湿度计)。
+- **系统配置存储**: 读写 AT24C02 等 EEPROM 存储器。
+- **实时时钟 (RTC)**: 与 DS3231 等时钟芯片同步时间。
+- **低速外设控制**: 驱动 0.96 寸 OLED 显示屏或 PCF8574 IO 扩展芯片。
 
 ## SPI (Serial Peripheral Interface)
 

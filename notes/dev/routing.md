@@ -18,7 +18,13 @@ title: 路由
   - Central Calibration - 中心校准
 - DNS - Root - TLD - AS - Record
 
-
 > All problems in computer science can be solved by another level of indirection.
 >
 > —— David Wheeler / Butler Lampson
+
+## Hierarchical Routing
+
+- 分层路由
+- DNS
+- 文件系统
+- WebService

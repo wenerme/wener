@@ -43,13 +43,19 @@ tags:
   - [siteboon/claudecodeui](https://github.com/siteboon/claudecodeui)
     - GPLv3, JS, React
     - 不能 accept/deny 工具
-  - [eyaltoledano/claude-task-master](https://github.com/eyaltoledano/claude-task-master)
-    - MIT, JS, TS
   - [sugyan/claude-code-webui](https://github.com/sugyan/claude-code-webui)
     - MIT, TS, React
   - [rowboatlabs/rowboat](https://github.com/rowboatlabs/rowboat)
     - Apache-2.0, TypeScript
     - AI-powered CLI for background agents
+- 编排/Orchestration
+  - [eyaltoledano/claude-task-master](https://github.com/eyaltoledano/claude-task-master)
+    - MIT, JS, TS
+  - [ruvnet/claude-flow](./claude-flow.md)
+    - MIT, TypeScript
+  - https://github.com/smtg-ai/claude-squad
+  - https://github.com/Pimzino/claude-code-spec-workflow
+  - https://github.com/SuperClaude-Org/SuperClaude_Framework
 - [microsoft/autogen](https://github.com/microsoft/autogen)
 - [DavidZWZ/Awesome-Deep-Research](https://github.com/DavidZWZ/Awesome-Deep-Research)
 

@@ -156,3 +156,5 @@ response_time:""
 # FAQ
 
 ## LogParseFailure
+
+- 解析失败的日志

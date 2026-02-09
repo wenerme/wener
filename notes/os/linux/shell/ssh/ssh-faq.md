@@ -9,6 +9,12 @@ tags:
 chmod 400 ~/.ssh/id_*
 chmod 644 ~/.ssh/id_*.pub
 chmod 700 ~/.ssh/authorized_keys
+
+# -E 让 ssh -A 生效
+# rsync 这样使用需要为 root 也配置 ssh config
+sudo -E rsync --rsync-path='sudo rsync' /data admin@svr:/data
+# 替代 sudo rsync，不需要为 root 配置 ssh config
+sudo tar -C /data -cf - postgres | ssh -p 1234 admin@1.2.3.4 'sudo tar -C /data -xvf -'
 ```
 
 ## SOCKS Proxy

@@ -354,11 +354,30 @@ hdr_end(host) -i .wener.me
 hdr_beg(host) -i .wener.me
 
 
+## SSL 配置
+
+- [HAProxy SSL Termination](https://www.haproxy.com/blog/haproxy-ssl-termination/)
+- [Mozilla SSL Configuration Generator](https://ssl-config.mozilla.org/#server=haproxy)
+
+```haproxy
+global
+    ssl-default-bind-options ssl-min-ver TLSv1.2
+
+frontend www.mysite.com
+    bind 10.0.0.3:80
+    bind 10.0.0.3:443 ssl crt /etc/ssl/certs/mysite.pem ssl-min-ver TLSv1.2
+
+    # HTTP -> HTTPS
+    http-request redirect scheme https unless { ssl_fc }
+    default_backend web_servers
+```
+
 ## 参考
 
 - [HAProxy Documentation Converter](https://cbonte.github.io/haproxy-dconv/)
   - [Proxy keywords matrix](https://cbonte.github.io/haproxy-dconv/2.6/configuration.html#4.1)
-- https://gist.github.com/krams915/1269101/62614130ae58a1ae107cef251a82716af3edf95b
+- [The Four Essential Sections of an HAProxy Configuration](https://www.haproxy.com/blog/the-four-essential-sections-of-an-haproxy-configuration/)
+- [Pre-defined ACLs](https://cbonte.github.io/haproxy-dconv/2.2/configuration.html#7.4)
 
 ## 实验
 

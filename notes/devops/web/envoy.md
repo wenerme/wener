@@ -1,101 +1,51 @@
-# Envovy
+---
+tags:
+  - Gateway
+  - Proxy
+---
 
-## Tips
-* [EnvovyProxy](https://www.envoyproxy.io/)
-* [envoyproxy/envoy](https://github.com/envoyproxy/envoy)
+# Envoy
+
+- [envoyproxy/envoy](https://github.com/envoyproxy/envoy)
+  - Apache-2.0, C++
+  - CNCF 毕业项目
+  - 云原生高性能边缘/中间/服务代理
+  - 支持 HTTP/1.1, HTTP/2, gRPC, TCP, UDP
+  - 可观测性: 分布式追踪、指标、日志
+  - 动态配置: xDS API
+  - 可扩展: Lua, WASM
+- 参考
+  - [EnvoyProxy](https://www.envoyproxy.io/)
+
+## 基于 Envoy 的项目
+
+- [istio/istio](https://github.com/istio/istio) - 服务网格
+- [alibaba/higress](https://github.com/alibaba/higress) - 云原生 API 网关
+- [emissary-ingress/emissary](https://github.com/emissary-ingress/emissary) - Kubernetes Ingress
+- [projectcontour/contour](https://github.com/projectcontour/contour) - Kubernetes Ingress
 
 ## gRPC
-* [gRPC Bridge](https://www.envoyproxy.io/envoy/install/sandboxes/grpc_bridge.html)
 
+- [gRPC Bridge](https://www.envoyproxy.io/docs/envoy/latest/start/sandboxes/grpc_bridge)
+  - HTTP/1.1 客户端通过 Envoy 访问 gRPC 服务
 
+## 配置
 
-## envoy --help
+```bash
+# 验证配置
+envoy --mode validate -c envoy.yaml
 
+# 启动
+envoy -c envoy.yaml
 ```
-USAGE:
 
-   envoy  [--max-obj-name-len <uint64_t>] [--max-stats <uint64_t>] [--mode
-          <string>] [--parent-shutdown-time-s <uint32_t>] [--drain-time-s
-          <uint32_t>] [--file-flush-interval-msec <uint32_t>]
-          [--service-zone <string>] [--service-node <string>]
-          [--service-cluster <string>] [--hot-restart-version]
-          [--restart-epoch <uint32_t>] [--log-path <string>] [-l <string>]
-          [--local-address-ip-version <string>] [--admin-address-path
-          <string>] [-c <string>] [--concurrency <uint32_t>] [--base-id
-          <uint32_t>] [--] [--version] [-h]
-
-
-Where:
-
-   --max-obj-name-len <uint64_t>
-     Maximum name length for a field in the config (applies to listener
-     name, route config name and the cluster name)
-
-   --max-stats <uint64_t>
-     Maximum number of stats guages and counters that can be allocated in
-     shared memory.
-
-   --mode <string>
-     One of 'serve' (default; validate configs and then serve traffic
-     normally) or 'validate' (validate configs and exit).
-
-   --parent-shutdown-time-s <uint32_t>
-     Hot restart parent shutdown time in seconds
-
-   --drain-time-s <uint32_t>
-     Hot restart drain time in seconds
-
-   --file-flush-interval-msec <uint32_t>
-     Interval for log flushing in msec
-
-   --service-zone <string>
-     Zone name
-
-   --service-node <string>
-     Node name
-
-   --service-cluster <string>
-     Cluster name
-
-   --hot-restart-version
-     hot restart compatability version
-
-   --restart-epoch <uint32_t>
-     hot restart epoch #
-
-   --log-path <string>
-     Path to logfile
-
-   -l <string>,  --log-level <string>
-     Log levels:
-     [trace][debug][info][warning][error][critical][off]
-
-     Default is [warning]
-
-     [trace] and [debug] are only available on debug builds
-
-   --local-address-ip-version <string>
-     The local IP address version (v4 or v6).
-
-   --admin-address-path <string>
-     Admin address path
-
-   -c <string>,  --config-path <string>
-     Path to configuration file
-
-   --concurrency <uint32_t>
-     # of worker threads to run
-
-   --base-id <uint32_t>
-     base ID so that multiple envoys can run on the same host if needed
-
-   --,  --ignore_rest
-     Ignores the rest of the labeled arguments following this flag.
-
-   --version
-     Displays version information and exits.
-
-   -h,  --help
-     Displays usage information and exits.
-
-```
+| 参数                         | 说明                                    |
+| ---------------------------- | --------------------------------------- |
+| `-c, --config-path`          | 配置文件路径                            |
+| `--mode serve/validate`      | 运行模式                                |
+| `-l, --log-level`            | 日志级别 trace/debug/info/warning/error |
+| `--log-path`                 | 日志文件路径                            |
+| `--concurrency`              | worker 线程数                           |
+| `--service-cluster`          | 集群名称                                |
+| `--service-node`             | 节点名称                                |
+| `--local-address-ip-version` | 本地 IP 版本 v4/v6                      |

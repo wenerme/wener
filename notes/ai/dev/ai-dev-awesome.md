@@ -99,6 +99,8 @@ tags:
     - Apache-2.0, Go
   - [alibaba/higress](https://github.com/alibaba/higress)
     - Apache-2.0, Go, C++
+    - 基于 Envoy WASM
+    - WasmPlugin
   - [BerriAI/litellm](https://github.com/BerriAI/litellm)
     - MIT, Python
     - 将各种 LLM 适配为 OpenAI 的 API 格式
@@ -115,6 +117,8 @@ tags:
   - [katanemo/archgw](https://github.com/katanemo/archgw)
     - Apache-2.0, Rust, Python
     - AI gateway for agents
+  - [musistudio/claude-code-router](https://github.com/musistudio/claude-code-router)
+    - MIT, TS
   - https://openrouter.io
   - https://together.ai
 - Engine/Runtime

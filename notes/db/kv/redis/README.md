@@ -142,6 +142,10 @@ SET key value [NX | XX] [GET] [EX seconds | PX milliseconds | EXAT unix-time-sec
 | n    | new key events - A 不包含           |
 | A    | `g$lshztxed` - 除了 mn 的所有事件   |
 
+- Ex - 只监听 key 过期
+- AKE - 监听所有事件
+- Kx - 键空间过期通知
+
 | evennt                | command                    |
 | --------------------- | -------------------------- |
 | del                   | DEL,MIGRATE,RPOP,LPOP      |

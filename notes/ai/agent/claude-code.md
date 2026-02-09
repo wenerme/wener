@@ -35,6 +35,9 @@ tags: [Claude, AI, Code, Agent]
 
 ```bash
 brew install claude-code
+curl -fsSL https://claude.ai/install.sh | bash
+
+# 目前不推荐 NPM 安装了
 npm install -g @anthropic-ai/claude-code
 
 CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 claude
@@ -46,6 +49,10 @@ npx -y ccusage session
 
 claude config list
 ```
+
+- Native Install
+  - `~/.local/share/claude/versions/`
+  - `https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{VERSION}/manifest.json`
 
 | cmd         | for                        |
 | ----------- | -------------------------- |
@@ -493,6 +500,13 @@ VSCODE_PID= VSCODE_CWD= TERM_PROGRAM= command claude
 | CLAUDE_CODE_TMPDIR                      | 2.1.5 |
 | CLAUDE_CODE_DISABLE_BACKGROUND_TASKS    | 2.1.4 |
 | CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS | 2.1.0 |
+CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS|2.1.32
+
+## Claude Code 2.1.32
+
+- CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS 启用实验性 Team
+- 会加载 --add-dir 的 .claude/skills/
+- skill 最多占用 2% 上下文，会随着上下文增加加载内容
 
 ## Claude Code 2.1.20
 
