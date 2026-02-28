@@ -51,7 +51,10 @@ tags:
     - Apache-2.0, Python, TS
   - [coze-dev/coze-studio](https://github.com/coze-dev/coze-studio)
     - Apache-2.0, TS, React, Go
-  - n8n
+  - [n8n-io/n8n](https://github.com/n8n-io/n8n)
+    - TS, Vue
+  - [1Panel-dev/MaxKB](https://github.com/1Panel-dev/MaxKB)
+    - MIT, Python, Vue
   - [FoundationAgents/OpenManus](https://github.com/FoundationAgents/OpenManus)
     - MIT, Python
   - [DahnM20/ai-flow](https://github.com/DahnM20/ai-flow)

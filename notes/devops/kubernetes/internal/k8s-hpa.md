@@ -6,7 +6,13 @@ title: HPA
 
 :::caution
 
+- 先写 memory 再写 cpu
+  - 避免 argocd diff 出现问题，序列化顺序问题
 - 资源使用率基于 requests 计算，而不是 limits
+- Pod 如果 OOM Killed 会导致无法获取 metrics 无法触发 HPA 可能造成雪崩
+  - 副本数量和 utilization 调整避免出现这样问题
+  - 例如 3Pod, utilization 60%, 突然来流量, 挂了一个, 剩下 2Pod, 则需要 utilization 90% 才能触发扩容
+  - OOM Killed 的 Pod 进入 CrashLoopBackOff，metrics 缺失时 HPA 按 0% 利用率计算（scale-up 场景），拉低整体平均值，导致更难触发扩容。
 
 :::
 

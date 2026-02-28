@@ -6,6 +6,16 @@ tags:
 
 # skill
 
+:::tips Skill 定位
+
+- 人类知识的蒸馏内容
+- 程序性记忆
+- 知识库
+- SOP
+- 字典
+
+:::
+
 - [agentskills.io](https://agentskills.io/)
   - 由 Anthropic 推动
 - [agentskills/agentskills](https://github.com/agentskills/agentskills)
@@ -70,6 +80,41 @@ skill-name/
   - 动态能力
 - SubAgent
   - 人设，Persona
+
+## Awesome
+
+## vercel skills
+
+| flag                   | for                                                                      |
+| :--------------------- | :----------------------------------------------------------------------- |
+| `-g, --global`         | 将技能安装到全局范围（用户主目录），而非当前项目                         |
+| `-a, --agent <agents>` | 指定要安装/操作的 Agent 目录（如 `cursor`, `claude-code`, `*` 表示所有） |
+| `-s, --skill <skills>` | 指定仓库中的特定技能进行操作（使用 `*` 操作所有）                        |
+| `-l, --list`           | 仅列出仓库中可用的技能，不执行安装                                       |
+| `-y, --yes`            | 自动确认，跳过所有交互式提示                                             |
+| `--copy`               | 强制使用复制文件的方式，而不是默认的符号链接 (symlinking)                |
+| `--all`                | `--skill '*' --agent '*' -y`                                             |
+| `--full-depth`         | 即使根目录存在 `SKILL.md`，也继续搜索所有子目录                          |
+
+```bash
+# 查看有哪些技能 - bunx 执行更快
+bunx skills add wenerme/ai -l
+
+# 直接安装到 ~/.claude/skills ~/.agents/skills
+npx skills add wenerme/ai -s agent-browser -a claude-code -g -y
+npx skills add wenerme/ai -s chrome-devtools -a claude-code -g -y
+npx skills add wenerme/ai -s skill-writer -a claude-code -g -y
+
+# same as
+npx skills add https://github.com/vercel/ai --skill ai-sdk
+
+npx skills add https://github.com/vercel-labs/json-render --skill json-render-shadcn
+```
+
+- skills-lock.json
+  - 项目维度
+- ~/.agents/.skill-lock.json
+  - 全局
 
 ## BayramAnnakov/claude-reflect
 

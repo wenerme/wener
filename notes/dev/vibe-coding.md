@@ -34,6 +34,20 @@ tags:
 - 只有在完成上述步骤后再启动编码过程
 - OODA - Observe Orient Decide Act - 观察 认知 决策 执行
 
+## Best Practice
+
+- Simplicity is always the best
+- 使用 Worktree 增加并行 - Poor man's Team or Parallel Agent
+  - 使用 softlink 共享文件 - .claude, .mcp.json, CLAUDE.md 配置等
+  - 使用 local/ 本地共享目录来维护本地共享知识和本地开发用数据和各种 case
+  - 使用 `local/docs/*` 来跟踪相关文档
+- 规划自己的 prompt 历史记录跟踪书写内容
+- 确保能 Handoff
+  - 完整的环境、配置、测试条件
+- Command line first
+  - 很多工作，command line 工具能更好胜任
+  - argocd, kubectl, git, glab, gh, agent-browser, mcp-cli
+
 ## 提示词
 
 :::tip

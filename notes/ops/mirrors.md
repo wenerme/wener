@@ -127,6 +127,8 @@ curl https://mirrors.ustc.edu.cn/alpine/last-updated
 - https://mirrors.sjtug.sjtu.edu.cn/npm-registry
 - https://repo.huaweicloud.com/repository/npm
 - https://mirrors.huaweicloud.com/repository/npm
+- Binary
+  - https://github.com/cnpm/binary-mirror-config/blob/master/package.json
 
 ```ini
 chromedriver_cdnurl=https://repo.huaweicloud.com/chromedriver

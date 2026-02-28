@@ -6,6 +6,33 @@ tags:
 
 # Golang 库常见问题
 
+## sjson vs map
+
+临界点总结:
+
+- ≤5 次操作: sjson 全面优于 map，耗时快 4-5x，内存相当甚至更少
+- 10 次操作: sjson 仍快 2.5x，但内存多 70%（如 5MB JSON: 51MB vs 31MB）
+- 15 次操作: sjson 快 1.6x，内存是 map 的 2.5 倍（如 10MB: 153MB vs 62MB）
+
+与 JSON 大小的关系:
+
+- 小 JSON (10KB-100KB): 即使 15 次操作也无所谓，sjson 全面碾压 map（58μs vs 80μs）
+- 中 JSON (1-2MB): 5 次操作是分水岭，5 次以内 sjson 全优，超过则内存开始反超
+- 大 JSON (5-10MB): 模式相同，但绝对差距更大（10MB+15ops: sjson 153MB vs map 62MB）
+
+---
+
+jsonv2
+
+- Unmarshal 开销砍半
+- 10-15 操作更推荐使用 json/v2 内存和时间都更优
+
+---
+
+- https://github.com/ohler55/ojg
+- https://github.com/go-json-experiment/json
+- https://github.com/go-json-experiment/jsonbench
+
 ## chi vs gorilla mux
 
 - 提供 interface - 更易于模块化

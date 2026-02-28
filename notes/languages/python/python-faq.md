@@ -5,6 +5,8 @@ tags:
 
 # Python FAQ
 
+- PEP 8 Spaces are the preferred indentation method.
+  - 官方推荐 4 space
 - distutils
   - 3.12 之后移除
 - Python 3.12 需要 numpy > 1.26.4

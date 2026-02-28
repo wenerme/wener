@@ -251,3 +251,7 @@ brew install mysql@8.4
 
 ln -s /opt/homebrew/opt/mysql@8.4 /opt/homebrew/opt/mysql
 ```
+
+## Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_unicode_ci,IMPLICIT) for operation '='
+
+- 两个字段使用了不同的 collation

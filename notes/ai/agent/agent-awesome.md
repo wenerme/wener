@@ -74,3 +74,8 @@ tags:
 npm add -g agent-browser
 npx skills add vercel-labs/agent-browser
 ```
+
+## IM as UI
+
+- claw like
+- https://github.com/openclaw/openclaw

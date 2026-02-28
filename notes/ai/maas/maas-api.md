@@ -47,7 +47,7 @@ title: MaaS API
 - "Fat Tail" (肥尾)
 - 3+Sigma + 15-30min 窗口检查异动
 
-## Gemini API
+# Gemini API
 
 - https://ai.google.dev/api/rest
 
@@ -57,7 +57,7 @@ title: MaaS API
 - openai 里的 tool 映射为一个 functionDeclaration
 - 其他的 tool 是内置 tool，语义上有点区别
 
-## OpenAI API
+# OpenAI API
 
 ### streaming
 
@@ -268,9 +268,48 @@ title: MaaS API
 - https://platform.openai.com/docs/guides/prompt-caching
 - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html
 
-## Anthropic
+# Anthropic
 
-### beta
+## beta
+
+| date       | flag                                       | for                                 | provider | fields                                                                                                                                     |
+| ---------- | ------------------------------------------ | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 2024-07-31 | [prompt-caching-2024-07-31]                | Prompt caching breakpoints          | A,B,V,F  | `*.cache_control`, `usage.cache_creation_input_tokens`, `usage.cache_read_input_tokens`                                                    |
+| 2024-09-24 | `message-batches-2024-09-24`               | Batch message processing            | A        | `requests[*].custom_id`, `requests[*].params`, `processing_status`, `request_counts.*`, `results_url`                                      |
+| 2024-09-25 | `pdfs-2024-09-25`                          | PDF document support                | A,B,V,F  | `messages[*].content[*].source.media_type`, `messages[*].content[*].source.data`, `messages[*].content[*].source.type`                     |
+| 2024-10-22 | `computer-use-2024-10-22`                  | Computer use tools (v1)             | A,B,V,F  | `tools[*].type:"computer_20241022"`, `tools[*].display_width_px`, `tools[*].display_height_px`, `tools[*].display_number`                  |
+| 2024-11-01 | `token-counting-2024-11-01`                | Token counting endpoint             | A,B,V,F  | `input_tokens`, `cache_creation_input_tokens`, `cache_read_input_tokens`                                                                   |
+| 2025-01-24 | `computer-use-2025-01-24`                  | Computer use tools (v2)             | A,B,V,F  | `tools[*].type:"computer_20250124"`, `tools[*].display_width_px`, `tools[*].display_height_px`                                             |
+| 2025-02-19 | `token-efficient-tools-2025-02-19`         | Reduce tool definition tokens       | A,B,V,F  | `tools[*].defer_loading`, `tools[*].strict`                                                                                                |
+| 2025-02-19 | `output-128k-2025-02-19`                   | Extend max output to 128k           | A,B,V,F  | `max_tokens` (up to 128000)                                                                                                                |
+| 2025-04-04 | `mcp-client-2025-04-04`                    | MCP server integration (v1)         | A,B,V,F  | `mcp_servers[*].url`, `mcp_servers[*].tool_configuration`, `content[*].type:"mcp_tool_use"`, `content[*].type:"mcp_tool_result"`           |
+| 2025-04-11 | `extended-cache-ttl-2025-04-11`            | Extended cache TTL to 1h            | A,B,V,F  | `*.cache_control.ttl:"1h"`                                                                                                                 |
+| 2025-04-14 | `files-api-2025-04-14`                     | File upload/download API            | A,B,V,F  | `source.type:"file"`, `source.file_id`                                                                                                     |
+| 2025-05-14 | `dev-full-thinking-2025-05-14`             | Full thinking content (dev)         | A,B,V,F  | `thinking.type:"enabled"`, `thinking.budget_tokens`, `content[*].type:"thinking"`                                                          |
+| 2025-05-14 | `interleaved-thinking-2025-05-14`          | Thinking interleaved with tool use  | A,B,V,F  | `content[*].type:"thinking"` interleaved with `content[*].type:"tool_use"`                                                                 |
+| 2025-05-22 | `code-execution-2025-05-22`                | Code execution sandbox              | A,B,V,F  | `tools[*].type:"code_execution_20250522"`, `tools[*].allowed_callers`, `content[*].caller`, `content[*].type:"code_execution_tool_result"` |
+| 2025-06-27 | [context-management-2025-06-27]            | Auto context management             | A,B,V,F  | `context_management.edits[*]`, `context_management.edits[*].trigger`, `context_management.edits[*].keep`                                   |
+| 2025-08-07 | [context-1m-2025-08-07]                    | 1M token context window             | A,B,V,F  | `max_tokens` (model context extended to 1M)                                                                                                |
+| 2025-08-26 | [model-context-window-exceeded-2025-08-26] | Context window exceeded stop reason | A,B,V,F  | `stop_reason:"model_context_window_exceeded"`                                                                                              |
+| 2025-10-02 | [skills-2025-10-02]                        | Skills/container support            | A,B,V,F  | `container.skills[*].id`, `container.skills[*].type`, `container.id`                                                                       |
+| 2025-11-20 | [mcp-client-2025-11-20]                    | MCP server integration (v2)         | A,B,V,F  | `mcp_servers[*].url`, `mcp_servers[*].tool_configuration`                                                                                  |
+| 2026-02-01 | [fast-mode-2026-02-01]                     | Fast inference mode                 | A        | `speed:"fast"`                                                                                                                             |
+
+> A=Anthropic API, B=Bedrock, V=Vertex AI, F=Foundry
+
+- prompt-caching-2024-07-31
+  - 5m 缓存
+  - 不再需要，默认启用，cache_control 控制
+  - `cache_control: {type: "ephemeral"}`
+- extended-cache-ttl-2025-04-11
+  - 1h 缓存
+  - `cache_control: {type: "ephemeral", ttl: "1h"}`
+
+---
+
+- https://platform.claude.com/docs/en/api/beta#anthropic_beta
+
+[fast-mode-2026-02-01]: #fast-mode-2026-02-01
 
 ```
 anthropic-beta: A,B
@@ -284,15 +323,15 @@ anthropic-version: 2023-01-01
 
 - https://platform.claude.com/docs/en/api/beta-headers
 
-### output-128k-2025-02-19
+## output-128k-2025-02-19
 
 允许输出 128K
 
-### extended-cache-ttl-2025-04-11
+## extended-cache-ttl-2025-04-11
 
 - `messages[*].content[*].cache_control.ephemeral.ttl`
 
-### code-execution-2025-05-22
+## code-execution-2025-05-22
 
 ```bash
 curl https://api.anthropic.com/v1/messages \
@@ -407,9 +446,9 @@ API 返回 stop_reason: "tool_use"，你处理 tool_result 回传
 - caller：在 tool_use block 中，标识谁实际触发了调用 → 响应侧
 - 如果去掉 "code_execution_20250825" 只保留 ["direct"]，sandbox 代码就无权调用 get_stock_price，也不会出现带 caller 的 tool_use
 
-### context-management-2025-06-27
+## context-management-2025-06-27
 
-### advanced-tool-use-2025-11-20
+## advanced-tool-use-2025-11-20
 
 - Claude API, Microsoft Foundry, 所有模型
 - 模型按需取搜索 tool
@@ -450,6 +489,40 @@ API 返回 stop_reason: "tool_use"，你处理 tool_result 回传
 - Opus 4.5+
 - Vertex AI, Amazon Bedrock
 - input_examples 字段
+
+## fast-mode-2026-02-01
+
+- 支持情况
+  - Claude Opus 4.6
+  - 2.5x 速度
+  - 6x 价格
+- fast: boolean
+
+```bash
+curl https://api.anthropic.com/v1/messages \
+  --header "x-api-key: $ANTHROPIC_API_KEY" \
+  --header "anthropic-version: 2023-06-01" \
+  --header "anthropic-beta: fast-mode-2026-02-01" \
+  --header "content-type: application/json" \
+  --data '{
+        "model": "claude-opus-4-6",
+        "max_tokens": 4096,
+        "speed": "fast",
+        "messages": [{
+            "role": "user",
+            "content": "Refactor this module to use dependency injection"
+        }]
+    }'
+```
+
+---
+
+- https://platform.claude.com/docs/en/build-with-claude/fast-mode
+
+## US-Only Inference
+
+- 1.1x 价格
+- inference_geo: us
 
 ## effort
 

@@ -44,7 +44,7 @@ fallocate -d tmp2.raw
 
 # dd 支持 sparse
 # https://man7.org/linux/man-pages/man1/dd.1.html
-dd if=test.raw of=tmp3.raw conv=sparse status=progress bs=128MB
+dd if=test.raw of=tmp.raw conv=sparse status=progress bs=128MB
 
 # ddrescue 支持写入 sparse
 ddrescue -S -b8M /dev/sda1 /mount/external/backup/sda1.raw

@@ -277,6 +277,16 @@ git reset --hard origin/master
 git fetch --unshallow
 ```
 
+## shallow clone
+
+- 服务器无法复用 pack cache，CI 高并发场景下会增加服务器压力
+- 仓库保持 shallow 状态，`git pull` 不会拉取全部历史
+- `git fetch --unshallow` 可恢复完整历史
+
+```bash
+git clone --depth 1 <repo_url>
+```
+
 ## signoff
 
 ```bash

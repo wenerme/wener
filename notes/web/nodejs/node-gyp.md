@@ -41,3 +41,5 @@ npm add -g @mikro-orm/better-sqlite --better_sqlite3_binary_host_mirror=https://
     - `${npm_config_cache}/_prebuilds`
     - `${APP_DATA}/npm-cache/_prebuilds`
     - `${HOME}/.npm/_prebuilds`
+- binary
+  - binary_mirror_host

@@ -18,6 +18,7 @@ title: PostgreSQL Upgrade
 
 ## over docker
 
+- https://github.com/pgautoupgrade/docker-pgautoupgrade
 - [tianon/docker-postgres-upgrade](https://github.com/tianon/docker-postgres-upgrade)
 - /var/lib/postgresql
   - OLD/data

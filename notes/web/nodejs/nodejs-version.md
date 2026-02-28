@@ -55,6 +55,14 @@ tags:
 - https://unofficial-builds.nodejs.org/download/release
   - arm64 musl [nodejs/unofficial-builds#59](https://github.com/nodejs/unofficial-builds/pull/59)
 
+| feature       | version                                     |
+| ------------- | ------------------------------------------- |
+| [node:sqlite] | 22.5+ --experimental-sqlite , 22.13+, 23.4+ |
+| [node:test]   | 16.17+, 18+                                 |
+
+[node:sqlite]: https://nodejs.org/api/sqlite.html
+[node:test]: https://nodejs.org/api/test.html
+
 ## Node v24 LTS
 
 - V8 13.6

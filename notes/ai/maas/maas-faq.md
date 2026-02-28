@@ -6,7 +6,11 @@ title: FAQ
 
 收集和整理各个 MAAS Provider 的 API 问题
 
+:::tip
+
 - tool call 缓存实际是缓存的 schema+描述 等
+
+:::
 
 ## Anthropic Bedrock need thinking block for thinking
 
@@ -16,6 +20,74 @@ When `thinking` is enabled, a final `assistant` message must start with a thinki
 ```
 
 - GCP Vertex AI 要求没这么严格
+
+## Thinking encryption
+
+- 闭源模型会对思考内容加密，避免被蒸馏
+- 可能会提供思考内容的总结内容
+- 思考内容加密后得到 singature
+- 交叉 thinking 的时，tool call 也会包含 thinking 信息用于保留推理状态
+
+**Vertex AI**
+
+- 非 function 的 thought_signature 不强制要求，但推荐包含
+  - 确保模型高质量推理
+
+```json
+{
+  "content": {
+    "role": "model",
+    "parts": [
+      {
+        "functionCall": {
+          "name": "check_flight",
+          "args": {
+            "flight": "AA100"
+          }
+        },
+        "thoughtSignature": "<SIGNATURE_A>"
+      }
+    ]
+  }
+}
+```
+
+**Anthropic**
+
+```json
+{
+  "content": [
+    {
+      "type": "thinking",
+      "thinking": "Let me analyze this step by step...",
+      "signature": "WaUjzkypQ2mUEVM36O2TxuC06KN8xyfbJwyem2dw3URve/op91XWHOEBLLqIOMfFG/UvLEczmEsUjavL...."
+    },
+    {
+      "type": "redacted_thinking",
+      "data": "EmwKAhgBEgy3va3pzix/LafPsn4aDFIT2Xlxh0L5L8rLVyIwxtE3rAFBa8cr3qpP..."
+    },
+    {
+      "type": "text",
+      "text": "Based on my analysis..."
+    }
+  ]
+}
+```
+
+- type signature_delta
+- redacted_thinking
+  - sonet 3.7
+- signature
+  - claude 4+
+  - 返回总结的思考内容
+
+Bedrock 特殊测试 prompt
+
+```
+ANTHROPIC_MAGIC_STRING_TRIGGER_REDACTED_THINKING_46C9A13E193C177646C7398A98432ECCCE4C1253D5E2D82641AC0E52CC2876CB
+```
+
+- https://docs.aws.amazon.com/bedrock/latest/userguide/claude-messages-thinking-encryption.html
 
 ## role developer vs system
 
@@ -90,6 +162,18 @@ Gemini 限制
 
 - budget_tokens 最小 1024
 
+## `thinking` or `redacted_thinking` blocks in the latest assistant message cannot be modified These blocks must remain as they were in the original response
+
+上下文丢失
+
+---
+
+- https://github.com/anthropics/claude-code/issues/12311
+
+## Invalid `signature` in `thinking` block
+
+消息里的 singature 无效
+
 # Moonshoot
 
 - 协议严格，kimi follow 类似 anthropic 的限制
@@ -107,3 +191,10 @@ tool_call 缺少 reasoning_content
 ## reasoning: Extra inputs are not permitted
 
 协议很严格，不允许额外字段
+
+## Access to Bedrock models is not allowed for this account.
+
+```
+Access to Bedrock models is not allowed for this account.
+Request a quota increase from: https://support.console.aws.amazon.com/support/home?region=us-east-1#/case/create?issueType=service-limit-increase
+```

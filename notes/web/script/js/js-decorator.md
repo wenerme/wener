@@ -33,8 +33,12 @@ title: Decorator
 - 参考
   - [proposal-decorator-metadata](github.com/tc39/proposal-decorator-metadata)
     - TS 5.2
+    - 元数据
+    - Symbol.metadata
+    - context.metadata
+    - 一般用于自定义 decorator 附加额外信息
   - [proposal-decorators](https://github.com/tc39/proposal-decorators)
-    - 2023-08 – TS 5.2 支持  Decorator Metadata
+    - 2023-08 – TS 5.2 支持 Decorator Metadata
     - 2023-05 – Angular v16
     - 2023-03 – Deno 1.32
     - 2023-03 - TS 5.0
@@ -46,6 +50,8 @@ title: Decorator
     - 2014-04 – Stage 0
     - https://caniuse.com/decorators
   - [proposal-class-method-parameter-decorators](https://github.com/tc39/proposal-class-method-parameter-decorators)
+    - 参数
+    - 对 nestjs 这种 IoC 影响大
   - [typescript 5.0 decorators](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/#decorators)
     - 没有 `--experimentalDecorators` flag
       - 也能用
@@ -179,7 +185,7 @@ var __decorate =
     else
       for (var i = decorators.length - 1; i >= 0; i--)
         if ((d = decorators[i])) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
+    return (c > 3 && r && Object.defineProperty(target, key, r), r);
   };
 var __metadata =
   (this && this.__metadata) ||

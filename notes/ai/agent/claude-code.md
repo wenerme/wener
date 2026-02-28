@@ -69,6 +69,34 @@ claude config list
 
 - ~/.claude.json
 
+:::tips API Key 最小配置
+
+```json title="~/.claude/settings.json"
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.anthropic.com",
+    "ANTHROPIC_AUTH_TOKEN": ""
+  }
+}
+```
+
+- 按需修改 base url 和 auth token
+- 如果需要自定义模型, 配置这些
+  - ANTHROPIC_MODEL
+  - ANTHROPIC_DEFAULT_HAIKU_MODEL
+  - ANTHROPIC_DEFAULT_OPUS_MODEL
+  - ANTHROPIC_DEFAULT_SONNET_MODEL
+
+```json title="~/.claude.json"
+{
+  "hasCompletedOnboarding": true
+}
+```
+
+- 配置这个跳过 onbording 过程
+
+:::
+
 **配置文件和优先级**
 
 - ~/.claude/settings.json
@@ -495,12 +523,12 @@ VSCODE_PID= VSCODE_CWD= TERM_PROGRAM= command claude
 - https://claudelog.com/claude-code-changelog/
 - ENABLE_EXPERIMENTAL_MCP_CLI
 
-| env                                     | since |
-| --------------------------------------- | ----- |
-| CLAUDE_CODE_TMPDIR                      | 2.1.5 |
-| CLAUDE_CODE_DISABLE_BACKGROUND_TASKS    | 2.1.4 |
-| CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS | 2.1.0 |
-CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS|2.1.32
+| env                                     | since  |
+| --------------------------------------- | ------ |
+| CLAUDE_CODE_TMPDIR                      | 2.1.5  |
+| CLAUDE_CODE_DISABLE_BACKGROUND_TASKS    | 2.1.4  |
+| CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS | 2.1.0  |
+| CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS    | 2.1.32 |
 
 ## Claude Code 2.1.32
 

@@ -16,7 +16,15 @@ title: AGENTS.md
 - https://github.com/search?q=path:**/CLAUDE.md&type=code
 - https://github.com/search?q=path:**/settings.local.json&type=code
 
-## Memory
+## 记忆
+
+- 程序性记忆（Procedural Memory）
+- 情景记忆（Episodic Memory）
+  - 昨天的报错日志是什么
+- 陈述性记忆（Declarative Memory）
+  - 所有客户的配置详情
+
+## 规则
 
 - .cursor/rules
 - Claude

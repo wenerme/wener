@@ -6,6 +6,9 @@ tags:
 
 # Typescript Version
 
+- v7 tsgo
+- v6 过度版本
+
 | version                          | date       |
 | -------------------------------- | ---------- |
 | [Typescript 5.7](#typescript-57) | 2024-11-22 |

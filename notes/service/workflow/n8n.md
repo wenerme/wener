@@ -24,9 +24,6 @@ id: n8n
 :::
 
 ```bash
-
-
-
 # /home/node/.n8n
 # SQLite
 docker run -it --rm \
@@ -39,7 +36,6 @@ docker run -it --rm \
   -e GENERIC_TIMEZONE="Asia/Shanghai" \
   -e TZ="Asia/Shanghai" \
   --name n8n n8nio/n8n
-
 
 # 中文
 curl -LO https://github.com/other-blowsnow/n8n-i18n-chinese/releases/download/n8n%401.95.3/editor-ui.tar.gz
@@ -100,3 +96,24 @@ tar zxvf editor-ui.tar.gz -C ./n8n/n8n-editor-ui
 | DB_POSTGRESDB_USER      | root                 |
 | DB_POSTGRESDB_PASSWORD  |
 | DB_POSTGRESDB_SCHEMA    | public               |
+
+## workflow
+
+- https://n8n.io/workflows
+
+## API
+
+- X-N8N-API-KEY
+
+##
+
+# FAQ
+
+## Free License
+
+- 提供邮箱注册并激活
+- 永久有效
+- 特性
+  - 文件夹
+  - 编辑器内调试
+  - 自定义执行数据
