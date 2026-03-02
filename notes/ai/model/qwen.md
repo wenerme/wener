@@ -36,12 +36,44 @@ tags:
   - 渐进式上下文扩展（progressive context scaling）
   - 数据集 [DocQA-RL-1.6K](https://huggingface.co/datasets/Tongyi-Zhiwen/DocQA-RL-1.6K)
 
+## Qwen 3.5
+
+发布于 2026 年初（2 月中旬开始陆续释放），主打 **MoE (Mixture-of-Experts) 稀疏混合专家架构**与强大的多模态早期融合训练，旨在直接对标国际前沿模型（如 GPT-5, Claude 4.5 Opus）。
+
+**核心版本：**
+
+| 模型版本              | 定位 / 特点                                |
+| --------------------- | ------------------------------------------ |
+| **Qwen3.5-397B-A17B** | 旗舰开源模型，兼顾极致性能与推理效率       |
+| **Qwen3.5-122B-A10B** | 中大体量模型，平衡性能与资源开销           |
+| **Qwen3.5-35B-A3B**   | 极具性价比的轻量模型，适合边缘或轻量级部署 |
+| **Qwen3.5-27B**       | 基础稠密模型，保持卓越的通用基础能力       |
+
+**采样参数建议：**
+
+| 模式                  | Temperature | TopP | TopK | MinP | Presence Penalty | Repetition Penalty |
+| :-------------------- | :---------- | :--- | :--- | :--- | :--------------- | :----------------- |
+| Thinking mode general | 1.0         | 0.95 | 20   | 0.0  | 1.5              | 1.0                |
+| Thinking mode coding  | 0.6         | 0.95 | 20   | 0.0  | 0.0              | 1.0                |
+| Instruct general      | 0.7         | 0.8  | 20   | 0.0  | 1.5              | 1.0                |
+| Instruct reasoning    | 1.0         | 0.95 | 20   | 0.0  | 1.5              | 1.0                |
+
+- https://huggingface.co/collections/Qwen/qwen35
+
+**架构与特性进化：**
+
+- Self-Speculative Decoding (自参考推测解码)
+- **原生超长上下文**：开源模型原生支持 262K (262,144) 词元的上下文窗口，而商业版（Qwen3.5-Plus 等）可扩展至 1M+ (超百万) 词元。
+- **高效混合架构**：结合了门控线性注意力机制（Gated Delta Networks）与 MoE，使得模型在保持深度（60层）的同时拥有 512 个专家网络（每次动态路由至其中约 10 个）。
+- **统一视觉-语言基础**：不再是分别训练后组合，而是从零开始即支持文本、图像与视频的多模态联合训练（Early Fusion）。
+- **面向 Agent 时代**：特别强化了编程推理、多智能体交互协同以及在仿真环境下的强化学习训练。集成支持约 201 种全球语言和方言。
+- 许可协议：除特殊说明外，保持对开发者友好的 Apache 2.0 开源协议。
+
 ## Qwen3 VL
 
 - https://github.com/QwenLM/Qwen3-VL
 - 用回了绝对坐标
   - https://github.com/QwenLM/Qwen3-VL/issues/1623
-
 
 ## Qwen 3 Embedding
 

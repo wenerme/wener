@@ -426,11 +426,21 @@ docker inspect
 
 ## .claude/commands
 
-```
+- reusable prompt
 
-```
+## .claude/subagents
 
-# Claude Code Router
+- subagent
+- 独立上下文
+- 内置
+  - general-purpose
+  - statusline-setup
+  - output-style-setup
+
+## sandbox
+
+
+## Claude Code Router
 
 - ~/.claude-code-router/config.json
 - ccr
@@ -444,12 +454,7 @@ ccr ui     # UI 模式
 ccr status # 状态
 ```
 
-## subagent
 
-- 内置
-  - general-purpose
-  - statusline-setup
-  - output-style-setup
 
 ## cc-switch
 

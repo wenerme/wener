@@ -12,6 +12,31 @@ title: FAQ
 
 :::
 
+| en                          | cn                                                     |
+| --------------------------- | ------------------------------------------------------ |
+| Guardrails                  | 护栏（安全与合规边界过滤）                             |
+| Turn                        | 轮次（对话中的一问一答）                               |
+| Step                        | 步骤（Agent 执行任务的推演动作或操作）                 |
+| Thread                      | 线索 / 话题流（维护独立上下文的对话分支）              |
+| Conversation                | 对话                                                   |
+| Session                     | 会话（持续交互的状态与生命周期）                       |
+| Prompt                      | 提示词 / 提示语                                        |
+| Token                       | 词元 / Token                                           |
+| Context Window              | 上下文窗口                                             |
+| Hallucination               | 幻觉（模型生成看似合理但实质错误的内容）               |
+| Grounding                   | 事实锚定 / 溯源 / 接地（通过引入外部权威数据限制幻觉） |
+| Agent                       | 智能体 / 代理                                          |
+| Alignment                   | 价值对齐（让大模型行为符合人类意图和价值观规则）       |
+| Persona                     | 角色设定 / 人设                                        |
+| Chain of Thought (CoT)      | 思维链 / 链式思考（`Think step by step`）              |
+| Function Calling / Tool Use | 函数调用 / 工具调用                                    |
+| RAG                         | 检索增强生成 (Retrieval-Augmented Generation)          |
+| Embedding                   | 嵌入 / 向量表示                                        |
+| Inference                   | 推理（服务端提供模型运行响应的服务过程）               |
+| Reasoning                   | 推理（模型进行内在逻辑推演和思考的能力）               |
+| Orchestration               | 编排（业务中对多个 Agent 或工具的流程调度）            |
+| Few-shot / Zero-shot        | 少样本 / 零样本（提示工程技巧）                        |
+
 ## Anthropic Bedrock need thinking block for thinking
 
 ```
@@ -198,3 +223,16 @@ tool_call 缺少 reasoning_content
 Access to Bedrock models is not allowed for this account.
 Request a quota increase from: https://support.console.aws.amazon.com/support/home?region=us-east-1#/case/create?issueType=service-limit-increase
 ```
+
+## This request has been blocked by our content filters. Our filters automatically flagged this prompt because it may conflict our AUP or AWS Responsible AI Policy. Please adjust your input image to submit a new request.
+
+**原因**：
+
+使用 AWS Bedrock 生成服务（主要集中在使用 Amazon Titan Image Generator 或特定的高敏模型时）抛出的内容审查过滤错误。
+AWS 内置了严格的内容审查机制（Guardrails 和底层模型审查），当你的 prompt 或者输入内容命中了 AWS 的 AUP (Acceptable Use Policy) 或 Responsible AI Policy 时会被拦截。
+
+**处理建议**：
+
+1. 修改 prompt，移除可能触发暴恐、色情、偏见、敏感实体（有时甚至商标名称，如 Disney 的角色名）词汇。
+2. 检查应用是否启用了自定义的 Bedrock Guardrails，如果有，可以调整 Guardrails 的敏感度阈值。
+3. 纯文本模型偶尔也会触发，大部分底层模型自身内置的安全限制用户无法修改，只能通过调整 prompt 来规避。

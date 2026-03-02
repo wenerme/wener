@@ -46,22 +46,23 @@ llama:
 ## API
 
 - OpenAI API
-  - v1/completions
-  - v1/chat/completions
-  - v1/embeddings
-  - v1/audio/speech
-  - v1/audio/transcriptions
+  - `v1/completions`
+  - `v1/chat/completions`
+  - `v1/embeddings`
+  - `v1/audio/speech`, `v1/audio/transcriptions`
+  - `v1/images/generations`, `v1/images/edits` (基于上游引擎能力透传)
+- 对于图片生成 (`v1/images/*`)：
+  - **原理**: llama-swap 本身不实现也不依赖特定量化引擎处理图片生成，它只负责依据请求中的 model 解析并按需启动/唤醒在 `llama-swap.yaml` 里配置的对应的上游 `cmd` 或 `proxy`。
+  - **实现方式**: 可以配置一个外部程序（如 LocalAI、Stable Diffusion WebUI 加 OpenAI proxy、或者是使用 ComfyUI 的 OpenAI API 封装），只要上游端口能响应标准的 `POST /v1/images/generations` 请求即可被成功代理。
 - llama-server
-  - v1/rerank, v1/reranking, /rerank
-  - /infill
-  - /completion
-- llama-swap
-  - /ui
-  - /upstream/:model_id
-    - 直接访问上游
-  - /models/unload
-  - /running
-  - /log
+  - `v1/rerank`, `v1/reranking`, `/rerank`
+  - `/infill` (代码补全)
+  - `/completion`
+- llama-swap 自身管理接口
+  - `/ui`
+  - `/upstream/:model_id` (直接访问对应上游实例)
+  - `/models/unload`
+  - `/running`, `/log`, `/health`, `/api/events`, `/logs/stream`
   - /health
   - /api/events
   - /logs/stream

@@ -51,6 +51,9 @@ tags:
   - x86_64
 - QEMU TCG JIT
   - QEMU WASM https://github.com/ktock/qemu-wasm
+- https://github.com/userland-run/nano
+  - tiny RISC-V user-mode Linux interpreter
+  - nodejs+busybox 130MB
 
 ```bash
 # 简单性能测试
