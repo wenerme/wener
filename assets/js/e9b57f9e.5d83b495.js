@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["344672"],{143752:function(e){e.exports=JSON.parse('{"tag":{"label":"TTY","permalink":"/notes/tags/tty","allTagsPath":"/notes/tags","count":1,"items":[{"id":"os/linux/dev/tty","title":"Linux TTY & PTY","description":"tty-pty}","permalink":"/notes/os/linux/dev/tty"}],"unlisted":false}}')}}]);

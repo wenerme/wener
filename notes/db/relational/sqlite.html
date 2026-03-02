@@ -1,0 +1,887 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-db/relational/sqlite/README" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>SQLite | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/db/relational/sqlite /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="SQLite | Wener Live & Life"/><meta data-rh=true name=description content="- 数据类型"/><meta data-rh=true property=og:description content="- 数据类型"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/db/relational/sqlite /><link data-rh=true rel=alternate href=https://wener.me/notes/db/relational/sqlite hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/db/relational/sqlite hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/db/","name":"数据库","position":1},{"@type":"ListItem","item":"https://wener.me/notes/db/relational/","name":"关系型数据库","position":2},{"@type":"ListItem","item":"https://wener.me/notes/db/relational/sqlite/","name":"SQLite","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Collapse sidebar category '数据库'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/column><span title="Column Store" class=categoryLinkLabel_RkOu>Column Store</span></a><button aria-label="Expand sidebar category 'Column Store'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/awesome><span title="Database Awesome" class=linkLabel_JPPZ>Database Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/dsn><span title=DSN class=linkLabel_JPPZ>DSN</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/faq><span title="Database FAQ" class=linkLabel_JPPZ>Database FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/glossary><span title=数据库术语 class=linkLabel_JPPZ>数据库术语</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/olap-awesome><span title="OLAP Database Awesome" class=linkLabel_JPPZ>OLAP Database Awesome</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/document/appwrite><span title=document class=categoryLinkLabel_RkOu>document</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/graph/agensgraph><span title=graph class=categoryLinkLabel_RkOu>graph</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/hashids><span title=Hashids class=linkLabel_JPPZ>Hashids</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/kv><span title="Key Value" class=categoryLinkLabel_RkOu>Key Value</span></a><button aria-label="Expand sidebar category 'Key Value'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/mobile><span title="Mobile Database" class=categoryLinkLabel_RkOu>Mobile Database</span></a><button aria-label="Expand sidebar category 'Mobile Database'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/newsql/cockroachdb><span title=newsql class=categoryLinkLabel_RkOu>newsql</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/olap><span title=OLAP class=categoryLinkLabel_RkOu>OLAP</span></a><button aria-label="Expand sidebar category 'OLAP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/ops/atlas><span title=ops class=categoryLinkLabel_RkOu>ops</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/raft><span title="Raft Consensus Algorithm" class=linkLabel_JPPZ>Raft Consensus Algorithm</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/db/relational><span title=关系型数据库 class=categoryLinkLabel_RkOu>关系型数据库</span></a><button aria-label="Collapse sidebar category '关系型数据库'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/eva><span title="Entity Attribute Value (EAV) Model" class=linkLabel_JPPZ>Entity Attribute Value (EAV) Model</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/h2><span title="H2 Database" class=linkLabel_JPPZ>H2 Database</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/mariadb><span title=MariaDB class=linkLabel_JPPZ>MariaDB</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/mssql><span title=MSSQL class=linkLabel_JPPZ>MSSQL</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/relational/mysql><span title=MySQL class=categoryLinkLabel_RkOu>MySQL</span></a><button aria-label="Expand sidebar category 'MySQL'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/relational/postgresql><span title=PostgresSQL class=categoryLinkLabel_RkOu>PostgresSQL</span></a><button aria-label="Expand sidebar category 'PostgresSQL'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/sql.js><span title=sql.js class=linkLabel_JPPZ>sql.js</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/sql><span title=SQL class=linkLabel_JPPZ>SQL</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible menu__list-item-collapsible--active"><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" aria-current=page tabindex=0 href=/notes/db/relational/sqlite><span title=SQLite class=categoryLinkLabel_RkOu>SQLite</span></a><button aria-label="Collapse sidebar category 'SQLite'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/sqlite/libsql><span title=libsql class=linkLabel_JPPZ>libsql</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/sqlite/litefs><span title=litefs class=linkLabel_JPPZ>litefs</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/sqlite/litestream><span title=litestream class=linkLabel_JPPZ>litestream</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/sqlite/sqlar><span title=sqlar class=linkLabel_JPPZ>sqlar</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/sqlite/sqlean><span title=SQLean class=linkLabel_JPPZ>SQLean</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/sqlite/faq><span title="SQLite FAQ" class=linkLabel_JPPZ>SQLite FAQ</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/tidb><span title=TiDB class=linkLabel_JPPZ>TiDB</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/relational/yugabytedb><span title=yugabyte-db class=linkLabel_JPPZ>yugabyte-db</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/schema><span title="Service Schema" class=linkLabel_JPPZ>Service Schema</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/search><span title=搜索 class=categoryLinkLabel_RkOu>搜索</span></a><button aria-label="Expand sidebar category '搜索'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/sling-cli><span title=sling-cli class=linkLabel_JPPZ>sling-cli</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/sysbench><span title=Sysbench class=linkLabel_JPPZ>Sysbench</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/theory/aggregate><span title=theory class=categoryLinkLabel_RkOu>theory</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/tile38><span title=Tile38 class=linkLabel_JPPZ>Tile38</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/ulid><span title=ulid class=linkLabel_JPPZ>ulid</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/usql><span title=usql class=linkLabel_JPPZ>usql</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/db><span>数据库</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/db/relational><span>关系型数据库</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>SQLite</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>SQLite</h1></header>
+<ul>
+<li><a href=http://sqlite.org/datatype3.html target=_blank rel="noopener noreferrer">数据类型</a>
+<ul>
+<li>存储类
+<ul>
+<li>NULL</li>
+<li>INTEGER - 0, 1, 2, 3, 4, 6, 8 bytes - 内存中都为 int64</li>
+<li>REAL - 8 byte</li>
+<li>TEXT - UTF-8, UTF-16BE, UTF-16LE</li>
+<li>BLOB</li>
+</ul>
+</li>
+<li>BOOLEAN -> 0,1</li>
+<li>DATETIME -> TEXT ISO8601, REAL, INTEGER Unix Timestamp</li>
+<li>类型亲和 - 类型之间会进行内部转换
+<ul>
+<li>INT,INTEGER,TINYINT,SMALLINT,MEDIUMINT,BIGINT,UNSIGNED BIG INT, INT2, INT8 -> INTEGER</li>
+<li>其他类似</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://sqlite.org/stricttables.html target=_blank rel="noopener noreferrer">STRICT Tables</a>
+<ul>
+<li><code>CREATE TABLE t1(a ANY) STRICT;</code></li>
+<li><code>PRAGMA strict=ON;</code></li>
+<li>强制类型 - INT, INTEGER, REAL, TEXT, BLOB, ANY</li>
+<li>ANY 和旧的类型类似</li>
+<li>PRAGMA integrity_check, quick_check 可检测类型</li>
+<li>不会提升性能 - 运行时检测，对存储无影响，核心性能在于 IO</li>
+</ul>
+</li>
+<li>ROWID - int64
+<ul>
+<li>rowid, oid, <code>_rowid_</code></li>
+<li>建表时可 WITHOUT ROWID</li>
+<li>如果表使用 INT 作为 pkey，则该列会被用于 rowid
+<ul>
+<li><code>CREATE TABLE t(x INTEGER PRIMARY KEY ASC, y, z);</code></li>
+</ul>
+</li>
+<li>btree 的 key</li>
+<li>通过 rowid 搜索和排序是普通 PRIMARY KEY 的两倍速度</li>
+</ul>
+</li>
+<li>语法
+<ul>
+<li><a href=https://www.sqlite.org/lang_expr.html target=_blank rel="noopener noreferrer">expr</a></li>
+<li><a href=https://www.sqlite.org/pragma.html target=_blank rel="noopener noreferrer">pragma</a></li>
+</ul>
+</li>
+<li>限制
+<ul>
+<li>不可以 ALTER COLUMN - 只能 rename table/column 形式去变更
+<ul>
+<li>不可以移除 UNIQUE - 推荐使用 UNIQUE INDEX - 可以被 drop</li>
+</ul>
+</li>
+<li><a href=https://sqlite.org/lang_altertable.html target=_blank rel="noopener noreferrer">altertable</a>
+<ul>
+<li>ALTER TABLE DROP COLUMN 不支持被引用的列
+<ul>
+<li>PRIMARY KEY, UNIQUE, 索引列, 包含在部分索引, 包含在 CHECK, 外键, 被用于生成列, 用于 trigger 和 view</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://www.sqlite.org/limits.html target=_blank rel="noopener noreferrer">Limits In SQLite</a>
+<ul>
+<li>SQLITE_MAX_LENGTH=1,000,000,000 - 1G - text,blob 最大长度</li>
+<li>SQLITE_MAX_COLUMN=2000 - 列</li>
+<li>SQLITE_MAX_SQL_LENGTH=1G - sql 最大长度 - 使用 prepare 避免长 sql</li>
+<li>JOIN 最多 64 个表</li>
+<li>SQLITE_MAX_EXPR_DEPTH=1000</li>
+<li>SQLITE_MAX_FUNCTION_ARG=127</li>
+<li>SQLITE_MAX_COMPOUND_SELECT=500</li>
+<li>SQLITE_MAX_LIKE_PATTERN_LENGTH=50000</li>
+<li>SQLITE_MAX_VARIABLE_NUMBER=999 - v3.32.0 32766</li>
+<li>SQLITE_MAX_TRIGGER_DEPTH=1000</li>
+<li>SQLITE_MAX_ATTACHED=10</li>
+<li>SQLITE_MAX_PAGE_COUNT=1073741823 - 1Gi - PRAGMA max_page_count</li>
+<li>281TB 库</li>
+<li>2^64 行</li>
+</ul>
+</li>
+<li><a href=https://www.sqlite.org/c3ref/c_limit_attached.htm target=_blank rel="noopener noreferrer">c_limit_attached</a></li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://sqlite.org/fiddle/ target=_blank rel="noopener noreferrer">https://sqlite.org/fiddle/</a></li>
+<li><a href=https://github.com/jlongster/absurd-sql target=_blank rel="noopener noreferrer">https://github.com/jlongster/absurd-sql</a></li>
+</ul>
+</li>
+</ul>
+<div class="theme-admonition theme-admonition-caution admonition_phik alert alert--warning"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 16 16"><path fill-rule=evenodd d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></span>caution</div><div class=admonitionContent_R6P7><ul>
+<li>SQLite 的类型是动态的 - 不强制 - 新版本支持严格类型</li>
+<li>SQLite 的核心限制是并发写入性能 - 如果需要并发写入，不建议用 SQLite</li>
+<li>DATETIME 不会存储毫秒</li>
+<li>没有 Base64 函数</li>
+<li>BLOB 作为二进制存储部分语言的 Driver 支持不太好</li>
+<li>不支持 INSERT DEFAULT</li>
+<li>column DEFAULT 表达式需要写为 <code>(expr)</code></li>
+</ul></div></div>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>tip</div><div class=admonitionContent_R6P7><ul>
+<li>默认最多 999 个变量</li>
+<li>WAL 模式可提升 单写多读 性能 - <code>PRAGMA journal_mode=WAL</code></li>
+<li>可以配合 zfs 进行压缩 - 注意使用相同的 page size
+<ul>
+<li>page_size 一般 4096, cache_size 一般 -2000 即 2000 kb</li>
+<li><code>PRAGMA schema.page_size</code>, <code>PRAGMA schema.cache_size</code></li>
+<li><a href=https://www.mail-archive.com/sqlite-users@mailinglists.sqlite.org/msg114729.html target=_blank rel="noopener noreferrer">compressed sqlite3 database file?</a></li>
+</ul>
+</li>
+<li>vacuum 是先写入临时文件，然后替换 - 需要很大空间</li>
+</ul></div></div>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>Why use SQLite</div><div class=admonitionContent_R6P7><ul>
+<li>零配置</li>
+<li>轻量级高效</li>
+<li>读为主</li>
+<li>需要传输大量小数据 - 把 SQLite 作为容器，传输整个文件</li>
+<li>不希望有外部服务依赖
+<ul>
+<li>大多服务能 Embed</li>
+<li>大多环境直接提供 NodeJS, Bun</li>
+</ul>
+</li>
+<li>希望在 KV 之上有 SQL - 有很多 KV 的文件存储方案</li>
+<li>支持 ACID</li>
+<li>跨平台兼容</li>
+<li>完善的社区和生态系统</li>
+</ul></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># macOS 安装</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">brew install sqlite3</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 因为系统自带 - 所以默认不会添加到 PATH</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">$(brew --prefix sqlite3)/bin/sqlite3</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 添加安装的 sqlite3 到 PATH</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">export PATH="/usr/local/opt/sqlite/bin:$PATH"</span><br/></span></code></pre></div></div>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 日期函数</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- https://sqlite.org/lang_datefunc.html</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 转换时间戳</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>select</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>datetime</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">1323648000</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'unixepoch'</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 获取时间戳, 带毫秒</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>SELECT</span><span class="token plain"> CAST</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">julianday</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'now'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">2440587.5</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">*</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">86400000</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>AS</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>INTEGER</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 默认值带毫秒</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>CREATE</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>TABLE</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>IF</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">NOT</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>EXISTS</span><span class="token plain"> event</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  create_at </span><span class="token keyword" style=font-style:italic>DATETIME</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>DEFAULT</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">STRFTIME</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'%Y-%m-%d %H:%M:%f'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'NOW'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 附加其他文件到数据库</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ATTACH </span><span class="token string" style="color:rgb(195, 232, 141)">'cache.db'</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>AS</span><span class="token plain"> cache</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 所有表</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token keyword" style=font-style:italic>tables</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 显示 create 表</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token keyword" style=font-style:italic>schema</span><span class="token plain"> urls</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=数据操作>数据操作<a href=#数据操作 class=hash-link aria-label="Direct link to 数据操作" title="Direct link to 数据操作" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=导入-csv>导入 csv<a href=#导入-csv class=hash-link aria-label="Direct link to 导入 csv" title="Direct link to 导入 csv" translate=no>​</a></h3>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 可以不用创建</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>create</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>table</span><span class="token plain"> foo</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">a</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> b</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token keyword" style=font-style:italic>mode</span><span class="token plain"> csv</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token keyword" style=font-style:italic>import</span><span class="token plain"> test</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">csv foo</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=导出-csv>导出 csv<a href=#导出-csv class=hash-link aria-label="Direct link to 导出 csv" title="Direct link to 导出 csv" translate=no>​</a></h3>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">output </span><span class="token keyword" style=font-style:italic>data</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">csv</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>select</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">*</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>from</span><span class="token plain"> foo</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=csv-虚拟表>csv 虚拟表<a href=#csv-虚拟表 class=hash-link aria-label="Direct link to csv 虚拟表" title="Direct link to csv 虚拟表" translate=no>​</a></h2>
+<ul>
+<li><a href=https://www.sqlite.org/csv.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/csv.html</a></li>
+</ul>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 加载扩展</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token keyword" style=font-style:italic>load</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token operator" style="color:rgb(137, 221, 255)">/</span><span class="token plain">csv</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>CREATE</span><span class="token plain"> VIRTUAL </span><span class="token keyword" style=font-style:italic>TABLE</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>temp</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">t1 </span><span class="token keyword" style=font-style:italic>USING</span><span class="token plain"> csv</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">filename</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token string" style="color:rgb(195, 232, 141)">'thefile.csv'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>SELECT</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">*</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>FROM</span><span class="token plain"> t1</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=datetime>DateTime<a href=#datetime class=hash-link aria-label="Direct link to DateTime" title="Direct link to DateTime" translate=no>​</a></h2>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- epoch to datetime</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>select</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>datetime</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">1580000000</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token string" style="color:rgb(195, 232, 141)">'unixepoch'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 添加时区</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>select</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>datetime</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">1580000000</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token string" style="color:rgb(195, 232, 141)">'unixepoch'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token string" style="color:rgb(195, 232, 141)">'localtime'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- datetime to epoch</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>select</span><span class="token plain"> strftime</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'%s'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>datetime</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">1580000000</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token string" style="color:rgb(195, 232, 141)">'unixepoch'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token string" style="color:rgb(195, 232, 141)">'localtime'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 当前 epoch</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>select</span><span class="token plain"> strftime</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'%s'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'now'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=notes>Notes<a href=#notes class=hash-link aria-label="Direct link to Notes" title="Direct link to Notes" translate=no>​</a></h2>
+<ul>
+<li>部分索引
+<ul>
+<li><a href=https://www.sqlite.org/partialindex.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/partialindex.html</a></li>
+</ul>
+</li>
+</ul>
+<p><a href=https://www.sqlite.org/optoverview.html target=_blank rel="noopener noreferrer">The SQLite Query Optimizer Overview</a></p>
+<ul>
+<li>WHERE 条件分析
+<ul>
+<li>索引选择</li>
+</ul>
+</li>
+<li>BETWEEN 优化
+<ul>
+<li>转换为 >= &lt;=</li>
+<li>与索引判断</li>
+</ul>
+</li>
+<li>OR 优化
+<ul>
+<li>相同列语意上可转换为 IN</li>
+<li>不同列 OR 需要按 Cost 选择</li>
+</ul>
+</li>
+<li>LIKE 优化
+<ul>
+<li>前缀索引</li>
+</ul>
+</li>
+<li>Skip-Scan 优化
+<ul>
+<li>条件不以索引最左列开始</li>
+<li>尝试限定最左列条件来利用索引</li>
+<li>例如当最左列只有固定几个值的时候</li>
+</ul>
+</li>
+<li>JOIN
+<ul>
+<li>JOIN 重排序</li>
+<li>基于 SQLITE_STAT 选择顺序</li>
+<li>通过 CROSS JOIN 控制查询</li>
+</ul>
+</li>
+<li>多个索引的选择
+<ul>
+<li>基于统计</li>
+<li>使用 <code>+a = 4</code> 的方式来暗示不实用 <code>a</code> 的索引</li>
+<li>范围查询</li>
+</ul>
+</li>
+<li>覆盖索引
+<ul>
+<li>全表扫描时选择包含 rowid 的索引</li>
+</ul>
+</li>
+<li>ORDER BY 优化
+<ul>
+<li>尝试使用符合 ORDER BY 要求的索引</li>
+</ul>
+</li>
+<li>通过索引进行部分 ORDER BY
+<ul>
+<li>包含多个 ORDER BY 时</li>
+</ul>
+</li>
+<li>拉平子查询
+<ul>
+<li>将子查询优化为 JOIN</li>
+</ul>
+</li>
+<li>协程执行子查询
+<ul>
+<li>部分子查询可以与当前查询并行执行</li>
+</ul>
+</li>
+<li>MIN/MAX 优化
+<ul>
+<li>如果列是某索引的最左列可以使用索引</li>
+</ul>
+</li>
+<li>自动索引
+<ul>
+<li>当查询没有索引时，可能会在语句执行期间自动创建一个索引。</li>
+<li>创建索引 O(NlogN) 全表扫描 O(N)</li>
+</ul>
+</li>
+<li>下推优化/Push-Down Optimization
+<ul>
+<li>一个子查询无法被平整为外部查询，可尝试将外部查询的条件下推到子查询中。</li>
+</ul>
+</li>
+<li>LEFT JOIN Strength Reduction Optimization
+<ul>
+<li>有时一个 LEFT JOIN 可以转换为一个普通的 JOIN，只要两者结果相同。</li>
+<li>if any column in the right-hand table of the LEFT JOIN must be non-NULL in order for the WHERE clause to be true, then the LEFT JOIN is demoted to an ordinary JOIN.</li>
+</ul>
+</li>
+<li>忽略 LEFT JOIN
+<ul>
+<li>有时 LEFT JOIN 可以完全呗忽略
+<ul>
+<li>飞聚合查询</li>
+<li>DISTINC 查询或使用 ON/USING 来限制 JOIN 只匹配一列</li>
+<li>LETF JOIN 右边表的列未在外部查询使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href=https://www.sqlite.org/queryplanner-ng.html target=_blank rel="noopener noreferrer">The Next-Generation Query Planner</a></p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=help>.help<a href=#help class=hash-link aria-label="Direct link to .help" title="Direct link to .help" translate=no>​</a></h2>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token keyword" style=font-style:italic>mode</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>column</span><br/></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>指令<th>描述<th>默认<tbody><tr><td>.backup ?DB? FILE<td>备份数据库(默认为 main)到 FILE<td><tr><td>.bail <code>on|off</code><td>错误时停止<td>OFF<tr><td>.binary <code>on|off</code><td>二进制输出<td>OFF<tr><td>.clone NEWDB<td>克隆现有的数据库到 NEWDB<td><tr><td>.databases<td>例举添加的数据库名和文件<td><tr><td>.dbinfo ?DB?<td>显示数据库状态信息<td><tr><td>.dump ?TABLE? ...<td>以 SQL 的形式转储数据库<br/>如果指定了表,则只转储匹配 LIKE 模式的表.<td><tr><td>.echo <code>on|off</code><td>命令回显<td><tr><td>.eqp <code>on|off</code><td>自动执行 EXPLAIN QUERY PLAN<td><tr><td>.exit<td>退出<td><tr><td>.explain <code>?on|off?</code><td>使用适合 EXPLAIN 的输出模式<br/>如果未指定参数,则为打开<td><tr><td>.fullschema<td>显示 sqlite_stat 的 schema 和内容<td><tr><td>.headers <code>on|off</code><td>显示头<td><tr><td>.help<td>显示该信息<td><tr><td>.import FILE TABLE<td>导入 FILE 内容为 TABLE<td><tr><td>.indexes ?TABLE?<td>显示所有索引<br/>如果指定了表,则只显示匹配 LIKE 模式的表.<td><tr><td>.limit ?LIMIT? ?VAL?<td>显示或更改 SQLITE_LIMIT 的值<td><tr><td>.log <code>FILE|off</code><td>日志, FILE 可以为 stderr/stdout<td><tr><td>.mode MODE ?TABLE?<td>设置输出模式<td><tr><td>-<td>ascii 行列使用 0x1F 和 0x1E 分隔<td><tr><td>-<td>csv 逗号分隔的值<td><tr><td>-<td>column 左对齐列 (参见 .width)<td><tr><td>-<td>html HTML <code>&lt;table></code> 代码<td><tr><td>-<td>insert Insert 语句 TABLE<td><tr><td>-<td>line 每行只有值<td><tr><td>-<td>list 使用 .separator 分隔的值<td><tr><td>-<td>tabs 制表符分割的值<td><tr><td>-<td>tcl TCL list 元素<td><tr><td>.nullvalue STRING<td>使用 STRING 来替代 NULL 值<td><tr><td>.once FILENAME<td>输出下一个 SQL 指令到 FILENAME<td><tr><td>.open ?FILENAME?<td>便于现有数据库并打开 FILENAME<td><tr><td>.output ?FILENAME?<td>发送输出到 FILENAME 或 stdout<td><tr><td>.print STRING...<td>显示 STRING<td><tr><td>.prompt MAIN CONTINUE<td>修改提示符<td><tr><td>.quit<td>退出<td><tr><td>.read FILENAME<td>执行 FILENAME 中的 SQL<td><tr><td>.restore ?DB? FILE<td>恢复 DB(默认 "main") 的内容到 FILE<td><tr><td>.save FILE<td>将内存数据库写入到 FILE<td><tr><td>.scanstats <code>on|off</code><td>打开或关闭 sqlite3_stmt_scanstatus() 监测<td><tr><td>.schema ?TABLE?<td>显示 CREATE 语句<br/>如果指定了表,则只显示匹配 LIKE 模式的表.<td><tr><td>.separator COL ?ROW?<td>修改列和行的分隔符,会影响输出和 .import<td><tr><td>.shell CMD ARGS...<td>在系统 shell 中执行 CMD ARGS...<td><tr><td>.show<td>显示当前的各种设置<td><tr><td>.stats <code>on|off</code><td>统计开关<td><tr><td>.system CMD ARGS...<td>在系统 shell 中执行 CMD ARGS...<td><tr><td>.tables ?TABLE?<td>显示表名<br/>如果指定了表,则只显示匹配 LIKE 模式的表.<td><tr><td>.timeout MS<td>打开被锁表的超时时间<td><tr><td>.timer <code>on|off</code><td>SQL 计时器开关<td><tr><td>.trace <code>FILE|off</code><td>输出每个 SQL 语句<td><tr><td>.vfsname ?AUX?<td>输出 VFS 栈<td><tr><td>.width NUM1 NUM2 ...<td>设置 "column" 模式的宽度,负值为右对齐<td></table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=deeper>Deeper<a href=#deeper class=hash-link aria-label="Direct link to Deeper" title="Direct link to Deeper" translate=no>​</a></h2>
+<p><a href=https://dzone.com/articles/how-sqlite-database-works target=_blank rel="noopener noreferrer">https://dzone.com/articles/how-sqlite-database-works</a></p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=node>Node<a href=#node class=hash-link aria-label="Direct link to Node" title="Direct link to Node" translate=no>​</a></h2>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># pre gyp 默认从 s3 下载 - 可指定镜像</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">yarn add sqlite3 --sqlite3_binary_host_mirror=https://npm.taobao.org/mirrors/sqlite3/</span><br/></span></code></pre></div></div>
+<div class="language-ts codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-ts codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 获取版本</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>const</span><span class="token plain"> db </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>new</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">Database</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">':memory:'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">db</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">serialize</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=></span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  db</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">each</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'select sqlite_version() as version'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">err</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> row</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=></span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token builtin" style="color:rgb(130, 170, 255)">console</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">log</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token template-string template-punctuation string" style="color:rgb(195, 232, 141)">`</span><span class="token template-string string" style="color:rgb(195, 232, 141)">sqlite version </span><span class="token template-string interpolation interpolation-punctuation punctuation" style="color:rgb(199, 146, 234)">${</span><span class="token template-string interpolation">row</span><span class="token template-string interpolation punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token template-string interpolation">version</span><span class="token template-string interpolation interpolation-punctuation punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token template-string template-punctuation string" style="color:rgb(195, 232, 141)">`</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">db</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">close</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=java>Java<a href=#java class=hash-link aria-label="Direct link to Java" title="Direct link to Java" translate=no>​</a></h2>
+<ul>
+<li>xerial sqlite-jdbc <a href=https://github.com/xerial/sqlite-jdbc/blob/master/Usage.md target=_blank rel="noopener noreferrer">Usage</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=udf>UDF<a href=#udf class=hash-link aria-label="Direct link to UDF" title="Direct link to UDF" translate=no>​</a></h2>
+<ul>
+<li><a href=http://www.sqlite.org/c3ref/create_function.html target=_blank rel="noopener noreferrer">Create Or Redefine SQL Functions</a></li>
+<li>PHP 支持 <a href=https://www.php.net/manual/en/sqlite3.createfunction.php target=_blank rel="noopener noreferrer">SQLite3::createFunction</a></li>
+<li>Java Xerial 支持 <a href=https://www.javadoc.io/doc/org.xerial/sqlite-jdbc/3.30.1/org/sqlite/Function.html target=_blank rel="noopener noreferrer">org.sqlite.Function</a></li>
+<li><a href=https://github.com/mapbox/node-sqlite3/issues/140 target=_blank rel="noopener noreferrer">mapbox/node-sqlite3#140</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=build>Build<a href=#build class=hash-link aria-label="Direct link to Build" title="Direct link to Build" translate=no>​</a></h2>
+<ul>
+<li>
+<p><a href=https://sqlite.org/howtocompile.html target=_blank rel="noopener noreferrer">How To Compile SQLite</a></p>
+</li>
+<li>
+<p><a href=https://sqlite.org/amalgamation.html target=_blank rel="noopener noreferrer">amalgamation</a></p>
+<ul>
+<li>合并后的 sqlite 源码</li>
+</ul>
+</li>
+<li>
+<p><a href=https://github.com/sqlite/sqlite target=_blank rel="noopener noreferrer">sqlite/sqlite</a></p>
+<ul>
+<li>mirror</li>
+</ul>
+</li>
+<li>
+<p><a href=https://www.sqlite.org/chronology.html target=_blank rel="noopener noreferrer">chronology</a></p>
+<ul>
+<li>版本历史</li>
+</ul>
+</li>
+<li>
+<p>依赖</p>
+<ul>
+<li>pthread - 多线程支持，可关闭 <code>SQLITE_THREADSAFE=0</code></li>
+<li>dl - 扩展模块支持，可关闭 <code>-DSQLITE_OMIT_LOAD_EXTENSION</code></li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># http://www.sqlite.org/年/sqlite-amalgamation-版本号.zip</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 2013-04-12	3.7.16.2</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -O http://www.sqlite.org/2013/sqlite-amalgamation-3071602.zip</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 正常编译</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">gcc shell.c sqlite3.c -lpthread -ldl -lm</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 单线程 - sqlite shell 不需要线程支持</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">gcc -DSQLITE_THREADSAFE=0 shell.c sqlite3.c -ldl -lm</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 单线程 无扩展</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">gcc -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSION shell.c sqlite3.c</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 单线程 无扩展 静态 - 方便移植</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">gcc -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSION -static shell.c sqlite3.c</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 交叉编译</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># arm-none 无法编译 - 缺少 stdlib.h, stdlb.h</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">arm-none-eabi-gcc -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSION -static shell.c sqlite3.c</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=dev>DEV<a href=#dev class=hash-link aria-label="Direct link to DEV" title="Direct link to DEV" translate=no>​</a></h2>
+<ul>
+<li><a href=https://zetcode.com/db/sqlitec/ target=_blank rel="noopener noreferrer">SQLite C tutorial</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=pragma>pragma<a href=#pragma class=hash-link aria-label="Direct link to pragma" title="Direct link to pragma" translate=no>​</a></h2>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">PRAGMA pragma_list</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">     </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 查看所有属性</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">PRAGMA compile_options</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 编译选项 https://www.sqlite.org/compile.html</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">PRAGMA module_list</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">     </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 模块列表</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">PRAGMA stats</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">           </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 统计新秀</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">PRAGMA freelist_count</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">--</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">PRAGMA database_list</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 数据库</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">PRAGMA table_list</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 表</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">PRAGMA function_list</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- PRAGMA table_info(table-name);</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- PRAGMA table_xinfo(table-name);</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- PRAGMA foreign_key_list(table-name);</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- PRAGMA index_list(table-name);</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- PRAGMA index_info(index-name);</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- PRAGMA index_xinfo(index-name);</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">PRAGMA table_info</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">sqlite_schema</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 表信息</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">PRAGMA table_xinfo</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">sqlite_schema</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">PRAGMA </span><span class="token keyword" style=font-style:italic>optimize</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 执行优化</span><br/></span></code></pre></div></div>
+<ul>
+<li>synchronous
+<ul>
+<li>0 | OFF
+<ul>
+<li>不调用 fsync</li>
+<li>应用崩溃安全，系统崩溃不安全</li>
+</ul>
+</li>
+<li>1 | NORMAL
+<ul>
+<li>sync 少于 FULL</li>
+</ul>
+</li>
+<li>2 | FULL
+<ul>
+<li>VFS xSync</li>
+<li>非 WAL 时使用</li>
+</ul>
+</li>
+<li>3 | EXTRA
+<ul>
+<li>同步 rollback journal</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>journal_mode - 控制 <code>-journal</code> 文件
+<ul>
+<li>DELETE - 事务结束删除 rollback journal</li>
+<li>TRUNCATE - 使用 truncaate 而非 删除 - 有的 fs 会更快</li>
+<li>PERSIST - 保留 - 再次写入就行覆盖
+<ul>
+<li>journal_size_limit=SQLITE_DEFAULT_JOURNAL_SIZE_LIMIT=32K</li>
+</ul>
+</li>
+<li>MEMORY</li>
+<li>WAL - 使用 WAL 而非 rollback journal
+<ul>
+<li>产生 <code>-shm</code> 和 <code>-wal</code> 文件</li>
+</ul>
+</li>
+<li>OFF - 禁用 rollback journal
+<ul>
+<li>没有 rollback 能力</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>wal_autocheckpoint=1000 - 自动执行 wal_checkpoint(PASSIVE)
+<ul>
+<li>当 WAL N 页后 auto-checkpoint</li>
+<li>控制 -wal 文件大小</li>
+<li>设置为 &lt;= 0 禁用 - 通过 wal_checkpoint 手动触发</li>
+</ul>
+</li>
+<li>wal_checkpoint(mode)
+<ul>
+<li>PASSIVE - 默认 - 不等待 reader</li>
+<li>FULL - 阻塞读</li>
+<li>RESTART - 同 FULL，且确保之后读会 RESTART log file</li>
+<li>TRUNCATE - 同 RESTART，且 truncate 文件</li>
+</ul>
+</li>
+<li>locking_mode
+<ul>
+<li>NORMAL - 默认</li>
+<li>EXCLUSIVE</li>
+</ul>
+</li>
+<li>auto_vacuum - 需要在创建表之前指定，创建表会添加额外信息用于追踪
+<ul>
+<li>0 | NONE - 默认 - 需要执行 VACUUM 来回收空间</li>
+<li>1 | FULL - 每次 commit 移动空页到文件尾部，然后 truncate - 会导致文件碎片化</li>
+<li>2 | INCREMENTAL
+<ul>
+<li>incremental_vacuum=N</li>
+<li>当 freelist 达到给定的 page 后就行 auto vaccum</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>temp_store - 存储 temporary indices / tables 逻辑
+<ul>
+<li>0 | DEFAULT</li>
+<li>1 | FILE</li>
+<li>2 | MEMORY;</li>
+</ul>
+</li>
+<li>automatic_index=true - SQLite 会基于查询自动创建索引优化后续查询</li>
+<li>page_size=4096 - 范围 512 - 65536
+<ul>
+<li>修改需要 vacuum 才能生效</li>
+</ul>
+</li>
+<li>max_page_count</li>
+<li>page_count - 当前的页数</li>
+<li>mmap_size=0 - <a href=https://sqlite.org/mmap.html target=_blank rel="noopener noreferrer">https://sqlite.org/mmap.html</a>
+<ul>
+<li>不一定会提升性能</li>
+<li>0 禁用</li>
+</ul>
+</li>
+<li>cache_size=2000
+<ul>
+<li>2000 -> 2000xpage_size -> 2000x4k=8M</li>
+</ul>
+</li>
+<li>foreign_key_check - 是否校验外键约束</li>
+<li>ignore_check_constraints</li>
+<li>encoding=UTF-8</li>
+<li>query_only - 只读模式</li>
+<li>quick_check
+<ul>
+<li>比 integrity_check 少检查 unique</li>
+</ul>
+</li>
+<li>read_uncommitted</li>
+<li>recursive_triggers</li>
+<li>reverse_unordered_selects</li>
+<li>secure_delete
+<ul>
+<li>开启后删除会置 0</li>
+</ul>
+</li>
+<li>schema_version - int32 at offset 40 - schema cookie</li>
+<li>writable_schema</li>
+<li>shrink_memory - 释放内存</li>
+<li>额外信息
+<ul>
+<li>user_version - int32 at offset 60</li>
+<li>application_id - int32 at offset 68
+<ul>
+<li>部分已知 id - <a href="https://www.sqlite.org/src/artifact?ci=trunk&filename=magic.txt" target=_blank rel="noopener noreferrer">https://www.sqlite.org/src/artifact?ci=trunk&filename=magic.txt</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://www.sqlite.org/pragma.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/pragma.html</a></li>
+</ul>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- 修改 page_size</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pragma page_count</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pragma page_size </span><span class="token number" style="color:rgb(247, 140, 108)">65536</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">vacuum</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pragma page_count</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=sqlite_stat1>sqlite_stat1<a href=#sqlite_stat1 class=hash-link aria-label="Direct link to sqlite_stat1" title="Direct link to sqlite_stat1" translate=no>​</a></h2>
+<ul>
+<li><a href=https://www.sqlite.org/lang_analyze.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/lang_analyze.html</a>
+ANALYZE 会生成统计信息表</li>
+<li><a href=https://www.sqlite.org/fileformat2.html#stat1tab target=_blank rel="noopener noreferrer">stat1tab</a>
+<ul>
+<li>sqlite_stat1 可更新或删除，不可 alter 或创建</li>
+</ul>
+</li>
+</ul>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token keyword" style=font-style:italic>CREATE</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>TABLE</span><span class="token plain"> sqlite_stat1</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">tbl</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">idx</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">stat</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- v3.6.18 2009-09-11</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>CREATE</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>TABLE</span><span class="token plain"> sqlite_stat2</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">tbl</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">idx</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">sampleno</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">sample</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- v3.7.9 - 2011-11-01</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>CREATE</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>TABLE</span><span class="token plain"> sqlite_stat3</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">tbl</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">idx</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">nEq</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">nLt</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">nDLt</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">sample</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- v3.8.1 - 2013-10-17</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>CREATE</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>TABLE</span><span class="token plain"> sqlite_stat4</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">tbl</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">idx</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">nEq</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">nLt</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">nDLt</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">sample</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<ul>
+<li>tbl - 表名</li>
+<li>idx - 索引</li>
+<li>sample - 采样数据 - BLOB</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=wal>WAL<a href=#wal class=hash-link aria-label="Direct link to WAL" title="Direct link to WAL" translate=no>​</a></h2>
+<ul>
+<li>优点
+<ul>
+<li>大多情况都会更快</li>
+<li>读 不阻塞 写，写 不阻塞 读</li>
+<li>大多为顺序 IO</li>
+<li>更少 fsync</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>基于共享内存 - 不能在 NFS 这种跨节点 FS 使用</li>
+<li>进入 WAL 后不可以修改 page_size</li>
+<li>产生额外的 -wal, -shm 文件</li>
+</ul>
+</li>
+<li><a href=https://www.sqlite.org/wal.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/wal.html</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=syntax>syntax<a href=#syntax class=hash-link aria-label="Direct link to syntax" title="Direct link to syntax" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=attach>attach<a href=#attach class=hash-link aria-label="Direct link to attach" title="Direct link to attach" translate=no>​</a></h3>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">attach expr </span><span class="token keyword" style=font-style:italic>as</span><span class="token plain"> name</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">detach name</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://www.sqlite.org/lang_attach.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/lang_attach.html</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=json>json<a href=#json class=hash-link aria-label="Direct link to json" title="Direct link to json" translate=no>​</a></h3>
+<ul>
+<li><a href=https://www.sqlite.org/json1.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/json1.html</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=upsert>upsert<a href=#upsert class=hash-link aria-label="Direct link to upsert" title="Direct link to upsert" translate=no>​</a></h3>
+<ul>
+<li><a href=https://www.sqlite.org/lang_UPSERT.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/lang_UPSERT.html</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=format>format<a href=#format class=hash-link aria-label="Direct link to format" title="Direct link to format" translate=no>​</a></h2>
+<ul>
+<li>page
+<ul>
+<li>lock-byte</li>
+<li>freelist - 不活跃的页 - linked list 形式
+<ul>
+<li>freelist trunk</li>
+<li>freelist leaf</li>
+</ul>
+</li>
+<li>b-tree
+<ul>
+<li>table b-tree interior</li>
+<li>table b-tree leaf</li>
+<li>tindex b-tree interior</li>
+<li>tindex b-tree leaf</li>
+</ul>
+</li>
+<li>payload overflow</li>
+<li>pointer map</li>
+</ul>
+</li>
+<li>-journal - 回滚日志
+<ul>
+<li>page number in db</li>
+<li>原始 page 内容</li>
+</ul>
+</li>
+<li>-wal
+<ul>
+<li>checkpoint 序列号</li>
+<li>frames - 24-byte header+page</li>
+</ul>
+</li>
+<li>-shm - wal-index</li>
+<li><a href=https://www.sqlite.org/fileformat2.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/fileformat2.html</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=vacuum>vacuum<a href=#vacuum class=hash-link aria-label="Direct link to vacuum" title="Direct link to vacuum" translate=no>​</a></h2>
+<ul>
+<li>重建数据库文件，释放不需要的磁盘空间</li>
+<li>VACUUM INTO 类似 backup，且生成的 db 是 VACUUM 后的</li>
+</ul>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">-- VACUUM [schema] [INFO filename];</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://www.sqlite.org/lang_vacuum.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/lang_vacuum.html</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=query>query<a href=#query class=hash-link aria-label="Direct link to query" title="Direct link to query" translate=no>​</a></h2>
+<ul>
+<li><a href=https://www.sqlite.org/queryplanner.html target=_blank rel="noopener noreferrer">Query Planning</a></li>
+<li><a href=https://www.sqlite.org/lang_explain.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/lang_explain.html</a></li>
+<li><a href=https://www.sqlite.org/eqp.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/eqp.html</a></li>
+<li><a href=https://www.sqlite.org/optoverview.html target=_blank rel="noopener noreferrer">Query Optimizer Overview</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=versions>Versions<a href=#versions class=hash-link aria-label="Direct link to Versions" title="Direct link to Versions" translate=no>​</a></h2>
+<ul>
+<li>SQLite v3.38.0 - 2022-02-22
+<ul>
+<li>默认包含 json</li>
+<li>json <code>-></code>, <code>->></code></li>
+</ul>
+</li>
+<li>SQLite v3.37.2
+<ul>
+<li>-DSQLITE_ENABLE_JSON1 - json1</li>
+</ul>
+</li>
+<li>SQLite v3.37.0 - 2021-11-27
+<ul>
+<li>STRICT Tables</li>
+</ul>
+</li>
+<li>SQLite v3.23.0 - 2018-04-02
+<ul>
+<li>识别 TRUE, FALSE -> 1, 0</li>
+</ul>
+</li>
+<li>SQLite v3.12.0 - 2016-03-29
+<ul>
+<li>page_size 1024 -> 4096</li>
+</ul>
+</li>
+<li>SQLite v3.8.2 - 2013-12-06
+<ul>
+<li>WITHOUT ROWID</li>
+</ul>
+</li>
+<li>SQLite v3.8.0 - 2013-08-26
+<ul>
+<li>部分索引</li>
+</ul>
+</li>
+<li>SQLite v3.7.17 - 2013-05-20
+<ul>
+<li>mmap</li>
+</ul>
+</li>
+<li>SQLite v3.7.0 - 2010-07-21
+<ul>
+<li>WAL</li>
+</ul>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/topic>Topic</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/db/relational/sqlite/README.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2024-11-25T06:56:18.000Z itemprop=dateModified>Nov 25, 2024</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/db/relational/sql><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>SQL</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/db/relational/sqlite/libsql><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>libsql</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#数据操作 class="table-of-contents__link toc-highlight">数据操作</a><ul><li><a href=#导入-csv class="table-of-contents__link toc-highlight">导入 csv</a><li><a href=#导出-csv class="table-of-contents__link toc-highlight">导出 csv</a></ul><li><a href=#csv-虚拟表 class="table-of-contents__link toc-highlight">csv 虚拟表</a><li><a href=#datetime class="table-of-contents__link toc-highlight">DateTime</a><li><a href=#notes class="table-of-contents__link toc-highlight">Notes</a><li><a href=#help class="table-of-contents__link toc-highlight">.help</a><li><a href=#deeper class="table-of-contents__link toc-highlight">Deeper</a><li><a href=#node class="table-of-contents__link toc-highlight">Node</a><li><a href=#java class="table-of-contents__link toc-highlight">Java</a><li><a href=#udf class="table-of-contents__link toc-highlight">UDF</a><li><a href=#build class="table-of-contents__link toc-highlight">Build</a><li><a href=#dev class="table-of-contents__link toc-highlight">DEV</a><li><a href=#pragma class="table-of-contents__link toc-highlight">pragma</a><li><a href=#sqlite_stat1 class="table-of-contents__link toc-highlight">sqlite_stat1</a><li><a href=#wal class="table-of-contents__link toc-highlight">WAL</a><li><a href=#syntax class="table-of-contents__link toc-highlight">syntax</a><ul><li><a href=#attach class="table-of-contents__link toc-highlight">attach</a><li><a href=#json class="table-of-contents__link toc-highlight">json</a><li><a href=#upsert class="table-of-contents__link toc-highlight">upsert</a></ul><li><a href=#format class="table-of-contents__link toc-highlight">format</a><li><a href=#vacuum class="table-of-contents__link toc-highlight">vacuum</a><li><a href=#query class="table-of-contents__link toc-highlight">query</a><li><a href=#versions class="table-of-contents__link toc-highlight">Versions</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

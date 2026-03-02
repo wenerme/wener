@@ -1,0 +1,462 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ai/dev/comfyui/README" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>ComfyUI | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/ai/dev/comfyui /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="ComfyUI | Wener Live & Life"/><meta data-rh=true name=description content="- comfyanonymous/ComfyUI"/><meta data-rh=true property=og:description content="- comfyanonymous/ComfyUI"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/ai/dev/comfyui /><link data-rh=true rel=alternate href=https://wener.me/notes/ai/dev/comfyui hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/ai/dev/comfyui hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/ai/","name":"AI","position":1},{"@type":"ListItem","item":"https://wener.me/notes/ai/dev/comfyui/","name":"ComfyUI","position":2}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Collapse sidebar category 'AI'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/agent><span title=Agent class=categoryLinkLabel_RkOu>Agent</span></a><button aria-label="Expand sidebar category 'Agent'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/awesome><span title="AI Awesome" class=linkLabel_JPPZ>AI Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/faq><span title="AI FAQ" class=linkLabel_JPPZ>AI FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/glossary><span title="AI Glossary" class=linkLabel_JPPZ>AI Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/insight><span title="AI Insight" class=linkLabel_JPPZ>AI Insight</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/aigc><span title=AIGC class=linkLabel_JPPZ>AIGC</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/ai/coding/continue><span title=coding class=categoryLinkLabel_RkOu>coding</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dayflow><span title=Dayflow class=linkLabel_JPPZ>Dayflow</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/notes/ai/dev/awesome><span title=dev class=categoryLinkLabel_RkOu>dev</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/awesome><span title="AI Dev Awesome" class=linkLabel_JPPZ>AI Dev Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/faq><span title="AI Dev FAQ" class=linkLabel_JPPZ>AI Dev FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/aiops><span title=AIOps class=linkLabel_JPPZ>AIOps</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/archgw><span title=archgw class=linkLabel_JPPZ>archgw</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/bifrost><span title=bifrost class=linkLabel_JPPZ>bifrost</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/bricksllm><span title=BricksLLM class=linkLabel_JPPZ>BricksLLM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/chatgpt-next-web><span title=ChatGPT-Next-Web class=linkLabel_JPPZ>ChatGPT-Next-Web</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/codex-cli><span title=Codex class=linkLabel_JPPZ>Codex</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/ai/dev/comfyui><span title=ComfyUI class=linkLabel_JPPZ>ComfyUI</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/copilotkit><span title=CopilotKit class=linkLabel_JPPZ>CopilotKit</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/cuda><span title=FAQ class=linkLabel_JPPZ>FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/evalscope><span title=evalscope class=linkLabel_JPPZ>evalscope</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/genai><span title=genai class=linkLabel_JPPZ>genai</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/ai/dev/ggml/llama.cpp><span title=ggml class=categoryLinkLabel_RkOu>ggml</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/langchain><span title=langchain class=linkLabel_JPPZ>langchain</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/dev/litellm><span title=LiteLLM class=categoryLinkLabel_RkOu>LiteLLM</span></a><button aria-label="Expand sidebar category 'LiteLLM'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/llama-swap><span title=llama-swap class=linkLabel_JPPZ>llama-swap</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/localai><span title=LocalAI class=linkLabel_JPPZ>LocalAI</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/memory><span title=AGENTS.md class=linkLabel_JPPZ>AGENTS.md</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/ollama><span title=ollama class=linkLabel_JPPZ>ollama</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/portkey-ai-gateway><span title=Portkey-AI/gateway class=linkLabel_JPPZ>Portkey-AI/gateway</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/quantization><span title=Quantization class=linkLabel_JPPZ>Quantization</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/rag><span title=RAG class=linkLabel_JPPZ>RAG</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/repomix><span title=Repomix class=linkLabel_JPPZ>Repomix</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/sglang><span title=sglang class=linkLabel_JPPZ>sglang</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/stable-diffusion.cpp><span title=stable-diffusion.cpp class=linkLabel_JPPZ>stable-diffusion.cpp</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/tgi><span title="Text Generation Inference" class=linkLabel_JPPZ>Text Generation Inference</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/vercel-ai-sdk><span title="Vercel AI SDK" class=linkLabel_JPPZ>Vercel AI SDK</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dev/vllm><span title=vllm class=linkLabel_JPPZ>vllm</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/diffusion><span title=Diffusion class=categoryLinkLabel_RkOu>Diffusion</span></a><button aria-label="Expand sidebar category 'Diffusion'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dify><span title=Dify class=linkLabel_JPPZ>Dify</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/embedding><span title=Embedding class=linkLabel_JPPZ>Embedding</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/gan><span title=GANs class=categoryLinkLabel_RkOu>GANs</span></a><button aria-label="Expand sidebar category 'GANs'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/gpt><span title=GPT class=categoryLinkLabel_RkOu>GPT</span></a><button aria-label="Expand sidebar category 'GPT'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/inference><span title=推理 class=categoryLinkLabel_RkOu>推理</span></a><button aria-label="Expand sidebar category '推理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/llm><span title=LLM class=categoryLinkLabel_RkOu>LLM</span></a><button aria-label="Expand sidebar category 'LLM'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/maas><span title=MaaS class=categoryLinkLabel_RkOu>MaaS</span></a><button aria-label="Expand sidebar category 'MaaS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/ml><span title=机器学习 class=categoryLinkLabel_RkOu>机器学习</span></a><button aria-label="Expand sidebar category '机器学习'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/ai/model/awesome><span title=model class=categoryLinkLabel_RkOu>model</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/ner><span title="Named Entity Recognition" class=linkLabel_JPPZ>Named Entity Recognition</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/nlp><span title=NLP class=categoryLinkLabel_RkOu>NLP</span></a><button aria-label="Expand sidebar category 'NLP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/ocr><span title=OCR class=categoryLinkLabel_RkOu>OCR</span></a><button aria-label="Expand sidebar category 'OCR'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/precision><span title=精度 class=linkLabel_JPPZ>精度</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/projects><span title="AI Projects" class=linkLabel_JPPZ>AI Projects</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/prompt-awesome><span title="Prompt Awesome" class=linkLabel_JPPZ>Prompt Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/prompts><span title=Prompts class=linkLabel_JPPZ>Prompts</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/prompts-cookbook><span title="Prompts Cookbook" class=linkLabel_JPPZ>Prompts Cookbook</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/service><span title="AI Service" class=categoryLinkLabel_RkOu>AI Service</span></a><button aria-label="Expand sidebar category 'AI Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/training><span title=训练 class=categoryLinkLabel_RkOu>训练</span></a><button aria-label="Expand sidebar category '训练'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/vision><span title=视觉 class=linkLabel_JPPZ>视觉</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/voice><span title=Voice class=categoryLinkLabel_RkOu>Voice</span></a><button aria-label="Expand sidebar category 'Voice'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/ai><span>AI</span></a><li class=breadcrumbs__item><span class=breadcrumbs__link>dev</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>ComfyUI</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>ComfyUI</h1></header>
+<ul>
+<li><a href=https://github.com/comfyanonymous/ComfyUI target=_blank rel="noopener noreferrer">comfyanonymous/ComfyUI</a>
+<ul>
+<li>Apache-2.0, Python</li>
+<li>modular diffusion model GUI, api and backend with a graph/nodes interface</li>
+</ul>
+</li>
+<li>确保 Base Model 尽量一致</li>
+<li>有些模型对 Base Model 有要求</li>
+<li>Control Net
+<ul>
+<li>SD 1.5</li>
+</ul>
+</li>
+<li>Juggernaut</li>
+<li>生产部署
+<ul>
+<li>ComfyDeploy</li>
+<li>另存 (API 格式)</li>
+<li>调用 /prompt</li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://github.com/BennyKok/comfyui-deploy target=_blank rel="noopener noreferrer">BennyKok/comfyui-deploy</a></li>
+<li><a href=https://github.com/Comfy-Org/ComfyUI-Manager target=_blank rel="noopener noreferrer">Comfy-Org/ComfyUI-Manager</a></li>
+<li><a href=https://docs.comfy.org/tutorials/ target=_blank rel="noopener noreferrer">https://docs.comfy.org/tutorials/</a></li>
+<li>Transform Your Videos with Professional Quality: WAN-VACE V2V Complete Workflow for ComfyUI <a href=https://civitai.com/articles/16401 target=_blank rel="noopener noreferrer">https://civitai.com/articles/16401</a></li>
+</ul>
+</li>
+</ul>
+<div class="theme-admonition theme-admonition-caution admonition_phik alert alert--warning"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 16 16"><path fill-rule=evenodd d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></span>caution</div><div class=admonitionContent_R6P7><ul>
+<li>只能单一显卡
+<ul>
+<li><a href=https://github.com/comfyanonymous/ComfyUI/discussions/4139 target=_blank rel="noopener noreferrer">https://github.com/comfyanonymous/ComfyUI/discussions/4139</a></li>
+</ul>
+</li>
+</ul></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">git clone --depth 1 https://github.com/comfyanonymous/ComfyUI ComfyUI</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uv venv --python 3.12</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uv pip install -r requirements.txt</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 启动</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># http://127.0.0.1:8188</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uv run ./main.py</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># macOS 可能需要 nightly 版本 - 不过现在的版本一般都支持 pytorch 了</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># https://developer.apple.com/metal/pytorch/</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uv pip install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># cuda</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uv pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">#uv pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu128</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uv pip install -r requirements.txt</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># Nvidia APEX normalization not installed, using PyTorch LayerNorm</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uv pip install xformers</span><br/></span></code></pre></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockTitle_Lwh4>mps.py</div><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 应该输出 tensor([1.], device='mps:0')</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">import torch</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">if torch.backends.mps.is_available():</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    mps_device = torch.device("mps")</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    x = torch.ones(1, device=mps_device)</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    print (x)</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">else:</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    print ("MPS device not found.")</span><br/></span></code></pre></div></div>
+<ul>
+<li>模型下载
+<ul>
+<li><a href=https://huggingface.co/Comfy-Org target=_blank rel="noopener noreferrer">https://huggingface.co/Comfy-Org</a>
+<ul>
+<li><a href=https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive target=_blank rel="noopener noreferrer">https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=awesome>Awesome<a href=#awesome class=hash-link aria-label="Direct link to Awesome" title="Direct link to Awesome" translate=no>​</a></h2>
+<ul>
+<li><a href=https://cdn.comfy.org target=_blank rel="noopener noreferrer">https://cdn.comfy.org</a></li>
+<li>Examples/Workflows
+<ul>
+<li><a href=https://github.com/comfyanonymous/ComfyUI_examples target=_blank rel="noopener noreferrer">https://github.com/comfyanonymous/ComfyUI_examples</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/city96/ComfyUI-GGUF target=_blank rel="noopener noreferrer">city96/ComfyUI-GGUF</a></li>
+<li>API
+<ul>
+<li><a href=https://github.com/SaladTechnologies/comfyui-api target=_blank rel="noopener noreferrer">https://github.com/SaladTechnologies/comfyui-api</a>
+<ul>
+<li>适合固定流程的任务</li>
+<li>作为 Worker 方式运行</li>
+<li>自动上传 S3</li>
+</ul>
+</li>
+<li><a href=https://docs.comfy.org/development/comfyui-server/comms_routes target=_blank rel="noopener noreferrer">https://docs.comfy.org/development/comfyui-server/comms_routes</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>z-image-turbo</strong></p>
+<ul>
+<li><a href=https://www.reddit.com/r/StableDiffusion/comments/1p9k8td/z_image_lora_training_on_a_3060_12gb_ai_toolkit/ target=_blank rel="noopener noreferrer">Z Image Lora Training on a 3060 12GB + AI Toolkit Guide that a child can use</a></li>
+<li><a href=https://comfyanonymous.github.io/ComfyUI_examples/z_image/ target=_blank rel="noopener noreferrer">https://comfyanonymous.github.io/ComfyUI_examples/z_image/</a></li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 从图片 EXIF 获取 prompt, workflow 等信息</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">exiftool -Parameters -Prompt -Workflow image.png</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># ZImage</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># https://huggingface.co/Comfy-Org/z_image_turbo/blob/main/split_files/text_encoders/qwen_3_4b.safetensors</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -LO https://www.modelscope.cn/models/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors --output-dir models/text_encoders</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># https://huggingface.co/Comfy-Org/z_image_turbo/blob/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -LO https://www.modelscope.cn/models/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors --output-dir models/diffusion_models</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 这个如果之前玩过，应该都已经有了</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># https://huggingface.co/Comfy-Org/z_image_turbo/blob/main/split_files/vae/ae.safetensors</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -LO https://www.modelscope.cn/models/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors --output-dir models/vae</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=comfyui-manager>ComfyUI Manager<a href=#comfyui-manager class=hash-link aria-label="Direct link to ComfyUI Manager" title="Direct link to ComfyUI Manager" translate=no>​</a></h2>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">git clone https://github.com/ltdrdata/ComfyUI-Manager custom_nodes/comfyui-manager</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uv pip install -r custom_nodes/comfyui-manager/requirements.txt</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uv pip install pip # 会使用 pip 安装依赖</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 代理访问</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">GITHUB_ENDPOINT=https://echo.wener.cc \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  HF_ENDPOINT=https://hf-mirror.com \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  uv run ./main.py</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json target=_blank rel="noopener noreferrer">https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json</a></li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">No module named pip</span><br/></span></code></pre></div></div>
+<p>使用 uv 的时候会出现</p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=notes>Notes<a href=#notes class=hash-link aria-label="Direct link to Notes" title="Direct link to Notes" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th style=text-align:left>dir<th style=text-align:left>for<tbody><tr><td style=text-align:left><code>checkpoints</code><td style=text-align:left>核心基础模型，也叫“大模型”。这是文生图的起点，决定了图像生成的基础风格和能力。例如 Stable Diffusion v1.5, SDXL, 以及社区训练的各种整合模型。<tr><td style=text-align:left><code>loras</code><td style=text-align:left>LoRA 模型。这些是小型微调文件，用于向基础模型添加特定的角色、画风、概念或服装，灵活性极高。<tr><td style=text-align:left><code>vae</code><td style=text-align:left>VAE 模型。用于图像的编码和解码。独立的 VAE 文件可以修正图像的色彩（如改善灰蒙蒙的问题）或修复手部等细节问题。SDXL 模型通常不需要额外 VAE。<tr><td style=text-align:left><code>controlnet</code><td style=text-align:left>ControlNet 模型。用于精确控制图像的生成，例如通过姿势骨架、深度图、线稿、二维码等来引导构图和内容。<tr><td style=text-align:left><code>upscale_models</code><td style=text-align:left>图像放大模型。用于“图像放大 (模型)”节点，提升图片分辨率并优化细节。例如 ESRGAN, SwinIR, 4x-UltraSharp 等。<tr><td style=text-align:left><code>embeddings</code><td style=text-align:left>文本反演 (Textual Inversion) 嵌入，也叫 Embedding。这些是极小的文件，通过一个关键词触发特定的概念、角色或画风。常用于负面提示词（如 <code>bad-hands-5</code>）。<tr><td style=text-align:left><code>clip</code><td style=text-align:left>CLIP 文本编码器模型。通常 ComfyUI 会自动从大模型中加载，但你也可以把独立的 CLIP 模型放在这里，供高级工作流使用。<tr><td style=text-align:left><code>clip_vision</code><td style=text-align:left>CLIP Vision 模型。用于分析图像内容，是 IPAdapter、PhotoMaker 等“图像提示”功能的核心组件。<tr><td style=text-align:left><code>style_models</code><td style=text-align:left>风格模型。主要用于 T2I-Adapter，功能与 ControlNet 类似，但更侧重于风格的迁移。<tr><td style=text-align:left><code>hypernetworks</code><td style=text-align:left>Hypernetwork 模型。一种比 LoRA 更早出现的微调技术，现在已不常用，但 ComfyUI 仍然支持加载。<tr><td style=text-align:left><code>unet</code><td style=text-align:left>U-Net 模型。U-Net 是 Stable Diffusion 模型的核心降噪网络。普通用户几乎不会用到这个目录，主要用于模型开发和研究，将 U-Net 单独分离出来加载。<tr><td style=text-align:left><code>text_encoders</code><td style=text-align:left>文本编码器模型。与 <code>unet</code> 类似，用于模型研究，允许单独加载和替换文本编码器部分。<tr><td style=text-align:left><code>photomaker</code><td style=text-align:left>PhotoMaker 模型。一种专门用于根据输入人脸照片生成统一角色的模型。<tr><td style=text-align:left><code>sams</code><td style=text-align:left>SAM (Segment Anything Model) 模型。由 Meta 开发的图像分割模型，在 ComfyUI 中用于精确地创建和分离遮罩 (Mask)。<tr><td style=text-align:left><code>gligen</code><td style=text-align:left>GLIGEN 模型。用于“限定区域生成”，允许你通过画框来指定某个物体在图像中的特定位置和大小。<tr><td style=text-align:left><code>diffusers</code><td style=text-align:left>用于存放 Hugging Face 的 Diffusers 格式模型。这种格式是一个包含多个子目录和文件的文件夹，而不是单个文件。ComfyUI 可以直接加载这种格式。<tr><td style=text-align:left><code>configs</code><td style=text-align:left>配置文件。存放一些旧的 <code>.ckpt</code> 模型所需要的 <code>.yaml</code> 配置文件，以帮助 ComfyUI 识别其模型架构（如 v1 或 v2）。现在的 <code>.safetensors</code> 模型通常不需要。<tr><td style=text-align:left><code>vae_approx</code><td style=text-align:left>VAE 近似解码器模型。这些是极小的、速度极快的模型，用于在 KSampler 采样过程中生成快速预览图，而不是每次都调用完整的 VAE。<tr><td style=text-align:left><code>onnx</code><td style=text-align:left>ONNX 模型。用于存放已转换为 ONNX (Open Neural Network Exchange) 格式的模型，通常用于在非 NVIDIA 硬件（如 AMD 显卡）上通过 DirectML 或 Olive 进行推理。<tr><td style=text-align:left><code>diffusion_models</code><td style=text-align:left>扩散模型组件。一个更通用的目录，类似于 <code>unet</code>，用于存放扩散模型的某些部分。主要供模型开发者使用。</table>
+<p><strong>AI Art</strong></p>
+<ul>
+<li>Text2Img</li>
+<li>Img2Img</li>
+<li>Inpaint</li>
+<li>Text2Video</li>
+<li>Img2Video</li>
+<li>Prompt</li>
+<li>Negative Prompt</li>
+<li>Upscale</li>
+<li>Depth2Img
+<ul>
+<li>用于将深度图转换为图像</li>
+</ul>
+</li>
+<li>ControlNet
+<ul>
+<li>用于控制生成图像的结构和内容</li>
+<li>支持多种类型的输入图像，如边缘检测、深度图等</li>
+<li>LineArt Depth OpenPose SoftEdge</li>
+</ul>
+</li>
+<li>ADetailer
+<ul>
+<li>用于细化生成图像的细节</li>
+</ul>
+</li>
+<li>DeForm
+<ul>
+<li>用于对生成图像进行形状变形</li>
+</ul>
+</li>
+<li>ESERGAN
+<ul>
+<li>用于超分辨率图像生成</li>
+</ul>
+</li>
+<li>AnimateDiff
+<ul>
+<li>用于生成动画效果</li>
+</ul>
+</li>
+<li>LoRA
+<ul>
+<li>Low-Rank Adaptation</li>
+<li>用于微调模型</li>
+<li>通过 LoRA 来控制生成图像的风格和特征</li>
+<li>物体</li>
+<li>任务</li>
+<li>风格</li>
+</ul>
+</li>
+<li>CFG - Classifier Free Guidance
+<ul>
+<li>通过 Classifier Free Guidance 来控制生成图像的多样性和质量</li>
+</ul>
+</li>
+<li>Textural Inversion / Embeddings
+<ul>
+<li>类似 Lora</li>
+<li>捕捉一些 concept 的特征 - 例如 手指、眼睛</li>
+</ul>
+</li>
+<li>VAE - Variational Autoencoder
+<ul>
+<li>用于图像的编码和解码</li>
+</ul>
+</li>
+<li>模型
+<ul>
+<li>SD 1.5</li>
+<li>LAION 5B</li>
+<li>SDXL</li>
+</ul>
+</li>
+<li>Upscaler
+<ul>
+<li>ESRGAN</li>
+<li>SwinIR</li>
+<li>4x-UltraSharp</li>
+<li>OmniSR</li>
+<li>MoSR</li>
+<li>DRCT</li>
+<li>ADT</li>
+<li>DAT</li>
+<li>RealPLKSR</li>
+<li>SPAN</li>
+<li>RGT</li>
+<li>HAT</li>
+<li>SRFormer</li>
+<li>SwiftESRGAN</li>
+<li>SPSR</li>
+</ul>
+</li>
+<li>KSampler
+<ul>
+<li>用于采样生成图像</li>
+<li>sampler
+<ul>
+<li>DDIM</li>
+<li>PLMS</li>
+<li>DPM2 a</li>
+<li>DPM2</li>
+<li>DPM++ 2S</li>
+<li>DPM++ 2M</li>
+<li>DPM++ SDE</li>
+<li>LMS</li>
+<li>Heun</li>
+</ul>
+</li>
+<li>scheduler
+<ul>
+<li>Karras</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3:4
+<ul>
+<li>384x512</li>
+<li>432x576</li>
+<li>576x768</li>
+<li>768x1024</li>
+<li>864x1152</li>
+<li>912x1216</li>
+<li>1008x1344</li>
+</ul>
+</li>
+<li>9:16
+<ul>
+<li>512x896</li>
+<li>576x1024</li>
+<li>768x1366</li>
+<li>1024x1820</li>
+</ul>
+</li>
+</ul>
+<p>输出可以包含日期</p>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">%date:yyyy-MM-dd%/ComfyUI</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=api>API<a href=#api class=hash-link aria-label="Direct link to API" title="Direct link to API" translate=no>​</a></h2>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">[object Object]</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=reference>参考<a href=#reference class=hash-link aria-label="Direct link to 参考" title="Direct link to 参考" translate=no>​</a></h2>
+<ul>
+<li><a href=https://dreamlook.ai/ target=_blank rel="noopener noreferrer">https://dreamlook.ai/</a>
+<ul>
+<li>Finetune Stable Diffusion</li>
+</ul>
+</li>
+<li><a href=https://www.rundiffusion.com/ target=_blank rel="noopener noreferrer">https://www.rundiffusion.com/</a></li>
+<li>openari.io</li>
+<li>youml.com</li>
+<li><a href=https://comfyworkflows.com/ target=_blank rel="noopener noreferrer">https://comfyworkflows.com/</a></li>
+<li><a href=https://weirdwonderfulai.art/ target=_blank rel="noopener noreferrer">https://weirdwonderfulai.art/</a></li>
+<li>SDXL Tubo model – <a href="https://civitai.com/models/215418?modelVersionId=273102" target=_blank rel="noopener noreferrer">https://civitai.com/models/215418?modelVersionId=273102</a></li>
+<li>SDXL Studio Ghibli LoRA – <a href=https://civitai.com/models/137562/studioghibliredmond-studio-ghibli-lora-for-sd-xl target=_blank rel="noopener noreferrer">https://civitai.com/models/137562/studioghibliredmond-studio-ghibli-lora-for-sd-xl</a></li>
+<li>SDXL ControlNet LoRA – <a href=https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank256/control-lora-canny-rank256.safetensors target=_blank rel="noopener noreferrer">https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank256/control-lora-canny-rank256.safetensors</a></li>
+<li>保持面部一致
+<ul>
+<li><a href=https://github.com/lldacing/ComfyUI_PuLID_Flux_ll target=_blank rel="noopener noreferrer">lldacing/ComfyUI_PuLID_Flux_ll</a></li>
+<li><a href=https://huggingface.co/guozinan/PuLID/ target=_blank rel="noopener noreferrer">https://huggingface.co/guozinan/PuLID/</a></li>
+<li><a href=https://www.runcomfy.com/comfyui-workflows/create-consistent-characters-in-comfyui-with-ipadapter-faceid-plus target=_blank rel="noopener noreferrer">https://www.runcomfy.com/comfyui-workflows/create-consistent-characters-in-comfyui-with-ipadapter-faceid-plus</a></li>
+</ul>
+</li>
+<li>ADetailer 修复脸手
+<ul>
+<li><a href=https://github.com/Bing-su/adetailer target=_blank rel="noopener noreferrer">https://github.com/Bing-su/adetailer</a>
+<ul>
+<li>AGPLv3</li>
+<li>Auto detecting, masking and inpainting with detection model.</li>
+<li>inpaint, scribble, lineart, openpose, tile, depth</li>
+<li>detection model - <a href=https://huggingface.co/Bingsu/adetailer target=_blank rel="noopener noreferrer">https://huggingface.co/Bingsu/adetailer</a>
+<ul>
+<li>face_yolo</li>
+<li>person_yolo</li>
+<li>mediapipe_face</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://stable-diffusion-art.com/adetailer/ target=_blank rel="noopener noreferrer">https://stable-diffusion-art.com/adetailer/</a></li>
+</ul>
+</li>
+<li>FaceDetailer</li>
+<li>Hires
+<ul>
+<li><a href=https://www.runcomfy.com/comfyui-nodes/ComfyUI-Easy-Use/easy-hiresFix target=_blank rel="noopener noreferrer">https://www.runcomfy.com/comfyui-nodes/ComfyUI-Easy-Use/easy-hiresFix</a></li>
+<li><a href=https://comfyanonymous.github.io/ComfyUI_examples/2_pass_txt2img/ target=_blank rel="noopener noreferrer">https://comfyanonymous.github.io/ComfyUI_examples/2_pass_txt2img/</a></li>
+<li><a href=https://www.reddit.com/r/comfyui/comments/1d42dim/comfyui_sdxl_upscaler_hires_fix/ target=_blank rel="noopener noreferrer">https://www.reddit.com/r/comfyui/comments/1d42dim/comfyui_sdxl_upscaler_hires_fix/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/ltdrdata/ComfyUI-Impact-Pack target=_blank rel="noopener noreferrer">ltdrdata/ComfyUI-Impact-Pack</a></li>
+</ul>
+<h1>FAQ</h1>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">nvcc --version</span><br/></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">RuntimeError: CUDA error: no kernel image is available for execution on the device</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">For debugging consider passing CUDA_LAUNCH_BLOCKING=1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=why-comfyui>Why ComfyUI<a href=#why-comfyui class=hash-link aria-label="Direct link to Why ComfyUI" title="Direct link to Why ComfyUI" translate=no>​</a></h2>
+<p><strong>优点</strong></p>
+<ul>
+<li><strong>速度与灵活性</strong>
+ComfyUI 可以很快地搭建和调整流程，没有固定套路，想怎么用都行。</li>
+<li><strong>过程可视化</strong>
+整个生成流程都能看到，每个节点做什么一目了然，方便理解图片是怎么一步步生成的。</li>
+<li><strong>分享和协作简单</strong>
+搭好的流程可以很容易分享给别人，也能导入他人的流程，合作很方便。</li>
+<li><strong>不需要编程</strong>
+不会写代码也能用，拉节点、连线就行，谁都能上手。</li>
+<li><strong>高度自定义</strong>
+可以根据自己的需求调整流程，功能很丰富，适合各种场景。</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li><strong>界面不统一</strong>
+每个人搭建的流程节点可能布局都不一样，看别人的流程可能要花点时间理解和改动。</li>
+<li><strong>细节太多</strong>
+会显示很多底层细节，对新手来说可能有点复杂，有些人只想简单用用会觉得信息量太大。</li>
+<li><strong>上手有门槛</strong>
+虽然不用代码，但理解节点怎么用、流程如何搭比较花时间，新手需要适应。</li>
+<li><strong>性能受限</strong>
+流程复杂或者电脑性能不够时，运行会变慢，尤其是硬件达不到推荐要求的时候。</li>
+<li><strong>协作有难度</strong>
+虽然共享流程很方便，但大家布局风格不同，把不同人的流程拼一起不太容易。</li>
+<li><strong>自定义带来的负担</strong>
+可调的地方太多，有时候会在调细节上花太多时间，影响效率。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=importerror-cannot-import-name-guidedfilter-from-cv2ximgproc>ImportError: cannot import name 'guidedFilter' from 'cv2.ximgproc'<a href=#importerror-cannot-import-name-guidedfilter-from-cv2ximgproc class=hash-link aria-label="Direct link to ImportError: cannot import name 'guidedFilter' from 'cv2.ximgproc'" title="Direct link to ImportError: cannot import name 'guidedFilter' from 'cv2.ximgproc'" translate=no>​</a></h2>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">uv pip uninstall opencv-python opencv-python-headless opencv-contrib-python-headless opencv-contrib-python</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uv pip install opencv-python opencv-python-headless opencv-contrib-python-headless</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uv pip install opencv-contrib-python</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://github.com/chflame163/ComfyUI_LayerStyle/issues/5 target=_blank rel="noopener noreferrer">https://github.com/chflame163/ComfyUI_LayerStyle/issues/5</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=filename_prefix>filename_prefix<a href=#filename_prefix class=hash-link aria-label="Direct link to filename_prefix" title="Direct link to filename_prefix" translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">%date:yyyy-MM-dd%/%date:hhmmss%_%Seed.seed%</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">%year%-%month%-%day%_%hour%-%minute%-%second%</span><br/></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>变量<th>说明<tbody><tr><td>%year%<td>年 (2025)<tr><td>%month%<td>月 (01-12)<tr><td>%day%<td>日 (01-31)<tr><td>%hour%<td>时 (00-23)<tr><td>%minute%<td>分 (00-59)<tr><td>%second%<td>秒 (00-59)<tr><td>%width%<td>图片宽度<tr><td>%height%<td>图片高度</table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/ai/dev/comfyui/README.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2025-12-08T01:33:31.000Z itemprop=dateModified>Dec 8, 2025</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/ai/dev/codex-cli><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Codex</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/ai/dev/copilotkit><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>CopilotKit</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#awesome class="table-of-contents__link toc-highlight">Awesome</a><li><a href=#comfyui-manager class="table-of-contents__link toc-highlight">ComfyUI Manager</a><li><a href=#notes class="table-of-contents__link toc-highlight">Notes</a><li><a href=#api class="table-of-contents__link toc-highlight">API</a><li><a href=#reference class="table-of-contents__link toc-highlight">参考</a><li><a href=#why-comfyui class="table-of-contents__link toc-highlight">Why ComfyUI</a><li><a href=#importerror-cannot-import-name-guidedfilter-from-cv2ximgproc class="table-of-contents__link toc-highlight">ImportError: cannot import name 'guidedFilter' from 'cv2.ximgproc'</a><li><a href=#filename_prefix class="table-of-contents__link toc-highlight">filename_prefix</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

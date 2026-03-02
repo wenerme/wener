@@ -1,0 +1,1235 @@
+<!doctype html><html lang=en dir=ltr class="blog-wrapper blog-post-page plugin-blog plugin-id-default" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>数据库原理 for NCRE 4 | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/story/ncre-4-database-note /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docusaurus_tag content=default /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docsearch:docusaurus_tag content=default /><meta data-rh=true property=og:title content="数据库原理 for NCRE 4 | Wener Live & Life"/><meta data-rh=true name=description content="记录自 全国高等教育制定教材 数据库原理"/><meta data-rh=true property=og:description content="记录自 全国高等教育制定教材 数据库原理"/><meta data-rh=true property=og:type content=article /><meta data-rh=true property=article:published_time content=2013-09-24T00:00:00.000Z /><meta data-rh=true property=article:tag content=数据库,笔记,NCRE /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/story/ncre-4-database-note /><link data-rh=true rel=alternate href=https://wener.me/story/ncre-4-database-note hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/story/ncre-4-database-note hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@id":"https://wener.me/story/ncre-4-database-note","@type":"BlogPosting","author":[],"datePublished":"2013-09-24T00:00:00.000Z","description":"记录自 全国高等教育制定教材 数据库原理","headline":"数据库原理 for NCRE 4","isPartOf":{"@id":"https://wener.me/story","@type":"Blog","name":"Blog"},"keywords":[],"mainEntityOfPage":"https://wener.me/story/ncre-4-database-note","name":"数据库原理 for NCRE 4","url":"https://wener.me/story/ncre-4-database-note"}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a class="navbar__item navbar__link" href=/notes>笔记</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class="container margin-vert--lg"><div class=row><aside class="col col--3"><nav class="sidebar_Ulkt thin-scrollbar" aria-label="Blog recent posts navigation"><div class="sidebarItemTitle_hSNJ margin-bottom--md">Recent posts</div><div role=group><h3 class=yearGroupHeading_KD0z>2025</h3><ul class="sidebarItemList_dElJ clean-list"><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/function-and-interface>工具 - 工 与 具</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/here-my-love-ch2>《我把我的矜持都给了她》：第二章 - 故事的重新开始</a></ul></div><div role=group><h3 class=yearGroupHeading_KD0z>2024</h3><ul class="sidebarItemList_dElJ clean-list"><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/decrypt-classfinal-jar>解密 ClassFinal 加密的 Java Jar 包</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/how-i-note>我记录思考的方式简单总结</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/ml-first-try>第一次尝试机器学习</a></ul></div></nav></aside><main class="col col--7"><article class=""><header><h1 class=title_U7V0>数据库原理 for NCRE 4</h1><div class="container_cxbP margin-vert--md"><time datetime=2013-09-24T00:00:00.000Z>September 24, 2013</time> · <!-- -->46 min read</div></header><div id=__blog-post-container class=markdown><blockquote>
+<p>记录自 <strong>全国高等教育制定教材 数据库原理</strong>
+和 部分自己的整理</p>
+</blockquote>
+<hr/>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=1-数据库系统的基本概念>1. 数据库系统的基本概念<a href=#1-数据库系统的基本概念 class=hash-link aria-label="Direct link to 1. 数据库系统的基本概念" title="Direct link to 1. 数据库系统的基本概念" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=12-数据描述>1.2 数据描述<a href=#12-数据描述 class=hash-link aria-label="Direct link to 1.2 数据描述" title="Direct link to 1.2 数据描述" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=121-概念设计中的数据描述>1.2.1 概念设计中的数据描述<a href=#121-概念设计中的数据描述 class=hash-link aria-label="Direct link to 1.2.1 概念设计中的数据描述" title="Direct link to 1.2.1 概念设计中的数据描述" translate=no>​</a></h4>
+<p>实体(Entity):
+: 客观存在,可以相互区别的事物成为实体</p>
+<p>实体集(Entity Set)
+: 性质相同的同类实体的集合</p>
+<p>属性(Attribute)
+: 实体的特性称为属性</p>
+<p>实体标识符(Indentify)
+: 能唯一标识实体的属性或属性集</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=122-逻辑设计中的数据描述>1.2.2 逻辑设计中的数据描述<a href=#122-逻辑设计中的数据描述 class=hash-link aria-label="Direct link to 1.2.2 逻辑设计中的数据描述" title="Direct link to 1.2.2 逻辑设计中的数据描述" translate=no>​</a></h4>
+<p>记录(Record)
+: 字段的有序集合</p>
+<p>字段(Field)
+: 标记实体属性的命名单位称为字段或数据项</p>
+<p>文件(File)
+: 同一类记录的集合</p>
+<p>关键码(Key)
+: 能唯一便是文件中某个记录的字段或字段集</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=术语的对应关系>术语的对应关系<a href=#术语的对应关系 class=hash-link aria-label="Direct link to 术语的对应关系" title="Direct link to 术语的对应关系" translate=no>​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>概念设计<th>逻辑设计<tbody><tr><td>实体<td>记录<tr><td>属性<td>字段<tr><td>实体集<td>文件<tr><td>实体标识符<td>关键码</table>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=124-数据联系的描述>1.2.4 数据联系的描述<a href=#124-数据联系的描述 class=hash-link aria-label="Direct link to 1.2.4 数据联系的描述" title="Direct link to 1.2.4 数据联系的描述" translate=no>​</a></h4>
+<p>联系 (Relationship)
+: 实体之间的相互关系,与一个联系相关的实体个数称为联系的元数</p>
+<p>联系的类型
+: 一对一,一对多,多对多 1:1, 1:N, N:M</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=13-数据的抽象级别>1.3 数据的抽象级别<a href=#13-数据的抽象级别 class=hash-link aria-label="Direct link to 1.3 数据的抽象级别" title="Direct link to 1.3 数据的抽象级别" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=131-数据抽象过程>1.3.1 数据抽象过程<a href=#131-数据抽象过程 class=hash-link aria-label="Direct link to 1.3.1 数据抽象过程" title="Direct link to 1.3.1 数据抽象过程" translate=no>​</a></h4>
+<p>模型(Model)
+: 对现实世界的抽象</p>
+<p>数据模型(Date Model)
+: 数据库的结构和语义,对现实世界的数据进行抽象</p>
+<p>: > <strong><a href=http://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B target=_blank rel="noopener noreferrer">wiki-数据模型</a></strong> 数据模型是定义数据如何输入和与输出的一种模型。
+其主要作用是为信息系统提供数据的定义和格式。数据模型是数据库系统的核心和基础，
+现有的数据库系统都是基于某种数据模型而建立起来的。</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=132-概念模型>1.3.2 概念模型<a href=#132-概念模型 class=hash-link aria-label="Direct link to 1.3.2 概念模型" title="Direct link to 1.3.2 概念模型" translate=no>​</a></h4>
+<ol>
+<li>表达数据的整体逻辑结构，是系统用户对整个应用项目设计的数据的全面描述</li>
+<li>从用户的观点出发，对数据建模</li>
+<li>独立于硬件和软件</li>
+<li>是数据库设计人员与用户之间进行交流的工具</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=133-逻辑模型>1.3.3 逻辑模型<a href=#133-逻辑模型 class=hash-link aria-label="Direct link to 1.3.3 逻辑模型" title="Direct link to 1.3.3 逻辑模型" translate=no>​</a></h4>
+<ol>
+<li>表达了DB的整体逻辑结构,设计人员对整个应用项目数据库的全面描述</li>
+<li>从数据库的实现观点出发,对数据建模</li>
+<li>独立于硬件,依赖于软件</li>
+<li>数据库设计人员与应用程序员之间进行交流的工具</li>
+</ol>
+<blockquote>
+<p>逻辑模型的类型: 层次,网状,关系</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=134-外部模型>1.3.4 外部模型<a href=#134-外部模型 class=hash-link aria-label="Direct link to 1.3.4 外部模型" title="Direct link to 1.3.4 外部模型" translate=no>​</a></h4>
+<ol>
+<li>是逻辑模型的子集</li>
+<li>独立于硬件,依赖于软件</li>
+<li>反应用户使用数据库的观点</li>
+</ol>
+<h5 class="anchor anchorWithStickyNavbar_EG6R" id=外部模型的优点>外部模型的优点<a href=#外部模型的优点 class=hash-link aria-label="Direct link to 外部模型的优点" title="Direct link to 外部模型的优点" translate=no>​</a></h5>
+<ol>
+<li>简化用户的观点</li>
+<li>有助于数据的安全性保护</li>
+<li>外部模型是对概念模型的支持</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=135-内部模型>1.3.5 内部模型<a href=#135-内部模型 class=hash-link aria-label="Direct link to 1.3.5 内部模型" title="Direct link to 1.3.5 内部模型" translate=no>​</a></h4>
+<p>内部模型也叫做物理模型,是数据库最底层的抽象,它描述数据在磁盘或磁带上的存储方式,存取设备和存取方法</p>
+<blockquote>
+<p>现今的内部细节大多由操作系统实现</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=136-三层模型和两级映象>1.3.6 三层模型和两级映象<a href=#136-三层模型和两级映象 class=hash-link aria-label="Direct link to 1.3.6 三层模型和两级映象" title="Direct link to 1.3.6 三层模型和两级映象" translate=no>​</a></h4>
+<ul>
+<li>三层模型即上述的: 外部,逻辑,内部</li>
+<li>两层映象为: 内部 &lt;-> 逻辑, 逻辑 &lt;-> 内部</li>
+<li>优点: 增强了独立性,不同模式层次之间的操作由映射完成</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=14-数据库管理系统dbms>1.4 数据库管理系统(DBMS)<a href=#14-数据库管理系统dbms class=hash-link aria-label="Direct link to 1.4 数据库管理系统(DBMS)" title="Direct link to 1.4 数据库管理系统(DBMS)" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=141-dbms的工作模式>1.4.1 DBMS的工作模式<a href=#141-dbms的工作模式 class=hash-link aria-label="Direct link to 1.4.1 DBMS的工作模式" title="Direct link to 1.4.1 DBMS的工作模式" translate=no>​</a></h4>
+<p>数据库操作系统(DBMS)
+: 是指数据库系统中对数据进行管理的软件系统。它是数据库系统的核心组成部分.对DB的一切操作,
+包括定义,查询,更新及各种控制,都是通过DBMS进行的.</p>
+<h5 class="anchor anchorWithStickyNavbar_EG6R" id=dbms的工作模式>DBMS的工作模式<a href=#dbms的工作模式 class=hash-link aria-label="Direct link to DBMS的工作模式" title="Direct link to DBMS的工作模式" translate=no>​</a></h5>
+<ol>
+<li>接受应用程序的数据请求和处理请求</li>
+<li>将用户的数据请求(高级指令)转换(编译)成复杂的机器码(低级指令)</li>
+<li>实现对数据库的操作</li>
+<li>从对数据库的操作中接受查询结果</li>
+<li>对查询结果进行处理(格式转换)</li>
+<li>将处理结果返回给用户</li>
+</ol>
+<h5 class="anchor anchorWithStickyNavbar_EG6R" id=dbms的主要功能>DBMS的主要功能<a href=#dbms的主要功能 class=hash-link aria-label="Direct link to DBMS的主要功能" title="Direct link to DBMS的主要功能" translate=no>​</a></h5>
+<ol>
+<li>定义(DDL)</li>
+<li>操纵(DML)</li>
+<li>数据库的保护功能
+<ol>
+<li>数据库的恢复</li>
+<li>并发控制</li>
+<li>完整性控制</li>
+<li>安全性控制</li>
+</ol>
+</li>
+<li>数据库的维护功能
+包括数据的载入,转换,转储,数据库的改组以及性能监控等</li>
+<li>数据字典
+数据库系统中存放三级结构定义的数据库成为数据字典(DD)</li>
+</ol>
+<blockquote>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=15-数据库系统dbs>1.5 数据库系统(DBS)<a href=#15-数据库系统dbs class=hash-link aria-label="Direct link to 1.5 数据库系统(DBS)" title="Direct link to 1.5 数据库系统(DBS)" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=151-dbs的组成>1.5.1 DBS的组成<a href=#151-dbs的组成 class=hash-link aria-label="Direct link to 1.5.1 DBS的组成" title="Direct link to 1.5.1 DBS的组成" translate=no>​</a></h4>
+<p>DBS 是采用了数据库技术的计算机系统.它是数据库,硬件,软件和数据库管理员的集合体.</p>
+<p>数据库(DB)
+: 是各项应用有关的全部数据的集合.分为两类,一类是应用数据的集合,成为物理数据库,
+是数据库的主题;另一类是各级数据结构的描述,称为描述数据库,由DD系统管理.</p>
+<h5 class="anchor anchorWithStickyNavbar_EG6R" id=数据库管理员dba>数据库管理员(DBA)<a href=#数据库管理员dba class=hash-link aria-label="Direct link to 数据库管理员(DBA)" title="Direct link to 数据库管理员(DBA)" translate=no>​</a></h5>
+<p>DBA需要具备的素质</p>
+<ul>
+<li>熟悉企业全部数据的性质和用途</li>
+<li>对所有用户的需求有</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=152-dbs的全局结构>1.5.2 DBS的全局结构<a href=#152-dbs的全局结构 class=hash-link aria-label="Direct link to 1.5.2 DBS的全局结构" title="Direct link to 1.5.2 DBS的全局结构" translate=no>​</a></h4>
+<p>常见书上的图 1.21</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=153-dbs的笑意>1.5.3 DBS的笑意<a href=#153-dbs的笑意 class=hash-link aria-label="Direct link to 1.5.3 DBS的笑意" title="Direct link to 1.5.3 DBS的笑意" translate=no>​</a></h4>
+<ol>
+<li>灵活性</li>
+<li>简易性</li>
+<li>面向用户</li>
+<li>有效的数据控制</li>
+<li>加快应用系统的开发速度</li>
+<li>维护方便</li>
+<li>标准化</li>
+</ol>
+<hr/>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=2-数据库设计和-er-模型>2. 数据库设计和 ER 模型<a href=#2-数据库设计和-er-模型 class=hash-link aria-label="Direct link to 2. 数据库设计和 ER 模型" title="Direct link to 2. 数据库设计和 ER 模型" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=21-数据库系统生存期>2.1 数据库系统生存期<a href=#21-数据库系统生存期 class=hash-link aria-label="Direct link to 2.1 数据库系统生存期" title="Direct link to 2.1 数据库系统生存期" translate=no>​</a></h3>
+<p>数据库生存期一般分为七个阶段: 规划,需求分析,概念设计,逻辑设计,实现,运行维护</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=211-规划阶段>2.1.1 规划阶段<a href=#211-规划阶段 class=hash-link aria-label="Direct link to 2.1.1 规划阶段" title="Direct link to 2.1.1 规划阶段" translate=no>​</a></h4>
+<p>对于数据库系统,特别是大型数据库系统或大型信息系统中的数据库群,规划阶段是十分必要的.
+规划的好坏将直接影响到整个系统的成功与否,对应用单位的信息化进程将产生深远影响.</p>
+<p>规划阶段的具体步骤:</p>
+<ol>
+<li>
+<p>系统调查
+对应用单位做全面的调查.发现其存在的主要问题,并画出组织层次图,以了解企业的组织结构</p>
+</li>
+<li>
+<p>可行性分析
+从技术,经济,效益,法律等诸方面对建立数据库的可行性进行分析,然后写出可行性分析报告;组织专家进行讨论其可行性</p>
+</li>
+<li>
+<p>确定数据库系统的总目标, 并对应用单位的工作流程进行优化和制定项目开发计划.
+在得到决策部门批准后,就正式进入数据库系统的开发工作</p>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=212-需求分析阶段>2.1.2 需求分析阶段<a href=#212-需求分析阶段 class=hash-link aria-label="Direct link to 2.1.2 需求分析阶段" title="Direct link to 2.1.2 需求分析阶段" translate=no>​</a></h4>
+<p>这一阶段是计算机人员(系统分析员)和用户双方共同收集数据库所需的信息内容和用户对处理的需求,
+并以需求说明书的形式确定下来,作为以后开系统开发的指南和系统验证的依据</p>
+<p>需求分析阶段的具体步骤:</p>
+<ol>
+<li>分析用户活动,产生业务流程图</li>
+<li>确定系统范围,产生系统关系图</li>
+<li>分析用户活动涉及的数据,产生数据流图(DFD)</li>
+<li>分析系统数据,产生数据字典</li>
+</ol>
+<blockquote>
+<p>数据字典中通常包括数据项,数据结构,数据流,数据存储和处理5个部分</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=213-概念设计阶段>2.1.3 概念设计阶段<a href=#213-概念设计阶段 class=hash-link aria-label="Direct link to 2.1.3 概念设计阶段" title="Direct link to 2.1.3 概念设计阶段" translate=no>​</a></h4>
+<p>概念设计的目标是产生反应用户单位信息需求的数据概念结构,即概念结构,概念模型独立于计
+算机硬件结构,独立于支持数据的DBMS.</p>
+<p>概念设计的主要步骤:</p>
+<ol>
+<li>
+<p>进行数据抽象,设计局部概念模型</p>
+<blockquote>
+<p>设计概念结构时,常用的数据抽象方法是"聚集"和"概括"</p>
+</blockquote>
+</li>
+<li>
+<p>将局部概念综合成全局概念模型</p>
+</li>
+<li>
+<p>评审
+确认全局结构是否完整,各种划分是否合理,是否存在不一致性,各种文档是否齐全</p>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=214-逻辑设计阶段>2.1.4 逻辑设计阶段<a href=#214-逻辑设计阶段 class=hash-link aria-label="Direct link to 2.1.4 逻辑设计阶段" title="Direct link to 2.1.4 逻辑设计阶段" translate=no>​</a></h4>
+<p>概念设计的结果是得到一个与DBMS无关的概念模型.而逻辑设计的目的是把概念设计阶段设计好的
+概念模型转换成具体的逻辑模型.</p>
+<p>逻辑设计的主要步骤:</p>
+<ol>
+<li>把概念模型转换成逻辑模型
+ER模型转换成关系模型</li>
+<li>设计外模型</li>
+<li>设计应用程序与数据库的接口</li>
+<li>评价模型</li>
+<li>修正模型</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=215-物理设计阶段>2.1.5 物理设计阶段<a href=#215-物理设计阶段 class=hash-link aria-label="Direct link to 2.1.5 物理设计阶段" title="Direct link to 2.1.5 物理设计阶段" translate=no>​</a></h4>
+<p>具体步骤:</p>
+<ol>
+<li>存储记录结构设计</li>
+<li>确定数据存放位置</li>
+<li>存取方法的设计</li>
+<li>完整性和安全性考虑</li>
+<li>程序设计</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=216-数据库的实现>2.1.6 数据库的实现<a href=#216-数据库的实现 class=hash-link aria-label="Direct link to 2.1.6 数据库的实现" title="Direct link to 2.1.6 数据库的实现" translate=no>​</a></h4>
+<p>主要包括</p>
+<ol>
+<li>用DDL定义数据库结构</li>
+<li>数据装载/组织数据入库
+具体步骤: 筛选数据, 输入数据, 转换数据格式, 校验数据, 综合数据</li>
+<li>编制与调试应用程序
+该步骤使用模拟数据进行调试</li>
+<li>数据库试运行
+功能调试,性能测试</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=217-数据库的运行与维护>2.1.7 数据库的运行与维护<a href=#217-数据库的运行与维护 class=hash-link aria-label="Direct link to 2.1.7 数据库的运行与维护" title="Direct link to 2.1.7 数据库的运行与维护" translate=no>​</a></h4>
+<p>在数据库运行阶段,对数据库经常性的维护工作主要由DBA完成,它包括以下内容:</p>
+<ol>
+<li>数据库的转储和恢复</li>
+<li>数据库安全性,完整性控制</li>
+<li>数据库性能的监督,分析和改进</li>
+<li>数据库的重组织和重构造</li>
+</ol>
+<hr/>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=3-关系模式设计理论>3. 关系模式设计理论<a href=#3-关系模式设计理论 class=hash-link aria-label="Direct link to 3. 关系模式设计理论" title="Direct link to 3. 关系模式设计理论" translate=no>​</a></h2>
+<p>关系模式设计理论主要包括三个方面的内容: 数据依赖,范式和模式设计方法</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=31-关系模式的设计准则>3.1 关系模式的设计准则<a href=#31-关系模式的设计准则 class=hash-link aria-label="Direct link to 3.1 关系模式的设计准则" title="Direct link to 3.1 关系模式的设计准则" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=311-关系模式的冗余和异常问题>3.1.1 关系模式的冗余和异常问题<a href=#311-关系模式的冗余和异常问题 class=hash-link aria-label="Direct link to 3.1.1 关系模式的冗余和异常问题" title="Direct link to 3.1.1 关系模式的冗余和异常问题" translate=no>​</a></h4>
+<p>__分解__是解决冗余的主要方法,也是规范化的一条原则:"关系模式有冗余,就分解它"</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=312-关系模式的非形式化设计准则>3.1.2 关系模式的非形式化设计准则<a href=#312-关系模式的非形式化设计准则 class=hash-link aria-label="Direct link to 3.1.2 关系模式的非形式化设计准则" title="Direct link to 3.1.2 关系模式的非形式化设计准则" translate=no>​</a></h4>
+<p>准则 3.1
+: <small>关系模式的设计尽可能</small>只包含有直接联系的属性,不要包含有间接联系的属性.
+也就是,每个关系关系模式应只对应于一个实体类型或一个联系类型.</p>
+<p>准则 3.2
+: <small>关系模式的设计尽可能使得相应关系中</small>不出现插入,删除和修改等操作异常现象.
+如果出现任何异常,则要清楚的加以说明,并确保更新数据库的程序正确操作.</p>
+<p>准则 3.3
+: <small>关系模式的设计尽可能使得相应关系中</small>避免放置经常为空的属性.</p>
+<p>准则 3.4
+: <small>关系模式的设计应尽可能使得</small>关系的等值连接在主键和外键的属性上进行,
+并且保证连接以后不会产生额外的元组.
+> 如果两个连接匹配的不是外键或主键,那么这种连接很可能会产生额外元组</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=32-函数依赖>3.2 函数依赖<a href=#32-函数依赖 class=hash-link aria-label="Direct link to 3.2 函数依赖" title="Direct link to 3.2 函数依赖" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=321-函数依赖的定义>3.2.1 函数依赖的定义<a href=#321-函数依赖的定义 class=hash-link aria-label="Direct link to 3.2.1 函数依赖的定义" title="Direct link to 3.2.1 函数依赖的定义" translate=no>​</a></h4>
+<p>定义 3.1
+: 设有关系模式 R(U), X 和 Y 是属性集 U 的子集,
+<strong>函数依赖(FUnctional Dependency, 简记为 FD)</strong>
+是形成 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>x</mi><mo>→</mo><mi>y</mi></mrow><annotation encoding=application/x-tex>x\rightarrow y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.4306em></span><span class="mord mathnormal">x</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal" style=margin-right:0.03588em>y</span></span></span></span> 的一个命题, 只要r是R的当前关系,
+对r中任意两个元组 t 和 s,都有 t[X] = s[X] 蕴含 t[Y] = s[Y],
+那么称 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>F</mi><mi>D</mi><mspace width=1em /><mi>x</mi><mo>→</mo><mi>y</mi></mrow><annotation encoding=application/x-tex>FD\quad x\rightarrow y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal">x</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal" style=margin-right:0.03588em>y</span></span></span></span> 在关系模式 R(U)中成立.</p>
+<p>这里 t[X] 表示元组 t 在属性集 X 上的值,其余类同. <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span> 读作 X 函数决定 Y,
+或 Y 函数依赖于 X. FD 是对关系模式 R 的一切可能的关系 r 定义的. 对于当前关系 r 的任意两个元组,
+如果 X 相同,则要求 Y 值也相同.即有一个 X 值就有一个 Y 值与之对应, 或者说 Y 值由 X 值决定.
+因而这种依赖称为函数依赖.</p>
+<p>当关系模式上存在函数依赖时,对其关系中的值将有严格的限制.</p>
+<p>定义 3.2
+: 如果 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span> 和 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>Y</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding=application/x-tex>Y \rightarrow X</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span></span></span></span> 同时成立,则可记为 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>↔</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \leftrightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>↔</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>.
+也就是在关系中, X 值和 Y 值具有一一对应的关系.</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=322-fd-的逻辑蕴含>3.2.2 FD 的逻辑蕴含<a href=#322-fd-的逻辑蕴含 class=hash-link aria-label="Direct link to 3.2.2 FD 的逻辑蕴含" title="Direct link to 3.2.2 FD 的逻辑蕴含" translate=no>​</a></h4>
+<p>定义 3.3
+: 设 F 是在关系模式 R 上成立的函数依赖的集合, <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span> 是一个函数依赖.
+如果对于 R 的每个满足 F 的关系 r 也满足 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>, 那么 F 逻辑蕴含
+<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>,记为 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>F</mi><mo>⊨</mo><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>F \models X\rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.999em;vertical-align:-0.249em></span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊨</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>.</p>
+<p>定义 3.4
+: 设 F 是函数依赖集, 被 F 逻辑蕴含的函数依赖全体构成的集合,称为函数依赖集 F 的
+<strong>闭包(Closure)</strong>, 记为<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msup><mi>F</mi><mo lspace=0em rspace=0em>+</mo></msup></mrow><annotation encoding=application/x-tex>{ F }^{ + }</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.7713em></span><span class=mord><span class=mord><span class="mord mathnormal" style=margin-right:0.13889em>F</span></span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.7713em><span style=top:-3.063em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">+</span></span></span></span></span></span></span></span></span></span></span></span> . 即</p>
+<span class=katex-display><span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML display=block><semantics><mrow><msup><mi>F</mi><mo lspace=0em rspace=0em>+</mo></msup><mo>=</mo><mo stretchy=false>{</mo><mspace width=1em /><mi>X</mi><mo>→</mo><mi>Y</mi><mspace width=1em /><mi mathvariant=normal>∣</mi><mspace width=1em /><mi>F</mi><mo>⊨</mo><mi>X</mi><mo>→</mo><mi>Y</mi><mspace width=1em /><mo stretchy=false>}</mo></mrow><annotation encoding=application/x-tex>{ F }^{ + }=\{ \quad X\rightarrow Y\quad |\quad F \models X\rightarrow Y\quad \}</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8213em></span><span class=mord><span class=mord><span class="mord mathnormal" style=margin-right:0.13889em>F</span></span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.8213em><span style=top:-3.113em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">+</span></span></span></span></span></span></span></span></span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:1em></span><span class=mord>∣</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊨</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:1em></span><span class=mclose>}</span></span></span></span></span>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=323-fd-的推理规则>3.2.3 FD 的推理规则<a href=#323-fd-的推理规则 class=hash-link aria-label="Direct link to 3.2.3 FD 的推理规则" title="Direct link to 3.2.3 FD 的推理规则" translate=no>​</a></h4>
+<p>设 U 是关系模式 R 的属性集. F 是 R 上成立的只涉及到 U 中舒心的函数依赖集. FD 的推理规则有以下三条:</p>
+<p>自反性(Reflexivity)
+: A1
+: 若 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>Y</mi><mo>⊆</mo><mi>X</mi><mo>⊆</mo><mi>U</mi></mrow><annotation encoding=application/x-tex>Y \subseteq X \subseteq U</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8193em;vertical-align:-0.136em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊆</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8193em;vertical-align:-0.136em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊆</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.10903em>U</span></span></span></span>, 则 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span> 在 R 上成立.</p>
+<p>增广性(Augmentation)
+: A2
+: 若 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>在 R 上成立,且 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>Z</mi><mo>⊆</mo><mi>U</mi></mrow><annotation encoding=application/x-tex>Z \subseteq U</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8193em;vertical-align:-0.136em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊆</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.10903em>U</span></span></span></span>, 则 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mi>Z</mi><mo>→</mo><mi>Y</mi><mi>Z</mi></mrow><annotation encoding=application/x-tex>XZ \rightarrow YZ</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07153em>XZ</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span></span></span></span>在 R 上成立.</p>
+<p>传递性(Transitivity)
+: A3
+: 若 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span> 和 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>Y</mi><mo>→</mo><mi>Z</mi></mrow><annotation encoding=application/x-tex>Y \rightarrow Z</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span></span></span></span> 在 R 上成立,
+则 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Z</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Z</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span></span></span></span>在 R 上成立.</p>
+<p>定理 3.1
+: FD 推理规则 A1, A2 和 A3. 也就是, 如果 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>
+是从 F 用推理规则导出, 那么 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>在<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msup><mi>F</mi><mo>+</mo></msup></mrow><annotation encoding=application/x-tex>F^+</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.7713em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.7713em><span style=top:-3.063em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>中</p>
+<p><strong>定理 3.2</strong> FD 的其他五条推理规则</p>
+<p>合并性(Union)
+: A4
+: <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo stretchy=false>{</mo><mi>X</mi><mo>→</mo><mi>Y</mi><mo separator=true>,</mo><mi>Y</mi><mo>→</mo><mi>Z</mi><mo stretchy=false>}</mo><mo>⊨</mo><mi>X</mi><mo>→</mo><mi>Y</mi><mi>Z</mi></mrow><annotation encoding=application/x-tex> \{ X \rightarrow Y, Y \rightarrow Z \} \models X \rightarrow YZ</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span><span class=mclose>}</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊨</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span></span></span></span></p>
+<p>分解性(Decomposition)
+: A5
+: <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo stretchy=false>{</mo><mi>X</mi><mo>→</mo><mi>Y</mi><mo separator=true>,</mo><mi>Z</mi><mo>⊆</mo><mi>Y</mi><mo stretchy=false>}</mo><mo>⊨</mo><mi>X</mi><mo>→</mo><mi>Z</mi></mrow><annotation encoding=application/x-tex>\{ X \rightarrow Y, Z \subseteq Y \} \models X \rightarrow Z</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊆</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mclose>}</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊨</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span></span></span></span></p>
+<p>伪传递性
+: A6
+: <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo stretchy=false>{</mo><mi>X</mi><mo>→</mo><mi>Y</mi><mo separator=true>,</mo><mi>W</mi><mi>Y</mi><mo>→</mo><mi>Z</mi><mo stretchy=false>}</mo><mo>⊨</mo><mi>W</mi><mi>X</mi><mo>→</mo><mi>Z</mi></mrow><annotation encoding=application/x-tex> \{ X \rightarrow Y, WY \rightarrow Z \} \models WX \rightarrow Z</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class="mord mathnormal" style=margin-right:0.22222em>WY</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span><span class=mclose>}</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊨</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.13889em>W</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span></span></span></span></p>
+<p>复合性(Composition)
+: A7
+: <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo stretchy=false>{</mo><mi>X</mi><mo>→</mo><mi>Y</mi><mo separator=true>,</mo><mi>W</mi><mo>→</mo><mi>Z</mi><mo stretchy=false>}</mo><mo>⊨</mo><mi>X</mi><mi>W</mi><mo>→</mo><mi>Y</mi><mi>Z</mi></mrow><annotation encoding=application/x-tex>\{ X \rightarrow Y, W \rightarrow Z \} \models XW \rightarrow YZ</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class="mord mathnormal" style=margin-right:0.13889em>W</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span><span class=mclose>}</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊨</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class="mord mathnormal" style=margin-right:0.13889em>W</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span></span></span></span></p>
+<p>通用一致性定理(Genernal Unification Theorem)
+: <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo stretchy=false>{</mo><mi>X</mi><mo>→</mo><mi>Y</mi><mo separator=true>,</mo><mi>W</mi><mo>→</mo><mi>Z</mi><mo stretchy=false>}</mo><mo>⊨</mo><mi>X</mi><mo>∪</mo><mo stretchy=false>(</mo><mi>W</mi><mo>−</mo><mi>Y</mi><mo stretchy=false>)</mo><mo>→</mo><mi>Y</mi><mi>Z</mi></mrow><annotation encoding=application/x-tex>\{ X \rightarrow Y, W \rightarrow Z \} \models X \cup (W - Y) \rightarrow YZ</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class="mord mathnormal" style=margin-right:0.13889em>W</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span><span class=mclose>}</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊨</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2222em></span><span class=mbin>∪</span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.13889em>W</span><span class=mspace style=margin-right:0.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mclose>)</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span></span></span></span></p>
+<p>定义 3.5
+: 对于 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>F</mi><mi>D</mi><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>FD X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>, 如果 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>Y</mi><mo>⊆</mo><mi>X</mi></mrow><annotation encoding=application/x-tex>Y \subseteq X</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8193em;vertical-align:-0.136em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊆</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span></span></span></span>, 那么称 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>
+是一个 <strong>平凡的 FD</strong>, 否则称为 <strong>非平凡的 FD</strong></p>
+<p>正如名称所示,平凡的 FD 并没有实际意义,根据规则 A1 就可以退出. 人们感兴趣的是非平凡的 FD.
+只有非平凡的 FD 才和 <em>真正的</em> 完整性约束条件相关.</p>
+<p>从规则 A4 和 A5. 立即可得到下面的定理</p>
+<p>定理 3.3
+: 如果 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>A</mi><mn>1</mn></msub><mo>⋯</mo><msub><mi>A</mi><mi>n</mi></msub></mrow><annotation encoding=application/x-tex>A_1 \cdots A_n</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:0em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:0.1667em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.1514em><span style=top:-2.55em;margin-left:0em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span></span></span></span> 是关系模式 R 的属性集, 那么 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><msub><mi>A</mi><mn>1</mn></msub><mo>⋯</mo><msub><mi>A</mi><mi>n</mi></msub></mrow><annotation encoding=application/x-tex>X \rightarrow A_1 \cdots A_n</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:0em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:0.1667em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.1514em><span style=top:-2.55em;margin-left:0em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span></span></span></span>
+成立的充分必要条件是 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=false>(</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo separator=true>,</mo><mo>⋯</mo><mtext> </mtext><mo separator=true>,</mo><mi>n</mi><mo stretchy=false>)</mo></mrow><annotation encoding=application/x-tex>X \rightarrow A_i (i = 1, \cdots, n)</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3117em><span style=top:-2.55em;margin-left:0em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mopen>(</span><span class="mord mathnormal">i</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mspace style=margin-right:0.1667em></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class="mord mathnormal">n</span><span class=mclose>)</span></span></span></span> 成立</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=324-fd-和关键码的联系>3.2.4 FD 和关键码的联系<a href=#324-fd-和关键码的联系 class=hash-link aria-label="Direct link to 3.2.4 FD 和关键码的联系" title="Direct link to 3.2.4 FD 和关键码的联系" translate=no>​</a></h4>
+<p>函数依赖是关键码概念的推广.</p>
+<p>定义 3.6
+: 设关系模式 R 的属性集是 U, X 是 U 的一个子集.如果 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>U</mi></mrow><annotation encoding=application/x-tex>X \rightarrow U</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.10903em>U</span></span></span></span> 在 R 上成立,
+那么称 X 是 R 的一个超键. 如果 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>U</mi></mrow><annotation encoding=application/x-tex>X \rightarrow U</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.10903em>U</span></span></span></span>子 R 上成立,但对于 X 的任一真子集
+<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub></mrow><annotation encoding=application/x-tex>X_1</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.0785em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span></span></span></span> 都有 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>→</mo><mi>U</mi></mrow><annotation encoding=application/x-tex>X_1 \rightarrow U</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.0785em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.10903em>U</span></span></span></span> 不成立,那么称 X 是 R 上的一个候选键(没有多余属性).</p>
+<p>一般键都是指候选键.</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=325-属性集的闭包>3.2.5 属性集的闭包<a href=#325-属性集的闭包 class=hash-link aria-label="Direct link to 3.2.5 属性集�的闭包" title="Direct link to 3.2.5 属性集的闭包" translate=no>​</a></h4>
+<p>定义 3.7
+: 设 F 是属性集 U 上的 FD 集, X 是 U 的子集. 那么(相对于 F)属性集 X 的闭包用 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msup><mi>X</mi><mo>+</mo></msup></mrow><annotation encoding=application/x-tex>X^+</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.7713em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.7713em><span style=top:-3.063em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>
+表示, 它是一个从 F 集使用 FD 推理规则推出的满足所有 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding=application/x-tex>X \rightarrow A</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal">A</span></span></span></span>的属性A的集合:</p>
+<span class=katex-display><span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML display=block><semantics><mrow><msup><mi>X</mi><mo>+</mo></msup><mo>=</mo><mo stretchy=false>{</mo><mspace width=1em /><mtext>属性</mtext><mi>A</mi><mspace width=1em /><mi mathvariant=normal>∣</mi><mspace width=1em /><mi>F</mi><mo>⊨</mo><mi>X</mi><mo>→</mo><mi>A</mi><mspace width=1em /><mo stretchy=false>}</mo></mrow><annotation encoding=application/x-tex>X^+ = \{\quad 属性 A \quad |\quad  F \models X \rightarrow A \quad \}</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8213em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.8213em><span style=top:-3.113em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class=mspace style=margin-right:1em></span><span class="mord cjk_fallback">属性</span><span class="mord mathnormal">A</span><span class=mspace style=margin-right:1em></span><span class=mord>∣</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊨</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal">A</span><span class=mspace style=margin-right:1em></span><span class=mclose>}</span></span></span></span></span>
+<p>从属性集闭包的定义,立即可得出下面的定理</p>
+<p>定理 3.4
+: <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span> 能用 FD 推理规则推出的充分必要条件是 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>Y</mi><mo>⊆</mo><msup><mi>X</mi><mo>+</mo></msup></mrow><annotation encoding=application/x-tex>Y \subseteq X^+</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8193em;vertical-align:-0.136em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊆</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.7713em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.7713em><span style=top:-3.063em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span></p>
+<p>算法 3.1
+: 求属性集 X 相对于 FD 集 F 的闭包 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msup><mi>X</mi><mo>+</mo></msup></mrow><annotation encoding=application/x-tex>X^+</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.7713em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.7713em><span style=top:-3.063em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>
+: 设属性集 X 的闭包为 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msup><mi>X</mi><mo>+</mo></msup></mrow><annotation encoding=application/x-tex>X^+</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.7713em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.7713em><span style=top:-3.063em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>, 其计算算法如下:</p>
+<span class=katex-display><span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML display=block><semantics><mrow><mspace width=2em /><msup><mi>X</mi><mo>+</mo></msup><mo>=</mo><mi>X</mi><mo separator=true>;</mo><mspace width=2em /><mspace/><mi>d</mi><mi>o</mi><mo stretchy=false>{</mo><mspace width=2em /><mspace width=2em /><mspace width=2em /><mspace width=2em /><mspace/><mi>o</mi><mi>l</mi><mi>d</mi><msup><mi>X</mi><mo>+</mo></msup><mo>:</mo><mo>=</mo><msup><mi>X</mi><mo>+</mo></msup><mo separator=true>;</mo><mspace/><mspace width=2em /><mspace width=2em /><mspace width=2em /><mspace width=2em /><mi>f</mi><mi>o</mi><mi>r</mi><mspace width=1em /><mrow><mi>F</mi><mi>D</mi></mrow><mspace width=1em /><mi>Y</mi><mo>→</mo><mi>Z</mi><mspace width=1em /><mi>i</mi><mi>n</mi><mspace width=1em /><mi>F</mi><mspace width=1em /><mi>d</mi><mi>o</mi><mspace/><mspace width=2em /><mspace width=2em /><mspace width=2em /><mspace width=2em /><mspace width=2em /><mspace width=2em /><mi>i</mi><mi>f</mi><mspace width=1em /><mi>Y</mi><mo>⊆</mo><msup><mi>X</mi><mo>+</mo></msup><mi>t</mi><mi>h</mi><mi>e</mi><mi>n</mi><mspace width=1em /><msup><mi>X</mi><mo>+</mo></msup><mo>:</mo><mo>=</mo><msup><mi>X</mi><mo>+</mo></msup><mo>∪</mo><mi>Z</mi><mo separator=true>;</mo><mspace/><mo stretchy=false>}</mo><mi>w</mi><mi>h</mi><mi>i</mi><mi>l</mi><mi>e</mi><mo stretchy=false>(</mo><msup><mi>X</mi><mo>+</mo></msup><mo stretchy=false>!</mo><mo>=</mo><mi>o</mi><mi>l</mi><mi>d</mi><msup><mi>X</mi><mo>+</mo></msup><mo stretchy=false>)</mo><mo separator=true>;</mo></mrow><annotation encoding=application/x-tex>\qquad X^+ = X; \qquad\\
+do  \{ \qquad\qquad\qquad\qquad \\
+oldX^+ := X^+; \\
+\qquad\qquad\qquad\qquad
+for\quad {FD}\quad Y \rightarrow Z\quad in\quad F\quad do \\
+\qquad\qquad\qquad\qquad\qquad\qquad
+if\quad Y \subseteq X^+ then\quad X^+ := X^+\cup Z; \\
+\} while(X^+ != oldX^+);</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8213em></span><span class=mspace style=margin-right:2em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.8213em><span style=top:-3.113em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1.0713em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mpunct>;</span><span class=mspace style=margin-right:2em></span><span class=mspace></span><span class=mspace style=margin-right:0.1667em></span><span class="mord mathnormal">d</span><span class="mord mathnormal">o</span><span class=mopen>{</span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:2em></span><span class=mspace></span><span class="mord mathnormal">o</span><span class="mord mathnormal" style=margin-right:0.01968em>l</span><span class="mord mathnormal">d</span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.8213em><span style=top:-3.113em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>:=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1.0158em;vertical-align:-0.1944em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.8213em><span style=top:-3.113em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class=mpunct>;</span><span class=mspace></span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:0.1667em></span><span class="mord mathnormal" style=margin-right:0.10764em>f</span><span class="mord mathnormal" style=margin-right:0.02778em>or</span><span class=mspace style=margin-right:1em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span></span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8889em;vertical-align:-0.1944em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal">in</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal">d</span><span class="mord mathnormal">o</span><span class=mspace></span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:2em></span><span class=mspace style=margin-right:2em></span><span class="mord mathnormal">i</span><span class="mord mathnormal" style=margin-right:0.10764em>f</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊆</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8213em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.8213em><span style=top:-3.113em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:1em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.8213em><span style=top:-3.113em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>:=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8213em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.8213em><span style=top:-3.113em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:0.2222em></span><span class=mbin>∪</span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:1.0713em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span><span class=mpunct>;</span><span class=mspace></span><span class=mspace style=margin-right:0.1667em></span><span class=mclose>}</span><span class="mord mathnormal" style=margin-right:0.02691em>w</span><span class="mord mathnormal">hi</span><span class="mord mathnormal" style=margin-right:0.01968em>l</span><span class="mord mathnormal">e</span><span class=mopen>(</span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.8213em><span style=top:-3.113em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class=mclose>!</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1.0713em;vertical-align:-0.25em></span><span class="mord mathnormal">o</span><span class="mord mathnormal" style=margin-right:0.01968em>l</span><span class="mord mathnormal">d</span><span class=mord><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.8213em><span style=top:-3.113em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class=mclose>)</span><span class=mpunct>;</span></span></span></span></span>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=326-fd-集的最小依赖集>3.2.6 FD 集的最小依赖集<a href=#326-fd-集的最小依赖集 class=hash-link aria-label="Direct link to 3.2.6 FD 集的最小依赖集" title="Direct link to 3.2.6 FD 集的最小依赖集" translate=no>​</a></h4>
+<p>定义 3.8
+: 如果关系模式 R(U) 上的两个函数依赖集 F 和 G, 有 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msup><mi>F</mi><mo>+</mo></msup><mo>=</mo><msup><mi>G</mi><mo>+</mo></msup></mrow><annotation encoding=application/x-tex>F^+ = G^+ </annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.7713em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.7713em><span style=top:-3.063em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.7713em></span><span class=mord><span class="mord mathnormal">G</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.7713em><span style=top:-3.063em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>,则称 F 和 G
+是等价的函数依赖集</p>
+<p>F 和 G 等价,意味着 F 中每一个 FD 都可以从 G 推导出来, 并且 G 中每一个 FD也都可以从F推导出来</p>
+<p>函数依赖集 F 中的 FD 很多,我们应该从 F 中去掉平凡的 FD, 无关的 FD, FD 中无关的属性,
+以求得与 F 等价的最小依赖集 G.</p>
+<p><strong>定义 3.9</strong>
+如果函数依赖集 G 满足下列三个条件,则称 G 是最小依赖集</p>
+<ol>
+<li>G 中每个 FD 的右边都是单属性</li>
+<li>G 中没有冗余的 F, 即 G 中不存在这样的函数依赖 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>,
+使得 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>G</mi><mo>−</mo><mo stretchy=false>{</mo><mi>X</mi><mo>→</mo><mi>Y</mi><mo stretchy=false>}</mo></mrow><annotation encoding=application/x-tex>G - \{ X \rightarrow Y \}</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.7667em;vertical-align:-0.0833em></span><span class="mord mathnormal">G</span><span class=mspace style=margin-right:0.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mclose>}</span></span></span></span> 与 G 等价</li>
+<li>G 中每个 FD 的左边没有冗余的属性, 即 G 中不存在这样的函数依赖 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>,
+X 有真子集 W 使得 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>G</mi><mo>−</mo><mo stretchy=false>{</mo><mi>X</mi><mo>→</mo><mi>Y</mi><mo stretchy=false>}</mo><mo>∪</mo><mo stretchy=false>{</mo><mi>W</mi><mo>→</mo><mi>Y</mi><mo stretchy=false>}</mo></mrow><annotation encoding=application/x-tex>G - \{X \rightarrow Y \} \cup \{ W \rightarrow Y \}</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.7667em;vertical-align:-0.0833em></span><span class="mord mathnormal">G</span><span class=mspace style=margin-right:0.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mclose>}</span><span class=mspace style=margin-right:0.2222em></span><span class=mbin>∪</span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class="mord mathnormal" style=margin-right:0.13889em>W</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mclose>}</span></span></span></span>
+与 G 等价.</li>
+</ol>
+<blockquote>
+<p>显然, 每个函数依赖集至少存在一个等价的最小依赖集,但并不一定唯一</p>
+</blockquote>
+<p><strong>算法 3.2</strong>
+: 计算函数依赖集 F 的最小依赖集 G</p>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">1. 根据推理规则的分解特性(A5),得到一个与 F 等价的 FD 集 G,</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">G中每个FD的左右均为单属性</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">2. 在 G 的每个 FD 中消除左边冗余的属性</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">3. 在 G 中消除冗余的 FD</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=33-关系模式的分解特性>3.3 关系模式的分解特性<a href=#33-关系模式的分解特性 class=hash-link aria-label="Direct link to 3.3 关系模式的分解特性" title="Direct link to 3.3 关系模式的分解特性" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=331-关系模式的分解>3.3.1 关系模式的分解<a href=#331-关系模式的分解 class=hash-link aria-label="Direct link to 3.3.1 关系模式的分解" title="Direct link to 3.3.1 关系模式的分解" translate=no>​</a></h4>
+<p>定义 3.10
+: 设有关系模式 R(U), 属性集为 U, 而 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo separator=true>,</mo><mo>⋯</mo><mtext> </mtext><mo separator=true>,</mo><msub><mi>R</mi><mi>k</mi></msub></mrow><annotation encoding=application/x-tex>R_1,\cdots,R_k</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mspace style=margin-right:0.1667em></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3361em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span></span></span></span>都是 U 的子集,
+并且有<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>∪</mo><msub><mi>R</mi><mn>2</mn></msub><mo>∪</mo><mo>⋯</mo><mo>∪</mo><msub><mi>R</mi><mi>k</mi></msub><mo>=</mo><mi>U</mi></mrow><annotation encoding=application/x-tex>R_1 \cup R_2 \cup \cdots \cup R_k = U</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:0.2222em></span><span class=mbin>∪</span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:0.2222em></span><span class=mbin>∪</span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:0.5556em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.2222em></span><span class=mbin>∪</span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3361em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.10903em>U</span></span></span></span>. 关系模式 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo separator=true>,</mo><mo>⋯</mo><mtext> </mtext><mo separator=true>,</mo><msub><mi>R</mi><mi>k</mi></msub></mrow><annotation encoding=application/x-tex>R_1,\cdots,R_k</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mspace style=margin-right:0.1667em></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3361em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span></span></span></span>
+的集合用 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>ρ</mi></mrow><annotation encoding=application/x-tex>\rho</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal">ρ</span></span></span></span> 表示, <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>ρ</mi><mo>=</mo><mo stretchy=false>{</mo><msub><mi>R</mi><mn>1</mn></msub><mo separator=true>,</mo><mo>⋯</mo><mtext> </mtext><mo separator=true>,</mo><msub><mi>R</mi><mi>k</mi></msub><mo stretchy=false>}</mo></mrow><annotation encoding=application/x-tex>\rho = \{ R_1,\cdots,R_k \}</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal">ρ</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mspace style=margin-right:0.1667em></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3361em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mclose>}</span></span></span></span>. 用<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>ρ</mi></mrow><annotation encoding=application/x-tex>\rho</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal">ρ</span></span></span></span>代替 R 的过程
+称为关系模式的分解.这里<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>ρ</mi></mrow><annotation encoding=application/x-tex>\rho</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal">ρ</span></span></span></span>称为 R 的一个分解.也称为__数据库模式__.</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=332-无损分解>3.3.2 无损分解<a href=#332-无损分解 class=hash-link aria-label="Direct link to 3.3.2 无损分解" title="Direct link to 3.3.2 无损分解" translate=no>​</a></h4>
+<p>定义 3.11
+: 在泛关系模式 R 分解陈数据库模式 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>ρ</mi><mo>=</mo><msub><mi>R</mi><mn>1</mn></msub><mo separator=true>,</mo><mo>⋯</mo><mtext> </mtext><mo separator=true>,</mo><msub><mi>R</mi><mi>k</mi></msub></mrow><annotation encoding=application/x-tex>\rho = R_1,\cdots,R_k</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal">ρ</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mspace style=margin-right:0.1667em></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3361em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span></span></span></span>时,
+泛关系 r 在 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>ρ</mi></mrow><annotation encoding=application/x-tex>\rho</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal">ρ</span></span></span></span> 的每一模式 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>R</mi><mi>i</mi></msub><mo stretchy=false>(</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi><mo stretchy=false>)</mo></mrow><annotation encoding=application/x-tex>R_i (1 \le i \le n)</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3117em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mopen>(</span><span class=mord>1</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>≤</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.7955em;vertical-align:-0.136em></span><span class="mord mathnormal">i</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>≤</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal">n</span><span class=mclose>)</span></span></span></span>上投影后
+再连接起来,比原来r中多出来的元组,称为 <strong>寄生元组(Spurious Tuple)</strong>.</p>
+<p>定义 3.12
+: 设 R 是一个关系模式, F 是 R 上的一个 FD 集. R 分解成数据库模式
+<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>ρ</mi><mo>=</mo><msub><mi>R</mi><mn>1</mn></msub><mo separator=true>,</mo><mo>⋯</mo><mtext> </mtext><mo separator=true>,</mo><msub><mi>R</mi><mi>k</mi></msub></mrow><annotation encoding=application/x-tex>\rho = R_1,\cdots,R_k</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal">ρ</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mspace style=margin-right:0.1667em></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3361em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span></span></span></span>.如果对 R 中满足 F 的每一个关系 r, 都有</p>
+<span class=katex-display><span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML display=block><semantics><mrow><mi>r</mi><mspace width=1em /><mo>=</mo><mspace width=1em /><msub><mi>π</mi><msub><mi>R</mi><mn>2</mn></msub></msub><mspace width=1em /><mo stretchy=false>(</mo><mi>r</mi><mo stretchy=false>)</mo><mspace width=1em /><mo>⊳</mo><mo>⊲</mo><mspace width=1em /><msub><mi>π</mi><mo stretchy=false>(</mo></msub><msub><mi>R</mi><mn>2</mn></msub><mo stretchy=false>)</mo><mo stretchy=false>(</mo><mi>r</mi><mo stretchy=false>)</mo><mspace width=1em /><mo>⊳</mo><mo>⊲</mo><mspace width=1em /><mo>⋯</mo><msub><mi>π</mi><mo stretchy=false>(</mo></msub><msub><mi>R</mi><mi>k</mi></msub><mo stretchy=false>)</mo><mo stretchy=false>(</mo><mi>r</mi><mo stretchy=false>)</mo></mrow><annotation encoding=application/x-tex>r \quad=
+\quad\pi_{R_2}\quad(r)
+\quad\rhd\lhd \quad \pi_(R_2)(r)
+\quad\rhd\lhd \quad \cdots \pi_(R_k)(r)</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.4306em></span><span class="mord mathnormal" style=margin-right:0.02778em>r</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1.0001em;vertical-align:-0.2501em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.03588em>π</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0359em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3173em><span style=top:-2.357em;margin-left:-0.0077em;margin-right:0.0714em><span class=pstrut style=height:2.5em></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.143em><span></span></span></span></span></span></span></span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.2501em><span></span></span></span></span></span></span><span class=mspace style=margin-right:1em></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span><span class=mclose>)</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:0.2222em></span><span class="mbin amsrm">⊳⊲</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:1.1052em;vertical-align:-0.3552em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.03588em>π</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3448em><span style=top:-2.5198em;margin-left:-0.0359em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mopen mtight">(</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.3552em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mclose>)</span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span><span class=mclose>)</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:0.2222em></span><span class="mbin amsrm">⊳⊲</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:1.1052em;vertical-align:-0.3552em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.03588em>π</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3448em><span style=top:-2.5198em;margin-left:-0.0359em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mopen mtight">(</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.3552em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3361em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mclose>)</span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span><span class=mclose>)</span></span></span></span></span>
+<p>那么称分解 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>ρ</mi></mrow><annotation encoding=application/x-tex>\rho</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal">ρ</span></span></span></span> 相对于 F 是__无损连接分解(Lossless Join Decomposition)__,
+简称为 <em>无损分解</em>,否则称为 <strong>损失分解(Lossy Decomposition)</strong></p>
+<p>_损_是指信息的丢失,而不是元组的丢失.如果一个分解不具有_无损_性质,
+那么泛关系在投影连接以后就可能产生寄生元组.寄生元组表示的是错误信息.</p>
+<p>其中符号 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>π</mi><msub><mi>R</mi><mi>i</mi></msub></msub><mo stretchy=false>(</mo><mi>r</mi><mo stretchy=false>)</mo></mrow><annotation encoding=application/x-tex>\pi_{R_i}(r)</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1.0001em;vertical-align:-0.2501em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.03588em>π</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0359em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3281em><span style=top:-2.357em;margin-left:-0.0077em;margin-right:0.0714em><span class=pstrut style=height:2.5em></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.143em><span></span></span></span></span></span></span></span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.2501em><span></span></span></span></span></span></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span><span class=mclose>)</span></span></span></span> 表示关系 r 在模式 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>R</mi><mi>i</mi></msub></mrow><annotation encoding=application/x-tex>R_i</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3117em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span></span></span></span>属性上的投影.
+r 的投影连接表达式 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>π</mi><msub><mi>R</mi><mn>1</mn></msub></msub><mo stretchy=false>(</mo><mi>r</mi><mo stretchy=false>)</mo><mspace width=1em /><mo>⊳</mo><mo>⊲</mo><mspace width=1em /><mo>⋯</mo><msub><mi>π</mi><msub><mi>R</mi><mi>k</mi></msub></msub><mo stretchy=false>(</mo><mi>r</mi><mo stretchy=false>)</mo></mrow><annotation encoding=application/x-tex>\pi_{R_1}(r) \quad \rhd\lhd \quad \cdots \pi_{R_k}(r)</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1.0001em;vertical-align:-0.2501em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.03588em>π</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0359em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3173em><span style=top:-2.357em;margin-left:-0.0077em;margin-right:0.0714em><span class=pstrut style=height:2.5em></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.143em><span></span></span></span></span></span></span></span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.2501em><span></span></span></span></span></span></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span><span class=mclose>)</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:0.2222em></span><span class="mbin amsrm">⊳⊲</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:1.0059em;vertical-align:-0.2559em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.03588em>π</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0359em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3448em><span style=top:-2.3488em;margin-left:-0.0077em;margin-right:0.0714em><span class=pstrut style=height:2.5em></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.1512em><span></span></span></span></span></span></span></span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.2559em><span></span></span></span></span></span></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span><span class=mclose>)</span></span></span></span>
+用符号<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>m</mi><mi>ρ</mi></msub><mo stretchy=false>(</mo><mi>r</mi><mo stretchy=false>)</mo></mrow><annotation encoding=application/x-tex>m_{\rho}(r)</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1.0361em;vertical-align:-0.2861em></span><span class=mord><span class="mord mathnormal">m</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.1514em><span style=top:-2.55em;margin-left:0em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ρ</span></span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.2861em><span></span></span></span></span></span></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span><span class=mclose>)</span></span></span></span>表示, 即</p>
+<span class=katex-display><span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML display=block><semantics><mrow><msub><mi>m</mi><mi>ρ</mi></msub><mo stretchy=false>(</mo><mi>r</mi><mo stretchy=false>)</mo><mo>=</mo><mi><mover><mo><mo lspace=0.22em rspace=0.22em><munder><mo><mo>⊳</mo><mo>⊲</mo></mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow></munder></mo></mo><mi>k</mi></mover></mi><msub><mi>π</mi><msub><mi>R</mi><mi>i</mi></msub></msub><mo stretchy=false>(</mo><mi>r</mi><mo stretchy=false>)</mo></mrow><annotation encoding=application/x-tex>m_{\rho}(r) = \overset {k}{\underset { i=1 }{ \rhd \lhd }}\pi_{R_i}(r)</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1.0361em;vertical-align:-0.2861em></span><span class=mord><span class="mord mathnormal">m</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.1514em><span style=top:-2.55em;margin-left:0em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ρ</span></span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.2861em><span></span></span></span></span></span></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span><span class=mclose>)</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:2.0988em;vertical-align:-0.7628em></span><span class=mord><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:1.336em><span style=top:-3em><span class=pstrut style=height:3em></span><span><span class=mop><span class=mord><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.5499em><span style=top:-2.3372em;margin-left:0em><span class=pstrut style=height:3em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style=top:-3em><span class=pstrut style=height:3em></span><span><span class="mop amsrm">⊳⊲</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.7628em><span></span></span></span></span></span></span></span></span></span><span style=top:-3.7499em;margin-left:0em><span class=pstrut style=height:3em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.7628em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:0.03588em>π</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0359em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3281em><span style=top:-2.357em;margin-left:-0.0077em;margin-right:0.0714em><span class=pstrut style=height:2.5em></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.143em><span></span></span></span></span></span></span></span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.2501em><span></span></span></span></span></span></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span><span class=mclose>)</span></span></span></span></span>
+<p>需要注意的是,上述定义有一个先决条件,即 r 是 R 的一个关系. 也就是先存在 r(泛关系)
+的情况下,再去谈论分解,这是关系数据库理论中著名的__泛关系假设(Universal Relation Assumption)__</p>
+<p>定义 3.13
+: 在无泛关系假设时,对两个关系进行自然连接中被丢失的元组称为悬挂元组.</p>
+<blockquote>
+<p>悬挂元组是造成两个关系不存在泛关系的原因.</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=333-模式分解的优缺点>3.3.3 模式分解的优缺点<a href=#333-模式分解的优缺点 class=hash-link aria-label="Direct link to 3.3.3 模式分解的优缺点" title="Direct link to 3.3.3 模式分解的优缺点" translate=no>​</a></h4>
+<p>优点:</p>
+<ol>
+<li>模式分解能消除数据冗余和操作异常现象</li>
+<li>在分解了的数据库中可以存储悬挂元组,存储泛关系中无法存储的信息</li>
+</ol>
+<p>缺点:</p>
+<ol>
+<li>分解以后,检索操作需要做笛卡尔积或连接操作,这将付出时间代价</li>
+<li>在有泛关系假设时,对数据库中关系进行自然连接时,可能产生寄生元组,
+即损失了信息.在无泛关系假设时,由于数据库可能存在悬挂元组,就有可能
+不存在泛关系</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=334-无损分解的测试方法>3.3.4 无损分解的测试方法<a href=#334-无损分解的测试方法 class=hash-link aria-label="Direct link to 3.3.4 无损分解的测试方法" title="Direct link to 3.3.4 无损分解的测试方法" translate=no>​</a></h4>
+<p>略</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=335-保持-fd-的分解>3.3.5 保持 FD 的分解<a href=#335-保持-fd-的分解 class=hash-link aria-label="Direct link to 3.3.5 保持 FD 的分解" title="Direct link to 3.3.5 保持 FD 的分解" translate=no>​</a></h4>
+<p>分解的另一个特性是在分解的过程中能否保持函数依赖集,如果不能保持 FD, 那么数据的
+寓意就会出现混乱.</p>
+<p>定义 3.14
+: 设 F 是属性集 U 上的 FD 集, Z 是 U 的子集, F 在 Z 上的投影用<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><msub><mi>π</mi><mi>Z</mi></msub><mo stretchy=false>(</mo><mi>F</mi><mo stretchy=false>)</mo></mrow><annotation encoding=application/x-tex>\pi_Z(F)</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.03588em>π</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0359em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.07153em>Z</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class=mclose>)</span></span></span></span>
+表示,定义为</p>
+<span class=katex-display><span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML display=block><semantics><mrow><msub><mi>π</mi><mi>Z</mi></msub><mo stretchy=false>(</mo><mi>F</mi><mo stretchy=false>)</mo><mo>=</mo><mo stretchy=false>{</mo><mspace width=1em /><mi>X</mi><mo>→</mo><mi>Y</mi><mi mathvariant=normal>∣</mi><mi>X</mi><mo>→</mo><mi>Y</mi><mo>∈</mo><msup><mi>F</mi><mo>+</mo></msup><mo separator=true>,</mo><mtext>且</mtext><mi>X</mi><mi>Y</mi><mo>⊆</mo><mi>Z</mi><mspace width=1em /><mo stretchy=false>}</mo></mrow><annotation encoding=application/x-tex>\pi_Z(F) = \{\quad
+X \rightarrow Y | X \rightarrow Y \in F^+, 且 XY \subseteq Z
+\quad \}</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.03588em>π</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0359em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.07153em>Z</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class=mclose>)</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mord>∣</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.7224em;vertical-align:-0.0391em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>∈</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1.0158em;vertical-align:-0.1944em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.8213em><span style=top:-3.113em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class="mord cjk_fallback">且</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊆</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.07153em>Z</span><span class=mspace style=margin-right:1em></span><span class=mclose>}</span></span></span></span></span>
+<p>定义 3.15
+: 设 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>ρ</mi><mo>=</mo><mo stretchy=false>{</mo><msub><mi>R</mi><mi>i</mi></msub><mo separator=true>,</mo><mo>⋯</mo><mtext> </mtext><mo separator=true>,</mo><msub><mi>R</mi><mi>k</mi></msub><mo stretchy=false>}</mo></mrow><annotation encoding=application/x-tex>\rho = \{ R_i, \cdots, R_k\}</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal">ρ</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3117em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mspace style=margin-right:0.1667em></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3361em><span style=top:-2.55em;margin-left:-0.0077em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mclose>}</span></span></span></span> 是 R 的一个分解, F 是R 上的 FD 集, 如果有
+<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi><mover><mo><mo lspace=0.22em rspace=0.22em><munder><mo><mo>∪</mo></mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow></munder></mo></mo><mi>k</mi></mover></mi><msub><mi>π</mi><msub><mi>R</mi><mi>i</mi></msub></msub><mo stretchy=false>(</mo><mi>F</mi><mo stretchy=false>)</mo><mo>⊨</mo><mi>F</mi></mrow><annotation encoding=application/x-tex>\overset {k}{\underset { i=1 }{ \cup }}\pi_{R_i}(F) \models F</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:2.0693em;vertical-align:-0.7277em></span><span class=mord><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:1.3417em><span style=top:-3em><span class=pstrut style=height:3em></span><span><span class=mop><span class=mord><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.5556em><span style=top:-2.3723em;margin-left:0em><span class=pstrut style=height:3em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style=top:-3em><span class=pstrut style=height:3em></span><span><span class=mop>∪</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.7277em><span></span></span></span></span></span></span></span></span></span><span style=top:-3.7556em;margin-left:0em><span class=pstrut style=height:3em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.7277em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:0.03588em>π</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0359em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style=margin-right:0.00773em>R</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3281em><span style=top:-2.357em;margin-left:-0.0077em;margin-right:0.0714em><span class=pstrut style=height:2.5em></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.143em><span></span></span></span></span></span></span></span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.2501em><span></span></span></span></span></span></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class=mclose>)</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊨</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.13889em>F</span></span></span></span>,
+那么称分解 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>ρ</mi></mrow><annotation encoding=application/x-tex>\rho</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.625em;vertical-align:-0.1944em></span><span class="mord mathnormal">ρ</span></span></span></span> 保持函数依赖集 F.</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=34-范式>3.4 范式<a href=#34-范式 class=hash-link aria-label="Direct link to 3.4 范式" title="Direct link to 3.4 范式" translate=no>​</a></h3>
+<p>关系模式的好与坏,用什么标准来衡量? 这个标准就是模式的__范式(Normal Forms, 简记为 FN)__.</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=341-第一范式1nf>3.4.1 第一范式(1NF)<a href=#341-第一范式1nf class=hash-link aria-label="Direct link to 3.4.1 第一范式(1NF)" title="Direct link to 3.4.1 第一范式(1NF)" translate=no>​</a></h4>
+<p>定义 3.16
+: 如果关系模式 R 的每个关系 r 的属性值都是不可分的原子值,那么称 R 是
+__第一范式(First Normal Forms, 简记为 1NF)__的模式.</p>
+<p>满足 1NF 的关系称为规范化的关系,否则称为非规范化的关系.关系数据库研究的关系都是规
+范化的关系.</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=342-第二范式2nf>3.4.2 第二范式(2NF)<a href=#342-第二范式2nf class=hash-link aria-label="Direct link to 3.4.2 第二范式(2NF)" title="Direct link to 3.4.2 第二范式(2NF)" translate=no>​</a></h4>
+<p>定义 3.17
+: 对于 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>F</mi><mi>D</mi><mspace width=1em /><mi>W</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding=application/x-tex>FD\quad W\rightarrow A</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal" style=margin-right:0.13889em>W</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal">A</span></span></span></span>,如果存在 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>⊂</mo><mi>W</mi></mrow><annotation encoding=application/x-tex>X \subset W</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.7224em;vertical-align:-0.0391em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>⊂</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.13889em>W</span></span></span></span> 有 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding=application/x-tex>X \rightarrow A</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal">A</span></span></span></span>
+成立, 那么称 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>W</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding=application/x-tex>W \rightarrow A</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.13889em>W</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal">A</span></span></span></span> 是局部依赖(A 局部依赖于 W);否则称<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>W</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding=application/x-tex>W\rightarrow A</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.13889em>W</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal">A</span></span></span></span>
+是完全依赖.</p>
+<p>完全依赖也称为__左部不可约依赖__.</p>
+<p>定义 3.18
+: 如果 A 是关系模式 R 的候选键的属性,那么称 A 是 R 的主属性; 否则称 A 是 R 的非主属性</p>
+<p>定义 3.19
+: 如果关系模式 R 是 1NF, 且每个非主属性完全函数依赖于候选键,那么称 R 是第二范式(2NF)的
+模式.如果数据库模式中每个关系模式都是 2NF,则称数据库模式为 2NF 的数据库模式.</p>
+<blockquote>
+<p>不满足 2NF的关系模式中必定存在有非主属性对关键码的局部依赖.</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=343-第三范式3nf>3.4.3 第三范式(3NF)<a href=#343-第三范式3nf class=hash-link aria-label="Direct link to 3.4.3 第三范式(3NF)" title="Direct link to 3.4.3 第三范式(3NF)" translate=no>​</a></h4>
+<p>定义 3.20
+: 如果 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi><mo separator=true>,</mo><mi>Y</mi><mo>→</mo><mi>A</mi><mo separator=true>,</mo><mtext>且</mtext><mi>Y</mi><mo>↛</mo><mi>X</mi><mtext>和</mtext><mi>A</mi><mo mathvariant=normal>∉</mo><mi>Y</mi><mo separator=true>,</mo><mtext>那么称</mtext><mi>X</mi><mo>→</mo><mi>A</mi></mrow><annotation encoding=application/x-tex>X \rightarrow Y , Y \rightarrow A, 且 Y \nrightarrow X 和 A \notin Y
+,那么称 X \rightarrow A </annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class="mord mathnormal">A</span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class="mord cjk_fallback">且</span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mspace style=margin-right:0.2778em></span><span class="mrel amsrm">↛</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class="mord cjk_fallback">和</span><span class="mord mathnormal">A</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel><span class=mord><span class=mrel>∈</span></span><span class="mord vbox"><span class=thinbox><span class=llap><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=inner><span class=mord><span class=mord>/</span><span class=mspace style=margin-right:0.0556em></span></span></span><span class=fix></span></span></span></span></span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class="mord cjk_fallback">那么称</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal">A</span></span></span></span>是传递依赖(A 传递依赖于 X).</p>
+<p>定义 3.21
+: 如果关系模式 R 是 1NF, 且每个非主属性都不传递依赖于 R 的候选键,那么称 R 是第三范式
+(3NF)的模式.如果数据库模式中每个关系模式都是 3NF,则称其为 3NF 的数据库模式.</p>
+<p>定义 3.22
+: 设 F 是关系模式 R 的 FD 集, 如果对 F 中每个非平凡的 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>F</mi><mi>D</mi><mspace width=1em /><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>FD\quad X\rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>,
+都有X是R的超键,或者 Y 的每个属性都是主属性, 那么称 R 是3NF 的模式.</p>
+<p>定理 3.5
+: 如果 R 是 3NF 模式,那么 R 也是2NF 模式.</p>
+<p>局部依赖和传递依赖是模式产生冗余和异常的两个重要原因. 由于 3NF 模式中不存在非主属性
+对候选键的局部依赖和传递依赖,因此消除了很大一部分存储异常.
+将 1NF, 2NF 转换为 3NF 的过程称为 关系的规范化处理.</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=344-bcnfboyoce-codd-nf>3.4.4 BCNF(Boyoce-Codd NF)<a href=#344-bcnfboyoce-codd-nf class=hash-link aria-label="Direct link to 3.4.4 BCNF(Boyoce-Codd NF)" title="Direct link to 3.4.4 BCNF(Boyoce-Codd NF)" translate=no>​</a></h4>
+<p>定义 3.33
+: 如果关系模式 R 是 1NF, 且每个属性都不传递依赖于 R 的候选键,那么称 R 是 BCNF 模式.
+如果数据库中的所有关系模式都是 BCNF, 则称为 BCNF 的数据库模式.</p>
+<p>定义 3.34
+: 设 F 设计关系模式 R 的FD 集, 如果对 F 中每个非平凡<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>F</mi><mi>D</mi><mspace width=1em /><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>FD \quad X \rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>
+都有 X 是 R 的超键,那么称 R 是 BCNF 模式.</p>
+<p>这个定义表明,如果非平凡的 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>F</mi><mi>D</mi><mspace width=1em /><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding=application/x-tex>FD\quad X\rightarrow Y</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.13889em>F</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mspace style=margin-right:1em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.22222em>Y</span></span></span></span>中 X 不包含超键,那么 Y 必定
+传递依赖于候选键, 因此 R 不是 BCNF 模式.</p>
+<p>定理
+: 3.6 如果 R 是 BCNF 模式,那么 R 也是 3NF 模式</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=35-多值依赖和第四范式>3.5 多值依赖和第四范式<a href=#35-多值依赖和第四范式 class=hash-link aria-label="Direct link to 3.5 多值依赖和第四范式" title="Direct link to 3.5 多值依赖和第四范式" translate=no>​</a></h3>
+<p>略</p>
+<hr/>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=appendixa-er-模型>Appendix.A ER 模型<a href=#appendixa-er-模型 class=hash-link aria-label="Direct link to Appendix.A ER 模型" title="Direct link to Appendix.A ER 模型" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=1-er-模型的基本元素>1. ER 模型的基本元素<a href=#1-er-模型的基本元素 class=hash-link aria-label="Direct link to 1. ER 模型的基本元素" title="Direct link to 1. ER 模型的基本元素" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=11-实体>1.1. 实体<a href=#11-实体 class=hash-link aria-label="Direct link to 1.1. 实体" title="Direct link to 1.1. 实体" translate=no>​</a></h4>
+<p>实体(Entity)
+: 是一个数据对象,指应用中可以区别的客观存在的事物</p>
+<p>实体集(Entity Set)
+: 是指同一类</p>
+<p>实体类型(Entity Type)
+: 是对实体集中实体的定义</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=12-联系>1.2. 联系<a href=#12-联系 class=hash-link aria-label="Direct link to 1.2. 联系" title="Direct link to 1.2. 联系" translate=no>​</a></h4>
+<p>联系(Relationship)
+: 表示一个或多个实体之间的关联关系</p>
+<p>联系集(Relationship Set)
+: 是指同一类联系构成的集合</p>
+<p>联系类型(Relationship Type)
+: 是对联系集中联系的定义</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=13-属性>1.3 属性<a href=#13-属性 class=hash-link aria-label="Direct link to 1.3 属性" title="Direct link to 1.3 属性" translate=no>​</a></h4>
+<p>实体的某一特性称为属性(Attribute).在一个实体中,能够唯一标识实体的属性或属性
+集称为"实体标识符".</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=2-属性的分类>2. 属性的分类<a href=#2-属性的分类 class=hash-link aria-label="Direct link to 2. 属性的分类" title="Direct link to 2. 属性的分类" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=21-简单属性和复合属性>2.1 简单属性和复合属性<a href=#21-简单属性和复合属性 class=hash-link aria-label="Direct link to 2.1 简单属性和复合属性" title="Direct link to 2.1 简单属性和复合属性" translate=no>​</a></h4>
+<p>简单属性(Simple Attribute)
+: 简单属性是不可再分割的属性.例如: 年龄,性别</p>
+<p>复合属性(Composite Attribute)
+: 复合属性是可以再分解为其他属性的属性.例如: 地址可分为省,市,区,街道等子属性</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=22-单值属性和多值属性>2.2 单值属性和多值属性<a href=#22-单值属性和多值属性 class=hash-link aria-label="Direct link to 2.2 单值属性和多值属性" title="Direct link to 2.2 单值属性和多值属性" translate=no>​</a></h4>
+<p>单值属性(Single-Valued Attribute)
+: 是指同一个实体的属性只能取一个值.例如: 年龄,性别</p>
+<p>多值属性(Mulyi-Valued Attribute)
+: 实体属性可取多个值.例如: 一个文章的标签,可能会有多个标签</p>
+<h5 class="anchor anchorWithStickyNavbar_EG6R" id=分解多值属性的方法>分解多值属性的方法<a href=#分解多值属性的方法 class=hash-link aria-label="Direct link to 分解多值属性的方法" title="Direct link to 分解多值属性的方法" translate=no>​</a></h5>
+<ol>
+<li>将原来的多值属性用几个新的单值属性表示</li>
+<li>将多值属性用一个新的实体类型表示</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=23-存储属性和派生属性>2.3 存储属性和派生属性<a href=#23-存储属性和派生属性 class=hash-link aria-label="Direct link to 2.3 存储属性和派生属性" title="Direct link to 2.3 存储属性和派生属性" translate=no>​</a></h4>
+<p>派生属性(Derived Attribute)
+: 两个(或两个以上)属性是相关的.可以从其他属性推导该属性的值
+> 派生属性的值不必存储在数据库内</p>
+<p>存储属性(Stored Attribute)
+: 反之,除了能推导出值的派生属性,其他都是存储属性.</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=24-可空属性>2.4 可空属性<a href=#24-可空属性 class=hash-link aria-label="Direct link to 2.4 可空属性" title="Direct link to 2.4 可空属性" translate=no>​</a></h4>
+<p>可空属性(Null Value)
+: 当实体在某个属性上没有值时,可以使用空值(Null Value)的属性
+: 例如: 配偶,当未婚是该值无意义,即可为空,但也可以理解为已婚但配偶未知,或尚不知是否婚
+: 否.在数据库中,空值是很难处理的一种值.</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=3-联系的设计>3. 联系的设计<a href=#3-联系的设计 class=hash-link aria-label="Direct link to 3. 联系的设计" title="Direct link to 3. 联系的设计" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=31-联系的元数>3.1 联系的元数<a href=#31-联系的元数 class=hash-link aria-label="Direct link to 3.1 联系的元数" title="Direct link to 3.1 联系的元数" translate=no>​</a></h4>
+<p>元数/度数(Degree)
+: 一个联系涉及到的实体集的个数
+: 简单的可称之为 一元联系,二元联系,三元联系</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=32-联系类型的约束>3.2 联系类型的约束<a href=#32-联系类型的约束 class=hash-link aria-label="Direct link to 3.2 联系类型的约束" title="Direct link to 3.2 联系类型的约束" translate=no>​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_EG6R" id=321-基数约束>3.2.1 基数约束<a href=#321-基数约束 class=hash-link aria-label="Direct link to 3.2.1 基数约束" title="Direct link to 3.2.1 基数约束" translate=no>​</a></h5>
+<p>映射基数(Mapping Cardinalities)
+: 实体集 E1 和 E2 之间有二元联系,则参与一个联系中的实体数目成为映射基数
+: 对于二元联系类型,可能的映射基数有 1:1, 1:N, N:M,</p>
+<h5 class="anchor anchorWithStickyNavbar_EG6R" id=322-参与约束>3.2.2 参与约束<a href=#322-参与约束 class=hash-link aria-label="Direct link to 3.2.2 参与约束" title="Direct link to 3.2.2 参与约束" translate=no>​</a></h5>
+<p>完全参与
+: 如果实体集 E 中的内阁实体都参与联系集 R 的至少一个联系中,则称实体集 E 完全参与 联系集 R</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=33-er模型的操作>3.3 ER模型的操作<a href=#33-er模型的操作 class=hash-link aria-label="Direct link to 3.3 ER模型的操作" title="Direct link to 3.3 ER模型的操作" translate=no>​</a></h4>
+<p>ER 模型的操作包括实体类型,联系类型和属性的分裂,合并,增删 等</p>
+<blockquote>
+<p>分裂方式有水平分裂和垂直分裂两种
+合并是分裂的逆操作过程,合并的联系类型必须是定义在相同的实体类型组合中</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=34-采用er模型的数据库概念设计步骤>3.4 采用ER模型的数据库概念设计步骤<a href=#34-采用er模型的数据库概念设计步骤 class=hash-link aria-label="Direct link to 3.4 采用ER模型的数据库概念设计步骤" title="Direct link to 3.4 采用ER模型的数据库概念设计步骤" translate=no>​</a></h4>
+<p>采用 ER 模型进行数据库的概念设计,可以分成三步进行: 设计局部 ER 模型,然后把各局部 ER 模型综合成一个全局 ER 模型,最后对全局 ER 模型进行优化,得到最终的 ER 模型,即概念模型.</p>
+<h5 class="anchor anchorWithStickyNavbar_EG6R" id=341-设计局部-er-模型>3.4.1 设计局部 ER 模型<a href=#341-设计局部-er-模型 class=hash-link aria-label="Direct link to 3.4.1 设计局部 ER 模型" title="Direct link to 3.4.1 设计局部 ER 模型" translate=no>​</a></h5>
+<ol>
+<li>
+<p>确定局部结构范围
+一个数据结构是为多个不同用户服务的.各个用户使用数据的方法不同,需求不同.固先为各种用户确定局部的使用方法,并以 ER 模型来表示.
+需要考虑的因素</p>
+<ol>
+<li>范围划分要自然,易于管理</li>
+<li>范围之间的界面要清晰,相互影响要小</li>
+<li>范围的大小要适度</li>
+</ol>
+</li>
+<li>
+<p>定义实体
+每一个局部结构都包含一些实体类型,实体定义的任务就是从信息需求和局部范围定义出发,确定每一个实体类型的属性和键.
+划分的依据通常有:</p>
+<ol>
+<li>采用人们习惯的划分</li>
+<li>避免冗余</li>
+<li>依据用户的信息处理需求</li>
+</ol>
+</li>
+<li>
+<p>定义联系</p>
+</li>
+<li>
+<p>分配属性
+分配属性分为两个步骤: 一是确定属性,二是把属性分配到
+确定属性的原则:</p>
+<ol>
+<li>属性应该是不可再分解的寓意范围.不可分解是为了使模型结构简单化,不出现嵌套结构.</li>
+<li>实体与属性之间的关系只能是 1:N 的</li>
+<li>不同实体类型的属性之间应无直接关系</li>
+</ol>
+</li>
+</ol>
+<h5 class="anchor anchorWithStickyNavbar_EG6R" id=342-设计�全局-er-模型>3.4.2 设计全局 ER 模型<a href=#342-设计全局-er-模型 class=hash-link aria-label="Direct link to 3.4.2 设计全局 ER 模型" title="Direct link to 3.4.2 设计全局 ER 模型" translate=no>​</a></h5>
+<ol>
+<li>
+<p>确定公共实体类型
+一般把同名实体类型作为公共实体类型的一类候选,把具有相同键的实体类型作为公共实体类型的另一类候选.</p>
+</li>
+<li>
+<p>合并局部 ER 模型
+合并原则: 首先进行两两合并; 先合并那些现实世界中有联系的局部结构;合并从公共实体类型开始,最后加入独立的局部结构.
+进行二元合并是为了减少合并工作的复杂性.后两项则是为了使合并结果的规模尽可能小.</p>
+</li>
+<li>
+<p>消除冲突</p>
+<ul>
+<li>属性冲突</li>
+<li>结构冲突</li>
+<li>命名冲突</li>
+</ul>
+</li>
+</ol>
+<h5 class="anchor anchorWithStickyNavbar_EG6R" id=343-全局-er-模型的优化>3.4.3 全局 ER 模型的优化<a href=#343-全局-er-模型的优化 class=hash-link aria-label="Direct link to 3.4.3 全局 ER 模型的优化" title="Direct link to 3.4.3 全局 ER 模型的优化" translate=no>​</a></h5>
+<p>一个好的全局 ER 模型,除能准确,全面地反映用户功能需求外,还应满足下列条件(优化目标):</p>
+<ol>
+<li>实体类型的个数尽可能少</li>
+<li>实体类型所含属性个数尽可能少</li>
+<li>实体类型间联系无冗余</li>
+</ol>
+<p>优化规则:</p>
+<ol>
+<li>合并实体类型
+可以把 1:1 联系的两个实体类型合并</li>
+<li>消除冗余属性</li>
+<li>消除冗余联系</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=4-er-模型到关系模型的转换>4. ER 模型到关系模型的转换<a href=#4-er-模型到关系模型的转换 class=hash-link aria-label="Direct link to 4. ER 模型到关系模型的转换" title="Direct link to 4. ER 模型到关系模型的转换" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=41-er-图转换成关系模式集的�算法>4.1 ER 图转换成关系模式集的算法<a href=#41-er-图转换成关系模式集的算法 class=hash-link aria-label="Direct link to 4.1 ER 图转换成关系模式集的算法" title="Direct link to 4.1 ER 图转换成关系模式集的算法" translate=no>​</a></h4>
+<ol>
+<li>
+<p>实体类型的转换</p>
+<p>实体 | 关系模式
+:---:|:------:
+实体 | 关系模式
+实体属性 | 关系模式属性
+实体标识符 | 关系模式的键</p>
+</li>
+<li>
+<p>联系类型的转换</p>
+<ol>
+<li>
+<p>二元联系的转换</p>
+<ol>
+<li>1:1 在任意一个关系模式中加入另一个关系模式的键作为外键</li>
+<li>1:N 在N端实体转换成的关系模式中加入1端关系模式的键作为外键</li>
+<li>N:M 将联系类型转换为关系模式,将两段的键作为外键加入到该关系模式,
+并将联系类型的属性加入到该模式中,而键为两段实体键的组合</li>
+</ol>
+</li>
+<li>
+<p>一元联系的转换
+和二元转换类似</p>
+</li>
+<li>
+<p>三元联系类型的转换</p>
+<ol>
+<li>1:1:1 在任意一个关系模式中加入另外两个的键作为外键,加入联系类型的属性</li>
+<li>1:1:N 同上,将键加入到 N 端实体转换成的关系模型中</li>
+<li>1:M:N 将联系类型转换为关系模型,将 N 端和 M 端的键作为外键和联系类型的
+属性加入到该关系模型中, 键为 N 端和 M 端实体键组合</li>
+<li>M:N:P 同上,将三端的键(作为外键)和联系属性加入到该关系模型,
+键为三端实体键的组合</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=42-采用-er-模型的逻辑设计步骤>4.2 采用 ER 模型的逻辑设计步骤<a href=#42-采用-er-模型的逻辑设计步骤 class=hash-link aria-label="Direct link to 4.2 采用 ER 模型的逻辑设计步骤" title="Direct link to 4.2 采用 ER 模型的逻辑设计步骤" translate=no>​</a></h4>
+<ol>
+<li>
+<p>导出初始关系模式集
+即把概念设计的结果(全局 ER 模型)转换为初始关系模式集</p>
+</li>
+<li>
+<p>规范化处理
+规范化的目的是减少乃至消除关系模式中存在的各种异常,改善完整性,一致性和存储效率</p>
+</li>
+<li>
+<p>模式评价
+主要包括功能和性能两方面</p>
+</li>
+<li>
+<p>模式修正</p>
+</li>
+<li>
+<p>设计子模式(外部模式
+)</p>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=5增强的-er-模型>5.增强的 ER 模型<a href=#5增强的-er-模型 class=hash-link aria-label="Direct link to 5.增强的 ER 模型" title="Direct link to 5.增强的 ER 模型" translate=no>​</a></h3>
+<p>为了更准确的模拟现实世界,需要扩展基本 ER 模型的概念,从而产生了增强的 ER 模型(Enhanced-ER model, 简称 EER)</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=51-弱实体与强实体>5.1 弱实体与强实体<a href=#51-弱实体与强实体 class=hash-link aria-label="Direct link to 5.1 弱实体与强实体" title="Direct link to 5.1 弱实体与强实体" translate=no>​</a></h4>
+<p>若实体
+: 一个实体的存在必须依赖于其他实体</p>
+<blockquote>
+<p>若实体参与联系时是完全参与,强实体与弱实体的联系只能是 1:N或N:M</p>
+</blockquote>
+<p>强实体
+: 可不必依赖于其他实体</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=52-子类实体与超类实体>5.2 子类实体与超类实体<a href=#52-子类实体与超类实体 class=hash-link aria-label="Direct link to 5.2 子类实体与超类实体" title="Direct link to 5.2 子类实体与超类实体" translate=no>​</a></h4>
+<p>单较低层上实体类型表到了与之联系的较高层上的实体类型的特殊情况时,就称较高层上实体类型为<strong>超类型(Supertype)</strong>,较低层上实体类型为子<strong>类型(Subtype)</strong></p>
+<p>在数据库设计中,子类到超类的抽象化过程称为<strong>概化</strong>,则是自底向上的概念<strong>综合(Synthesis)</strong>;从超类具化到之类的过程称为<strong>特化</strong>,则是自顶向下的概念<strong>发挥(Refinement)</strong>.</p>
+<p>之类与超类有两个特点:</p>
+<ol>
+<li>之类与超类之间具有继承性特点</li>
+<li>这种继承性是通过之类实体和超类实体具有相同的实体标识符实现的</li>
+</ol>
+<p>此外,有两种约束适用于特化过程.</p>
+<p>不相交约束(Disjointness Constraint)
+: 约束之类特化是是否相交,分为不相交和重叠两种情况</p>
+<p>不相交(Disjoint)
+: 约束规定了在特化过程中,之类必须是不想交的.</p>
+<p>重叠(Overlap)
+: 在特化过程中,子类可以相交</p>
+<p>完备性约束(Complete Constraint):
+: 分类整体特化和部分特化</p>
+<p>整体特化(Total Specialization)
+: 约束指定超类中的每个实体必须是特化中的某个子类的一个成员</p>
+<p>部分特化(Partial Specialization)
+: 超类中的实体可以不属于任何一个子类</p>
+<p>在 ER 图中,所有的子类和超类组成了__层次(Hierarchy)__或 __格(Lattice)__的结构</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=6-er模型的基本表示>6. ER模型的基本表示<a href=#6-er模型的基本表示 class=hash-link aria-label="Direct link to 6. ER模型的基本表示" title="Direct link to 6. ER模型的基本表示" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th style=text-align:center>定义<th style=text-align:center>表示<tbody><tr><td style=text-align:center>实体<td style=text-align:center>矩形<tr><td style=text-align:center>联系<td style=text-align:center>菱形<tr><td style=text-align:center>属性<td style=text-align:center>椭圆<tr><td style=text-align:center>多值属性<td style=text-align:center>双线椭圆<tr><td style=text-align:center>派生属性<td style=text-align:center>虚线椭圆<tr><td style=text-align:center>实体标识符<td style=text-align:center>下划线<tr><td style=text-align:center>实体与属性<td style=text-align:center>直线连接<tr><td style=text-align:center>联系与属性<td style=text-align:center>直线连接<tr><td style=text-align:center>联系的基数约束<td style=text-align:center>在连线上以(m,n)的形式表面<tr><td style=text-align:center>联系的完全参与<td style=text-align:center>用双线连接<tr><td style=text-align:center>联系的类型<td style=text-align:center>在直线两端指明(1:1,1:N,N:M)<tr><td style=text-align:center>弱实体<td style=text-align:center>双线矩形框<tr><td style=text-align:center>不相交<td style=text-align:center>小圆圈里为 <strong>d</strong><tr><td style=text-align:center>重叠<td style=text-align:center>小圆圈里为 <strong>o</strong><tr><td style=text-align:center>整体特化<td style=text-align:center>超类实体与圆圈之间用__双线条__连接<tr><td style=text-align:center>部分特化<td style=text-align:center>超类实体与圆圈之间用__单线条__连接</table>
+<hr/>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=appendixb-关系模型>Appendix.B 关系模型<a href=#appendixb-关系模型 class=hash-link aria-label="Direct link to Appendix.B 关系模型" title="Direct link to Appendix.B 关系模型" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=1-关系模型的基本术语>1. 关系模型的基本术语<a href=#1-关系模型的基本术语 class=hash-link aria-label="Direct link to 1. 关系模型的基本术语" title="Direct link to 1. 关系模型的基本术语" translate=no>​</a></h3>
+<p>关系模型(Relation Model)
+: 用二维表格表示实体集,用关键码表示实体之间联系的数据模型称为关系模型.</p>
+<p>在关系模型中,字段称为属性,字段值称为属性值,记录类型称为关系模式,记录称为
+<strong>元组(Tuple)</strong>,元组的集合称为<strong>关系(Relation)</strong> 或 <strong>实例(Instance)</strong>.</p>
+<p>在关系中属性的个数称为<strong>元数(Arity)</strong>, 元素个数称为 <strong>基数(Cardinality)</strong></p>
+<p>**关键码(Key,简称键)**由一个或多个属性组成,一般有以下几种:</p>
+<p>超键(Super Key)
+: 在关系中能唯一标识元组的属性集称为关系模式的超键</p>
+<p>候选键(Candidate Key)
+: 不含有多余属性的超键称为候选键</p>
+<p>主键(Primary Key)
+: 用户选作元组标识的候选键称为主键</p>
+<p>外键(Foreign Key)
+: 如果模式R中,属性K是其他模式的主键,那么K在模式R中称为外键</p>
+<p>关系中每一个属性都有一个取值范围,称为属性的<strong>值域(Domain)</strong>.属性A的取值范围用 DOM(A) 表示.每一个属性对应一个值域,不同的属性可对应于同一值域.</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=2-关系的定义和性质>2. 关系的定义和性质<a href=#2-关系的定义和性质 class=hash-link aria-label="Direct link to 2. 关系的定义和性质" title="Direct link to 2. 关系的定义和性质" translate=no>​</a></h3>
+<p>关系是一个属性数目相同的元组的集合.</p>
+<p>如果一个关系的元组数目是无限的,则称为<strong>无限关系</strong>,否则称为<strong>有限关系</strong>.由于计算机存储系统限制,只限于研究有限关系.</p>
+<p>在关系模型中,对关系有下列规范性限制:</p>
+<ol>
+<li>关系中每一个属性值都是不可分解的</li>
+<li>关系中不允许出现重复元组</li>
+<li>由于关系是一个集合,因此不考虑元组间的顺序,即没有行序</li>
+<li>元组中的属性在理论上也是无序的,但使用时按习惯考虑列的顺序</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=3-三类完整性规则>3. 三类完整性规则<a href=#3-三类完整性规则 class=hash-link aria-label="Direct link to 3. 三类完整性规则" title="Direct link to 3. 三类完整性规则" translate=no>​</a></h3>
+<ol>
+<li>
+<p>实体完整性规则(Entity Integrity Rule)
+这条规则要求关系中元组在组成主键的属性上不能有空值.</p>
+</li>
+<li>
+<p>参照完整性规则(Reference Integrity Rule)
+即不允许引用不存在的实体.
+这点规则有以下变通:</p>
+<ol>
+<li>外键和相应的主键可以不同名,只要定义在相同的值域上即可</li>
+<li>外键可以是引用同一组关系模式, 此时表示了同一个关系中不同元组之间的联系</li>
+<li>外键值是否允许空,应视具体情况而定</li>
+</ol>
+</li>
+<li>
+<p>用户定义的完整性规则</p>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=appendixx-额外的笔记>Appendix.X 额外的笔记<a href=#appendixx-额外的笔记 class=hash-link aria-label="Direct link to Appendix.X 额外的笔记" title="Direct link to Appendix.X 额外的笔记" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=名词定义>名词定义<a href=#名词定义 class=hash-link aria-label="Direct link to 名词定义" title="Direct link to 名词定义" translate=no>​</a></h3>
+<p>完全非平凡函数依赖
+: 仅当其右边集合的属性都不在左边的集合中时成立</p>
+<p>完全还原模型
+: 支持四种备份模式, 1.完全备份, 2.差异备份, 3.事务日志备份, 4.文件组备份</p>
+<p>锁的类型
+: 互斥锁,共享锁</p>
+<p>分类
+: 分类的目的是学会一个分类函数或分类魔心,该模型能把数据库中的数据项映射到给定
+类别中的某一个.</p>
+<p>聚类
+: 聚类是把一组个体按照相似性归成若干类别,目的是使属于同一类别的个体之间距离尽
+可能小,而不同类别上个体间距离尽可能大.</p>
+<p>数据库恢复顺序
+: 首先恢复完全备份,其次恢复差异备份,然后恢复日志备份</p>
+<p>功能需求
+: 是详细描述总体结构及功能,系统覆盖的功能范,各功能子系统的划分,功能描述及
+子系统之间的关系等</p>
+<p>信息需求/数据需求
+: 是完整描述系统所涉及的信息范围, 数据的属性特征,数据之间的关系和约束.</p>
+<p>性能需求
+: 描述对系统的性能要求,包括响应时间,存储容量,系统适应性,数据库安全性,
+一致性和可靠性.</p>
+<p>元数据
+: 是描述数据属性的信息,用来支持如指示存储位置,历史数据,资源查找,文件记录等功能.
+元数据算是一种电子式目录,为了达到编制目录的目的,必须描述并收藏数据的内容
+或特色,进而达到协助数据检索的目的.</p>
+<p>需求分析
+: 是指对即将要开发的系统要做什么以及完成什么功能的全面描述,它关注的是这个系统     必须要做什么.</p>
+<p><strong>日常维护的相关工作</strong></p>
+<ol>
+<li>数据库的备份和恢复</li>
+<li>完整性维护</li>
+<li>安全性维护</li>
+<li>存储空间管理</li>
+<li>冰法控制及死锁处理</li>
+</ol>
+<p>可串行化调度
+: 对n个事务组成的事务集 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>T</mi><mi>S</mi><mo>=</mo><mo stretchy=false>{</mo><mspace width=1em /><msub><mi>T</mi><mn>1</mn></msub><mo separator=true>,</mo><msub><mi>T</mi><mn>2</mn></msub><mo separator=true>,</mo><mo>⋯</mo><mtext> </mtext><mo separator=true>,</mo><msub><mi>T</mi><mi>k</mi></msub><mo separator=true>,</mo><mo>⋯</mo><mtext> </mtext><mo separator=true>,</mo><msub><mi>T</mi><mi>n</mi></msub><mspace width=1em /><mo stretchy=false>}</mo></mrow><annotation encoding=application/x-tex>TS=\{\quad T_1,T_2,\cdots, T_k,\cdots,T_n\quad\}</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6833em></span><span class="mord mathnormal" style=margin-right:0.05764em>TS</span><span class=mspace style=margin-right:0.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>{</span><span class=mspace style=margin-right:1em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.13889em>T</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.1389em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.13889em>T</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3011em><span style=top:-2.55em;margin-left:-0.1389em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mspace style=margin-right:0.1667em></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.13889em>T</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3361em><span style=top:-2.55em;margin-left:-0.1389em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.03148em>k</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=minner>⋯</span><span class=mspace style=margin-right:0.1667em></span><span class=mspace style=margin-right:0.1667em></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class=mord><span class="mord mathnormal" style=margin-right:0.13889em>T</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.1514em><span style=top:-2.55em;margin-left:-0.1389em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:1em></span><span class=mclose>}</span></span></span></span>,
+如果并发调度 S 等价于某一在 TS 上的串行调度,那么 S 称为可串行化调度,
+否则 S 是不可串行化调度.</p>
+<p>冲突串行化
+: 如果定义早事务集 TS 上的并发调度 S 冲突等价于事务集 TS 上的某个串行调度 S',
+则称 S 是冲突可串行的.冲突可串行的并发调度的执行结果与串行调度一致,是正确的,
+同时又具有较高的执行效率.</p>
+<p>触发器
+: 通常用于保证业务规则和数据完整性, 其主要优点是用户可以用编程的方法来实现复杂的
+处理逻辑和业务规则,增强了数据完整性约束的功能.</p>
+<p>技术可行性
+: 是根据用户提出的系统功能,性能及实现系统的各项约束条件,对系统软件,系统硬件,技术
+方案作出评估和选择建议,它属于规划与分析阶段的可行性分析.</p>
+<p>数据库应用系统的需求
+: 数据需求分析, 数据处理需求分析, 业务需求分析以及在性能, 存储, 安全, 备份和恢复
+等方面的要求. 数据操作相应时间, 系统吞吐量, 最大并发用户数都是性能需求分析的
+重要指标.</p>
+<p>数据库概念设计阶段的工作目标</p>
+<ol>
+<li>定义和描述应用领域设计的数据范围</li>
+<li>获取应用领域或问题域的信息模型</li>
+<li>描述清楚数据的属性特征</li>
+<li>描述清楚数据之间的关系</li>
+<li>定义和描述数据的约束</li>
+<li>说明数据的安全性要求</li>
+<li>支持用户的各种数据处理需求</li>
+<li>保证信息模型方便地转换成数据库的逻辑结构(数据库模式),同时也便于用户理解.</li>
+</ol>
+<p>数据仓库的定义
+: 是一个面向主题的,集成的,非易失的,且随时间变化的数据集合,用来支持管理人员的决策</p>
+<p>数据仓库的特性
+: 主题与面向主题,集成,不可更新,随时间变化.</p>
+<p>聚集索引和非聚集索引
+: 对数据文件和它的一个特定的索引文件,如果数据文件中数据记录的排列顺序与索引文件中
+索引项的排列顺序一致,或者说,索引文件按其查找码指定的顺序与数据文件中数据记录
+顺序一致,则该索引文件称为聚集索引,否则成为非聚集索引.</p>
+<p>稠密索引和稀疏索引
+: 如果数据文件的每个查找码值在索引文件中都对应一个所以记录,则该索引称为稠密索引.
+如果只是一部分查找码对应一个索引记录,则该索引码称为稀疏索引.</p>
+<p>主索引和辅索引
+: 在数据文件包含的属性集上建立的索引称为主索引.在数据文件的非主属性上建立的索引
+称为辅索引.</p>
+<p>软件总体设计的依据包括 需求分析阶段得到的数据流图, 事务描述和业务规则等需求分析结果.
+总体设计得到的系统总体结构和分层模块结构可以用模块结构图表示,模块结构图主要关心模块
+的外部特性,即上下级模块以及同级模块间的数据传递和电泳关系,与内部处理流程无关.</p>
+<p>数据模型
+: 数据模型是数据库系统的形式框架,是用来描述数据的一组概念和定义.它是包括描述数据,数据
+联系,数据操作,数据语义以及数据一致性的概念工具,是数据库系统的核心和基础.按照数据
+模型在数据建模和数据管理中的不同作用,可以将其分为概念数据模型,数据结构模型和物理数
+据模型.概念数据模型简称概念模型,是按用户的观点对数据和信息进行建模,是现实世界到
+信息世界的第一层抽象.数据结构模型也称为表示型或实现型的数据模型,是机器世界中与具体
+DBMS 相关的数据模型.物理数据模型属于底层数据模型,通过诸如记录格式,记录顺序和存取路
+径等表示信息,描述数据在数据库系统中的实际存储方式/概念模式是对数据库中全体数据的
+逻辑结构和特征的描述,是所有用户的公共数据视图,一个数据库只有一个模式.</p>
+<p>数据库应用系统包括概念设计,逻辑设计,物理设计三个步骤.每个步骤按照数据组织与存储,数据
+访问与处理,应用设计等几个方面进行.在概念设计阶段,采用自下而上的 E-R 设计.
+将关系模式转换为具体 DBMS 平台支持的关系表是数据库物理设计阶段的工作.设计视图和关系
+模式的完整性约束是数据逻辑设计阶段的工作.</p>
+<p>OLTP 中的数据一般按面向应用的方式组织,数据仓库系统中的数据一般按面向分析主题的方式组织.</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=日志文件的作用>日志文件的作用<a href=#日志文件的作用 class=hash-link aria-label="Direct link to 日志文件的作用" title="Direct link to 日志文件的�作用" translate=no>​</a></h4>
+<ol>
+<li>用于事务故障恢复和系统故障恢复</li>
+<li>动态转储中必须建立日志文件</li>
+<li>静态转储中也可以建立日志文件</li>
+</ol>
+<p>为保证数据库是可恢复的,必须遵循两条规则</p>
+<ol>
+<li>登记的次序严格按并行事务执行的时间次序</li>
+<li>必须先写入日志文件,后写入数据库.</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=人机界面设计原则>人机界面设计原则<a href=#人机界面设计原则 class=hash-link aria-label="Direct link to 人机界面设计原则" title="Direct link to 人机界面设计原则" translate=no>​</a></h4>
+<ol>
+<li>用户应当感觉系统的运行始终在自己的控制之下,保持用户与人机界面的双向交流</li>
+<li>当系统发生错误或程序运行时间较长时,用户界面应该提供有意义的反馈信息,并有上下文感知的
+帮助系统</li>
+<li>用户界面能容忍用户在操作过程中发生的各种操作错误,并能方便的从错误中恢复,保证系统不受
+用户错误操作的影响</li>
+<li>界面遵循一定的标准和常规</li>
+<li>界面应采取灵活多样的数据输入方式,尽量减少用户的输入负担.</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=性能需求分析>性能需求分析<a href=#性能需求分析 class=hash-link aria-label="Direct link to 性能需求分析" title="Direct link to 性能需求分析" translate=no>​</a></h4>
+<ol>
+<li>数据操作响应时间,或数据访问响应时间
+指用户向数据库系统提交数据操作请求到操作返回用户的时间.</li>
+<li>系统吞吐量
+系统在单位时间内可以完成的数据库事务或数据查询的数量.
+吞吐量可以表示为 每秒事务数(TPS).</li>
+<li>允许并发访问的最大用户数
+在保证单个用户查询响应时间的前提下,系统最多允许多少用户同时访问数据库.</li>
+<li>TPS 代价值
+用于衡量系统性价比的指标.</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=视图的作用>视图的作用<a href=#视图的作用 class=hash-link aria-label="Direct link to 视图的作用" title="Direct link to 视图的作用" translate=no>​</a></h4>
+<ol>
+<li>简化数据查询语句</li>
+<li>使用户能从多角度看待同一数据</li>
+<li>提高数据的安全性</li>
+<li>提供了一定程度的逻辑独立性</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=结构化分析及建模方法的主要优点>结构化分析及建模方法的主要优点<a href=#结构化分析及建模方法的主要优点 class=hash-link aria-label="Direct link to 结构化分析及建模方法的主要优点" title="Direct link to 结构化分析及建模方法的主要优点" translate=no>​</a></h4>
+<ol>
+<li>不过早陷入具体的细节</li>
+<li>从整体或宏观入手分析问题</li>
+<li>通过图形化的模型对象直观的表示系统要做什么,完成什么功能</li>
+<li>图形化建模方法方便系统分析员理解和描述系统</li>
+<li>模型对象不涉及太多技术术语,便于用户理解模型</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=uml>UML<a href=#uml class=hash-link aria-label="Direct link to UML" title="Direct link to UML" translate=no>​</a></h4>
+<p>每一种 UML 的视图都是由一个或多个图组成的, UML 提供了9种不同的图,分为两类.</p>
+<ol>
+<li>静态图
+用例图, 类图, 对象图, 组件图, 部署图</li>
+<li>动态图
+顺序图, 交互图, 状态图, 和 活动图</li>
+</ol>
+<p>可以根据不同的视图应用进行分类:</p>
+<ol>
+<li>用例视图: 用例图</li>
+<li>结构视图: 类图, 对象图</li>
+<li>行为视图: 顺序图, 交互图, 状态图, 活动图</li>
+<li>实现视图: 组件图</li>
+<li>环境视图: 部署图</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=分布式数据库>分布式数据库<a href=#分布式数据库 class=hash-link aria-label="Direct link to 分布式数据库" title="Direct link to 分布式数据库" translate=no>​</a></h4>
+<p>目的是: 本地自治, 非集中式管理,高可用性,位置独立性,分布式查询处理,分布式事务管理等.</p>
+<ol>
+<li>
+<p>分布式数据库系统概念
+是物理上分散,逻辑上统一的数据库系统.</p>
+</li>
+<li>
+<p>分布式数据的概念
+分布式数据库则是分布式数据库系统中个场地上数据库的逻辑合.</p>
+</li>
+<li>
+<p>分布式数据库的结构</p>
+<ul>
+<li>共享内存结构</li>
+<li>共享磁盘结构</li>
+<li>无共享结构
+最好的并行结构</li>
+<li>次结构
+以上体系结构的结合.</li>
+</ul>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=分布式数据库的分布策略>分布式数据库的分布策略<a href=#分布式数据库的分布策略 class=hash-link aria-label="Direct link to 分布式数据库的分布策略" title="Direct link to 分布式数据库的分布策略" translate=no>​</a></h4>
+<p>数据分片
+: 对某一个关系进行分片是将关系划分为多个片段, 这些片段中包含足够的信息可以使关系重构.</p>
+<p>数据分片有四种基本方法:</p>
+<ol>
+<li>水平分片
+在关系中从行的角度(元组)依据一定条件划分为不同的片段,关系中的每一行必须至少属于
+一个片段,以便在需要时可以重构关系</li>
+<li>垂直分片
+在关系中从列的角度(属性)依据一定的条件分为不同的片段,各片段中应该包含关系的主码
+属性,一边通过连接方法恢复关系.</li>
+<li>导出分片
+是导出水平分片,分片的依据不是本关系的条件,而是其他关系属性的条件.</li>
+<li>混合分片
+以上三种方法的混合</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=范式的简述>范式的简述<a href=#范式的简述 class=hash-link aria-label="Direct link to 范式的简述" title="Direct link to 范式的简述" translate=no>​</a></h4>
+<ul>
+<li>第一范式
+指关系必须满足每一个属性值都是不可分解的数据项</li>
+<li>第二范式
+在第一范式的基础上,使关系中的每一个属性必须只依赖主码(非主属性完全依赖于候选键)</li>
+<li>第三范式
+在第二范式的基础上,每一个非主属性必须只依赖于主码
+(非主属性都不传递依赖于候选键)</li>
+</ul>
+<p>一般关系模式规范化工作仅做到 3NF 就可以把关系中不合理的属性基本消除.</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=关于性能优化>关于性能/优化<a href=#关于性能优化 class=hash-link aria-label="Direct link to 关于性能/优化" title="Direct link to 关于性能/优化" translate=no>​</a></h3>
+<ul>
+<li>将表的数据和索引放置在同一磁盘上不利于提高系统查询的效率</li>
+<li>物理设计的目标是得到存储空间占用少,数据访问效率高和维护代价低的数据库物理模式.
+设计一个好的索引和索引字段,可以提高数据查询的速度和效率.</li>
+<li>尽可能先执行查询条件,把表连接放到最后执行</li>
+<li>可以使用 FIFS 来避免活锁的产生</li>
+<li>使用内连接替代左右连接</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=查询优化>查询优化<a href=#查询优化 class=hash-link aria-label="Direct link to 查询优化" title="Direct link to 查询优化" translate=no>​</a></h4>
+<ol>
+<li>合理使用索引</li>
+<li>避免或简化排序</li>
+<li>消除对大型表进行数据的顺序存取</li>
+<li>避免相关子查询</li>
+<li>避免困难的正则表达式</li>
+<li>使用临时表加速查询</li>
+<li>用排序来取代非顺序磁盘存取</li>
+<li>不充分的连接条件(避免左右连接)</li>
+<li>使用存储过程</li>
+<li>不要随意使用游标</li>
+<li>使用事务处理</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=分类方法>分类/方法<a href=#分类方法 class=hash-link aria-label="Direct link to 分类/方法" title="Direct link to 分类/方法" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=sql-server-2000-数据库备份方式>SQL Server 2000 数据库备份方式<a href=#sql-server-2000-数据库备份方式 class=hash-link aria-label="Direct link to SQL Server 2000 数据库备份方式" title="Direct link to SQL Server 2000 数据库备份方式" translate=no>​</a></h4>
+<ol>
+<li>先创建备份设备,然后将数据库备份到备份设备上(这种设备称为永久备份设备)</li>
+<li>直接将数据库备份到物理文件上(这种设备称为临时备份设备)</li>
+</ol>
+<p>在执行备份过程中, 可以同时向多个备份设备写备份内容,也称为并行备份.</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=死锁的预防方法>死锁的预防方法<a href=#死锁的预防方法 class=hash-link aria-label="Direct link to 死锁的预防方法" title="Direct link to 死锁的预防方法" translate=no>​</a></h4>
+<ol>
+<li>一次加锁
+要求每个事务在开始执行时必须将需要访问的数据项全部枷锁,否则不允许执行下去,
+也就是要求事务必须能一次性的获得对需要访问的全部数据项的访问权.</li>
+<li>顺序加锁
+该方法对数据库中事务访问的所有数据项规定一个加锁顺序,每个事务在执行过程中
+必须按此顺序对所需数据项加锁.</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=数据库管理员执行的工作>数据库管理员执行的工作<a href=#数据库管理员执行的工作 class=hash-link aria-label="Direct link to 数据库管理员执行的工作" title="Direct link to 数据库管理员执行的工作" translate=no>​</a></h4>
+<ol>
+<li>数据库的转储和恢复</li>
+<li>数据库的安全和完整性控制</li>
+<li>数据库的性能监控和分析</li>
+<li>数据库的重组和重构</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=系统故障软故障-的处理方法>系统故障/软故障 的处理方法<a href=#系统故障软故障-的处理方法 class=hash-link aria-label="Direct link to 系统故障/软故��障 的处理方法" title="Direct link to 系统故障/软故障 的处理方法" translate=no>​</a></h4>
+<p>对于未完成的事务,可能已经写入数据库的内容,回滚所有未完成的事务写入的结果,以保证
+数据库中数据的一致性.
+对于已完成的事务可能部分或全部留在缓冲区的结果,需要重做所有已提交的事务,以将数据
+库恢复到一致状态
+即,撤销(Undo)所有未提交的事务,重做(Redo)所有已提交的事务.</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=数据仓库中数据的维护策略>数据仓库中数据的维护策略<a href=#数据仓库中数据的维护策略 class=hash-link aria-label="Direct link to 数据仓库中数据的维护策略" title="Direct link to 数据仓库中数据的维护策略" translate=no>​</a></h4>
+<ul>
+<li>实时维护</li>
+<li>延时维护
+查询时触发维护,减少了对数据源的更新时间,但视图查询时间较长.</li>
+<li>快照维护
+定期对数据库进行维护,维护操作的触发条件是时间.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=数据库物理设计步骤>数据库物理设计步骤<a href=#数据库物理设计步骤 class=hash-link aria-label="Direct link to 数据库物理设计步骤" title="Direct link to 数据库物理设计步骤" translate=no>​</a></h4>
+<ol>
+<li>数据库逻辑模式调整</li>
+<li>文件组织与存取设计</li>
+<li>数据分布设计</li>
+<li>安全模式设计</li>
+<li>确定系统配置</li>
+<li>物理模式评估</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=dbas-总体设计>DBAS 总体设计<a href=#dbas-总体设计 class=hash-link aria-label="Direct link to DBAS 总体设计" title="Direct link to DBAS 总体设计" translate=no>​</a></h4>
+<ol>
+<li>确定 DBAS 体系结构</li>
+<li>系统硬件平台和操作系统,数据库管理系统等系统软件的选型和配置</li>
+<li>应用软件结构设计</li>
+<li>对需求分析阶段识别出的业务规则进行初步设计,细化业务规则流程,分析所处理的业务数据
+和处理方式,明确采用的关键技术和算法等.</li>
+<li>对系统采用的关键技术进行方案选型和初步设计.</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=raid-分级>RAID 分级<a href=#raid-分级 class=hash-link aria-label="Direct link to RAID 分级" title="Direct link to RAID 分级" translate=no>​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>RAID等级<th>n<th>最小容错硬盘数<th>可用容量<th>性能<th>安全性<th>目的<th>应用产业<tbody><tr><td>JBOD<td>≧1<td>0<td>n<td>不变<td>无(同RAID 0)<td>追求最大容量<td><tr><td>0<td>≧2<td>0<td>n<td>最高<td>一个硬盘异常，全部硬盘即跟着异常<td>追求最大容量、速度<td>3D产业实时渲染、视频剪接高速缓存用途<tr><td>1<td>≧2<td>总数的一半<td>总容量的一半<td>稍有提升<td>最高<td>追求最大安全性<td>个人、企业备份<tr><td>5<td>≧3<td>1<td>n-1<td>高<td>高<td>追求最大容量、最小预算<td>个人、企业备份<tr><td>6<td>≧4<td>2<td>n-2<td>比RAID 5稍慢<td>安全性较RAID 5高<td>同RAID 5，但较安全<td>个人、企业备份<tr><td>10<td>≧4<td>总数的一半<td>总容量的一半<td>高<td>安全性最高<td>综合RAID 0/1优点，理论速度较快<td>大型数据库、服务器</table></div><footer class=docusaurus-mt-lg><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/数据库>数据库</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/笔记>笔记</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/ncre>NCRE</a></ul></div></div><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class=col><a href="https://github.com/wenerme/wener/edit/master/story/../story/2013/2013-09-24-数据库原理 for NCRE 4.md" target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href=/story/java-siwng-textbubble><div class=pagination-nav__sublabel>Newer post</div><div class=pagination-nav__label>简单的文字气泡框 for Swing</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/story/personal-project-page><div class=pagination-nav__sublabel>Older post</div><div class=pagination-nav__label>个人作品展示页面</div></a></nav></main><div class="col col--2"><div class="tableOfContents_wpyd thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#1-数据库系统的基本概念 class="table-of-contents__link toc-highlight">1. 数据库系统的基本概念</a><ul><li><a href=#12-数据描述 class="table-of-contents__link toc-highlight">1.2 数据描述</a><li><a href=#13-数据的抽象级别 class="table-of-contents__link toc-highlight">1.3 数据的抽象级别</a><li><a href=#14-数据库管理系统dbms class="table-of-contents__link toc-highlight">1.4 数据库管理系统(DBMS)</a><li><a href=#15-数据库系统dbs class="table-of-contents__link toc-highlight">1.5 数据库系统(DBS)</a></ul><li><a href=#2-数据库设计和-er-模型 class="table-of-contents__link toc-highlight">2. 数据库设计和 ER 模型</a><ul><li><a href=#21-数据库系统生存期 class="table-of-contents__link toc-highlight">2.1 数据库系统生存期</a></ul><li><a href=#3-关系模式设计理论 class="table-of-contents__link toc-highlight">3. 关系模式设计理论</a><ul><li><a href=#31-关系模式的设计准则 class="table-of-contents__link toc-highlight">3.1 关系模式的设计准则</a><li><a href=#32-函数依赖 class="table-of-contents__link toc-highlight">3.2 函数依赖</a><li><a href=#33-关系模式的分解特性 class="table-of-contents__link toc-highlight">3.3 关系模式的分解特性</a><li><a href=#34-范式 class="table-of-contents__link toc-highlight">3.4 范式</a><li><a href=#35-多值依赖和第四范式 class="table-of-contents__link toc-highlight">3.5 多值依赖和第四范式</a></ul><li><a href=#appendixa-er-模型 class="table-of-contents__link toc-highlight">Appendix.A ER 模型</a><ul><li><a href=#1-er-模型的基本元素 class="table-of-contents__link toc-highlight">1. ER 模型的基本元素</a><li><a href=#2-属性的分类 class="table-of-contents__link toc-highlight">2. 属性的分类</a><li><a href=#3-联系的设计 class="table-of-contents__link toc-highlight">3. 联系的设计</a><li><a href=#4-er-模型到关系模型的转换 class="table-of-contents__link toc-highlight">4. ER 模型到关系模型的转换</a><li><a href=#5增强的-er-模型 class="table-of-contents__link toc-highlight">5.增强的 ER 模型</a><li><a href=#6-er模型的基本表示 class="table-of-contents__link toc-highlight">6. ER模型的基本表示</a></ul><li><a href=#appendixb-关系模型 class="table-of-contents__link toc-highlight">Appendix.B 关系模型</a><ul><li><a href=#1-关系模型的基本术语 class="table-of-contents__link toc-highlight">1. 关系模型的基本术语</a><li><a href=#2-关系的定义和性质 class="table-of-contents__link toc-highlight">2. 关系的定义和性质</a><li><a href=#3-三类完整性规则 class="table-of-contents__link toc-highlight">3. 三类完整性规则</a></ul><li><a href=#appendixx-额外的笔记 class="table-of-contents__link toc-highlight">Appendix.X 额外的笔记</a><ul><li><a href=#名词定义 class="table-of-contents__link toc-highlight">名词定义</a><li><a href=#关于性能优化 class="table-of-contents__link toc-highlight">关于性能/优化</a><li><a href=#分类方法 class="table-of-contents__link toc-highlight">分类/方法</a></ul></ul></div></div></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

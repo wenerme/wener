@@ -1,0 +1,540 @@
+<!doctype html><html lang=en dir=ltr class="blog-wrapper blog-post-page plugin-blog plugin-id-default" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>组建你自己的 NAS 服务器 | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/story/build-your-own-nas /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docusaurus_tag content=default /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docsearch:docusaurus_tag content=default /><meta data-rh=true property=og:title content="组建你自己的 NAS 服务器 | Wener Live & Life"/><meta data-rh=true name=description content="组建 NAS 需要考虑的因素和建议。"/><meta data-rh=true property=og:description content="组建 NAS 需要考虑的因素和建议。"/><meta data-rh=true property=og:type content=article /><meta data-rh=true property=article:published_time content=2022-01-14T00:00:00.000Z /><meta data-rh=true property=article:tag content=运维,DevOps /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/story/build-your-own-nas /><link data-rh=true rel=alternate href=https://wener.me/story/build-your-own-nas hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/story/build-your-own-nas hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@id":"https://wener.me/story/build-your-own-nas","@type":"BlogPosting","author":[],"datePublished":"2022-01-14T00:00:00.000Z","description":"组建 NAS 需要考虑的因素和建议。","headline":"组建你自己的 NAS 服务器","isPartOf":{"@id":"https://wener.me/story","@type":"Blog","name":"Blog"},"keywords":[],"mainEntityOfPage":"https://wener.me/story/build-your-own-nas","name":"组建你自己的 NAS 服务器","url":"https://wener.me/story/build-your-own-nas"}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a class="navbar__item navbar__link" href=/notes>笔记</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class="container margin-vert--lg"><div class=row><aside class="col col--3"><nav class="sidebar_Ulkt thin-scrollbar" aria-label="Blog recent posts navigation"><div class="sidebarItemTitle_hSNJ margin-bottom--md">Recent posts</div><div role=group><h3 class=yearGroupHeading_KD0z>2025</h3><ul class="sidebarItemList_dElJ clean-list"><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/function-and-interface>工具 - 工 与 具</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/here-my-love-ch2>《我把我的矜持都给了她》：第二章 - 故事的重新开始</a></ul></div><div role=group><h3 class=yearGroupHeading_KD0z>2024</h3><ul class="sidebarItemList_dElJ clean-list"><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/decrypt-classfinal-jar>解密 ClassFinal 加密的 Java Jar 包</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/how-i-note>我记录思考的方式简单总结</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/ml-first-try>第一次尝试机器学习</a></ul></div></nav></aside><main class="col col--7"><article class=""><header><h1 class=title_U7V0>组建你自己的 NAS 服务器</h1><div class="container_cxbP margin-vert--md"><time datetime=2022-01-14T00:00:00.000Z>January 14, 2022</time> · <!-- -->7 min read</div></header><div id=__blog-post-container class=markdown><p>组建 NAS 需要考虑的因素和建议。</p>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>核心因素</div><div class=admonitionContent_R6P7><ul>
+<li>硬件 - 直接影响功耗
+<ul>
+<li>硬盘 - 基本不变</li>
+<li>主机 - 变化很大</li>
+</ul>
+</li>
+<li>软件 - 基本不变</li>
+</ul></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=物料>物料<a href=#物料 class=hash-link aria-label="Direct link to 物料" title="Direct link to 物料" translate=no>​</a></h2>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>目标</div><div class=admonitionContent_R6P7><ul>
+<li>价格便宜</li>
+<li>容量高</li>
+</ul></div></div>
+<ul>
+<li>HP MicroServer 全新微塔 - 参考价格: ¥4000 , 功耗 60W
+<ul>
+<li>HP MicroServer Gen 10
+<ul>
+<li>全新 AMD x3216 8G ¥2300</li>
+<li>最多 4 个硬盘</li>
+</ul>
+</li>
+<li>SAS 6T×4 - ¥1600</li>
+<li>SAS 卡 - ¥100</li>
+</ul>
+</li>
+<li>二手塔式 - 参考价格: ¥4700 , 功耗 120W
+<ul>
+<li>DDR4 服务器 - ~¥2000
+<ul>
+<li>1U 4×3.5 寸盘位</li>
+<li>2U 8×3.5 寸盘位</li>
+</ul>
+</li>
+<li>CPU XeonE5v4×2 ~¥1000 - 32 核 64 线程</li>
+<li>内存 DDR4 ECC REG 16G×4 - 64G ~¥1000</li>
+<li>SAS 6T×4 - ¥1600</li>
+<li>SAS 卡 - ¥100</li>
+</ul>
+</li>
+<li>星际蜗牛 J1900 - 参考价格: ¥2500 , 功耗 30W
+<ul>
+<li>星际蜗牛 DDR3 J1900 8G ~ ¥800</li>
+<li>SAS 6T×4 - ¥1600</li>
+<li>SAS 卡 - ¥100</li>
+<li>非常入门款，没什么上升空间，没什么折腾的意义</li>
+</ul>
+</li>
+</ul>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>容量考虑</div><div class=admonitionContent_R6P7><p>现在 2022 年，手机平台存储上 T 的已经越来越多，笔记本 SSD 都有几 T 的了，台式机更不用说，几 T 的存储很正常。<ul>
+<li>单盘 &lt; 4T 会比较浪费盘位</li>
+<li>单盘 > 10T 恢复非常慢</li>
+<li>建议至少 6T×4 - RAID5 可用大约 15T</li>
+</ul></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=部件参考价格>部件参考价格<a href=#部件参考价格 class=hash-link aria-label="Direct link to 部件参考价格" title="Direct link to 部件参考价格" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>部件<th>规格<th>¥<th>taobao<tbody><tr><td>SAS<td>6T 3.5 寸 7.2K<td>¥400<td><a href="https://item.taobao.com/item.htm?id=560836442610" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=560836442610</a><tr><td>SAS<td>1.2T 2.5 寸 10K<td>¥160<td><a href="https://item.taobao.com/item.htm?id=547264783830" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=547264783830</a><tr><td>SAS 直通卡<td><td>¥100<td><a href="https://item.taobao.com/item.htm?id=521090584542" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=521090584542</a><tr><td>SATA<td>14TB 3.5 寸 7.2K<td>¥1200<td><a href="https://item.taobao.com/item.htm?id=599544680031" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=599544680031</a><tr><td>内存 DDR3 ECC REG<td>16G<td>~¥120<td><a href="https://item.taobao.com/item.htm?id=13978621463" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=13978621463</a><tr><td>内存 DDR4 ECC REG<td>16G<td>~¥250<td><a href="https://item.taobao.com/item.htm?id=567468034444" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=567468034444</a><tr><td>内存 DDR4 ECC REG<td>32G<td>~¥600<td><a href="https://item.taobao.com/item.htm?id=567468034444" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=567468034444</a><tr><td>内存 DDR4 ECC NOREG<td>16G<td>~¥500<td><tr><td>内存 DDR4 ECC NOREG<td>32G<td>~¥1000<td><tr><td>CPU <a href=https://ark.intel.com/content/www/us/en/ark/products/91766/intel-xeon-processor-e52683-v4-40m-cache-2-10-ghz.html target=_blank rel="noopener noreferrer">E5-2683V4</a><td>2.1G 16C32T 120W<td>~¥500<td><a href="https://item.taobao.com/item.htm?id=597514302182" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=597514302182</a><tr><td>CPU <a href=https://www.intel.cn/content/www/cn/zh/products/sku/88170/intel-xeon-processor-e31235l-v5-8m-cache-2-00-ghz/specifications.html target=_blank rel="noopener noreferrer">E3-1235Lv5</a><td><td><td></table>
+<div class="theme-admonition theme-admonition-caution admonition_phik alert alert--warning"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 16 16"><path fill-rule=evenodd d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></span>PC 和 企业级服务器 过渡产品</div><div class=admonitionContent_R6P7><ul>
+<li>服务器市场有比 PC 强，但比服务器弱的一个产品线，通常用于个人工作室之类的场景。</li>
+<li>特点
+<ul>
+<li>服务器体积小</li>
+<li>CPU 功耗低 - 25W</li>
+<li>内存使用 ECC NOREG
+<ul>
+<li>二手市场少，价格偏高</li>
+<li>需要 CPU 支持</li>
+<li>需要主板支持</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=主机选择>主机选择<a href=#主机选择 class=hash-link aria-label="Direct link to 主机选择" title="Direct link to 主机选择" translate=no>​</a></h2>
+<ul>
+<li>机型选择
+<ul>
+<li>微塔 - 噪音小，功耗一般 ~60w
+<ul>
+<li>二手少 - 大多买新的，价格高</li>
+<li>体积小</li>
+<li>一般主板不支持 ECC REG 内存</li>
+</ul>
+</li>
+<li>服务器 - 噪音大，功耗一般 ~120w
+<ul>
+<li>二手多 - 便宜</li>
+<li>体积大 - 一般 1U</li>
+<li>扩展能力强 - 通常支持 一个半高+一个全高 PCI - 因此可以配 GPU</li>
+<li>如果没有书房、库房或隐瞒角落不推荐</li>
+<li>部分服务器噪音也不是特别大</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>平台选择
+<ul>
+<li>通常二手都是落后好几个世代，但建议至少选择 DDR4</li>
+<li>DDR3 价格是 DDR4 的一半 - 如果预算有限，那也是可以的
+<ul>
+<li>选择 DDR3 CPU 也会便宜一半以上 - 是再上一个世代的平台</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>配置选择
+<ul>
+<li>全新整套主机 - 包含 CPU+内存
+<ul>
+<li>性价比不高，但省事</li>
+</ul>
+</li>
+<li>二手服务器
+<ul>
+<li>性价比最高，省事</li>
+<li>可选性不多</li>
+</ul>
+</li>
+<li>自己配主机 - 主板+机箱+电源+CPU+内存
+<ul>
+<li>事情最多，如果不是喜欢搞这个，建议不要</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>服务器选择
+<ul>
+<li>架式
+<ul>
+<li>二手市场最多，占地面积大</li>
+<li>1U
+<ul>
+<li>8 个 2.5 寸盘位</li>
+<li>4 个 3.5 寸盘位</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>塔式
+<ul>
+<li>二手市场不多，占地面积大</li>
+<li>和普通台式电脑差不多</li>
+<li>服务器主板</li>
+</ul>
+</li>
+<li>刀片
+<ul>
+<li>二手市场很少</li>
+</ul>
+</li>
+<li>模块
+<ul>
+<li>二手市场不太多，占地面积很小</li>
+<li>魔改后的非常安静</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>成品 NAS 服务器
+<ul>
+<li>群晖 - 不再这里的讨论范围内</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=配置目标>配置目标<a href=#配置目标 class=hash-link aria-label="Direct link to 配置目标" title="Direct link to 配置目标" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>-<th>机型<th>CPU<th>内存<th>硬盘<tbody><tr><td>最低<td>微塔,ITX<td>4 核<td>8G<td>6T×4 raidz1<tr><td>推荐<td>-<td>4 核+<td>16G+<td><tr><td>更高<td>服务器<td>32 核心+<td>128G+<td></table>
+<blockquote>
+<p>通常配置个最低，后期能够调整组件即可</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=全新整套主机>全新整套主机<a href=#全新整套主机 class=hash-link aria-label="Direct link to 全新整套主机" title="Direct link to 全新整套主机" translate=no>​</a></h3>
+<ul>
+<li><a href=https://www.hpe.com/psnow/doc/a00008701enw target=_blank rel="noopener noreferrer">hp microserver gen 10</a>
+<ul>
+<li>AMD x3216 8G ¥2300</li>
+<li><a href="https://item.taobao.com/item.htm?id=564308249868#detail" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=564308249868#detail</a></li>
+</ul>
+</li>
+<li>hp microserver gen 10 plus
+<ul>
+<li><strong>非常小巧</strong></li>
+<li>需要海淘</li>
+<li>¥5000</li>
+</ul>
+</li>
+<li>mineNAS 至强 微塔
+<ul>
+<li>Core 系列 CPU <a href="https://item.taobao.com/item.htm?id=546747046542" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=546747046542</a>
+<ul>
+<li>¥3600</li>
+</ul>
+</li>
+<li>Xeon 系列 CPU <a href="https://item.taobao.com/item.htm?id=523041473305" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=523041473305</a>
+<ul>
+<li>¥7500+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=二手服务器>二手服务器<a href=#二手服务器 class=hash-link aria-label="Direct link to 二手服务器" title="Direct link to 二手服务器" translate=no>​</a></h3>
+<ul>
+<li>架式
+<ul>
+<li>HP DL160G9 <a href="https://item.taobao.com/item.htm?id=564082577179" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=564082577179</a>
+<ul>
+<li>准系统 ¥750</li>
+<li>E5-4650V3*2 24 核 48 线 + 64G + Intel 800G SSD ¥3290</li>
+<li>8×2.5 寸盘位</li>
+</ul>
+</li>
+<li>DELL R430 X99 <a href="https://item.taobao.com/item.htm?id=567440742661" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=567440742661</a>
+<ul>
+<li>准系统 ¥2200</li>
+<li>4×3.5 寸盘位</li>
+</ul>
+</li>
+<li>DELL R630 <a href="https://item.taobao.com/item.htm?id=557304169457" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=557304169457</a>
+<ul>
+<li>准系统 ¥1449</li>
+<li>8×2.5 寸盘位</li>
+</ul>
+</li>
+<li>DELL R730 - <a href="https://item.taobao.com/item.htm?id=604846119404" target=_blank rel="noopener noreferrer">https://item.taobao.com/item.htm?id=604846119404</a>
+<ul>
+<li>2U</li>
+<li>8-12 3.5 寸盘位, 8-24 2.5 寸盘位,</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>模块服务器
+<ul>
+<li>广达 单模块即可</li>
+<li>改装后的非常安静</li>
+<li>价格 ~¥500</li>
+<li><strong>注意</strong> 硬盘可能不太好放</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=装机>装机<a href=#装机 class=hash-link aria-label="Direct link to 装机" title="Direct link to 装机" translate=no>​</a></h3>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>tip</div><div class=admonitionContent_R6P7><ul>
+<li>装机通常主板都是买新的</li>
+<li>机箱看情况买新的或二手的或定制的</li>
+<li>明确装机要达成的目标 - 不要为了装机而装机
+<ul>
+<li>容量？</li>
+<li>尺寸大小？</li>
+<li>硬盘、内存、CPU？</li>
+</ul>
+</li>
+</ul></div></div>
+<ul>
+<li>主板
+<ul>
+<li><a href=https://www.asrockrack.com/ target=_blank rel="noopener noreferrer">https://www.asrockrack.com/</a>
+<ul>
+<li>选择好后可淘二手</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>机箱
+<ul>
+<li>确定好主板类型后决定</li>
+<li>小的情况可定制 亚克力 机箱</li>
+</ul>
+</li>
+<li>电源
+<ul>
+<li>功耗 &lt; 120W 时可考虑外置</li>
+<li>服务器功耗最好买 二手 服务器电源模块</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=系统>系统<a href=#系统 class=hash-link aria-label="Direct link to 系统" title="Direct link to 系统" translate=no>​</a></h2>
+<ol>
+<li>黑群晖</li>
+</ol>
+<ul>
+<li>安装使用容易</li>
+<li>现成的应用</li>
+<li>适用于新手或不愿意折腾的玩家</li>
+<li>相对封闭 - 不建议用服务器运行，可以考虑开虚拟机</li>
+</ul>
+<ol start=2>
+<li>Linux</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=linux>Linux<a href=#linux class=hash-link aria-label="Direct link to Linux" title="Direct link to Linux" translate=no>​</a></h3>
+<ul>
+<li>AlpineLinux</li>
+<li>zfs
+<ul>
+<li>看情况使用 raidz1,raidz2,draid
+<ul>
+<li>raidz1=raid5 - 4 盘时</li>
+<li>raidz2=raid6 - 6 盘时</li>
+<li>draid - >= 12 盘时</li>
+</ul>
+</li>
+<li>SSD 缓存 - 如果有预算</li>
+</ul>
+</li>
+<li>应用场景
+<ul>
+<li>多媒体 - Jeylyfin, Plex, 照片, 音乐</li>
+<li>下载器 - aria2, qtorrent, transimision</li>
+<li>家庭 - Nextcloud</li>
+<li>共享 - samba, afp</li>
+<li>备份 - afp/TimeMachine</li>
+<li>常用应用 - vaultwarden</li>
+<li>服务器
+<ul>
+<li>Kubernetes/k3s - 推荐</li>
+<li>Docker</li>
+<li>虚拟机</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1>常见问题</h1>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=如何选择硬盘缓存>如何选择硬盘缓存<a href=#如何选择硬盘缓存 class=hash-link aria-label="Direct link to 如何选择硬盘缓存" title="Direct link to 如何选择硬盘缓存" translate=no>​</a></h2>
+<ul>
+<li>如果使用 ZFS+SSD 作为缓存，那硬盘的缓存影响不大</li>
+<li>如果使用 硬件 RAID，那硬盘的缓存能提效</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=为什么选择-sas-硬盘>为什么选择 SAS 硬盘<a href=#为什么选择-sas-硬盘 class=hash-link aria-label="Direct link to 为什么选择 SAS 硬盘" title="Direct link to 为什么选择 SAS 硬盘" translate=no>​</a></h2>
+<ul>
+<li>SAS 为企业级硬盘 - 二手质量高</li>
+<li>二手市场多</li>
+<li>支持热插拔 - 更换容易</li>
+<li><strong>但</strong> 通常需要额外的 SAS 卡 - 一般选择半高 PCI</li>
+<li>SAS 还需要注意区分 2.5 和 3.5
+<ul>
+<li>3.5 - 容量 300G-5T, 转速 7200+</li>
+<li>2.5 - 容量 120G-1T, 转速 10000-15000</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=如何选择-cpu>如何选择 CPU<a href=#如何选择-cpu class=hash-link aria-label="Direct link to 如何选择 CPU" title="Direct link to 如何选择 CPU" translate=no>​</a></h2>
+<ul>
+<li>志强 Xeon
+<ul>
+<li>优点
+<ul>
+<li>二手市场多</li>
+<li>价格便宜</li>
+<li>性能非常好 - 核心多</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>功耗高 - 120W</li>
+<li>需要主板支持</li>
+<li>一般媒体能力普通</li>
+<li>全新非常贵</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>志强 Xeon L
+<ul>
+<li>优点
+<ul>
+<li>功耗低 - 25W</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>ECC NOREG</li>
+<li>通常内存只支持 2 通道 - 一般家用 NAS 足矣</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>酷睿 Core
+<ul>
+<li>优点
+<ul>
+<li>单核频率高</li>
+<li>媒体处理能力强</li>
+<li>功耗一般 - 60W</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>贵</li>
+<li>核心数少 - 作为服务器核心数比单核频率更重要</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>凌动 Celeron
+<ul>
+<li>优点
+<ul>
+<li>功耗非常低 - 10W</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>能力有限</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=服务器-和-pchtpc-的区别>服务器 和 PC/HTPC 的区别<a href=#服务器-和-pchtpc-的区别 class=hash-link aria-label="Direct link to 服务器 和 PC/HTPC 的区别" title="Direct link to 服务器 和 PC/HTPC 的区别" translate=no>​</a></h2>
+<ul>
+<li>服务器通常支持管理模块
+<ul>
+<li>启动慢</li>
+<li>支持远程远离 - 开机，停机，健康检查，KVM</li>
+<li>固件升级</li>
+</ul>
+</li>
+<li>PC/HTPC 一般直接启动即可</li>
+</ul></div><footer class=docusaurus-mt-lg><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/运维>运维</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/dev-ops>DevOps</a></ul></div></div><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/story/../story/2022/2022-01-14-build-your-own-nas.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href=/story/etl-pattens><div class=pagination-nav__sublabel>Newer post</div><div class=pagination-nav__label>数据同步模式</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/story/2021-review><div class=pagination-nav__sublabel>Older post</div><div class=pagination-nav__label>2021 总结</div></a></nav></main><div class="col col--2"><div class="tableOfContents_wpyd thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#物料 class="table-of-contents__link toc-highlight">物料</a><ul><li><a href=#部件参考价格 class="table-of-contents__link toc-highlight">部件参考价格</a></ul><li><a href=#主机选择 class="table-of-contents__link toc-highlight">主机选择</a><ul><li><a href=#配置目标 class="table-of-contents__link toc-highlight">配置目标</a><li><a href=#全新整套主机 class="table-of-contents__link toc-highlight">全新整套主机</a><li><a href=#二手服务器 class="table-of-contents__link toc-highlight">二手服务器</a><li><a href=#装机 class="table-of-contents__link toc-highlight">装机</a></ul><li><a href=#系统 class="table-of-contents__link toc-highlight">系统</a><ul><li><a href=#linux class="table-of-contents__link toc-highlight">Linux</a></ul><li><a href=#如何选择硬盘缓存 class="table-of-contents__link toc-highlight">如何选择硬盘缓存</a><li><a href=#为什么选择-sas-硬盘 class="table-of-contents__link toc-highlight">为什么选择 SAS 硬盘</a><li><a href=#如何选择-cpu class="table-of-contents__link toc-highlight">如何选择 CPU</a><li><a href=#服务器-和-pchtpc-的区别 class="table-of-contents__link toc-highlight">服务器 和 PC/HTPC 的区别</a></ul></div></div></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

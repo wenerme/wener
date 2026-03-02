@@ -1,0 +1,161 @@
+<!doctype html><html lang=en dir=ltr class="blog-wrapper blog-post-page plugin-blog plugin-id-default" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>一种简单的压缩算法 | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/story/simple-compress-algorithem /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docusaurus_tag content=default /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docsearch:docusaurus_tag content=default /><meta data-rh=true property=og:title content="一种简单的压缩算法 | Wener Live & Life"/><meta data-rh=true name=description content=使用环境：简单加密，使用字符串的读取方式，压缩杂项数据 /><meta data-rh=true property=og:description content=使用环境：简单加密，使用字符串的读取方式，压缩杂项数据 /><meta data-rh=true property=og:type content=article /><meta data-rh=true property=article:published_time content=2010-04-10T00:00:00.000Z /><meta data-rh=true property=article:tag content=编程,算法,BBVM /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/story/simple-compress-algorithem /><link data-rh=true rel=alternate href=https://wener.me/story/simple-compress-algorithem hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/story/simple-compress-algorithem hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@id":"https://wener.me/story/simple-compress-algorithem","@type":"BlogPosting","author":{"@type":"Person","name":"wener"},"datePublished":"2010-04-10T00:00:00.000Z","description":"使用环境：简单加密，使用字符串的读取方式，压缩杂项数据","headline":"一种简单的压缩算法","isPartOf":{"@id":"https://wener.me/story","@type":"Blog","name":"Blog"},"keywords":[],"mainEntityOfPage":"https://wener.me/story/simple-compress-algorithem","name":"一种简单的压缩算法","url":"https://wener.me/story/simple-compress-algorithem"}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a class="navbar__item navbar__link" href=/notes>笔记</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class="container margin-vert--lg"><div class=row><aside class="col col--3"><nav class="sidebar_Ulkt thin-scrollbar" aria-label="Blog recent posts navigation"><div class="sidebarItemTitle_hSNJ margin-bottom--md">Recent posts</div><div role=group><h3 class=yearGroupHeading_KD0z>2025</h3><ul class="sidebarItemList_dElJ clean-list"><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/function-and-interface>工具 - 工 与 具</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/here-my-love-ch2>《我把我的矜持都给了她》：第二章 - 故事的重新开始</a></ul></div><div role=group><h3 class=yearGroupHeading_KD0z>2024</h3><ul class="sidebarItemList_dElJ clean-list"><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/decrypt-classfinal-jar>解密 ClassFinal 加密的 Java Jar 包</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/how-i-note>我记录思考的方式简单总结</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/ml-first-try>第一次尝试机器学习</a></ul></div></nav></aside><main class="col col--7"><article class=""><header><h1 class=title_U7V0>一种简单的压缩算法</h1><div class="container_cxbP margin-vert--md"><time datetime=2010-04-10T00:00:00.000Z>April 10, 2010</time> · <!-- -->4 min read</div><div class="margin-top--md margin-bottom--sm row"><div class="col col--12 authorCol_s0Vq"><div class="avatar margin-bottom--sm"><div class="avatar__intro authorDetails_xSIJ"><div class=avatar__name><span class=authorName_W7Sv translate=no>wener</span></div><div class=authorSocials_zw9V></div></div></div></div></div></header><div id=__blog-post-container class=markdown><p>使用环境：简单加密，使用字符串的读取方式，压缩杂项数据</p>
+<p>基本原理：也就是把混乱的数据中的00字节去掉。</p>
+<p>我想到使用这个压缩方法的时候是为了在文件io很慢的环境下一次性读取较多的文件内容，从而进行的压缩。在很多情况下字符串都是以00结尾的，所以这个压缩的算法只是把数据中的00字节去掉了。当被处理的文件中很多00的时候压缩率较大。但是不适宜对文本，图片之类的压缩。注意，只是简单的压缩，压缩后能够简单的解压缩。在压缩普通数据的时候，大概平均压缩率能够达到 3 ：4</p>
+<p> </p>
+<p>E.g.              90 80 29 00 78 98 00 00</p>
+<p>这段数据被压缩后的结果是</p>
+<p>{ 00 010011 } 90 80 29 78 98  注意只能表示 90 80 29 00 78 98 这6位数据</p>
+<p>{}为1byte大小</p>
+<p>一看这个列子就很简单了吧</p>
+<p> </p>
+<p>第一byte为标志位。</p>
+<p>具体说明</p>
+<p> </p>
+<p>1     全为0位 若数据全为00 则此位为1</p>
+<p>E.g.  00 00 00 00 00 00 => 标志位{ 10 000000 }</p>
+<p>2     全为1位 若数据全不为00 则此位为1</p>
+<p>E.g.  01 02 03 04 05 06  => 标志位{ 01 000000 } 01 02 03 04 05 06</p>
+<p>此时数据变大</p>
+<p>3-8 位表示该位是否为00 若是则为 1 当 1th 或2ed 不全为0时，可以忽略后面的 3-8位</p>
+<p> </p>
+<p>所以 一个标志位最多能够表示后面的6字节数据，此时消除了数据中的00位，就可以用字符串的读取方式来一次性读取，或者做简单的加密。</p>
+<p> </p>
+<p>一个示例的程序：</p>
+<p>是用的步步高学习机的一种叫做BBasic的环境下写的，这个算法其实就是为了应付它io极其的慢的毛病。</p>
+<p>这个代码我也只能说表达的是那个意思，如果稍加改造下，大概能够提速10倍 - 100 +倍。</p>
+<p>declare function dechex$( decVal)</p>
+<p>declare function bindec( binVal$)</p>
+<p>'//把所给的一段数据压缩</p>
+<p>'//步骤   我先考虑是内存的情况，也就是给出一个位置偏移，然后挨个去读</p>
+<p>dim XDB_GetOffset, XDB_GetLen, XDB_GetStr$, XDB_PutFp, XDB_I</p>
+<p>dim XDB_GetCur, XDB_AllZ, XDB_AllO</p>
+<p>dim Xbd_Offset_Cur</p>
+<p>dim XDB_HStr<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo separator=true>,</mo><mi>X</mi><mi>D</mi><msub><mi>B</mi><mi>C</mi></msub><mi>S</mi><mi>t</mi><mi>r</mi></mrow><annotation encoding=application/x-tex>, XDB_CStr</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8778em;vertical-align:-0.1944em></span><span class=mpunct>,</span><span class=mspace style=margin-right:0.1667em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mord><span class="mord mathnormal" style=margin-right:0.05017em>B</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0502em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.07153em>C</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class="mord mathnormal">St</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span></span></span></span></p>
+<p>dim XDB_HCode</p>
+<p>dim XDB_GetStr_len</p>
+<p>asm</p>
+<p> </p>
+<p>ld int [ vint_XDB_GetOffset], 0</p>
+<p> </p>
+<p>endasm</p>
+<p>XDB_GetLen = 7685 - 16</p>
+<p> </p>
+<p>'ab cd 00 39 09 28</p>
+<p>'19 08 02 18 00 00</p>
+<p>'82 10 00 28 19 00</p>
+<p> </p>
+<p>open "x.txt" for binary as #1</p>
+<p> </p>
+<p>XDB_GetStr_len = 0</p>
+<p>XDB_HCode = 0</p>
+<p>XDB_GetStr$ = ""</p>
+<p>XDB_CStr$ = ""</p>
+<p>XDB_HStr$ = ""</p>
+<p>t = gettick()</p>
+<p>while XDB_I &lt;= XDB_GetLen</p>
+<p> </p>
+<p>locate( 1, 1)</p>
+<p> </p>
+<p>XDB_I = XDB_I + 1</p>
+<p> </p>
+<p>Xbd_Offset_Cur = XDB_I mod 6</p>
+<p> </p>
+<p>if Xbd_Offset_Cur = 0 then</p>
+<p> </p>
+<p>if XDB_AllZ then</p>
+<p>XDB_CStr$ = ""</p>
+<p>end if</p>
+<p>XDB_GetStr<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo>=</mo><mi>X</mi><mi>D</mi><msub><mi>B</mi><mi>G</mi></msub><mi>e</mi><mi>t</mi><mi>S</mi><mi>t</mi><mi>r</mi></mrow><annotation encoding=application/x-tex> = XDB_GetStr</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.3669em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mord><span class="mord mathnormal" style=margin-right:0.05017em>B</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0502em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">G</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class="mord mathnormal">e</span><span class="mord mathnormal">tSt</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span></span></span></span> + chr<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo stretchy=false>(</mo><mi>b</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>c</mi><mo stretchy=false>(</mo><mi>X</mi><mi>D</mi><msub><mi>B</mi><mi>A</mi></msub><mi>l</mi><mi>l</mi><mi>O</mi></mrow><annotation encoding=application/x-tex>( bindec( XDB_AllO</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-0.25em></span><span class=mopen>(</span><span class="mord mathnormal">bin</span><span class="mord mathnormal">d</span><span class="mord mathnormal">ec</span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mord><span class="mord mathnormal" style=margin-right:0.05017em>B</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0502em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class="mord mathnormal" style=margin-right:0.02778em>llO</span></span></span></span> + XDB_AllZ<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo>+</mo><mi>X</mi><mi>D</mi><msub><mi>B</mi><mi>H</mi></msub><mi>S</mi><mi>t</mi><mi>r</mi></mrow><annotation encoding=application/x-tex> +XDB_HStr</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class=mord>+</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mord><span class="mord mathnormal" style=margin-right:0.05017em>B</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0502em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.08125em>H</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class="mord mathnormal">St</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span></span></span></span> )) + XDB_CStr$</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>XDB_HStr$ = ""</p>
+<p>XDB_HCode = 0</p>
+<p>XDB_CStr$ = ""</p>
+<p>XDB_AllZ$ = "1"</p>
+<p>XDB_AllO$ = "1"</p>
+<p> </p>
+<p>XDB_GetStr_len = XDB_GetStr_len + 1</p>
+<p> </p>
+<p>if XDB_GetStr_len > 4088 * 4 then</p>
+<p>print XDB_I</p>
+<p>put #1, XDB_GetStr$</p>
+<p>XDB_GetStr$ = ""</p>
+<p>end if</p>
+<p> </p>
+<p>end if</p>
+<p> </p>
+<p>'print "第二步"</p>
+<p> </p>
+<p>asm</p>
+<p>ld int [ vint_XDB_GetCur], 0</p>
+<p>ld int r0, [ vint_XDB_GetOffset]</p>
+<p>ld byte [ vint_XDB_GetCur], [ r0 ]</p>
+<p>endasm</p>
+<p> </p>
+<p>'=/当前位为非0</p>
+<p>if XDB_GetCur then</p>
+<p> </p>
+<p>XDB_CStr<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo>=</mo><mi>X</mi><mi>D</mi><msub><mi>B</mi><mi>C</mi></msub><mi>S</mi><mi>t</mi><mi>r</mi></mrow><annotation encoding=application/x-tex> = XDB_CStr</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.3669em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mord><span class="mord mathnormal" style=margin-right:0.05017em>B</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0502em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.07153em>C</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class="mord mathnormal">St</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span></span></span></span> + chr<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo stretchy=false>(</mo><mi>X</mi><mi>D</mi><msub><mi>B</mi><mi>G</mi></msub><mi>e</mi><mi>t</mi><mi>C</mi><mi>u</mi><mi>r</mi><msup><mo stretchy=false>)</mo><mo mathvariant=normal lspace=0em rspace=0em>′</mo></msup><mi mathvariant=normal>"</mi><mi mathvariant=normal>.</mi><mi mathvariant=normal>"</mi><mo>+</mo><mi>d</mi><mi>e</mi><mi>c</mi><mi>h</mi><mi>e</mi><mi>x</mi></mrow><annotation encoding=application/x-tex>( XDB_GetCur)'"." + dechex</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1.0019em;vertical-align:-0.25em></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mord><span class="mord mathnormal" style=margin-right:0.05017em>B</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0502em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">G</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class="mord mathnormal">e</span><span class="mord mathnormal" style=margin-right:0.07153em>tC</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span><span class=mclose><span class=mclose>)</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:0.7519em><span style=top:-3.063em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class=mord>"."</span><span class=mspace style=margin-right:0.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:0.2222em></span></span><span class=base><span class=strut style=height:0.6944em></span><span class="mord mathnormal">d</span><span class="mord mathnormal">ec</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span></span></span></span>( XDB_GetCur)</p>
+<p>XDB_HStr<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo>=</mo><mi>X</mi><mi>D</mi><msub><mi>B</mi><mi>H</mi></msub><mi>S</mi><mi>t</mi><mi>r</mi></mrow><annotation encoding=application/x-tex> = XDB_HStr</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.3669em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mord><span class="mord mathnormal" style=margin-right:0.05017em>B</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0502em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.08125em>H</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class="mord mathnormal">St</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span></span></span></span> + "0"</p>
+<p>'==//全为0的标志位</p>
+<p>XDB_AllZ$ = "0"</p>
+<p> </p>
+<p>'=/当前位为0</p>
+<p>else</p>
+<p>XDB_HStr<span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mo>=</mo><mi>X</mi><mi>D</mi><msub><mi>B</mi><mi>H</mi></msub><mi>S</mi><mi>t</mi><mi>r</mi></mrow><annotation encoding=application/x-tex> = XDB_HStr</annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.3669em></span><span class=mrel>=</span><span class=mspace style=margin-right:0.2778em></span></span><span class=base><span class=strut style=height:0.8333em;vertical-align:-0.15em></span><span class="mord mathnormal" style=margin-right:0.07847em>X</span><span class="mord mathnormal" style=margin-right:0.02778em>D</span><span class=mord><span class="mord mathnormal" style=margin-right:0.05017em>B</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:0.3283em><span style=top:-2.55em;margin-left:-0.0502em;margin-right:0.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style=margin-right:0.08125em>H</span></span></span></span><span class=vlist-s>​</span></span><span class=vlist-r><span class=vlist style=height:0.15em><span></span></span></span></span></span></span><span class="mord mathnormal">St</span><span class="mord mathnormal" style=margin-right:0.02778em>r</span></span></span></span> + "1"</p>
+<p>'==//全为1的标志位</p>
+<p>XDB_AllO$ = "0"</p>
+<p>end if</p>
+<p> </p>
+<p>XDB_GetStr_len = XDB_GetStr_len + 1</p>
+<p>'==//一次处理12位</p>
+<p>XDB_GetOffset = XDB_GetOffset + 1</p>
+<p> </p>
+<p>wend</p>
+<p> </p>
+<p>print "用时"; gettick() - t</p>
+<p> </p>
+<p> </p>
+<p>put #1, XDB_GetStr$</p>
+<p> </p>
+<p>put #1, "END"</p>
+<p> </p>
+<p>close #1</p>
+<p>asm</p>
+<p> </p>
+<p>jmp QingWuShi_XDB:</p>
+<p> </p>
+<p>XDB_Compression_HCode:</p>
+<p>.block 1 0</p>
+<p> </p>
+<p>XDB_Compression_CCode:</p>
+<p>.block 6 0</p>
+<p> </p>
+<p>XDB_Compression_Catch:</p>
+<p>.block 15 0</p>
+<p> </p>
+<p>XDB_Compression_Base:</p>
+<p> </p>
+<p>endasm</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>asm</p>
+<p>ret</p>
+<p> </p>
+<p>data x bin %abcd00390928190802180000821000281900%</p>
+<p> </p>
+<p>QingWuShi_XDB:</p>
+<p>endasm</div><footer class=docusaurus-mt-lg><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/编程>编程</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/算法>算法</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/bbvm>BBVM</a></ul></div></div><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/story/../story/2010/2010-04-10-一种简单的压缩算法.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href=/story/php-read-binary><div class=pagination-nav__sublabel>Newer post</div><div class=pagination-nav__label>PHP 操作二进制流，读取文件结构</div></a></nav></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

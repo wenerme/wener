@@ -1,0 +1,925 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-devops/kubernetes/k8s-awesome" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>K8S Awesome | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/devops/kubernetes/awesome /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="K8S Awesome | Wener Live & Life"/><meta data-rh=true name=description content="- cncf landscape"/><meta data-rh=true property=og:description content="- cncf landscape"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/devops/kubernetes/awesome /><link data-rh=true rel=alternate href=https://wener.me/notes/devops/kubernetes/awesome hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/devops/kubernetes/awesome hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/devops/","name":"DevOps","position":1},{"@type":"ListItem","item":"https://wener.me/notes/devops/kubernetes/","name":"Kubernetes","position":2},{"@type":"ListItem","item":"https://wener.me/notes/devops/kubernetes/awesome","name":"K8S Awesome","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Collapse sidebar category 'DevOps'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/aiops><span title=AIOps class=categoryLinkLabel_RkOu>AIOps</span></a><button aria-label="Expand sidebar category 'AIOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/container><span title=容器 class=categoryLinkLabel_RkOu>容器</span></a><button aria-label="Expand sidebar category '容器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/awesome><span title="DevOps Awesome" class=linkLabel_JPPZ>DevOps Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/faq><span title="DevOps 常见问题" class=linkLabel_JPPZ>DevOps 常见问题</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/glossary><span title="DevOps Glossary" class=linkLabel_JPPZ>DevOps Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/practice><span title="DevOps Practice" class=linkLabel_JPPZ>DevOps Practice</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/docker><span title=Docker class=categoryLinkLabel_RkOu>Docker</span></a><button aria-label="Expand sidebar category 'Docker'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/dotenv><span title=dotenv class=linkLabel_JPPZ>dotenv</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/gomplate><span title=gomplate class=linkLabel_JPPZ>gomplate</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/infra><span title=基础设施 class=categoryLinkLabel_RkOu>基础设施</span></a><button aria-label="Expand sidebar category '基础设施'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/devops/kubernetes><span title=Kubernetes class=categoryLinkLabel_RkOu>Kubernetes</span></a><button aria-label="Collapse sidebar category 'Kubernetes'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/app><span title="Kubernetes App Essentials" class=categoryLinkLabel_RkOu>Kubernetes App Essentials</span></a><button aria-label="Expand sidebar category 'Kubernetes App Essentials'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/cncf><span title=CNCF class=linkLabel_JPPZ>CNCF</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/dev><span title="Kubernetes 开发" class=categoryLinkLabel_RkOu>Kubernetes 开发</span></a><button aria-label="Expand sidebar category 'Kubernetes 开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/distro><span title=发行版 class=categoryLinkLabel_RkOu>发行版</span></a><button aria-label="Expand sidebar category '发行版'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/internal><span title="Kubernetes Internal" class=categoryLinkLabel_RkOu>Kubernetes Internal</span></a><button aria-label="Expand sidebar category 'Kubernetes Internal'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/devops/kubernetes/awesome><span title="K8S Awesome" class=linkLabel_JPPZ>K8S Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/components><span title="Kubernetes Components Overview" class=linkLabel_JPPZ>Kubernetes Components Overview</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/dashboard><span title="Kubernates 面板" class=linkLabel_JPPZ>Kubernates 面板</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/event><span title=Event class=linkLabel_JPPZ>Event</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/faq><span title="K8S 常见问题" class=linkLabel_JPPZ>K8S 常见问题</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/feature><span title=MountPropagation class=linkLabel_JPPZ>MountPropagation</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/features><span title="K8S Features" class=linkLabel_JPPZ>K8S Features</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/glossary><span title="K8S 词汇表" class=linkLabel_JPPZ>K8S 词汇表</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/managed><span title=Managed class=linkLabel_JPPZ>Managed</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/my-practice><span title="我的 K8S 实践" class=linkLabel_JPPZ>我的 K8S 实践</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/practice><span title="Kubernetes Best Practices" class=linkLabel_JPPZ>Kubernetes Best Practices</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/start><span title="Kubernetes Getting Started" class=linkLabel_JPPZ>Kubernetes Getting Started</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/story><span title="K8S 使用经验" class=linkLabel_JPPZ>K8S 使用经验</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/version><span title="Kubernetes 版本" class=linkLabel_JPPZ>Kubernetes 版本</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/network><span title="Kubernates 网络" class=categoryLinkLabel_RkOu>Kubernates 网络</span></a><button aria-label="Expand sidebar category 'Kubernates 网络'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/devops/kubernetes/ops/cluster-admin><span title=ops class=categoryLinkLabel_RkOu>ops</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/platform><span title="K8S 平台" class=categoryLinkLabel_RkOu>K8S 平台</span></a><button aria-label="Expand sidebar category 'K8S 平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/resources><span title="Kubernetes Resources & Operators" class=linkLabel_JPPZ>Kubernetes Resources & Operators</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/security><span title="Kubernetes Security & Network Policy" class=linkLabel_JPPZ>Kubernetes Security & Network Policy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/service-catalog><span title="Kubernetes Service Catalog" class=linkLabel_JPPZ>Kubernetes Service Catalog</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/storage><span title="Kubernates 存储" class=categoryLinkLabel_RkOu>Kubernates 存储</span></a><button aria-label="Expand sidebar category 'Kubernates 存储'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/workload><span title="Kubernetes Workload Objects" class=linkLabel_JPPZ>Kubernetes Workload Objects</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/devops/metrics/altermanager><span title=metrics class=categoryLinkLabel_RkOu>metrics</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/sla><span title=SLA class=linkLabel_JPPZ>SLA</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/sre><span title=SRE class=linkLabel_JPPZ>SRE</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/status><span title=Status class=linkLabel_JPPZ>Status</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/storage><span title=Storage class=categoryLinkLabel_RkOu>Storage</span></a><button aria-label="Expand sidebar category 'Storage'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/telementry><span title=Telementry class=linkLabel_JPPZ>Telementry</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/upgrade><span title=系统升级 class=linkLabel_JPPZ>系统升级</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/devops/xaas/db-schema><span title=xaas class=categoryLinkLabel_RkOu>xaas</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/devops><span>DevOps</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/devops/kubernetes><span>Kubernetes</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>K8S Awesome</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Kubernetes Awesome</h1></header>
+<ul>
+<li><a href=https://landscape.cncf.io/ target=_blank rel="noopener noreferrer">cncf landscape</a></li>
+<li><a href=https://jimmysong.io/awesome-cloud-native target=_blank rel="noopener noreferrer">awesome-cloud-native</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=学习>学习<a href=#学习 class=hash-link aria-label="Direct link to 学习" title="Direct link to 学习" translate=no>​</a></h2>
+<ul>
+<li><a href=https://docs.rancher.cn/k3s/ target=_blank rel="noopener noreferrer">K3s 中文文档</a>
+<ul>
+<li>从 K3S 入门</li>
+<li>单节点，内置 etcd</li>
+</ul>
+</li>
+<li><a href=https://kubernetes.io/zh/docs/concepts/ target=_blank rel="noopener noreferrer">Kubernetes 文档/概念</a>
+<ul>
+<li>了解 K8S 基本概念和使用场景</li>
+</ul>
+</li>
+<li>然后
+<ul>
+<li>部署服务
+<ul>
+<li>迁移 docker 上的服务到 k8s</li>
+<li>利用 k8s 简化/优化 现有工作流</li>
+</ul>
+</li>
+<li>了解内置组件，尝试利用和替换内置组件
+<ul>
+<li>Ingress - nginx, gateway</li>
+<li>CNI - flannel, calico</li>
+<li>CSI - openbsd, longhorn, nfs</li>
+<li>Network - tinc, n2n, wg, metallb</li>
+</ul>
+</li>
+<li>了解配合服务，提升使用体验
+<ul>
+<li>cert-manager, sealed-secret</li>
+<li>helm, kustomize</li>
+<li>面板 - dashboard, rancher, lens</li>
+<li>observability - prometheus, vector, fluntbit, jeager, grafana</li>
+<li>gitops - arogocd, fluxcd</li>
+<li>mesh - linkerd, istio</li>
+</ul>
+</li>
+<li>了解 operator，部署和利用更多服务
+<ul>
+<li>operator -> 通过定义 Yaml 来部署新的服务栈 - SaaS 能力</li>
+<li>数据库、监控、日志、可视化、服务</li>
+</ul>
+</li>
+<li>了解 cloud native 开发，调整开发利用云特性
+<ul>
+<li>consul</li>
+<li>dapr</li>
+<li>spring cloud, spring alibaba</li>
+<li>服务注册、发现、通讯</li>
+</ul>
+</li>
+<li>了解新的平台开发方式
+<ul>
+<li>serverless</li>
+<li>faas - fission, openfaas</li>
+<li>baas</li>
+<li>low-code</li>
+<li>sidecar</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/ target=_blank rel="noopener noreferrer">kubernetes-api</a>
+<ul>
+<li>当不确定 Yaml 有什么字段，字段有什么含义的时候查阅</li>
+<li><code>kubectl explain</code> 也可以</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=by-wener>by Wener<a href=#by-wener class=hash-link aria-label="Direct link to by Wener" title="Direct link to by Wener" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/wenerme/charts target=_blank rel="noopener noreferrer">wenerme/charts</a>
+<ul>
+<li>Helm charts 国内镜像</li>
+<li><a href=https://charts.wener.tech target=_blank rel="noopener noreferrer">https://charts.wener.tech</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/wenerme/container-mirror target=_blank rel="noopener noreferrer">wenerme/container-mirror</a>
+<ul>
+<li>容器国内镜像</li>
+<li><code>registry.cn-hongkong.aliyuncs.com/cmi/</code></li>
+</ul>
+</li>
+<li><a href=https://github.com/wenerme/kube-stub-cluster target=_blank rel="noopener noreferrer">wenerme/kube-stub-cluster</a>
+<ul>
+<li>集群部署模板 - 用于快速部署各种服务</li>
+<li>依赖 上面 helm 和 容器镜像</li>
+</ul>
+</li>
+<li><a href=https://github.com/wenerme/ansible-collection-wenerme-alpine target=_blank rel="noopener noreferrer">wenerme/ansible-collection-wenerme-alpine</a>
+<ul>
+<li>Ansible Colelction 用于管理 AlpineLinux</li>
+<li>支持部署配置 k3s, n2n, tinc, longhorn 等等</li>
+</ul>
+</li>
+<li><a href=https://github.com/wenerme/alpine-image target=_blank rel="noopener noreferrer">wenerme/alpine-image</a>
+<ul>
+<li>快速构建底层基础镜像</li>
+</ul>
+</li>
+</ul>
+<p><strong>底层到上层过程</strong></p>
+<ul>
+<li>alpine-image
+构建镜像 - 虚拟机、云服务商
+<ul>
+<li>ansible-collection-wenerme-alpine
+快速 setup 和 安装 k3s
+<ul>
+<li>kube-stub-cluster - 依赖 charts 和 container-mirror
+快速部署一个可用集群</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=awesomes>Awesomes<a href=#awesomes class=hash-link aria-label="Direct link to Awesomes" title="Direct link to Awesomes" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/derailed/popeye target=_blank rel="noopener noreferrer">derailed/popeye</a>
+<ul>
+<li>cluster resource sanitizer</li>
+</ul>
+</li>
+<li><a href=https://github.com/google/gke-policy-automation target=_blank rel="noopener noreferrer">google/gke-policy-automation</a>
+<ul>
+<li>Tool and policy library for reviewing Google Kubernetes Engine clusters against best practices</li>
+</ul>
+</li>
+<li><a href=https://github.com/siderolabs/talos target=_blank rel="noopener noreferrer">siderolabs/talos</a>
+<ul>
+<li>Linux distribution built for Kubernetes</li>
+</ul>
+</li>
+<li><a href=https://github.com/kubeboost/hostpath-multihost-provisioner target=_blank rel="noopener noreferrer">kubeboost/hostpath-multihost-provisioner</a></li>
+<li><a href=https://kubernetes-csi.github.io/docs/drivers.html target=_blank rel="noopener noreferrer">CSI Drivers</a></li>
+<li><a href=https://github.com/kubernetes-sigs/cluster-api target=_blank rel="noopener noreferrer">kubernetes-sigs/cluster-api</a>
+<ul>
+<li><a href=https://cluster-api.sigs.k8s.io/reference/providers.html target=_blank rel="noopener noreferrer">Providers</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/alexellis/arkade target=_blank rel="noopener noreferrer">alexellis/arkade</a></li>
+<li><a href=https://kubedex.com/ target=_blank rel="noopener noreferrer">kubedex</a></li>
+<li><a href=https://github.com/devtron-labs/devtron target=_blank rel="noopener noreferrer">devtron-labs/devtron</a>
+<ul>
+<li>Software Delivery Workflow For Kubernetes</li>
+<li>Web 界面</li>
+<li>部署基于 argo rollout 修改</li>
+</ul>
+</li>
+<li><a href=https://github.com/kubeshop/monokle target=_blank rel="noopener noreferrer">kubeshop/monokle</a></li>
+<li><a href=https://github.com/oam-dev/kubevela target=_blank rel="noopener noreferrer">oam-dev/kubevela</a>
+Modern Application Deployment System Based on Kubernetes and OAM</li>
+<li><a href=https://github.com/acorn-io/acorn target=_blank rel="noopener noreferrer">acorn-io/acorn</a>
+<ul>
+<li>simple application deployment framework for Kubernetes</li>
+</ul>
+</li>
+<li><a href=https://github.com/k8snetworkplumbingwg/multus-cni target=_blank rel="noopener noreferrer">k8snetworkplumbingwg/multus-cni</a>
+CNI meta-plugin for multi-homed pods in Kubernetes</li>
+<li><a href=https://github.com/kubevirt/macvtap-cni target=_blank rel="noopener noreferrer">kubevirt/macvtap-cni</a></li>
+<li>Validate
+<ul>
+<li><a href=https://github.com/instrumenta/kubeval target=_blank rel="noopener noreferrer">instrumenta/kubeval</a></li>
+<li><a href=https://github.com/zegl/kube-score target=_blank rel="noopener noreferrer">zegl/kube-score</a></li>
+<li><a href=https://learnk8s.io/validating-kubernetes-yaml target=_blank rel="noopener noreferrer">Validating Kubernetes YAML for best practice and policies</a></li>
+</ul>
+</li>
+<li>DevOps
+<ul>
+<li>awx</li>
+</ul>
+</li>
+<li>Kubernetes Basic
+<ul>
+<li><a href=/notes/devops/kubernetes/network/metallb>metallb</a></li>
+<li><a href=/notes/devops/kubernetes/app/cert-manager>cert-manager</a></li>
+<li>kube-prometheus</li>
+</ul>
+</li>
+<li>StorageClass
+<ul>
+<li><a href=https://storageclass.info/storageclasses/ target=_blank rel="noopener noreferrer">https://storageclass.info/storageclasses/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/armosec/kubescape target=_blank rel="noopener noreferrer">armosec/kubescape</a>
+<ul>
+<li>testing if Kubernetes is deployed securely</li>
+</ul>
+</li>
+<li><a href=https://github.com/open-policy-agent/opa target=_blank rel="noopener noreferrer">open-policy-agent/opa</a></li>
+<li><a href=https://github.com/anchore/syft target=_blank rel="noopener noreferrer">anchore/syft</a></li>
+<li><a href=https://github.com/sigstore/cosign target=_blank rel="noopener noreferrer">sigstore/cosign</a></li>
+<li><a href=https://github.com/Tencent/caelus target=_blank rel="noopener noreferrer">Tencent/caelus</a></li>
+<li><a href=https://github.com/gardener/gardener target=_blank rel="noopener noreferrer">gardener/gardener</a></li>
+<li>LoadBalance
+<ul>
+<li><a href=/notes/devops/kubernetes/network/metallb>metallb</a></li>
+<li>openelb</li>
+<li>PureLB</li>
+<li><a href=https://github.com/kube-vip/kube-vip target=_blank rel="noopener noreferrer">kube-vip/kube-vip</a>
+<ul>
+<li>Apache-2.0, Golang</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://kubernetes.io/docs/concepts/services-networking/network-policies/ target=_blank rel="noopener noreferrer">Network Policies</a>
+<ul>
+<li>隔离，进出流量控制</li>
+</ul>
+</li>
+<li>编排外部资源
+<ul>
+<li><a href=https://github.com/crossplane/crossplane target=_blank rel="noopener noreferrer">crossplane/crossplane</a>
+<ul>
+<li>管理基础设施</li>
+<li>provider alibaba, aws, azure, gcp, rook, helm</li>
+</ul>
+</li>
+<li><a href=https://github.com/GoogleCloudPlatform/k8s-config-connector target=_blank rel="noopener noreferrer">GoogleCloudPlatform/k8s-config-connector</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=dashboardui>Dashboard/UI<a href=#dashboardui class=hash-link aria-label="Direct link to Dashboard/UI" title="Direct link to Dashboard/UI" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>ui<th>in<th>web<th>desktop<th>cli<th>extensible<tbody><tr><td><a href=/notes/devops/kubernetes/app/headlamp>headlamp</a><td>Go,TS,React,Redux<td>✅<td>✅<td><td>✅<tr><td>portainer<td><td><td>✅<td><td><tr><td>k9s<td>Golang<td><td><td>✅<td><tr><td><a href=https://github.com/kubernetes/dashboard target=_blank rel="noopener noreferrer">kubernetes-dashboard</a><td><td>✅<td><td><td><tr><td>rancher<td>Golang<td>✅<td>✅<td><td><tr><td>seabird<td>Golang+GTK<td><td>✅<td><td><tr><td><del>lens</del><td>TS<td><td>✅<td><td><tr><td><del><a href=https://github.com/vmware-tanzu/octant target=_blank rel="noopener noreferrer">octant</a></del><td>Golang<td>✅<td>✅<td><td>⭐️⭐️⭐️</table>
+<ul>
+<li>命令行/TUI
+<ul>
+<li>k9s</li>
+<li><a href=https://github.com/kdash-rs/kdash target=_blank rel="noopener noreferrer">kdash-rs/kdash</a></li>
+</ul>
+</li>
+<li>Desktop/App
+<ul>
+<li><del><a href=/notes/devops/kubernetes/app/lens>lens</a></del> -> openlens
+<ul>
+<li>2024-01-23 闭源</li>
+<li>by Mirantis</li>
+</ul>
+</li>
+<li><a href=/notes/devops/kubernetes/app/headlamp>headlamp</a>
+<ul>
+<li>Apache-2.0, Golang, TS</li>
+</ul>
+</li>
+<li><a href=https://github.com/getseabird/seabird target=_blank rel="noopener noreferrer">getseabird/seabird</a>
+<ul>
+<li>MPL-2.0, Golang</li>
+</ul>
+</li>
+<li><a href=https://github.com/kubenav/kubenav target=_blank rel="noopener noreferrer">kubenav/kubenav</a>
+<ul>
+<li>MIT, Dark, Golang</li>
+<li>移动端</li>
+</ul>
+</li>
+<li>portainer
+<ul>
+<li>早期支持 docker，后来支持 k8s</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>WebUI/dashboard
+<ul>
+<li><a href=https://github.com/kubernetes/dashboard target=_blank rel="noopener noreferrer">kubernetes/dashboard</a>
+<ul>
+<li>简洁</li>
+</ul>
+</li>
+<li><a href=/notes/devops/kubernetes/platform/rancher>Rancher</a></li>
+<li>OpenShift</li>
+<li><a href=https://github.com/kubewall/kubewall target=_blank rel="noopener noreferrer">kubewall/kubewall</a></li>
+<li><a href=https://github.com/kubeapps/kubeapps target=_blank rel="noopener noreferrer">kubeapps</a>
+<ul>
+<li>可简单的理解为 HELM WebUI</li>
+<li>web-based UI for deploying and managing applications in Kubernetes clusters</li>
+</ul>
+</li>
+<li><a href=https://github.com/goodrain/rainbond target=_blank rel="noopener noreferrer">goodrain/rainbond</a>
+<ul>
+<li><del>Apache-2.0</del>, Go</li>
+</ul>
+</li>
+<li><del>Kubesphere</del></li>
+</ul>
+</li>
+<li>商业/闭源
+<ul>
+<li>lens</li>
+<li><a href=https://infra.app/ target=_blank rel="noopener noreferrer">https://infra.app/</a></li>
+<li><a href=https://aptakube.com/ target=_blank rel="noopener noreferrer">https://aptakube.com/</a>
+<ul>
+<li>无免费方案</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/kubernetes-sigs/kui target=_blank rel="noopener noreferrer">kubernetes-sigs/kui</a>
+<ul>
+<li>增强 kubectl</li>
+<li>kubectl kui get pods</li>
+</ul>
+</li>
+<li><a href=https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/ target=_blank rel="noopener noreferrer">Web UI (Dashboard)</a></li>
+<li><a href=https://github.com/vmware-tanzu/octant target=_blank rel="noopener noreferrer">vmware-tanzu/octant</a>
+<ul>
+<li>Highly extensible platform for developers to better understand the complexity of Kubernetes clusters.</li>
+</ul>
+</li>
+<li><a href=https://github.com/weaveworks/scope target=_blank rel="noopener noreferrer">weaveworks/scope</a>
+<ul>
+<li>Monitoring, visualisation & management for Docker & Kubernetes</li>
+</ul>
+</li>
+<li><a href=https://github.com/indeedeng/k8dash target=_blank rel="noopener noreferrer">indeedeng/k8dash</a></li>
+<li><a href=https://github.com/hjacobs/kube-ops-view target=_blank rel="noopener noreferrer">hjacobs/kube-ops-view</a>
+<ul>
+<li>Kubernetes Operational View - read-only system dashboard for multiple K8s clusters</li>
+</ul>
+</li>
+<li><a href=https://github.com/hjacobs/kube-resource-report target=_blank rel="noopener noreferrer">hjacobs/kube-resource-report</a></li>
+<li><a href=https://kube-web-view.readthedocs.io/en/latest/alternatives.html target=_blank rel="noopener noreferrer">kube-web-view alternatives</a></li>
+<li><a href=https://github.com/oslabs-beta/kr8s target=_blank rel="noopener noreferrer">oslabs-beta/kr8s</a>
+<ul>
+<li>Docker/Kubernetes Visualization Tool</li>
+</ul>
+</li>
+<li><a href=https://github.com/dnsjia/luban target=_blank rel="noopener noreferrer">dnsjia/luban</a>
+<ul>
+<li>Apache-2.0, Go+Vue3+AntD</li>
+</ul>
+</li>
+<li><a href=https://github.com/eip-work/kuboard-press target=_blank rel="noopener noreferrer">eip-work/kuboard-press</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=distribution>Distribution<a href=#distribution class=hash-link aria-label="Direct link to Distribution" title="Direct link to Distribution" translate=no>​</a></h2>
+<ul>
+<li><a href=https://wener.me/story/rancher-vs-kubesphere target=_blank rel="noopener noreferrer">Rancher vs. Kubesphere</a></li>
+<li><a href=https://wener.me/story/k3s-vs-k0s target=_blank rel="noopener noreferrer">K3S vs. K0S</a></li>
+</ul>
+<hr/>
+<ul>
+<li>平台
+<ul>
+<li>openshift - <a href=https://github.com/openshift/okd target=_blank rel="noopener noreferrer">openshift/okd</a> - openshift 社区版
+<ul>
+<li>by Red Hat</li>
+</ul>
+</li>
+<li><a href=https://github.com/rancher/rancher target=_blank rel="noopener noreferrer">rancher</a>
+<ul>
+<li>by SUSE</li>
+</ul>
+</li>
+<li><del><a href=https://github.com/kubesphere/kubesphere target=_blank rel="noopener noreferrer">kubesphere</a></del>
+<ul>
+<li>by 青云</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Edge/Minimal
+<ul>
+<li><a href=https://github.com/k3s-io/k3s target=_blank rel="noopener noreferrer">k3s-io/k3s</a>
+<ul>
+<li>by Rancher, SUSE</li>
+</ul>
+</li>
+<li><a href=https://github.com/rancher/k3os target=_blank rel="noopener noreferrer">rancher/k3os</a>
+<ul>
+<li>基于 Alpine 的 K3S 系统镜像</li>
+<li>推荐直接使用 Alpine 然后安装 k3s</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockTitle_Lwh4>alpinelinux 安装 k3s</div><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">apk add k3s</span><br/></span></code></pre></div></div>
+</li>
+<li><a href=https://github.com/k0sproject/k0s target=_blank rel="noopener noreferrer">k0sproject/k0s</a>
+<ul>
+<li>by Team Lens - mirantis</li>
+</ul>
+</li>
+<li><a href=https://github.com/kubeedge/kubeedge target=_blank rel="noopener noreferrer">kubeedge/kubeedge</a>
+<ul>
+<li>CNCF, Huawei</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>本地开发
+<ul>
+<li>microk8s</li>
+<li><a href=https://github.com/kubernetes-sigs/kind target=_blank rel="noopener noreferrer">kubernetes-sigs/kind</a> - Kubernetes in Docker
+<ul>
+<li>Apache-2.0, Golang</li>
+</ul>
+</li>
+<li><a href=https://github.com/rancher/k3d target=_blank rel="noopener noreferrer">rancher/k3d</a> - K3S in Docker</li>
+</ul>
+</li>
+<li>Installer
+<ul>
+<li><a href=https://github.com/rancher/rke2 target=_blank rel="noopener noreferrer">rancher/rke2</a></li>
+<li><a href=https://github.com/rancher/rke target=_blank rel="noopener noreferrer">rancher/rke</a>
+<ul>
+<li>推荐使用 rke2</li>
+</ul>
+</li>
+<li>autok3s</li>
+<li><a href=https://github.com/kubernetes/kubeadm target=_blank rel="noopener noreferrer">kubeadm</a></li>
+<li><a href=https://github.com/kubernetes-sigs/kubespray target=_blank rel="noopener noreferrer">kubernetes-sigs/kubespray</a>
+<ul>
+<li>ansible based</li>
+</ul>
+</li>
+<li><a href=https://github.com/kubernetes/kops target=_blank rel="noopener noreferrer">kubernetes/kops</a></li>
+</ul>
+</li>
+<li>有趣
+<ul>
+<li><a href=https://github.com/loft-sh/vcluster target=_blank rel="noopener noreferrer">loft-sh/vcluster</a>
+<ul>
+<li>虚拟集群 - 映射集群到 namespace</li>
+</ul>
+</li>
+<li><a href=https://github.com/kubernetes-sigs/container-object-storage-interface-spec target=_blank rel="noopener noreferrer">COSI</a></li>
+</ul>
+</li>
+<li>正常发行版
+<ul>
+<li><a href=https://github.com/scality/metalk8s target=_blank rel="noopener noreferrer">scality/metalk8s</a>
+<ul>
+<li>focus on long-term on-prem</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>兼容适配
+<ul>
+<li><a href=https://github.com/kcp-dev/kcp target=_blank rel="noopener noreferrer">kcp-dev/kcp</a>
+<ul>
+<li>兼容 kubectl api</li>
+<li>用于实现自定义 cp</li>
+<li>不是实际的 kubernetes</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>偏商业化版本
+<ul>
+<li><a href=https://github.com/cloudfoundry/cf-for-k8s target=_blank rel="noopener noreferrer">cloudfoundry/cf-for-k8s</a>
+<ul>
+<li>基于 k8s 之上的平台</li>
+</ul>
+</li>
+<li><a href=https://github.com/vmware-tanzu/community-edition target=_blank rel="noopener noreferrer">vmware-tanzu/community-edition</a>
+<ul>
+<li>Tanzu 社区版</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>不活跃
+<ul>
+<li><a href=https://github.com/gravitational/gravity target=_blank rel="noopener noreferrer">gravitational/gravity</a>
+Kubernetes application deployments for restricted, regulated or remote environments</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<ul>
+<li><a href=https://www.cncf.io/announcements/2017/11/13/cloud-native-computing-foundation-launches-certified-kubernetes-program-32-conformant-distributions-platforms/ target=_blank rel="noopener noreferrer">CNCF certified Kubernetes distributions and platforms</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=gitops>GitOps<a href=#gitops class=hash-link aria-label="Direct link to GitOps" title="Direct link to GitOps" translate=no>​</a></h2>
+<ul>
+<li>Render/Template
+<ul>
+<li><a href=/notes/devops/kubernetes/ops/helm>Helm</a>
+<ul>
+<li>gotpl, sprig</li>
+</ul>
+</li>
+<li><a href=/notes/devops/kubernetes/ops/kustomize>Kustomize</a></li>
+<li><a href=https://github.com/google/jsonnet target=_blank rel="noopener noreferrer">jsonnet</a>
+<ul>
+<li>data templating language</li>
+<li>JSON 超集</li>
+<li><a href=https://github.com/google/go-jsonnet target=_blank rel="noopener noreferrer">google/go-jsonnet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>编排
+<ul>
+<li>helm</li>
+<li>tanka
+<ul>
+<li>jsonet</li>
+<li>by Grafana</li>
+<li>ArgoCD 不支持 <a href=https://github.com/argoproj/argo-cd/issues/3124 target=_blank rel="noopener noreferrer">https://github.com/argoproj/argo-cd/issues/3124</a></li>
+</ul>
+</li>
+<li>Terraform</li>
+</ul>
+</li>
+<li><a href=/notes/devops/kubernetes/app/argocd>argocd</a></li>
+<li><a href=/notes/devops/kubernetes/app/fleet>fleet</a></li>
+<li><a href=/notes/devops/kubernetes/app/flux>flux</a></li>
+<li><a href=https://github.com/flux-subsystem-argo/flamingo target=_blank rel="noopener noreferrer">flux-subsystem-argo/flamingo</a>
+<ul>
+<li>ArgoCD + Flux</li>
+<li>by Weave Works</li>
+</ul>
+</li>
+<li><a href=https://github.com/helmfile/helmfile target=_blank rel="noopener noreferrer">helmfile/helmfile</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=servicemesh>servicemesh<a href=#servicemesh class=hash-link aria-label="Direct link to servicemesh" title="Direct link to servicemesh" translate=no>​</a></h2>
+<ul>
+<li>linkerd</li>
+<li>consul</li>
+<li><a href=https://github.com/openservicemesh/osm target=_blank rel="noopener noreferrer">openservicemesh/osm</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=网络>网络<a href=#网络 class=hash-link aria-label="Direct link to 网络" title="Direct link to 网络" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/projectcontour/contour target=_blank rel="noopener noreferrer">projectcontour/contour</a>
+Kubernetes ingress controller using Envoy proxy</li>
+<li><a href=https://github.com/projectcontour/gimbal target=_blank rel="noopener noreferrer">projectcontour/gimbal</a>
+ingress load balancing capable of routing traffic to multiple Kubernetes</li>
+<li><a href=https://github.com/voyagermesh/voyager target=_blank rel="noopener noreferrer">voyagermesh/voyager</a>
+L7/L4 (HAProxy) Ingress Controller</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=operator>Operator<a href=#operator class=hash-link aria-label="Direct link to Operator" title="Direct link to Operator" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/operator-framework/operator-lifecycle-manager target=_blank rel="noopener noreferrer">operator-framework/operator-lifecycle-manager</a>
+<ul>
+<li><a href=https://olm.operatorframework.io/ target=_blank rel="noopener noreferrer">https://olm.operatorframework.io/</a></li>
+<li><a href=https://operatorhub.io/ target=_blank rel="noopener noreferrer">https://operatorhub.io/</a></li>
+</ul>
+</li>
+<li>Service
+<ul>
+<li><a href=https://github.com/grafana-operator/grafana-operator target=_blank rel="noopener noreferrer">grafana-operator/grafana-operator</a>
+<ul>
+<li>Grafana,GrafanaDashboard,GrafanaDataSource,GrafanaNotificationChannel</li>
+</ul>
+</li>
+<li><a href=https://github.com/keycloak/keycloak-operator target=_blank rel="noopener noreferrer">keycloak/keycloak-operator</a>
+<ul>
+<li>Keycloak,KeycloakRealm,KeycloakUser,KeycloakClient</li>
+</ul>
+</li>
+<li><a href=https://github.com/minio/operator target=_blank rel="noopener noreferrer">minio/operator</a>
+<ul>
+<li><a href=https://github.com/minio/operator/blob/master/docs/crd.adoc target=_blank rel="noopener noreferrer">API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Infra
+<ul>
+<li><a href=https://github.com/nats-io/nats-operator target=_blank rel="noopener noreferrer">nats-io/nats-operator</a>
+<ul>
+<li>不推荐使用</li>
+</ul>
+</li>
+<li><a href=https://github.com/VictoriaMetrics/operator target=_blank rel="noopener noreferrer">VictoriaMetrics/operator</a></li>
+<li><a href=https://github.com/jaegertracing/jaeger-operator target=_blank rel="noopener noreferrer">jaegertracing/jaeger-operator</a></li>
+<li><a href=https://github.com/prometheus-operator/prometheus-operator target=_blank rel="noopener noreferrer">prometheus-operator/prometheus-operator</a></li>
+<li><a href=https://github.com/strimzi/strimzi-kafka-operator target=_blank rel="noopener noreferrer">strimzi/strimzi-kafka-operator</a></li>
+</ul>
+</li>
+<li>PostgreSQL
+<ul>
+<li><a href=/notes/devops/kubernetes/app/zalando-postgres-operator>zalando/postgres-operator</a>
+<ul>
+<li>MIT, Go</li>
+<li>🌟 推荐</li>
+</ul>
+</li>
+<li><a href=https://github.com/CrunchyData/postgres-operator target=_blank rel="noopener noreferrer">CrunchyData/postgres-operator</a>
+<ul>
+<li><a href="https://info.crunchydata.com/blog/active-active-postgres-federation-on-kubernetes?hs_amp=true" target=_blank rel="noopener noreferrer">Active-Active PostgreSQL Federation on Kubernetes</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/sorintlab/stolon target=_blank rel="noopener noreferrer">sorintlab/stolon</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>🚧 停滞</li>
+</ul>
+</li>
+<li><a href=https://github.com/reactive-tech/kubegres target=_blank rel="noopener noreferrer">reactive-tech/kubegres</a>
+<ul>
+<li>Apache-2.0,</li>
+<li>🚧 停滞</li>
+</ul>
+</li>
+<li><a href=https://github.com/ongres/stackgres target=_blank rel="noopener noreferrer">ongres/stackgres</a>
+<ul>
+<li>AGPLv3, Java</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/openshift/elasticsearch-operator target=_blank rel="noopener noreferrer">openshift/elasticsearch-operator</a></li>
+<li><a href=https://github.com/operator-framework/operator-lifecycle-manager target=_blank rel="noopener noreferrer">operator-framework/operator-lifecycle-manager</a></li>
+<li><a href=https://github.com/Opster/opensearch-k8s-operator target=_blank rel="noopener noreferrer">Opster/opensearch-k8s-operator</a></li>
+<li><a href=https://operatorhub.io/ target=_blank rel="noopener noreferrer">https://operatorhub.io/</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=secret--configmap>Secret & ConfigMap<a href=#secret--configmap class=hash-link aria-label="Direct link to Secret & ConfigMap" title="Direct link to Secret & ConfigMap" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/bitnami-labs/sealed-secrets target=_blank rel="noopener noreferrer">bitnami-labs/sealed-secrets</a>
+<ul>
+<li>生成不可逆的密钥存储在仓库，控制器生成对应 Secret - 非对称加密</li>
+<li>最简单实用</li>
+</ul>
+</li>
+<li><a href=https://github.com/external-secrets/external-secrets target=_blank rel="noopener noreferrer">external-secrets/external-secrets</a>
+<ul>
+<li>hashicorp vault, aws sm, aws ps, gcp sm</li>
+<li>alibaba cloud kms, Gitlab Project Variables</li>
+</ul>
+</li>
+<li><a href=https://github.com/banzaicloud/bank-vaults target=_blank rel="noopener noreferrer">banzaicloud/bank-vaults</a></li>
+<li><a href=https://github.com/hashicorp/vault target=_blank rel="noopener noreferrer">hashicorp/vault</a>
+<ul>
+<li>Secret as a Service, Encryption as a Servic</li>
+<li>如何与 K8S 集成是个问题</li>
+</ul>
+</li>
+<li><a href=https://github.com/kubernetes-sigs/secrets-store-csi-driver target=_blank rel="noopener noreferrer">kubernetes-sigs/secrets-store-csi-driver</a>
+<ul>
+<li>aws, azure, gcp, vault</li>
+</ul>
+</li>
+<li><a href=https://github.com/jkroepke/helm-secrets target=_blank rel="noopener noreferrer">jkroepke/helm-secrets</a></li>
+<li><a href=https://github.com/viaduct-ai/kustomize-sops target=_blank rel="noopener noreferrer">viaduct-ai/kustomize-sops</a></li>
+<li><a href=https://github.com/argoproj-labs/argocd-vault-plugin target=_blank rel="noopener noreferrer">argoproj-labs/argocd-vault-plugin</a>
+<ul>
+<li>argocd + HashiCorp Vault</li>
+<li>早期由 IBM 开发</li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://argoproj.github.io/argo-cd/operator-manual/secret-management/ target=_blank rel="noopener noreferrer">Secret Management</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>工具</strong></p>
+<ul>
+<li><a href=https://github.com/kubeops/config-syncer target=_blank rel="noopener noreferrer">kubeops/config-syncer</a>
+<ul>
+<li>原 kubed</li>
+<li>Go, Apache-2.0</li>
+</ul>
+</li>
+<li><a href=https://github.com/emberstack/kubernetes-reflector target=_blank rel="noopener noreferrer">reflector</a>
+<ul>
+<li>C#, MIT</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=应用application>应用/Application<a href=#应用application class=hash-link aria-label="Direct link to 应用/Application" title="Direct link to 应用/Application" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/oam-dev/spec target=_blank rel="noopener noreferrer">oam-dev/spec</a>
+Open Application Model</li>
+<li><a href=https://github.com/oam-dev/kubevela target=_blank rel="noopener noreferrer">oam-dev/kubevela</a></li>
+<li><a href=https://github.com/openkruise/kruise target=_blank rel="noopener noreferrer">openkruise/kruise</a>
+Automate application management</li>
+<li><a href=https://github.com/openpitrix/openpitrix target=_blank rel="noopener noreferrer">openpitrix/openpitrix</a>
+<ul>
+<li>开发停止</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=开发dev>开发/Dev<a href=#开发dev class=hash-link aria-label="Direct link to 开发/Dev" title="Direct link to 开发/Dev" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/telepresenceio/telepresence target=_blank rel="noopener noreferrer">telepresenceio/telepresence</a></li>
+<li><a href=https://github.com/solo-io/squash target=_blank rel="noopener noreferrer">solo-io/squash</a></li>
+<li><a href=https://github.com/open-hand/choerodon target=_blank rel="noopener noreferrer">open-hand/choerodon</a>
+Multi-Cloud Integrated Platform</li>
+<li><a href=https://github.com/metacontroller/metacontroller target=_blank rel="noopener noreferrer">metacontroller/metacontroller</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=build>Build<a href=#build class=hash-link aria-label="Direct link to Build" title="Direct link to Build" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/pivotal/kpack target=_blank rel="noopener noreferrer">pivotal/kpack</a>
+<ul>
+<li>Kubernetes Native Container Build Service</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=运维ops>运维/Ops<a href=#运维ops class=hash-link aria-label="Direct link to 运维/Ops" title="Direct link to 运维/Ops" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/robusta-dev/robusta target=_blank rel="noopener noreferrer">robusta-dev/robusta</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=notify>Notify<a href=#notify class=hash-link aria-label="Direct link to Notify" title="Direct link to Notify" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/bitnami-labs/kubewatch target=_blank rel="noopener noreferrer">bitnami-labs/kubewatch</a>
+<ul>
+<li>Watch k8s events and trigger Handlers</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=misc>Misc<a href=#misc class=hash-link aria-label="Direct link to Misc" title="Direct link to Misc" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/vmware-tanzu/sonobuoy target=_blank rel="noopener noreferrer">vmware-tanzu/sonobuoy</a>
+diagnostic tool to understand the state of a Kubernetes cluster by running a set of Kubernetes conformance tests</li>
+<li><a href=https://github.com/kvdi/kvdi target=_blank rel="noopener noreferrer">kvdi/kvdi</a>
+Kubernetes-native Virtual Desktop Infrastructure</li>
+<li><a href=https://github.com/kris-nova/naml target=_blank rel="noopener noreferrer">kris-nova/naml</a>
+replacing Kubernetes YAML with Go</li>
+<li><a href=https://github.com/cdk8s-team/cdk8s target=_blank rel="noopener noreferrer">cdk8s-team/cdk8s</a></li>
+<li><a href=https://github.com/ovh/cds target=_blank rel="noopener noreferrer">ovh/cds</a>
+Continuous Delivery Service</li>
+<li><a href=https://github.com/Qihoo360/wayne target=_blank rel="noopener noreferrer">Qihoo360/wayne</a>
+multi-cluster management and publishing platform</li>
+<li><a href=https://github.com/nuclio/nuclio target=_blank rel="noopener noreferrer">nuclio/nuclio</a>
+Serverless event and data processing platform</li>
+<li><a href=https://github.com/kyverno/kyverno/ target=_blank rel="noopener noreferrer">kyverno/kyverno</a>
+Kubernetes Native Policy Management</li>
+<li><a href=https://github.com/Grafeas/Grafeas target=_blank rel="noopener noreferrer">Grafeas/Grafeas</a>
+Artifact Metadata API</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=api-gateway>API Gateway<a href=#api-gateway class=hash-link aria-label="Direct link to API Gateway" title="Direct link to API Gateway" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/luraproject/lura target=_blank rel="noopener noreferrer">luraproject/lura</a>
+<ul>
+<li>builder , proxy generator, aggregator</li>
+<li>client -> lura -> <code>N*Service</code></li>
+</ul>
+</li>
+<li><a href=https://github.com/kubernetes-sigs/service-catalog target=_blank rel="noopener noreferrer">kubernetes-sigs/service-catalog</a></li>
+<li><a href=https://github.com/openservicebrokerapi/servicebroker target=_blank rel="noopener noreferrer">openservicebrokerapi/servicebroker</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=conf>Conf<a href=#conf class=hash-link aria-label="Direct link to Conf" title="Direct link to Conf" translate=no>​</a></h2>
+<ul>
+<li>consul
+<ul>
+<li><a href=https://github.com/Caiyeon/goldfish target=_blank rel="noopener noreferrer">Caiyeon/goldfish</a>
+<ul>
+<li>UI, 已停止, 可参考</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/ctripcorp/apollo target=_blank rel="noopener noreferrer">ctripcorp/apollo</a>
+<ul>
+<li>Apache-2.0, Java</li>
+<li>携程</li>
+<li>配置管理系统</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=tool>Tool<a href=#tool class=hash-link aria-label="Direct link to Tool" title="Direct link to Tool" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/txn2/kubefwd target=_blank rel="noopener noreferrer">txn2/kubefwd</a>
+Bulk port forwarding</li>
+<li><a href=/notes/devops/kubernetes/app/reloader>stakater/Reloader</a>
+watch changes in ConfigMap and Secrets and do rolling upgrades on Pod
+<ul>
+<li>重启 - 全局部署一个</li>
+</ul>
+</li>
+<li><a href=/notes/devops/kubernetes/app/prometheus-config-reloader>prometheus-config-reloader</a>
+<ul>
+<li>强求 reload 接口 - 作为 sidecar 部署</li>
+<li>quay.io/prometheus-operator/prometheus-config-reloader</li>
+</ul>
+</li>
+<li><a href=https://github.com/telepresenceio/telepresence target=_blank rel="noopener noreferrer">telepresenceio/telepresence</a>
+Local development against a remote Kubernetes</li>
+<li><a href=https://github.com/jimmidyson/configmap-reload target=_blank rel="noopener noreferrer">jimmidyson/configmap-reload</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=install>Install<a href=#install class=hash-link aria-label="Direct link to Install" title="Direct link to Install" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/easzlab/kubeasz target=_blank rel="noopener noreferrer">easzlab/kubeasz</a>
+Ansible 脚本安装 K8S 集群</li>
+<li><a href=https://github.com/talos-systems/talos target=_blank rel="noopener noreferrer">talos-systems/talos</a>
+modern OS for Kubernetes
+<ul>
+<li>MPL-2.0, Go</li>
+<li>secure, immutable, minimal</li>
+<li>通过 API 管理系统 - 无 shell</li>
+<li>mTLS</li>
+</ul>
+</li>
+<li><a href=https://github.com/KubeOperator/KubeOperator target=_blank rel="noopener noreferrer">KubeOperator/KubeOperator</a>
+KubeOperator 是一个开源的轻量级 Kubernetes 发行版</li>
+<li><a href=https://github.com/kubernetes-sigs/kubespray target=_blank rel="noopener noreferrer">kubernetes-sigs/kubespray</a>
+Deploy a Production Ready Kubernetes Cluster</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=client>Client<a href=#client class=hash-link aria-label="Direct link to Client" title="Direct link to Client" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/kubernetes-client target=_blank rel="noopener noreferrer">https://github.com/kubernetes-client</a></li>
+<li><a href=https://github.com/topics/k8s-sig-api-machinery target=_blank rel="noopener noreferrer">https://github.com/topics/k8s-sig-api-machinery</a></li>
+<li><a href=https://github.com/kubernetes-client/javascript target=_blank rel="noopener noreferrer">kubernetes-client/javascript</a>
+<ul>
+<li>@kubernetes/client-node
+<ul>
+<li>2.3MB, 350KB</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">npm install @kubernetes/client-node</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=security>Security<a href=#security class=hash-link aria-label="Direct link to Security" title="Direct link to Security" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/kuadrant/authorino target=_blank rel="noopener noreferrer">kuadrant/authorino</a>
+Cloud-native AuthN/AuthZ enforcer</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=build-controller--operator>Build Controller & Operator<a href=#build-controller--operator class=hash-link aria-label="Direct link to Build Controller & Operator" title="Direct link to Build Controller & Operator" translate=no>​</a></h2>
+<ul>
+<li>KubeBuilder</li>
+<li><a href=https://github.com/rancher/wrangler target=_blank rel="noopener noreferrer">rancher/wrangler</a></li>
+<li><a href=https://github.com/kubernetes-sigs/controller-tools target=_blank rel="noopener noreferrer">kubernetes-sigs/controller-tools</a></li>
+<li><a href=https://github.com/spotahome/gontroller target=_blank rel="noopener noreferrer">spotahome/gontroller</a></li>
+<li><a href=https://github.com/kubernetes/sample-controller target=_blank rel="noopener noreferrer">kubernetes/sample-controller</a></li>
+<li><a href=https://github.com/kudobuilder/kudo target=_blank rel="noopener noreferrer">kudobuilder/kudo</a>
+<ul>
+<li>Kubernetes Universal Declarative Operator</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=misc-1>Misc<a href=#misc-1 class=hash-link aria-label="Direct link to Misc" title="Direct link to Misc" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/opsgenie/kubernetes-event-exporter target=_blank rel="noopener noreferrer">opsgenie/kubernetes-event-exporter</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/awesome>Awesome</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/devops/kubernetes/k8s-awesome.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2025-10-09T05:44:41.000Z itemprop=dateModified>Oct 9, 2025</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/devops/kubernetes/internal/kubelet><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>kubelet</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/devops/kubernetes/components><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Kubernetes Components Overview</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#学习 class="table-of-contents__link toc-highlight">学习</a><li><a href=#by-wener class="table-of-contents__link toc-highlight">by Wener</a><li><a href=#awesomes class="table-of-contents__link toc-highlight">Awesomes</a><li><a href=#dashboardui class="table-of-contents__link toc-highlight">Dashboard/UI</a><li><a href=#distribution class="table-of-contents__link toc-highlight">Distribution</a><li><a href=#gitops class="table-of-contents__link toc-highlight">GitOps</a><li><a href=#servicemesh class="table-of-contents__link toc-highlight">servicemesh</a><li><a href=#网络 class="table-of-contents__link toc-highlight">网络</a><li><a href=#operator class="table-of-contents__link toc-highlight">Operator</a><li><a href=#secret--configmap class="table-of-contents__link toc-highlight">Secret & ConfigMap</a><li><a href=#应用application class="table-of-contents__link toc-highlight">应用/Application</a><li><a href=#开发dev class="table-of-contents__link toc-highlight">开发/Dev</a><li><a href=#build class="table-of-contents__link toc-highlight">Build</a><li><a href=#运维ops class="table-of-contents__link toc-highlight">运维/Ops</a><li><a href=#notify class="table-of-contents__link toc-highlight">Notify</a><li><a href=#misc class="table-of-contents__link toc-highlight">Misc</a><li><a href=#api-gateway class="table-of-contents__link toc-highlight">API Gateway</a><li><a href=#conf class="table-of-contents__link toc-highlight">Conf</a><li><a href=#tool class="table-of-contents__link toc-highlight">Tool</a><li><a href=#install class="table-of-contents__link toc-highlight">Install</a><li><a href=#client class="table-of-contents__link toc-highlight">Client</a><li><a href=#security class="table-of-contents__link toc-highlight">Security</a><li><a href=#build-controller--operator class="table-of-contents__link toc-highlight">Build Controller & Operator</a><li><a href=#misc-1 class="table-of-contents__link toc-highlight">Misc</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

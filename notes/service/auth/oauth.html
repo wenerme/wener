@@ -1,0 +1,1167 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-service/auth/oauth/README" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>OAuth | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/service/auth/oauth /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="OAuth | Wener Live & Life"/><meta data-rh=true name=description content=Tips /><meta data-rh=true property=og:description content=Tips /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/service/auth/oauth /><link data-rh=true rel=alternate href=https://wener.me/notes/service/auth/oauth hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/service/auth/oauth hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/service/","name":"服务","position":1},{"@type":"ListItem","item":"https://wener.me/notes/service/auth/","name":"Auth","position":2},{"@type":"ListItem","item":"https://wener.me/notes/service/auth/oauth/","name":"OAuth","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Collapse sidebar category '服务'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/ais><span title="会计信息系统 (AIS)" class=linkLabel_JPPZ>会计信息系统 (AIS)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/analytics><span title=统计 class=categoryLinkLabel_RkOu>统计</span></a><button aria-label="Expand sidebar category '统计'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/api/awesome><span title=api class=categoryLinkLabel_RkOu>api</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/service/auth><span title=Auth class=categoryLinkLabel_RkOu>Auth</span></a><button aria-label="Collapse sidebar category 'Auth'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/active-directory><span title="Active Directory" class=linkLabel_JPPZ>Active Directory</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/awesome><span title="Auth Awesome" class=linkLabel_JPPZ>Auth Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/faq><span title=认证授权常见问题 class=linkLabel_JPPZ>认证授权常见问题</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/glossary><span title=词汇 class=linkLabel_JPPZ>词汇</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/protocol><span title=协议 class=linkLabel_JPPZ>协议</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/auth/authn/2fa><span title=authn class=categoryLinkLabel_RkOu>authn</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/auth/authz/casbin><span title=authz class=categoryLinkLabel_RkOu>authz</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/dex><span title=Dex class=linkLabel_JPPZ>Dex</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/hydra><span title=Hydra class=linkLabel_JPPZ>Hydra</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/kb-x><span title="Kerberos & LDAP" class=linkLabel_JPPZ>Kerberos & LDAP</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/auth/kerberos><span title=Kerberos class=categoryLinkLabel_RkOu>Kerberos</span></a><button aria-label="Expand sidebar category 'Kerberos'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/auth/keycloak><span title=Keycloak class=categoryLinkLabel_RkOu>Keycloak</span></a><button aria-label="Expand sidebar category 'Keycloak'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/kratos><span title=Kratos class=linkLabel_JPPZ>Kratos</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/auth/ldap><span title=LADP class=categoryLinkLabel_RkOu>LADP</span></a><button aria-label="Expand sidebar category 'LADP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/logto><span title=Logto class=linkLabel_JPPZ>Logto</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible menu__list-item-collapsible--active"><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" aria-current=page tabindex=0 href=/notes/service/auth/oauth><span title=OAuth class=categoryLinkLabel_RkOu>OAuth</span></a><button aria-label="Collapse sidebar category 'OAuth'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/oauth/device-authorization><span title="Device Authorization" class=linkLabel_JPPZ>Device Authorization</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/oauth/jwk><span title=JWK class=linkLabel_JPPZ>JWK</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/oauth/jwt><span title=JWT class=linkLabel_JPPZ>JWT</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/oauth/awesome><span title="OAuth Awesome" class=linkLabel_JPPZ>OAuth Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/oauth/faq><span title="OAuth FAQ" class=linkLabel_JPPZ>OAuth FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/oauth/oidc><span title="OpenID Connect" class=linkLabel_JPPZ>OpenID Connect</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/oauth/pkce><span title=PKCE class=linkLabel_JPPZ>PKCE</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/oauth-provider><span title="OAuth Provider" class=linkLabel_JPPZ>OAuth Provider</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/oauth2-proxy><span title=oauth2-proxy class=linkLabel_JPPZ>oauth2-proxy</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/auth/opa><span title=OPA class=categoryLinkLabel_RkOu>OPA</span></a><button aria-label="Expand sidebar category 'OPA'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/ory><span title=Ory class=linkLabel_JPPZ>Ory</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/passkeys><span title=Passkeys class=linkLabel_JPPZ>Passkeys</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/radius><span title=RADIUS class=linkLabel_JPPZ>RADIUS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/saml><span title=SAML class=linkLabel_JPPZ>SAML</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/sso><span title=SSO class=linkLabel_JPPZ>SSO</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/traefik-forward-auth><span title="Traefik Forward Auth" class=linkLabel_JPPZ>Traefik Forward Auth</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/uma><span title=UMA class=linkLabel_JPPZ>UMA</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/auth/webauthn><span title=WebAuthn class=linkLabel_JPPZ>WebAuthn</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/baas><span title="Backend as a Service" class=categoryLinkLabel_RkOu>Backend as a Service</span></a><button aria-label="Expand sidebar category 'Backend as a Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/bi><span title="Business Intelligence (BI)" class=categoryLinkLabel_RkOu>Business Intelligence (BI)</span></a><button aria-label="Expand sidebar category 'Business Intelligence (BI)'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/business/glossary><span title=business class=categoryLinkLabel_RkOu>business</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/cctv><span title=CCTV class=linkLabel_JPPZ>CCTV</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/cms><span title="CMS 概览" class=categoryLinkLabel_RkOu>CMS 概览</span></a><button aria-label="Expand sidebar category 'CMS 概览'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/collaboration><span title=协同软件 class=categoryLinkLabel_RkOu>协同软件</span></a><button aria-label="Expand sidebar category '协同软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/commerce><span title=电商 class=categoryLinkLabel_RkOu>电商</span></a><button aria-label="Expand sidebar category '电商'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/data><span title=数据 class=categoryLinkLabel_RkOu>数据</span></a><button aria-label="Expand sidebar category '数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/dev/backstage><span title=dev class=categoryLinkLabel_RkOu>dev</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/dns><span title="DNS Service" class=categoryLinkLabel_RkOu>DNS Service</span></a><button aria-label="Expand sidebar category 'DNS Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/document><span title=办公套件 class=categoryLinkLabel_RkOu>办公套件</span></a><button aria-label="Expand sidebar category '办公套件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/download><span title=下载器 class=categoryLinkLabel_RkOu>下载器</span></a><button aria-label="Expand sidebar category '下载器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/edms><span title=档案管理 class=categoryLinkLabel_RkOu>档案管理</span></a><button aria-label="Expand sidebar category '档案管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/email><span title=EMail class=categoryLinkLabel_RkOu>EMail</span></a><button aria-label="Expand sidebar category 'EMail'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/erp><span title=ERP class=categoryLinkLabel_RkOu>ERP</span></a><button aria-label="Expand sidebar category 'ERP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/file><span title="File Sharing & Storage Services" class=categoryLinkLabel_RkOu>File Sharing & Storage Services</span></a><button aria-label="Expand sidebar category 'File Sharing & Storage Services'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/financial/awesome><span title=financial class=categoryLinkLabel_RkOu>financial</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/forge><span title=Forge class=categoryLinkLabel_RkOu>Forge</span></a><button aria-label="Expand sidebar category 'Forge'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/forum/awesome><span title=forum class=categoryLinkLabel_RkOu>forum</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/game/gba><span title=game class=categoryLinkLabel_RkOu>game</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/geo/awesome><span title=geo class=categoryLinkLabel_RkOu>geo</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/im><span title="Instant Messaging" class=categoryLinkLabel_RkOu>Instant Messaging</span></a><button aria-label="Expand sidebar category 'Instant Messaging'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/lms><span title=LMS class=linkLabel_JPPZ>LMS</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/media><span title=Media class=categoryLinkLabel_RkOu>Media</span></a><button aria-label="Expand sidebar category 'Media'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/message><span title="Message Service" class=categoryLinkLabel_RkOu>Message Service</span></a><button aria-label="Expand sidebar category 'Message Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/messaging/centrifugo><span title=messaging class=categoryLinkLabel_RkOu>messaging</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/network><span title=网络服务 class=categoryLinkLabel_RkOu>网络服务</span></a><button aria-label="Expand sidebar category '网络服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/notification><span title="Notification Service" class=categoryLinkLabel_RkOu>Notification Service</span></a><button aria-label="Expand sidebar category 'Notification Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/notion><span title=Notion class=linkLabel_JPPZ>Notion</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/observability><span title=可观察性 class=categoryLinkLabel_RkOu>可观察性</span></a><button aria-label="Expand sidebar category '可观察性'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/p2p/ipfs><span title=p2p class=categoryLinkLabel_RkOu>p2p</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/password><span title=密码管理 class=categoryLinkLabel_RkOu>密码管理</span></a><button aria-label="Expand sidebar category '密码管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/placeholder><span title=Placeholder class=linkLabel_JPPZ>Placeholder</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/realtime><span title=Realtime class=categoryLinkLabel_RkOu>Realtime</span></a><button aria-label="Expand sidebar category 'Realtime'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/search/awesome><span title=search class=categoryLinkLabel_RkOu>search</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/security/infisical><span title=security class=categoryLinkLabel_RkOu>security</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/selfhost><span title=SelfHost class=categoryLinkLabel_RkOu>SelfHost</span></a><button aria-label="Expand sidebar category 'SelfHost'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/serverless><span title=Serverless class=categoryLinkLabel_RkOu>Serverless</span></a><button aria-label="Expand sidebar category 'Serverless'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/awesome><span title="Service Awesome" class=linkLabel_JPPZ>Service Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/faq><span title="Service FAQ" class=linkLabel_JPPZ>Service FAQ</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/storage><span title=存储服务 class=categoryLinkLabel_RkOu>存储服务</span></a><button aria-label="Expand sidebar category '存储服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/telecom/device><span title=telecom class=categoryLinkLabel_RkOu>telecom</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/torrent><span title=Torrent class=categoryLinkLabel_RkOu>Torrent</span></a><button aria-label="Expand sidebar category 'Torrent'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/vpn/goproxy><span title=vpn class=categoryLinkLabel_RkOu>vpn</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/wiki><span title=Wiki class=categoryLinkLabel_RkOu>Wiki</span></a><button aria-label="Expand sidebar category 'Wiki'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/workflow><span title=Workflow class=categoryLinkLabel_RkOu>Workflow</span></a><button aria-label="Expand sidebar category 'Workflow'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/xaas/awesome><span title=xaas class=categoryLinkLabel_RkOu>xaas</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/service><span>服务</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/service/auth><span>Auth</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>OAuth</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>OAuth</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=tips>Tips<a href=#tips class=hash-link aria-label="Direct link to Tips" title="Direct link to Tips" translate=no>​</a></h2>
+<ul>
+<li><a href=https://www.jsonwebtoken.io/ target=_blank rel="noopener noreferrer">JWT 验证</a></li>
+<li><a href=http://www.seedbox.com/en/blog/2015/06/05/oauth-2-vs-json-web-tokens-comment-securiser-un-api/ target=_blank rel="noopener noreferrer">Auth 2.0 vs JWT</a></li>
+<li><a href="https://www.youtube.com/watch?v=BdKmZ7mPNns" target=_blank rel="noopener noreferrer">OAuth and OpenID Connect for Microservices</a>
+<ul>
+<li>OAuth is a scalable delegation protocol</li>
+<li>OAuth 4 actors
+<ul>
+<li>Resource Owner (RO)
+<ul>
+<li>User</li>
+</ul>
+</li>
+<li>Authorization Server (AS)</li>
+<li>Client
+<ul>
+<li>App/Backend</li>
+</ul>
+</li>
+<li>Resource Server (RS)
+<ul>
+<li>Gmail</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Client -> AS -> RO(浏览器) -Token-> Client -> RS -> AS -> Client</li>
+<li>客户端对用户无感知, 主要用于基于客户端的方式访问用户资源</li>
+<li>当有后端服务的时候流程会有所不同
+<ul>
+<li>后端服务需要对用户资源发起请求</li>
+<li>会对用户有感知</li>
+<li>建立了信任关系</li>
+<li>基于 Token 进行资源请求</li>
+<li>Token 例如 JWT, 有用户信息</li>
+</ul>
+</li>
+<li>基于引用的令牌
+<ul>
+<li>例如 UUID</li>
+<li>不包含任何用户信息</li>
+<li>用于外部</li>
+</ul>
+</li>
+<li>基于值的令牌
+<ul>
+<li>例如 JWT</li>
+<li>包含了所有必要的信息</li>
+<li>用于内部</li>
+</ul>
+</li>
+<li>在微服务中由网关将基于引用的令牌转换为基于值的令牌在服务内部使用</li>
+</ul>
+</li>
+<li>OpenID Connect / OIDC
+<ul>
+<li>是在 OAuth2 之上的协议</li>
+</ul>
+</li>
+<li>OAuth2 中会有一个 Token
+<ul>
+<li>JWT 可以当做是其中一种</li>
+</ul>
+</li>
+<li>API 中的的两个主要问题
+<ul>
+<li>访问控制
+<ul>
+<li>认证/用户标示</li>
+<li>授权/权限</li>
+</ul>
+</li>
+<li>数据
+<ul>
+<li>文档</li>
+<li>一致格式</li>
+<li>有效的服务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>实现
+<ul>
+<li>OAuth2 <a href=https://oauth.net/code/ target=_blank rel="noopener noreferrer">Code</a>
+<ul>
+<li>服务端</li>
+<li>客户端</li>
+<li>代理</li>
+</ul>
+</li>
+<li><a href=https://oauth.io/ target=_blank rel="noopener noreferrer">OAuth.io</a>
+<ul>
+<li><a href=https://github.com/oauth-io target=_blank rel="noopener noreferrer">https://github.com/oauth-io</a></li>
+</ul>
+</li>
+<li><a href=https://auth0.com/ target=_blank rel="noopener noreferrer">Auth0</a></li>
+</ul>
+</li>
+</ul>
+<p><a href=https://oauth.net/2/grant-types/ target=_blank rel="noopener noreferrer">https://oauth.net/2/grant-types/</a></p>
+<ul>
+<li>response_type
+<ul>
+<li>code</li>
+</ul>
+</li>
+</ul>
+<p><a href=https://auth0.com/docs/api-auth/which-oauth-flow-to-use target=_blank rel="noopener noreferrer">https://auth0.com/docs/api-auth/which-oauth-flow-to-use</a></p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=oauth-20>OAuth 2.0<a href=#oauth-20 class=hash-link aria-label="Direct link to OAuth 2.0" title="Direct link to OAuth 2.0" translate=no>​</a></h2>
+<ul>
+<li><a href=http://oauth.net/2/ target=_blank rel="noopener noreferrer">Auth 2</a></li>
+<li><a href=http://stackoverflow.com/q/4113934/1870054 target=_blank rel="noopener noreferrer">OAuth vs OAuth2</a></li>
+<li><a href=https://tools.ietf.org/html/rfc6749 target=_blank rel="noopener noreferrer">https://tools.ietf.org/html/rfc6749</a>  The OAuth 2.0 Authorization Framework
+<a href=https://tools.ietf.org/html/rfc8252 target=_blank rel="noopener noreferrer">https://tools.ietf.org/html/rfc8252</a> OAuth 2.0 for Native Apps</li>
+<li>是一套认证框架</li>
+<li>规范复杂且庞大</li>
+<li>主要用于对外提供用户认证服务</li>
+<li>参考
+<ul>
+<li>Google <a href=https://developers.google.com/oauthplayground/ target=_blank rel="noopener noreferrer">OAuth Playground</a>
+<ul>
+<li><a href=https://developers.google.com/accounts/docs/OAuth2Login target=_blank rel="noopener noreferrer">https://developers.google.com/accounts/docs/OAuth2Login</a></li>
+</ul>
+</li>
+<li>豆瓣 <a href="https://developers.douban.com/wiki/?title=oauth2" target=_blank rel="noopener noreferrer">OAuth2</a>
+<ul>
+<li><a href=https://www.douban.com/service/auth2/auth target=_blank rel="noopener noreferrer">https://www.douban.com/service/auth2/auth</a></li>
+</ul>
+</li>
+<li>微信公众号 <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140183" target=_blank rel="noopener noreferrer">获取 access_token</a>
+<ul>
+<li>使用的 Client credentials grant</li>
+</ul>
+</li>
+<li>蚂蚁金服 <a href="https://doc.open.alipay.com/docs/doc.htm?treeId=193&articleId=105656&docType=1" target=_blank rel="noopener noreferrer">用户授权</a>
+<ul>
+<li><a href=https://openauth.alipay.com/oauth2/publicAppAuthorize.htm target=_blank rel="noopener noreferrer">https://openauth.alipay.com/oauth2/publicAppAuthorize.htm</a>
+<ul>
+<li>app_id</li>
+<li>scope
+<ul>
+<li>auth_user 获取用户信息、网站支付宝登录</li>
+<li>auth_base 用户信息授权</li>
+<li>auth_ecard 商户会员卡</li>
+<li>auth_invoice_info 支付宝闪电开票</li>
+<li>auth_puc_charge 生活缴费</li>
+</ul>
+</li>
+<li>redirect_uri</li>
+<li>state</li>
+</ul>
+</li>
+<li>返回 auth_code, auth_code -> access_token,userId</li>
+</ul>
+</li>
+<li>腾讯 <a href=http://wiki.open.qq.com/wiki/mobile/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3 target=_blank rel="noopener noreferrer">OAuth2</a>
+<ul>
+<li><a href=http://wiki.open.qq.com/wiki/mobile/%E4%BD%BF%E7%94%A8Implicit_Grant%E6%96%B9%E5%BC%8F%E8%8E%B7%E5%8F%96Access_Token target=_blank rel="noopener noreferrer">使用Implicit_Grant方式获取Access_Token</a></li>
+<li><a href=https://graph.qq.com/oauth2.0/authorize target=_blank rel="noopener noreferrer">https://graph.qq.com/oauth2.0/authorize</a>
+<ul>
+<li>response_type=token</li>
+<li>client_id</li>
+<li>redirect_uri</li>
+<li>scope
+<ul>
+<li>默认为 get_user_info</li>
+<li><a href=http://wiki.open.qq.com/wiki/mobile/API%E5%88%97%E8%A1%A8 target=_blank rel="noopener noreferrer">API列表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>微博 <a href=http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E target=_blank rel="noopener noreferrer">OAuth2</a>
+<ul>
+<li><a href=https://api.weibo.com/oauth2/authorize target=_blank rel="noopener noreferrer">https://api.weibo.com/oauth2/authorize</a>
+<ul>
+<li>client_id</li>
+<li>redirect_uri</li>
+<li>scope
+<ul>
+<li>all</li>
+<li>email</li>
+<li>direct_messages_write
+<ul>
+<li>私信发送接口</li>
+</ul>
+</li>
+<li>direct_messages_read
+<ul>
+<li>私信读取接口</li>
+</ul>
+</li>
+<li>invitation_write
+<ul>
+<li>邀请发送接口</li>
+</ul>
+</li>
+<li>friendships_groups_read
+<ul>
+<li>好友分组读取接口组</li>
+</ul>
+</li>
+<li>friendships_groups_write
+<ul>
+<li>好友分组写入接口组</li>
+</ul>
+</li>
+<li>statuses_to_me_read
+<ul>
+<li>定向微博读取接口组</li>
+</ul>
+</li>
+<li>follow_app_official_microblog
+<ul>
+<li>关注应用官方微博</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>state</li>
+<li>display
+<ul>
+<li>授权页面的终端类型
+<ul>
+<li>default	默认的授权页面，适用于web浏览器。</li>
+<li>mobile	移动终端的授权页面，适用于支持html5的手机。注：使用此版授权页请用 <a href=https://open.weibo.cn/oauth2/authorize target=_blank rel="noopener noreferrer">https://open.weibo.cn/oauth2/authorize</a> 授权接口</li>
+<li>wap	wap版授权页面，适用于非智能手机。</li>
+<li>client	客户端版本授权页面，适用于PC桌面应用。</li>
+<li>apponweibo	默认的站内应用授权页，授权后不返回access_token，只刷新站内应用父框架。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>forcelogin
+<ul>
+<li>是否强制重新登录</li>
+</ul>
+</li>
+<li>language
+<ul>
+<li>授权页面语言</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>企业微信
+<ul>
+<li><a href=https://work.weixin.qq.com/api/doc#10028 target=_blank rel="noopener noreferrer">网页授权</a>
+<ul>
+<li>Authorisation Code Grant</li>
+<li><a href=https://open.weixin.qq.com/connect/oauth2/authorize target=_blank rel="noopener noreferrer">https://open.weixin.qq.com/connect/oauth2/authorize</a>
+<ul>
+<li>appid
+<ul>
+<li>企业的 CorpID</li>
+</ul>
+</li>
+<li>redirect_uri</li>
+<li>response_type=code</li>
+<li>scope
+<ul>
+<li>snsapi_base,基础信息</li>
+<li>snsapi_userinfo,详细信息,不包含手机邮箱</li>
+<li>snsapi_privateinfo,手动授权</li>
+</ul>
+</li>
+<li>agentid
+<ul>
+<li>可选, 企业应用 ID</li>
+<li>当 scope 为非 snsapi_base 时必填</li>
+</ul>
+</li>
+<li>state</li>
+<li>#wechat_redirect
+<ul>
+<li>终端使用此参数判断是否需要带上身份信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>返回 code, 使用 code 获取 user_ticket, 使用 user_ticket 获取用户信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>强项</strong></p>
+<ul>
+<li>快速开发</li>
+<li>只需要少量的代码即可实现</li>
+<li>减少管理</li>
+</ul>
+<p><strong>限制</strong></p>
+<ul>
+<li>授权交由第三方</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=授权类型>授权类型<a href=#授权类型 class=hash-link aria-label="Direct link to 授权类型" title="Direct link to 授权类型" translate=no>​</a></h3>
+<ul>
+<li><a href=https://alexbilbie.com/guide-to-oauth-2-grants/ target=_blank rel="noopener noreferrer">Guide To OAuth 2.0 Grants</a></li>
+<li>Authorisation Code Grant
+<ul>
+<li>类似于使用 Facebook 或者 Google 账号登陆</li>
+<li>流程#1
+<ul>
+<li>客户端重定向用户到 AS
+<ul>
+<li>response_type=code</li>
+<li>client_id</li>
+<li>redirect_uri
+<ul>
+<li>该参数可选</li>
+<li>指定成功后的重定向地址</li>
+<li>如果不指定一般则使用预设的</li>
+</ul>
+</li>
+<li>scope
+<ul>
+<li>空格分割的请求 scope</li>
+</ul>
+</li>
+<li>state
+<ul>
+<li>CSRF token</li>
+<li>该参数可选, 但建议尽量使用, 用于确认是否是正确的回调信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>用户登录,并批准申请的权限</li>
+<li>重定向到用户指定的地址
+<ul>
+<li>code
+<ul>
+<li>授权码</li>
+</ul>
+</li>
+<li>state
+<ul>
+<li>之前的 state, 验证和发起请求前的是否匹配</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>流程#2
+<ul>
+<li>客户端对 AS 发起 POST 请求
+<ul>
+<li>grant_type=authorization_code</li>
+<li>client_id</li>
+<li>client_secret</li>
+<li>redirect_uri</li>
+<li>code
+<ul>
+<li>之前重定向时拿到的授权码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>服务器返回 JSON
+<ul>
+<li>token_type
+<ul>
+<li>一般为 Bearer</li>
+</ul>
+</li>
+<li>expires_in
+<ul>
+<li>access_token 的 ttl</li>
+</ul>
+</li>
+<li>access_token</li>
+<li>refresh_token
+<ul>
+<li>如果请求了</li>
+<li>用于刷新 access_token 的 token</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Implicit grant
+<ul>
+<li>类似于授权码授权</li>
+<li>主要用于基于用户代理客户端的模式(例如: 单页应用),客户端不应持有 client_secret 的情况,因为客户端存储不安全</li>
+<li>不同于 authorization_code 返回授权码再去请求 access_token 的形式, implicit 直接返回 access_token</li>
+<li>流程
+<ul>
+<li>客户端重定向用户到 AS
+<ul>
+<li>response_type=token</li>
+<li>client_id</li>
+<li>redirect_uri</li>
+<li>scope</li>
+<li>state</li>
+</ul>
+</li>
+<li>重定向到指定的地址
+<ul>
+<li>token_type=Bearer</li>
+<li>expires_in</li>
+<li>access_token</li>
+<li>state</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Resource owner credentials grant
+<ul>
+<li>主要用于可信任的客户端授权</li>
+<li>流程
+<ul>
+<li>客户端向用户索要授权凭证,一般为账号密码</li>
+<li>客户端发送 POST 请求到 AS
+<ul>
+<li>grant_type=password</li>
+<li>client_id</li>
+<li>client_secret</li>
+<li>scope</li>
+<li>username</li>
+<li>password</li>
+</ul>
+</li>
+<li>AS 返回 JSON
+<ul>
+<li>token_type=Bearer</li>
+<li>expires_in</li>
+<li>access_token</li>
+<li>refresh_token</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Client credentials grant
+<ul>
+<li>OAuth2 中最简单的授权</li>
+<li>主要用于后端到后端的授权, 不需要使用用户权限的情况</li>
+<li>流程
+<ul>
+<li>客户端发送 POST 到 AS
+<ul>
+<li>grant_type=client_credentials</li>
+<li>client_id</li>
+<li>client_secret</li>
+<li>scope</li>
+</ul>
+</li>
+<li>AS 返回 JSON
+<ul>
+<li>token_type=Bearer</li>
+<li>expires_in</li>
+<li>access_token</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Refresh token grant
+<ul>
+<li>授权令牌最终会失效, 如果客户端请求了 refresh_token, 则可以在不需要重定向用户的前提下更新授权令牌</li>
+<li>流程
+<ul>
+<li>客户端发送一个 POST 请求到 AS
+<ul>
+<li>grant_type=refresh_token</li>
+<li>refresh_token</li>
+<li>client_id</li>
+<li>client_secret</li>
+<li>scope
+<ul>
+<li>可选</li>
+<li>如果没有则使用之前的</li>
+<li>可以设置为之前 scope 的子集</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>AS 返回 JSON
+<ul>
+<li>token_type=Bearer</li>
+<li>expires_in</li>
+<li>access_token</li>
+<li>refresh_token</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Extension Grants
+<ul>
+<li>客户端可以指定 grant_type 为 AS 定义的绝对 URI 来使用自定义的授权方式
+<ul>
+<li>grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer
+<ul>
+<li>使用 OAuth-SMAL2</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=oicd>OICD<a href=#oicd class=hash-link aria-label="Direct link to OICD" title="Direct link to OICD" translate=no>​</a></h2>
+<ul>
+<li>OpenID Connect</li>
+<li>有发现机制
+<ul>
+<li><a href=https://accounts.google.com/.well-known/openid-configuration target=_blank rel="noopener noreferrer">https://accounts.google.com/.well-known/openid-configuration</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=jwt>JWT<a href=#jwt class=hash-link aria-label="Direct link to JWT" title="Direct link to JWT" translate=no>​</a></h2>
+<ul>
+<li>
+<p><a href=http://jwt.io/ target=_blank rel="noopener noreferrer">JWT</a></p>
+</li>
+<li>
+<p><a href=https://mkjwk.org/ target=_blank rel="noopener noreferrer">https://mkjwk.org/</a></p>
+<ul>
+<li>生成 JWK</li>
+</ul>
+</li>
+<li>
+<p>是一套认证协议</p>
+</li>
+<li>
+<p>协议简单且易于实现</p>
+</li>
+<li>
+<p>主要用于分布式的无状态接口调用</p>
+</li>
+<li>
+<p>国际标准 <a href=https://tools.ietf.org/html/rfc7519 target=_blank rel="noopener noreferrer">RFC 7519</a></p>
+</li>
+<li>
+<p><a href=https://tools.ietf.org/html/rfc7515 target=_blank rel="noopener noreferrer">jws rfc</a></p>
+</li>
+<li>
+<p><a href=https://tools.ietf.org/html/rfc7516 target=_blank rel="noopener noreferrer">jwe rfc</a></p>
+</li>
+<li>
+<p><a href=https://tools.ietf.org/html/rfc7519 target=_blank rel="noopener noreferrer">jwt rfc</a></p>
+</li>
+</ul>
+<p><strong>强项</strong></p>
+<ul>
+<li>快速开发</li>
+<li>不需要 Cookie</li>
+<li>JSON 相对友好</li>
+<li>不依赖社交登陆</li>
+<li>概念简单易于理解</li>
+</ul>
+<p><strong>限制</strong></p>
+<ul>
+<li>Token 有大小限制</li>
+<li>Token 不能被回收</li>
+<li>需要 Token 有个较短的失效周期</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>全称<th>含义<tbody><tr><td>iss<td>Issuer<td>发出者<tr><td>sub<td>Subject<td>一般为用户 id<tr><td>aud<td>Audience<td>接受者<tr><td>exp<td>Expiration time<td>失效时间<tr><td>nbf<td>Not before<td>在这之前不生效<tr><td>iat<td>Issued at<td>发出时间<tr><td>jti<td>JWT ID<td><tr><td>typ<td>Type<td>类型,由用户扩展</table>
+<p>常见算法</p>
+<ul>
+<li>HMAC + SHA256</li>
+<li>RSASSA-PKCS1-v1_5 + SHA256</li>
+<li>ECDSA + P-256 + SHA256</li>
+<li>RSA vs ECDSA
+<ul>
+<li>同等安全度下
+<ul>
+<li>RSA 更长, 签名验证更快</li>
+<li>ECDSA 更短, 生成签名和密钥时快得多</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>示例</strong></p>
+<div class="language-js codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-js codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"iss"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"http://example.org"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"aud"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"http://example.com"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"iat"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">1356999524</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"nbf"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">1357000000</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<div class="language-js codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-js codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"iss"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"https://oidc.my.com"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"x5t"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"AAAAAAAAAAAAAAAAAAAA"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"typ"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"JWT"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"alg"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"RS265"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"sub"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"wener"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"name"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"Wener"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"email"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"wener@wener.me"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"phone_number"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"1852159826715"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"aud"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"https://otheremail.com"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"iss"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"https://oidc.my.com"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"nbf"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">1497868409096</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"jti"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"ANpzy7AyyANx0Cn8WMP5N7bG3E8awOhB"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"exp"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">1497868509096</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token string-property property">"nbf"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">1497868409096</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=past>PAST<a href=#past class=hash-link aria-label="Direct link to PAST" title="Direct link to PAST" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/paragonie/past target=_blank rel="noopener noreferrer">https://github.com/paragonie/past</a></li>
+<li>Platform-Agnostic Security Tokens</li>
+<li>目的
+<ul>
+<li>JWT 的 alg 不太安全, 因为有一些加密算法安全性本身不高, 甚至可以使用 none</li>
+</ul>
+</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">v2.local.wvbu1sWg-Td2nDxn7vyAVAEzTGqtzn_zfzaiGjAkQzfa5-l2PaAK1QA0IZjrWdKP8Xqi7DHHlu6F8E5BXoarTSfmrgkMEOeiasRhuZ3GWDUtmD2K027gjgalkjMZJE7lNfkOSdKr65Fo0_8.UGFyYWdvbiBJbml0aWF0aXZlIEVudGVycHJpc2Vz</span><br/></span></code></pre></div></div>
+<ul>
+<li>版本: v2</li>
+<li>目的: local</li>
+<li>内容</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">c2f6eed6c5a0f937769c3c67eefc805401334c6aadce7ff37f36a21a30244337</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">dae7e9763da00ad500342198eb59d28ff17aa2ec31c796ee85f04e415e86ab4d</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">27e6ae090c10e7a26ac461b99dc658352d983d8ad36ee08e06a5923319244ee5</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">35f90e49d2abeb9168d3ff</span><br/></span></code></pre></div></div>
+<ul>
+<li>Nonce: c2f6eed6c5a0f937769c3c67eefc805401334c6aadce7ff3</li>
+<li>Authentication tag: 3319244ee535f90e49d2abeb9168d3ff</li>
+<li>解码后的内容</li>
+</ul>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"data"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"this is a signed message"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"exp"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"2039-01-01T00:00:00"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<ul>
+<li>Key: <code>707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=github>GitHub<a href=#github class=hash-link aria-label="Direct link to GitHub" title="Direct link to GitHub" translate=no>​</a></h2>
+<ul>
+<li><a href=https://developer.github.com/apps/building-oauth-apps/ target=_blank rel="noopener noreferrer">https://developer.github.com/apps/building-oauth-apps/</a></li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -H "Authorization: token OAUTH-TOKEN" https://api.github.com/users/wenerme -I</span><br/></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">HTTP/1.1 401 Unauthorized</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Date: Tue, 02 Jan 2018 05:08:34 GMT</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Content-Type: application/json; charset=utf-8</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Content-Length: 93</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Server: GitHub.com</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Status: 401 Unauthorized</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">X-GitHub-Media-Type: github.v3; format=json</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">X-RateLimit-Limit: 60</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">X-RateLimit-Remaining: 58</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">X-RateLimit-Reset: 1514873228</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Access-Control-Expose-Headers: ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Access-Control-Allow-Origin: *</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Content-Security-Policy: default-src 'none'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Strict-Transport-Security: max-age=31536000; includeSubdomains; preload</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">X-Content-Type-Options: nosniff</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">X-Frame-Options: deny</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">X-XSS-Protection: 1; mode=block</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">X-Runtime-rack: 0.011490</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">X-GitHub-Request-Id: C390:1E82:97CD8EB:B8B4F1D:5A4B13D1</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=auth0>Auth0<a href=#auth0 class=hash-link aria-label="Direct link to Auth0" title="Direct link to Auth0" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=notes>NOTES<a href=#notes class=hash-link aria-label="Direct link to NOTES" title="Direct link to NOTES" translate=no>​</a></h3>
+<ul>
+<li>
+<p>客户端</p>
+<ul>
+<li>名字</li>
+<li>域名</li>
+<li>Client ID</li>
+<li>Client Secret</li>
+<li>描述</li>
+<li>Logo - 150x150</li>
+<li>类型
+<ul>
+<li>原生</li>
+<li>非交互应用</li>
+<li>一般网页应用</li>
+<li>单页应用</li>
+</ul>
+</li>
+<li>Token Endpoint Authentication Method
+<ul>
+<li>Basic</li>
+<li>Post</li>
+</ul>
+</li>
+<li>Allowed Callback URLs</li>
+<li>Allowed Web Origins</li>
+<li>Allowed Logout URLs</li>
+<li>Allowed Origins (CORS)</li>
+<li>JWT Expiration = 36000</li>
+<li>Use Auth0 instead of the IdP to do Single Sign On</li>
+<li>高级设置
+<ul>
+<li>应用元数据</li>
+<li>移动设置
+<ul>
+<li>IOS
+<ul>
+<li>Team ID</li>
+<li>App bundle identifier</li>
+</ul>
+</li>
+<li>Android
+<ul>
+<li>App Package Name</li>
+<li>Key Hashes</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>OAuth</li>
+<li>Allowed APPs / APIs</li>
+<li>JsonWebToken Signature Algorithm
+<ul>
+<li>HS256</li>
+<li>RS256</li>
+</ul>
+</li>
+<li>OIDC 适配</li>
+<li>Cross-Origin Verification Fallback</li>
+<li>授权类型
+<ul>
+<li>Implicit</li>
+<li>Authorization Code</li>
+<li>Refresh Token</li>
+<li>Client Credentials</li>
+<li>Password</li>
+<li>MFA</li>
+<li>Legacy: RO</li>
+<li>Legacy: RO jwt-bearer</li>
+<li>Legacy: Delegation Refresh Token</li>
+<li>Legacy: Delegation ID Token</li>
+<li>Legacy: Access Token</li>
+</ul>
+</li>
+<li>WS-Federation</li>
+<li>Certificates</li>
+<li>Endpoints
+<ul>
+<li>OAuth
+<ul>
+<li>OAuth Authorization URL <a href=https://wener.auth0.com/authorize target=_blank rel="noopener noreferrer">https://wener.auth0.com/authorize</a></li>
+<li>OAuth Token URL <a href=https://wener.auth0.com/oauth/token target=_blank rel="noopener noreferrer">https://wener.auth0.com/oauth/token</a></li>
+<li>OAuth User Info URL <a href=https://wener.auth0.com/userinfo target=_blank rel="noopener noreferrer">https://wener.auth0.com/userinfo</a></li>
+<li>OpenID Configuration <a href=https://wener.auth0.com/.well-known/openid-configuration target=_blank rel="noopener noreferrer">https://wener.auth0.com/.well-known/openid-configuration</a></li>
+<li>JSON Web Key Set <a href=https://wener.auth0.com/.well-known/jwks.json target=_blank rel="noopener noreferrer">https://wener.auth0.com/.well-known/jwks.json</a></li>
+</ul>
+</li>
+<li>SAML
+<ul>
+<li>SAML Protocol URL <code>https://wener.auth0.com/samlp/&lt;ClientID></code></li>
+<li>SAML Metadata URL <code>https://wener.auth0.com/samlp/metadata/&lt;ClientID></code></li>
+</ul>
+</li>
+<li>WS-Federation
+<ul>
+<li>WsFederation Metadata URL <code>https://wener.auth0.com/wsfed/&lt;ClientID>/FederationMetadata/2007-06/FederationMetadata.xml</code></li>
+<li>WsFederation Sign-in URL <code>https://wener.auth0.com/wsfed/&lt;ClientID></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>链接</p>
+<ul>
+<li>实际存储用户</li>
+<li>提供
+<ul>
+<li>用户导入</li>
+<li>社交</li>
+<li>企业</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>用户</p>
+</li>
+<li>
+<p>数据库</p>
+<ul>
+<li>用户策略
+<ul>
+<li>是否需要用户名
+<ul>
+<li>长度限制</li>
+</ul>
+</li>
+<li>是否允许注册</li>
+</ul>
+</li>
+<li>密码策略
+<ul>
+<li>密码强度
+<ul>
+<li>Low
+<ul>
+<li>6 位</li>
+</ul>
+</li>
+<li>Fair
+<ul>
+<li>8 位</li>
+<li>至少包含 小写字母, 大写字母, 数字</li>
+</ul>
+</li>
+<li>Good
+<ul>
+<li>8 位</li>
+<li>至少包含三类: 小写, 大写, 数字, 特殊字符</li>
+</ul>
+</li>
+<li>Excellent
+<ul>
+<li>10 位</li>
+<li>至少包含三类: 小写, 大写, 数字, 特殊字符</li>
+<li>最多 128</li>
+<li>连续相同字符不能超过两位</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>密码历史
+<ul>
+<li>历史大小
+<ul>
+<li>最多 24</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>密码字典</li>
+<li>个人数据
+<ul>
+<li>不允许使用包含在其他字段的信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>自定义数据库
+<ul>
+<li>模板
+<ul>
+<li>ASP.NET Membership Provider MVC3 - Universal Providers</li>
+<li>ASP.NET Membership Provider MVC4 - Simple Membership</li>
+<li>MongoDB</li>
+<li>MySQL</li>
+<li>Oracle</li>
+<li>PostgreSQL</li>
+<li>SqlServer</li>
+<li>Windows Azure SQL Database</li>
+<li>Request with Basic Auth</li>
+<li>Storm Path</li>
+</ul>
+</li>
+<li>操作
+<ul>
+<li>登陆 - email, password</li>
+<li>创建 - user{password, email}</li>
+<li>验证 - email
+<ul>
+<li>注册, 邮箱验证, 密码重置, 删除用户</li>
+</ul>
+</li>
+<li>修改密码 - email, newPassword</li>
+<li>获取用户 - email
+<ul>
+<li>{user_id, nickname, email, name, given_name, family_name}</li>
+</ul>
+</li>
+<li>删除 - id</li>
+</ul>
+</li>
+<li>使用 bcrypt/10 加密</li>
+<li>nodejs</li>
+<li>配置 SQL 语句</li>
+<li>支持配置属性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>社交</p>
+<ul>
+<li>Google
+<ul>
+<li><a href=https://console.developers.google.com/projectselector/apis/credentials target=_blank rel="noopener noreferrer">https://console.developers.google.com/projectselector/apis/credentials</a></li>
+<li>Client ID</li>
+<li>Client Secret</li>
+<li>Allowed Mobile Client IDs</li>
+<li>Attributes
+<ul>
+<li>Basic Profile
+<ul>
+<li>邮箱和邮箱验证标识</li>
+</ul>
+</li>
+<li>Extended Profile
+<ul>
+<li>必选</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>权限
+<ul>
+<li>Contacts</li>
+<li>Blogger</li>
+<li>Calendar</li>
+<li>Gmail</li>
+<li>Google+</li>
+<li>Orkut</li>
+<li>Picasa Web</li>
+<li>Tasks</li>
+<li>YouTube</li>
+<li>Adsense Management</li>
+<li>Google Affiliate Network</li>
+<li>Analytics</li>
+<li>Google Books</li>
+<li>Google Cloud Storage</li>
+<li>Content API for Shopping</li>
+<li>Chrome Web Store</li>
+<li>Document List</li>
+<li>Google Drive</li>
+<li>Google Drive Files</li>
+<li>Latitude (Best)</li>
+<li>Latitude (City)</li>
+<li>Moderator</li>
+<li>Sites</li>
+<li>Spreadsheets</li>
+<li>URL Shortener</li>
+<li>Webmaster Tools</li>
+<li>Coordinate</li>
+<li>Coordinate (read only)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Facebook</li>
+<li>GitHub
+<ul>
+<li>Client ID</li>
+<li>Client Secret</li>
+<li>Attributes
+<ul>
+<li>Basic Profile</li>
+<li>Email address</li>
+</ul>
+</li>
+<li>权限</li>
+</ul>
+</li>
+<li>新浪微博
+<ul>
+<li>App Key</li>
+<li>App Secret</li>
+<li>Attributes
+<ul>
+<li>Basic Profile</li>
+<li>Email, 默认未选中</li>
+</ul>
+</li>
+<li>权限
+<ul>
+<li>direct_messages_write</li>
+<li>direct_messages_read</li>
+<li>friendships_groups_write</li>
+<li>friendships_groups_read</li>
+<li>invitation_write</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>百度
+<ul>
+<li>API Key</li>
+<li>Secret Key</li>
+<li>Attributes
+<ul>
+<li>Basic Profile</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Twitter
+<ul>
+<li><a href=https://apps.twitter.com/ target=_blank rel="noopener noreferrer">https://apps.twitter.com/</a></li>
+<li>Consumer Key</li>
+<li>Consumer Secret</li>
+<li>Attributes
+<ul>
+<li>Basic Profile
+<ul>
+<li>name, picture, signup date, twitter description, language, location, twitter screen name, time zone, URL, timezone and verified account.</li>
+<li>目前不提供用户邮箱</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>企业</p>
+<ul>
+<li>AD/LDAP</li>
+<li>ADFS</li>
+<li>IP</li>
+<li>PingFederate</li>
+<li>SAMLP Identity Provider</li>
+<li>SharePoint Apps</li>
+<li>Google Apps</li>
+<li>Office 365</li>
+<li>Microsoft Azure AD</li>
+</ul>
+</li>
+<li>
+<p>无密码</p>
+<ul>
+<li>短信
+<ul>
+<li>Twilio SID</li>
+<li>Twilio AuthToken</li>
+<li>SMS Source
+<ul>
+<li>Copilot
+<ul>
+<li>Copilot SID</li>
+</ul>
+</li>
+<li>From
+<ul>
+<li>好嘛</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>语法
+<ul>
+<li>Liquid</li>
+<li>Markdown</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>邮箱
+<ul>
+<li>语法
+<ul>
+<li>HTML+(Liquid)[<a href=https://github.com/Shopify/liquid target=_blank rel="noopener noreferrer">https://github.com/Shopify/liquid</a>]</li>
+<li>Markdown</li>
+</ul>
+</li>
+<li>主题</li>
+<li>内容</li>
+<li>授权参数</li>
+<li>OTP Expiry</li>
+<li>OTP 长度</li>
+<li>禁用注册</li>
+</ul>
+</li>
+<li>TouchID</li>
+</ul>
+</li>
+<li>
+<p>托管页面</p>
+<ul>
+<li>登陆</li>
+<li>密码重置</li>
+</ul>
+</li>
+<li>
+<p>邮件</p>
+<ul>
+<li>模板
+<ul>
+<li>验证</li>
+<li>欢迎</li>
+<li>注册</li>
+<li>修改密码</li>
+<li>密码修改提示</li>
+<li>禁用提示</li>
+</ul>
+</li>
+<li>提供商
+<ul>
+<li>MANDRILL</li>
+<li>AWS</li>
+<li>SendGrid</li>
+<li>SMTP
+<ul>
+<li>From</li>
+<li>Host</li>
+<li>Port</li>
+<li>Username</li>
+<li>Password</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Logs</p>
+<ul>
+<li>概况
+<ul>
+<li>时间</li>
+<li>描述</li>
+<li>日期</li>
+<li>链接</li>
+<li>客户端</li>
+<li>应用</li>
+<li>用户</li>
+</ul>
+</li>
+<li>元数据</li>
+<li>上下文数据
+<ul>
+<li>应该为 Referer</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>元数据</strong></p>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"date"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"2018-01-02T07:59:06.836Z"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"type"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"f"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"description"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"the connection was disabled"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"connection"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"wener"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"connection_id"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"con_lXyPhu5jR9BjYNg6"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"client_id"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"bm4susnnbqtysjSoTuWMqgqhkFQa8dBg"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"ip"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"47.89.37.179"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"user_agent"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"details"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"body"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"qs"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"client_id"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"bm4susnnbqtysjSoTuWMqgqhkFQa8dBg"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"response_type"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"code"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"connection"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"wener"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"prompt"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"consent"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"redirect_uri"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"https://manage.auth0.com/tester/callback?connection=wener"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"scope"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"openid profile"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"connection"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"wener"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"error"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"message"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"the connection was disabled"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"oauthError"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"invalid_request"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"type"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"request-error"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"log_id"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"49574419589858254662358307566469418022270857965582942242"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<p><strong>上下文数据</strong></p>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"body"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"qs"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"client_id"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"bm4susnnbqtysjSoTuWMqgqhkFQa8dBg"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"response_type"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"code"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"connection"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"wener"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"prompt"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"consent"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"redirect_uri"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"https://manage.auth0.com/tester/callback?connection=wener"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"scope"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"openid profile"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"connection"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"wener"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"error"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"message"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"the connection was disabled"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"oauthError"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"invalid_request"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"type"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"request-error"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=hydra>Hydra<a href=#hydra class=hash-link aria-label="Direct link to Hydra" title="Direct link to Hydra" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/ory/hydra target=_blank rel="noopener noreferrer">https://github.com/ory/hydra</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/service/auth/oauth/README.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2022-06-23T07:46:51.000Z itemprop=dateModified>Jun 23, 2022</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/service/auth/logto><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Logto</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/service/auth/oauth/device-authorization><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Device Authorization</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#tips class="table-of-contents__link toc-highlight">Tips</a><li><a href=#oauth-20 class="table-of-contents__link toc-highlight">OAuth 2.0</a><ul><li><a href=#授权类型 class="table-of-contents__link toc-highlight">授权类型</a></ul><li><a href=#oicd class="table-of-contents__link toc-highlight">OICD</a><li><a href=#jwt class="table-of-contents__link toc-highlight">JWT</a><li><a href=#past class="table-of-contents__link toc-highlight">PAST</a><li><a href=#github class="table-of-contents__link toc-highlight">GitHub</a><li><a href=#auth0 class="table-of-contents__link toc-highlight">Auth0</a><ul><li><a href=#notes class="table-of-contents__link toc-highlight">NOTES</a></ul><li><a href=#hydra class="table-of-contents__link toc-highlight">Hydra</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

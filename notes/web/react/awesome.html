@@ -1,0 +1,1934 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-web/react/react-awesome" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>React Awesome | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/web/react/awesome /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="React Awesome | Wener Live & Life"/><meta data-rh=true name=description content="- 专门功能选择专业组件 - Headless 配合 UI 组件达到更为理想的结果"/><meta data-rh=true property=og:description content="- 专门功能选择专业组件 - Headless 配合 UI 组件达到更为理想的结果"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/web/react/awesome /><link data-rh=true rel=alternate href=https://wener.me/notes/web/react/awesome hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/web/react/awesome hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/web/","name":"Web","position":1},{"@type":"ListItem","item":"https://wener.me/notes/web/react/","name":"React","position":2},{"@type":"ListItem","item":"https://wener.me/notes/web/react/awesome","name":"React Awesome","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Collapse sidebar category 'Web'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/app><span title="Web APP" class=linkLabel_JPPZ>Web APP</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/browser><span title=浏览器 class=categoryLinkLabel_RkOu>浏览器</span></a><button aria-label="Expand sidebar category '浏览器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/cdn><span title=CDN class=linkLabel_JPPZ>CDN</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/chart><span title="Web Charting" class=linkLabel_JPPZ>Web Charting</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/cookie><span title=Cookie class=linkLabel_JPPZ>Cookie</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/cors><span title=CORS class=linkLabel_JPPZ>CORS</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/deno><span title=deno class=categoryLinkLabel_RkOu>deno</span></a><button aria-label="Expand sidebar category 'deno'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/design/color><span title=design class=categoryLinkLabel_RkOu>design</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/dev><span title="Web (Frontend) Dev" class=categoryLinkLabel_RkOu>Web (Frontend) Dev</span></a><button aria-label="Expand sidebar category 'Web (Frontend) Dev'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/dom><span title=DOM class=categoryLinkLabel_RkOu>DOM</span></a><button aria-label="Expand sidebar category 'DOM'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/domain/datastore><span title=domain class=categoryLinkLabel_RkOu>domain</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/editor><span title=编辑器 class=categoryLinkLabel_RkOu>编辑器</span></a><button aria-label="Expand sidebar category '编辑器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/fancy><span title="Fancy UI" class=linkLabel_JPPZ>Fancy UI</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/favicon><span title=favicon class=linkLabel_JPPZ>favicon</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/framework/alpinejs><span title=framework class=categoryLinkLabel_RkOu>framework</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/graphics><span title=Graphical class=linkLabel_JPPZ>Graphical</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/html><span title=HTML class=categoryLinkLabel_RkOu>HTML</span></a><button aria-label="Expand sidebar category 'HTML'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/icon/fontawesome><span title=icon class=categoryLinkLabel_RkOu>icon</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/jsdelivr><span title=jsdelivr class=linkLabel_JPPZ>jsdelivr</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/jspm><span title=JSPM class=linkLabel_JPPZ>JSPM</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/media/player><span title=media class=categoryLinkLabel_RkOu>media</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/nodejs><span title=NodeJS class=categoryLinkLabel_RkOu>NodeJS</span></a><button aria-label="Expand sidebar category 'NodeJS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/open-graph><span title="Open Graph" class=linkLabel_JPPZ>Open Graph</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/web/react><span title=React class=categoryLinkLabel_RkOu>React</span></a><button aria-label="Collapse sidebar category 'React'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/antd><span title="Ant Design" class=linkLabel_JPPZ>Ant Design</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/base-ui><span title="Base UI" class=linkLabel_JPPZ>Base UI</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/bit><span title=bit class=linkLabel_JPPZ>bit</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/blueprint><span title=BlueprinrJS class=linkLabel_JPPZ>BlueprinrJS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/cmdk><span title=cmdk class=linkLabel_JPPZ>cmdk</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/designable><span title=designable class=linkLabel_JPPZ>designable</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/dnd-kit><span title=dnd-kit class=linkLabel_JPPZ>dnd-kit</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/formik><span title=formik class=linkLabel_JPPZ>formik</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/hermes><span title=hermes class=linkLabel_JPPZ>hermes</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/history><span title=history class=linkLabel_JPPZ>history</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/immer><span title=immer class=linkLabel_JPPZ>immer</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/jotai><span title=Jotai class=linkLabel_JPPZ>Jotai</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/million><span title=million class=linkLabel_JPPZ>million</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/mobx><span title=mobx class=linkLabel_JPPZ>mobx</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/mutative><span title=mutative class=linkLabel_JPPZ>mutative</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/nextui><span title=NextUI class=linkLabel_JPPZ>NextUI</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/preact><span title=preact class=linkLabel_JPPZ>preact</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/radix><span title=radix class=linkLabel_JPPZ>radix</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/web/react/awesome><span title="React Awesome" class=linkLabel_JPPZ>React Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/buddy><span title="React Buddy" class=linkLabel_JPPZ>React Buddy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/compiler><span title=react-compiler class=linkLabel_JPPZ>react-compiler</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/component><span title=react-component class=linkLabel_JPPZ>react-component</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/cookbook><span title="React Cookbook" class=linkLabel_JPPZ>React Cookbook</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/data-grid><span title=react-data-grid class=linkLabel_JPPZ>react-data-grid</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/dnd><span title=react-rnd class=linkLabel_JPPZ>react-rnd</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/docgen><span title="React DocGen" class=linkLabel_JPPZ>React DocGen</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/dom><span title=ReactDOM class=linkLabel_JPPZ>ReactDOM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/faq><span title="React FAQ" class=linkLabel_JPPZ>React FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/flow><span title=react-flow class=linkLabel_JPPZ>react-flow</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/grid-layout><span title=react-grid-layout class=linkLabel_JPPZ>react-grid-layout</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/hook-form><span title="React Hook Form" class=linkLabel_JPPZ>React Hook Form</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/hooks><span title="React Hooks" class=linkLabel_JPPZ>React Hooks</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/inside><span title="React Inside" class=linkLabel_JPPZ>React Inside</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/jsonschema-form><span title=react-jsonschema-form class=linkLabel_JPPZ>react-jsonschema-form</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/lib-faq><span title="React lib FAQ" class=linkLabel_JPPZ>React lib FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/live><span title="React Live" class=linkLabel_JPPZ>React Live</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/location><span title="React Location" class=linkLabel_JPPZ>React Location</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/native-awesome><span title="React Native Awesome" class=linkLabel_JPPZ>React Native Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/native-faq><span title="React Native FAQ" class=linkLabel_JPPZ>React Native FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/patterns><span title="React Patterns" class=linkLabel_JPPZ>React Patterns</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/practice><span title="React Practice" class=linkLabel_JPPZ>React Practice</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/query><span title="React Query" class=linkLabel_JPPZ>React Query</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/querybuilder><span title=react-querybuilder class=linkLabel_JPPZ>react-querybuilder</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/reconciler><span title=react-reconciler class=linkLabel_JPPZ>react-reconciler</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/router><span title="Remix Router" class=linkLabel_JPPZ>Remix Router</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/spectrum><span title=react-spectrum class=linkLabel_JPPZ>react-spectrum</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/split><span title=split.js class=linkLabel_JPPZ>split.js</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/table><span title=react-table class=linkLabel_JPPZ>react-table</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/test><span title="React Test" class=linkLabel_JPPZ>React Test</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/tracked><span title=react-tracked class=linkLabel_JPPZ>react-tracked</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/version><span title="React Version" class=linkLabel_JPPZ>React Version</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/virtual><span title=react-virtual class=linkLabel_JPPZ>react-virtual</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/window><span title=react-window class=linkLabel_JPPZ>react-window</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/refine><span title=refine class=linkLabel_JPPZ>refine</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/satori><span title=satori class=linkLabel_JPPZ>satori</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/shadcn><span title=shadcn class=linkLabel_JPPZ>shadcn</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/styled-jsx><span title=styled-jsx class=linkLabel_JPPZ>styled-jsx</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/tanstack-router><span title=@tanstack/react-router class=linkLabel_JPPZ>@tanstack/react-router</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/tremor><span title=tremor class=linkLabel_JPPZ>tremor</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/twc><span title=TWC class=linkLabel_JPPZ>TWC</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/umijs><span title=umijs class=linkLabel_JPPZ>umijs</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/uniforms><span title=uniforms class=linkLabel_JPPZ>uniforms</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/use-context-selector><span title=use-context-selector class=linkLabel_JPPZ>use-context-selector</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/valtio><span title=valtio class=linkLabel_JPPZ>valtio</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/vercel-og><span title=vercel/og class=linkLabel_JPPZ>vercel/og</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/react/zustand><span title=zustand class=linkLabel_JPPZ>zustand</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/robots.txt><span title=robots.txt class=linkLabel_JPPZ>robots.txt</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/script/js><span title=script class=categoryLinkLabel_RkOu>script</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/spec><span title=规范 class=categoryLinkLabel_RkOu>规范</span></a><button aria-label="Expand sidebar category '规范'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/sse><span title="Server-Sent Events" class=linkLabel_JPPZ>Server-Sent Events</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/style><span title=Style class=categoryLinkLabel_RkOu>Style</span></a><button aria-label="Expand sidebar category 'Style'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/ui/font><span title=ui class=categoryLinkLabel_RkOu>ui</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/awesome><span title="Web Awesome" class=linkLabel_JPPZ>Web Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/faq><span title="Web FAQ" class=linkLabel_JPPZ>Web FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/vitals><span title=vitals class=linkLabel_JPPZ>vitals</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/webcomponent-awesome><span title="WebComponent Awesome" class=linkLabel_JPPZ>WebComponent Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/webcrypto><span title=WebCrypto class=linkLabel_JPPZ>WebCrypto</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/webpack><span title=Webpack class=linkLabel_JPPZ>Webpack</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/webrtc><span title=WebRTC class=categoryLinkLabel_RkOu>WebRTC</span></a><button aria-label="Expand sidebar category 'WebRTC'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/websocket><span title=WebSocket class=linkLabel_JPPZ>WebSocket</span></a></ul></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/web><span>Web</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/web/react><span>React</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>React Awesome</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>React Awesome</h1></header>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>tip</div><div class=admonitionContent_R6P7><ul>
+<li>专门功能选择专业组件 - Headless 配合 UI 组件达到更为理想的结果
+<ul>
+<li>react-table</li>
+<li>react-hook-form</li>
+<li>floatingui</li>
+</ul>
+</li>
+<li>选择样式与组件独立的 UI 库
+<ul>
+<li>tailwindcss+daisyui</li>
+<li>rewindui/rewindui</li>
+</ul>
+</li>
+<li>避免选择绑定了功能的组件
+<ul>
+<li>antd</li>
+</ul>
+</li>
+<li>选择组件库的考虑维度
+<ul>
+<li>前端/后端 - C 端/B 端</li>
+<li>信息密度</li>
+<li>支持平台 - Web/移动端</li>
+</ul>
+</li>
+<li>使用支持 ESM 的库</li>
+</ul></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockTitle_Lwh4>常用依赖</div><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 状态管理 - jotai</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add zustand immer use-immer</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># UI</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add classnames</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add react-icons</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npx tailwindcss init -p # tailwindcss</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># API</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add react-query # generic</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add urql        # gql</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 组件</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># blueprintjs - v4 发布后不需要 x2 包</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add @blueprintjs/core @blueprintjs/select @blueprintjs/datetime @blueprintjs/popover2</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 如果需要展示大量数据</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add @blueprintjs/table</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 移动端样式组件</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add tailwind-mobile</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 交互</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add react-virtual     # 虚拟滚动</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add @headlessui/react # 纯功能组件</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 路由</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add react-router-dom</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 数据</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add react-hook-form</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add react-table</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 工具</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm add date-fns lodash-es react-fast-compare</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://reactpatterns.com/ target=_blank rel="noopener noreferrer">React Patterns</a></li>
+<li><a href=https://github.com/reactwg/react-18/discussions/46 target=_blank rel="noopener noreferrer">Glossary + Explain</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=ui-framework>通用 UI 组件<a href=#ui-framework class=hash-link aria-label="Direct link to 通用 UI 组件" title="Direct link to 通用 UI 组件" translate=no>​</a></h2>
+<ul>
+<li>tailwindcss+<a href=/notes/web/style/daisy>daisyui</a>
+<ul>
+<li>如果开发人员能力足够</li>
+<li>如果想要完全控制样式</li>
+<li>如果想要做自己的产品</li>
+</ul>
+</li>
+<li>TailwindCSS
+<ul>
+<li><a href=https://github.com/rewindui/rewindui target=_blank rel="noopener noreferrer">rewindui/rewindui</a></li>
+<li><a href=https://github.com/StaticMania/keep-react target=_blank rel="noopener noreferrer">StaticMania/keep-react</a></li>
+<li><a href=https://github.com/lmsqueezy/wedges target=_blank rel="noopener noreferrer">lmsqueezy/wedges</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/palantir/blueprint target=_blank rel="noopener noreferrer">palantir/blueprint</a>
+<ul>
+<li>CSS 样式定义 + React 封装组件</li>
+<li>很多组件都可以直接 HTML + CSS 类定义达到效果 - 非常清晰明了</li>
+<li>npm 包含源码 - IDE 能直接看到组件源码</li>
+<li><code>@blueprintjs/select</code>
+<ul>
+<li>多功能 select 组件</li>
+<li>不控制样式，以逻辑为主</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/nextui-org/nextui target=_blank rel="noopener noreferrer">nextui-org/nextui</a>
+<ul>
+<li>与 vercel 无关</li>
+</ul>
+</li>
+<li><a href=https://github.com/rsuite/rsuite target=_blank rel="noopener noreferrer">rsuite/rsuite</a>
+<ul>
+<li>各方面神似 AntD - 但比 AntD 轻的多</li>
+</ul>
+</li>
+<li><a href=/notes/web/react/antd>ant-design/ant-design</a>
+<ul>
+<li>MIT, TS</li>
+<li>1.3MB</li>
+<li>antd 直接依赖 49 个, 间接依赖 19 个 - 共计 68 个依赖</li>
+<li>@ant-design/icons</li>
+<li>dayjs</li>
+<li>rx-</li>
+<li>@antdesign/cssinjs</li>
+</ul>
+</li>
+<li><a href=https://github.com/mui-org/material-ui target=_blank rel="noopener noreferrer">mui-org/material-ui</a> - Material Design 风格
+<ul>
+<li>如果选择 MD 风格则非常匹配</li>
+<li>完成程度和成熟度远远高于 antd</li>
+<li>组件非常多，支持高度样式自定义</li>
+</ul>
+</li>
+<li><a href=https://github.com/geist-org/geist-ui target=_blank rel="noopener noreferrer">geist-org/geist-ui</a>
+<ul>
+<li>类似 vercel 的设计风格</li>
+</ul>
+</li>
+<li><a href=https://github.com/arco-design/arco-design target=_blank rel="noopener noreferrer">arco-design/arco-design</a>
+<ul>
+<li>字节跳动</li>
+<li><a href=https://github.com/DouyinFE/semi-design target=_blank rel="noopener noreferrer">DouyinFE/semi-design</a>
+<ul>
+<li>抖音前端</li>
+</ul>
+</li>
+<li>较多的 AntD 内容</li>
+</ul>
+</li>
+<li>公司相关设计风格组件库
+<ul>
+<li><a href=https://github.com/carbon-design-system/carbon target=_blank rel="noopener noreferrer">carbon-design-system/carbon</a>
+<ul>
+<li>IBM</li>
+</ul>
+</li>
+<li><a href=https://github.com/SAP/openui5 target=_blank rel="noopener noreferrer">SAP/openui5</a></li>
+<li><a href=https://github.com/microsoft/fluentui target=_blank rel="noopener noreferrer">microsoft/fluentui</a> - 微软风格</li>
+<li><a href=https://github.com/pinterest/gestalt target=_blank rel="noopener noreferrer">pinterest/gestalt</a> - pinterest</li>
+<li><a href=https://github.com/JetBrains/ring-ui target=_blank rel="noopener noreferrer">JetBrains/ring-ui</a> - Jetbrains 产品系列
+<ul>
+<li>例如 Youtrack</li>
+<li>查询用的组件功能非常强大 - <a href="https://jetbrains.github.io/ring-ui/master/index.html?path=/story/components-query-assist--basic" target=_blank rel="noopener noreferrer">Query Assist</a>
+<ul>
+<li>Youtrack 的 Issuse 搜索过滤</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/segmentio/evergreen target=_blank rel="noopener noreferrer">segmentio/evergreen</a> - Segment</li>
+<li><a href=https://github.com/elastic/eui target=_blank rel="noopener noreferrer">elastic/eui</a>
+<ul>
+<li>组件丰富</li>
+<li>集成了 ACE 编辑器、Markdown 编辑器、DND</li>
+<li>Search、Suggest、Expression 等查询组件功能强大</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>其他风格
+<ul>
+<li><a href=https://github.com/cloudscape-design/components target=_blank rel="noopener noreferrer">cloudscape-design/components</a>
+<ul>
+<li>design system for the cloud</li>
+</ul>
+</li>
+<li><a href=https://github.com/mantinedev/mantine target=_blank rel="noopener noreferrer">mantinedev/mantine</a>
+<ul>
+<li>emotion</li>
+<li>CSS in JS</li>
+<li><code>npm install @mantine/core @mantine/hooks @mantine/form @mantine/dates dayjs @mantine/notifications @mantine/prism @mantine/tiptap @tabler/icons-react @tiptap/react @tiptap/extension-link @tiptap/starter-kit @mantine/dropzone @mantine/carousel embla-carousel-react @mantine/spotlight @mantine/modals @mantine/nprogress @emotion/react</code></li>
+<li>core
+<ul>
+<li>@floating-ui</li>
+<li>@radix-ui</li>
+<li>524.6kB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/grommet/grommet target=_blank rel="noopener noreferrer">grommet/grommet</a></li>
+<li><a href=https://github.com/primefaces/primereact target=_blank rel="noopener noreferrer">primefaces/primereact</a></li>
+<li><a href=https://github.com/DevExpress/devextreme-reactive target=_blank rel="noopener noreferrer">DevExpress/devextreme-reactive</a>
+<ul>
+<li>功能强大的 <a href=https://devexpress.github.io/devextreme-reactive/react/scheduler/demos/featured/overview/ target=_blank rel="noopener noreferrer">Scheduler</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/uiwjs/uiw target=_blank rel="noopener noreferrer">uiwjs/uiw</a>
+<ul>
+<li>国产</li>
+<li>包含一些特殊组件 - PIN 码、评分、日历</li>
+<li>markdown 编辑器、高德地图、百度地图</li>
+<li><a href=https://github.com/uiwjs/province-city-china target=_blank rel="noopener noreferrer">uiwjs/province-city-china</a> - 省市区数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>不再维护/不活跃
+<ul>
+<li><a href=https://github.com/ebs-integrator/ebs-design target=_blank rel="noopener noreferrer">ebs-integrator/ebs-design</a></li>
+<li><a href=https://github.com/supabase/ui target=_blank rel="noopener noreferrer">supabase/ui</a></li>
+<li><a href=https://github.com/rebassjs/rebass target=_blank rel="noopener noreferrer">rebassjs/rebass</a>
+<ul>
+<li>基于 theme-ui 和 styled-system 的基础组件</li>
+<li>很多样式都通过 props 控制</li>
+<li>如果喜欢这样的还不如选择 tailwindcss 更加规范实用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=headless-ui>Headless UI 组件<a href=#headless-ui class=hash-link aria-label="Direct link to Headless UI 组件" title="Direct link to Headless UI 组件" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/radix-ui/primitives target=_blank rel="noopener noreferrer">radix-ui/primitives</a>
+<ul>
+<li>by WorkOS</li>
+<li>Slot 组件 - asChild 时使用 child 组件进行渲染，传递所有 props</li>
+</ul>
+</li>
+<li><a href=https://github.com/tailwindlabs/headlessui target=_blank rel="noopener noreferrer">tailwindlabs/headlessui</a>
+<ul>
+<li>功能性 headless 组件</li>
+<li>popover</li>
+<li>listbox/select</li>
+<li>combobox/autocomplete</li>
+<li>menu/dropdown</li>
+<li>switch/toggle</li>
+<li>disclosure</li>
+<li>dialog/modal</li>
+<li>radio group</li>
+<li>tabs</li>
+<li>transition</li>
+</ul>
+</li>
+<li><a href=https://github.com/mui/base-ui target=_blank rel="noopener noreferrer">mui/base-ui</a>
+<ul>
+<li>MIT, TS</li>
+<li>npm:@base-ui-components/react</li>
+<li>from the creators of Radix, Floating UI, and Material UI</li>
+<li><a href=https://mui.com/blog/base-ui-2024-plans/ target=_blank rel="noopener noreferrer">https://mui.com/blog/base-ui-2024-plans/</a></li>
+<li><a href=https://mui.com/blog/introducing-base-ui/ target=_blank rel="noopener noreferrer">https://mui.com/blog/introducing-base-ui/</a>
+<ul>
+<li>2022 MUI, npm:@mui/base</li>
+</ul>
+</li>
+<li><a href=https://mui.com/base-ui/getting-started/ target=_blank rel="noopener noreferrer">https://mui.com/base-ui/getting-started/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/nandorojo/dripsy target=_blank rel="noopener noreferrer">nandorojo/dripsy</a>
+<ul>
+<li>MIT, TS</li>
+<li>for React Native + Web.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=mobile-ui>移动端 UI 组件<a href=#mobile-ui class=hash-link aria-label="Direct link to 移动端 UI 组件" title="Direct link to 移动端 UI 组件" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/tailwind-mobile/tailwind-mobile target=_blank rel="noopener noreferrer">tailwind-mobile</a></li>
+<li><a href=https://github.com/ant-design/ant-design-mobile target=_blank rel="noopener noreferrer">ant-design/ant-design-mobile</a></li>
+<li>chat
+<ul>
+<li><a href=https://github.com/alibaba/ChatUI target=_blank rel="noopener noreferrer">alibaba/ChatUI</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=ui-component>专用 UI 组件<a href=#ui-component class=hash-link aria-label="Direct link to 专用 UI 组件" title="Direct link to 专用 UI 组件" translate=no>​</a></h2>
+<ul>
+<li>Select/Tag/Input
+<ul>
+<li><a href=https://github.com/react-tags/react-tags target=_blank rel="noopener noreferrer">react-tags/react-tags</a>
+<ul>
+<li>npm:react-tag-input</li>
+<li>react-dnd</li>
+</ul>
+</li>
+<li><a href=https://github.com/yairEO/tagify target=_blank rel="noopener noreferrer">yairEO/tagify</a></li>
+<li><a href=/notes/web/react/component#rc-select>rc-select</a></li>
+<li><a href=https://github.com/jedwatson/react-select target=_blank rel="noopener noreferrer">jedwatson/react-select</a>
+<ul>
+<li>@floating-ui/core, @emotion/react, stylis</li>
+<li>功能完善的 select 组件</li>
+<li>通过 emotion 控制样式 - 如果没有使用 emotion 建议避免使用</li>
+</ul>
+</li>
+<li>react-autosuggest</li>
+<li><a href=https://github.com/downshift-js/downshift target=_blank rel="noopener noreferrer">downshift-js/downshift</a>
+<ul>
+<li>autocomplete, combobox, select dropdown</li>
+<li>useCombobox</li>
+<li>useMultipleSelection</li>
+<li>useSelect</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>drag and select/region select/area select
+<ul>
+<li><a href=https://github.com/AirLabsTeam/react-drag-to-select target=_blank rel="noopener noreferrer">AirLabsTeam/react-drag-to-select</a>
+<ul>
+<li>MIT, TS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>calendar
+<ul>
+<li><a href=https://github.com/fullcalendar/fullcalendar target=_blank rel="noopener noreferrer">fullcalendar/fullcalendar</a>
+<ul>
+<li>功能最为强大的日历组件 - 支持 React 绑定</li>
+</ul>
+</li>
+<li><a href=https://github.com/wojtekmaj/react-calendar target=_blank rel="noopener noreferrer">wojtekmaj/react-calendar</a></li>
+</ul>
+</li>
+<li>flow/diagram
+<ul>
+<li><a href=https://github.com/wbkd/react-flow target=_blank rel="noopener noreferrer">wbkd/react-flow</a>
+<ul>
+<li>流程节点 UI</li>
+</ul>
+</li>
+<li><a href=https://github.com/projectstorm/react-diagrams target=_blank rel="noopener noreferrer">projectstorm/react-diagrams</a></li>
+</ul>
+</li>
+<li>dnd
+<ul>
+<li><a href=https://github.com/clauderic/dnd-kit target=_blank rel="noopener noreferrer">clauderic/dnd-kit</a></li>
+<li><del><a href=https://github.com/react-dnd/react-dnd target=_blank rel="noopener noreferrer">react-dnd/react-dnd</a></del>
+<ul>
+<li>MIT, TS</li>
+</ul>
+</li>
+<li><del><a href=https://github.com/atlassian/react-beautiful-dnd target=_blank rel="noopener noreferrer">atlassian/react-beautiful-dnd</a></del>
+<ul>
+<li>拖放</li>
+</ul>
+</li>
+<li><a href=https://github.com/bokuweb/react-rnd target=_blank rel="noopener noreferrer">bokuweb/react-rnd</a> - Resize & Drag
+<ul>
+<li>实现类似窗口的效果</li>
+<li>react-draggable+<a href=https://github.com/bokuweb/re-resizable target=_blank rel="noopener noreferrer">bokuweb/re-resizable</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/react-grid-layout/react-draggable target=_blank rel="noopener noreferrer">react-grid-layout/react-draggable</a>
+<ul>
+<li>非常简单的拖动组件</li>
+<li>传递 style, className, onMouseDown, onMouseUp, onTouchStart, onTouchEnd 给 child 实现功能
+<ul>
+<li>style: transform: translate(538.5px, 22px);</li>
+<li>className: react-draggable react-draggable-dragging react-draggable-dragged</li>
+</ul>
+</li>
+<li>child 需要能 ref</li>
+<li>组件
+<ul>
+<li>Draggable - 包含基础状态，可受控的拖拽组件</li>
+<li>DraggableCore - 无状态功能组件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/react-grid-layout/react-resizable target=_blank rel="noopener noreferrer">react-grid-layout/react-resizable</a>
+<ul>
+<li>简单的 resize 组件</li>
+<li>组件
+<ul>
+<li>ResizableBox - 维护 div 状态实现简单 resize - <code>&lt;div {...props} /></code></li>
+<li>Resizable - 无状态基础功能组件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/SortableJS/Sortable target=_blank rel="noopener noreferrer">SortableJS/Sortable</a>
+<ul>
+<li><a href=https://github.com/6pac/SlickGrid target=_blank rel="noopener noreferrer">6pac/SlickGrid</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/react-dropzone/react-dropzone target=_blank rel="noopener noreferrer">react-dropzone/react-dropzone</a></li>
+</ul>
+</li>
+<li>Query Builder
+<ul>
+<li><a href=https://github.com/ukrbublik/react-awesome-query-builder target=_blank rel="noopener noreferrer">ukrbublik/react-awesome-query-builder</a></li>
+<li><a href=https://github.com/react-querybuilder/react-querybuilder target=_blank rel="noopener noreferrer">react-querybuilder/react-querybuilder</a></li>
+</ul>
+</li>
+<li>layout
+<ul>
+<li><a href=https://github.com/react-grid-layout/react-grid-layout target=_blank rel="noopener noreferrer">react-grid-layout/react-grid-layout</a>
+<ul>
+<li>动态网格布局组件</li>
+<li>react-draggable+<a href=https://github.com/react-grid-layout/react-resizable target=_blank rel="noopener noreferrer">react-grid-layout/react-resizable</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/mathuo/dockview target=_blank rel="noopener noreferrer">mathuo/dockview</a>
+<ul>
+<li>MIT, TS</li>
+<li>Zero dependency Docking Layout Manager. Supports Vanilla TypeScript, React and Vue.</li>
+</ul>
+</li>
+<li><a href=https://github.com/ui-layouts/uilayouts target=_blank rel="noopener noreferrer">ui-layouts/uilayouts</a>
+<ul>
+<li>MIT, TS</li>
+<li>beautifull interactive react/nextjs component based on tailwindcss, framer-motion, gsap</li>
+</ul>
+</li>
+<li><a href=https://github.com/nomcopter/react-mosaic target=_blank rel="noopener noreferrer">nomcopter/react-mosaic</a>
+<ul>
+<li>tiling window manager</li>
+</ul>
+</li>
+<li><a href=https://github.com/zzarcon/react-cristal target=_blank rel="noopener noreferrer">zzarcon/react-cristal</a>
+<ul>
+<li>simple window manager</li>
+</ul>
+</li>
+<li><a href=https://dev.to/jbdemonte/create-a-window-manager-with-react-3mak target=_blank rel="noopener noreferrer">https://dev.to/jbdemonte/create-a-window-manager-with-react-3mak</a>
+<ul>
+<li>Create a window manager with React</li>
+</ul>
+</li>
+<li><a href=https://www.npmjs.com/package/react-div-100vh target=_blank rel="noopener noreferrer">react-div-100vh</a>
+<ul>
+<li>移动端屏高问题</li>
+</ul>
+</li>
+<li><a href=https://github.com/caplin/FlexLayout target=_blank rel="noopener noreferrer">caplin/FlexLayout</a>
+<ul>
+<li>Docking Layout Manager</li>
+</ul>
+</li>
+<li><a href=https://github.com/golden-layout/golden-layout target=_blank rel="noopener noreferrer">golden-layout/golden-layout</a>
+<ul>
+<li>multi window layout manager</li>
+</ul>
+</li>
+<li><a href=https://github.com/thebuilder/react-intersection-observer target=_blank rel="noopener noreferrer">thebuilder/react-intersection-observer</a>
+<ul>
+<li>检测元素是否在窗口可见</li>
+<li><a href=https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API target=_blank rel="noopener noreferrer">Intersection Observer API</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/Aljullu/react-lazy-load-image-component target=_blank rel="noopener noreferrer">Aljullu/react-lazy-load-image-component</a>
+<ul>
+<li>MIT, JS</li>
+<li>基于 IntersectionObserver</li>
+</ul>
+</li>
+<li><a href=https://github.com/maslianok/react-resize-detector target=_blank rel="noopener noreferrer">maslianok/react-resize-detector</a>
+<ul>
+<li><code>const { width, height, ref } = useResizeDetector()</code></li>
+<li>基于 ResizeObservers</li>
+</ul>
+</li>
+<li><a href=https://github.com/mattrothenberg/react-overflow-list target=_blank rel="noopener noreferrer">mattrothenberg/react-overflow-list</a>
+<ul>
+<li>Overflow List 动态显示隐藏</li>
+</ul>
+</li>
+<li><a href=https://github.com/BetterTyped/react-zoom-pan-pinch target=_blank rel="noopener noreferrer">BetterTyped/react-zoom-pan-pinch</a>
+<ul>
+<li>缩放、平移、捏合</li>
+</ul>
+</li>
+<li><a href=https://github.com/mgorabbani/react-image-pan-zoom-rotate target=_blank rel="noopener noreferrer">mgorabbani/react-image-pan-zoom-rotate</a>
+<ul>
+<li>图片缩放、旋转</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>scrollbar/container/affix
+<ul>
+<li>react-scroll
+<ul>
+<li>实现滚动到自定义位置</li>
+</ul>
+</li>
+<li><a href=https://github.com/okonet/react-scroll-sync target=_blank rel="noopener noreferrer">okonet/react-scroll-sync</a>
+<ul>
+<li>多个 scroll 同步</li>
+</ul>
+</li>
+<li><a href=https://github.com/KingSora/OverlayScrollbars target=_blank rel="noopener noreferrer">KingSora/OverlayScrollbars</a></li>
+</ul>
+</li>
+<li>Dashboard/Panel/Splitter/Layout
+<ul>
+<li><a href=https://github.com/devbookhq/splitter target=_blank rel="noopener noreferrer">devbookhq/splitter</a>
+<ul>
+<li>切分面板</li>
+</ul>
+</li>
+<li><a href=https://github.com/tremorlabs/tremor target=_blank rel="noopener noreferrer">tremorlabs/tremor</a>
+<ul>
+<li>Apache-2.0</li>
+<li>build dashboards</li>
+<li>构建 Dashboard</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Toast/Interactive/Notification
+<ul>
+<li><a href=https://github.com/timolins/react-hot-toast target=_blank rel="noopener noreferrer">react-hot-toast</a>
+<ul>
+<li>12kB/4.7kB
+<ul>
+<li>goober 2.5kB/1.3kB
+<ul>
+<li>css-in-js alternative</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/iamhosseindhv/notistack target=_blank rel="noopener noreferrer">iamhosseindhv/notistack</a>
+<ul>
+<li>for Material UI</li>
+</ul>
+</li>
+<li><a href=https://github.com/fkhadra/react-toastify target=_blank rel="noopener noreferrer">react-toastify</a>
+<ul>
+<li>需要 import css</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Tree
+<ul>
+<li><a href=https://github.com/dgreene1/react-accessible-treeview target=_blank rel="noopener noreferrer">dgreene1/react-accessible-treeview</a></li>
+<li>rc-tree</li>
+<li><a href=https://www.npmjs.com/package/@atlaskit/tree target=_blank rel="noopener noreferrer">https://www.npmjs.com/package/@atlaskit/tree</a></li>
+<li><a href=https://github.com/brimdata/react-arborist target=_blank rel="noopener noreferrer">brimdata/react-arborist</a>
+<ul>
+<li>npm:react-arborist</li>
+</ul>
+</li>
+<li><a href=https://geist-ui.dev/en-us/components/file-tree target=_blank rel="noopener noreferrer">Geist UI File Tree</a></li>
+<li><a href=https://github.com/radix-ui/primitives/issues/1456 target=_blank rel="noopener noreferrer">radix-ui/primitives#1456</a></li>
+</ul>
+</li>
+<li>carousel/image zoom/view
+<ul>
+<li><a href=https://github.com/malaman/react-image-zoom target=_blank rel="noopener noreferrer">malaman/react-image-zoom</a>
+<ul>
+<li>放大一块区域</li>
+</ul>
+</li>
+<li><a href=https://github.com/rpearce/react-medium-image-zoom target=_blank rel="noopener noreferrer">rpearce/react-medium-image-zoom</a>
+<ul>
+<li>类似 medium 的点击图片放大</li>
+</ul>
+</li>
+<li><a href=https://github.com/xiaolin/react-image-gallery target=_blank rel="noopener noreferrer">xiaolin/react-image-gallery</a>
+<ul>
+<li>图片浏览</li>
+</ul>
+</li>
+<li><a href=https://github.com/guonanci/react-images-viewer target=_blank rel="noopener noreferrer">guonanci/react-images-viewer</a>
+<ul>
+<li>55kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/nolimits4web/swiper target=_blank rel="noopener noreferrer">nolimits4web/swiper</a>
+<ul>
+<li><a href=https://swiperjs.com/react target=_blank rel="noopener noreferrer">https://swiperjs.com/react</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/express-labs/pure-react-carousel target=_blank rel="noopener noreferrer">express-labs/pure-react-carousel</a>
+<ul>
+<li>55kb</li>
+<li><a href=https://express-labs.github.io/pure-react-carousel/ target=_blank rel="noopener noreferrer">https://express-labs.github.io/pure-react-carousel/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/leandrowd/react-responsive-carousel target=_blank rel="noopener noreferrer">leandrowd/react-responsive-carousel</a>
+<ul>
+<li>~30kB</li>
+<li>react-easy-swipe +5kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/akiran/react-slick target=_blank rel="noopener noreferrer">akiran/react-slick</a></li>
+<li><a href=https://alvarotrigo.com/blog/react-carousels/ target=_blank rel="noopener noreferrer">React Carousels</a></li>
+</ul>
+</li>
+<li>image editor/crop/rotate/scale/processing
+<ul>
+<li><a href=https://github.com/DominicTobias/react-image-crop target=_blank rel="noopener noreferrer">DominicTobias/react-image-crop</a>
+<ul>
+<li>ISC, TS</li>
+<li>图片裁剪</li>
+</ul>
+</li>
+<li><a href=https://github.com/ValentinH/react-easy-crop target=_blank rel="noopener noreferrer">ValentinH/react-easy-crop</a>
+<ul>
+<li>MIT, TS</li>
+<li>图片裁剪</li>
+</ul>
+</li>
+<li><a href=https://github.com/scaleflex/filerobot-image-editor target=_blank rel="noopener noreferrer">scaleflex/filerobot-image-editor</a>
+<ul>
+<li>MIT, JS</li>
+<li>基于 react-konva</li>
+<li>功能非常高级</li>
+</ul>
+</li>
+<li><a href=https://github.com/swimmingkiim/react-image-editor target=_blank rel="noopener noreferrer">swimmingkiim/react-image-editor</a>
+<ul>
+<li>React + Konva / image editor / like Figma or Canva</li>
+</ul>
+</li>
+<li><a href=https://github.com/nhn/tui.image-editor target=_blank rel="noopener noreferrer">nhn/tui.image-editor</a>
+<ul>
+<li>⚠️ 不维护</li>
+<li>注意会收集统计 usageStatistics</li>
+</ul>
+</li>
+<li><a href=https://github.com/advanced-cropper/react-advanced-cropper target=_blank rel="noopener noreferrer">advanced-cropper/react-advanced-cropper</a></li>
+<li><a href=https://github.com/evanw/glfx.js target=_blank rel="noopener noreferrer">evanw/glfx.js</a>
+<ul>
+<li>⚠️ 不维护</li>
+<li>Demo <a href=https://evanw.github.io/glfx.js/demo/ target=_blank rel="noopener noreferrer">https://evanw.github.io/glfx.js/demo/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/davidsonfellipe/lena.js target=_blank rel="noopener noreferrer">davidsonfellipe/lena.js</a>
+<ul>
+<li>filter</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>timeline
+<ul>
+<li><a href=https://github.com/namespace-ee/react-calendar-timeline target=_blank rel="noopener noreferrer">namespace-ee/react-calendar-timeline</a></li>
+<li><a href=https://github.com/React9k/react-timeline-9000 target=_blank rel="noopener noreferrer">React9k/react-timeline-9000</a></li>
+<li><a href=https://github.com/prabhuignoto/react-chrono target=_blank rel="noopener noreferrer">prabhuignoto/react-chrono</a></li>
+<li><a href=https://github.com/stephane-monnot/react-vertical-timeline target=_blank rel="noopener noreferrer">stephane-monnot/react-vertical-timeline</a>
+<ul>
+<li>营销</li>
+</ul>
+</li>
+<li><a href=https://github.com/JSainsburyPLC/react-timelines target=_blank rel="noopener noreferrer">JSainsburyPLC/react-timelines</a></li>
+</ul>
+</li>
+<li>gannt
+<ul>
+<li><a href=https://github.com/frappe/gantt target=_blank rel="noopener noreferrer">frappe/gantt</a>
+<ul>
+<li>MIT</li>
+</ul>
+</li>
+<li><a href=https://dhtmlx.com/docs/products/dhtmlxGantt/ target=_blank rel="noopener noreferrer">dhtmlxGantt</a>
+<ul>
+<li><a href=https://github.com/DHTMLX target=_blank rel="noopener noreferrer">DHTMLX</a></li>
+<li>GPL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Block Editor/Page Builder
+<ul>
+<li><a href=https://github.com/blocks/blocks target=_blank rel="noopener noreferrer">blocks/blocks</a></li>
+<li><a href=https://github.com/BuilderIO/builder target=_blank rel="noopener noreferrer">BuilderIO/builder</a></li>
+<li><a href=https://github.com/LuisMPS/build-ui target=_blank rel="noopener noreferrer">LuisMPS/build-ui</a></li>
+<li><a href=https://github.com/react-page/react-page target=_blank rel="noopener noreferrer">react-page/react-page</a></li>
+</ul>
+</li>
+<li>动画
+<ul>
+<li><a href=https://github.com/daybrush/scenejs target=_blank rel="noopener noreferrer">daybrush/scenejs</a></li>
+<li><a href=https://github.com/framer/motion target=_blank rel="noopener noreferrer">framer/motion</a></li>
+</ul>
+</li>
+<li>modal
+<ul>
+<li><a href=https://github.com/eBay/nice-modal-react target=_blank rel="noopener noreferrer">eBay/nice-modal-react</a></li>
+<li>react-responsive-modal</li>
+</ul>
+</li>
+<li>link preview
+<ul>
+<li><a href=https://github.com/Dhaiwat10/react-link-preview target=_blank rel="noopener noreferrer">Dhaiwat10/react-link-preview</a>
+<ul>
+<li>依赖后端代理 - <a href=https://github.com/dhaiwat10/rlp-proxy target=_blank rel="noopener noreferrer">dhaiwat10/rlp-proxy</a>
+<ul>
+<li>使用 <a href=https://github.com/nasa8x/html-metadata-parser target=_blank rel="noopener noreferrer">html-metadata-parser</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>autocomplete
+<ul>
+<li><a href=https://github.com/moroshko/react-autosuggest target=_blank rel="noopener noreferrer">moroshko/react-autosuggest</a></li>
+</ul>
+</li>
+<li>input
+<ul>
+<li>react-textarea-autosize</li>
+</ul>
+</li>
+<li>table/Spreadsheet/Excel/Data Grid
+<ul>
+<li>两种 sheet 数据格式
+<ul>
+<li>
+<ol>
+<li><code>object[]</code> - 贴近 Table/数据表/DataGrid</li>
+</ol>
+<ul>
+<li>适用于有逻辑处理</li>
+<li>支持 schema 逻辑</li>
+<li>支持 业务</li>
+<li>Header 为 key/title</li>
+</ul>
+</li>
+<li>
+<ol start=2>
+<li><code>any[][]</code> - AoA</li>
+</ol>
+<ul>
+<li>适用于简单数据展示、数据导入导出 - 贴近 Excel/Sheet</li>
+<li>适用于通用数据</li>
+<li>适用于数据中间处理</li>
+<li>Header 为 Index(A-Z), 第一行数据可能为 Header</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/adazzle/react-data-grid target=_blank rel="noopener noreferrer">react-data-grid</a>
+<ul>
+<li>MIT, TS</li>
+<li>42kB, 14kB</li>
+<li>适用于 object[]</li>
+<li>自身功能非常简洁轻量</li>
+<li>🌟 首选</li>
+<li>formula 功能可选</li>
+</ul>
+</li>
+<li><a href=https://github.com/iddan/react-spreadsheet target=_blank rel="noopener noreferrer">react-spreadsheet</a>
+<ul>
+<li>MIT, TS</li>
+<li>支持 formula</li>
+<li>适用于二维数组 - AoA</li>
+<li>fast-formula-parserm, jstat, es-abstract</li>
+<li>fast-formula-parser -> chevrotain, jstat - 体积比较大</li>
+<li><del>hot-formula-parser</del> -> <del>@handsontable/formulajs</del> License 原因</li>
+</ul>
+</li>
+<li><del><a href=https://github.com/denisraslov/react-spreadsheet-grid target=_blank rel="noopener noreferrer">react-spreadsheet-grid</a></del>
+<ul>
+<li>MIT, JS</li>
+<li>66kB, 17kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/silevis/reactgrid target=_blank rel="noopener noreferrer">@silevis/reactgrid</a>
+<ul>
+<li>MIT, TS</li>
+<li>250kB, 68kB</li>
+</ul>
+</li>
+<li><del><a href=https://github.com/nadbm/react-datasheet target=_blank rel="noopener noreferrer">react-datasheet</a></del>
+<ul>
+<li>⚠️ 不再维护</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>i18n - <a href=https://www.unicode.org/reports/tr35/tr35-59/tr35.html#Identifiers target=_blank rel="noopener noreferrer">Unicode Language and Locale Identifiers</a>
+<ul>
+<li><a href=https://github.com/i18next/react-i18next target=_blank rel="noopener noreferrer">i18next/react-i18next</a></li>
+<li><a href=https://github.com/i18next/next-i18next target=_blank rel="noopener noreferrer">i18next/next-i18next</a>
+<ul>
+<li>Next.js 集成</li>
+</ul>
+</li>
+<li>react-intl</li>
+<li><a href=https://github.com/lingui/js-lingui target=_blank rel="noopener noreferrer">lingui/js-lingui</a></li>
+<li>rosetta</li>
+<li>next-intl</li>
+<li><a href=https://github.com/formatjs/formatjs target=_blank rel="noopener noreferrer">formatjs</a></li>
+</ul>
+</li>
+<li>hooks/utils
+<ul>
+<li><a href=https://github.com/adobe/react-spectrum target=_blank rel="noopener noreferrer">adobe/react-spectrum</a></li>
+</ul>
+</li>
+<li>log viewer
+<ul>
+<li><a href=https://github.com/samdenty/console-feed target=_blank rel="noopener noreferrer">samdenty/console-feed</a></li>
+<li><a href=https://github.com/melloware/react-logviewer target=_blank rel="noopener noreferrer">melloware/react-logviewer</a></li>
+<li><a href=https://github.com/rrweb-io/rrweb target=_blank rel="noopener noreferrer">rrweb-io/rrweb</a></li>
+</ul>
+</li>
+<li>for fun
+<ul>
+<li><a href=https://github.com/Clariity/react-chessboard target=_blank rel="noopener noreferrer">Clariity/react-chessboard</a></li>
+</ul>
+</li>
+<li>GEO/Map
+<ul>
+<li><a href=https://github.com/visgl/react-map-gl target=_blank rel="noopener noreferrer">visgl/react-map-gl</a>
+<ul>
+<li>react for mapbox-gl, maplibre-gl</li>
+</ul>
+</li>
+<li><a href=https://github.com/maplibre/maplibre-gl-js target=_blank rel="noopener noreferrer">maplibre/maplibre-gl-js</a>
+<ul>
+<li>BSD-3, Typescript</li>
+<li>mapbox-gl-js v1 fork</li>
+</ul>
+</li>
+<li><a href=https://github.com/mapbox/mapbox-gl-js target=_blank rel="noopener noreferrer">mapbox/mapbox-gl-js</a>
+<ul>
+<li>2020-12 修改为非开源协议</li>
+<li>v2 需要 token</li>
+</ul>
+</li>
+<li>math
+<ul>
+<li><a href=https://github.com/Turfjs/turf target=_blank rel="noopener noreferrer">Turfjs/turf</a>
+<ul>
+<li>MIT, TS</li>
+<li>geospatial engine</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tiles
+<ul>
+<li><a href=https://github.com/openmaptiles/openmaptiles target=_blank rel="noopener noreferrer">openmaptiles/openmaptiles</a>
+<ul>
+<li>BSD-3, CC-BY-4.0</li>
+<li>by MapTiler</li>
+</ul>
+</li>
+<li><a href=https://github.com/maplibre/demotiles target=_blank rel="noopener noreferrer">maplibre/demotiles</a></li>
+<li><a href=https://www.maptiler.com/ target=_blank rel="noopener noreferrer">MapTiler</a></li>
+<li><a href=https://github.com/mapbox/awesome-vector-tiles target=_blank rel="noopener noreferrer">mapbox/awesome-vector-tiles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<ul>
+<li>
+<p><a href=https://github.com/molefrog/spoiled target=_blank rel="noopener noreferrer">molefrog/spoiled</a></p>
+</li>
+<li>
+<p><a href=https://github.com/tamagui/tamagui target=_blank rel="noopener noreferrer">tamagui/tamagui</a></p>
+</li>
+<li>
+<p><a href=https://github.com/gabrielbull/react-desktop target=_blank rel="noopener noreferrer">gabrielbull/react-desktop</a></p>
+<ul>
+<li>模仿 macOS High Sierra 和 Windows 10 的组件</li>
+</ul>
+</li>
+<li>
+<p><a href=https://github.com/reakit/reakit target=_blank rel="noopener noreferrer">reakit/reakit</a> - 专注于 accessible 的组件</p>
+<ul>
+<li>ARIA</li>
+<li>在国内一般不关心 accessible</li>
+</ul>
+</li>
+<li>
+<p><a href=https://github.com/table-library/react-table-library target=_blank rel="noopener noreferrer">table-library/react-table-library</a></p>
+<ul>
+<li>带 UI</li>
+</ul>
+</li>
+<li>
+<p><a href=https://github.com/react-icons/react-icons target=_blank rel="noopener noreferrer">react-icons/react-icons</a></p>
+<ul>
+<li><a href=https://react-icons.github.io/react-icons target=_blank rel="noopener noreferrer">react-icons.github.io</a> 包含了大量可用 Icon</li>
+<li>来自 tailwincss 的 <a href=https://heroicons.com/ target=_blank rel="noopener noreferrer">heroicons</a> 崇尚直接 copy svg 使用
+<ul>
+<li>简单方便</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>@tabler/icons</p>
+<ul>
+<li><a href=https://github.com/tabler/tabler-icons target=_blank rel="noopener noreferrer">https://github.com/tabler/tabler-icons</a>
+<ul>
+<li>4500, MIT</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href=https://github.com/popperjs/react-popper target=_blank rel="noopener noreferrer">popperjs/react-popper</a></p>
+<ul>
+<li>显示弹出气泡</li>
+</ul>
+</li>
+<li>
+<p><a href=https://github.com/signavio/react-mentions target=_blank rel="noopener noreferrer">signavio/react-mentions</a></p>
+<ul>
+<li>支持 <code>@username</code></li>
+</ul>
+</li>
+<li>
+<p><a href=https://github.com/twobin/react-lazyload target=_blank rel="noopener noreferrer">twobin/react-lazyload</a></p>
+<ul>
+<li>懒加载 UI 组件</li>
+</ul>
+</li>
+<li>
+<p><a href=https://github.com/asabaylus/react-command-palette target=_blank rel="noopener noreferrer">asabaylus/react-command-palette</a></p>
+</li>
+<li>
+<p><a href=https://github.com/gilbarbara/react-joyride target=_blank rel="noopener noreferrer">gilbarbara/react-joyride</a></p>
+</li>
+<li>
+<p>kanban</p>
+<ul>
+<li><a href=https://github.com/asseinfo/react-kanban target=_blank rel="noopener noreferrer">asseinfo/react-kanban</a></li>
+</ul>
+</li>
+<li>
+<p>notion</p>
+<ul>
+<li><a href=https://github.com/splitbee/react-notion target=_blank rel="noopener noreferrer">splitbee/react-notion</a></li>
+<li><a href=https://github.com/NotionX/react-notion-x target=_blank rel="noopener noreferrer">NotionX/react-notion-x</a></li>
+</ul>
+</li>
+<li>
+<p><a href=https://github.com/bvaughn/planner target=_blank rel="noopener noreferrer">bvaughn/planner</a></p>
+</li>
+<li>
+<p><a href=https://github.com/ReactTooltip/react-tooltip target=_blank rel="noopener noreferrer">ReactTooltip/react-tooltip</a></p>
+</li>
+<li>
+<p><a href=https://floating-ui.com/ target=_blank rel="noopener noreferrer">floatingui</a></p>
+</li>
+<li>
+<p><a href=https://github.com/reaviz target=_blank rel="noopener noreferrer">reaviz</a></p>
+<ul>
+<li><a href=https://github.com/reaviz/reaviz target=_blank rel="noopener noreferrer">reaviz</a>
+<ul>
+<li>Data visualization</li>
+</ul>
+</li>
+<li><a href=https://github.com/reaviz/reaflow target=_blank rel="noopener noreferrer">reaflow</a>
+<ul>
+<li>Apache-2.0, TS</li>
+<li>flow</li>
+<li>layout ELKJS</li>
+</ul>
+</li>
+<li><a href=https://github.com/reaviz/reagraph target=_blank rel="noopener noreferrer">reagraph</a>
+<ul>
+<li>Apache-2.0, TS</li>
+<li>WebGL, network graph</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href=https://github.com/wojtekmaj target=_blank rel="noopener noreferrer">https://github.com/wojtekmaj</a></p>
+<ul>
+<li>react-calendar, react-clock, react-pdf</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=editor>编辑器<a href=#editor class=hash-link aria-label="Direct link to 编辑器" title="Direct link to 编辑器" translate=no>​</a></h3>
+<ul>
+<li>Markdown
+<ul>
+<li><a href=https://github.com/andrerpena/react-mde target=_blank rel="noopener noreferrer">andrerpena/react-mde</a></li>
+<li><a href=https://github.com/HarryChen0506/react-markdown-editor-lite target=_blank rel="noopener noreferrer">HarryChen0506/react-markdown-editor-lite</a></li>
+<li><a href=https://github.com/uiwjs/react-md-editor target=_blank rel="noopener noreferrer">uiwjs/react-md-editor</a></li>
+<li><a href=https://github.com/Saul-Mirone/milkdown target=_blank rel="noopener noreferrer">Saul-Mirone/milkdown</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/margox/braft-editor target=_blank rel="noopener noreferrer">margox/braft-editor</a>
+<ul>
+<li><a href=https://github.com/margox/braft-extensions target=_blank rel="noopener noreferrer">margox/braft-extensions</a> - 扩展包</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=router>路由<a href=#router class=hash-link aria-label="Direct link to 路由" title="Direct link to 路由" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/ReactTraining/react-router target=_blank rel="noopener noreferrer">ReactTraining/react-router</a>
+<ul>
+<li>React 16.8 hook 之前已经存在</li>
+<li>v6 基于 hook 重写，替代 reach-router</li>
+<li>v5 添加 hook 支持，Swith 和 Route 组件可选</li>
+<li>支持 MemoryRouter，支持 React Native</li>
+<li>核心组件
+<ul>
+<li>Router - 提供 history 管理和上下文 - history 实现在 <a href=https://github.com/ReactTraining/history target=_blank rel="noopener noreferrer">history</a> 包
+<ul>
+<li>BrowserRouter 基于当前 URL</li>
+<li>HashRouter 基于 URL 但使用 <code>#/url</code> 模式</li>
+<li>StaticRouter - 静态地址，用于 SSR</li>
+<li>NativeRouter - 支持 react-native</li>
+<li>核心状态 location - 从 history 监听变化</li>
+<li>提供 history 上下文 - useHistory</li>
+<li>提供 Route 上下文 - useLocation、useParams</li>
+</ul>
+</li>
+<li>Route - 匹配后渲染</li>
+<li>Switch - 只会渲染一个匹配的 Route</li>
+<li>Link, NavLink, Redirect - 导航，修改 url</li>
+<li>Prompt - 用于阻塞 history 发生变化</li>
+</ul>
+</li>
+<li>useRoutes/react-router-config
+<ul>
+<li>提供了统一配置 route 的逻辑 - 很简单，可以作为参考</li>
+<li>matchRoutes - 匹配嵌套路由 - 返回匹配的 tree 路由数组</li>
+<li>renderRoutes - 渲染嵌套路由 - 递归 Switch, 遍历 Route</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=/notes/web/react/tanstack-router>@tanstack/react-router</a>
+<ul>
+<li>参考/基于 React Router v6</li>
+<li>内置 async import - 异步加载 element</li>
+<li>内置 async load - 异步加载 data/状态 - useMatch 返回</li>
+<li>query 参数匹配、状态管理</li>
+<li>declarative API</li>
+</ul>
+</li>
+<li><a href=https://github.com/molefrog/wouter target=_blank rel="noopener noreferrer">molefrog/wouter</a>
+<ul>
+<li>轻量实现 - 很实用 - 可以直接拷贝到项目修改使用</li>
+<li>可以不需要 context</li>
+<li>外部提供 location</li>
+<li>minimalist-friendly ~2.1KB routing for React and Preact</li>
+</ul>
+</li>
+<li><del><a href=https://github.com/reach/router target=_blank rel="noopener noreferrer">reach/router</a></del>
+<ul>
+<li>React Router v6 后 reach router 不再需要</li>
+<li>React Router 作者在 hook 出现后进行的尝试</li>
+<li>目前 hook 能力已经合并回 react router v5</li>
+<li>不使用 Swith 和 Route 组件，而是直接在组件上添加 path 进行匹配</li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://reacttraining.com/blog/reach-react-router-future/ target=_blank rel="noopener noreferrer">The Future of React Router and @reach/router</a> - 2019
+<ul>
+<li>@reach/router 是在 hook 出现后的新尝试</li>
+<li>现在所有 hook 功能也合并到了 react-router v5</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=功能组件>功能组件<a href=#功能组件 class=hash-link aria-label="Direct link to 功能组件" title="Direct link to 功能组件" translate=no>​</a></h2>
+<blockquote>
+<p>大多为 Headless/unstyled</p>
+</blockquote>
+<ul>
+<li>TanStack
+<ul>
+<li><a href=/notes/web/react/table>react-table</a>
+<ul>
+<li>实现各种 table 功能</li>
+</ul>
+</li>
+<li><a href=/notes/web/react/query>react-query</a>
+<ul>
+<li>异步查询缓存更新</li>
+</ul>
+</li>
+<li><a href=https://github.com/TanStack/ranger target=_blank rel="noopener noreferrer">ranger</a>
+<ul>
+<li>range and multi-range sliders</li>
+</ul>
+</li>
+<li>location</li>
+<li>virtual</li>
+<li>react-charts</li>
+</ul>
+</li>
+<li><a href=https://github.com/vercel/swr target=_blank rel="noopener noreferrer">vercel/swr</a>
+<ul>
+<li>类似于 react-query 但更适合于前端定时刷新场景</li>
+<li>支持 SSR</li>
+</ul>
+</li>
+<li><a href=https://github.com/gregberge/loadable-components target=_blank rel="noopener noreferrer">gregberge/loadable-components</a>
+<ul>
+<li>异步加载组件</li>
+</ul>
+</li>
+<li><del><a href=https://github.com/its-danny/use-lilius target=_blank rel="noopener noreferrer">its-danny/use-lilius</a></del>
+<ul>
+<li>date-fns</li>
+<li>DateInput</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=虚拟滚动>虚拟滚动<a href=#虚拟滚动 class=hash-link aria-label="Direct link to 虚拟滚动" title="Direct link to 虚拟滚动" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/petyosi/react-virtuoso target=_blank rel="noopener noreferrer">petyosi/react-virtuoso</a>
+<ul>
+<li>支持 list, table</li>
+</ul>
+</li>
+<li><a href=https://github.com/TanStack/virtual target=_blank rel="noopener noreferrer">TanStack/virtual</a>
+<ul>
+<li>基于 Hook</li>
+<li>推荐 - 因为 react-virtualized 不活跃</li>
+</ul>
+</li>
+<li><a href=https://github.com/inokawa/virtua target=_blank rel="noopener noreferrer">inokawa/virtua</a>
+<ul>
+<li>MIT, TS</li>
+<li><a href=https://github.com/inokawa/virtua#features target=_blank rel="noopener noreferrer">https://github.com/inokawa/virtua#features</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/bvaughn/react-window target=_blank rel="noopener noreferrer">bvaughn/react-window</a> - 虚拟滚动
+<ul>
+<li><a href=https://github.com/bvaughn/react-window#how-is-react-window-different-from-react-virtualized target=_blank rel="noopener noreferrer">react-window vs react-virtualized</a></li>
+<li><a href=https://github.com/Lodin/react-vtree target=_blank rel="noopener noreferrer">Lodin/react-vtree</a>
+<ul>
+<li>基于 react-window 实现的 tree 渲染</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/bvaughn/react-virtualized target=_blank rel="noopener noreferrer">bvaughn/react-virtualized</a>
+<ul>
+<li>功能比 react-window 多但包更大</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=数据校验>数据校验<a href=#数据校验 class=hash-link aria-label="Direct link to 数据校验" title="Direct link to 数据校验" translate=no>​</a></h2>
+<ul>
+<li>一般都不是 react 相关</li>
+<li>常用 yup, joi, props-type, json-schema</li>
+<li>json-schema
+<ul>
+<li>序列化好</li>
+<li>工具支持</li>
+<li>功能少 / 弱</li>
+</ul>
+</li>
+<li>yup
+<ul>
+<li>js 书写方便</li>
+<li>但不方便序列化</li>
+</ul>
+</li>
+<li>props-type
+<ul>
+<li>React 组件属性校验</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=form>Form<a href=#form class=hash-link aria-label="Direct link to Form" title="Direct link to Form" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/react-hook-form/react-hook-form target=_blank rel="noopener noreferrer">react-hook-form/react-hook-form</a>
+<ul>
+<li>25kB/9kB</li>
+<li>基于 hook 的 form 语意实现</li>
+<li>轻量简单 - 没有复杂概念，直接 useForm 即可使用</li>
+<li>状态独立 - 性能好</li>
+<li>侵入性非常低
+<ul>
+<li>不强制要求 Form 上下文</li>
+<li>可以通过 ref 注册</li>
+</ul>
+</li>
+<li>注意
+<ul>
+<li>默认 mode 为 submit - 在提交的时候才会校验</li>
+<li>基于 ref 注册可能会被 deregister</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/jaredpalmer/formik target=_blank rel="noopener noreferrer">jaredpalmer/formik</a>
+<ul>
+<li>基于组件构建表单</li>
+<li>默认 Formik 全量渲染</li>
+<li>组件 Field 封装</li>
+<li>编码量较多</li>
+<li><a href=https://github.com/formium/formium/tree/master/examples target=_blank rel="noopener noreferrer">formium</a>
+<ul>
+<li>商业的 headless form builder</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/final-form/react-final-form target=_blank rel="noopener noreferrer">final-form/react-final-form</a>
+<ul>
+<li>基于 Final Form 的 React 封装</li>
+<li>组件逻辑上类似 formik - 但要简单一点</li>
+<li>核心 final form 也支持 vue、web component 等</li>
+<li><a href=https://formnerd.co/ target=_blank rel="noopener noreferrer">formnerd</a>
+<ul>
+<li>商业的 form 提交服务</li>
+</ul>
+</li>
+<li><a href=https://github.com/data-driven-forms/form-builder target=_blank rel="noopener noreferrer">data-driven-forms/form-builder</a>
+<ul>
+<li>开源的 form builder</li>
+<li>尚不成熟</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/vazco/uniforms target=_blank rel="noopener noreferrer">vazco/uniforms</a>
+<ul>
+<li>building forms from any schema</li>
+<li>Schemas
+<ul>
+<li>JSON Schema</li>
+<li>GraphQL</li>
+<li>SimpleSchema</li>
+<li>Zod</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/alibaba/formily target=_blank rel="noopener noreferrer">alibaba/formily</a>
+<ul>
+<li><a href=https://github.com/alibaba/designable target=_blank rel="noopener noreferrer">alibaba/designable</a></li>
+<li><a href=https://designable-antd.formilyjs.org/ target=_blank rel="noopener noreferrer">designable-antd</a></li>
+</ul>
+</li>
+<li>商业
+<ul>
+<li><a href=https://www.form.io target=_blank rel="noopener noreferrer">form.io</a></li>
+</ul>
+</li>
+<li><del><a href=https://github.com/unform/unform target=_blank rel="noopener noreferrer">unform/unform</a></del></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=样式>样式<a href=#样式 class=hash-link aria-label="Direct link to 样式" title="Direct link to 样式" translate=no>​</a></h2>
+<ul>
+<li>class 合并
+<ul>
+<li><a href=https://github.com/gregberge/twc target=_blank rel="noopener noreferrer">gregberge/twc</a></li>
+<li>clsx</li>
+<li>classnames</li>
+<li>tailwind-merge</li>
+<li><a href=https://github.com/joe-bell/cva target=_blank rel="noopener noreferrer">cva</a>
+<ul>
+<li><a href=https://cva.style/docs target=_blank rel="noopener noreferrer">https://cva.style/docs</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/sannajammeh/tw-classed target=_blank rel="noopener noreferrer">tw-classed</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/stitchesjs/stitches target=_blank rel="noopener noreferrer">stitchesjs/stitches</a>
+<ul>
+<li>写 Object 而不是写 string 的 css</li>
+<li>类似 styled-components 和 emotion 的中间形态</li>
+<li>相对性能更好，打包更小</li>
+<li>@stitches/react</li>
+<li>支持 variant - 不只是单纯样式</li>
+</ul>
+</li>
+<li><a href=https://github.com/styled-components/styled-components target=_blank rel="noopener noreferrer">styled-components</a>
+<ul>
+<li>包装现有组件，添加 className</li>
+</ul>
+</li>
+<li><a href=https://github.com/emotion-js/emotion target=_blank rel="noopener noreferrer">emotion-js/emotion</a>
+<ul>
+<li>生成 className</li>
+</ul>
+</li>
+<li><a href=https://github.com/jsjoeio/styled-components-vs-emotion target=_blank rel="noopener noreferrer">jsjoeio/styled-components-vs-emotion</a></li>
+<li><a href=https://github.com/callstack/linaria target=_blank rel="noopener noreferrer">callstack/linaria</a>
+<ul>
+<li>基于 babel 插件</li>
+</ul>
+</li>
+<li><a href=https://github.com/css-modules/css-modules target=_blank rel="noopener noreferrer">css-modules/css-modules</a></li>
+<li><a href=https://github.com/vercel/styled-jsx target=_blank rel="noopener noreferrer">vercel/styled-jsx</a></li>
+<li><a href=https://github.com/styletron/styletron target=_blank rel="noopener noreferrer">styletron/styletron</a></li>
+<li><a href=https://github.com/robinweser/fela target=_blank rel="noopener noreferrer">robinweser/fela</a>
+State-Driven Styling</li>
+<li><a href=https://github.com/cristianbote/goober target=_blank rel="noopener noreferrer">cristianbote/goober</a></li>
+<li><a href=https://github.com/linkedin/css-blocks target=_blank rel="noopener noreferrer">linkedin/css-blocks</a>
+<ul>
+<li>没有维护了</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=hooks>Hooks<a href=#hooks class=hash-link aria-label="Direct link to Hooks" title="Direct link to Hooks" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/streamich/react-use target=_blank rel="noopener noreferrer">streamich/react-use</a>
+<ul>
+<li>74kB/20kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/alibaba/hooks target=_blank rel="noopener noreferrer">alibaba/hooks</a></li>
+<li><a href=https://github.com/riktar/uncino target=_blank rel="noopener noreferrer">riktar/uncino</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=状态管理>状态管理<a href=#状态管理 class=hash-link aria-label="Direct link to 状态管理" title="Direct link to 状态管理" translate=no>​</a></h2>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>In React State vs Outside State</div><div class=admonitionContent_R6P7><ul>
+<li>Inside - 例如 useState, jotai, recoil
+<ul>
+<li>面向 React - 组件、上下文、Tree</li>
+</ul>
+</li>
+<li>Outside - 例如 zustand, voltio/mobx
+<ul>
+<li>面向 数据/状态 - 函数、全局、跨组件</li>
+<li>优势
+<ul>
+<li>框架无关</li>
+<li>可在任意地方调用</li>
+</ul>
+</li>
+<li>劣势
+<ul>
+<li>可能有全局副作用</li>
+<li>SSR 不一定好处理 - <a href=https://github.com/pmndrs/zustand/issues/182 target=_blank rel="noopener noreferrer">#182</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div></div>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>Proxy vs Selector</div><div class=admonitionContent_R6P7><ul>
+<li>基于 <code>代理</code> 订阅 - 可以基于 路径 判断变化
+<ul>
+<li>优势
+<ul>
+<li>使用更简单</li>
+<li>不需要写 selector</li>
+<li>不需要关心 compare</li>
+</ul>
+</li>
+<li>劣势
+<ul>
+<li>传递时要小心 - 比如读取对象，返回的是代理对象
+<ul>
+<li>尽量确保只有 基础数据类型 时使用</li>
+</ul>
+</li>
+<li>代理特殊对象要小心
+<ul>
+<li>例如: Map, Set, ReactElement, HTMLElement 之类的</li>
+<li>需要考虑哪些能被代理，哪些不能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>区分 读 代理 和 写 代理
+<ul>
+<li>selector 模式也可以用 写 代理</li>
+<li>基于 <code>代理</code> 订阅主要指 读 代理</li>
+<li>写 代理 修改操作可生成 operation - 可用于同步</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基于 <code>selector</code> 订阅 - 基于 值 判断变化
+<ul>
+<li>优势
+<ul>
+<li>都是 原始 值 或 frozen 值</li>
+<li>传递安全 - 不会有预期外结果，符合正常思路</li>
+</ul>
+</li>
+<li>劣势
+<ul>
+<li>selector 写起来繁琐</li>
+<li>selector 可能还需要 useCallback 来 memo</li>
+<li>需要考虑 compare 逻辑</li>
+<li>每次添加用到数据 要嘛加 selector ，要嘛修改 现有 selector</li>
+</ul>
+</li>
+<li>react-tracked 把基于 selector 变成基于 proxy</li>
+<li>可以修改时使用 proxy 减少变化对比
+<ul>
+<li>例如 immer</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div></div>
+<ul>
+<li>几种状态管理
+<ul>
+<li>atom, in-react - jotai, recoil</li>
+<li>atom, outside-react - voltio</li>
+<li>state machine, in-react - redux</li>
+<li>state machine, outside-react - zustand</li>
+<li><a href=https://github.com/pmndrs/valtio/issues/141#issuecomment-891214314 target=_blank rel="noopener noreferrer">pmndrs/valtio#141</a></li>
+</ul>
+</li>
+<li>pmndrs - 状态相关主要开发者也是 dai-shi
+<ul>
+<li><a href=/notes/web/react/zustand>zustand</a>
+<ul>
+<li>3kB/1.1kB - use-sync-external-store</li>
+<li>Redux like - 支持 Redux devtools</li>
+<li>状态在 React 之外 - 可外部操作</li>
+<li><img decoding=async loading=lazy src=https://img.shields.io/bundlephobia/min/zustand alt="" class=img_IxRA /></li>
+</ul>
+</li>
+<li><a href=/notes/web/react/valtio>valtio</a>
+<ul>
+<li>7kB/2.5kB - use-sync-external-store+proxy-compare</li>
+<li>基于 Proxy 订阅</li>
+</ul>
+</li>
+<li><a href=/notes/web/react/jotai>jotai</a>
+<ul>
+<li>8.5kB/3.3kB</li>
+<li>Recoil like</li>
+<li><img decoding=async loading=lazy src=https://img.shields.io/bundlephobia/min/jotai alt="" class=img_IxRA /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>dai-shi
+<ul>
+<li><a href=https://github.com/dai-shi/react-tracked target=_blank rel="noopener noreferrer">dai-shi/react-tracked</a>
+<ul>
+<li>5kB/2kB - use-context-selector+proxy-compare</li>
+<li>封装 useState, useStore</li>
+<li>使用 proxy 订阅 - 操作上更方便</li>
+<li>提供 memo 替代 React.memo - 因为要 比较/订阅 代理 对象</li>
+</ul>
+</li>
+<li><a href=https://github.com/dai-shi/use-context-selector target=_blank rel="noopener noreferrer">dai-shi/use-context-selector</a>
+<ul>
+<li>2kB/1kB</li>
+<li>useContext 支持 selector - 减少 rerender</li>
+</ul>
+</li>
+<li><a href=https://github.com/dai-shi/react-hooks-global-state target=_blank rel="noopener noreferrer">dai-shi/react-hooks-global-state</a>
+<ul>
+<li>global state for React with Hooks API without Context API</li>
+</ul>
+</li>
+<li><a href=https://github.com/dai-shi/react-hooks-worker target=_blank rel="noopener noreferrer">dai-shi/react-hooks-worker</a>
+<ul>
+<li>custom hooks for web workers</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/effector/effector target=_blank rel="noopener noreferrer">effector</a>
+<ul>
+<li>Application stores should be as light as possible</li>
+<li>Application stores should be freely combined</li>
+<li>Autonomy from controversial concepts</li>
+<li>Predictability and clarity of API</li>
+<li>The application is built from simple elements</li>
+</ul>
+</li>
+<li><a href=https://github.com/mobxjs/mobx target=_blank rel="noopener noreferrer">mobxjs/mobx</a>
+<ul>
+<li>mobx 58kB/16kB</li>
+<li>mobx-react-lite 6kB/2kB
+<ul>
+<li>不支持 concurrent - <a href=https://github.com/mobxjs/mobx/issues/2526 target=_blank rel="noopener noreferrer">mobx#2526</a></li>
+</ul>
+</li>
+<li>最近开发不活跃 - 功能已经足够完善</li>
+</ul>
+</li>
+<li>use-sync-external-store</li>
+<li><a href=https://github.com/facebook/react/tree/master/packages/use-subscription target=_blank rel="noopener noreferrer">use-subscription</a>
+<ul>
+<li>更好的支持 concurrent 模式</li>
+</ul>
+</li>
+<li><a href=https://github.com/rematch/rematch target=_blank rel="noopener noreferrer">rematch/rematch</a></li>
+<li><a href=https://github.com/teafuljs/teaful target=_blank rel="noopener noreferrer">teafuljs/teaful</a>
+<ul>
+<li>基于 proxy 进行 select</li>
+</ul>
+</li>
+<li><a href=https://github.com/facebookexperimental/Recoil target=_blank rel="noopener noreferrer">facebookexperimental/Recoil</a>
+<ul>
+<li><a href=https://youtu.be/_ISAA_Jt9kI target=_blank rel="noopener noreferrer">Recoil: State Management for Today's React</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/paol-imi/react-reparenting target=_blank rel="noopener noreferrer">paol-imi/react-reparenting</a>
+<ul>
+<li>实现切换 parent 不丢失状态</li>
+</ul>
+</li>
+<li><a href=https://github.com/jamiebuilds/unstated-next target=_blank rel="noopener noreferrer">jamiebuilds/unstated-next</a>
+<ul>
+<li>简单封装 context+state - 共享业务状态逻辑，在状态基础上添加操作</li>
+<li>反转 useHook</li>
+</ul>
+</li>
+<li><a href=https://github.com/FormidableLabs/react-fast-compare target=_blank rel="noopener noreferrer">FormidableLabs/react-fast-compare</a>
+<ul>
+<li>用于在实现状态管理时快速比较是否发生变化</li>
+<li>减少变化，避免刷新</li>
+</ul>
+</li>
+<li><a href=https://github.com/sandiiarov/use-deep-compare target=_blank rel="noopener noreferrer">sandiiarov/use-deep-compare</a>
+<ul>
+<li>useDeepCompare{Callback,Effect,Memo,Memoize}</li>
+<li>基于 dequal</li>
+</ul>
+</li>
+<li><a href=https://github.com/immerjs/use-immer target=_blank rel="noopener noreferrer">immerjs/use-immer</a>
+<ul>
+<li>useImmer - 基于 immer 的状态更新</li>
+<li>当状态较多时能很大程度简化操作 - 从 <code>setState(s=>({...s,loading:true}))</code> 变为 <code>update(s=>{s.loading=true})</code></li>
+</ul>
+</li>
+<li><a href=https://github.com/tinyplex/tinybase target=_blank rel="noopener noreferrer">tinyplex/tinybase</a>
+<ul>
+<li>Table, Row, Cell</li>
+</ul>
+</li>
+<li>订阅
+<ul>
+<li><a href=https://github.com/reactivex/rxjs target=_blank rel="noopener noreferrer">reactivex/rxjs</a>
+<ul>
+<li>rxjs 能非常简单的实现基于订阅的状态管理</li>
+</ul>
+</li>
+<li><a href=https://github.com/reduxjs/redux-toolkit target=_blank rel="noopener noreferrer">reduxjs/redux-toolkit</a>
+<ul>
+<li>redux-toolkit 简化了使用 redux 的难度</li>
+<li>定义了使用规范</li>
+</ul>
+</li>
+<li><a href=https://github.com/storeon/storeon target=_blank rel="noopener noreferrer">storeon/storeon</a> - 185 bytes event-based Redux-like state manager
+<ul>
+<li>事件驱动 - 内建 <code>@init</code>, <code>@dispatch</code>, <code>@changed</code> - 初始化，分发，变化检测</li>
+<li><code>const { dispatch, users, projects } = useStoreon('users', 'projects')</code>
+<ul>
+<li>本质上是监听 @changed 来触发状态变化进行渲染</li>
+</ul>
+</li>
+<li>storeon - <a href=https://github.com/storeon/storeon/blob/main/index.js target=_blank rel="noopener noreferrer">index.js</a></li>
+<li>React hook - <a href=https://github.com/storeon/storeon/blob/main/react/index.js target=_blank rel="noopener noreferrer">react/index.js</a></li>
+<li>结构逻辑比 redux 清晰的多</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>常见问题
+<ul>
+<li><a href=https://react-redux.js.org/api/hooks#stale-props-and-zombie-children target=_blank rel="noopener noreferrer">zombie child problem</a></li>
+<li><a href=https://github.com/bvaughn/rfcs/blob/useMutableSource/text/0000-use-mutable-source.md target=_blank rel="noopener noreferrer">react concurrency</a></li>
+<li><a href=https://github.com/facebook/react/issues/13332 target=_blank rel="noopener noreferrer">context loss</a></li>
+<li>跨组件状态变化</li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://2020.stateofjs.com/en-US/technologies/datalayer/ target=_blank rel="noopener noreferrer">https://2020.stateofjs.com/en-US/technologies/datalayer/</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=图表>图表<a href=#图表 class=hash-link aria-label="Direct link to 图表" title="Direct link to 图表" translate=no>​</a></h2>
+<ul>
+<li>react-d3-tree</li>
+<li><a href=https://github.com/recharts/recharts target=_blank rel="noopener noreferrer">recharts/recharts</a>
+<ul>
+<li>基于 d3 封装</li>
+<li>功能比较原始 - 自定义能力较强 - 自定义 svg - 随意画图</li>
+<li>类似于通过 react 渲染 svg - 但需要熟悉 svg 语法</li>
+<li>children 可以直接写 svg</li>
+</ul>
+</li>
+<li><a href=https://github.com/airbnb/visx target=_blank rel="noopener noreferrer">airbnb/visx</a>
+<ul>
+<li>React 渲染 SVG</li>
+<li>预设了较多样式和图表元素</li>
+</ul>
+</li>
+<li><a href=https://github.com/FormidableLabs/victory target=_blank rel="noopener noreferrer">FormidableLabs/victory</a></li>
+<li><a href=https://github.com/plouc/nivo target=_blank rel="noopener noreferrer">plouc/nivo</a></li>
+<li><a href=https://github.com/uber/react-vis target=_blank rel="noopener noreferrer">uber/react-vis</a>
+<ul>
+<li>不太活跃</li>
+</ul>
+</li>
+<li><a href=https://github.com/plotly/react-plotly.js/ target=_blank rel="noopener noreferrer">plotly/react-plotly.js</a>
+<ul>
+<li>React 封装 plotly.js</li>
+<li><a href=https://github.com/plotly/plotly.js target=_blank rel="noopener noreferrer">plotly.js</a> - 所有图表都可以通过序列化的 JSON 表示
+<ul>
+<li>支持非常多的预设图表</li>
+<li>显示支持一定程度自定义</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/alibaba/BizCharts target=_blank rel="noopener noreferrer">alibaba/BizCharts</a>
+<ul>
+<li>阿里 BizCharts - 基于 G2 封装 React</li>
+<li>封装程度高 - 支持较多类型图表</li>
+</ul>
+</li>
+<li>G2Plot
+<ul>
+<li>基于 G2 封装的默认可用图表</li>
+</ul>
+</li>
+<li>@ant-design/charts
+<ul>
+<li>基于 G2Plot 封装 React</li>
+</ul>
+</li>
+<li><a href=https://github.com/sbstjn/timesheet.js target=_blank rel="noopener noreferrer">sbstjn/timesheet.js</a></li>
+<li><a href=https://github.com/projectstorm/react-diagrams target=_blank rel="noopener noreferrer">projectstorm/react-diagrams</a>
+<ul>
+<li>节点流程图</li>
+</ul>
+</li>
+<li><a href=https://github.com/antvis/G2 target=_blank rel="noopener noreferrer">antvis/G2</a></li>
+<li><a href=https://github.com/chartjs/Chart.js target=_blank rel="noopener noreferrer">chartjs/Chart.js</a>
+<ul>
+<li>基于 canvas</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=开发工具生态>开发工具/生态<a href=#开发工具生态 class=hash-link aria-label="Direct link to 开发工具/生态" title="Direct link to 开发工具/生态" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/storybookjs/storybook target=_blank rel="noopener noreferrer">storybookjs/storybook</a>
+将 UI 开发从主应用分离
+<ul>
+<li>不清楚如何选择，那就选择 Storybook</li>
+<li>非常重</li>
+<li>可能和项目内其他组件冲突 - React 17, PostCSS</li>
+<li>支持多框架和平台 - React, Vue, WebComponent, React Native, Ember, Svelte, Preact, Marionette.js, Mithril, Marko, Riot, Rax, Flutter</li>
+</ul>
+</li>
+<li><a href=https://github.com/styleguidist/react-styleguidist target=_blank rel="noopener noreferrer">styleguidist/react-styleguidist</a>
+<ul>
+<li>类似于 storybook，提供独立环境</li>
+<li>实时编辑器</li>
+</ul>
+</li>
+<li><a href=https://github.com/doczjs/docz target=_blank rel="noopener noreferrer">doczjs/docz</a>
+<ul>
+<li>组件 Doc 和 开发</li>
+<li>基于 MDX</li>
+<li>开发不活跃</li>
+</ul>
+</li>
+<li><a href=https://github.com/react-cosmos/react-cosmos target=_blank rel="noopener noreferrer">react-cosmos/react-cosmos</a>
+Sandbox for developing and testing UI components in isolation</li>
+<li>Preact</li>
+<li><a href=/notes/web/react/million>aidenybai/million</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=工具>工具<a href=#工具 class=hash-link aria-label="Direct link to 工具" title="Direct link to 工具" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/alexreardon/memoize-one target=_blank rel="noopener noreferrer">alexreardon/memoize-one</a>
+<ul>
+<li>在组件外 memoize</li>
+</ul>
+</li>
+<li><a href=https://github.com/epoberezkin/fast-deep-equal target=_blank rel="noopener noreferrer">epoberezkin/fast-deep-equal</a></li>
+<li><a href=https://github.com/FormidableLabs/react-fast-compare target=_blank rel="noopener noreferrer">FormidableLabs/react-fast-compare</a>
+<ul>
+<li>fork 自 fast-deep-equal</li>
+<li>添加 react 类型处理，避免循环依赖</li>
+</ul>
+</li>
+<li><a href=https://github.com/welldone-software/why-did-you-render target=_blank rel="noopener noreferrer">welldone-software/why-did-you-render</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=动画>动画<a href=#动画 class=hash-link aria-label="Direct link to 动画" title="Direct link to 动画" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/pmndrs/react-spring target=_blank rel="noopener noreferrer">pmndrs/react-spring</a></li>
+<li><a href=https://github.com/framer/motion target=_blank rel="noopener noreferrer">framer/motion</a></li>
+<li><a href=https://github.com/nandorojo/moti target=_blank rel="noopener noreferrer">nandorojo/moti</a>
+<ul>
+<li>React Native (+ Web)</li>
+<li>by Reanimated 2</li>
+</ul>
+</li>
+<li><a href=https://smartdevpreneur.com/react-spring-vs-framer-motion-comparing-examples-in-two-animation-libraries target=_blank rel="noopener noreferrer">React-Spring vs Framer Motion: Comparing Examples in Two Animation Libraries</a>
+<ul>
+<li>实现动画底层逻辑不同
+<ul>
+<li>framer-motion - duration-and-location
+<ul>
+<li>使用上会更舒徐</li>
+</ul>
+</li>
+<li>react-spring - spring-physics
+<ul>
+<li>看起来会更真实</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/reactjs/react-transition-group target=_blank rel="noopener noreferrer">reactjs/react-transition-group</a>
+<ul>
+<li>控制 css 类实现动画</li>
+</ul>
+</li>
+<li><a href=https://github.com/chenglou/react-motion target=_blank rel="noopener noreferrer">react-motion</a>
+<ul>
+<li>不再维护 - 不推荐使用</li>
+</ul>
+</li>
+<li><a href=https://github.com/sghall/react-move target=_blank rel="noopener noreferrer">sghall/react-move</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=功能>功能<a href=#功能 class=hash-link aria-label="Direct link to 功能" title="Direct link to 功能" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/diegomura/react-pdf target=_blank rel="noopener noreferrer">diegomura/react-pdf</a>
+<ul>
+<li>使用 React 创建 PDF</li>
+<li>支持 Node 和 Web</li>
+</ul>
+</li>
+<li><a href=https://github.com/SheetJS/sheetjs target=_blank rel="noopener noreferrer">SheetJS/sheetjs</a>
+<ul>
+<li>不支持样式、图表、图片</li>
+<li>性能好</li>
+<li>Pro <a href=https://sheetjs.com/pro target=_blank rel="noopener noreferrer">https://sheetjs.com/pro</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/exceljs/exceljs target=_blank rel="noopener noreferrer">exceljs/exceljs</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=参考>参考<a href=#参考 class=hash-link aria-label="Direct link to 参考" title="Direct link to 参考" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/alan2207/bulletproof-react target=_blank rel="noopener noreferrer">alan2207/bulletproof-react</a></li>
+<li><a href=https://github.com/Shopify/hydrogen target=_blank rel="noopener noreferrer">Shopify/hydrogen</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=renderingnative>Rendering/Native<a href=#renderingnative class=hash-link aria-label="Direct link to Rendering/Native" title="Direct link to Rendering/Native" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/facebook/react/tree/main/packages/scheduler target=_blank rel="noopener noreferrer">scheduler</a></li>
+<li>DOM
+<ul>
+<li><a href=https://github.com/remarkablemark/html-react-parser target=_blank rel="noopener noreferrer">remarkablemark/html-react-parser</a>
+<ul>
+<li>~28kB - gzip 10kB</li>
+<li>HTML to React</li>
+<li>避免使用 WebComponent 方式</li>
+<li>依赖
+<ul>
+<li>6k <a href=https://github.com/fb55/domhandler target=_blank rel="noopener noreferrer">fb55/domhandler</a></li>
+<li>10k <a href=https://github.com/remarkablemark/react-dom-core/tree/master/packages/react-property target=_blank rel="noopener noreferrer">react-property</a></li>
+<li>style-to-js</li>
+<li>style-to-object</li>
+<li>html-dom-parser</li>
+<li>inline-style-parser</li>
+<li>domelementtype</li>
+</ul>
+</li>
+<li>相关
+<ul>
+<li>dompurify</li>
+<li><a href=https://github.com/aknuds1/html-to-react target=_blank rel="noopener noreferrer">html-to-react</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3D/WebGL
+<ul>
+<li><a href=https://github.com/pmndrs/react-three-fiber target=_blank rel="noopener noreferrer">pmndrs/react-three-fiber</a>
+<ul>
+<li>Three.js 渲染引擎</li>
+</ul>
+</li>
+<li><a href=https://github.com/gre/gl-react target=_blank rel="noopener noreferrer">gre/gl-react</a>
+<ul>
+<li>WebGL 光栅</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2D/Canvas
+<ul>
+<li><a href=https://github.com/konvajs/react-konva target=_blank rel="noopener noreferrer">konvajs/react-konva</a>
+<ul>
+<li>基于 <a href=https://github.com/konvajs/konva target=_blank rel="noopener noreferrer">konvajs/konva</a></li>
+</ul>
+</li>
+<li><del><a href=https://github.com/Flipboard/react-canvas target=_blank rel="noopener noreferrer">Flipboard/react-canvas</a></del>
+<ul>
+<li>停止</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Native
+<ul>
+<li><a href=https://github.com/react-native-skia/react-native-skia target=_blank rel="noopener noreferrer">react-native-skia/react-native-skia</a></li>
+<li><a href=https://github.com/Shopify/react-native-skia target=_blank rel="noopener noreferrer">Shopify/react-native-skia</a></li>
+<li><a href=https://github.com/iddan/react-native-canvas target=_blank rel="noopener noreferrer">iddan/react-native-canvas</a></li>
+</ul>
+</li>
+<li>小程序/跨端
+<ul>
+<li><a href=/notes/web/framework/taro>taro</a>
+<ul>
+<li>by 京东</li>
+</ul>
+</li>
+<li><a href=/notes/web/framework/remax>remax</a>
+<ul>
+<li>by 蚂蚁金服</li>
+<li>基于 react-reconciler</li>
+</ul>
+</li>
+<li>nanachi
+<ul>
+<li>by 去哪儿</li>
+</ul>
+</li>
+<li>rax
+<ul>
+<li>by 淘宝</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Terminal
+<ul>
+<li><a href=https://github.com/Yomguithereal/react-blessed target=_blank rel="noopener noreferrer">Yomguithereal/react-blessed</a>
+<ul>
+<li>blessed</li>
+</ul>
+</li>
+<li><a href=https://github.com/vadimdemedes/ink target=_blank rel="noopener noreferrer">vadimdemedes/ink</a>
+<ul>
+<li>终端 渲染引擎</li>
+<li><a href=https://github.com/vadimdemedes/ink-ui target=_blank rel="noopener noreferrer">vadimdemedes/ink-ui</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/vadimdemedes/pastel target=_blank rel="noopener noreferrer">vadimdemedes/pastel</a>
+<ul>
+<li>Next.js-like framework for CLIs made with Ink</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Documents
+<ul>
+<li><a href=https://github.com/diegomura/react-pdf target=_blank rel="noopener noreferrer">diegomura/react-pdf</a>
+<ul>
+<li>使用 react 创建 PDF</li>
+<li>渲染 PDF</li>
+</ul>
+</li>
+<li><a href=https://github.com/wojtekmaj/react-pdf target=_blank rel="noopener noreferrer">wojtekmaj/react-pdf</a>
+<ul>
+<li>显示 PDF - 使用 pdfjs 并非 React 渲染</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/chentsulin/awesome-react-renderer target=_blank rel="noopener noreferrer">chentsulin/awesome-react-renderer</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=有趣>有趣<a href=#有趣 class=hash-link aria-label="Direct link to 有趣" title="Direct link to 有趣" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/ui-layouts/cursify target=_blank rel="noopener noreferrer">ui-layouts/cursify</a>
+<ul>
+<li>Cursor Animation Library for React & Next.js</li>
+</ul>
+</li>
+<li><a href=https://stackblitz.com/edit/demo-react-portal-ksmarb target=_blank rel="noopener noreferrer">https://stackblitz.com/edit/demo-react-portal-ksmarb</a>
+<ul>
+<li>createPortal 就可以跨窗口</li>
+</ul>
+</li>
+<li><a href=https://github.com/ryanseddon/react-frame-component/blob/master/src/Frame.jsx#L133 target=_blank rel="noopener noreferrer">https://github.com/ryanseddon/react-frame-component/blob/master/src/Frame.jsx#L133</a>
+<ul>
+<li>createPortal 可以在 IFrame 里渲染</li>
+</ul>
+</li>
+<li><a href=https://github.com/remotion-dev/remotion target=_blank rel="noopener noreferrer">remotion-dev/remotion</a>
+<ul>
+<li>非 OSS 协议</li>
+<li>Create videos programmatically in React</li>
+</ul>
+</li>
+<li><a href=https://github.com/lahmatiy/react-render-tracker target=_blank rel="noopener noreferrer">lahmatiy/react-render-tracker</a></li>
+<li><a href=https://github.com/refinedev/refine target=_blank rel="noopener noreferrer">refinedev/refine</a>
+<ul>
+<li>Build your React-based CRUD applications, without constraints.</li>
+</ul>
+</li>
+<li><a href=https://github.com/Aristona/react-phaser-three-game target=_blank rel="noopener noreferrer">Aristona/react-phaser-three-game</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=internal>Internal<a href=#internal class=hash-link aria-label="Direct link to Internal" title="Direct link to Internal" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/Bogdan-Lyashenko/Under-the-hood-ReactJS target=_blank rel="noopener noreferrer">Bogdan-Lyashenko/Under-the-hood-ReactJS</a></li>
+<li><a href=https://indepth.dev/posts/1008/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react target=_blank rel="noopener noreferrer">Inside Fiber: in-depth overview of the new reconciliation algorithm in React</a></li>
+<li><a href=https://indepth.dev/posts/1009/in-depth-explanation-of-state-and-props-update-in-react target=_blank rel="noopener noreferrer">In-depth explanation of state and props update in React</a>
+<ul>
+<li><a href=https://indepth.dev/posts/1005/level-up-your-reverse-engineering-skills target=_blank rel="noopener noreferrer">Level Up Your Reverse Engineering Skills</a></li>
+</ul>
+</li>
+<li><a href=https://medium.com/react-in-depth/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-67f1014d0eb7 target=_blank rel="noopener noreferrer">why on React’s usage of linked list in Fiber to walk the component’s tree</a></li>
+<li><a href=https://overreacted.io/why-do-react-elements-have-typeof-property/ target=_blank rel="noopener noreferrer">Why Do React Elements Have a $$typeof Property?</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=reference-snippets>Reference Snippets<a href=#reference-snippets class=hash-link aria-label="Direct link to Reference Snippets" title="Direct link to Reference Snippets" translate=no>​</a></h2>
+<ul>
+<li><a href=https://codepen.io/mjijackson/pen/xOzyGX target=_blank rel="noopener noreferrer">codepen: Calculator</a></li>
+<li><a href=https://bitsrc.io/ target=_blank rel="noopener noreferrer">Bit.dev</a></li>
+<li><a href=https://www.primefaces.org/primereact/#/ target=_blank rel="noopener noreferrer">PrimeReact</a></li>
+<li><code>react-fast-compare</code> - Fast deep equal comparison for React</li>
+<li><code>react-hotkeys-hook</code> - React hook for hotkeys</li>
+<li><code>hotkeys-js</code> - A simple micro-library for defining and dispatching keyboard shortcuts</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=design--ui>Design & UI<a href=#design--ui class=hash-link aria-label="Direct link to Design & UI" title="Direct link to Design & UI" translate=no>​</a></h2>
+<ul>
+<li><a href=https://medium.com/@learnreact/container-components-c0e67432e005 target=_blank rel="noopener noreferrer">Container Components</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=keyboard-shortcuts-ux>Keyboard Shortcuts UX<a href=#keyboard-shortcuts-ux class=hash-link aria-label="Direct link to Keyboard Shortcuts UX" title="Direct link to Keyboard Shortcuts UX" translate=no>​</a></h3>
+<ul>
+<li><a href=https://medium.com/@sashika/j-k-or-how-to-choose-keyboard-shortcuts-for-web-applications-a7c3b7b408ee target=_blank rel="noopener noreferrer">How to choose keyboard shortcuts for web applications</a></li>
+</ul>
+<p><strong>Reference Implementations:</strong></p>
+<ul>
+<li><strong>Gmail</strong>: <a href="https://support.google.com/mail/answer/6594?co=GENIE.Platform%3DDesktop&hl=en" target=_blank rel="noopener noreferrer">Keyboard shortcuts</a></li>
+<li><strong>Google Drive</strong>: <a href="https://support.google.com/drive/answer/2563044?hl=en" target=_blank rel="noopener noreferrer">Keyboard shortcuts</a></li>
+<li><strong>Google Docs</strong>: <a href="https://support.google.com/docs/answer/179738?co=GENIE.Platform%3DDesktop&hl=en" target=_blank rel="noopener noreferrer">Keyboard shortcuts</a>
+<ul>
+<li><code>Ctrl + /</code> (Win) / <code>Cmd + /</code> (Mac): Open shortcuts list</li>
+<li><code>Alt + /</code> (Win) / <code>Option + /</code> (Mac): Search menus</li>
+<li><code>Alt + Shift + z</code></li>
+</ul>
+</li>
+<li><strong>Google Chrome</strong>: <code>Alt + z</code></li>
+</ul>
+<p><strong>Symbols:</strong></p>
+<ul>
+<li><code>⌘</code> Command</li>
+<li><code>⌃</code> Control</li>
+<li><code>⌥</code> Option (Alt)</li>
+<li><code>⇧</code> Shift</li>
+<li><code>⇪</code> Caps Lock</li>
+<li><code>↩︎</code> Return/Enter</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/awesome>Awesome</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/web/react/react-awesome.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-01-03T14:49:30.000Z itemprop=dateModified>Jan 3, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/web/react/radix><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>radix</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/web/react/buddy><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>React Buddy</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#ui-framework class="table-of-contents__link toc-highlight">通用 UI 组件</a><li><a href=#headless-ui class="table-of-contents__link toc-highlight">Headless UI 组件</a><li><a href=#mobile-ui class="table-of-contents__link toc-highlight">移动端 UI 组件</a><li><a href=#ui-component class="table-of-contents__link toc-highlight">专用 UI 组件</a><ul><li><a href=#editor class="table-of-contents__link toc-highlight">编辑器</a></ul><li><a href=#router class="table-of-contents__link toc-highlight">路由</a><li><a href=#功能组件 class="table-of-contents__link toc-highlight">功能组件</a><ul><li><a href=#虚拟滚动 class="table-of-contents__link toc-highlight">虚拟滚动</a></ul><li><a href=#数据校验 class="table-of-contents__link toc-highlight">数据校验</a><li><a href=#form class="table-of-contents__link toc-highlight">Form</a><li><a href=#样式 class="table-of-contents__link toc-highlight">样式</a><li><a href=#hooks class="table-of-contents__link toc-highlight">Hooks</a><li><a href=#状态管理 class="table-of-contents__link toc-highlight">状态管理</a><li><a href=#图表 class="table-of-contents__link toc-highlight">图表</a><li><a href=#开发工具生态 class="table-of-contents__link toc-highlight">开发工具/生态</a><li><a href=#工具 class="table-of-contents__link toc-highlight">工具</a><li><a href=#动画 class="table-of-contents__link toc-highlight">动画</a><li><a href=#功能 class="table-of-contents__link toc-highlight">功能</a><li><a href=#参考 class="table-of-contents__link toc-highlight">参考</a><li><a href=#renderingnative class="table-of-contents__link toc-highlight">Rendering/Native</a><li><a href=#有趣 class="table-of-contents__link toc-highlight">有趣</a><li><a href=#internal class="table-of-contents__link toc-highlight">Internal</a><li><a href=#reference-snippets class="table-of-contents__link toc-highlight">Reference Snippets</a><li><a href=#design--ui class="table-of-contents__link toc-highlight">Design & UI</a><ul><li><a href=#keyboard-shortcuts-ux class="table-of-contents__link toc-highlight">Keyboard Shortcuts UX</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

@@ -1,0 +1,1123 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-service/network/proxy/proxy-awesome" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>Proxy Awesome | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/service/network/proxy/awesome /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Proxy Awesome | Wener Live & Life"/><meta data-rh=true name=description content=协议 /><meta data-rh=true property=og:description content=协议 /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/service/network/proxy/awesome /><link data-rh=true rel=alternate href=https://wener.me/notes/service/network/proxy/awesome hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/service/network/proxy/awesome hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/service/","name":"服务","position":1},{"@type":"ListItem","item":"https://wener.me/notes/service/network/","name":"网络服务","position":2},{"@type":"ListItem","item":"https://wener.me/notes/service/network/proxy/","name":"代理","position":3},{"@type":"ListItem","item":"https://wener.me/notes/service/network/proxy/awesome","name":"Proxy Awesome","position":4}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Collapse sidebar category '服务'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/ais><span title="会计信息系统 (AIS)" class=linkLabel_JPPZ>会计信息系统 (AIS)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/analytics><span title=统计 class=categoryLinkLabel_RkOu>统计</span></a><button aria-label="Expand sidebar category '统计'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/api/awesome><span title=api class=categoryLinkLabel_RkOu>api</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/auth><span title=Auth class=categoryLinkLabel_RkOu>Auth</span></a><button aria-label="Expand sidebar category 'Auth'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/baas><span title="Backend as a Service" class=categoryLinkLabel_RkOu>Backend as a Service</span></a><button aria-label="Expand sidebar category 'Backend as a Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/bi><span title="Business Intelligence (BI)" class=categoryLinkLabel_RkOu>Business Intelligence (BI)</span></a><button aria-label="Expand sidebar category 'Business Intelligence (BI)'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/business/glossary><span title=business class=categoryLinkLabel_RkOu>business</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/cctv><span title=CCTV class=linkLabel_JPPZ>CCTV</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/cms><span title="CMS 概览" class=categoryLinkLabel_RkOu>CMS 概览</span></a><button aria-label="Expand sidebar category 'CMS 概览'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/collaboration><span title=协同软件 class=categoryLinkLabel_RkOu>协同软件</span></a><button aria-label="Expand sidebar category '协同软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/commerce><span title=电商 class=categoryLinkLabel_RkOu>电商</span></a><button aria-label="Expand sidebar category '电商'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/data><span title=数据 class=categoryLinkLabel_RkOu>数据</span></a><button aria-label="Expand sidebar category '数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/dev/backstage><span title=dev class=categoryLinkLabel_RkOu>dev</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/dns><span title="DNS Service" class=categoryLinkLabel_RkOu>DNS Service</span></a><button aria-label="Expand sidebar category 'DNS Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/document><span title=办公套件 class=categoryLinkLabel_RkOu>办公套件</span></a><button aria-label="Expand sidebar category '办公套件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/download><span title=下载器 class=categoryLinkLabel_RkOu>下载器</span></a><button aria-label="Expand sidebar category '下载器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/edms><span title=档案管理 class=categoryLinkLabel_RkOu>档案管理</span></a><button aria-label="Expand sidebar category '档案管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/email><span title=EMail class=categoryLinkLabel_RkOu>EMail</span></a><button aria-label="Expand sidebar category 'EMail'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/erp><span title=ERP class=categoryLinkLabel_RkOu>ERP</span></a><button aria-label="Expand sidebar category 'ERP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/file><span title="File Sharing & Storage Services" class=categoryLinkLabel_RkOu>File Sharing & Storage Services</span></a><button aria-label="Expand sidebar category 'File Sharing & Storage Services'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/financial/awesome><span title=financial class=categoryLinkLabel_RkOu>financial</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/forge><span title=Forge class=categoryLinkLabel_RkOu>Forge</span></a><button aria-label="Expand sidebar category 'Forge'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/forum/awesome><span title=forum class=categoryLinkLabel_RkOu>forum</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/game/gba><span title=game class=categoryLinkLabel_RkOu>game</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/geo/awesome><span title=geo class=categoryLinkLabel_RkOu>geo</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/im><span title="Instant Messaging" class=categoryLinkLabel_RkOu>Instant Messaging</span></a><button aria-label="Expand sidebar category 'Instant Messaging'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/lms><span title=LMS class=linkLabel_JPPZ>LMS</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/media><span title=Media class=categoryLinkLabel_RkOu>Media</span></a><button aria-label="Expand sidebar category 'Media'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/message><span title="Message Service" class=categoryLinkLabel_RkOu>Message Service</span></a><button aria-label="Expand sidebar category 'Message Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/messaging/centrifugo><span title=messaging class=categoryLinkLabel_RkOu>messaging</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/service/network><span title=网络服务 class=categoryLinkLabel_RkOu>网络服务</span></a><button aria-label="Collapse sidebar category '网络服务'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/arkime><span title=Arkime class=linkLabel_JPPZ>Arkime</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/avahi><span title=Avahi class=linkLabel_JPPZ>Avahi</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/coturn><span title=coturn class=linkLabel_JPPZ>coturn</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/curl><span title=curl class=linkLabel_JPPZ>curl</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/network/dhcp><span title=DHCP class=categoryLinkLabel_RkOu>DHCP</span></a><button aria-label="Expand sidebar category 'DHCP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/gfw><span title=GFW class=linkLabel_JPPZ>GFW</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/mitmproxy><span title=MitmProxy class=linkLabel_JPPZ>MitmProxy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/nat><span title=NAT class=linkLabel_JPPZ>NAT</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/net-snmp><span title=NetSNMP class=linkLabel_JPPZ>NetSNMP</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/awesome><span title="Network Awesome" class=linkLabel_JPPZ>Network Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/faq><span title="Network FAQ" class=linkLabel_JPPZ>Network FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/nextdns><span title=NextDNS class=linkLabel_JPPZ>NextDNS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/nps><span title=nps class=linkLabel_JPPZ>nps</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/pac><span title="Proxy Auto Configuration (PAC)" class=linkLabel_JPPZ>Proxy Auto Configuration (PAC)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/service/network/proxy><span title=代理 class=categoryLinkLabel_RkOu>代理</span></a><button aria-label="Collapse sidebar category '代理'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/network/proxy/clash><span title=clash class=categoryLinkLabel_RkOu>clash</span></a><button aria-label="Expand sidebar category 'clash'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/dante><span title=Dante class=linkLabel_JPPZ>Dante</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/network/proxy/frp><span title=FRP class=categoryLinkLabel_RkOu>FRP</span></a><button aria-label="Expand sidebar category 'FRP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/ghproxy><span title=ghproxy class=linkLabel_JPPZ>ghproxy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/glider><span title=glider class=linkLabel_JPPZ>glider</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/gost><span title=gost class=linkLabel_JPPZ>gost</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/http><span title="HTTP Proxy" class=linkLabel_JPPZ>HTTP Proxy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/hysteria><span title=hysteria class=linkLabel_JPPZ>hysteria</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/mieru><span title=mieru class=linkLabel_JPPZ>mieru</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/network/proxy/mihomo><span title=mihomo class=categoryLinkLabel_RkOu>mihomo</span></a><button aria-label="Expand sidebar category 'mihomo'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/pac><span title=PAC class=linkLabel_JPPZ>PAC</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/privoxy-action><span title="Privoxy Action" class=linkLabel_JPPZ>Privoxy Action</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/privoxy><span title=Privoxy class=linkLabel_JPPZ>Privoxy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/service/network/proxy/awesome><span title="Proxy Awesome" class=linkLabel_JPPZ>Proxy Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/faq><span title="Proxy FAQ" class=linkLabel_JPPZ>Proxy FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/proxychain-ng><span title=proxychains-ng class=linkLabel_JPPZ>proxychains-ng</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/redir><span title=redir class=linkLabel_JPPZ>redir</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/shadowrocket><span title=Shadowrocket class=linkLabel_JPPZ>Shadowrocket</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/shadowsocks><span title=Shadowsocks class=linkLabel_JPPZ>Shadowsocks</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/network/proxy/sing-box><span title=sing-box class=categoryLinkLabel_RkOu>sing-box</span></a><button aria-label="Expand sidebar category 'sing-box'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/sni-rev-proxy><span title="SNI Reverse Proxy" class=linkLabel_JPPZ>SNI Reverse Proxy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/socks><span title=Socks class=linkLabel_JPPZ>Socks</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/stash><span title=Stash class=linkLabel_JPPZ>Stash</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/sub-store><span title=Sub-Store class=linkLabel_JPPZ>Sub-Store</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/tinyproxy><span title=tinyproxy class=linkLabel_JPPZ>tinyproxy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/tor><span title=Tor class=linkLabel_JPPZ>Tor</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/tproxy><span title=TProxy class=linkLabel_JPPZ>TProxy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy/tuic><span title=tuic class=linkLabel_JPPZ>tuic</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/network/proxy/v2ray><span title=V2Ray class=categoryLinkLabel_RkOu>V2Ray</span></a><button aria-label="Expand sidebar category 'V2Ray'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/proxy-ha><span title="Proxy HA & Protocol" class=linkLabel_JPPZ>Proxy HA & Protocol</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/remotedialer><span title=remotedialer class=linkLabel_JPPZ>remotedialer</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/snmp-mib><span title="SNMP MIB" class=linkLabel_JPPZ>SNMP MIB</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/network/spec/http><span title=spec class=categoryLinkLabel_RkOu>spec</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/squid-conf><span title="Squid Conf" class=linkLabel_JPPZ>Squid Conf</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/squid><span title=Squid class=linkLabel_JPPZ>Squid</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/stun><span title=stun class=linkLabel_JPPZ>stun</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/teleport><span title=Teleport class=linkLabel_JPPZ>Teleport</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/network/tunnel><span title=Tunnel class=categoryLinkLabel_RkOu>Tunnel</span></a><button aria-label="Expand sidebar category 'Tunnel'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/tunnel><span title="Network Tunnel" class=linkLabel_JPPZ>Network Tunnel</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/turn><span title=turn class=linkLabel_JPPZ>turn</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/villian><span title=Villian class=linkLabel_JPPZ>Villian</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/vlan><span title=VLAN class=linkLabel_JPPZ>VLAN</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/network/vpn><span title=VPN class=categoryLinkLabel_RkOu>VPN</span></a><button aria-label="Expand sidebar category 'VPN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/network/wireshark><span title=Wireshark class=linkLabel_JPPZ>Wireshark</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/notification><span title="Notification Service" class=categoryLinkLabel_RkOu>Notification Service</span></a><button aria-label="Expand sidebar category 'Notification Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/notion><span title=Notion class=linkLabel_JPPZ>Notion</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/observability><span title=可观察性 class=categoryLinkLabel_RkOu>可观察性</span></a><button aria-label="Expand sidebar category '可观察性'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/p2p/ipfs><span title=p2p class=categoryLinkLabel_RkOu>p2p</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/password><span title=密码管理 class=categoryLinkLabel_RkOu>密码管理</span></a><button aria-label="Expand sidebar category '密码管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/placeholder><span title=Placeholder class=linkLabel_JPPZ>Placeholder</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/realtime><span title=Realtime class=categoryLinkLabel_RkOu>Realtime</span></a><button aria-label="Expand sidebar category 'Realtime'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/search/awesome><span title=search class=categoryLinkLabel_RkOu>search</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/security/infisical><span title=security class=categoryLinkLabel_RkOu>security</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/selfhost><span title=SelfHost class=categoryLinkLabel_RkOu>SelfHost</span></a><button aria-label="Expand sidebar category 'SelfHost'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/serverless><span title=Serverless class=categoryLinkLabel_RkOu>Serverless</span></a><button aria-label="Expand sidebar category 'Serverless'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/awesome><span title="Service Awesome" class=linkLabel_JPPZ>Service Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/faq><span title="Service FAQ" class=linkLabel_JPPZ>Service FAQ</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/storage><span title=存储服务 class=categoryLinkLabel_RkOu>存储服务</span></a><button aria-label="Expand sidebar category '存储服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/telecom/device><span title=telecom class=categoryLinkLabel_RkOu>telecom</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/torrent><span title=Torrent class=categoryLinkLabel_RkOu>Torrent</span></a><button aria-label="Expand sidebar category 'Torrent'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/vpn/goproxy><span title=vpn class=categoryLinkLabel_RkOu>vpn</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/wiki><span title=Wiki class=categoryLinkLabel_RkOu>Wiki</span></a><button aria-label="Expand sidebar category 'Wiki'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/workflow><span title=Workflow class=categoryLinkLabel_RkOu>Workflow</span></a><button aria-label="Expand sidebar category 'Workflow'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/xaas/awesome><span title=xaas class=categoryLinkLabel_RkOu>xaas</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/service><span>服务</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/service/network><span>网络服务</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/service/network/proxy><span>代理</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Proxy Awesome</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Proxy Awesome</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=protocol>协议<a href=#protocol class=hash-link aria-label="Direct link to 协议" title="Direct link to 协议" translate=no>​</a></h2>
+<blockquote>
+<p><strong>Note</strong></p>
+<ul>
+<li>建议基于 overlay 组件内部 proxy，更安全，更好跨网。</li>
+<li>对外暴露甚至选择</li>
+</ul>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>protocol<th>transport<th>UDP<th>Note<tbody><tr><td>socks4<td>tcp<td>❌<td><tr><td>socks5<td>tcp<td>✅<td><tr><td>http<td>http<td>❌<td><tr><td>https<td><td><td><tr><td>ss/ShadowSocks<td>tcp,ws,quic,http<td>✅<td><tr><td>ssr/ShadowSocksR<td><td>✅<td><tr><td>vmess<td>tcp,ws,http,h2,grpc<td>✅<td>V2Ray<tr><td>vless<td><td><td>by XTLS<tr><td>snell<td>tcp<td>❌<td>surge<tr><td>trojan<td>h2,http,grpc,ws<td>✅<td><tr><td>tuic<td>quic<td><td><tr><td>hysteria<td>quic<td><td><tr><td>hysteria2<td>http3, 0rtt udp<td><td><tr><td>wireguard<td><td><td>用户空间实现可作为代理<tr><td>juicity<td>quic<td><td><tr><td>reality<td><td><td>by XTLS</table>
+<ul>
+<li><a href=https://github.com/juicity/juicity target=_blank rel="noopener noreferrer">juicity</a>
+<ul>
+<li>AGPLv3, Golang</li>
+<li>quic-based, inspired by tuic</li>
+</ul>
+</li>
+<li><a href=/notes/service/network/proxy/tuic>TUIC</a></li>
+<li><a href=https://github.com/trojan-gfw/trojan target=_blank rel="noopener noreferrer">trojan</a>
+<ul>
+<li>伪装 tls/https</li>
+<li>必须 TLS</li>
+<li>WS+TLS</li>
+<li>伪装非常好</li>
+</ul>
+</li>
+<li>VLESS
+<ul>
+<li>更轻量的协议，无需加密，常配合 TLS 使用</li>
+<li>推荐 VLESS+TLS</li>
+<li>vs Trojan
+<ul>
+<li>性能更好一点</li>
+<li>TLS 非必须</li>
+<li>配置更简单一些</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><del><a href=https://www.v2ray.com/en/configuration/protocols/vmess.html target=_blank rel="noopener noreferrer">vmess</a></del>
+<ul>
+<li>V2Ray 原生加密协议，自带加密</li>
+<li>支持非常复杂的协议配置</li>
+<li>有点过于复杂和臃肿</li>
+</ul>
+</li>
+<li><a href=https://github.com/XTLS/REALITY target=_blank rel="noopener noreferrer">XTLS/REALITY</a>
+<ul>
+<li>MPL-2.0, Go</li>
+<li>替代 TLS，消除服务端 TLS 指纹特征</li>
+</ul>
+</li>
+<li><a href=https://github.com/surge-networks/snell target=_blank rel="noopener noreferrer">snell</a></li>
+<li>hysteria
+<ul>
+<li>v1 和 v2 不兼容</li>
+</ul>
+</li>
+<li>brook wss
+<ul>
+<li><a href=https://github.com/txthinking/brook target=_blank rel="noopener noreferrer">https://github.com/txthinking/brook</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/enfein/mieru target=_blank rel="noopener noreferrer">enfein/mieru</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>TCP or UDP protocol-based socks5 / HTTP / HTTPS proxy</li>
+<li>一些设计思考 <a href=https://github.com/enfein/mieru/issues/8 target=_blank rel="noopener noreferrer">https://github.com/enfein/mieru/issues/8</a></li>
+</ul>
+</li>
+<li>naive</li>
+<li>http proxy
+<ul>
+<li>nginx</li>
+<li>squid</li>
+<li><a href=/notes/service/network/proxy/tinyproxy>tinyproxy</a></li>
+<li><a href=/notes/service/network/proxy/privoxy>Privoxy</a></li>
+</ul>
+</li>
+<li>socks proxy
+<ul>
+<li><a href=/notes/service/network/proxy/dante>dante</a></li>
+</ul>
+</li>
+<li>ss - ShadowSocks</li>
+<li>ssr - ShadowSocksR</li>
+<li><a href=https://github.com/klzgrad/naiveproxy target=_blank rel="noopener noreferrer">klzgrad/naiveproxy</a>
+<ul>
+<li>BSD-3, C++</li>
+<li>复用 Chromium 网络栈</li>
+<li>TLS, HTTP/2</li>
+</ul>
+</li>
+<li>obfs - 混淆 - 用于 ss,ssr,hysteria
+<ul>
+<li>tls1.2_ticket_auth, tls1.2_ticket_fastauth</li>
+<li>http_simple, http_post</li>
+</ul>
+</li>
+<li>CCProxy, Proxycap, Proxifier</li>
+<li>Tunnel
+<ul>
+<li><a href=https://github.com/ginuerzh/gost target=_blank rel="noopener noreferrer">ginuerzh/gost</a></li>
+<li>kcp</li>
+</ul>
+</li>
+<li><a href=https://github.com/quic-go/masque-go target=_blank rel="noopener noreferrer">quic-go/masque-go</a>
+<ul>
+<li>MIT, Go</li>
+<li>MASQUE: Proxying UDP in HTTP/3, RFC 9298</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=tunnel>Tunnel<a href=#tunnel class=hash-link aria-label="Direct link to Tunnel" title="Direct link to Tunnel" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/XX-net/XX-Net target=_blank rel="noopener noreferrer">XX-net/XX-Net</a>
+<ul>
+<li>LGPL-3.0, Python</li>
+<li>A proxy tool to bypass GFW</li>
+</ul>
+</li>
+<li><a href=https://github.com/snail007/goproxy target=_blank rel="noopener noreferrer">snail007/goproxy</a>
+<ul>
+<li>GPL-3.0, Go</li>
+</ul>
+</li>
+<li><a href=/notes/service/network/proxy/frp>frp</a></li>
+<li><a href=https://github.com/rapiz1/rathole target=_blank rel="noopener noreferrer">rapiz1/rathole</a>
+<ul>
+<li>Apache-2.0, Rust</li>
+<li>类似 frp，但 rust 实现</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl https://1.1.1.1/cdn-cgi/trace</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl https://wener.me/cdn-cgi/trace</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=awesome>Awesome<a href=#awesome class=hash-link aria-label="Direct link to Awesome" title="Direct link to Awesome" translate=no>​</a></h2>
+<blockquote>
+<p><strong>Note</strong> Server/universal</p>
+<ul>
+<li>入站和出站都支持多种协议</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> Client</p>
+<ul>
+<li>支持订阅</li>
+<li>强调规则</li>
+<li>支持较多出站协议 - outbound</li>
+<li>至少支持 socks 或 http 入站 - 最常用本地代理</li>
+<li>支持更多的接入逻辑 - 透明代理、tun、ebpf、redir、tproxy</li>
+<li>支持多路复用</li>
+<li>支持负载均衡</li>
+<li>支持 DNS</li>
+</ul>
+</blockquote>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>tip</div><div class=admonitionContent_R6P7><ul>
+<li>macOS 只能使用 tun 做全局代理</li>
+<li>TUN macOS/Windows 无法自动劫持发往局域网的 dns 请求
+<ul>
+<li>因为不会走 TUN interface</li>
+</ul>
+</li>
+<li>Linux 可以选择 redir/tproxy 做全局代理</li>
+<li>LAN 可以使用 DNS+SNI 做部分全局透明代理</li>
+<li>本机可以使用 TUN+Route 做全局代理</li>
+<li>TUN 模式不支持 ICMP
+<ul>
+<li>基本没有实现 ICMP 代理的，因此开发场景不建议本地使用 TUN 代理</li>
+<li>不能使用 ping 很多时候无法排查网络问题</li>
+</ul>
+</li>
+</ul></div></div>
+<ul>
+<li>GUI/客户端
+<ul>
+<li><a href=https://github.com/2dust/v2rayN target=_blank rel="noopener noreferrer">2dust/v2rayN</a>
+<ul>
+<li>clashN 合并到 v2rayN</li>
+<li><del><a href=https://github.com/2dust/clashN target=_blank rel="noopener noreferrer">2dust/clashN</a></del>
+<ul>
+<li>Windows</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/clash-verge-rev/clash-verge-rev target=_blank rel="noopener noreferrer">clash-verge-rev/clash-verge-rev</a>
+<ul>
+<li>GPLv3, TS, Rust</li>
+<li>GUI client based on Tauri, designed to run in Windows, macOS and Linux</li>
+<li>mihomo 内核</li>
+</ul>
+</li>
+<li><a href=https://github.com/MatsuriDayo/nekoray target=_blank rel="noopener noreferrer">MatsuriDayo/nekoray</a>
+<ul>
+<li>GPLv3, C++, QT</li>
+<li>sing-box</li>
+<li>Windows/Linux</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>App/移动端
+<ul>
+<li><a href=https://github.com/MatsuriDayo/NekoBoxForAndroid target=_blank rel="noopener noreferrer">MatsuriDayo/NekoBoxForAndroid</a>
+<ul>
+<li>NekoBox for Android / sing-box / universal proxy toolchain for Android</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内核/通用/平台/Universal
+<ul>
+<li><a href=/notes/service/network/proxy/mihomo>MetaCubeX/mihomo</a>
+<ul>
+<li>GPLv3, Go</li>
+<li>Clash.Meta -> mihomo</li>
+<li>💡 适合做客户端，支持的入站协议不多</li>
+<li>支持出站传输协议 VLESS Reality, Vision, Trojan XTLS, Hysteria, TUIC, ShadowTLS</li>
+<li>规则支持 GEOSITE</li>
+<li>支持 TUN</li>
+<li><a href=https://github.com/zzzgydi/clash-verge target=_blank rel="noopener noreferrer">zzzgydi/clash-verge</a>
+<ul>
+<li>GPLv3, Rust+Typescript</li>
+<li>基于 tauri 的桌面应用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=/notes/service/network/proxy/v2ray>v2ray</a></li>
+<li><a href=https://github.com/XTLS/Xray-core target=_blank rel="noopener noreferrer">XTLS/Xray-core</a>
+<ul>
+<li>MPLv2, Go</li>
+<li>不支持 TUN <a href=https://github.com/XTLS/Xray-core/issues/3576 target=_blank rel="noopener noreferrer">XTLS/Xray-core#3576</a></li>
+</ul>
+</li>
+<li><a href=/notes/service/network/proxy/sing-box>SagerNet/sing-box</a>
+<ul>
+<li>GPLv3, Golang</li>
+<li>universal proxy platform</li>
+</ul>
+</li>
+<li><del><a href=/notes/service/network/proxy/clash>clash</a></del>
+<ul>
+<li>rule based</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Dashboard/GUI
+<ul>
+<li><a href=https://github.com/MetaCubeX/metacubexd target=_blank rel="noopener noreferrer">MetaCubeX/metacubexd</a></li>
+<li><a href=https://github.com/MetaCubeX/Yacd-meta target=_blank rel="noopener noreferrer">MetaCubeX/Yacd-meta</a></li>
+</ul>
+</li>
+<li>Config
+<ul>
+<li><a href=https://clash.skk.moe/general target=_blank rel="noopener noreferrer">https://clash.skk.moe/general</a></li>
+<li><a href=https://github.com/SukkaW/Surge target=_blank rel="noopener noreferrer">https://github.com/SukkaW/Surge</a></li>
+</ul>
+</li>
+<li>服务/Servic/Socks/HTTP Proxy
+<ul>
+<li><a href=/notes/service/network/proxy/gost>ginuerzh/gost</a>
+<ul>
+<li>MIT, Golang</li>
+<li>GO Simple Tunnel</li>
+<li>多端口</li>
+<li>支持代理 HTTP/HTTPS/HTTP2/SOCKS4(A)/SOCKS5</li>
+<li>UDP over TCP</li>
+<li>TCP/UDP 透明代理/转发</li>
+<li>支持 Shadowsocks(TCP/UDP)</li>
+<li>支持 SNI 代理</li>
+<li>TUN/TAP</li>
+<li>权限控制</li>
+<li>负载均衡</li>
+<li>路由控制</li>
+<li>DNS 解析和代理</li>
+</ul>
+</li>
+<li><a href=/notes/service/network/proxy/glider>nadoo/glider</a>
+<ul>
+<li>类似 gost，但支持更多协议
+<ul>
+<li>只有 Listener 和 Forwarder</li>
+</ul>
+</li>
+<li>mix - http+socks5</li>
+<li>http</li>
+<li>socks5</li>
+<li>ss</li>
+<li><a href=https://github.com/trojan-gfw/trojan target=_blank rel="noopener noreferrer">trojan</a></li>
+<li>trojanc - cleartext</li>
+<li>vless</li>
+<li>vmess</li>
+<li>Forward/TCP - ssr, ssh. socks4, socks4a</li>
+<li>tcp, udp - tunnel</li>
+<li>tls, kcp, unic, vsock, smux, ws, wss, PROXY Protocol, simple obfs</li>
+<li>redir, redir6, TProxy</li>
+<li>reject</li>
+</ul>
+</li>
+<li><a href=https://github.com/hiddify/Hiddify-Manager target=_blank rel="noopener noreferrer">hiddify/Hiddify-Manager</a>
+<ul>
+<li>GPLv3, Python</li>
+</ul>
+</li>
+<li><a href=https://github.com/MHSanaei/3x-ui target=_blank rel="noopener noreferrer">MHSanaei/3x-ui</a>
+<ul>
+<li>Xray panel supporting multi-protocol multi-user expire day & traffic & IP limit (Vmess, Vless, Trojan, ShadowSocks, Wireguard, Tunnel, Mixed, HTTP)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Transparent/Protocol
+<ul>
+<li><a href=https://github.com/mezantrop/ts-warp target=_blank rel="noopener noreferrer">mezantrop/ts-warp</a>
+<ul>
+<li>BSD-2, C</li>
+</ul>
+</li>
+<li><a href=/notes/service/network/proxy/hysteria>HyNetwork/hysteria</a>
+<ul>
+<li>MIT, Go</li>
+</ul>
+</li>
+<li><a href=https://github.com/daeuniverse/dae target=_blank rel="noopener noreferrer">daeuniverse/dae</a>
+<ul>
+<li>AGPLv3, Go</li>
+<li>Linux >= 5.8</li>
+<li>eBPF</li>
+<li>/sys/fs/bpf</li>
+<li>eBPF-based Linux high-performance transparent proxy solution</li>
+<li><a href=https://github.com/daeuniverse/dae/blob/main/docs/en/proxy-protocols.md target=_blank rel="noopener noreferrer">https://github.com/daeuniverse/dae/blob/main/docs/en/proxy-protocols.md</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>命令行/CLI
+<ul>
+<li><a href=/notes/service/network/proxy/proxychain-ng>proxychain-ng</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/anderspitman/awesome-tunneling target=_blank rel="noopener noreferrer">anderspitman/awesome-tunneling</a>
+<ul>
+<li>MIT</li>
+<li>List of ngrok alternatives and other tunneling solutions</li>
+</ul>
+</li>
+<li><a href=https://github.com/hunshcn/gh-proxy target=_blank rel="noopener noreferrer">https://github.com/hunshcn/gh-proxy</a></li>
+<li><a href=https://github.com/heiher/hev-socks5-tproxy target=_blank rel="noopener noreferrer">heiher/hev-socks5-tproxy</a>
+<ul>
+<li>MIT, C</li>
+<li>A transparent proxy for Socks5 that supports Linux TProxy</li>
+</ul>
+</li>
+<li><a href=https://github.com/sower-proxy/sower target=_blank rel="noopener noreferrer">sower-proxy/sower</a>
+<ul>
+<li>MIT, Go</li>
+<li>High-performance proxy server</li>
+<li>透明代理</li>
+<li><a href=https://github.com/sower-proxy/sower/wiki target=_blank rel="noopener noreferrer">https://github.com/sower-proxy/sower/wiki</a></li>
+</ul>
+</li>
+<li>规则
+<ul>
+<li><a href=https://github.com/deezertidal/stash-override target=_blank rel="noopener noreferrer">https://github.com/deezertidal/stash-override</a>
+<ul>
+<li><a href=https://whatshub.top/ target=_blank rel="noopener noreferrer">https://whatshub.top/</a></li>
+</ul>
+</li>
+<li><a href=https://raw.githubusercontent.com/qsoyq/shell/main/config/stash/override/ad/youtube-remove-ads.stoverride target=_blank rel="noopener noreferrer">https://raw.githubusercontent.com/qsoyq/shell/main/config/stash/override/ad/youtube-remove-ads.stoverride</a></li>
+<li><a href=https://github.com/Script-Hub-Org/Script-Hub target=_blank rel="noopener noreferrer">https://github.com/Script-Hub-Org/Script-Hub</a></li>
+<li><a href=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml target=_blank rel="noopener noreferrer">https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml</a></li>
+</ul>
+</li>
+<li>GEO/GEOIP/GEOSITE
+<ul>
+<li><a href=https://github.com/v2fly/domain-list-community target=_blank rel="noopener noreferrer">v2fly/domain-list-community</a>
+<ul>
+<li><a href=https://github.com/v2fly/v2ray-core/blob/master/app/router/config.proto target=_blank rel="noopener noreferrer">https://github.com/v2fly/v2ray-core/blob/master/app/router/config.proto</a></li>
+<li>生成 PB 格式</li>
+</ul>
+</li>
+<li>mmdb - MaxMind DB
+<ul>
+<li><a href=https://maxmind.github.io/MaxMind-DB/ target=_blank rel="noopener noreferrer">https://maxmind.github.io/MaxMind-DB/</a></li>
+<li><a href=https://github.com/runk/node-maxmind target=_blank rel="noopener noreferrer">runk/node-maxmind</a>
+<ul>
+<li>NodeJS</li>
+</ul>
+</li>
+<li><a href=https://github.com/runk/mmdb-lib target=_blank rel="noopener noreferrer">runk/mmdb-lib</a>
+<ul>
+<li>MIT, Browser</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/MetaCubeX/meta-rules-dat target=_blank rel="noopener noreferrer">https://github.com/MetaCubeX/meta-rules-dat</a>
+<ul>
+<li><a href=https://github.com/MetaCubeX/meta-rules-dat/blob/master/.github/workflows/run.yml target=_blank rel="noopener noreferrer">https://github.com/MetaCubeX/meta-rules-dat/blob/master/.github/workflows/run.yml</a></li>
+<li><a href=https://github.com/metacubex/geo target=_blank rel="noopener noreferrer">https://github.com/metacubex/geo</a>
+<ul>
+<li>工具</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/Loyalsoldier/v2ray-rules-dat target=_blank rel="noopener noreferrer">Loyalsoldier/v2ray-rules-dat</a></li>
+<li><a href=https://github.com/Loyalsoldier/domain-list-custom target=_blank rel="noopener noreferrer">Loyalsoldier/domain-list-custom</a></li>
+<li>geoip2
+<ul>
+<li><a href=http://dev.maxmind.com/geoip/geoip2/geolite2/ target=_blank rel="noopener noreferrer">http://dev.maxmind.com/geoip/geoip2/geolite2/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Subscription Management
+<ul>
+<li><a href=https://github.com/sub-store-org/Sub-Store target=_blank rel="noopener noreferrer">sub-store-org/Sub-Store</a>
+<ul>
+<li>GPL-3.0, TypeScript, JavaScript</li>
+<li>Advanced Subscription Manager for QX, Loon, Surge, Stash, Egern and Shadowrocket</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">script:</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  shortcuts:</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    quic-googlevideo: network == 'udp' and (host.endswith('+.googlevideo.com') or host.endswith('+.googleapi.com'))</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">rules:</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  - SCRIPT,quic-googlevideo,REJECT</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=ios-client>iOS Client<a href=#ios-client class=hash-link aria-label="Direct link to iOS Client" title="Direct link to iOS Client" translate=no>​</a></h3>
+<ul>
+<li><a href=https://apps.apple.com/app/stash/id1596063349 target=_blank rel="noopener noreferrer">Stash</a> - Rule Based Proxy
+<ul>
+<li>$4</li>
+<li>支持 iPhone, iPad, AppleTV</li>
+<li>Clash 内核</li>
+<li>Test Flight <a href=https://testflight.apple.com/join/elwvzipQ target=_blank rel="noopener noreferrer">https://testflight.apple.com/join/elwvzipQ</a></li>
+<li><a href=https://t.me/RnNc2RaV8x0wMzQ0 target=_blank rel="noopener noreferrer">https://t.me/RnNc2RaV8x0wMzQ0</a></li>
+<li><a href=https://t.me/stashnetworks target=_blank rel="noopener noreferrer">https://t.me/stashnetworks</a></li>
+</ul>
+</li>
+<li><a href=https://apps.apple.com/app/shadowrocket/id932747118 target=_blank rel="noopener noreferrer">Shadowrocket</a>
+<ul>
+<li>$3</li>
+<li>支持 iPhone, iPad, AppleTV</li>
+</ul>
+</li>
+<li><a href=https://apps.apple.com/app/loon/id1373567447 target=_blank rel="noopener noreferrer">Loon</a>
+<ul>
+<li>$8</li>
+<li>支持 iPhone, iPad, AppleTV</li>
+</ul>
+</li>
+<li><a href=https://apps.apple.com/app/quantumult-x/id1443988620 target=_blank rel="noopener noreferrer">Quantumult X</a>
+<ul>
+<li>$8</li>
+<li>支持 macOS, iPhone, iPad, AppleTV</li>
+<li><a href=https://github.com/crossutility/Quantumult-X target=_blank rel="noopener noreferrer">https://github.com/crossutility/Quantumult-X</a></li>
+</ul>
+</li>
+<li><a href=https://apps.apple.com/app/sing-box/id6451272673 target=_blank rel="noopener noreferrer">SingBox</a>
+<ul>
+<li>免费</li>
+</ul>
+</li>
+<li><a href=https://apps.apple.com/app/pharos-pro/id1456610173 target=_blank rel="noopener noreferrer">Pharos Pro</a>
+<ul>
+<li>$3</li>
+<li>iPad, iPhone</li>
+</ul>
+</li>
+<li><a href=https://apps.apple.com/app/potatso/id1239860606 target=_blank rel="noopener noreferrer">Potatso</a>
+<ul>
+<li>Free</li>
+<li>iPad, iPhone</li>
+</ul>
+</li>
+<li>Surge 5 <a href=https://nssurge.com/buy_now target=_blank rel="noopener noreferrer">https://nssurge.com/buy_now</a>
+<ul>
+<li>$50</li>
+</ul>
+</li>
+<li>Clash for iOS
+<ul>
+<li>App Store <a href=https://apps.apple.com/us/app/choc/id1582542227 target=_blank rel="noopener noreferrer">https://apps.apple.com/us/app/choc/id1582542227</a></li>
+<li>Test Flight <a href=https://testflight.apple.com/join/J5QPqXKO target=_blank rel="noopener noreferrer">https://testflight.apple.com/join/J5QPqXKO</a></li>
+<li><a href=https://t.me/choc_channel target=_blank rel="noopener noreferrer">https://t.me/choc_channel</a></li>
+<li><a href=https://t.me/choc_chat target=_blank rel="noopener noreferrer">https://t.me/choc_chat</a></li>
+</ul>
+</li>
+<li>Proxyman
+<ul>
+<li><a href=https://github.com/ProxymanApp/atlantis target=_blank rel="noopener noreferrer">https://github.com/ProxymanApp/atlantis</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=配置>配置<a href=#配置 class=hash-link aria-label="Direct link to 配置" title="Direct link to 配置" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/xmdhs/clash2singbox target=_blank rel="noopener noreferrer">xmdhs/clash2singbox</a>
+<ul>
+<li>Clash.Mate -> SingBox</li>
+<li>Web 版 <a href=https://github.com/xmdhs/clash2sfa target=_blank rel="noopener noreferrer">xmdhs/clash2sfa</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/Toperlock/sing-box-subscribe target=_blank rel="noopener noreferrer">https://github.com/Toperlock/sing-box-subscribe</a>
+<ul>
+<li><a href=https://sing-box-subscribe.vercel.app target=_blank rel="noopener noreferrer">https://sing-box-subscribe.vercel.app</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/izumiChan16/clash_ini2sing-box target=_blank rel="noopener noreferrer">https://github.com/izumiChan16/clash_ini2sing-box</a></li>
+<li><a href=https://clash2sfa-xmdhs.koyeb.app target=_blank rel="noopener noreferrer">https://clash2sfa-xmdhs.koyeb.app</a></li>
+<li><a href=https://github.com/chika0801/sing-box-examples target=_blank rel="noopener noreferrer">https://github.com/chika0801/sing-box-examples</a></li>
+<li><a href=https://subconverters.com/ target=_blank rel="noopener noreferrer">https://subconverters.com/</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=sniffintrospection>Sniff/Introspection<a href=#sniffintrospection class=hash-link aria-label="Direct link to Sniff/Introspection" title="Direct link to Sniff/Introspection" translate=no>​</a></h2>
+<ul>
+<li>Charles - 商业
+<ul>
+<li>macOS</li>
+</ul>
+</li>
+<li>Proxyman - 商业
+<ul>
+<li>macOS</li>
+</ul>
+</li>
+<li><a href=/notes/service/network/mitmproxy>mitmproxy</a>
+<ul>
+<li><a href=https://github.com/lqqyt2423/go-mitmproxy target=_blank rel="noopener noreferrer">lqqyt2423/go-mitmproxy</a>
+<ul>
+<li>MIT, Golang</li>
+</ul>
+</li>
+<li><a href=https://github.com/AdguardTeam/gomitmproxy target=_blank rel="noopener noreferrer">AdguardTeam/gomitmproxy</a>
+<ul>
+<li>GPL-3.0, Golang</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Wireshark</li>
+<li>tshark</li>
+<li>tcpdump</li>
+<li>ngrep</li>
+<li><a href=https://github.com/requestly/requestly target=_blank rel="noopener noreferrer">requestly/requestly</a>
+<ul>
+<li><a href=https://requestly.io/proxyman target=_blank rel="noopener noreferrer">https://requestly.io/proxyman</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=http-proxy>HTTP 代理<a href=#http-proxy class=hash-link aria-label="Direct link to HTTP 代理" title="Direct link to HTTP 代理" translate=no>​</a></h2>
+<ul>
+<li>CONNECT 会用于建立 TCP 通道
+<ul>
+<li>通常是用于 https</li>
+<li>非 https 的时候会直接发起 GET 这样的请求</li>
+</ul>
+</li>
+<li>Path 不会参与代理协议</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 会发起 GET 请求</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -x http://127.0.0.1:8080 icanhazip.com -v</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 相同</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -x http://127.0.0.1:8080 https://icanhazip.com -v</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -x http://127.0.0.1:8080/proxy https://icanhazip.com -v</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># http2</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># ==========</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># HTTP Upgrade</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -v --http2 http://localhost:8000</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># GET / HTTP/2</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -v --http2-prior-knowledge http://localhost:8000</span><br/></span></code></pre></div></div>
+<h1>库</h1>
+<ul>
+<li><a href=https://github.com/eycorsican/leaf target=_blank rel="noopener noreferrer">eycorsican/leaf</a>
+<ul>
+<li>Apachev2, Rust</li>
+</ul>
+</li>
+<li><a href=https://github.com/Koolson/Qure target=_blank rel="noopener noreferrer">Koolson/Qure</a>
+<ul>
+<li>Quantumult X Policy Icon Set</li>
+</ul>
+</li>
+<li><a href=https://github.com/crossutility/Quantumult-X target=_blank rel="noopener noreferrer">crossutility/Quantumult-X</a>
+<ul>
+<li>Quantumult X scripts and rules</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=golang>Golang<a href=#golang class=hash-link aria-label="Direct link to Golang" title="Direct link to Golang" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/p4gefau1t/trojan-go target=_blank rel="noopener noreferrer">p4gefau1t/trojan-go</a>
+<ul>
+<li>GPL-3.0, Go</li>
+<li>A Trojan proxy written in Go</li>
+</ul>
+</li>
+<li><a href=https://github.com/mingcheng/socks5lb target=_blank rel="noopener noreferrer">mingcheng/socks5lb</a>
+<ul>
+<li>MIT, Go</li>
+<li>A simple socks5 load balancer</li>
+</ul>
+</li>
+<li><a href=https://golang.org/pkg/net/http/httputil/#ReverseProxy target=_blank rel="noopener noreferrer">httputil.ReverseProxy</a></li>
+<li><a href=https://github.com/google/huproxy target=_blank rel="noopener noreferrer">google/huproxy</a>
+<ul>
+<li>Server/Client 结构</li>
+<li>与 HTTP 并存</li>
+<li>支持 Path</li>
+<li>利用 Connection-Upgrade 升级为其他协议</li>
+</ul>
+</li>
+<li><a href=https://github.com/google/inverting-proxy target=_blank rel="noopener noreferrer">google/inverting-proxy</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>Reverse proxy that inverts the direction of traffic</li>
+</ul>
+</li>
+<li><a href=https://github.com/google/martian target=_blank rel="noopener noreferrer">google/martian</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>Library for building custom HTTP/S proxies</li>
+</ul>
+</li>
+<li><a href=https://github.com/antoniomika/sish target=_blank rel="noopener noreferrer">antoniomika/sish</a>
+<ul>
+<li>MIT, Go</li>
+<li>HTTP(S)/WS(S)/TCP Tunnels to localhost using only SSH</li>
+</ul>
+</li>
+<li><a href=https://github.com/jamescun/switcher target=_blank rel="noopener noreferrer">jamescun/switcher</a>
+<ul>
+<li>MIT, Go</li>
+<li>SSH and HTTP server on the same port</li>
+</ul>
+</li>
+<li><a href=https://github.com/inetaf/tcpproxy target=_blank rel="noopener noreferrer">inetaf/tcpproxy</a>
+<ul>
+<li>MIT, Go</li>
+<li>TCP proxy with support for static rules (Host header, SNI)</li>
+</ul>
+</li>
+<li><a href=https://github.com/akutz/memconn target=_blank rel="noopener noreferrer">akutz/memconn</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>In-memory network stack for Go</li>
+<li><a href=https://akutz.wordpress.com/2018/04/20/memconn/ target=_blank rel="noopener noreferrer">MemConn: an in-memory network stack for Go</a></li>
+<li>可用于测试或虚拟内部代理网络</li>
+</ul>
+</li>
+<li><a href=https://github.com/dshulyak/uring target=_blank rel="noopener noreferrer">dshulyak/uring</a></li>
+<li><a href=https://github.com/pojntfx/weron target=_blank rel="noopener noreferrer">pojntfx/weron</a>
+<ul>
+<li>AGPLv3, Golang</li>
+<li>Overlay networks based on WebRTC</li>
+</ul>
+</li>
+<li>mux
+<ul>
+<li><a href=https://github.com/SagerNet/sing-mux target=_blank rel="noopener noreferrer">SagerNet/sing-mux</a></li>
+<li><a href=https://github.com/xtaci/smux target=_blank rel="noopener noreferrer">xtaci/smux</a>
+<ul>
+<li>TCP, KCP</li>
+<li>Simple MUltipleXing</li>
+<li>高丢包、高延迟的网络环境下提升性能</li>
+</ul>
+</li>
+<li><a href=https://github.com/hashicorp/yamux target=_blank rel="noopener noreferrer">hashicorp/yamux</a>
+<ul>
+<li>MPLv2, Go</li>
+<li>connection multiplexing</li>
+</ul>
+</li>
+<li><a href=https://golang.org/x/net/http2 target=_blank rel="noopener noreferrer">golang.org/x/net/http2</a></li>
+</ul>
+</li>
+<li>transport
+<ul>
+<li>ws</li>
+<li>http</li>
+<li>grpc - 支持 mux, 不再需要 smux</li>
+<li>h2</li>
+<li>quic</li>
+<li>HTTPUpgrade</li>
+<li>参考
+<ul>
+<li><a href=https://sing-box.sagernet.org/configuration/shared/v2ray-transport/ target=_blank rel="noopener noreferrer">https://sing-box.sagernet.org/configuration/shared/v2ray-transport/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=其他语言>其他语言<a href=#其他语言 class=hash-link aria-label="Direct link to 其他语言" title="Direct link to 其他语言" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/yrutschle/sslh target=_blank rel="noopener noreferrer">yrutschle/sslh</a>
+<ul>
+<li>GPL-2.0, C</li>
+<li>Applicative Protocol Multiplexer (SSH, SSL, HTTP, etc.)</li>
+</ul>
+</li>
+<li><a href=https://github.com/joeferner/node-http-mitm-proxy target=_blank rel="noopener noreferrer">joeferner/node-http-mitm-proxy</a>
+<ul>
+<li>MIT, JavaScript</li>
+<li>HTTP Man-in-the-Middle Proxy</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=gfw>GFW<a href=#gfw class=hash-link aria-label="Direct link to GFW" title="Direct link to GFW" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/ValdikSS/GoodbyeDPI target=_blank rel="noopener noreferrer">ValdikSS/GoodbyeDPI</a>
+<ul>
+<li>Apache-2.0, C</li>
+<li>Deep Packet Inspection circumvention utility</li>
+<li><a href="https://news.ycombinator.com/item?id=32199468" target=_blank rel="noopener noreferrer">https://news.ycombinator.com/item?id=32199468</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/SadeghHayeri/GreenTunnel target=_blank rel="noopener noreferrer">SadeghHayeri/GreenTunnel</a>
+<ul>
+<li>MIT, JavaScript</li>
+<li>GreenTunnel is an anti-censorship utility designed to bypass the DPI systems implemented by various ISPs</li>
+</ul>
+</li>
+<li><a href=https://github.com/comwrg/FUCK-GFW target=_blank rel="noopener noreferrer">comwrg/FUCK-GFW</a>
+<ul>
+<li>WTFPL, Shell</li>
+<li>A shell script to fuck GFW</li>
+</ul>
+</li>
+<li><a href=https://github.com/haoel/haoel.github.io target=_blank rel="noopener noreferrer">haoel/haoel.github.io</a>
+<ul>
+<li>Personal blog about GFW bypass techniques</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=线路>线路<a href=#线路 class=hash-link aria-label="Direct link to 线路" title="Direct link to 线路" translate=no>​</a></h2>
+<ul>
+<li>CN1 - 163 骨干网 - 带宽容量大，价格便宜
+<ul>
+<li>as4134</li>
+<li><code>202.97.*</code></li>
+</ul>
+</li>
+<li>CN2 - 带宽容量较小，费用高
+<ul>
+<li>as4809</li>
+<li><code>59.43.*</code></li>
+<li>CN2 GT - Global Transit
+<ul>
+<li>出口单独线路，入口使用 163</li>
+</ul>
+</li>
+<li>CN2 GIA
+<ul>
+<li>独立的回国线路</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HK > CN2 GIA > CN2 GT</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=域名>域名<a href=#域名 class=hash-link aria-label="Direct link to 域名" title="Direct link to 域名" translate=no>​</a></h2>
+<ul>
+<li>常见需要代理域名
+<ul>
+<li>quora.com</li>
+<li>medium.com</li>
+</ul>
+</li>
+<li>可直接访问
+<ul>
+<li>gstatic.com</li>
+</ul>
+</li>
+<li>需要速度快 - 体验好
+<ul>
+<li>google.com</li>
+<li>github.com</li>
+</ul>
+</li>
+<li>大流量 - 带宽为主
+<ul>
+<li><a href=http://www.googleapis.com target=_blank rel="noopener noreferrer">www.googleapis.com</a>
+<ul>
+<li>Google 的云盘、对象存储</li>
+</ul>
+</li>
+<li>googlevideo.com
+<ul>
+<li>Youtube</li>
+</ul>
+</li>
+<li>svc.ms
+<ul>
+<li>OneDrive 下载</li>
+</ul>
+</li>
+<li>anonfiles.com</li>
+<li>codeload.github.com
+<ul>
+<li><code>https://codeload.github.com/&lt;org>/&lt;repo>/tar.gz/refs/tags/&lt;tag></code></li>
+</ul>
+</li>
+<li>objects.githubusercontent.com
+<ul>
+<li>Github Release</li>
+</ul>
+</li>
+<li>googleusercontent.com</li>
+</ul>
+</li>
+<li>google
+<ul>
+<li>goog</li>
+<li>google</li>
+<li>google.com</li>
+<li>googleusercontent.com</li>
+<li>gstatic.com</li>
+<li>ggpht.com
+<ul>
+<li>google maps</li>
+<li>profile</li>
+</ul>
+</li>
+<li><a href=https://developers.google.com/maps/gmp-domains target=_blank rel="noopener noreferrer">https://developers.google.com/maps/gmp-domains</a></li>
+</ul>
+</li>
+<li>TG - AS62041 - <a href=https://core.telegram.org/resources/cidr.txt target=_blank rel="noopener noreferrer">https://core.telegram.org/resources/cidr.txt</a> - <a href=https://ipinfo.io/AS62041 target=_blank rel="noopener noreferrer">https://ipinfo.io/AS62041</a>
+<ul>
+<li>91.108.56.0/22
+<ul>
+<li>91.108.56.150</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>nintendo
+<ul>
+<li>app.lp1.five.nintendo.net</li>
+<li>atum.hac.lp1.d4c.nintendo.net - 主要下载 CDN
+<ul>
+<li><a href=https://www.ping.cn/dns/atum.hac.lp1.d4c.nintendo.net target=_blank rel="noopener noreferrer">https://www.ping.cn/dns/atum.hac.lp1.d4c.nintendo.net</a></li>
+<li>23.56.180.81</li>
+<li>23.2.16.27</li>
+</ul>
+</li>
+<li>app-a03.lp1.npns.srv.nintendo.net</li>
+<li><a href=http://ctest.cdn.nintendo.net.akamaized.net target=_blank rel="noopener noreferrer">http://ctest.cdn.nintendo.net.akamaized.net</a>
+<ul>
+<li>网络检测</li>
+</ul>
+</li>
+<li>broker.lp1.npns.srv.nintendo.net</li>
+<li>bcat-list-lp1.cdn.nintendo.net</li>
+<li><a href=https://github.com/buggerman/SwitchBlockerForPiHole target=_blank rel="noopener noreferrer">https://github.com/buggerman/SwitchBlockerForPiHole</a></li>
+<li>receive-lp1.er.srv.nintendo.net
+<ul>
+<li>可以 blcok</li>
+<li>Error Reporting</li>
+</ul>
+</li>
+<li>香港 DNS:
+<ul>
+<li>208.67.222.222</li>
+<li>208.67.220.220</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=domains>Domains<a href=#domains class=hash-link aria-label="Direct link to Domains" title="Direct link to Domains" translate=no>​</a></h2>
+<ul>
+<li>min-api.cryptocompare.com</li>
+<li>webpkgcache.com</li>
+<li>gas-api.metaswap.codefi.network</li>
+<li>amdc.alipay.com
+<ul>
+<li>HTTP DNS</li>
+<li><code>curl -X POST amdc.alipay.com/squery</code></li>
+<li><a href=https://github.com/cxw620/AdGuard-Rules/issues/3 target=_blank rel="noopener noreferrer">https://github.com/cxw620/AdGuard-Rules/issues/3</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=adguard>ADGuard<a href=#adguard class=hash-link aria-label="Direct link to ADGuard" title="Direct link to ADGuard" translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">114.114.114.114</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">114.114.115.115</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">223.5.5.5</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">223.6.6.6</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">[/facebook.com/github.com/github.io/goog/google/google.com/hbo.com/imdb.com/instagram.com/jp/medium.com/mega.nz/netflix.com/nordvpn.com/pornhub.com/quora.com/rarbg.to/rarbgprx.org/reddit.com/slack.com/spotify.com/t.co/telegram.org/thepiratebay.org/twitter.com/uk/whatsapp.com/wikileaks.org/wikipedia.org/wikiquote.org/wsj.com/xvideos.com/youtube.com/okx.com/okpool.top/]https://dns.cloudflare.com/dns-query</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">[/nintendo.net/nintendo.com/]208.67.222.222</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://dns.pub/dns-query target=_blank rel="noopener noreferrer">https://dns.pub/dns-query</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=rules>Rules<a href=#rules class=hash-link aria-label="Direct link to Rules" title="Direct link to Rules" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/Loyalsoldier/v2ray-rules-dat target=_blank rel="noopener noreferrer">Loyalsoldier/v2ray-rules-dat</a>
+<ul>
+<li>Enhanced edition of V2Ray rules dat files</li>
+</ul>
+</li>
+<li><a href=https://github.com/Loyalsoldier/clash-rules target=_blank rel="noopener noreferrer">Loyalsoldier/clash-rules</a>
+<ul>
+<li>Clash rules</li>
+</ul>
+</li>
+<li><a href=https://github.com/Loyalsoldier/surge-rules target=_blank rel="noopener noreferrer">Loyalsoldier/surge-rules</a>
+<ul>
+<li>Surge rules</li>
+</ul>
+</li>
+<li><a href=https://github.com/Loyalsoldier/geoip target=_blank rel="noopener noreferrer">Loyalsoldier/geoip</a>
+<ul>
+<li>Enhanced edition of geoip dat files</li>
+</ul>
+</li>
+<li><a href=https://github.com/DustinWin/clash-geosite target=_blank rel="noopener noreferrer">https://github.com/DustinWin/clash-geosite</a></li>
+<li><a href=https://github.com/MetaCubeX/meta-rules-dat target=_blank rel="noopener noreferrer">https://github.com/MetaCubeX/meta-rules-dat</a></li>
+<li><a href=https://github.com/felixonmars/dnsmasq-china-list target=_blank rel="noopener noreferrer">felixonmars/dnsmasq-china-list</a></li>
+<li><a href=https://github.com/blackmatrix7/ios_rule_script target=_blank rel="noopener noreferrer">blackmatrix7/ios_rule_script</a>
+<ul>
+<li>iOS rule script</li>
+</ul>
+</li>
+<li><a href=https://github.com/SagerNet/sing-box target=_blank rel="noopener noreferrer">SagerNet/sing-box</a>
+<ul>
+<li>The universal proxy platform</li>
+</ul>
+</li>
+<li><a href=https://sing-box.sagernet.org/configuration/rule-set/adguard/ target=_blank rel="noopener noreferrer">https://sing-box.sagernet.org/configuration/rule-set/adguard/</a></li>
+<li><a href=https://github.com/AdguardTeam/AdGuardSDNSFilter target=_blank rel="noopener noreferrer">AdguardTeam/AdGuardSDNSFilter</a>
+<ul>
+<li>AdGuard DNS filter</li>
+</ul>
+</li>
+<li><a href=https://github.com/peiyingyao/Rule-for-OCD target=_blank rel="noopener noreferrer">peiyingyao/Rule-for-OCD</a>
+<ul>
+<li>Rules for OCD</li>
+</ul>
+</li>
+</ul>
+<h1>Game</h1>
+<blockquote>
+<p>游戏主要以 IP 为判断标准，且大多需要 UDP 协议，传统代理试用 域名 作为判断标准</p>
+</blockquote>
+<ul>
+<li>参考
+<ul>
+<li><a href=https://github.com/FQrabbit/SSTap-Rule target=_blank rel="noopener noreferrer">https://github.com/FQrabbit/SSTap-Rule</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=roblox>Roblox<a href=#roblox class=hash-link aria-label="Direct link to Roblox" title="Direct link to Roblox" translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">roblox.com</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">rbxcdn.com</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">rbxtrk.com</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">AS22697</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">AS11281</span><br/></span></code></pre></div></div>
+<p>腾讯代理</p>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">roblox.cn</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">roblox.qq.com</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">robloxdev.cn</span><br/></span></code></pre></div></div>
+<ul>
+<li>Roblox AS22697
+<ul>
+<li>AS136766 Luobu IPv4
+<ul>
+<li>中国, 深圳</li>
+</ul>
+</li>
+<li><a href=https://bgp.he.net/AS22697#_prefixes target=_blank rel="noopener noreferrer">https://bgp.he.net/AS22697#_prefixes</a></li>
+<li><a href=https://en.help.roblox.com/hc/en-us/articles/203312880-General-Connection-Problems target=_blank rel="noopener noreferrer">https://en.help.roblox.com/hc/en-us/articles/203312880-General-Connection-Problems</a>
+<ul>
+<li>UDP 49152 - 65535</li>
+<li>TCP: 3074</li>
+<li>UDP: 88, 500, 3074, 3544, 4500</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=nintendo>Nintendo<a href=#nintendo class=hash-link aria-label="Direct link to Nintendo" title="Direct link to Nintendo" translate=no>​</a></h2>
+<ul>
+<li><code>t-00000000-lp1.lp1.t.npln.srv.nintendo.net</code></li>
+<li><code>baas.nintendo.net</code></li>
+</ul>
+<h1>Misc</h1>
+<ul>
+<li><a href=https://github.com/net4people/bbs target=_blank rel="noopener noreferrer">net4people/bbs</a>
+<ul>
+<li>AGPL-3.0</li>
+<li>Forum for discussing Internet censorship</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=limits>Limits<a href=#limits class=hash-link aria-label="Direct link to Limits" title="Direct link to Limits" translate=no>​</a></h2>
+<ul>
+<li><a href=https://platform.openai.com/docs/supported-countries target=_blank rel="noopener noreferrer">https://platform.openai.com/docs/supported-countries</a></li>
+<li>Netflix HK 只能看自有，不能看授权内容</li>
+<li>tv.apple.com
+<ul>
+<li><a href=https://support.apple.com/zh-cn/HT204411 target=_blank rel="noopener noreferrer">https://support.apple.com/zh-cn/HT204411</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=testing>Testing<a href=#testing class=hash-link aria-label="Direct link to Testing" title="Direct link to Testing" translate=no>​</a></h2>
+<ul>
+<li>HTTP 204 无内容（No Content）</li>
+<li><a href=http://www.apple.com/library/test/success.html target=_blank rel="noopener noreferrer">http://www.apple.com/library/test/success.html</a></li>
+<li><a href=https://i.ytimg.com/generate_204 target=_blank rel="noopener noreferrer">https://i.ytimg.com/generate_204</a></li>
+<li><a href=https://www.gstatic.com/generate_204 target=_blank rel="noopener noreferrer">https://www.gstatic.com/generate_204</a></li>
+<li><a href=https://cp.cloudflare.com target=_blank rel="noopener noreferrer">https://cp.cloudflare.com</a></li>
+<li><a href=https://edge.microsoft.com/captiveportal/generate_204 target=_blank rel="noopener noreferrer">https://edge.microsoft.com/captiveportal/generate_204</a></li>
+<li><a href=https://cp.cloudflare.com/generate_204 target=_blank rel="noopener noreferrer">https://cp.cloudflare.com/generate_204</a></li>
+<li><a href=https://www.qualcomm.cn/generate_204 target=_blank rel="noopener noreferrer">https://www.qualcomm.cn/generate_204</a></li>
+<li><a href=https://connectivity.samsung.com.cn/generate_204 target=_blank rel="noopener noreferrer">https://connectivity.samsung.com.cn/generate_204</a></li>
+<li><a href=https://captiveportal.kuketz.de target=_blank rel="noopener noreferrer">https://captiveportal.kuketz.de</a></li>
+<li>中国国内
+<ul>
+<li><a href=http://wifi.vivo.com.cn/generate_204 target=_blank rel="noopener noreferrer">http://wifi.vivo.com.cn/generate_204</a></li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://imldy.cn/posts/99d42f85/ target=_blank rel="noopener noreferrer">https://imldy.cn/posts/99d42f85/</a></li>
+</ul>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/service>Service</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/network>Network</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/proxy>Proxy</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/awesome>Awesome</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/service/network/proxy/proxy-awesome.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-01-03T14:49:30.000Z itemprop=dateModified>Jan 3, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/service/network/proxy/privoxy><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Privoxy</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/service/network/proxy/faq><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Proxy FAQ</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#protocol class="table-of-contents__link toc-highlight">协议</a><li><a href=#tunnel class="table-of-contents__link toc-highlight">Tunnel</a><li><a href=#awesome class="table-of-contents__link toc-highlight">Awesome</a><ul><li><a href=#ios-client class="table-of-contents__link toc-highlight">iOS Client</a></ul><li><a href=#配置 class="table-of-contents__link toc-highlight">配置</a><li><a href=#sniffintrospection class="table-of-contents__link toc-highlight">Sniff/Introspection</a><li><a href=#http-proxy class="table-of-contents__link toc-highlight">HTTP 代理</a><li><a href=#golang class="table-of-contents__link toc-highlight">Golang</a><li><a href=#其他语言 class="table-of-contents__link toc-highlight">其他语言</a><li><a href=#gfw class="table-of-contents__link toc-highlight">GFW</a><li><a href=#线路 class="table-of-contents__link toc-highlight">线路</a><li><a href=#域名 class="table-of-contents__link toc-highlight">域名</a><li><a href=#domains class="table-of-contents__link toc-highlight">Domains</a><li><a href=#adguard class="table-of-contents__link toc-highlight">ADGuard</a><li><a href=#rules class="table-of-contents__link toc-highlight">Rules</a><li><a href=#roblox class="table-of-contents__link toc-highlight">Roblox</a><li><a href=#nintendo class="table-of-contents__link toc-highlight">Nintendo</a><li><a href=#limits class="table-of-contents__link toc-highlight">Limits</a><li><a href=#testing class="table-of-contents__link toc-highlight">Testing</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

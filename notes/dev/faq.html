@@ -1,0 +1,1373 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-dev/dev-faq" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>Dev FAQ | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/dev/faq /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Dev FAQ | Wener Live & Life"/><meta data-rh=true name=description content="- Optimize"/><meta data-rh=true property=og:description content="- Optimize"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/dev/faq /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/faq hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/faq hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/dev/","name":"开发","position":1},{"@type":"ListItem","item":"https://wener.me/notes/dev/faq","name":"Dev FAQ","position":2}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Collapse sidebar category '开发'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/arch><span title=Architecture class=linkLabel_JPPZ>Architecture</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/ascii><span title=ASCII class=linkLabel_JPPZ>ASCII</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/benchmark><span title=Benchmark class=linkLabel_JPPZ>Benchmark</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/build><span title=构建 class=categoryLinkLabel_RkOu>构建</span></a><button aria-label="Expand sidebar category '构建'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chaos-engineering><span title=混沌工程 class=linkLabel_JPPZ>混沌工程</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chezmoi><span title=chezmoi class=linkLabel_JPPZ>chezmoi</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/circuit-breaker><span title=熔断 class=linkLabel_JPPZ>熔断</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/cloud/dapr-k8s><span title=cloud class=categoryLinkLabel_RkOu>cloud</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/code-faq><span title="Code FAQ" class=linkLabel_JPPZ>Code FAQ</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/coding><span title=Coding class=categoryLinkLabel_RkOu>Coding</span></a><button aria-label="Expand sidebar category 'Coding'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/compression><span title=压缩 class=categoryLinkLabel_RkOu>压缩</span></a><button aria-label="Expand sidebar category '压缩'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/cryptography><span title=Cryptography class=linkLabel_JPPZ>Cryptography</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/data-dict><span title=数据字典 class=linkLabel_JPPZ>数据字典</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/date><span title="Date & Time" class=linkLabel_JPPZ>Date & Time</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/design><span title=Design class=categoryLinkLabel_RkOu>Design</span></a><button aria-label="Expand sidebar category 'Design'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/awesome><span title="Dev Awesome" class=linkLabel_JPPZ>Dev Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/concept><span title=开发相关概念 class=linkLabel_JPPZ>开发相关概念</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/env><span title=ENV class=linkLabel_JPPZ>ENV</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/error><span title=error class=linkLabel_JPPZ>error</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/dev/faq><span title="Dev FAQ" class=linkLabel_JPPZ>Dev FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/glossary><span title="Dev Glossary" class=linkLabel_JPPZ>Dev Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/limits><span title=开发常见限制 class=linkLabel_JPPZ>开发常见限制</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pitfal><span title=Pitfal class=linkLabel_JPPZ>Pitfal</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/practice><span title="Dev Practice" class=linkLabel_JPPZ>Dev Practice</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/reference><span title=Reference class=linkLabel_JPPZ>Reference</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/style-guide><span title="Dev Style Guide" class=linkLabel_JPPZ>Dev Style Guide</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/devcontainer><span title=DevContainer class=linkLabel_JPPZ>DevContainer</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/dict><span title=开发用词字典 class=linkLabel_JPPZ>开发用词字典</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/domain/doc><span title=domain class=categoryLinkLabel_RkOu>domain</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/flow><span title="Workflow & Automation" class=linkLabel_JPPZ>Workflow & Automation</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/flutter><span title=Flutter class=categoryLinkLabel_RkOu>Flutter</span></a><button aria-label="Expand sidebar category 'Flutter'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/format><span title=Format class=categoryLinkLabel_RkOu>Format</span></a><button aria-label="Expand sidebar category 'Format'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/game><span title=GameDev class=categoryLinkLabel_RkOu>GameDev</span></a><button aria-label="Expand sidebar category 'GameDev'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/google-eng-practices><span title="Google Engineering Practices" class=linkLabel_JPPZ>Google Engineering Practices</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/gui/clipboard><span title=gui class=categoryLinkLabel_RkOu>gui</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/hexdump><span title=hexdump class=linkLabel_JPPZ>hexdump</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title="Internationalization (i18n)" class=linkLabel_JPPZ>Internationalization (i18n)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title=i18n class=linkLabel_JPPZ>i18n</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/ide><span title=IDE class=categoryLinkLabel_RkOu>IDE</span></a><button aria-label="Expand sidebar category 'IDE'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/libs/audio><span title=libs class=categoryLinkLabel_RkOu>libs</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/license><span title=License class=linkLabel_JPPZ>License</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/naming><span title=命名规范 class=linkLabel_JPPZ>命名规范</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/network><span title=Network class=linkLabel_JPPZ>Network</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/opensource><span title="OpenSource Awesome" class=linkLabel_JPPZ>OpenSource Awesome</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/pattern><span title=设计模式 class=categoryLinkLabel_RkOu>设计模式</span></a><button aria-label="Expand sidebar category '设计模式'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/practice/semver><span title=practice class=categoryLinkLabel_RkOu>practice</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/protocol/bittorrent><span title=protocol class=categoryLinkLabel_RkOu>protocol</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/qa><span title=质量保障 class=categoryLinkLabel_RkOu>质量保障</span></a><button aria-label="Expand sidebar category '质量保障'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/quantum><span title=Quantum class=linkLabel_JPPZ>Quantum</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/random><span title=Random class=linkLabel_JPPZ>Random</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rate-limits><span title="Rate Limits" class=linkLabel_JPPZ>Rate Limits</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/react-native><span title="React Native" class=categoryLinkLabel_RkOu>React Native</span></a><button aria-label="Expand sidebar category 'React Native'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/reverse><span title=逆向工程 class=categoryLinkLabel_RkOu>逆向工程</span></a><button aria-label="Expand sidebar category '逆向工程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rfc><span title=rfc class=linkLabel_JPPZ>rfc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/routing><span title=路由 class=linkLabel_JPPZ>路由</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/shell/ghostty><span title=shell class=categoryLinkLabel_RkOu>shell</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/std/calender><span title=std class=categoryLinkLabel_RkOu>std</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/tech/qrcode><span title=tech class=categoryLinkLabel_RkOu>tech</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/testing><span title=测试 class=categoryLinkLabel_RkOu>测试</span></a><button aria-label="Expand sidebar category '测试'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/theory><span title=理论 class=categoryLinkLabel_RkOu>理论</span></a><button aria-label="Expand sidebar category '理论'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/timezone><span title=timezone class=linkLabel_JPPZ>timezone</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/vibe-coding><span title="Vibe Coding" class=linkLabel_JPPZ>Vibe Coding</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/wall-of-shame><span title=耻辱墙 class=linkLabel_JPPZ>耻辱墙</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/dev><span>开发</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Dev FAQ</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Dev FAQ</h1></header>
+<ul>
+<li>Optimize
+<ul>
+<li>PGO - Profile Guided Optimization
+<ul>
+<li>GCC, Clang, MSVC, Golang</li>
+</ul>
+</li>
+<li>LTO - Link Time Optimization
+<ul>
+<li>使得 Link 能全局优化而非局限于单个模块</li>
+</ul>
+</li>
+<li>AutoFDO - Auto Feedback Directed Optimization
+<ul>
+<li>by Google</li>
+<li>通过运行时采集数据，优化编译</li>
+</ul>
+</li>
+<li>ThinLTO - Thin Link Time Optimization
+<ul>
+<li>一种 LTO 的变种，用更少的内存和时间</li>
+</ul>
+</li>
+<li>BOLT - Binary Optimization and Layout Tool
+<ul>
+<li>by Facebook/Meta</li>
+<li>GCC, LLVM</li>
+<li>一种 PLO 技术</li>
+<li>重新布局代码块，减少分支预测错误，提高 CPU 缓存命中率</li>
+</ul>
+</li>
+<li>PLO - Post Link Optimization</li>
+<li>XRay - XRay Instrumentation
+<ul>
+<li>LLVM 的性能分析工具</li>
+</ul>
+</li>
+<li>Intel VTune Profiler</li>
+<li>Binary Instrumentation
+<ul>
+<li>Pin</li>
+<li>DynamoRIO</li>
+<li>Valgrind</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Research -> POC -> Integration -> Functionality -> Service -> Product
+<ul>
+<li>Research - 是否能解决问题？ - 理论可行性</li>
+<li>POC - 是否能解决我的问题？ - 初步实践验证</li>
+<li>Integration - 是否能解决团队的问题？ - 整合</li>
+<li>Functionality/MVP - 提供一个可靠的解决方案 - 完善功能实现</li>
+<li>Service - 将解决方案变成可用服务 - 对用户或客户可直接使用</li>
+<li>Product - 将服务产品化或商业化 - 面向市场和用户的成品</li>
+</ul>
+</li>
+<li>研究，投入资金产出技术。创新，投入技术产出资金。
+<ul>
+<li>Research - “研究”是用钱换技术，是投入成本、积累知识的阶段</li>
+<li>Innovation - “创新”是用技术换钱，是将技术付诸实践，创造经济价值的阶段</li>
+</ul>
+</li>
+<li>研发划分
+<ul>
+<li>Fundamental - 基础</li>
+<li>Domain - 领域</li>
+<li>Application - 应用</li>
+<li>Service - 服务</li>
+<li>Product - 产品</li>
+<li>Operation - 运营</li>
+<li>Optimization - 优化</li>
+<li>Monetization - 价值变现</li>
+<li>Management - 管理</li>
+</ul>
+</li>
+<li>专注于价值交付
+<ul>
+<li>定义“价值”
+<ul>
+<li>客户</li>
+<li>内部</li>
+<li>个人</li>
+</ul>
+</li>
+<li>理解核心需求
+<ul>
+<li>结果导向</li>
+<li>体验导向</li>
+<li>目标驱动</li>
+<li>客户优先</li>
+</ul>
+</li>
+<li>减少非核心工作</li>
+<li>优化交付流程</li>
+<li>聚焦高价值任务</li>
+<li>打造客户价值感知</li>
+<li>解放精力，聚焦资源</li>
+</ul>
+</li>
+<li>2/8原则
+<ul>
+<li>MVP</li>
+<li>避免过度设计</li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://www.joelonsoftware.com/ target=_blank rel="noopener noreferrer">https://www.joelonsoftware.com/</a></li>
+<li><a href=https://www.martinfowler.com/ target=_blank rel="noopener noreferrer">https://www.martinfowler.com/</a></li>
+<li><a href=https://web.stanford.edu/~ouster/cgi-bin/decisions.php target=_blank rel="noopener noreferrer">https://web.stanford.edu/~ouster/cgi-bin/decisions.php</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=cursed-knowledge>Cursed Knowledge<a href=#cursed-knowledge class=hash-link aria-label="Direct link to Cursed Knowledge" title="Direct link to Cursed Knowledge" translate=no>​</a></h2>
+<ul>
+<li>UGC 域名需要加入到 Public Suffix List - <a href=https://publicsuffix.org target=_blank rel="noopener noreferrer">https://publicsuffix.org</a>
+<ul>
+<li>否则会被标记为恶意域名</li>
+<li>Chrome 使用这个做检测 <a href=https://developers.google.com/safe-browsing/reference/URLs.and.Hashing target=_blank rel="noopener noreferrer">https://developers.google.com/safe-browsing/reference/URLs.and.Hashing</a></li>
+<li><a href=https://publicsuffix.org/list/public_suffix_list.dat target=_blank rel="noopener noreferrer">https://publicsuffix.org/list/public_suffix_list.dat</a></li>
+</ul>
+</li>
+<li><a href=https://immich.app/cursed-knowledge target=_blank rel="noopener noreferrer">Immic Cursed Knowledge</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=case>常见命名格式<a href=#case class=hash-link aria-label="Direct link to 常见命名格式" title="Direct link to 常见命名格式" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>case<th>demo<th>for<tbody><tr><td><code>SNAKE_CASE</code>,<code>UPPER_SNAKE_CASE</code><td><code>MY_CONSTANT_VALUE</code><td>常量值、宏定义<tr><td><code>camelCase</code><td><code>myVariableName</code><td>变量名、函数名<tr><td><code>PascalCase</code><td><code>MyClassName</code><td>类名、构造函数名<tr><td><code>kebab-case</code>,<code>dash-case</code><td><code>my-variable-name</code><td>文件名、URL 路径<tr><td><code>Title Case</code><td><code>Title Case Example</code><td>标题、文章标题<tr><td><code>lower_snake_case</code><td><code>my_variable_name</code><td>文件名、数据库列名<tr><td><code>Train-Case</code><td><code>Train-Case</code><td>API 名称、某些特定语言的类名<tr><td><code>dot.case</code><td><code>my.variable.name</code><td>配置项、文件路径<tr><td><code>Sentence case</code><td><code>Sentence case example</code><td>标题、段落开头<tr><td><code>path/case</code><td><code>path/case/example</code><td>文件路径、URL 路径<tr><td><code>PascalCase\PascalCase</code><td><code>Grpc\BaseStub</code><td>PHP namespace<tr><td><code>UPPERCASE</code><td><code>UPPERCASE</code><td>缩写、某些特定语言的常量<tr><td><code>lowercase</code><td><code>lowercase</code><td>某些特定文件名或变量名<tr><td><code>namespace:identifier</code><td><code>system:admin</code><td>命名空间、标识符、OIDC Scope<tr><td><code>com.case.lower</code><td><code>me.wener.code</code><td>Reverse Domain Name, namespace</table>
+<ul>
+<li>golang 里特殊的名词会做大写
+<ul>
+<li>例如 <code>UserID</code> 而不是 <code>UserId</code></li>
+<li>MixedCaps</li>
+<li>Initialisms <a href=https://go.dev/wiki/CodeReviewComments#initialisms target=_blank rel="noopener noreferrer">https://go.dev/wiki/CodeReviewComments#initialisms</a></li>
+<li>Another convention is that acronyms should be capitalized:
+<ul>
+<li>ServeHTTP &lt;- ServeHttp</li>
+<li>XMLHTTPRequest &lt;- XmlHttpRequest</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=keycode>keycode<a href=#keycode class=hash-link aria-label="Direct link to keycode" title="Direct link to keycode" translate=no>​</a></h2>
+<ul>
+<li><a href=https://keycode.info/ target=_blank rel="noopener noreferrer">https://keycode.info/</a>
+<ul>
+<li><a href=https://www.toptal.com/developers/keycode/table target=_blank rel="noopener noreferrer">https://www.toptal.com/developers/keycode/table</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=roles>Roles<a href=#roles class=hash-link aria-label="Direct link to Roles" title="Direct link to Roles" translate=no>​</a></h2>
+<ul>
+<li>管理岗</li>
+<li>专业岗</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>role<th>for<tbody><tr><td>项目经理<td>项目管理<tr><td>运营<td>价值变现<tr><td>产品经理<td>交付价值<tr><td>开发<td>满足需求<tr><td>测试<td>质量<tr><td>运维<td>稳定<tr><td>安全<td>安全</table>
+<ul>
+<li>需求分析
+<ul>
+<li>角色 -> 用例 -> 功能 -> 任务</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=中式管理>中式管理<a href=#中式管理 class=hash-link aria-label="Direct link to 中式管理" title="Direct link to 中式管理" translate=no>​</a></h2>
+<ul>
+<li>中式管理
+<ul>
+<li>管人 - 人情</li>
+<li>管事 - 美式管理、流程制度化</li>
+</ul>
+</li>
+<li>美式管理 - 契约</li>
+<li>日式管理</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=为什么枚举-名字-要用中文>为什么枚举 <strong>名字</strong> 要用中文？<a href=#为什么枚举-名字-要用中文 class=hash-link aria-label="Direct link to 为什么枚举-名字-要用中文" title="Direct link to 为什么枚举-名字-要用中文" translate=no>​</a></h2>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>tip</div><div class=admonitionContent_R6P7><p>推荐 <strong>支持中文的语言</strong> 且 <strong>业务性强的场景</strong> 尽量用中文定义枚举名字。<ul>
+<li>支持的语言: Java, C#</li>
+<li>不支持的语言: Golang</li>
+</ul></div></div>
+<ul>
+<li>通用的，公共的可以用英文</li>
+<li>业务域的含义往往很专业</li>
+<li>为了方便阅读
+<ul>
+<li>代码是给人读的</li>
+<li>是可以加注释，但是多一个步骤，打断阅读逻辑</li>
+</ul>
+</li>
+<li>不存在编码问题 - UTF8 编码都支持</li>
+<li>没多少人能读对
+<ul>
+<li>过代码的时候就尴尬了 😅</li>
+</ul>
+</li>
+<li>没多少人能写对英文
+<ul>
+<li>可能产生莫名其妙的英文</li>
+<li>放弃写英文后会直接写“拼音”</li>
+</ul>
+</li>
+<li>没多少人能理解英文
+<ul>
+<li>Pending ？ ChinaResidentIdentityCard？</li>
+<li>gender ? sex ?</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=为什么枚举-值-要用英文>为什么枚举 <strong>值</strong> 要用英文？<a href=#为什么枚举-值-要用英文 class=hash-link aria-label="Direct link to 为什么枚举-值-要用英文" title="Direct link to 为什么枚举-值-要用英文" translate=no>​</a></h2>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>tip</div><div class=admonitionContent_R6P7><blockquote>
+<p>推荐 <strong>业务场景</strong> 里尽量用 字符串/英文 作为枚举值</p>
+<p>:::</p>
+</blockquote><ul>
+<li>推荐 <code>PascalCase</code>
+<ul>
+<li>vs. <code>snake-case</code> 可以直接作为名字</li>
+<li>vs. <code>camelCase</code> 区别于变量</li>
+<li>vs. <code>UPPER_CASE</code> 更好看，更好写</li>
+</ul>
+</li>
+<li>数字没有含义 - 必然要找定义</li>
+<li>可能记错</li>
+<li>不一定写的准确，但别人能猜个大概</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=framework-vs-library>Framework vs. Library<a href=#framework-vs-library class=hash-link aria-label="Direct link to Framework vs. Library" title="Direct link to Framework vs. Library" translate=no>​</a></h2><ul>
+<li>Framework
+<ul>
+<li>框架 - 蓝图 - 结构 - 按照给定的方式达成目标</li>
+<li>不易替换 - 替换等于是新的结构
+<ul>
+<li>React -> Angular</li>
+</ul>
+</li>
+<li>写代码 <strong>被</strong> 调用</li>
+</ul>
+</li>
+<li>Library
+<ul>
+<li>库 - 工具 - 辅助辅助完成目标</li>
+<li>可替代
+<ul>
+<li>React -> Preact</li>
+</ul>
+</li>
+<li>写代码 <strong>去</strong> 调用</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=framework-vs-business-logic>Framework vs. Business Logic<a href=#framework-vs-business-logic class=hash-link aria-label="Direct link to Framework vs. Business Logic" title="Direct link to Framework vs. Business Logic" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Framework<th>Business Logic<tbody><tr><td>提供骨架、流程<td>实现接口、契约<tr><td>核心流程的调度和装配<td>被调用，注入具体实现<tr><td>运行容器<td>特定需求定制开发<tr><td>通用流程<td>个性化实现<tr><td>负责谁调用谁<td>负责怎么调用<tr><td>可重用的模版和工具<td>接口规范的具体实现</table><ul>
+<li>functionality - 功能</li>
+<li>Business Logic - 业务逻辑</li>
+<li>Application logic - 应用层逻辑</li>
+<li>Domain logic - 领域层逻辑</li>
+</ul><hr/><ol>
+<li>不要过早锁定框架,保持开放和可替换性。使用适配器、接口等方式解耦。</li>
+<li>与利益相关方充分讨论,了解真实业务需求。不要为框架增加非必要的复杂性。</li>
+<li>先实现核心业务流程的简单可行版本,然后再逐步完善。不要一开始就追求架构完美。</li>
+<li>采用增量引入新技术的策略,先保证核心业务,再扩展架构。</li>
+<li>做好框架和业务逻辑的负责划分,各司其职,但要加强沟通协作。</li>
+<li>不断优化和重构代码,保证业务需求变更可以轻松适配。</li>
+<li>更多考虑业务价值,而非技术本身。业务获益才是成功的关键。</li>
+<li>避免流于“敏捷 Architecture astronauts”,保持与业务的密切联系。</li>
+<li>业务范围清晰后,再构建匹配的架构。</li>
+</ol><h2 class="anchor anchorWithStickyNavbar_EG6R" id=agile-architecture-astronauts>Agile Architecture astronauts<a href=#agile-architecture-astronauts class=hash-link aria-label="Direct link to Agile Architecture astronauts" title="Direct link to Agile Architecture astronauts" translate=no>​</a></h2><ol>
+<li>过于狂热追求完美架构的倾向。</li>
+<li>偏重技术本身,而非业务需求。</li>
+<li>设计非常复杂和“完美”的架构,但实际不可用。</li>
+<li>自说自话,没有与团队真正合作。</li>
+<li>做出太多不必要的假设。</li>
+<li>一味追求新技术,不考虑学习成本。</li>
+<li>架构只存在白皮书,没有落地。</li>
+<li>缺少快速迭代和用户反馈。</li>
+<li>更看重架构的“完美程度”,而非实际价值。</li>
+<li>像“宇航员”那样与实际业务脱节。</li>
+</ol><blockquote>
+<p>build your system out of small tools, that do only one thing well, and that communicate through a standard protocol. Systems built that way can be re-written one piece at a time.</p>
+</blockquote><ul>
+<li><a href=https://www.joelonsoftware.com/2001/04/21/dont-let-architecture-astronauts-scare-you/ target=_blank rel="noopener noreferrer">https://www.joelonsoftware.com/2001/04/21/dont-let-architecture-astronauts-scare-you/</a></li>
+<li><a href=https://www.jamesshore.com/v2/books/aoad1/incremental_design target=_blank rel="noopener noreferrer">https://www.jamesshore.com/v2/books/aoad1/incremental_design</a></li>
+<li><a href=https://www.martinfowler.com/ieeeSoftware/continuousDesign.pdf target=_blank rel="noopener noreferrer">https://www.martinfowler.com/ieeeSoftware/continuousDesign.pdf</a></li>
+<li><a href=https://www.martinfowler.com/articles/designDead.html target=_blank rel="noopener noreferrer">https://www.martinfowler.com/articles/designDead.html</a></li>
+<li><a href=https://philippe.bourgau.net/incremental-architecture-a-cure-against-architecture-astronauts/ target=_blank rel="noopener noreferrer">https://philippe.bourgau.net/incremental-architecture-a-cure-against-architecture-astronauts/</a></li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=private-cloud-vs-on-premise>Private Cloud vs. On-Premise<a href=#private-cloud-vs-on-premise class=hash-link aria-label="Direct link to Private Cloud vs. On-Premise" title="Direct link to Private Cloud vs. On-Premise" translate=no>​</a></h2><ul>
+<li>Private Cloud
+<ul>
+<li>基础设施</li>
+<li>强调物理设施本地化</li>
+</ul>
+</li>
+<li>On-Premise
+<ul>
+<li>服务、软件</li>
+<li>强调服务功能本地化</li>
+<li>公有云上也可以 On-Premise</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=health-vs-healthz>health vs. healthz<a href=#health-vs-healthz class=hash-link aria-label="Direct link to health vs. healthz" title="Direct link to health vs. healthz" translate=no>​</a></h2><ul>
+<li>类似的 readyz, varz, statusz, rpcz, livez</li>
+<li>来自于谷歌内部实践 - z-pages</li>
+<li>z 是为了避免和现有 endpoint 冲突</li>
+<li>大多用带 z 的名字，系统常用，类似 /metrics，与业务无关</li>
+<li>参考
+<ul>
+<li><a href=https://stackoverflow.com/a/43381061/1870054 target=_blank rel="noopener noreferrer">https://stackoverflow.com/a/43381061/1870054</a></li>
+</ul>
+</li>
+<li>其他
+<ul>
+<li>/health/live</li>
+<li>/health/ready</li>
+</ul>
+</li>
+</ul><hr/><ul>
+<li>/ready, /readyz
+<ul>
+<li>是否准备好接受请求</li>
+</ul>
+</li>
+<li>/livez, /live
+<ul>
+<li>alive/up and running</li>
+</ul>
+</li>
+<li>/health, /ping
+<ul>
+<li>通用的健康检查</li>
+</ul>
+</li>
+<li>/statusz
+<ul>
+<li>服务状态信息</li>
+</ul>
+</li>
+<li>/varz
+<ul>
+<li>内部变量和 metrics</li>
+</ul>
+</li>
+<li>/rpcz
+<ul>
+<li>一般是 RPC 统计</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=edge-computing>什么是边缘计算<a href=#edge-computing class=hash-link aria-label="Direct link to 什么是边缘计算" title="Direct link to 什么是边缘计算" translate=no>​</a></h2><p>个人简单理解，Edge 就是 DataCenter 的反义词。<hr/><ul>
+<li>早期计算：集中式应用程序，仅在一台孤立的计算机上运行</li>
+<li>个人计算：本地运行的去中心化应用程序</li>
+<li>云计算：在数据中心运行的集中式应用程序</li>
+<li>边缘计算：在靠近用户的地方——设备本身或者网络边缘——运行的集中式应用程序</li>
+</ul><hr/><ul>
+<li><a href=https://www.cloudflare.com/zh-cn/learning/serverless/glossary/what-is-edge-computing/ target=_blank rel="noopener noreferrer">https://www.cloudflare.com/zh-cn/learning/serverless/glossary/what-is-edge-computing/</a></li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=serverless>什么是无服务<a href=#serverless class=hash-link aria-label="Direct link to 什么是无服务" title="Direct link to 什么是无服务" translate=no>​</a></h2><ol>
+<li>云计算执行模型，云提供商动态管理分配和提供计算资源。</li>
+<li>允许开发者专注于代码，而无需管理服务器。</li>
+</ol><hr/><p><strong>例如</strong><ul>
+<li>PaSS -> 提供 Redis 管理</li>
+<li>Serverless -> 提供集成了 Redis 的环境，直接使用 SDK/API 进行调用</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=api-url>API URL<a href=#api-url class=hash-link aria-label="Direct link to API URL" title="Direct link to API URL" translate=no>​</a></h2><ul>
+<li>ods.opinsights.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage
+<ul>
+<li>Azure Monitor Logs</li>
+</ul>
+</li>
+<li>Datadog - <a href=https://docs.datadoghq.com/logs/log_collection/ target=_blank rel="noopener noreferrer">https://docs.datadoghq.com/logs/log_collection/</a>
+<ul>
+<li>http-intake.logs.datadoghq.com</li>
+</ul>
+</li>
+<li>GCP - googleapis.com
+<ul>
+<li><code>https://&lt;region>-&lt;svc>.googleapis.com</code></li>
+<li><a href="https://appengine.googleapis.com/$discovery/rest?version=v1" target=_blank rel="noopener noreferrer">https://appengine.googleapis.com/$discovery/rest?version=v1</a></li>
+<li><a href=https://run.googleapis.com target=_blank rel="noopener noreferrer">https://run.googleapis.com</a>
+<ul>
+<li>服务发现 <a href="https://run.googleapis.com/$discovery/rest?version=v1" target=_blank rel="noopener noreferrer">https://run.googleapis.com/$discovery/rest?version=v1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=orchestration-vs-choreography>Orchestration vs Choreography<a href=#orchestration-vs-choreography class=hash-link aria-label="Direct link to Orchestration vs Choreography" title="Direct link to Orchestration vs Choreography" translate=no>​</a></h2><ul>
+<li>Orchestration
+<ul>
+<li>编排 - 可同步、可异步</li>
+<li>可总览服务流程</li>
+<li>中心服务可能会重、复杂</li>
+<li>temporal 这样的服务让异步复杂编排变得简单</li>
+</ul>
+</li>
+<li>Choreography
+<ul>
+<li>事件总线 - 异步</li>
+<li>相对更解偶</li>
+<li>失去业务全局观</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=cache>开发缓存<a href=#cache class=hash-link aria-label="Direct link to 开发缓存" title="Direct link to 开发缓存" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>cli<th>dir<th>macOS<th>for<th>clean<tbody><tr><td>mvn<td>~/.m2/repository/<td><td>Maven<td><tr><td>npm<td>~/.npm/<td><td>NPM<td><tr><td>zig<td>~/.cache/zig/<td><td><td><tr><td><td>~/.cache/prisma/<td><td><td><tr><td>buf<td>~/.cache/buf/<td><td><td><tr><td><td>~/.cache/huggingface<td><td><td><tr><td><td>~/.cache/puppeteer<td><td><td><tr><td><td>~/go/pkg/mod<td><td><code>go env GOMODCACHE</code><td><tr><td><td>~/.cache/go-build<td>~/Library/Caches/go-build/<td><code>go env GOCACHE</code><td><code>go clean --cache</code><tr><td><td><td>~/Library/Caches/Homebrew<td><code>brew --cache</code><td><tr><td>pnpm<td>~/.pnpm-store<td>~/Library/Caches/pnpm<td><td><tr><td>yarn<td><td>~/Library/Caches/Yarn<td><td><tr><td><td><td>~/Library/Caches/typescript<td><td><tr><td>pip<td>~/.cache/pip<td>~/Library/Caches/pip<td><td></table><ul>
+<li>~/Library/Caches/JetBrains</li>
+<li>~/Library/Caches/electron</li>
+<li>~/Library/Caches/esbuild</li>
+<li>~/Library/Caches/golangci-lint</li>
+<li>~/Library/Caches/hardhat-nodejs</li>
+<li>~/Library/Caches/helm</li>
+<li>~/Library/Caches/turbo</li>
+</ul><div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">ls -d \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  ~/.cache/* ~/.m2 ~/.npm \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  ~/go/pkg/mod \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  ~/Library/Caches/{JetBrains,electron,go-build,esbuild,golangci-lint,hardhat-nodejs,helm,turbo,Yarn,pnpm,Homebrew} 2> /dev/null \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  | xargs du -sh | sort -h</span><br/></span></code></pre></div></div><div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># Maven</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false --fail-at-end</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># Maven Dir</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout</span><br/></span></code></pre></div></div><h2 class="anchor anchorWithStickyNavbar_EG6R" id=cache-clean>缓存清理<a href=#cache-clean class=hash-link aria-label="Direct link to 缓存清理" title="Direct link to 缓存清理" translate=no>​</a></h2><div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">brew cleanup</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">go clean -modcache</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false --fail-at-end</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">gradle clean</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ls ~/.nvm/versions/node/v{12,14,16}* -d 2> /dev/null | xargs -n1 basename</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># for s in $(  ls ~/.nvm/versions/node/v{12,14,16}* -d 2>/dev/null | xargs -n1 basename );do echo nvm uninstall $s; done</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">rm -rf ~/.nvm/versions/node/v{12,14,16}*</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">nvm cache clear</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">yarn cache clean</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm cache clean --force</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pnpm store prune</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pip cache purge</span><br/></span></code></pre></div></div><h2 class="anchor anchorWithStickyNavbar_EG6R" id=how-to-ask>How to ask<a href=#how-to-ask class=hash-link aria-label="Direct link to How to ask" title="Direct link to How to ask" translate=no>​</a></h2><ul>
+<li><a href=https://stackoverflow.com/help/minimal-reproducible-example target=_blank rel="noopener noreferrer">https://stackoverflow.com/help/minimal-reproducible-example</a></li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=127001-vs-localhost>127.0.0.1 vs localhost<a href=#127001-vs-localhost class=hash-link aria-label="Direct link to 127.0.0.1 vs localhost" title="Direct link to 127.0.0.1 vs localhost" translate=no>​</a></h2><p>尽量使用 127.0.0.1<ul>
+<li><a href=https://datatracker.ietf.org/doc/html/rfc8252#section-7.3 target=_blank rel="noopener noreferrer">https://datatracker.ietf.org/doc/html/rfc8252#section-7.3</a></li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=crlf>CRLF<a href=#crlf class=hash-link aria-label="Direct link to CRLF" title="Direct link to CRLF" translate=no>​</a></h2><ul>
+<li>换行符 - new line - ␤ - line ending, end of line (EOL), next line (NEL), line break
+<ul>
+<li>⏎ - enter 符号</li>
+</ul>
+</li>
+<li>carriage return (CR) - ␍ - <code>\r</code>
+<ul>
+<li>以前的 Mac OS</li>
+</ul>
+</li>
+<li>line feed (LF) - ␊ - <code>\n</code>
+<ul>
+<li>unix, macOS</li>
+</ul>
+</li>
+<li>crlf - <code>\r\n</code>
+<ul>
+<li>Windows</li>
+<li>HTTP 头部的换行符</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=newbie>新手常见问题<a href=#newbie class=hash-link aria-label="Direct link to 新手常见问题" title="Direct link to 新手常见问题" translate=no>​</a></h2><ol>
+<li>未掌握 std 库</li>
+<li>未掌握 core 库</li>
+<li>不考虑扩展性</li>
+<li>技术名词拼写不规范</li>
+<li>提交不规范</li>
+<li>书写时中英文混排不规范</li>
+<li>写复杂冗长的函数</li>
+<li>不会写文档</li>
+<li>不看官方文档，只看垃圾博客</li>
+<li>宣扬内功无用论</li>
+<li>乐于炫技</li>
+<li>不接受质疑</li>
+<li>接口协议不规范</li>
+<li>遇到问题自己死磕</li>
+<li>一说就会，一写就废</li>
+<li>表达没有逻辑，不站在对方角度看问题</li>
+<li>不主动思考，伸手党</li>
+<li>经常犯重复的错误</li>
+<li>接口不自测，出问题不打日志</li>
+<li>直接写代码</li>
+<li>重要设计不写文档</li>
+</ol><h2 class="anchor anchorWithStickyNavbar_EG6R" id=magic-number>Magic Number<a href=#magic-number class=hash-link aria-label="Direct link to Magic Number" title="Direct link to Magic Number" translate=no>​</a></h2><ul>
+<li>1048576
+<ul>
+<li>Excel 行限制</li>
+</ul>
+</li>
+<li>16384
+<ul>
+<li>Excel 列限制</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=关于-k8s-服务重启导致服务中断��问题的说明>关于 K8S 服务重启导致服务中断问题的说明<a href=#关于-k8s-服务重启导致服务中断问题的说明 class=hash-link aria-label="Direct link to 关于 K8S 服务重启导致服务中断问题的说明" title="Direct link to 关于 K8S 服务重启导致服务中断问题的说明" translate=no>​</a></h2><ul>
+<li>部署使用 startProbe 等到 health 才切换，避免新版本出现问题导致服务启动失败，旧版本服务下线问题</li>
+<li>Java 通常较慢，启动可能 1m 左右</li>
+</ul><hr/><p><strong>问题</strong><ol>
+<li>用到了 nacos 导致服务注册更新延迟</li>
+</ol><ul>
+<li>新版本服务启动后会重新注册到 nacos，旧版本服务下线</li>
+<li>客户端不一定来得及更新 - 因此下线后可能出现还未更新的客户端部分异常</li>
+</ul><ol>
+<li>现在 cloud native 一般基于 service/dns 访问，这种问题不会出现</li>
+</ol><hr/><p><strong>解决办法</strong><ol>
+<li>部署多副本，避免单点问题，使用滚动升级</li>
+<li>延长启动时间，避免服务注册更新延迟</li>
+<li>使用 sts，确保相同的 hostname - 不确定注册逻辑，是否能避免中断问题 - 使用 sts 至少 2 副本</li>
+<li>减少发布频度</li>
+<li>配置自动更新窗口避免热点时间自动更新</li>
+</ol><h2 class="anchor anchorWithStickyNavbar_EG6R" id=api--合约--协同>API & 合约 & 协同<a href=#api--合约--协同 class=hash-link aria-label="Direct link to API & 合约 & 协同" title="Direct link to API & 合约 & 协同" translate=no>​</a></h2><p>当我们把 API 比作合约时，意味着它为开发者定义了一系列规则、约定和协议，这些规则描述了如何访问和使用这些功能。遵循这些规则可以确保软件组件之间的顺畅交互。API 合约包括以下几个方面：<ol>
+<li>数据格式：API 规定了开发者应该如何向其发送数据（如 JSON、XML 等）以及如何接收返回的数据。</li>
+<li>资源和操作：API 提供了一组可用的资源（如数据对象、功能等）以及可以对这些资源执行的操作（如创建、查询、更新和删除等）。</li>
+<li>调用约定：API 定义了如何构建请求（如 HTTP 请求方法、URL 结构等）以及接收和处理响应（如状态代码、响应头等）。</li>
+</ol><p>遵守 API "合约"的好处包括：<ol>
+<li>易于集成：开发者只需遵循约定，即可轻松地将软件组件集成到自己的项目中。</li>
+<li>可重用性：遵循 API 合约的代码在多个项目中都可以重复使用，提高了开发效率。</li>
+<li>可扩展性：API 可以独立于底层实现进行版本控制和演进，从而确保系统的可扩展性和长期稳定性。</li>
+</ol><p>因此，API 被称为合约，主要是因为它为开发者提供了一种标准化、可靠的方式来互动和访问其他软件组件的功能。<hr/><p>合约和协同是两个相关但不同的概念。合约通常是指一种约定，规定了各方如何进行交互，从而实现共同目标。协同则是指多个实体（如人、团队、组织或系统）共同努力以实现共同目标的过程。<p>合约和协同之间的关系：<ol>
+<li>合约作为基础：合约为协同创造了条件，确保各方遵循相同的规则和约定，以便更高效地协同工作。例如，在软件开发中，API 合约规定了如何访问和使用特定功能，使得不同软件组件可以无缝地协同工作。</li>
+<li>协同促进合约执行：在实际应用中，协同可以帮助各方更好地理解和执行合约。当各方共同努力实现目标时，合约可以确保双方以一种可预测和可靠的方式互动，从而促进有效的协同。</li>
+<li>互相调整和改进：在实际协同过程中，可能会发现合约中的某些规定不适用或需要调整。这种情况下，各方可以通过沟通和协商来修改合约，以满足实际需求。同样，成功的协同也可能导致新的合约产生，以满足不断发展的需求。</li>
+</ol><p>综上所述，合约和协同之间存在密切关系。合约为协同提供了基础和规则，协同则依赖于合约来实现各方之间的有效合作。在实际应用中，合约和协同需要不断调整和改进，以适应不断变化的需求。<h2 class="anchor anchorWithStickyNavbar_EG6R" id=北向接口>北向接口<a href=#北向接口 class=hash-link aria-label="Direct link to 北向接口" title="Direct link to 北向接口" translate=no>​</a></h2><ul>
+<li>Northbound API</li>
+<li>服务组件对外提供的 API 接口</li>
+<li>对外暴露的 API</li>
+<li>抽象和封装内部逻辑</li>
+<li>服务组合和编排</li>
+<li>实现多渠道服务</li>
+<li>保证系统安全</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=data-is-code-code-is-data>Data is code, code is data<a href=#data-is-code-code-is-data class=hash-link aria-label="Direct link to Data is code, code is data" title="Direct link to Data is code, code is data" translate=no>​</a></h2><ul>
+<li>code is data
+<ul>
+<li>Relfectin</li>
+<li>Enum</li>
+<li>Annotation</li>
+<li>AOP</li>
+<li>Model - ORM</li>
+<li>Meta Programming</li>
+<li>Macro</li>
+<li>生成器</li>
+<li>DSL</li>
+</ul>
+</li>
+<li>data is code
+<ul>
+<li>Code=Engine, Data=Fuel</li>
+<li>Data 定义了逻辑规则 = Code</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=schema-vs-validator>schema vs validator<a href=#schema-vs-validator class=hash-link aria-label="Direct link to schema vs validator" title="Direct link to schema vs validator" translate=no>​</a></h2><ul>
+<li>Schema-First - 模式优先
+<ul>
+<li>数据类型定义</li>
+<li>通常和类型能一一对应</li>
+<li>可以用来做验证，还可以用来生成代码</li>
+<li>e.g. typebox, typia, jsonschema, ajv</li>
+</ul>
+</li>
+<li>Validate-First - 验证优先
+<ul>
+<li>业务逻辑定义</li>
+<li>通常包含额外的处理逻辑 - 功能更多，能自定义处理</li>
+<li>通常能生成 Schema - 但是会丢失一些信息且不一定准确</li>
+<li>e.g. zod</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=monorepo>monorepo<a href=#monorepo class=hash-link aria-label="Direct link to monorepo" title="Direct link to monorepo" translate=no>​</a></h2><ul>
+<li>Monorepo: please do
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=18820258" target=_blank rel="noopener noreferrer">https://news.ycombinator.com/item?id=18820258</a></li>
+</ul>
+</li>
+<li><a href=https://danluu.com/monorepo/ target=_blank rel="noopener noreferrer">https://danluu.com/monorepo/</a></li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=idle-connections>链接超时<a href=#idle-connections class=hash-link aria-label="Direct link to 链接超时" title="Direct link to 链接超时" translate=no>​</a></h2><ul>
+<li>云平台会主动切断 idle 的链接，这个和局域网的链接不同 - 云平台 nat 资源</li>
+<li>应用需要主动 ping/keepalive 保持链接，否则从链接池里拿出来链接可能已经 timeout</li>
+<li>操作系统层面可以配置 tcp keepalive 进行保活</li>
+<li>大多链接池都支持
+<ul>
+<li>IdleTimeout
+<ul>
+<li>建议小于 10 分钟</li>
+<li>idle 时长，如果配置的比 平台/系统 层 idle 短，也能避免取到无效链接的问题</li>
+</ul>
+</li>
+<li>TestOnBorrow - 有一定性能影响</li>
+<li>TestOnReturn</li>
+<li>TestWhileIdle - 影响小，但会浪费一定链接数量
+<ul>
+<li>需要慎重考虑配置的 idle 数量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>链接池
+<ul>
+<li>apache commons-pool <a href=https://commons.apache.org/proper/commons-pool/apidocs/org/apache/commons/pool2/impl/GenericObjectPool.html target=_blank rel="noopener noreferrer">GenericObjectPool</a>
+<ul>
+<li>支持 IdleTime, TestWhileIdle, TestOnCreate, TestOnBorrow, TestOnReturn</li>
+</ul>
+</li>
+<li>HikariCP <a href=https://javadoc.io/doc/com.zaxxer/HikariCP/latest/com/zaxxer/hikari/HikariConfig.html target=_blank rel="noopener noreferrer">HikariConfig</a>
+<ul>
+<li>IdleTimeout, KeepaliveTime</li>
+<li>KeepaliveTime 检测 idle 的周期</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><p><strong>系统 TCP KeepAlive</strong><ul>
+<li>tcp_keepalive_time
+<ul>
+<li>上次数据包发送后，多久开始发送 keepalive</li>
+<li>开始发送 keepalive 后，该值不在重要</li>
+<li>TCP_KEEPIDLE</li>
+</ul>
+</li>
+<li>tcp_keepalive_intvl
+<ul>
+<li>发送 keepalive 的间隔</li>
+<li>TCP_KEEPINTVL</li>
+</ul>
+</li>
+<li>tcp_keepalive_probes
+<ul>
+<li>多少次 unack 后认为链接已经断开，通知应用层</li>
+<li>TCP_KEEPCNT</li>
+</ul>
+</li>
+</ul><div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># Linux</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 默认 7200，75，9</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 2小时, 75s, 9次</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">sysctl net.ipv4.tcp_keepalive_time net.ipv4.tcp_keepalive_intvl net.ipv4.tcp_keepalive_probes</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 1分钟, 1分钟, 5次</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">sysctl -w \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  net.ipv4.tcp_keepalive_time=60 \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  net.ipv4.tcp_keepalive_intvl=60 \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  net.ipv4.tcp_keepalive_probes=5</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">cat &lt;&lt; EOF | sudo tee /etc/sysctl.d/99-tcp_keepalive.conf</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">net.ipv4.tcp_keepalive_time = 60</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">net.ipv4.tcp_keepalive_intvl = 60</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">net.ipv4.tcp_keepalive_probes = 5</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">EOF</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">sudo sysctl -p /etc/sysctl.d/99-tcp_keepalive.conf</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># macOS</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">sysctl net.inet.tcp.always_keepalive net.inet.tcp.keepidle net.inet.tcp.keepinit net.inet.tcp.keepintvl</span><br/></span></code></pre></div></div><ul>
+<li>GCP 是 10 分钟
+<ul>
+<li><a href="https://cloud.google.com/compute/docs/troubleshooting/general-tips?hl=zh-cn#idle-connections" target=_blank rel="noopener noreferrer">https://cloud.google.com/compute/docs/troubleshooting/general-tips?hl=zh-cn#idle-connections</a></li>
+</ul>
+</li>
+<li>AWS ELB 默认是 1 分钟
+<ul>
+<li>可修改为 1 - 4000</li>
+<li><a href=https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html target=_blank rel="noopener noreferrer">Configure the idle connection timeout for your Classic Load Balancer</a></li>
+</ul>
+</li>
+<li>AWS API Gateway 默认 10 分钟
+<ul>
+<li><a href=https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html target=_blank rel="noopener noreferrer">Amazon API Gateway quotas and important notes</a></li>
+</ul>
+</li>
+<li><a href=https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/ target=_blank rel="noopener noreferrer">https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/</a></li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=refactor>重构的价值<a href=#refactor class=hash-link aria-label="Direct link to 重构的价值" title="Direct link to 重构的价值" translate=no>​</a></h2><ol>
+<li>提高 可维护性</li>
+<li>提高 质量</li>
+<li>提高 开发效率</li>
+<li>提高 系统的灵活性和可扩展性</li>
+<li>技术债务管理</li>
+<li>提高 系统性能</li>
+<li>提高 团队士气</li>
+<li>改善 系统安全性</li>
+</ol><blockquote>
+<p>Any fool can write code that a computer can understand. Good programmers write code that humans can understand.</p>
+<p>任何傻瓜都能写出计算机能理解的代码，而优秀的程序员会写出人类能理解的代码</p>
+<p>-- Martin Fowler</p>
+</blockquote><h2 class="anchor anchorWithStickyNavbar_EG6R" id=tech-debt>技术债务<a href=#tech-debt class=hash-link aria-label="Direct link to 技术债务" title="Direct link to 技术债务" translate=no>​</a></h2><blockquote>
+<p>技术债务（Technical Debt）</p>
+</blockquote><ul>
+<li>类型
+<ul>
+<li>设计</li>
+<li>代码</li>
+<li>测试</li>
+<li>文档</li>
+<li>流程</li>
+</ul>
+</li>
+<li>成因
+<ul>
+<li>时间</li>
+<li>不充分的设计</li>
+<li>技能不足</li>
+<li>不良的开发习惯</li>
+<li>业务需求变化</li>
+</ul>
+</li>
+<li>影响
+<ul>
+<li>维护成本</li>
+<li>系统稳定性</li>
+<li>开发效率</li>
+<li>团队士气</li>
+</ul>
+</li>
+<li>管理
+<ul>
+<li>识别评估</li>
+<li>制定计划</li>
+<li>优先级排序</li>
+<li>重构优化</li>
+<li>改进流程</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=endian>endian<a href=#endian class=hash-link aria-label="Direct link to endian" title="Direct link to endian" translate=no>​</a></h2><blockquote>
+<p>endian, endianness, byte-order</p>
+</blockquote><ul>
+<li>端序 / 字节序</li>
+<li>big / big-endian / bigEndian / BE / 大端序
+<ul>
+<li>反序</li>
+<li>network byte order</li>
+<li>网络通信、文件格式
+<ul>
+<li>因此大多时候操作数据都是大端序</li>
+</ul>
+</li>
+<li>RISC, IBM PowerPC, Solaris, SPARC</li>
+<li><code>0x12345678</code> -> <code>0x12 0x34 0x56 0x78</code></li>
+</ul>
+</li>
+<li>little / little-endian / littleEndian / LE
+<ul>
+<li>处理器, 内存, 计算
+<ul>
+<li>因此大多时候实现模拟器、虚拟机都是小端序</li>
+</ul>
+</li>
+<li>Intel x86, x86-64</li>
+<li>Windows</li>
+<li>和内存地址对齐</li>
+<li><code>0x12345678</code> -> <code>0x78 0x56 0x34 0x12</code></li>
+</ul>
+</li>
+</ul><div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># Byte Order: Little Endian</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">lscpu | grep Endian</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 0 for Big Endian, 1 for Little Endian</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">echo -n I | od -to2 | head -n1 | cut -f2 -d" " | cut -c6</span><br/></span></code></pre></div></div><hr/><ul>
+<li><a href=https://en.wikipedia.org/wiki/Endianness target=_blank rel="noopener noreferrer">https://en.wikipedia.org/wiki/Endianness</a> / 小端序</li>
+<li><a href=https://developer.mozilla.org/en-US/docs/Glossary/Endianness target=_blank rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Glossary/Endianness</a></li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=design-vs-architecture>Design vs. Architecture<a href=#design-vs-architecture class=hash-link aria-label="Direct link to Design vs. Architecture" title="Direct link to Design vs. Architecture" translate=no>​</a></h2><ul>
+<li>Design - 设计
+<ul>
+<li>侧重细节和实现</li>
+<li>UX/UI 设计、API 设计、数据库设计</li>
+</ul>
+</li>
+<li>Architecture - 架构
+<ul>
+<li>偏向整体结构和系统层次的设计决</li>
+<li>整个系统的 结构 和 组件之间的 交互方式</li>
+<li>设计决策
+<ul>
+<li>选择技术、组件、模块、库、框架</li>
+<li>可扩展性、容错性</li>
+<li>微服务架构、分布式、RPC</li>
+</ul>
+</li>
+<li>设计原则 - SOLID, DRY, KISS, YAGNI</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=over-design>如何判断是否过度设计？<a href=#over-design class=hash-link aria-label="Direct link to 如何判断是否过度设计？" title="Direct link to 如何判断是否过度设计？" translate=no>​</a></h2><blockquote>
+<p>分辨「需要」和「可能需要」之间的界限，并权衡当前与未来的复杂性成本。</p>
+</blockquote><hr/><ul>
+<li>是否解决了当前明确的核心需求？</li>
+<li>是否在为未来的“可能性”做设计？</li>
+<li>是否为少数特殊情况增加了复杂度？</li>
+<li>是否增加了维护成本？</li>
+</ul><hr/><ul>
+<li>好的设计能减少维护和控制复杂度</li>
+</ul><hr/><ul>
+<li>优先解决当前问题</li>
+<li>设计可演进的系统</li>
+<li>使用 MVP 原则</li>
+<li>定义一个“YAGNI”边界 - You Aren’t Gonna Need It
+<ul>
+<li>明确列出「不需要」的内容，避免“顺手实现”。</li>
+</ul>
+</li>
+<li>以成本和收益为衡量标准
+<ul>
+<li>ROI</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=theory-vs-pattern-vs-best-practice>Theory vs Pattern vs Best Practice<a href=#theory-vs-pattern-vs-best-practice class=hash-link aria-label="Direct link to Theory vs Pattern vs Best Practice" title="Direct link to Theory vs Pattern vs Best Practice" translate=no>​</a></h2><ul>
+<li>Theory - 理论
+<ul>
+<li>抽象、普适，通常具有一定的数学或逻辑基础。</li>
+<li>目的: 描述和解释现象，提供抽象框架</li>
+<li>抽象程度: 更加抽象和通用</li>
+<li>来源: 学术研究、逻辑推导</li>
+<li>应用范围: 适用于广泛领域和各种问题</li>
+<li>形式: 数学模型、定理、定义</li>
+<li>示例: CAP 定理、类型系统、计算复杂性理论</li>
+</ul>
+</li>
+<li>Pattern - 模式
+<ul>
+<li>结构化、可复用、问题解决导向</li>
+<li>目的: 提供可复用的实际解决方案</li>
+<li>抽象程度: 更加具体，针对特定问题</li>
+<li>来源: 实践与理论结合，通常经过标准化描述</li>
+<li>应用范围: 适用于特定场景和上下文</li>
+<li>形式: 模板化描述，包括问题、上下文、解决方案</li>
+<li>示例: 单例模式、CQRS 模式、微服务架构</li>
+</ul>
+</li>
+<li>Best Practice - 最佳实践
+<ul>
+<li>经验驱动、上下文敏感、目标导向</li>
+<li>定义: 实践中总结的建议或方法</li>
+<li>来源: 实践经验驱动</li>
+<li>结构化程度: 非结构化，通常是指导性建议</li>
+<li>适用场景: 针对某些场景的通用指导</li>
+<li>目标: 提供方法论以提高效率和质量</li>
+<li>示例: 使用环境变量管理配置</li>
+</ul>
+</li>
+</ul><hr/><ul>
+<li>Best Practice 是 Pattern 的基础
+<ul>
+<li>Pattern 往往从实践中总结和提炼出来，是 Best Practice 的抽象和结构化表达。</li>
+</ul>
+</li>
+<li>Pattern 是 Best Practice 的补充
+<ul>
+<li>Best Practice 更偏向于“如何做”的指导，而 Pattern 提供了更细化和通用的模板。</li>
+</ul>
+</li>
+<li>Pattern 是结构化的解决方案，更倾向于模板化描述。</li>
+<li>Best Practice 更注重经验和建议，可能缺乏明确的结构化定义。</li>
+<li>Best Practice：当你需要快速了解某一领域的通用建议时。</li>
+<li>Pattern：当你需要解决特定问题且希望复用解决方案时。</li>
+<li>Pattern
+<ul>
+<li>实现（Implementation）：将抽象的模式转化为具体的代码或模块。</li>
+<li>工具化（Tooling）：开发工具或库，简化模式的使用。</li>
+<li>工程化（Productization）：优化工具，形成产品，便于广泛使用。</li>
+<li>标准化（Standardization）：规范化，确保跨组织、跨系统的兼容性。</li>
+<li>应用化（Application）：结合实际需求，将模式转化为解决问题的业务价值。</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=programmer-vs-engineer>程序员 vs 软件工程师<a href=#programmer-vs-engineer class=hash-link aria-label="Direct link to 程序员 vs 软件工程师" title="Direct link to 程序员 vs 软件工程师" translate=no>​</a></h2><ul>
+<li>Programmer - Coding</li>
+<li>Engineer - Design</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=indent>缩进<a href=#indent class=hash-link aria-label="Direct link to 缩进" title="Direct link to 缩进" translate=no>​</a></h2><ul>
+<li>Indent
+<ul>
+<li>缩进 - 代码块的开始和结束</li>
+<li>代码的层级关系</li>
+<li>代码的可读性</li>
+<li>代码的可维护性</li>
+</ul>
+</li>
+<li>Space vs Tab</li>
+<li>Space
+<ul>
+<li>所有人看起来都一样</li>
+</ul>
+</li>
+<li>Tab
+<ul>
+<li>能够自定义</li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=impedance-mismatch>Impedance Mismatch<a href=#impedance-mismatch class=hash-link aria-label="Direct link to Impedance Mismatch" title="Direct link to Impedance Mismatch" translate=no>​</a></h2><ul>
+<li>阻抗失配</li>
+<li>计算机科学中，阻抗失配是指在不同系统或组件之间进行数据交换时，由于数据表示、格式或语义的差异，导致的兼容性问题。</li>
+<li>例如，关系型数据库和面向对象编程语言之间的阻抗失配，通常表现为对象模型和关系模型之间的差异。</li>
+<li>解决阻抗失配的方法包括使用 ORM（对象关系映射）工具、数据转换器或适配器等。</li>
+<li>阻抗失配通常会导致性能下降、数据一致性问题和开发复杂性增加。</li>
+<li>CQRS: 命令查询责任分离 - 明确分离读写关注点</li>
+<li>在分层架构和DDD实践中频繁出现。</li>
+<li>原因
+<ul>
+<li>设计范式不同
+<ul>
+<li>面向对象 vs. 关系型数据</li>
+<li>命令式 vs. 声明式</li>
+<li>同步模型 vs. 异步模型</li>
+</ul>
+</li>
+<li>关注点分离（Separation of Concerns）</li>
+<li>优化目标不同（Optimization Trade-offs）
+<ul>
+<li>领域模型追求表达准确性，接口模型追求传输高效</li>
+</ul>
+</li>
+<li>数据表达方式的差异（Representational Gap）</li>
+</ul>
+</li>
+<li>缓解方法
+<ul>
+<li>Mapper 层 - DTO, PO, VO, Mapper, AutoMapper, MapStruct
+<ul>
+<li>不同模型之间增加一层映射逻辑，专门负责适配与转换</li>
+</ul>
+</li>
+<li>ORM - 对象模型（继承、多态、关联）与关系模型（表、行、列、主外键）之间的差异。
+<ul>
+<li>自动化对象与关系型数据库之间映射</li>
+</ul>
+</li>
+<li>CQRS - 将读写模型分离，针对不同关注点独立优化
+<ul>
+<li>Event Sourcing
+<ul>
+<li>事件溯源 - 通过事件流重建状态，避免阻抗失配</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Event-driven Architecture
+<ul>
+<li>使用事件驱动解耦系统，减少紧密耦合导致的转换复杂度</li>
+<li>Event Bus, Kafka</li>
+</ul>
+</li>
+<li>微服务
+<ul>
+<li>每个服务内部保持更小范围的一致性，服务之间通过明确接口通信</li>
+<li>RESTful API, gRPC, GraphQL</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><p><strong>对象关系映射</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>维度<th>面向对象模型（OOP）<th>关系型数据模型（RDB）<th>失衡表现<tbody><tr><td>数据表达<td>对象（Object）、实体（Entity）、聚合（Aggregate）<td>表、行、列（Table, Row, Column）<td>表达方式不同，需额外转换<tr><td>关联关系<td>继承、组合、多态<td>外键、关系规范化（Normalization）<td>关联关系映射复杂<tr><td>导航方式<td>通过对象引用导航（引用、指针）<td>SQL查询、外键、JOIN 操作<td>导航模式差异，易造成 N+1 问题<tr><td>状态管理<td>对象生命周期（内存、GC）<td>数据库事务、锁机制<td>状态管理模型差异，复杂性提高</table><p><strong>领域模型与 API 模型（DTO）</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>维度<th>领域模型（Domain Model）<th>API模型（DTO）<th>失衡表现<tbody><tr><td>关注点<td>业务精确表达、封装业务规则<td>数据传输高效、稳定、通用<td>不同关注点致模型不兼容<tr><td>变化频率<td>频繁变化，随业务调整<td>相对稳定，关注接口兼容性<td>变化不同步导致转换层复杂化<tr><td>数据结构<td>层次复杂、对象关联紧密<td>扁平化结构、简单易序列化<td>结构差异致额外映射逻辑</table><p><strong>后端业务逻辑与前端 UI 模型之间的</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>维度<th>后端业务模型<th>前端 UI 模型<th>失衡表现<tbody><tr><td>关注点<td>业务逻辑正确性、一致性、事务性处理<td>用户体验、交互流畅性、界面响应性<td>后端模型难以直接用于前端交互<tr><td>数据结构<td>完整业务状态、领域对象<td>前端状态、增量更新、响应式数据<td>数据结构不同，需额外转换<tr><td>更新方式<td>事务性、整体性<td>局部增量更新、异步响应<td>更新策略不同导致额外适配逻辑</table><h2 class="anchor anchorWithStickyNavbar_EG6R" id=float>float<a href=#float class=hash-link aria-label="Direct link to float" title="Direct link to float" translate=no>​</a></h2><ul>
+<li>ieee754</li>
+<li>JS
+<ul>
+<li>Number.MIN_SAFE_INTEGER - (-(2^53 - 1))</li>
+<li>Number.MAX_SAFE_INTEGER - (2^53 - 1)</li>
+<li>在安全整数范围内的 整数 操作没问题</li>
+<li>除法如果有小数还是有问题</li>
+<li>位运算一般没问题</li>
+<li>判断容差 <code>Math.abs(a - b) &lt; Number.EPSILON </code></li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=writing-code-was-never-the-bottleneck>Writing Code Was Never the Bottleneck<a href=#writing-code-was-never-the-bottleneck class=hash-link aria-label="Direct link to Writing Code Was Never the Bottleneck" title="Direct link to Writing Code Was Never the Bottleneck" translate=no>​</a></h2><ul>
+<li>LLM 编码质量通常很差，存在一些 <strong>微妙且新颖</strong> 的错误</li>
+<li>真正的工作在于思考和设计</li>
+<li>“努力倒置”（Effort Inversion）现象与高级工程师角色的转变
+<ul>
+<li>传统模式：初级开发者花费大量时间思考、编写和调试，然后提交。高级工程师进行审查，指出问题，双方进行有意义的讨论。</li>
+<li>LLM 模式：实习生在几分钟内生成大量代码，但对这些代码的底层逻辑、边界情况和潜在缺陷几乎一无所知。代码审查不再是“讨论”，而变成了高级工程师单方面的“考古”和“修复”。</li>
+<li>效率假象： 表面上的代码产出速度飞快，但隐藏了巨大的技术债务和审查开销。</li>
+<li>指导失效：传统的“授人以渔”的指导模式难以维系。高级工程师变成了代码的“质检员”和“修理工”，而不是“导师”。</li>
+<li>团队负担：团队的整体效率和代码质量实际上可能在下降，因为最昂贵、最宝贵的资源（高级工程师的时间）被大量消耗在低质量的“擦屁股”工作上。</li>
+</ul>
+</li>
+<li>重新定义软件开发的“瓶颈”
+<ul>
+<li>“上游”瓶颈：问题定义与系统设计
+<ul>
+<li>需求的模糊性与复杂性</li>
+<li>架构的“杠杆效应”</li>
+</ul>
+</li>
+<li>“下游”瓶颈：质量保障与长期维护
+<ul>
+<li>“代码是负债”原则</li>
+<li>不可见的工作</li>
+<li>集成的复杂性</li>
+</ul>
+</li>
+<li>软件工程的“冰山模型”
+<ul>
+<li>代码编写只是浮在水面上的 10%，而水面下 90% 的工作 需求分析、架构设计、测试、集成、部署、维护 才是决定项目成败和成本的关键。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对初级开发者技能成长的深远忧虑
+<ul>
+<li>可能会成为“提示词工程师”（Prompt Engineers），而不是真正的“软件工程师”（Software Engineers）。</li>
+<li>缺乏第一性原理的思考</li>
+<li>“知其然，不知其所以然”</li>
+<li>职业天花板</li>
+<li>“必要难度”理论 (Desirable Difficulty)</li>
+</ul>
+</li>
+<li>代码作为一种“负债”（Liability）
+<ul>
+<li>代码并非越多越好。每一行代码都是需要被理解、测试、维护和保护的“负债”。</li>
+</ul>
+</li>
+<li>不是快速地编写代码，而是智慧地构建系统。</li>
+<li>LLM 是一个杠杆，而不是方向盘。</li>
+<li><a href=https://ordep.dev/posts/writing-code-was-never-the-bottleneck target=_blank rel="noopener noreferrer">Writing Code Was Never the Bottleneck</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=44429789" target=_blank rel="noopener noreferrer">HN</a></li>
+</ul>
+</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=rate-limiting-vs-circuit-breaking>Rate Limiting vs Circuit Breaking<a href=#rate-limiting-vs-circuit-breaking class=hash-link aria-label="Direct link to Rate Limiting vs Circuit Breaking" title="Direct link to Rate Limiting vs Circuit Breaking" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>维度<th>速率限制（Rate Limiting）<th>熔断（Circuit Breaking）<tbody><tr><td>目的<td>保护后端服务，防止过载<td>保护调用方，避免级联故障<tr><td>实现方式<td>限制请求速率，平滑流量<td>监控失败率，动态切换请求状态<tr><td>状态管理<td>通过令牌桶、漏桶等算法实现流量控制<td>通过状态机管理请求的开放、关闭状态<tr><td>适用场景<td>高并发场景，防止单个用户占用过多资源<td>后端服务不稳定，避免故障蔓延</table><ul>
+<li><a href=/notes/dev/rate-limits>速率限制</a></li>
+<li><a href=/notes/dev/circuit-breaker>熔断器</a></li>
+<li>混沌工程是用来检验和增强“熔断器”与“速率限制”等韧性措施有效性的方法论和实践。</li>
+</ul><h2 class="anchor anchorWithStickyNavbar_EG6R" id=secrets-naming>secrets naming<a href=#secrets-naming class=hash-link aria-label="Direct link to secrets naming" title="Direct link to secrets naming" translate=no>​</a></h2><ul>
+<li>apiKey = token</li>
+<li>code = authorization_code
+<ul>
+<li>临时的, 用于换取 access_token</li>
+</ul>
+</li>
+<li>access_token, refresh_token - OAuth2</li>
+<li>tenant_id, tenant_secret - 租户身份</li>
+<li>organization_id, organization_secret - 组织身份</li>
+<li>username, password - 用户身份</li>
+<li>app_id, app_secret - 应用身份</li>
+<li>client_id, client_secret - 客户端身份</li>
+<li>access_key_id, secret_access_key</li>
+<li>access_key, secret_key / secret_access_key</li>
+<li>app_access_token, tenant_access_token, user_access_token</li>
+<li>pat - personal access token - 个人访问令牌</li>
+<li>otp - one-time password - 一次性密码</li>
+</ul></div></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/faq>FAQ</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/dev/dev-faq.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-01-03T14:49:30.000Z itemprop=dateModified>Jan 3, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/dev/error><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>error</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/dev/glossary><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Dev Glossary</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#cursed-knowledge class="table-of-contents__link toc-highlight">Cursed Knowledge</a><li><a href=#case class="table-of-contents__link toc-highlight">常见命名格式</a><li><a href=#keycode class="table-of-contents__link toc-highlight">keycode</a><li><a href=#roles class="table-of-contents__link toc-highlight">Roles</a><li><a href=#中式管理 class="table-of-contents__link toc-highlight">中式管理</a><li><a href=#为什么枚举-名字-要用中文 class="table-of-contents__link toc-highlight">为什么枚举 <strong>名字</strong> 要用中文？</a><li><a href=#为什么枚举-值-要用英文 class="table-of-contents__link toc-highlight">为什么枚举 <strong>值</strong> 要用英文？</a><li><a href=#framework-vs-library class="table-of-contents__link toc-highlight">Framework vs. Library</a><li><a href=#framework-vs-business-logic class="table-of-contents__link toc-highlight">Framework vs. Business Logic</a><li><a href=#agile-architecture-astronauts class="table-of-contents__link toc-highlight">Agile Architecture astronauts</a><li><a href=#private-cloud-vs-on-premise class="table-of-contents__link toc-highlight">Private Cloud vs. On-Premise</a><li><a href=#health-vs-healthz class="table-of-contents__link toc-highlight">health vs. healthz</a><li><a href=#edge-computing class="table-of-contents__link toc-highlight">什么是边缘计算</a><li><a href=#serverless class="table-of-contents__link toc-highlight">什么是无服务</a><li><a href=#api-url class="table-of-contents__link toc-highlight">API URL</a><li><a href=#orchestration-vs-choreography class="table-of-contents__link toc-highlight">Orchestration vs Choreography</a><li><a href=#cache class="table-of-contents__link toc-highlight">开发缓存</a><li><a href=#cache-clean class="table-of-contents__link toc-highlight">缓存清理</a><li><a href=#how-to-ask class="table-of-contents__link toc-highlight">How to ask</a><li><a href=#127001-vs-localhost class="table-of-contents__link toc-highlight">127.0.0.1 vs localhost</a><li><a href=#crlf class="table-of-contents__link toc-highlight">CRLF</a><li><a href=#newbie class="table-of-contents__link toc-highlight">新手常见问题</a><li><a href=#magic-number class="table-of-contents__link toc-highlight">Magic Number</a><li><a href=#关于-k8s-服务重启导致服务中断问题的说明 class="table-of-contents__link toc-highlight">关于 K8S 服务重启导致服务中断问题的说明</a><li><a href=#api--合约--协同 class="table-of-contents__link toc-highlight">API & 合约 & 协同</a><li><a href=#北向接口 class="table-of-contents__link toc-highlight">北向接口</a><li><a href=#data-is-code-code-is-data class="table-of-contents__link toc-highlight">Data is code, code is data</a><li><a href=#schema-vs-validator class="table-of-contents__link toc-highlight">schema vs validator</a><li><a href=#monorepo class="table-of-contents__link toc-highlight">monorepo</a><li><a href=#idle-connections class="table-of-contents__link toc-highlight">链接超时</a><li><a href=#refactor class="table-of-contents__link toc-highlight">重构的价值</a><li><a href=#tech-debt class="table-of-contents__link toc-highlight">技术债务</a><li><a href=#endian class="table-of-contents__link toc-highlight">endian</a><li><a href=#design-vs-architecture class="table-of-contents__link toc-highlight">Design vs. Architecture</a><li><a href=#over-design class="table-of-contents__link toc-highlight">如何判断是否过度设计？</a><li><a href=#theory-vs-pattern-vs-best-practice class="table-of-contents__link toc-highlight">Theory vs Pattern vs Best Practice</a><li><a href=#programmer-vs-engineer class="table-of-contents__link toc-highlight">程序员 vs 软件工程师</a><li><a href=#indent class="table-of-contents__link toc-highlight">缩进</a><li><a href=#impedance-mismatch class="table-of-contents__link toc-highlight">Impedance Mismatch</a><li><a href=#float class="table-of-contents__link toc-highlight">float</a><li><a href=#writing-code-was-never-the-bottleneck class="table-of-contents__link toc-highlight">Writing Code Was Never the Bottleneck</a><li><a href=#rate-limiting-vs-circuit-breaking class="table-of-contents__link toc-highlight">Rate Limiting vs Circuit Breaking</a><li><a href=#secrets-naming class="table-of-contents__link toc-highlight">secrets naming</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

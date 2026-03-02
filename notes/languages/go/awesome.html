@@ -1,0 +1,1596 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-languages/go/go-awesome" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>Go Awesome | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/languages/go/awesome /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Go Awesome | Wener Live & Life"/><meta data-rh=true name=description content="- https://go-proverbs.github.io/"/><meta data-rh=true property=og:description content="- https://go-proverbs.github.io/"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/languages/go/awesome /><link data-rh=true rel=alternate href=https://wener.me/notes/languages/go/awesome hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/languages/go/awesome hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/languages/","name":"语言","position":1},{"@type":"ListItem","item":"https://wener.me/notes/languages/go/","name":"Golang","position":2},{"@type":"ListItem","item":"https://wener.me/notes/languages/go/awesome","name":"Go Awesome","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Collapse sidebar category '语言'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/c><span title=C class=categoryLinkLabel_RkOu>C</span></a><button aria-label="Expand sidebar category 'C'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/carbon><span title=Carbon class=linkLabel_JPPZ>Carbon</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/cel><span title=CEL class=linkLabel_JPPZ>CEL</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/cue><span title=CUE class=linkLabel_JPPZ>CUE</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/diagram><span title=Diagram class=categoryLinkLabel_RkOu>Diagram</span></a><button aria-label="Expand sidebar category 'Diagram'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/languages/english/dict><span title=english class=categoryLinkLabel_RkOu>english</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/languages/go><span title=Golang class=categoryLinkLabel_RkOu>Golang</span></a><button aria-label="Collapse sidebar category 'Golang'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/languages/go/awesome><span title="Go Awesome" class=linkLabel_JPPZ>Go Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/build><span title="Go Build" class=linkLabel_JPPZ>Go Build</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/cgo><span title=CGO class=linkLabel_JPPZ>CGO</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/concurrent><span title=Concurrent class=linkLabel_JPPZ>Concurrent</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/cookbook><span title="Go Cookbook" class=linkLabel_JPPZ>Go Cookbook</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/debug><span title=Debugging class=linkLabel_JPPZ>Debugging</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/faq><span title="Go FAQ" class=linkLabel_JPPZ>Go FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/generic><span title=泛型 class=linkLabel_JPPZ>泛型</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/gui-awesome><span title="Go GUI Awesome" class=linkLabel_JPPZ>Go GUI Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/lint><span title="Golang Linter" class=linkLabel_JPPZ>Golang Linter</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/microservice><span title="Golang 微服务" class=linkLabel_JPPZ>Golang 微服务</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/mobile><span title="Go Mobile" class=linkLabel_JPPZ>Go Mobile</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/mod><span title=go.mod class=linkLabel_JPPZ>go.mod</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/module><span title="Golang 模块" class=linkLabel_JPPZ>Golang 模块</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/pkg-net-rpc><span title="Go net/rpc" class=linkLabel_JPPZ>Go net/rpc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/ref><span title="Go Ref" class=linkLabel_JPPZ>Go Ref</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/soc><span title="Go SoC" class=linkLabel_JPPZ>Go SoC</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/spec><span title="Golang Spec" class=linkLabel_JPPZ>Golang Spec</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/template><span title="Go 模板" class=linkLabel_JPPZ>Go 模板</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/test><span title="Golang Testing" class=linkLabel_JPPZ>Golang Testing</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/tools><span title=Tools class=linkLabel_JPPZ>Tools</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/version><span title="Go Version" class=linkLabel_JPPZ>Go Version</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/wasm><span title="Go WASM" class=linkLabel_JPPZ>Go WASM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/windows><span title="Golang Windows" class=linkLabel_JPPZ>Golang Windows</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/xml><span title="Go XML" class=linkLabel_JPPZ>Go XML</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/go2><span title=Go2 class=linkLabel_JPPZ>Go2</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/go/golangci-lint><span title=golangci-lint class=linkLabel_JPPZ>golangci-lint</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/languages/go/lib/air><span title=lib class=categoryLinkLabel_RkOu>lib</span></a></div></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/japanese><span title=日语 class=linkLabel_JPPZ>日语</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/japenese><span title=Japanese class=linkLabel_JPPZ>Japanese</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/jinjia><span title=jinja class=linkLabel_JPPZ>jinja</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/languages/js/asmjs><span title=js class=categoryLinkLabel_RkOu>js</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/awesome><span title="Languages Awesome" class=linkLabel_JPPZ>Languages Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/faq><span title="Languages FAQ" class=linkLabel_JPPZ>Languages FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/glossary><span title="Languages Glossary" class=linkLabel_JPPZ>Languages Glossary</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/llvm><span title=LLVM class=categoryLinkLabel_RkOu>LLVM</span></a><button aria-label="Expand sidebar category 'LLVM'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/lua><span title=Lua class=categoryLinkLabel_RkOu>Lua</span></a><button aria-label="Expand sidebar category 'Lua'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/markdown><span title=Markdown class=categoryLinkLabel_RkOu>Markdown</span></a><button aria-label="Expand sidebar category 'Markdown'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/miniquery><span title=MiniQuery class=linkLabel_JPPZ>MiniQuery</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/languages/node/library/web><span title=node class=categoryLinkLabel_RkOu>node</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/objc><span title="Object C" class=linkLabel_JPPZ>Object C</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/parser><span title=Parser class=categoryLinkLabel_RkOu>Parser</span></a><button aria-label="Expand sidebar category 'Parser'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/php><span title=PHP class=categoryLinkLabel_RkOu>PHP</span></a><button aria-label="Expand sidebar category 'PHP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/python><span title=Python class=categoryLinkLabel_RkOu>Python</span></a><button aria-label="Expand sidebar category 'Python'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/r><span title="R Language" class=linkLabel_JPPZ>R Language</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/regexp><span title=正则表达式 class=linkLabel_JPPZ>正则表达式</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/ruby><span title=Ruby class=linkLabel_JPPZ>Ruby</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/rust><span title=Rust class=categoryLinkLabel_RkOu>Rust</span></a><button aria-label="Expand sidebar category 'Rust'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/sql><span title=SQL class=linkLabel_JPPZ>SQL</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/swift><span title=Swift class=linkLabel_JPPZ>Swift</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/languages/template/mustache><span title=template class=categoryLinkLabel_RkOu>template</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/tex><span title=Tex class=categoryLinkLabel_RkOu>Tex</span></a><button aria-label="Expand sidebar category 'Tex'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/languages/typst><span title=typst class=linkLabel_JPPZ>typst</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/v><span title=V class=categoryLinkLabel_RkOu>V</span></a><button aria-label="Expand sidebar category 'V'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/wasm><span title=WebAssembly class=categoryLinkLabel_RkOu>WebAssembly</span></a><button aria-label="Expand sidebar category 'WebAssembly'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/languages/xml/xpath><span title=xml class=categoryLinkLabel_RkOu>xml</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/languages/zig><span title=Zig class=categoryLinkLabel_RkOu>Zig</span></a><button aria-label="Expand sidebar category 'Zig'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/languages><span>语言</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/languages/go><span>Golang</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Go Awesome</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Golang Awesome</h1></header>
+<ul>
+<li><a href=https://go-proverbs.github.io/ target=_blank rel="noopener noreferrer">https://go-proverbs.github.io/</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=library>常用库<a href=#library class=hash-link aria-label="Direct link to 常用库" title="Direct link to 常用库" translate=no>​</a></h2>
+<ul>
+<li>mux
+<ul>
+<li><a href=/notes/languages/go/lib/chi>chi</a> - ⭐️</li>
+<li>gin, mux</li>
+</ul>
+</li>
+<li>ORM
+<ul>
+<li><a href=/notes/languages/go/lib/gorm>gorm</a> - ⭐️
+<ul>
+<li>基于反射</li>
+<li>目前 Go 里实现最为优美的 ORM</li>
+<li>XORM 被 gogs 和 gitea 使用，是 gogs 原作者开发 - 但认为比不上 gorm</li>
+</ul>
+</li>
+<li><a href=/notes/languages/go/lib/ent>ent</a> - ⭐️
+<ul>
+<li>基于代码生成</li>
+<li>Meta 信息完善，更适合复杂业务逻辑</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>命令行/Command
+<ul>
+<li><a href=https://github.com/urfave/cli target=_blank rel="noopener noreferrer">urfave/cli</a> - ⭐️
+<ul>
+<li>简单易用</li>
+</ul>
+</li>
+<li><a href=https://github.com/spf13/cobra target=_blank rel="noopener noreferrer">spf13/cobra</a> - ⭐️
+<ul>
+<li>目前使用最多</li>
+<li>更适合命令行非常复杂的情况，默认 split 处理逻辑</li>
+<li>flag 由 pflag 处理，配置由 viper 处理</li>
+<li>比 urfave/cli 更 unopinioned</li>
+<li>urfave/cli 更加 declarative</li>
+<li><a href=https://github.com/muesli/coral target=_blank rel="noopener noreferrer">muesli/coral</a>
+<ul>
+<li>cobra fork with only 4 dependencies</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/go-cmd/cmd target=_blank rel="noopener noreferrer">go-cmd/cmd</a>
+<ul>
+<li>MIT, Golang</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IoC/DI
+<ul>
+<li><a href=/notes/languages/go/lib/fx>fx</a></li>
+<li>dig</li>
+<li><a href=/notes/languages/go/lib/wire>wire</a></li>
+</ul>
+</li>
+<li>JWX
+<ul>
+<li><a href=https://github.com/golang-jwt/jwt target=_blank rel="noopener noreferrer">golang-jwt/jwt</a></li>
+<li><a href=https://github.com/lestrrat-go/jwx target=_blank rel="noopener noreferrer">lestrrat-go/jwx</a>
+<ul>
+<li>jwt,jwk,jwa,jws,jwe</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>OIDC
+<ul>
+<li><a href=/notes/languages/go/lib/oidc>caos/oidc</a>
+<ul>
+<li>op,rs</li>
+</ul>
+</li>
+<li><a href=https://pkg.go.dev/golang.org/x/oauth2 target=_blank rel="noopener noreferrer">golang.org/x/oauth2</a></li>
+</ul>
+</li>
+<li>配置
+<ul>
+<li>viper - 重量级
+<ul>
+<li>会 lowercase YAML key</li>
+<li>break space</li>
+</ul>
+</li>
+<li><a href=https://github.com/caarlos0/env target=_blank rel="noopener noreferrer">caarlos0/env</a></li>
+<li><a href=https://github.com/knadh/koanf target=_blank rel="noopener noreferrer">knadh/koanf</a>
+<ul>
+<li>轻量 - 功能按需引入 - binary 小</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>日志
+<ul>
+<li>zerolog</li>
+<li>zap</li>
+<li>logrus</li>
+</ul>
+</li>
+<li>HTTP Client
+<ul>
+<li><a href=https://github.com/wenerme/go-req target=_blank rel="noopener noreferrer">wenerme/go-req</a></li>
+</ul>
+</li>
+<li>Observerable
+<ul>
+<li>Prometheus Metrics</li>
+<li>Jaeger</li>
+</ul>
+</li>
+<li>Testing
+<ul>
+<li><a href=https://github.com/onsi/ginkgo target=_blank rel="noopener noreferrer">onsi/ginkgo</a></li>
+<li><a href=https://github.com/smartystreets/goconvey target=_blank rel="noopener noreferrer">smartystreets/goconvey</a></li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://github.com/mingrammer/go-web-framework-stars target=_blank rel="noopener noreferrer">mingrammer/go-web-framework-stars</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=learning>学习<a href=#learning class=hash-link aria-label="Direct link to 学习" title="Direct link to 学习" translate=no>​</a></h2>
+<ul>
+<li><a href=https://go-proverbs.github.io/ target=_blank rel="noopener noreferrer">https://go-proverbs.github.io/</a></li>
+<li><a href=https://golang.org/doc/effective_go target=_blank rel="noopener noreferrer">https://golang.org/doc/effective_go</a></li>
+<li><a href=https://github.com/golang/go/wiki/CodeReviewComments target=_blank rel="noopener noreferrer">https://github.com/golang/go/wiki/CodeReviewComments</a></li>
+<li><a href=https://github.com/golang/go/wiki/Modules target=_blank rel="noopener noreferrer">https://github.com/golang/go/wiki/Modules</a></li>
+<li><a href=https://github.com/golang/go/wiki target=_blank rel="noopener noreferrer">https://github.com/golang/go/wiki</a></li>
+<li><a href=https://golang.org/ref/spec target=_blank rel="noopener noreferrer">https://golang.org/ref/spec</a></li>
+<li>project layout
+<ul>
+<li><a href=https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/ target=_blank rel="noopener noreferrer">Simple Pojrect Layout</a></li>
+<li><a href=https://github.com/golang-standards/project-layout target=_blank rel="noopener noreferrer">golang-standards/project-layout</a>
+<ul>
+<li>rsc: this is not a standard Go project layout - <a href=https://github.com/golang-standards/project-layout/issues/117 target=_blank rel="noopener noreferrer">#117</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://tumregels.github.io/Network-Programming-with-Go/ target=_blank rel="noopener noreferrer">Network Programming with Go</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=28824996" target=_blank rel="noopener noreferrer">HN</a></li>
+</ul>
+</li>
+<li><a href=https://martin.baillie.id/wrote/gotchas-in-the-go-network-packages-defaults/ target=_blank rel="noopener noreferrer">Gotchas in the Go Network Packages Defaults</a></li>
+<li>Playground
+<ul>
+<li><a href=https://goplay.tools target=_blank rel="noopener noreferrer">https://goplay.tools</a>
+<ul>
+<li><a href=https://github.com/x1unix/go-playground target=_blank rel="noopener noreferrer">x1unix/go-playground</a></li>
+</ul>
+</li>
+<li><a href=https://play.golang.org target=_blank rel="noopener noreferrer">https://play.golang.org</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=logging>日志<a href=#logging class=hash-link aria-label="Direct link to 日志" title="Direct link to 日志" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/rs/zerolog target=_blank rel="noopener noreferrer">rs/zerolog</a> - ⭐️
+<ul>
+<li>Zero Allocation JSON Logger</li>
+<li>接口更友好</li>
+<li>⚠️ 重复名字字段不会覆盖</li>
+</ul>
+</li>
+<li><a href=https://github.com/uber-go/zap target=_blank rel="noopener noreferrer">uber-go/zap</a> - ⭐️
+<ul>
+<li>适用于生产、核心链路</li>
+<li>需要更多的配置</li>
+<li>Suger 模式接口友好 - 些微影响性能</li>
+</ul>
+</li>
+<li><a href=https://github.com/sirupsen/logrus target=_blank rel="noopener noreferrer">sirupsen/logrus</a>
+<ul>
+<li>目前处于 <strong>维护模式</strong> 🚧 - 完成使命</li>
+<li>适用于简单快速使用</li>
+<li>默认即可使用</li>
+</ul>
+</li>
+<li>benchmark
+<ul>
+<li><a href=https://github.com/rs/logbench target=_blank rel="noopener noreferrer">https://github.com/rs/logbench</a>
+<ul>
+<li><a href=http://hackemist.com/logbench/ target=_blank rel="noopener noreferrer">http://hackemist.com/logbench/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/uber-go/zap#performance target=_blank rel="noopener noreferrer">https://github.com/uber-go/zap#performance</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=driver>数据库驱动<a href=#driver class=hash-link aria-label="Direct link to 数据库驱动" title="Direct link to 数据库驱动" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/polarsignals/frostdb target=_blank rel="noopener noreferrer">polarsignals/frostdb</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>embeddable columnar database</li>
+<li>类似于 duckdb</li>
+</ul>
+</li>
+<li><a href=https://github.com/mattn/go-sqlite3 target=_blank rel="noopener noreferrer">mattn/go-sqlite3</a>
+<ul>
+<li>依赖 CGO</li>
+<li>DSN - <a href=https://www.sqlite.org/uri.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/uri.html</a>
+<ul>
+<li><code>file:test.db?cache=shared&mode=memory</code></li>
+<li>mode ro, rw, rwc, memory
+<ul>
+<li>rwc - Read, Write, Create</li>
+</ul>
+</li>
+<li>cache shared, private - <a href=https://www.sqlite.org/sharedcache.html target=_blank rel="noopener noreferrer">https://www.sqlite.org/sharedcache.html</a></li>
+<li><code>_foreign_keys/_fk</code> - <code>PRAGMA foreign_keys</code> - 外键约束</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://gitlab.com/cznic/sqlite target=_blank rel="noopener noreferrer">cznic/sqlite</a>
+<ul>
+<li>pure go SQLite</li>
+</ul>
+</li>
+<li><a href=https://github.com/jackc/pgx target=_blank rel="noopener noreferrer">github.com/jackc/pgx/v5</a>
+<ul>
+<li>推荐 - 纯 Go</li>
+<li><a href=https://github.com/jackc/pgtype target=_blank rel="noopener noreferrer">jackc/pgtype</a>
+<ul>
+<li>接口没有 pq 提供的类型方便操作</li>
+</ul>
+</li>
+<li>vs pq
+<ul>
+<li><a href=https://github.com/sourcegraph/sourcegraph/issues/16575#issuecomment-747923724 target=_blank rel="noopener noreferrer">sourcegraph/sourcegraph#16575</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/go-redis/redis target=_blank rel="noopener noreferrer">go-redis/redis</a>
+<ul>
+<li><a href=https://github.com/go-redis/redis/issues/607 target=_blank rel="noopener noreferrer">go-redis/redis#607</a>
+<ul>
+<li>不支持 Prefix</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/lib/pq target=_blank rel="noopener noreferrer">lib/pq</a>
+<ul>
+<li>已不推荐使用</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=db>数据库相关<a href=#db class=hash-link aria-label="Direct link to 数据库相关" title="Direct link to 数据库相关" translate=no>​</a></h2>
+<ul>
+<li><a href=/notes/languages/go/lib/ent>ent</a>
+<ul>
+<li><a href=https://github.com/ariga/sqlcomment target=_blank rel="noopener noreferrer">ariga/sqlcomment</a>
+<ul>
+<li>添加注释 - 用于 trace</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=/notes/languages/go/lib/gorm>gorm</a></li>
+<li><a href=https://github.com/guregu/null target=_blank rel="noopener noreferrer">guregu/null</a>
+<ul>
+<li>包装 sql.Null 支持 序列化</li>
+</ul>
+</li>
+<li><a href=https://github.com/qustavo/sqlhooks target=_blank rel="noopener noreferrer">qustavo/sqlhooks</a>
+<ul>
+<li>添加 hook</li>
+</ul>
+</li>
+<li><a href=https://github.com/kyleconroy/sqlc target=_blank rel="noopener noreferrer">kyleconroy/sqlc</a>
+<ul>
+<li>sql 生成 go 代码进行调用</li>
+</ul>
+</li>
+<li><a href=https://github.com/sosedoff/pgweb target=_blank rel="noopener noreferrer">sosedoff/pgweb</a>
+<ul>
+<li>Golang Web 管理工具 - MIT, 只读</li>
+</ul>
+</li>
+<li><a href=https://github.com/go-pg/pg target=_blank rel="noopener noreferrer">go-pg/pg</a>
+<ul>
+<li>ORM focus on PostgreSQL features and performance</li>
+</ul>
+</li>
+<li><a href=https://github.com/volatiletech/sqlboiler target=_blank rel="noopener noreferrer">volatiletech/sqlboiler</a>
+<ul>
+<li>database-first ORM</li>
+</ul>
+</li>
+<li><a href=https://github.com/xo/xo target=_blank rel="noopener noreferrer">xo/xo</a>
+<ul>
+<li>DB 生成 Go</li>
+</ul>
+</li>
+<li><a href=https://github.com/jmoiron/sqlx target=_blank rel="noopener noreferrer">jmoiron/sqlx</a>
+<ul>
+<li>辅助 sql 操作</li>
+</ul>
+</li>
+<li><a href=https://github.com/xo/dburl target=_blank rel="noopener noreferrer">xo/dburl</a>
+<ul>
+<li>Connect String</li>
+</ul>
+</li>
+<li>SQL Builder
+<ul>
+<li><a href=https://github.com/Masterminds/squirrel target=_blank rel="noopener noreferrer">Masterminds/squirrel</a></li>
+<li><a href=https://github.com/uptrace/bun target=_blank rel="noopener noreferrer">uptrace/bun</a></li>
+</ul>
+</li>
+<li>迁移
+<ul>
+<li><a href=/notes/languages/go/lib/atlas.md>atlas</a>
+<ul>
+<li>DSL based</li>
+</ul>
+</li>
+<li><a href=https://github.com/golang-migrate/migrate target=_blank rel="noopener noreferrer">golang-migrate/migrate</a></li>
+<li><a href=https://github.com/rubenv/sql-migrate target=_blank rel="noopener noreferrer">rubenv/sql-migrate</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=web>Web<a href=#web class=hash-link aria-label="Direct link to Web" title="Direct link to Web" translate=no>​</a></h2>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>tip</div><div class=admonitionContent_R6P7><ul>
+<li>Go 本身的 HTTP 处理已经比较完备，选择框架和库尽量以增强为主，避免选择全新实现</li>
+<li>兼容 Go HTTP 处理逻辑的库能够相互组合使用</li>
+</ul></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=routing>路由/Router<a href=#routing class=hash-link aria-label="Direct link to 路由/Router" title="Direct link to 路由/Router" translate=no>​</a></h3>
+<ul>
+<li><a href=/notes/languages/go/lib/chi>chi</a>
+<ul>
+<li>标准接口</li>
+<li>开发比 mux 活跃</li>
+<li>radix trie - 类似 httprouter - 性能优于 mux</li>
+<li>自带较多 middleware</li>
+</ul>
+</li>
+<li><a href=https://github.com/gorilla/mux target=_blank rel="noopener noreferrer">gorilla/mux</a>
+<ul>
+<li>不推荐使用</li>
+<li>非常便于使用路由，增强 go http 功能</li>
+<li>变量匹配路由 - <code>O(n)</code></li>
+</ul>
+</li>
+<li><a href=https://github.com/julienschmidt/httprouter target=_blank rel="noopener noreferrer">julienschmidt/httprouter</a>
+<ul>
+<li>牺牲功能换取性能</li>
+<li>不适用于 RESTful 接口 - 不能区分路由 <code>/users/like</code>, <code>/users/:userId</code></li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://github.com/julienschmidt/go-http-routing-benchmark target=_blank rel="noopener noreferrer">julienschmidt/go-http-routing-benchmark</a></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=framework>框架/Framework<a href=#framework class=hash-link aria-label="Direct link to 框架/Framework" title="Direct link to 框架/Framework" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/kataras/iris target=_blank rel="noopener noreferrer">kataras/iris</a>
+<ul>
+<li>BSD-3</li>
+</ul>
+</li>
+<li><a href=https://github.com/gin-gonic/gin target=_blank rel="noopener noreferrer">gin-gonic/gin</a>
+<ul>
+<li>默认处理逻辑将请求和响应封装为了 Context</li>
+<li>能 Wrap http 的 Handler</li>
+<li>基于 httprouter 路由 - 不能区分路由 <code>/users/like</code>, <code>/users/:userId</code>
+<ul>
+<li>不适用于 RESTful 接口</li>
+<li><a href=https://github.com/gin-gonic/gin/issues/2016 target=_blank rel="noopener noreferrer">gin#2016</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/gofiber/fiber target=_blank rel="noopener noreferrer">gofiber/fiber</a>
+<ul>
+<li>非 net/http 体系</li>
+<li>基于 fasthttp</li>
+</ul>
+</li>
+<li><a href=https://github.com/cloudwego/hertz target=_blank rel="noopener noreferrer">cloudwego/hertz</a>
+<ul>
+<li>微服务</li>
+<li>网络层基于 Netpoll</li>
+<li>文档 <a href=https://www.cloudwego.io/zh/docs/hertz/ target=_blank rel="noopener noreferrer">https://www.cloudwego.io/zh/docs/hertz/</a></li>
+<li>by 字节跳动</li>
+</ul>
+</li>
+<li><a href=https://github.com/emicklei/go-restful target=_blank rel="noopener noreferrer">emicklei/go-restful</a>
+<ul>
+<li>辅助构建 RESTful 类型接口</li>
+<li>抽象 Resource 概念</li>
+<li>抽象 Entity 编码处理</li>
+<li>支持 JSON 和 XML</li>
+<li>支持定义 OpenAPI</li>
+</ul>
+</li>
+<li><a href=https://github.com/ogen-go/ogen target=_blank rel="noopener noreferrer">ogen-go/ogen</a>
+<ul>
+<li>生成 OpenAPIv3</li>
+</ul>
+</li>
+<li>beego
+<ul>
+<li>用于快速开发的完整框架 - All in one</li>
+<li>不推崇，尽量避免使用</li>
+<li>除非所有理念刚好匹配</li>
+</ul>
+</li>
+<li>echo</li>
+<li>revel</li>
+<li><a href=https://github.com/danielgtaylor/huma target=_blank rel="noopener noreferrer">danielgtaylor/huma</a>
+<ul>
+<li>Huma REST/GraphQL API Framework for Golang with OpenAPI 3</li>
+</ul>
+</li>
+<li>swaggo/swag</li>
+<li><a href=https://github.com/swaggo/http-swagger target=_blank rel="noopener noreferrer">swaggo/http-swagger</a></li>
+<li><a href=https://github.com/goadesign/goa target=_blank rel="noopener noreferrer">goadesign/goa</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=enhance>增强处理<a href=#enhance class=hash-link aria-label="Direct link to 增强处理" title="Direct link to 增强处理" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/go-chi/render target=_blank rel="noopener noreferrer">go-chi/render</a>
+<ul>
+<li>辅助处理请求响应内容</li>
+</ul>
+</li>
+<li><a href=https://github.com/unrolled/render target=_blank rel="noopener noreferrer">unrolled/render</a></li>
+<li><a href=https://github.com/yuriizinets/kyoto target=_blank rel="noopener noreferrer">yuriizinets/kyoto</a></li>
+<li><em>SSR</em> :)
+<ul>
+<li><a href=https://github.com/wolfeidau/hotwire-golang-website target=_blank rel="noopener noreferrer">wolfeidau/hotwire-golang-website</a></li>
+<li><a href=https://www.akmittal.dev/posts/hotwire-go/ target=_blank rel="noopener noreferrer">https://www.akmittal.dev/posts/hotwire-go/</a></li>
+<li><a href=https://github.com/jfyne/live target=_blank rel="noopener noreferrer">jfyne/live</a></li>
+<li><a href=https://github.com/brendonmatos/golive target=_blank rel="noopener noreferrer">brendonmatos/golive</a></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=websocket>Websocket<a href=#websocket class=hash-link aria-label="Direct link to Websocket" title="Direct link to Websocket" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/gorilla/websocket target=_blank rel="noopener noreferrer">gorilla/websocket</a>
+<ul>
+<li>实现 ws 的首选库</li>
+<li>功能比 <code>golang.org/x/net/websocket</code> 丰富完善</li>
+</ul>
+</li>
+<li><a href=https://github.com/olahol/melody target=_blank rel="noopener noreferrer">olahol/melody</a>
+<ul>
+<li>基于 gorilla/websocket 封装的简单消息处理库</li>
+<li>不再维护，如需修改可以拷贝出来使用</li>
+</ul>
+</li>
+<li><a href=https://github.com/gobwas/ws target=_blank rel="noopener noreferrer">gobwas/ws</a>
+Tiny WebSocket library for Go</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=misc>Misc<a href=#misc class=hash-link aria-label="Direct link to Misc" title="Direct link to Misc" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/go-vgo/robotgo target=_blank rel="noopener noreferrer">go-vgo/robotgo</a>
+<ul>
+<li>RobotGo, Go Native cross-platform GUI automation</li>
+</ul>
+</li>
+<li><a href=http://github.com/valyala/fasthttp target=_blank rel="noopener noreferrer">valyala/fasthttp</a>
+<ul>
+<li>重写的 net/http 处理</li>
+<li>注重性能</li>
+<li>Zero memory allocations in hot paths. Up to 10x faster than net/http</li>
+</ul>
+</li>
+<li><a href=https://github.com/golobby/container target=_blank rel="noopener noreferrer">golobby/container</a>
+<ul>
+<li>IoC Container</li>
+</ul>
+</li>
+<li><a href=https://github.com/zhenghaoz/gorse target=_blank rel="noopener noreferrer">zhenghaoz/gorse</a>
+recommender system service</li>
+<li><a href=https://github.com/davidschlachter/embedded-struct-visualizer target=_blank rel="noopener noreferrer">davidschlachter/embedded-struct-visualizer</a>
+<ul>
+<li>struct 关系可视化</li>
+</ul>
+</li>
+<li><a href=https://github.com/orijtech/structslop target=_blank rel="noopener noreferrer">orijtech/structslop</a>
+<ul>
+<li>struct 字段顺序调整优化</li>
+</ul>
+</li>
+<li><a href=https://github.com/tmc/reactssr target=_blank rel="noopener noreferrer">tmc/reactssr</a>
+<ul>
+<li>React SSR</li>
+</ul>
+</li>
+<li><a href=https://github.com/razorpay/go-financial target=_blank rel="noopener noreferrer">razorpay/go-financial</a>
+<ul>
+<li>numpy-financial</li>
+<li><a href=https://engineering.razorpay.com/892b1532eb2e target=_blank rel="noopener noreferrer">Go Financial — A pkg for elementary financial functions</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/loov/goda target=_blank rel="noopener noreferrer">loov/goda</a>
+<ul>
+<li>Go Dependency Analysis toolkit</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=graphql>GraphQL<a href=#graphql class=hash-link aria-label="Direct link to GraphQL" title="Direct link to GraphQL" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/99designs/gqlgen target=_blank rel="noopener noreferrer">99designs/gqlgen</a>
+<ul>
+<li>GraphQL Schema 生成 Model/Resolver</li>
+<li>静态类型，无法动态 Schema</li>
+<li>参照 graphql-js 实现</li>
+</ul>
+</li>
+<li><a href=https://github.com/graph-gophers/graphql-go target=_blank rel="noopener noreferrer">graph-gophers/graphql-go</a>
+<ul>
+<li>BSD-2</li>
+<li>类型自动绑定 Schema - 静态 Schema</li>
+</ul>
+</li>
+<li><a href=https://github.com/graphql-go/graphql target=_blank rel="noopener noreferrer">graphql-go/graphql</a>
+<ul>
+<li>代码动态生成 Schema - 动态 Schema</li>
+</ul>
+</li>
+<li><a href=https://github.com/Yamashou/gqlgenc target=_blank rel="noopener noreferrer">Yamashou/gqlgenc</a>
+<ul>
+<li>gqlgen 客户端</li>
+</ul>
+</li>
+<li><a href=https://github.com/Khan/genqlient target=_blank rel="noopener noreferrer">Khan/genqlient</a>
+<ul>
+<li>type-safe Go GraphQL client</li>
+</ul>
+</li>
+</ul>
+<p><strong>网关</strong></p>
+<ul>
+<li><a href=https://github.com/ysugimoto/grpc-graphql-gateway target=_blank rel="noopener noreferrer">ysugimoto/grpc-graphql-gateway</a>
+<ul>
+<li>基于 pb 生成 graphql 网关</li>
+<li>实现使用 <a href=https://github.com/graphql-go/graphql target=_blank rel="noopener noreferrer">graphql-go/graphql</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/movio/bramble target=_blank rel="noopener noreferrer">movio/bramble</a>
+<ul>
+<li>MIT, Golang</li>
+<li>比 apollo 简单但功能更弱</li>
+<li>基于 service 合成 - 支持部分简单 directive</li>
+<li>不支持 subscriptions</li>
+<li><a href=https://movio.co/blog/building-a-new-api-platform-for-movio/ target=_blank rel="noopener noreferrer">Introducing Bramble: A Federated GraphQL Gateway Implemented In Go</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/nautilus/gateway target=_blank rel="noopener noreferrer">nautilus/gateway</a>
+<ul>
+<li>MIT, Golang</li>
+<li>Introspect schema，自动合并 - 不需要 directive</li>
+<li>不支持 subscriptions</li>
+<li><a href=https://itnext.io/a-guide-to-graphql-schema-federation-part-1-995b639ac035 target=_blank rel="noopener noreferrer">A Guide to GraphQL Schema Federation, Part 1</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=generator>代码生成/Generator<a href=#generator class=hash-link aria-label="Direct link to 代码生成/Generator" title="Direct link to 代码生成/Generator" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/golang/tools/blob/master/cmd/stringer/stringer.go target=_blank rel="noopener noreferrer">cmd/stringer/stringer.go</a>
+<ul>
+<li>为 int 枚举生成 String 方法</li>
+<li><code>//go:generate stringer -type=Pill</code></li>
+<li><code>-type</code></li>
+<li><code>-output</code></li>
+<li><code>-trimprefix</code></li>
+<li><code>-tags</code></li>
+<li><code>-linecomment</code> - String 返回 Comment 内容</li>
+</ul>
+</li>
+<li><a href=https://github.com/google/addlicense target=_blank rel="noopener noreferrer">google/addlicense</a>
+<ul>
+<li>添加 License</li>
+<li><code>//go:generate go run github.com/google/addlicense -c Wener -y 2019-present ./</code></li>
+</ul>
+</li>
+<li><a href=https://github.com/fatih/gomodifytags target=_blank rel="noopener noreferrer">fatih/gomodifytags</a>
+<ul>
+<li>添加 json tag</li>
+<li><code>gomodifytags -file demo.go -struct Server -add-tags json -add-options json=omitempty -transform camelcase --skip-unexported</code></li>
+<li>transform
+<ul>
+<li>snakecase - base_domain</li>
+<li>camelcase - baseDomain</li>
+<li>lispcase - base-domain</li>
+<li>pascalcase - BaseDomain</li>
+<li>titlecase - Base Domain</li>
+<li>keep</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/hexdigest/gowrap target=_blank rel="noopener noreferrer">hexdigest/gowrap</a>
+<ul>
+<li>生成 interface 实现，辅助实现修饰模式</li>
+</ul>
+</li>
+<li><a href=https://github.com/awalterschulze/goderive target=_blank rel="noopener noreferrer">awalterschulze/goderive</a>
+<ul>
+<li>为 Struct 生成 Equal、Compare、DeepCopy、GoString、Hash</li>
+<li>为类型生成 Set 操作</li>
+<li>生成函数式编程方法</li>
+<li>生成并发操作</li>
+</ul>
+</li>
+<li><a href=https://github.com/miku/zek target=_blank rel="noopener noreferrer">miku/zek</a>
+<ul>
+<li>XML -> Go Struct</li>
+<li><a href=https://www.onlinetool.io/xmltogo target=_blank rel="noopener noreferrer">在线生成</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/mholt/json-to-go target=_blank rel="noopener noreferrer">mholt/json-to-go</a>
+<ul>
+<li>JSON -> Go Struct</li>
+<li><a href=https://mholt.github.io/json-to-go/ target=_blank rel="noopener noreferrer">在线生成</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/gzuidhof/tygo target=_blank rel="noopener noreferrer">gzuidhof/tygo</a>
+<ul>
+<li>Go -> Typescript</li>
+</ul>
+</li>
+<li>功能性
+<ul>
+<li><a href=https://github.com/ent/ent target=_blank rel="noopener noreferrer">ent/ent</a> - Schema -> CRUD, MySQL, PostgreSQL, SQLite</li>
+<li><a href=https://github.com/uber-go/gopatch target=_blank rel="noopener noreferrer">uber-go/gopatch</a>
+<ul>
+<li>根据规则转换代码</li>
+</ul>
+</li>
+<li><a href=https://github.com/ogen-go/ogen target=_blank rel="noopener noreferrer">ogen-go/ogen</a>
+<ul>
+<li>OpenAPI, Golang</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=json>JSON<a href=#json class=hash-link aria-label="Direct link to JSON" title="Direct link to JSON" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/sclevine/yj target=_blank rel="noopener noreferrer">sclevine/yj</a>
+<ul>
+<li>Convert between YAML, TOML, JSON, HCL</li>
+</ul>
+</li>
+<li><a href=https://github.com/json-iterator/go target=_blank rel="noopener noreferrer">json-iterator/go</a>
+<ul>
+<li>替代 <code>encoding/json</code></li>
+<li>更好性能，更多功能
+<ul>
+<li>自定义类型解码</li>
+<li>宽松名字处理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/go-faster/jx target=_blank rel="noopener noreferrer">go-faster/jx</a>
+<ul>
+<li>高性能 JSON encode,decode</li>
+<li>不兼容 encoding/json - 因此才能提供性能优势</li>
+<li>不支持反射</li>
+<li>适用于代码生成场景</li>
+</ul>
+</li>
+<li><a href=https://github.com/tidwall/gjson target=_blank rel="noopener noreferrer">tidwall/gjson</a>
+<ul>
+<li>Get Json Path</li>
+</ul>
+</li>
+<li><a href=https://github.com/tidwall/sjson target=_blank rel="noopener noreferrer">tidwall/sjson</a>
+<ul>
+<li>Set Json Path</li>
+</ul>
+</li>
+<li><a href=https://github.com/qri-io/jsonschema target=_blank rel="noopener noreferrer">qri-io/jsonschema</a></li>
+<li><a href=https://github.com/xeipuuv/gojsonschema target=_blank rel="noopener noreferrer">xeipuuv/gojsonschema</a></li>
+<li><a href=https://github.com/ugorji/go target=_blank rel="noopener noreferrer">ugorji/go</a>
+diomatic codec and rpc lib for msgpack, cbor, json, etc.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=data-processing>数据处理/Data<a href=#data-processing class=hash-link aria-label="Direct link to 数据处理/Data" title="Direct link to 数据处理/Data" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/go-playground/validator target=_blank rel="noopener noreferrer">go-playground/validator</a>
+<ul>
+<li>struct 标签注解校验 - 类似于 Java 的 Bean Validate</li>
+<li>功能完善</li>
+</ul>
+</li>
+<li><a href=https://github.com/go-validator/validator target=_blank rel="noopener noreferrer">go-validator/validator</a>
+<ul>
+<li>实现简单 - 基础类型基础功能</li>
+</ul>
+</li>
+<li><a href=https://github.com/go-ozzo/ozzo-validation target=_blank rel="noopener noreferrer">go-ozzo/ozzo-validation</a>
+<ul>
+<li>校验库</li>
+</ul>
+</li>
+<li>mapstructure</li>
+<li><a href=https://github.com/bytedance/go-tagexpr target=_blank rel="noopener noreferrer">bytedance/go-tagexpr</a>
+<ul>
+<li>使用表达式 validate</li>
+</ul>
+</li>
+<li><a href=https://github.com/BWbwchen/MapReduce target=_blank rel="noopener noreferrer">BWbwchen/MapReduce</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=aiml>AI/ML<a href=#aiml class=hash-link aria-label="Direct link to AI/ML" title="Direct link to AI/ML" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/sjwhitworth/golearn target=_blank rel="noopener noreferrer">sjwhitworth/golearn</a> - Machine Learning for Go</li>
+<li><a href=https://github.com/gorgonia/gorgonia target=_blank rel="noopener noreferrer">gorgonia/gorgonia</a> - Go machine learning library</li>
+<li><a href=https://github.com/galeone/tfgo target=_blank rel="noopener noreferrer">galeone/tfgo</a> - TensorFlow bindings for Go</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=networking>网络/Network<a href=#networking class=hash-link aria-label="Direct link to 网络/Network" title="Direct link to 网络/Network" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/cloudwego/netpoll target=_blank rel="noopener noreferrer">cloudwego/netpoll</a>
+<ul>
+<li>non-blocking I/O networking framework, focused on RPC</li>
+</ul>
+</li>
+<li><a href=https://github.com/inetaf target=_blank rel="noopener noreferrer">https://github.com/inetaf</a></li>
+<li><a href=https://github.com/tidwall/evio target=_blank rel="noopener noreferrer">tidwall/evio</a>
+<ul>
+<li>event-loop networking for Go</li>
+</ul>
+</li>
+<li><a href=https://github.com/panjf2000/gnet target=_blank rel="noopener noreferrer">panjf2000/gnet</a>
+<ul>
+<li>高性能、轻量级、非阻塞的事件驱动 Go 网络框架。</li>
+</ul>
+</li>
+<li><a href=https://github.com/magma/magma target=_blank rel="noopener noreferrer">magma/magma</a>
+<ul>
+<li>Platform for building access networks and modular network services</li>
+</ul>
+</li>
+<li><a href=https://github.com/koding/websocketproxy target=_blank rel="noopener noreferrer">koding/websocketproxy</a>
+WebSocket reverse proxy</li>
+<li><a href=https://github.com/soheilhy/cmux target=_blank rel="noopener noreferrer">soheilhy/cmux</a>
+Connection multiplexer - serve different services on the same port
+<ul>
+<li>grpc,ssh,http,https 同端口</li>
+</ul>
+</li>
+<li><a href=https://github.com/songgao/water target=_blank rel="noopener noreferrer">songgao/water</a>
+TUN/TAP library written in native Go</li>
+<li><a href=https://github.com/name5566/leaf target=_blank rel="noopener noreferrer">name5566/leaf</a>
+game server framework in Go</li>
+<li><a href=https://github.com/xtaci/gonet target=_blank rel="noopener noreferrer">xtaci/gonet</a>
+Game Server Skeleton in golang.</li>
+<li><a href=https://github.com/nadoo/glider target=_blank rel="noopener noreferrer">nadoo/glider</a>
+<ul>
+<li>forward proxy with multiple protocols support</li>
+</ul>
+</li>
+<li><a href=https://github.com/cilium/ebpf target=_blank rel="noopener noreferrer">cilium/ebpf</a></li>
+<li><a href=https://github.com/kevwan/tproxy target=_blank rel="noopener noreferrer">kevwan/tproxy</a></li>
+<li><a href=https://gvisor.dev/docs/user_guide/networking/ target=_blank rel="noopener noreferrer">https://gvisor.dev/docs/user_guide/networking/</a>
+<ul>
+<li>gvisor networking stack</li>
+</ul>
+</li>
+<li><a href=https://github.com/topfreegames/pitaya target=_blank rel="noopener noreferrer">topfreegames/pitaya</a>
+<ul>
+<li>MIT, Game server</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=protocols>协议/Protocol<a href=#protocols class=hash-link aria-label="Direct link to 协议/Protocol" title="Direct link to 协议/Protocol" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/hacdias/webdav target=_blank rel="noopener noreferrer">hacdias/webdav</a>
+<ul>
+<li>Simple Go WebDAV server</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=events>事件驱动/Event<a href=#events class=hash-link aria-label="Direct link to 事件驱动/Event" title="Direct link to 事件驱动/Event" translate=no>​</a></h2>
+<ul>
+<li><a href=/notes/service/workflow/temporal.md>temporal</a></li>
+<li><a href=/notes/service/workflow/cadence>uber/cadence</a>
+<ul>
+<li>distributed, scalable, durable, and highly available orchestration engine</li>
+<li>execute asynchronous long-running business logic</li>
+</ul>
+</li>
+<li><a href=https://github.com/tibcosoftware/flogo target=_blank rel="noopener noreferrer">tibcosoftware/flogo</a>
+<ul>
+<li>包含 Web UI</li>
+<li>用于实现事件驱动编程</li>
+<li>场景
+<ul>
+<li>集成 Flow 处理</li>
+<li>流处理</li>
+<li>上下文决策</li>
+<li>Microgateway</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/ThreeDotsLabs/watermill target=_blank rel="noopener noreferrer">ThreeDotsLabs/watermill</a></li>
+<li><a href=https://github.com/trustmaster/goflow target=_blank rel="noopener noreferrer">trustmaster/goflow</a></li>
+<li><a href=https://github.com/flowbase/flowbase target=_blank rel="noopener noreferrer">flowbase/flowbase</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=service-framework>服务框架/Service Framework<a href=#service-framework class=hash-link aria-label="Direct link to 服务框架/Service Framework" title="Direct link to 服务框架/Service Framework" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/dapr/dapr target=_blank rel="noopener noreferrer">dapr/dapr</a>
+portable, event-driven, runtime for building distributed applications
+<ul>
+<li>Sidecar 模式</li>
+<li>微软 项目</li>
+</ul>
+</li>
+<li><a href=https://github.com/AsynkronIT/protoactor-go target=_blank rel="noopener noreferrer">AsynkronIT/protoactor-go</a>
+<ul>
+<li>Proto Actor - Ultra fast distributed actors for Go, C# and Java/Kotlin</li>
+</ul>
+</li>
+<li><a href=https://github.com/wasmCloud/wasmCloud target=_blank rel="noopener noreferrer">wasmCloud/wasmCloud</a>
+<ul>
+<li>wasm actor 平台 - 支持 tinygo</li>
+</ul>
+</li>
+<li><a href=https://github.com/RichardKnop/machinery target=_blank rel="noopener noreferrer">RichardKnop/machinery</a>
+asynchronous task queue/job queue based on distributed message passing</li>
+<li><a href=https://github.com/hibiken/asynq target=_blank rel="noopener noreferrer">hibiken/asynq</a>
+<ul>
+<li>MIT, Golang</li>
+<li>Redis</li>
+<li>Simple, reliable, and efficient distributed task queue in Go</li>
+</ul>
+</li>
+<li><a href=https://github.com/twitchtv/twirp target=_blank rel="noopener noreferrer">twitchtv/twirp</a>
+simple RPC framework with protobuf service definitions
+<ul>
+<li>protobuf+net/http</li>
+</ul>
+</li>
+<li><a href=https://github.com/gogf/gf target=_blank rel="noopener noreferrer">gogf/gf</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=microservice-frameworks>微服务框架/Microservices Framework<a href=#microservice-frameworks class=hash-link aria-label="Direct link to 微服务框架/Microservices Framework" title="Direct link to 微服务框架/Microservices Framework" translate=no>​</a></h2>
+<p>大多微服务框架着重于 RPC、服务发现、配置，并提供基础的中间件 监控、Trace。</p>
+<ul>
+<li><a href=https://github.com/stefanprodan/podinfo target=_blank rel="noopener noreferrer">stefanprodan/podinfo</a></li>
+<li><a href=https://github.com/go-kit/kit target=_blank rel="noopener noreferrer">go-kit/kit</a>
+standard library for microservices
+<ul>
+<li>简单灵活自由拼装 - 因此定位是 kit 和 库</li>
+<li>很多抽象接口值得学习</li>
+</ul>
+</li>
+<li><a href=/notes/languages/go/lib/go-micro>go-micro</a> - <a href=https://github.com/asim/go-micro target=_blank rel="noopener noreferrer">asim/go-micro</a>
+standalone framework for distributed systems development</li>
+<li><a href=https://github.com/google/go-cloud target=_blank rel="noopener noreferrer">google/go-cloud</a>
+<ul>
+<li>Go Cloud Development Kit</li>
+</ul>
+</li>
+<li><a href=https://github.com/nytimes/gizmo target=_blank rel="noopener noreferrer">nytimes/gizmo</a></li>
+<li><a href=https://github.com/ergo-services/ergo target=_blank rel="noopener noreferrer">ergo-services/ergo</a>
+<ul>
+<li>design patterns of Erlang/OTP</li>
+</ul>
+</li>
+</ul>
+<p><strong>国产</strong></p>
+<ul>
+<li><a href=/notes/languages/go/lib/kratos>kratos</a> - <a href=https://github.com/go-kratos/kratos target=_blank rel="noopener noreferrer">go-kratos/kratos</a>
+<ul>
+<li>grpc,wire</li>
+<li>kratos 命令行工具</li>
+<li>哔哩哔哩 RPC 框架</li>
+</ul>
+</li>
+<li><a href=/notes/languages/go/lib/go-zero>go-zero</a> - <a href=https://github.com/zeromicro/go-zero target=_blank rel="noopener noreferrer">zeromicro/go-zero</a>
+<ul>
+<li>好未来技术</li>
+<li>自定义 DSL + goctl 生成</li>
+</ul>
+</li>
+<li><a href=https://github.com/cloudwego/kitex target=_blank rel="noopener noreferrer">cloudwego/kitex</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>字节跳动 RPC 框架</li>
+</ul>
+</li>
+<li><a href=/notes/languages/go/lib/rpcx>rpcx</a> - <a href=https://github.com/smallnest/rpcx target=_blank rel="noopener noreferrer">smallnest/rpcx</a></li>
+<li><a href=https://github.com/go-chassis/go-chassis target=_blank rel="noopener noreferrer">go-chassis/go-chassis</a></li>
+<li><a href=https://github.com/unionj-cloud/go-doudou target=_blank rel="noopener noreferrer">unionj-cloud/go-doudou</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=chinese>国内环境<a href=#chinese class=hash-link aria-label="Direct link to 国内环境" title="Direct link to 国内环境" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/wenerme/go-wecom target=_blank rel="noopener noreferrer">wenerme/go-wecom</a></li>
+<li><a href=https://github.com/go-pay/gopay target=_blank rel="noopener noreferrer">go-pay/gopay</a></li>
+<li><a href=https://github.com/shenghui0779/gochat target=_blank rel="noopener noreferrer">shenghui0779/gochat</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=markdown>Markdown<a href=#markdown class=hash-link aria-label="Direct link to Markdown" title="Direct link to Markdown" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/yuin/goldmark target=_blank rel="noopener noreferrer">yuin/goldmark</a>
+<ul>
+<li>易于扩展 - 内建较多扩展</li>
+<li>实现扩展需要阅读源码添加</li>
+</ul>
+</li>
+<li><a href=https://github.com/gomarkdown/markdown target=_blank rel="noopener noreferrer">gomarkdown/markdown</a>
+<ul>
+<li>自带部分扩展功能</li>
+</ul>
+</li>
+<li><a href=https://github.com/russross/blackfriday target=_blank rel="noopener noreferrer">russross/blackfriday</a>
+<ul>
+<li>不兼容 CommonMark</li>
+<li>无法扩展</li>
+<li><a href=https://github.com/microcosm-cc/bluemonday target=_blank rel="noopener noreferrer">microcosm-cc/bluemonday</a>
+<ul>
+<li>html sanitizer</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=auth>认证授权/Auth<a href=#auth class=hash-link aria-label="Direct link to 认证授权/Auth" title="Direct link to 认证授权/Auth" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/dexidp/dex target=_blank rel="noopener noreferrer">dexidp/dex</a> - OIDC, IdP</li>
+<li><a href=https://github.com/ory target=_blank rel="noopener noreferrer">ory</a>
+<ul>
+<li>hydra - OIDC, IdP</li>
+<li>kratos - 用户注册管理</li>
+<li>oathkeeper - 访问代理 - 注入授权信息</li>
+<li>keto - 访问控制服务</li>
+<li>fosite - Golang OAuth2 框架</li>
+</ul>
+</li>
+<li><a href=https://github.com/Permify/permify-gorm target=_blank rel="noopener noreferrer">Permify/permify-gorm</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=plugin>Plugin<a href=#plugin class=hash-link aria-label="Direct link to Plugin" title="Direct link to Plugin" translate=no>​</a></h2>
+<ul>
+<li>扩展/插件/Extension/Plugin - 动态库</li>
+<li><a href=https://pkg.go.dev/plugin target=_blank rel="noopener noreferrer">plugin</a> - Linux, FreeBSD, macOS
+<ul>
+<li><code>-buildmode=plugin</code>
+<ul>
+<li>只支持 Linux, FreeBSD, macOS - dlopen</li>
+<li>需要 <strong>cgo</strong> - <a href=https://github.com/golang/go/issues/19569 target=_blank rel="noopener noreferrer">#19569</a></li>
+</ul>
+</li>
+<li>Lookup symbol 强转类型进行使用 - 类似 dlopen - 底层使用 dlopen</li>
+<li>main 下 exported 的符号都可以使用</li>
+<li>加载时所有包的 init 都会触发</li>
+<li>plugin 不支持 close - go 涉及到 gc 和全局状态</li>
+<li>交互不需要序列化 - 相同内存空间</li>
+</ul>
+</li>
+<li><a href=https://github.com/hashicorp/go-plugin target=_blank rel="noopener noreferrer">hashicorp/go-plugin</a>
+<ul>
+<li>基于 RPC 的插件系统
+<ul>
+<li>交互信息需要序列化</li>
+<li>用于专门的场景 - 例如不能用于 Hook HTTP 请求</li>
+</ul>
+</li>
+<li>多进程
+<ul>
+<li>隔离 cgo</li>
+<li>避免 crash</li>
+<li>支持热升级</li>
+<li>多语言</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=languages>语言/Language<a href=#languages class=hash-link aria-label="Direct link to 语言/Language" title="Direct link to 语言/Language" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/rogchap/v8go target=_blank rel="noopener noreferrer">rogchap/v8go</a>
+<ul>
+<li>内含预编译的静态 libv8</li>
+<li>alpine 需要额外构建 <a href=https://github.com/rogchap/v8go/issues/170 target=_blank rel="noopener noreferrer">v8go#170</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/augustoroman/v8 target=_blank rel="noopener noreferrer">augustoroman/v8</a>
+<ul>
+<li>V8 Binding</li>
+<li>🚧 不再维护</li>
+</ul>
+</li>
+<li><a href=https://github.com/mvdan/sh target=_blank rel="noopener noreferrer">mvdan/sh</a>
+Shell parser, formatter, interpreter
+<ul>
+<li>source APKBUILD <a href=https://gitlab.alpinelinux.org/kdaudt/atools-go target=_blank rel="noopener noreferrer">https://gitlab.alpinelinux.org/kdaudt/atools-go</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/mvdan/gofumpt target=_blank rel="noopener noreferrer">mvdan/gofumpt</a>
+stricter gofmt</li>
+<li><a href=https://github.com/burrowers/garble target=_blank rel="noopener noreferrer">burrowers/garble</a>
+<ul>
+<li>BSD-3</li>
+<li>混淆 Go 代码 - 替代现有 go 工具</li>
+</ul>
+</li>
+<li><a href=https://github.com/mjibson/sqlfmt target=_blank rel="noopener noreferrer">mjibson/sqlfmt</a></li>
+<li><a href=https://github.com/d5/tengo target=_blank rel="noopener noreferrer">d5/tengo</a>
+<ul>
+<li>MIT</li>
+<li>自定义的语言</li>
+</ul>
+</li>
+<li><a href=https://github.com/dop251/goja target=_blank rel="noopener noreferrer">dop251/goja</a>
+<ul>
+<li>Javascript</li>
+<li>+6MB</li>
+</ul>
+</li>
+<li><a href=https://github.com/Shopify/go-lua target=_blank rel="noopener noreferrer">Shopify/go-lua</a>
+<ul>
+<li>MIT</li>
+<li>Lua 5.2 VM</li>
+<li>兼容 luac 编译结果</li>
+</ul>
+</li>
+<li><a href=https://github.com/yuin/gopher-lua target=_blank rel="noopener noreferrer">yuin/gopher-lua</a>
+<ul>
+<li>MIT</li>
+<li>Lua 5.1</li>
+</ul>
+</li>
+<li><a href=https://github.com/google/starlark-go target=_blank rel="noopener noreferrer">google/starlark-go</a>
+<ul>
+<li>Python</li>
+<li>used by Caddy, Bazel</li>
+</ul>
+</li>
+<li><a href=https://github.com/traefik/yaegi target=_blank rel="noopener noreferrer">traefik/yaegi</a>
+<ul>
+<li>by Traefik</li>
+<li>Apache-2.0</li>
+<li>+14MB</li>
+<li>自定义类型需要源码 - 配置 GOPATH - 对依赖的模块进行 vendor</li>
+<li>支持解释模式和编译模式</li>
+<li>Yaegi is Another Elegant Go Interpreter</li>
+</ul>
+</li>
+<li><a href=https://github.com/google/cel-go target=_blank rel="noopener noreferrer">google/cel-go</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>Fast, portable, non-Turing complete expression evaluation with gradual typing</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=template>Template<a href=#template class=hash-link aria-label="Direct link to Template" title="Direct link to Template" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/Masterminds/sprig target=_blank rel="noopener noreferrer">Masterminds/sprig</a> - 提供大量模板函数</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=fun>有趣<a href=#fun class=hash-link aria-label="Direct link to 有趣" title="Direct link to 有趣" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/Zxilly/go-size-analyzer target=_blank rel="noopener noreferrer">Zxilly/go-size-analyzer</a></li>
+<li><a href=https://github.com/fogleman/primitive target=_blank rel="noopener noreferrer">fogleman/primitive</a>
+<ul>
+<li>将图像转换为原子图形</li>
+</ul>
+</li>
+<li><a href=https://github.com/esimov/triangle target=_blank rel="noopener noreferrer">esimov/triangle</a>
+<ul>
+<li>转换为三角形</li>
+</ul>
+</li>
+<li><a href=https://github.com/alecthomas/chroma target=_blank rel="noopener noreferrer">alecthomas/chroma</a>
+<ul>
+<li>代码高亮</li>
+</ul>
+</li>
+<li><a href=https://benhoyt.com/writings/mugo target=_blank rel="noopener noreferrer">mugo</a></li>
+<li><a href=https://github.com/rhu1/fgg target=_blank rel="noopener noreferrer">rhu1/fgg</a>
+<ul>
+<li>basic prototype of Featherweight Go and Featherweight Generic Go</li>
+</ul>
+</li>
+<li><a href=https://github.com/joewalnes/websocketd target=_blank rel="noopener noreferrer">joewalnes/websocketd</a>
+<ul>
+<li>Turn any program that uses STDIN/STDOUT into a WebSocket server</li>
+</ul>
+</li>
+<li><a href=https://github.com/jeromer/mumbojumbo target=_blank rel="noopener noreferrer">jeromer/mumbojumbo</a>
+字符串混淆</li>
+<li><a href=https://github.com/esimov/caire target=_blank rel="noopener noreferrer">esimov/caire</a>
+内容感知的图像缩放</li>
+<li><a href=https://syslog.ravelin.com/a28c14e82a51 target=_blank rel="noopener noreferrer">Go in a scratch VM</a></li>
+<li>游戏
+<ul>
+<li><a href=https://github.com/Lallassu/bintris target=_blank rel="noopener noreferrer">Lallassu/bintris</a></li>
+</ul>
+</li>
+<li>算法
+<ul>
+<li><a href=https://github.com/smarty-archives/mafsa target=_blank rel="noopener noreferrer">smarty-archives/mafsa</a>
+<ul>
+<li>Minimal Acyclic Finite State Automata</li>
+</ul>
+</li>
+<li><a href=https://github.com/blevesearch/vellum target=_blank rel="noopener noreferrer">blevesearch/vellum</a>
+<ul>
+<li>FST</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=control-theory>控制理论 / Control theory<a href=#control-theory class=hash-link aria-label="Direct link to 控制理论 / Control theory" title="Direct link to 控制理论 / Control theory" translate=no>​</a></h2>
+<ul>
+<li><a href=https://gianarb.it/blog/reactive-planning-and-reconciliation-in-go target=_blank rel="noopener noreferrer">Reactive planning and reconciliation in Go</a></li>
+<li><a href=https://github.com/spotahome/gontroller target=_blank rel="noopener noreferrer">spotahome/gontroller</a>
+<ul>
+<li><a href=https://product.spotahome.com/832d4a9522ea target=_blank rel="noopener noreferrer">Gontroller: a Go library to create reliable feedback loop controllers</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/gianarb/planner target=_blank rel="noopener noreferrer">gianarb/planner</a></li>
+<li><a href=https://github.com/konimarti/lti target=_blank rel="noopener noreferrer">konimarti/lti</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=library>Library<a href=#library class=hash-link aria-label="Direct link to Library" title="Direct link to Library" translate=no>​</a></h2>
+<ul>
+<li>cron
+<ul>
+<li><a href=https://github.com/adhocore/gronx target=_blank rel="noopener noreferrer">adhocore/gronx</a> cron parser</li>
+</ul>
+</li>
+<li>vfs
+<ul>
+<li><a href=https://github.com/hack-pad/hackpadfs target=_blank rel="noopener noreferrer">hack-pad/hackpadfs</a></li>
+</ul>
+</li>
+<li>cache
+<ul>
+<li><a href=https://github.com/coocood/freecache target=_blank rel="noopener noreferrer">coocood/freecache</a></li>
+</ul>
+</li>
+<li>goroutine
+<ul>
+<li><a href=https://github.com/oklog/run target=_blank rel="noopener noreferrer">oklog/run</a></li>
+<li><a href=https://pkg.go.dev/golang.org/x/sync/errgroup target=_blank rel="noopener noreferrer">golang.org/x/sync/errgroup</a></li>
+</ul>
+</li>
+<li>error
+<ul>
+<li><a href=https://github.com/pkg/errors target=_blank rel="noopener noreferrer">github.com/pkg/errors</a></li>
+<li><a href=https://github.com/hashicorp/go-multierror target=_blank rel="noopener noreferrer">github.com/hashicorp/go-multierror</a></li>
+<li><a href=https://github.com/uber-go/multierr target=_blank rel="noopener noreferrer">go.uber.org/multierr</a></li>
+<li><a href=https://github.com/cockroachdb/errors target=_blank rel="noopener noreferrer">cockroachdb/errors</a></li>
+</ul>
+</li>
+<li>compress/archive
+<ul>
+<li><a href=https://github.com/mholt/archiver target=_blank rel="noopener noreferrer">github.com/mholt/archiver</a>
+<ul>
+<li>各种压缩包</li>
+</ul>
+</li>
+<li><a href=https://github.com/nwaples/rardecode target=_blank rel="noopener noreferrer">github.com/nwaples/rardecode</a>
+<ul>
+<li>rar</li>
+</ul>
+</li>
+<li><a href=https://github.com/klauspost/compress target=_blank rel="noopener noreferrer">klauspost/compress</a></li>
+<li><a href=https://github.com/andybalholm/brotli target=_blank rel="noopener noreferrer">andybalholm/brotli</a></li>
+</ul>
+</li>
+<li>magic/mime
+<ul>
+<li><a href=https://github.com/wenerme/go-magic target=_blank rel="noopener noreferrer">wenerme/go-magic</a></li>
+</ul>
+</li>
+<li>charset
+<ul>
+<li>golang.org/x/text/encoding/charmap</li>
+<li>golang.org/x/text/encoding/simplifiedchinese</li>
+<li>golang.org/x/net/html/charset</li>
+<li><a href=https://github.com/saintfish/chardet target=_blank rel="noopener noreferrer">https://github.com/saintfish/chardet</a></li>
+<li><a href=https://github.com/djimenez/iconv-go target=_blank rel="noopener noreferrer">https://github.com/djimenez/iconv-go</a>
+<ul>
+<li>iconv cgo binding</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>nlp
+<ul>
+<li><a href=https://github.com/liuzl/gocc target=_blank rel="noopener noreferrer">liuzl/gocc</a>
+<ul>
+<li><a href=https://github.com/BYVoid/OpenCC target=_blank rel="noopener noreferrer">BYVoid/OpenCC</a>
+<ul>
+<li>C++</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>lang
+<ul>
+<li><a href=https://pkg.go.dev/golang.org/x/text/language target=_blank rel="noopener noreferrer">golang.org/x/text/language</a></li>
+<li><a href=https://go.dev/blog/matchlang target=_blank rel="noopener noreferrer">https://go.dev/blog/matchlang</a></li>
+</ul>
+</li>
+<li>dsl
+<ul>
+<li><a href=https://github.com/antonmedv/expr target=_blank rel="noopener noreferrer">antonmedv/expr</a></li>
+</ul>
+</li>
+<li>distributed/分布式
+<ul>
+<li><a href=https://github.com/hashicorp/memberlist target=_blank rel="noopener noreferrer">hashicorp/memberlist</a></li>
+</ul>
+</li>
+<li>hash
+<ul>
+<li><a href=https://github.com/minio/sha256-simd target=_blank rel="noopener noreferrer">minio/sha256-simd</a></li>
+</ul>
+</li>
+<li>media
+<ul>
+<li><a href=https://github.com/Kagami/go-avif target=_blank rel="noopener noreferrer">Kagami/go-avif</a></li>
+</ul>
+</li>
+<li>http
+<ul>
+<li>support content negotiation <a href=https://github.com/golang/go/issues/19307 target=_blank rel="noopener noreferrer">#19307</a>
+<ul>
+<li>解析 Accept <a href=https://github.com/markusthoemmes/goautoneg/blob/master/accept.go target=_blank rel="noopener noreferrer">https://github.com/markusthoemmes/goautoneg/blob/master/accept.go</a></li>
+<li><a href=https://github.com/elnormous/contenttype target=_blank rel="noopener noreferrer">elnormous/contenttype</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>saas/paas
+<ul>
+<li><a href=/notes/languages/go/lib/tsuru>tsuru/tsuru</a>
+<ul>
+<li>BSD-3</li>
+<li>PaaS</li>
+</ul>
+</li>
+<li><a href=https://github.com/Goxiaoy/go-saas target=_blank rel="noopener noreferrer">Goxiaoy/go-saas</a></li>
+<li><a href=https://gitlab.com/geeks-accelerator/oss/saas-starter-kit target=_blank rel="noopener noreferrer">geeks-accelerator/oss/saas-starter-kit</a>
+<ul>
+<li>2019</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>semver
+<ul>
+<li><a href=https://github.com/hashicorp/go-version target=_blank rel="noopener noreferrer">hashicorp/go-version</a></li>
+</ul>
+</li>
+<li>数据结构/算法
+<ul>
+<li><a href=https://github.com/shivamMg/trie target=_blank rel="noopener noreferrer">shivamMg/trie</a></li>
+</ul>
+</li>
+<li>kv/storage
+<ul>
+<li><a href=https://github.com/lotusdblabs/lotusdb target=_blank rel="noopener noreferrer">lotusdblabs/lotusdb</a></li>
+</ul>
+</li>
+<li>goroutine/concurrency
+<ul>
+<li>oklog/run</li>
+<li><a href=https://github.com/sourcegraph/conc target=_blank rel="noopener noreferrer">sourcegraph/conc</a>
+<ul>
+<li>Better structured concurrency for go</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/cloudflare/tableflip target=_blank rel="noopener noreferrer">cloudflare/tableflip</a>
+<ul>
+<li>Graceful process restarts in Go</li>
+</ul>
+</li>
+<li><a href=https://github.com/SimonWaldherr/golang-benchmarks target=_blank rel="noopener noreferrer">SimonWaldherr/golang-benchmarks</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=tool>Tool<a href=#tool class=hash-link aria-label="Direct link to Tool" title="Direct link to Tool" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/air-verse/air target=_blank rel="noopener noreferrer">air-verse/air</a>
+<ul>
+<li>GPLv3, Go</li>
+<li>Live Reload</li>
+</ul>
+</li>
+<li><a href=https://github.com/DarthSim/overmind target=_blank rel="noopener noreferrer">DarthSim/overmind</a>
+<ul>
+<li>MIT, Go</li>
+<li>process manager for Procfile-based applications</li>
+<li>支持 tmux</li>
+<li>Procfile</li>
+</ul>
+</li>
+<li><a href=https://github.com/arl/statsviz target=_blank rel="noopener noreferrer">arl/statsviz</a>
+<ul>
+<li>visualization of your Go application runtime statistics (GC, MemStats, etc.) in the browser</li>
+</ul>
+</li>
+<li><a href=https://github.com/mgechev/revive target=_blank rel="noopener noreferrer">mgechev/revive</a></li>
+<li>golint</li>
+<li><a href=https://github.com/jondot/goweight target=_blank rel="noopener noreferrer">jondot/goweight</a>
+<ul>
+<li>分析 go 模块大小</li>
+</ul>
+</li>
+<li><a href=https://github.com/google/bloaty target=_blank rel="noopener noreferrer">google/bloaty</a>
+<ul>
+<li>二进大小分析</li>
+</ul>
+</li>
+<li><a href=https://github.com/xo/usql target=_blank rel="noopener noreferrer">xo/usql</a>
+<ul>
+<li>SQL 命令行工具</li>
+</ul>
+</li>
+<li><a href=https://github.com/google/gops target=_blank rel="noopener noreferrer">google/gops</a>
+<ul>
+<li>Go 进程诊断</li>
+</ul>
+</li>
+<li><a href=https://github.com/google/ko target=_blank rel="noopener noreferrer">google/ko</a>
+Build and deploy Go applications on Kubernetes</li>
+<li><a href=https://github.com/go-task/task target=_blank rel="noopener noreferrer">go-task/task</a></li>
+<li><a href=https://github.com/charmbracelet/wish target=_blank rel="noopener noreferrer">charmbracelet/wish</a>
+<ul>
+<li>Make SSH apps</li>
+</ul>
+</li>
+<li><a href=https://github.com/elves/elvish target=_blank rel="noopener noreferrer">elves/elvish</a></li>
+<li>ssh
+<ul>
+<li><a href=https://pkg.go.dev/golang.org/x/crypto/ssh target=_blank rel="noopener noreferrer">golang.org/x/crypto/ssh</a>
+<ul>
+<li>x/crypto/ssh: rsa-sha2-256/rsa-sha2-512 <a href=https://github.com/golang/go/issues/49952 target=_blank rel="noopener noreferrer">#49952</a></li>
+<li>服务端 /etc/ssh/sshd_config 添加 <code>PubkeyAcceptedAlgorithms +ssh-rsa</code> 可临时解决</li>
+<li>AlpineLinux 3.15 新版本 openssh server 默认不允许 ssh-rsa
+<ul>
+<li>openssh 8.8 废弃 ssh-rsa</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/k0sproject/rig target=_blank rel="noopener noreferrer">k0sproject/rig</a></li>
+<li><a href=https://github.com/appleboy/easyssh-proxy target=_blank rel="noopener noreferrer">appleboy/easyssh-proxy</a></li>
+<li><a href=https://github.com/owenthereal/upterm target=_blank rel="noopener noreferrer">owenthereal/upterm</a></li>
+<li><a href=https://github.com/gliderlabs/ssh target=_blank rel="noopener noreferrer">gliderlabs/ssh</a>
+<ul>
+<li>SSH Server</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>shell
+<ul>
+<li><a href=https://github.com/google/shlex target=_blank rel="noopener noreferrer">google/shlex</a></li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">go install github.com/jondot/goweight@latest</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">cd cmd/server</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">goweight</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=debug>Debug<a href=#debug class=hash-link aria-label="Direct link to Debug" title="Direct link to Debug" translate=no>​</a></h2>
+<ul>
+<li>profiling
+<ul>
+<li><a href=https://github.com/pyroscope-io/pyroscope target=_blank rel="noopener noreferrer">pyroscope-io/pyroscope</a></li>
+</ul>
+</li>
+<li>log
+<ul>
+<li><a href=https://github.com/maruel/panicparse target=_blank rel="noopener noreferrer">maruel/panicparse</a></li>
+</ul>
+</li>
+<li>metrics
+<ul>
+<li><a href=https://github.com/felixge/httpsnoop target=_blank rel="noopener noreferrer">felixge/httpsnoop</a></li>
+<li><a href=https://github.com/slok/go-http-metrics target=_blank rel="noopener noreferrer">github.com/slok/go-http-metrics</a>
+-prometheus 内置 handler 拦截</li>
+</ul>
+</li>
+<li>GODEBUG=http1debug</li>
+<li>GODEBUG=http2debug=2</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=service>Service<a href=#service class=hash-link aria-label="Direct link to Service" title="Direct link to Service" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/umputun/remark42 target=_blank rel="noopener noreferrer">umputun/remark42</a> comment egnine</li>
+<li><a href=https://github.com/ortuman/jackal target=_blank rel="noopener noreferrer">ortuman/jackal</a>
+<ul>
+<li>XMPP</li>
+</ul>
+</li>
+<li><a href=https://github.com/google/martian target=_blank rel="noopener noreferrer">google/martian</a>
+<ul>
+<li>building custom HTTP/S proxies</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=performance>Performance<a href=#performance class=hash-link aria-label="Direct link to Performance" title="Direct link to Performance" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/bspaans/jit-compiler target=_blank rel="noopener noreferrer">bspaans/jit-compiler</a></li>
+<li><a href=https://medium.com/kokster/964b61295f target=_blank rel="noopener noreferrer">Writing a JIT compiler in Golang</a></li>
+<li><a href=https://steveazz.xyz/blog/go-performance-tools-cheat-sheet/ target=_blank rel="noopener noreferrer">Go Performance Tools Cheat Sheet</a></li>
+<li><a href=http://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html target=_blank rel="noopener noreferrer">CPU Utilization is Wrong</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=os操作系统>OS/操作系统<a href=#os操作系统 class=hash-link aria-label="Direct link to OS/操作系统" title="Direct link to OS/操作系统" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/rainycape/governator target=_blank rel="noopener noreferrer">rainycape/governator</a>
+<ul>
+<li>process manager for UNIX systems</li>
+</ul>
+</li>
+<li><a href=https://github.com/ochinchina/supervisord target=_blank rel="noopener noreferrer">ochinchina/supervisord</a></li>
+<li><a href=https://github.com/immortal/immortal target=_blank rel="noopener noreferrer">immortal/immortal</a></li>
+<li><a href=https://github.com/willscott/go-nfs target=_blank rel="noopener noreferrer">willscott/go-nfs</a></li>
+<li><a href=https://github.com/kahing/goofys target=_blank rel="noopener noreferrer">kahing/goofys</a></li>
+<li><a href=https://github.com/progrium/macdriver target=_blank rel="noopener noreferrer">progrium/macdriver</a>
+<ul>
+<li>Native Mac APIs for Go</li>
+</ul>
+</li>
+<li><a href=https://github.com/gokrazy/gokrazy target=_blank rel="noopener noreferrer">gokrazy/gokrazy</a>
+<ul>
+<li>Go+Linux Kernel+RPi firmware on Board</li>
+</ul>
+</li>
+<li><a href=https://github.com/lmorg/murex target=_blank rel="noopener noreferrer">lmorg/murex</a>
+<ul>
+<li>Bash-like</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=lower-level>Lower Level<a href=#lower-level class=hash-link aria-label="Direct link to Lower Level" title="Direct link to Lower Level" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/mmcloughlin/avo target=_blank rel="noopener noreferrer">mmcloughlin/avo</a>
+<ul>
+<li>Generate x86 Assembly with Go</li>
+</ul>
+</li>
+<li><a href=https://github.com/twitchyliquid64/golang-asm target=_blank rel="noopener noreferrer">twitchyliquid64/golang-asm</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=ml机器学习>ML/机器学习<a href=#ml机器学习 class=hash-link aria-label="Direct link to ML/机器学习" title="Direct link to ML/机器学习" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/sjwhitworth/golearn target=_blank rel="noopener noreferrer">sjwhitworth/golearn</a> is a 'batteries included' machine learning library for Go. Simplicity, paired with customisability, is the goal.</li>
+<li><a href=https://github.com/cdipaolo/goml target=_blank rel="noopener noreferrer">cdipaolo/goml</a> is a machine learning library written entirely in Golang which lets the average developer include machine learning into their applications.</li>
+<li><a href=https://github.com/chewxy/gorgonia target=_blank rel="noopener noreferrer">chewxy/gorgonia</a> is a library that helps facilitate machine learning in Go. Write and evaluate mathematical equations involving multidimensional arrays easily.</li>
+<li><a href=https://github.com/nlpodyssey/spago target=_blank rel="noopener noreferrer">nlpodyssey/spago</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=sipwebrtc>SIP/WebRTC<a href=#sipwebrtc class=hash-link aria-label="Direct link to SIP/WebRTC" title="Direct link to SIP/WebRTC" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/rtctunnel/rtctunnel target=_blank rel="noopener noreferrer">rtctunnel/rtctunnel</a>
+network tunnels over WebRTC</li>
+<li><a href=https://github.com/ghettovoice/gosip target=_blank rel="noopener noreferrer">ghettovoice/gosip</a>
+SIP in GO</li>
+<li><a href=https://github.com/jaroszan/sip target=_blank rel="noopener noreferrer">jaroszan/sip</a>
+SIP simulator in Go</li>
+<li><a href=https://gitee.com/xiaochengtech/sip target=_blank rel="noopener noreferrer">xiaochengtech/sip</a>
+Go 实现的 RFC3261-SIP 协议</li>
+<li><a href=https://github.com/KalbiProject/Kalbi target=_blank rel="noopener noreferrer">KalbiProject/Kalbi</a>
+Golang SIP framework</li>
+<li><a href=https://github.com/framsc/sip-client-in-golang/blob/master/sip%20client.go target=_blank rel="noopener noreferrer">sip client.go</a>
+<ul>
+<li>简单处理 Register</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=command-line>Command Line<a href=#command-line class=hash-link aria-label="Direct link to Command Line" title="Direct link to Command Line" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/charmbracelet/bubbletea target=_blank rel="noopener noreferrer">charmbracelet/bubbletea</a>
+TUI framework</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=office>Office<a href=#office class=hash-link aria-label="Direct link to Office" title="Direct link to Office" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/pdfcpu/pdfcpu target=_blank rel="noopener noreferrer">pdfcpu/pdfcpu</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=internal>Internal<a href=#internal class=hash-link aria-label="Direct link to Internal" title="Direct link to Internal" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/emluque/golang-internals-resources target=_blank rel="noopener noreferrer">https://github.com/emluque/golang-internals-resources</a></li>
+<li><a href=https://github.com/teh-cmc/go-internals target=_blank rel="noopener noreferrer">https://github.com/teh-cmc/go-internals</a></li>
+<li><a href=https://www.altoros.com/blog/golang-internals-part-1-main-concepts-and-project-structure/ target=_blank rel="noopener noreferrer">https://www.altoros.com/blog/golang-internals-part-1-main-concepts-and-project-structure/</a></li>
+<li><a href=https://github.com/golang/go/tree/master/src/cmd/compile target=_blank rel="noopener noreferrer">https://github.com/golang/go/tree/master/src/cmd/compile</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=tools>Tools<a href=#tools class=hash-link aria-label="Direct link to Tools" title="Direct link to Tools" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/natesales/q target=_blank rel="noopener noreferrer">https://github.com/natesales/q</a>
+<ul>
+<li>GPL-3.0</li>
+<li>command line DNS client with support for UDP, TCP, DoT, DoH, DoQ and ODoH</li>
+<li><a href=https://github.com/ogham/dog target=_blank rel="noopener noreferrer">ogham/dog</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=参考>参考<a href=#参考 class=hash-link aria-label="Direct link to 参考" title="Direct link to 参考" translate=no>​</a></h2>
+<ul>
+<li><a href="https://github.com/orgs/google/repositories?q=&type=all&language=go&sort=stargazers" target=_blank rel="noopener noreferrer">https://github.com/orgs/google/repositories?q=&type=all&language=go&sort=stargazers</a></li>
+</ul>
+<h1>TBD</h1>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=utils>Utils<a href=#utils class=hash-link aria-label="Direct link to Utils" title="Direct link to Utils" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/jinzhu/now target=_blank rel="noopener noreferrer">jinzhu/now</a>
+Now is a time toolkit for golang</li>
+<li><a href=https://github.com/benmanns/goworker target=_blank rel="noopener noreferrer">benmanns/goworker</a>
+Go-based background worker</li>
+<li><a href=https://github.com/dustin/go-humanize target=_blank rel="noopener noreferrer">dustin/go-humanize</a>
+<ul>
+<li>格式化数据大小, 时间和数字等</li>
+</ul>
+</li>
+<li><a href=https://github.com/dropbox/godropbox target=_blank rel="noopener noreferrer">dropbox/godropbox</a>
+Common libraries for writing Go services/applications.</li>
+<li><a href=https://github.com/asciimoo/wuzz target=_blank rel="noopener noreferrer">asciimoo/wuzz</a>
+Interactive cli tool for HTTP inspection</li>
+<li><a href=https://github.com/goreleaser/goreleaser target=_blank rel="noopener noreferrer">goreleaser/goreleaser</a>
+Deliver Go binaries as fast and easily as possible</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=console>Console<a href=#console class=hash-link aria-label="Direct link to Console" title="Direct link to Console" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/jroimartin/gocui target=_blank rel="noopener noreferrer">jroimartin/gocui</a>
+Minimalist Go package aimed at creating Console User Interfaces.</li>
+<li><a href=https://github.com/nsf/termbox-go target=_blank rel="noopener noreferrer">nsf/termbox-go</a>
+Pure Go termbox implementation</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=data>Data<a href=#data class=hash-link aria-label="Direct link to Data" title="Direct link to Data" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/Workiva/go-datastructures target=_blank rel="noopener noreferrer">https://github.com/Workiva/go-datastructures</a></li>
+<li><a href=https://github.com/emirpasic/gods target=_blank rel="noopener noreferrer">https://github.com/emirpasic/gods</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=web-1>Web<a href=#web-1 class=hash-link aria-label="Direct link to Web" title="Direct link to Web" translate=no>​</a></h3>
+<ul>
+<li>Auth
+<ul>
+<li><a href=https://github.com/markbates/goth target=_blank rel="noopener noreferrer">https://github.com/markbates/goth</a>
+<ul>
+<li>Package goth provides a simple, clean, and idiomatic way to write authentication packages for Go web applications.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://gitea.com/lunny/tango target=_blank rel="noopener noreferrer">https://gitea.com/lunny/tango</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=misc-1>Misc<a href=#misc-1 class=hash-link aria-label="Direct link to Misc" title="Direct link to Misc" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/geziyor/geziyor target=_blank rel="noopener noreferrer">https://github.com/geziyor/geziyor</a></li>
+<li><a href=https://github.com/alexflint/go-restructure target=_blank rel="noopener noreferrer">https://github.com/alexflint/go-restructure</a></li>
+<li><a href=https://github.com/pointlander/peg target=_blank rel="noopener noreferrer">https://github.com/pointlander/peg</a> Peg, Parsing Expression Grammar</li>
+<li><a href=https://github.com/hanwen/go-fuse target=_blank rel="noopener noreferrer">https://github.com/hanwen/go-fuse</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=hardware>Hardware<a href=#hardware class=hash-link aria-label="Direct link to Hardware" title="Direct link to Hardware" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/ycoroneos/golang_embedded target=_blank rel="noopener noreferrer">https://github.com/ycoroneos/golang_embedded</a></li>
+<li><a href=https://github.com/ycoroneos/G.E.R.T target=_blank rel="noopener noreferrer">ycoroneos/G.E.R.T</a>
+<ul>
+<li>Golang Embedded Run-Time</li>
+<li><a href="https://news.ycombinator.com/item?id=15591847" target=_blank rel="noopener noreferrer">https://news.ycombinator.com/item?id=15591847</a></li>
+<li><a href="https://news.ycombinator.com/item?id=14590847" target=_blank rel="noopener noreferrer">https://news.ycombinator.com/item?id=14590847</a></li>
+</ul>
+</li>
+<li><a href=https://bugs.alpinelinux.org/issues/4276 target=_blank rel="noopener noreferrer">https://bugs.alpinelinux.org/issues/4276</a>
+<ul>
+<li>gcc-arm-none-eabi</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=scripts>Scripts<a href=#scripts class=hash-link aria-label="Direct link to Scripts" title="Direct link to Scripts" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/peterh/liner target=_blank rel="noopener noreferrer">https://github.com/peterh/liner</a>
+line editor with history</li>
+<li><a href=https://github.com/dop251/goja target=_blank rel="noopener noreferrer">https://github.com/dop251/goja</a>
+ECMAScript/JavaScript engine</li>
+<li><a href=https://github.com/elves/elvish target=_blank rel="noopener noreferrer">https://github.com/elves/elvish</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/awesome>Awesome</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/languages/go/go-awesome.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-01-03T14:49:30.000Z itemprop=dateModified>Jan 3, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/languages/go><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Golang</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/languages/go/build><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Go Build</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#library class="table-of-contents__link toc-highlight">常用库</a><li><a href=#learning class="table-of-contents__link toc-highlight">学习</a><li><a href=#logging class="table-of-contents__link toc-highlight">日志</a><li><a href=#driver class="table-of-contents__link toc-highlight">数据库驱动</a><li><a href=#db class="table-of-contents__link toc-highlight">数据库相关</a><li><a href=#web class="table-of-contents__link toc-highlight">Web</a><ul><li><a href=#routing class="table-of-contents__link toc-highlight">路由/Router</a><li><a href=#framework class="table-of-contents__link toc-highlight">框架/Framework</a><li><a href=#enhance class="table-of-contents__link toc-highlight">增强处理</a><li><a href=#websocket class="table-of-contents__link toc-highlight">Websocket</a><li><a href=#misc class="table-of-contents__link toc-highlight">Misc</a></ul><li><a href=#graphql class="table-of-contents__link toc-highlight">GraphQL</a><li><a href=#generator class="table-of-contents__link toc-highlight">代码生成/Generator</a><li><a href=#json class="table-of-contents__link toc-highlight">JSON</a><li><a href=#data-processing class="table-of-contents__link toc-highlight">数据处理/Data</a><li><a href=#aiml class="table-of-contents__link toc-highlight">AI/ML</a><li><a href=#networking class="table-of-contents__link toc-highlight">网络/Network</a><li><a href=#protocols class="table-of-contents__link toc-highlight">协议/Protocol</a><li><a href=#events class="table-of-contents__link toc-highlight">事件驱动/Event</a><li><a href=#service-framework class="table-of-contents__link toc-highlight">服务框架/Service Framework</a><li><a href=#microservice-frameworks class="table-of-contents__link toc-highlight">微服务框架/Microservices Framework</a><li><a href=#chinese class="table-of-contents__link toc-highlight">国内环境</a><li><a href=#markdown class="table-of-contents__link toc-highlight">Markdown</a><li><a href=#auth class="table-of-contents__link toc-highlight">认证授权/Auth</a><li><a href=#plugin class="table-of-contents__link toc-highlight">Plugin</a><li><a href=#languages class="table-of-contents__link toc-highlight">语言/Language</a><li><a href=#template class="table-of-contents__link toc-highlight">Template</a><li><a href=#fun class="table-of-contents__link toc-highlight">有趣</a><li><a href=#control-theory class="table-of-contents__link toc-highlight">控制理论 / Control theory</a><li><a href=#library class="table-of-contents__link toc-highlight">Library</a><li><a href=#tool class="table-of-contents__link toc-highlight">Tool</a><li><a href=#debug class="table-of-contents__link toc-highlight">Debug</a><li><a href=#service class="table-of-contents__link toc-highlight">Service</a><li><a href=#performance class="table-of-contents__link toc-highlight">Performance</a><li><a href=#os操作系统 class="table-of-contents__link toc-highlight">OS/操作系统</a><li><a href=#lower-level class="table-of-contents__link toc-highlight">Lower Level</a><li><a href=#ml机器学习 class="table-of-contents__link toc-highlight">ML/机器学习</a><li><a href=#sipwebrtc class="table-of-contents__link toc-highlight">SIP/WebRTC</a><li><a href=#command-line class="table-of-contents__link toc-highlight">Command Line</a><li><a href=#office class="table-of-contents__link toc-highlight">Office</a><li><a href=#internal class="table-of-contents__link toc-highlight">Internal</a><li><a href=#tools class="table-of-contents__link toc-highlight">Tools</a><li><a href=#参考 class="table-of-contents__link toc-highlight">参考</a><ul><li><a href=#utils class="table-of-contents__link toc-highlight">Utils</a><li><a href=#console class="table-of-contents__link toc-highlight">Console</a><li><a href=#data class="table-of-contents__link toc-highlight">Data</a><li><a href=#web-1 class="table-of-contents__link toc-highlight">Web</a><li><a href=#misc-1 class="table-of-contents__link toc-highlight">Misc</a><li><a href=#hardware class="table-of-contents__link toc-highlight">Hardware</a></ul><li><a href=#scripts class="table-of-contents__link toc-highlight">Scripts</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

@@ -1,0 +1,503 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-os/linux/network/iproute2" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>IPRoute2 | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/os/linux/network/iproute2 /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="IPRoute2 | Wener Live & Life"/><meta data-rh=true name=description content="- iproute2"/><meta data-rh=true property=og:description content="- iproute2"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/os/linux/network/iproute2 /><link data-rh=true rel=alternate href=https://wener.me/notes/os/linux/network/iproute2 hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/os/linux/network/iproute2 hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/os/","name":"操作系统","position":1},{"@type":"ListItem","item":"https://wener.me/notes/os/linux/network/","name":"Linux 网络","position":2},{"@type":"ListItem","item":"https://wener.me/notes/os/linux/network/iproute2","name":"IPRoute2","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Collapse sidebar category '操作系统'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/alpine><span title=Alpine class=categoryLinkLabel_RkOu>Alpine</span></a><button aria-label="Expand sidebar category 'Alpine'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/android><span title=Android class=categoryLinkLabel_RkOu>Android</span></a><button aria-label="Expand sidebar category 'Android'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/archlinux><span title=ArchLinux class=linkLabel_JPPZ>ArchLinux</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/bsd><span title=BSD class=categoryLinkLabel_RkOu>BSD</span></a><button aria-label="Expand sidebar category 'BSD'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/busybox><span title=Busybox class=categoryLinkLabel_RkOu>Busybox</span></a><button aria-label="Expand sidebar category 'Busybox'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/centos><span title=CentOS class=categoryLinkLabel_RkOu>CentOS</span></a><button aria-label="Expand sidebar category 'CentOS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/chromeos><span title=ChromeOS class=linkLabel_JPPZ>ChromeOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/darwin><span title=Darwin class=linkLabel_JPPZ>Darwin</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/debian><span title=Debian class=categoryLinkLabel_RkOu>Debian</span></a><button aria-label="Expand sidebar category 'Debian'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/device/auto><span title=device class=categoryLinkLabel_RkOu>device</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/dual-system><span title="Dual System Boot" class=linkLabel_JPPZ>Dual System Boot</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/freebsd><span title=FreeBSD class=linkLabel_JPPZ>FreeBSD</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/fuchsia><span title=Fuchsia class=linkLabel_JPPZ>Fuchsia</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/lakka><span title="lakka tv" class=linkLabel_JPPZ>lakka tv</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/libreelec><span title=LibreELEC class=linkLabel_JPPZ>LibreELEC</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/notes/os/linux/admin><span title=linux class=categoryLinkLabel_RkOu>linux</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/linux/admin><span title="Linux Admin" class=categoryLinkLabel_RkOu>Linux Admin</span></a><button aria-label="Expand sidebar category 'Linux Admin'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/alsa><span title="ALSA (Advanced Linux Sound Architecture)" class=linkLabel_JPPZ>ALSA (Advanced Linux Sound Architecture)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/linux/boot><span title="Linux Boot" class=categoryLinkLabel_RkOu>Linux Boot</span></a><button aria-label="Expand sidebar category 'Linux Boot'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/build><span title=Build class=linkLabel_JPPZ>Build</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/chrony><span title=chrony class=linkLabel_JPPZ>chrony</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/linux/cluster/awesome><span title=cluster class=categoryLinkLabel_RkOu>cluster</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/coreutils><span title=coreutils class=linkLabel_JPPZ>coreutils</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/linux/desktop><span title="Linux 桌面环境综述 (Linux Desktop Overview)" class=categoryLinkLabel_RkOu>Linux 桌面环境综述 (Linux Desktop Overview)</span></a><button aria-label="Expand sidebar category 'Linux 桌面环境综述 (Linux Desktop Overview)'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/linux/dev><span title="Linux Device" class=categoryLinkLabel_RkOu>Linux Device</span></a><button aria-label="Expand sidebar category 'Linux Device'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/embedded><span title="Linux 嵌入式开发 (Embedded Linux)" class=linkLabel_JPPZ>Linux 嵌入式开发 (Embedded Linux)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/linux/fs><span title=FS class=categoryLinkLabel_RkOu>FS</span></a><button aria-label="Expand sidebar category 'FS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/fs><span title="分区类型代码 (Partition Type Codes)" class=linkLabel_JPPZ>分区类型代码 (Partition Type Codes)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/linux/hardware/dmidecode><span title=hardware class=categoryLinkLabel_RkOu>hardware</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/hostname><span title=hostname class=linkLabel_JPPZ>hostname</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/linux/init/awesome><span title=init class=categoryLinkLabel_RkOu>init</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/linux/libc><span title=libc class=categoryLinkLabel_RkOu>libc</span></a><button aria-label="Expand sidebar category 'libc'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/awesome><span title="Linux Awesome" class=linkLabel_JPPZ>Linux Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/default><span title=推荐默认设置 class=linkLabel_JPPZ>推荐默认设置</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/faq><span title="Linux FAQ" class=linkLabel_JPPZ>Linux FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/glossary><span title="Linux Glossary" class=linkLabel_JPPZ>Linux Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/hardening><span title="Linux 安全加固" class=linkLabel_JPPZ>Linux 安全加固</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/pam><span title="Linux PAM" class=linkLabel_JPPZ>Linux PAM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/version><span title="Linux Releases" class=linkLabel_JPPZ>Linux Releases</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/linux/mpp/opencl><span title=mpp class=categoryLinkLabel_RkOu>mpp</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/os/linux/network><span title="Linux 网络" class=categoryLinkLabel_RkOu>Linux 网络</span></a><button aria-label="Collapse sidebar category 'Linux 网络'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/arp><span title=ARP class=linkLabel_JPPZ>ARP</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/bbr><span title=BBR class=linkLabel_JPPZ>BBR</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/bonding><span title=Bonding class=linkLabel_JPPZ>Bonding</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/bridge><span title=桥接网络 class=linkLabel_JPPZ>桥接网络</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/firewalld><span title=firewalld class=linkLabel_JPPZ>firewalld</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/gateway><span title=gateway class=linkLabel_JPPZ>gateway</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/ifupdown-ng><span title=ifupdown-ng class=linkLabel_JPPZ>ifupdown-ng</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/ifupdown><span title=ifupdown class=linkLabel_JPPZ>ifupdown</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/interfaces><span title=interfaces class=linkLabel_JPPZ>interfaces</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/io_uring><span title=io_uring class=linkLabel_JPPZ>io_uring</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/os/linux/network/iproute2><span title=IPRoute2 class=linkLabel_JPPZ>IPRoute2</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/iptables-cookbook><span title="IPTables Cookbook" class=linkLabel_JPPZ>IPTables Cookbook</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/iptables-ref><span title="iptables 参考" class=linkLabel_JPPZ>iptables 参考</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/iptables-rule><span title="iptables 规则" class=linkLabel_JPPZ>iptables 规则</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/iptables><span title=IPTables class=linkLabel_JPPZ>IPTables</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/ipv6><span title="Linux IPv6 配置 (IPv6 Configuration)" class=linkLabel_JPPZ>Linux IPv6 配置 (IPv6 Configuration)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/ipvs><span title=IPVS class=linkLabel_JPPZ>IPVS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/iwd><span title=iwd class=linkLabel_JPPZ>iwd</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/kcp><span title=KCP class=linkLabel_JPPZ>KCP</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/keepalived><span title=Keepalived class=linkLabel_JPPZ>Keepalived</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/lvs><span title="Linux Virtual Server (LVS)" class=linkLabel_JPPZ>Linux Virtual Server (LVS)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/mptcp><span title=MPTCP class=linkLabel_JPPZ>MPTCP</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/mtu><span title=MTU class=linkLabel_JPPZ>MTU</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/faq><span title=网络常见问题 class=linkLabel_JPPZ>网络常见问题</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/glossary><span title="Network 词汇表" class=linkLabel_JPPZ>Network 词汇表</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/networkmanager><span title=NetworkManager class=linkLabel_JPPZ>NetworkManager</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/linux/network/nftables><span title=NFTables class=categoryLinkLabel_RkOu>NFTables</span></a><button aria-label="Expand sidebar category 'NFTables'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/ngrep><span title=ngrep class=linkLabel_JPPZ>ngrep</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/nmap><span title=NMap class=linkLabel_JPPZ>NMap</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/port-forward><span title="Port forward" class=linkLabel_JPPZ>Port forward</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/socat><span title=socat class=linkLabel_JPPZ>socat</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/tcp><span title=TCP class=linkLabel_JPPZ>TCP</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/tcpdump><span title=tcpdump class=linkLabel_JPPZ>tcpdump</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/tshark><span title=tshark class=linkLabel_JPPZ>tshark</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/tuntap><span title=tuntap class=linkLabel_JPPZ>tuntap</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/veth><span title=veth class=linkLabel_JPPZ>veth</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/vlan><span title=vlan class=linkLabel_JPPZ>vlan</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/wlan><span title=WLAN class=linkLabel_JPPZ>WLAN</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/network/wpa_supplicant><span title=wpa_supplicant class=linkLabel_JPPZ>wpa_supplicant</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/ntp><span title=NTP class=linkLabel_JPPZ>NTP</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/partition><span title=Partition class=linkLabel_JPPZ>Partition</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/linux/pm/nix><span title=pm class=categoryLinkLabel_RkOu>pm</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/posix><span title=POSIX class=linkLabel_JPPZ>POSIX</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/linux/security/chmod><span title=security class=categoryLinkLabel_RkOu>security</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/selinux><span title=selinux class=linkLabel_JPPZ>selinux</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/linux/service/incron><span title=service class=categoryLinkLabel_RkOu>service</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/linux/shell/bash><span title=shell class=categoryLinkLabel_RkOu>shell</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/signal><span title=Signal class=linkLabel_JPPZ>Signal</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/linux/stat><span title=stat class=categoryLinkLabel_RkOu>stat</span></a><button aria-label="Expand sidebar category 'stat'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/linux/sys/audit><span title=sys class=categoryLinkLabel_RkOu>sys</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux/util-linux><span title=util-linux class=linkLabel_JPPZ>util-linux</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux-distro><span title="Linux 发行版列表与比较 (Linux Distributions List & Comparison)" class=linkLabel_JPPZ>Linux 发行版列表与比较 (Linux Distributions List & Comparison)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/macos><span title=macOS class=categoryLinkLabel_RkOu>macOS</span></a><button aria-label="Expand sidebar category 'macOS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/mips><span title="MIPS 架构" class=linkLabel_JPPZ>MIPS 架构</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/mobile><span title=手机 class=linkLabel_JPPZ>手机</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/network><span title=网络设备系统 class=categoryLinkLabel_RkOu>网络设备系统</span></a><button aria-label="Expand sidebar category '网络设备系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/openbsd><span title=OpenBSD class=linkLabel_JPPZ>OpenBSD</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/awesome><span title="OS Awesome" class=linkLabel_JPPZ>OS Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/faq><span title="OS FAQ" class=linkLabel_JPPZ>OS FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/glossary><span title="OS Glossary" class=linkLabel_JPPZ>OS Glossary</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/rhel/anaconda><span title=rhel class=categoryLinkLabel_RkOu>rhel</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/synology><span title=Synology class=linkLabel_JPPZ>Synology</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/ubuntu><span title="Ubuntu Server Guide" class=categoryLinkLabel_RkOu>Ubuntu Server Guide</span></a><button aria-label="Expand sidebar category 'Ubuntu Server Guide'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/virt><span title=虚拟化 class=categoryLinkLabel_RkOu>虚拟化</span></a><button aria-label="Expand sidebar category '虚拟化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/windows><span title="Windows OS" class=categoryLinkLabel_RkOu>Windows OS</span></a><button aria-label="Expand sidebar category 'Windows OS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/os><span>操作系统</span></a><li class=breadcrumbs__item><span class=breadcrumbs__link>linux</span><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/os/linux/network><span>Linux 网络</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>IPRoute2</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>IPRoute2</h1></header>
+<ul>
+<li><a href=https://en.wikipedia.org/wiki/Iproute2 target=_blank rel="noopener noreferrer">iproute2</a></li>
+<li><a href=http://lartc.org/howto/ target=_blank rel="noopener noreferrer">Linux Advanced Routing & Traffic Control HOWTO</a></li>
+<li><a href=http://www.policyrouting.org/iproute2.doc.html target=_blank rel="noopener noreferrer">IPROUTE2 Utility Suite Howto</a></li>
+<li><a href=http://www-online.kek.jp/~yasu/ATLAS/QoS/iproute2-notes.html target=_blank rel="noopener noreferrer">iproute2+tc notes</a></li>
+<li><a href=http://baturin.org/docs/iproute2/ target=_blank rel="noopener noreferrer">iproute2 cheatsheet</a>
+<ul>
+<li><a href=https://github.com/dmbaturin/iproute2-cheatsheet target=_blank rel="noopener noreferrer">https://github.com/dmbaturin/iproute2-cheatsheet</a></li>
+</ul>
+</li>
+<li>IPIP (IPv4 in IPv4), SIT (IPv6 in IPv4), IP6IP6 (IPv6 in IPv6), IPIP6 (IPv4 in IPv6), GRE (virtually anything in anything), and, in very recent versions, VTI (IPv4 in IPsec).</li>
+<li><a href=https://www.tldp.org/HOWTO/BRIDGE-STP-HOWTO/index.html target=_blank rel="noopener noreferrer">Linux BRIDGE-STP-HOWTO</a></li>
+<li><a href=https://www.tldp.org/HOWTO/BRIDGE-STP-HOWTO/set-up-the-bridge.html target=_blank rel="noopener noreferrer">6. Set Up The Bridge</a></li>
+<li>STP(Spanning Tree Protocol)即生成树协议，标准为 IEEE802.1D-1998。
+<ul>
+<li>STP 是一种二层冗余技术，利用 STA 算法构建一个逻辑上没有环路的树形网络拓扑结构，并且可以通过一定的方法实现路径冗余。</li>
+</ul>
+</li>
+<li><a href=http://www.cnblogs.com/hzl6255/p/3259909.html target=_blank rel="noopener noreferrer">Linux STP 介绍</a></li>
+<li><a href=https://unix.stackexchange.com/q/255484/47774 target=_blank rel="noopener noreferrer">How can I bridge two interfaces with ip/iproute2?</a></li>
+<li>ip, ss, bridge, rtacct, rtmon, tc, ctstat, lnstat, nstat, routef, routel, rtstat, tipc, arpd, devlink, tc</li>
+<li><a href=https://serverfault.com/q/135053/190601 target=_blank rel="noopener noreferrer">iproute2 rules and iptables NAT… what is the difference?</a></li>
+<li><a href=https://baturin.org/docs/iproute2 target=_blank rel="noopener noreferrer">Task-centered iproute2 user guide</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Command<th>Desc<tbody><tr><td>ip<td><tr><td>ss<td><tr><td>bridge<td><tr><td>rtacct<td><tr><td>rtmon<td><tr><td>ctstat<td><tr><td>lnstat<td><tr><td>nstat<td><tr><td>routef<td><tr><td>routel<td><tr><td>rtstat<td><tr><td>tipc<td><tr><td>arpd<td><tr><td>devlink<td><tr><td>tc<td></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Legacy utility<th>Obsoleted by<th>Note<tbody><tr><td>ifconfig<td>ip addr, ip link, ip -s<td>地址、链路配置<tr><td>route<td>ip route<td>路由表<tr><td>arp<td>ip neigh<td>Neighbors<tr><td>iptunnel<td>ip tunnel<td>通道<tr><td>nameif<td>ifrename, ip link set name<td>网络设备别名<tr><td>ipmaddr<td>ip maddr<td>Multicast<tr><td>netstat<td>ip -s, ss, ip route<td>网络统计</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>net-tools<th>iproute2<tbody><tr><td>arp -a<td>ip neigh<tr><td>arp -v<td>ip -s neigh<tr><td>arp -s 192.168.1.1 1:2:3:4:5:6<td>ip neigh add 192.168.1.1 lladdr 1:2:3:4:5:6 dev eth1<tr><td>arp -i eth1 -d 192.168.1.1<td>ip neigh del 192.168.1.1 dev eth1<tr><td>ifconfig -a<td>ip addr<tr><td>ifconfig eth0 down<td>ip link set eth0 down<tr><td>ifconfig eth0 up<td>ip link set eth0 up<tr><td>ifconfig eth0 192.168.1.1<td>ip addr add 192.168.1.1/24 dev eth0<tr><td>ifconfig eth0 netmask 255.255.255.0<td>ip addr add 192.168.1.1/24 dev eth0<tr><td>ifconfig eth0 mtu 9000<td>ip link set eth0 mtu 9000<tr><td>ifconfig eth0:0 192.168.1.2<td>ip addr add 192.168.1.2/24 dev eth0<tr><td>netstat<td>ss<tr><td>netstat -neopa<td>ss -neopa<tr><td>netstat -g<td>ip maddr<tr><td>route<td>ip route<tr><td>route add -net 192.168.1.0 netmask 255.255.255.0 dev eth0<td>ip route add 192.168.1.0/24 dev eth0<tr><td>route add default gw 192.168.1.1<td>ip route add default via 192.168.1.1</table>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">ss -s # 统计</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ss -o state established '( dport = :smtp or sport = :smtp )'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ss -o state established '( dport = :http or sport = :http )'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ss -x src /tmp/.X11-unix/*</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ss -o state fin-wait-1 '( sport = :http or sport = :https )'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ss -atr</span><br/></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>flag<th>for<tbody><tr><td>-H,--no-header<td><tr><td>-O,--oneline<td><tr><td>-n,--numeric<td><tr><td>-r,--resolve<td><tr><td>-a,--all<td><tr><td>-l,--listening<td><tr><td>-o,--options<td><tr><td>-e,--extended<td><tr><td>-m,--memory<td><tr><td>-p,--processes<td><tr><td>-T,--threads<td><tr><td>-i,--info<td><tr><td>--tos<td><tr><td>--cgroup<td><tr><td>--tipcinfo<td><tr><td>-K,--kill<td><tr><td>-s,--summary<td><tr><td>-E,--events<td>watch<tr><td>-Z,--context<td><tr><td>-z,--contexts<td><tr><td>-N,--net=NSNAME<td><tr><td>-b,--bpf<td><tr><td>-4,--ipv4<td><tr><td>-6,--ipv6<td><tr><td>-O,--packet<td><tr><td>-t,--tcp<td><tr><td>-u,--udp<td><tr><td>-d,--dccp<td><tr><td>-w,--raw<td><tr><td>-x,--unix<td><tr><td>-S,--sctp<td><tr><td>--tipc<td><tr><td>--vsock<td><tr><td>--xdp<td><tr><td>-M,--mptcp<td><tr><td>--inet-sockopt<td><tr><td>-F,--family=FAMILY<td><tr><td>-A,--query,--socket=QUERY<td><tr><td>-D,--diag=FILE<td><tr><td>-F,--filter=FILE<td></table>
+<ul>
+<li>state
+<ul>
+<li>established, syn-sent, syn-recv, fin-wait-1, fin-wait-2, time-wait, closed, close-wait, last-ack, listening, closing</li>
+<li>all</li>
+<li>connected</li>
+<li>synchronized - 除 syn-sent 的 connected</li>
+<li>bucket</li>
+<li>big - !bucket</li>
+</ul>
+</li>
+<li>UNCONN</li>
+<li>ESTAB</li>
+<li>LISTEN</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">{dst|src} [=] HOST</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">{dport|sport} [OP] [FAMILY:]:PORT</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">dev [=|!=] DEVICE</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">fwmark [=|!=] MASK</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">cgroup [=|!=] PATH</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">autobound</span><br/></span></code></pre></div></div>
+<ul>
+<li>HOST - <code>[FAMILY:]ADDRESS[:PORT]</code>
+<ul>
+<li>FAMILY - unix, link, netlink, vsock, inet, inet6</li>
+</ul>
+</li>
+<li>OP
+<ul>
+<li>&lt;=,le,leq,>=,ge,geq,=,==,eq,!=,ne,neq,&lt;,gt,>,lt,!,not</li>
+<li>|,||,or</li>
+<li>&,&&,and</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=bridge>bridge<a href=#bridge class=hash-link aria-label="Direct link to bridge" title="Direct link to bridge" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/docker/libnetwork/issues/2310 target=_blank rel="noopener noreferrer">docker/libnetwork#2310</a> - docker 不能在不影响 docker0 的前提下使用现有的 bridge 网口</li>
+<li>docker network <a href=https://docs.docker.com/network/macvlan target=_blank rel="noopener noreferrer">macvlan</a></li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 添加桥接</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip li add name br0 type bridge</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 添加 if</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip li set dev eth0 master br0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 移除 if</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip li set dev eth0 nomaster</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 同时给 br0 添加多个地址可在保证网络访问的同事进行桥接</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 因为桥接, 所以 gw 的信息要手动配置</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 默认网关</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip route add 0.0.0.0/0 via 10.0.2.2</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 删除最上层的默认网关</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip ro del default</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip li set dev eth0 mtu 9000</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip route flush table main</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip route flush 172.17.0.0/16</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip route flush cache</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip -s route show cache</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># greptap</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># ==============================</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># GRE bridging, IPsec and NFQUEUE http://backreference.org/2013/07/23/gre-bridging-ipsec-and-nfqueue/</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># Layer 2 over Layer 3</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">#</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># A</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip link add gretap0 type gretap local 172.31.0.1 remote 172.31.0.2</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip link set dev gretap0 up</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip link set dev eth0 up</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">brctl addbr br0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">brctl addif br0 gretap0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">brctl addif br0 eth0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip addr add 10.10.10.1/24 dev br0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip link set br0 up</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># B</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip link add gretap0 type gretap local 172.31.0.2 remote 172.31.0.1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip link set dev gretap0 up</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip link set dev eth0 up</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">brctl addbr br0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">brctl addif br0 gretap0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">brctl addif br0 eth0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip addr add 10.10.10.2/24 dev br0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip link set br0 up</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=veth---virtual-ethernet-device---虚拟以太网设备>veth - Virtual Ethernet Device - 虚拟以太网设备<a href=#veth---virtual-ethernet-device---虚拟以太网设备 class=hash-link aria-label="Direct link to veth - Virtual Ethernet Device - 虚拟以太网设备" title="Direct link to veth - Virtual Ethernet Device - 虚拟以太网设备" translate=no>​</a></h2>
+<ul>
+<li><a href=http://man7.org/linux/man-pages/man4/veth.4.html target=_blank rel="noopener noreferrer">veth.4</a></li>
+<li><a href=https://superuser.com/a/765078/242730 target=_blank rel="noopener noreferrer">https://superuser.com/a/765078/242730</a></li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">ip li add veth0 type veth</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=相同网口进出>相同网口进出<a href=#相同网口进出 class=hash-link aria-label="Direct link to 相同网口进出" title="Direct link to 相同网口进出" translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">auto eth2</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">iface eth2 inet static</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  address 192.168.2.101</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  netmask 255.255.252.0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  mtu 9000</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  pre-up ip ro li tab tgbe &>/dev/null || echo '10 tgbe' >> /etc/iproute2/rt_tables</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  post-up ip ru add from 192.168.2.101 table tgbe</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  post-up ip ro add default via 192.168.2.1 dev eth2 table tgbe</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=table>table<a href=#table class=hash-link aria-label="Direct link to table" title="Direct link to table" translate=no>​</a></h2>
+<ul>
+<li>Table 映射配置 <code>/etc/iproute2/rt_tables</code></li>
+</ul>
+<ul>
+<li>local
+<ul>
+<li>特殊表</li>
+<li>包含高优先的本地路由和广播地址</li>
+</ul>
+</li>
+<li>main
+<ul>
+<li>包含所有非策略路由</li>
+</ul>
+</li>
+<li>default
+<ul>
+<li>空的</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 所有路由表规则</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip route show table all</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 有效 table 列表</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip route show table all | grep -Po 'table \K[^\s]+' | sort -u</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 清除 table</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip route flush table 11</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=rule>rule<a href=#rule class=hash-link aria-label="Direct link to rule" title="Direct link to rule" translate=no>​</a></h2>
+<ul>
+<li>routing policy database - RPDB - 路由策略数据库</li>
+<li><a href=https://man7.org/linux/man-pages/man8/ip-rule.8.html target=_blank rel="noopener noreferrer">ip-rule.8</a></li>
+<li>传统路由基于目标地址，策略路由可基于包的其他字段
+<ul>
+<li>来源地址、IP 协议、端口、包内容</li>
+</ul>
+</li>
+<li>rule=selector+action predicate</li>
+<li>使用降序 - 数字越低越优先</li>
+<li>类型
+<ul>
+<li>unicast</li>
+<li>blackhole</li>
+<li>unreachable</li>
+<li>prohibit</li>
+<li>nat</li>
+</ul>
+</li>
+</ul>
+<div class="language-ini codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-ini codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 默认</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># local = 255</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">0:      from all lookup local</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># main = 254</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">32766:	from all lookup main</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># default = 253</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">32767:	from all lookup default</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=mark>mark<a href=#mark class=hash-link aria-label="Direct link to mark" title="Direct link to mark" translate=no>​</a></h2>
+<ul>
+<li><a href=https://serverfault.com/questions/733705 target=_blank rel="noopener noreferrer">iproute rt_table and mark not working on linux</a></li>
+<li><a href=https://superuser.com/questions/950031/routing-subnet-to-specific-routing-table-with-fwmark-direct-to-isp-and-vpn target=_blank rel="noopener noreferrer">https://superuser.com/questions/950031/routing-subnet-to-specific-routing-table-with-fwmark-direct-to-isp-and-vpn</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=macvlan>macvlan<a href=#macvlan class=hash-link aria-label="Direct link to macvlan" title="Direct link to macvlan" translate=no>​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=faq>FAQ<a href=#faq class=hash-link aria-label="Direct link to FAQ" title="Direct link to FAQ" translate=no>​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=所有-table>所有 table<a href=#所有-table class=hash-link aria-label="Direct link to 所有 table" title="Direct link to 所有 table" translate=no>​</a></h2>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">ip route show table all | egrep -o "table \S+" | sed 's/table\s//' | sort -u</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=stateless-nat-with-iproute2>Stateless NAT with iproute2<a href=#stateless-nat-with-iproute2 class=hash-link aria-label="Direct link to Stateless NAT with iproute2" title="Direct link to Stateless NAT with iproute2" translate=no>​</a></h3>
+<ul>
+<li><a href=http://linux-ip.net/html/nat-stateless.html target=_blank rel="noopener noreferrer">Stateless NAT with iproute2</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/os/linux/network/iproute2.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2023-03-23T09:20:01.000Z itemprop=dateModified>Mar 23, 2023</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/os/linux/network/io_uring><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>io_uring</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/os/linux/network/iptables-cookbook><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>IPTables Cookbook</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#bridge class="table-of-contents__link toc-highlight">bridge</a><li><a href=#veth---virtual-ethernet-device---虚拟以太网设备 class="table-of-contents__link toc-highlight">veth - Virtual Ethernet Device - 虚拟以太网设备</a><ul><li><a href=#相同网口进出 class="table-of-contents__link toc-highlight">相同网口进出</a></ul><li><a href=#table class="table-of-contents__link toc-highlight">table</a><li><a href=#rule class="table-of-contents__link toc-highlight">rule</a><li><a href=#mark class="table-of-contents__link toc-highlight">mark</a><li><a href=#macvlan class="table-of-contents__link toc-highlight">macvlan</a><li><a href=#faq class="table-of-contents__link toc-highlight">FAQ</a><li><a href=#所有-table class="table-of-contents__link toc-highlight">所有 table</a><ul><li><a href=#stateless-nat-with-iproute2 class="table-of-contents__link toc-highlight">Stateless NAT with iproute2</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

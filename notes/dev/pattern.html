@@ -1,0 +1,538 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-dev/pattern/README" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>设计模式 | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/dev/pattern /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="设计模式 | Wener Live & Life"/><meta data-rh=true name=description content="- 设计模式不是“银弹”，而是“词汇”和“工具箱”"/><meta data-rh=true property=og:description content="- 设计模式不是“银弹”，而是“词汇”和“工具箱”"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/dev/pattern /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/pattern hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/pattern hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/dev/","name":"开发","position":1},{"@type":"ListItem","item":"https://wener.me/notes/dev/pattern/","name":"设计模式","position":2}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Collapse sidebar category '开发'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/arch><span title=Architecture class=linkLabel_JPPZ>Architecture</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/ascii><span title=ASCII class=linkLabel_JPPZ>ASCII</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/benchmark><span title=Benchmark class=linkLabel_JPPZ>Benchmark</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/build><span title=构建 class=categoryLinkLabel_RkOu>构建</span></a><button aria-label="Expand sidebar category '构建'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chaos-engineering><span title=混沌工程 class=linkLabel_JPPZ>混沌工程</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chezmoi><span title=chezmoi class=linkLabel_JPPZ>chezmoi</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/circuit-breaker><span title=熔断 class=linkLabel_JPPZ>熔断</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/cloud/dapr-k8s><span title=cloud class=categoryLinkLabel_RkOu>cloud</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/code-faq><span title="Code FAQ" class=linkLabel_JPPZ>Code FAQ</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/coding><span title=Coding class=categoryLinkLabel_RkOu>Coding</span></a><button aria-label="Expand sidebar category 'Coding'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/compression><span title=压缩 class=categoryLinkLabel_RkOu>压缩</span></a><button aria-label="Expand sidebar category '压缩'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/cryptography><span title=Cryptography class=linkLabel_JPPZ>Cryptography</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/data-dict><span title=数据字典 class=linkLabel_JPPZ>数据字典</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/date><span title="Date & Time" class=linkLabel_JPPZ>Date & Time</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/design><span title=Design class=categoryLinkLabel_RkOu>Design</span></a><button aria-label="Expand sidebar category 'Design'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/awesome><span title="Dev Awesome" class=linkLabel_JPPZ>Dev Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/concept><span title=开发相关概念 class=linkLabel_JPPZ>开发相关概念</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/env><span title=ENV class=linkLabel_JPPZ>ENV</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/error><span title=error class=linkLabel_JPPZ>error</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/faq><span title="Dev FAQ" class=linkLabel_JPPZ>Dev FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/glossary><span title="Dev Glossary" class=linkLabel_JPPZ>Dev Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/limits><span title=开发常见限制 class=linkLabel_JPPZ>开发常见限制</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pitfal><span title=Pitfal class=linkLabel_JPPZ>Pitfal</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/practice><span title="Dev Practice" class=linkLabel_JPPZ>Dev Practice</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/reference><span title=Reference class=linkLabel_JPPZ>Reference</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/style-guide><span title="Dev Style Guide" class=linkLabel_JPPZ>Dev Style Guide</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/devcontainer><span title=DevContainer class=linkLabel_JPPZ>DevContainer</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/dict><span title=开发用词字典 class=linkLabel_JPPZ>开发用词字典</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/domain/doc><span title=domain class=categoryLinkLabel_RkOu>domain</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/flow><span title="Workflow & Automation" class=linkLabel_JPPZ>Workflow & Automation</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/flutter><span title=Flutter class=categoryLinkLabel_RkOu>Flutter</span></a><button aria-label="Expand sidebar category 'Flutter'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/format><span title=Format class=categoryLinkLabel_RkOu>Format</span></a><button aria-label="Expand sidebar category 'Format'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/game><span title=GameDev class=categoryLinkLabel_RkOu>GameDev</span></a><button aria-label="Expand sidebar category 'GameDev'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/google-eng-practices><span title="Google Engineering Practices" class=linkLabel_JPPZ>Google Engineering Practices</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/gui/clipboard><span title=gui class=categoryLinkLabel_RkOu>gui</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/hexdump><span title=hexdump class=linkLabel_JPPZ>hexdump</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title="Internationalization (i18n)" class=linkLabel_JPPZ>Internationalization (i18n)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title=i18n class=linkLabel_JPPZ>i18n</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/ide><span title=IDE class=categoryLinkLabel_RkOu>IDE</span></a><button aria-label="Expand sidebar category 'IDE'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/libs/audio><span title=libs class=categoryLinkLabel_RkOu>libs</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/license><span title=License class=linkLabel_JPPZ>License</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/naming><span title=命名规范 class=linkLabel_JPPZ>命名规范</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/network><span title=Network class=linkLabel_JPPZ>Network</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/opensource><span title="OpenSource Awesome" class=linkLabel_JPPZ>OpenSource Awesome</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible menu__list-item-collapsible--active"><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" aria-current=page tabindex=0 href=/notes/dev/pattern><span title=设计模式 class=categoryLinkLabel_RkOu>设计模式</span></a><button aria-label="Collapse sidebar category '设计模式'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/12factor><span title="12 factor" class=linkLabel_JPPZ>12 factor</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/actor><span title=Actor class=linkLabel_JPPZ>Actor</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/control-plane><span title="Control plane" class=linkLabel_JPPZ>Control plane</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/durable-function><span title="Durable Function" class=linkLabel_JPPZ>Durable Function</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/ioc><span title=IoC class=linkLabel_JPPZ>IoC</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/microfrontend><span title=微前端 class=linkLabel_JPPZ>微前端</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/mvc><span title=MVC class=linkLabel_JPPZ>MVC</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/orm><span title=ORM class=linkLabel_JPPZ>ORM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/faq><span title="Pattern FAQ" class=linkLabel_JPPZ>Pattern FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/glossary><span title="Patterns Glossary" class=linkLabel_JPPZ>Patterns Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/rpc><span title=RPC class=linkLabel_JPPZ>RPC</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/sega><span title="SEGA Pattern" class=linkLabel_JPPZ>SEGA Pattern</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pattern/sidecar><span title=Sidecar class=linkLabel_JPPZ>Sidecar</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/practice/semver><span title=practice class=categoryLinkLabel_RkOu>practice</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/protocol/bittorrent><span title=protocol class=categoryLinkLabel_RkOu>protocol</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/qa><span title=质量保障 class=categoryLinkLabel_RkOu>质量保障</span></a><button aria-label="Expand sidebar category '质量保障'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/quantum><span title=Quantum class=linkLabel_JPPZ>Quantum</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/random><span title=Random class=linkLabel_JPPZ>Random</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rate-limits><span title="Rate Limits" class=linkLabel_JPPZ>Rate Limits</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/react-native><span title="React Native" class=categoryLinkLabel_RkOu>React Native</span></a><button aria-label="Expand sidebar category 'React Native'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/reverse><span title=逆向工程 class=categoryLinkLabel_RkOu>逆向工程</span></a><button aria-label="Expand sidebar category '逆向工程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rfc><span title=rfc class=linkLabel_JPPZ>rfc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/routing><span title=路由 class=linkLabel_JPPZ>路由</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/shell/ghostty><span title=shell class=categoryLinkLabel_RkOu>shell</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/std/calender><span title=std class=categoryLinkLabel_RkOu>std</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/tech/qrcode><span title=tech class=categoryLinkLabel_RkOu>tech</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/testing><span title=测试 class=categoryLinkLabel_RkOu>测试</span></a><button aria-label="Expand sidebar category '测试'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/theory><span title=理论 class=categoryLinkLabel_RkOu>理论</span></a><button aria-label="Expand sidebar category '理论'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/timezone><span title=timezone class=linkLabel_JPPZ>timezone</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/vibe-coding><span title="Vibe Coding" class=linkLabel_JPPZ>Vibe Coding</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/wall-of-shame><span title=耻辱墙 class=linkLabel_JPPZ>耻辱墙</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/dev><span>开发</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>设计模式</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>设计模式</h1></header>
+<ul>
+<li>设计模式不是“银弹”，而是“词汇”和“工具箱”
+<ul>
+<li>一套共通的词汇 (Vocabulary)</li>
+<li>一个工具箱 (Toolbox)</li>
+<li>一组权衡的艺术 (Art of Trade-offs)
+<ul>
+<li>没有任何模式是完美的。采用一个模式，意味着你接受了它带来的好处，同时也必须接受它带来的成本（比如复杂性增加、开发成本提高、引入新的一致性问题等）。</li>
+<li>架构师对这些进行权衡</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<ul>
+<li>共享故障点 - Shared Failure Point
+<ul>
+<li>Single Point of Failure, SPOF, 单点故障</li>
+<li>找共同依赖</li>
+</ul>
+</li>
+<li>主动识别
+<ul>
+<li>架构图梳理与依赖分析</li>
+<li>进行“如果……会怎样”的思维实验 (What-if Scenarios)</li>
+<li>混沌工程 (Chaos Engineering)</li>
+</ul>
+</li>
+<li>被动识别
+<ul>
+<li>事故复盘 (Incident Post-mortems) 与根本原因分析 (RCA)
+<ul>
+<li>“五个为什么”分析法</li>
+</ul>
+</li>
+<li>监控与告警数据分析</li>
+</ul>
+</li>
+<li>缓解（Mitigate）
+<ul>
+<li>消除单点 (Eliminate): 通过冗余 (Redundancy) 和 高可用 (High Availability) 来实现</li>
+<li>隔离 (Isolate)：通过分区 (Partitioning) 或 舱壁模式 (Bulkhead Pattern) 来限制故障的影响范围。</li>
+<li>降级 (Degrade): 通过断路器模式 (Circuit Breaker Pattern) 或 优雅降级 (Graceful Degradation)，在依赖的共享服务故障时，系统核心功能依然可用，只是体验有所下降。</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<ul>
+<li>可靠性 (Reliability): Ambassador, Backends for Frontends, Bulkhead, Cache-Aside, Circuit Breaker, Claim Check, Compensating Transaction, Competing Consumers, Event Sourcing, Federated Identity, Gateway Aggregation, Gateway Offloading, Gateway Routing, Geode, Health Endpoint Monitoring, Index Table, Leader Election, Pipes and Filters, Priority Queue, Publisher/Subscriber, Queue-Based Load Leveling, Rate Limiting, Retry, Saga, Scheduler Agent Supervisor, Sequential Convoy, Sharding, Strangler Fig, Throttling</li>
+<li>安全性 (Security): Ambassador, Backends for Frontends, Bulkhead, Claim Check, Federated Identity, Gateway Aggregation, Gateway Offloading, Publisher/Subscriber, Quarantine, Sidecar, Throttling, Valet Key</li>
+<li>性能效率 (Performance Efficiency): Asynchronous Request-Reply, Backends for Frontends, Bulkhead, Cache-Aside, Choreography, Circuit Breaker, Claim Check, Competing Consumers, Compute Resource Consolidation, CQRS, Deployment Stamps, Event Sourcing, Federated Identity, Gateway Aggregation, Gateway Offloading, Gateway Routing, Geode, Health Endpoint Monitoring, Index Table, Materialized View, Publisher/Subscriber, Priority Queue, Queue-Based Load Leveling, Scheduler Agent Supervisor, Throttling, Valet Key</li>
+<li>成本优化 (Cost Optimization): Claim Check, Competing Consumers, Compute Resource Consolidation, Gateway Offloading, Messaging Bridge, Publisher/Subscriber, Queue-Based Load Leveling, Sharding, Static Content Hosting, Strangler Fig, Throttling, Valet Key</li>
+<li>卓越运营 (Operational Excellence): Anti-Corruption Layer, Choreography, Compute Resource Consolidation, Deployment Stamps, External Configuration Store, Gateway Aggregation, Gateway Offloading, Gateway Routing, Health Endpoint Monitoring, Messaging Bridge, Publisher/Subscriber, Quarantine, Sidecar, Strangler Fig</li>
+<li>AI Agent Orchestration Patterns
+<ul>
+<li><a href=https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns target=_blank rel="noopener noreferrer">https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>en<th>cn<tbody><tr><td>Ambassador Pattern<td>Ambassador 模式<tr><td>Anti-Corruption Layer Pattern<td>防腐层模式<tr><td>Asynchronous Request-Reply<td>异步请求-应答模式<tr><td>Backends for Frontends (BFF)<td>BFF 模式<tr><td>Bulkhead Pattern<td>舱壁模式<tr><td>Cache-Aside Pattern<td>缓存旁路模式<tr><td>Choreography Pattern<td>协同编排模式<tr><td>Circuit Breaker Pattern<td>断路器模式<tr><td>Claim Check Pattern<td>大消息拆分模式<tr><td>Compensating Transaction Pattern<td>补偿事务模式<tr><td>Competing Consumers Pattern<td>竞争消费者模式<tr><td>Compute Resource Consolidation<td>计算资源整合模式<tr><td>CQRS<td>命令查询职责分离模式<tr><td>Deployment Stamps Pattern<td>分区部署模式<tr><td>Event Sourcing Pattern<td>事件溯源模式<tr><td>Federated Identity Pattern<td>联合身份模式<tr><td>Gateway Aggregation Pattern<td>网关聚合模式<tr><td>Gateway Offloading Pattern<td>网关卸载模式<tr><td>Gateway Routing Pattern<td>网关路由模式<tr><td>Geode Pattern<td>Geode 模式<tr><td>Health Endpoint Monitoring<td>健康端点监控模式<tr><td>Index Table Pattern<td>索引表模式<tr><td>Leader Election Pattern<td>领导者选举模式<tr><td>Materialized View Pattern<td>物化视图模式<tr><td>Messaging Bridge Pattern<td>消息桥接模式<tr><td>Pipes and Filters Pattern<td>管道与过滤器模式<tr><td>Priority Queue Pattern<td>优先级队列模式<tr><td>Publisher/Subscriber Pattern<td>发布/订阅模式<tr><td>Quarantine Pattern<td>隔离模式<tr><td>Queue-Based Load Leveling<td>基于队列的负载均衡（削峰填谷）模式<tr><td>Rate Limiting Pattern<td>限流模式<tr><td>Retry Pattern<td>重试模式<tr><td>Saga Pattern<td>Saga 模式<tr><td>Scheduler Agent Supervisor<td>调度器-代理-监督者模式<tr><td>Sequential Convoy Pattern<td>顺序车队模式<tr><td>Sharding Pattern<td>分片模式<tr><td>Sidecar Pattern<td>边车模式<tr><td>Static Content Hosting Pattern<td>静态内容托管模式<tr><td>Strangler Fig Pattern<td>绞杀榕树模式<tr><td>Throttling Pattern<td>节流模式<tr><td>Valet Key Pattern<td>临时访问密钥模式</table>
+<hr/>
+<ul>
+<li>参考
+<ul>
+<li><a href=https://en.wikipedia.org/wiki/Design_Patterns target=_blank rel="noopener noreferrer">https://en.wikipedia.org/wiki/Design_Patterns</a></li>
+<li><a href=https://sourcemaking.com/ target=_blank rel="noopener noreferrer">https://sourcemaking.com/</a></li>
+<li><a href=https://www.baeldung.com/design-patterns-series target=_blank rel="noopener noreferrer">https://www.baeldung.com/design-patterns-series</a></li>
+<li><a href=https://learn.microsoft.com/en-us/azure/architecture/patterns/ target=_blank rel="noopener noreferrer">https://learn.microsoft.com/en-us/azure/architecture/patterns/</a></li>
+<li><a href=https://github.com/netflix/hystrix/wiki/how-it-works target=_blank rel="noopener noreferrer">https://github.com/netflix/hystrix/wiki/how-it-works</a></li>
+<li>GCP Architecture Center <a href=https://cloud.google.com/architecture target=_blank rel="noopener noreferrer">https://cloud.google.com/architecture</a></li>
+<li><a href=https://cloud.google.com/architecture/hybrid-multicloud target=_blank rel="noopener noreferrer">https://cloud.google.com/architecture/hybrid-multicloud</a>
+<ul>
+<li>GCP Multicloud Architecture & Design Pattern</li>
+</ul>
+</li>
+<li>AWS <a href=https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/introduction.html target=_blank rel="noopener noreferrer">Cloud design patterns, architectures, and implementations</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=retry-pattern>Retry Pattern<a href=#retry-pattern class=hash-link aria-label="Direct link to Retry Pattern" title="Direct link to Retry Pattern" translate=no>​</a></h2>
+<ul>
+<li>重试模式 Retry Pattern</li>
+<li>Problem
+<ul>
+<li>在分布式系统中，由于网络延迟、服务暂时过载或资源瞬时不可用等原因，操作可能会短暂失败。</li>
+<li>直接将这些瞬时故障报告为永久性错误会降低系统的可用性和用户体验。</li>
+</ul>
+</li>
+<li>Solution
+<ul>
+<li>重试模式通过透明地重新尝试失败的操作来应对这些瞬时故障。</li>
+<li>其核心逻辑是捕获特定的、可被视为瞬时性的异常，然后等待一小段时间再重新发起请求。</li>
+</ul>
+</li>
+<li>Strategy
+<ul>
+<li>固定间隔 (Fixed Interval): 每次重试之间等待相同的时间。</li>
+<li>线性退避 (Linear Backoff): 每次重试增加一个固定的等待时间。</li>
+<li>指数退避 (Exponential Backoff): 每次重试后，等待时间呈指数级增长。这通常是首选策略，因为它能快速应对短暂中断，同时在服务持续不可用时避免用大量请求压垮对方。通常还会加入“抖动”（Jitter），即在等待时间上增加一个小的随机量，以避免多个实例在同一时刻同步重试，从而引发“重试风暴”。</li>
+</ul>
+</li>
+<li>Implementation Considerations and Common Pitfalls
+<ul>
+<li>幂等性 (Idempotency): 最重要的考量是，只有幂等操作才能安全地重试。幂等操作是指执行一次和执行多次的效果是相同的（例如，读取数据、删除特定 ID 的资源）。对非幂等操作（如“向账户存款100元”）进行重试可能会导致灾难性的后果（重复存款）。</li>
+<li>重试风暴 (Retry Storms): 如果一个服务宕机，所有依赖它的客户端同时开始指数退避重试，它们可能会在相似的时间点同步发起下一次尝试，导致服务刚刚恢复就立刻被流量洪峰再次压垮。引入随机抖动是缓解此问题的关键。</li>
+</ul>
+</li>
+</ul>
+<p>不要盲目使用固定间隔重试，这在持续故障场景下效果很差。指数退避通常是更安全的选择。
+快速失败: 对于明确的非瞬时性错误（如 400 Bad Request, 401 Unauthorized），应立即失败，而不是徒劳地重试。重试策略必须能够区分瞬时和永久性错误。</p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=cache-aside-pattern>Cache-Aside Pattern<a href=#cache-aside-pattern class=hash-link aria-label="Direct link to Cache-Aside Pattern" title="Direct link to Cache-Aside Pattern" translate=no>​</a></h2>
+<p>用程序在读取数据时，首先尝试从缓存中获取。如果缓存中没有（缓存未命中），则从数据源（如数据库）读取，并将读取到的数据放入缓存，然后再返回给应用程序。</p>
+<ul>
+<li>应用场景:
+<ul>
+<li>读多写少的场景，例如产品目录、新闻文章、用户信息等。</li>
+<li>希望提高读取性能、降低后端数据源压力的应用。</li>
+<li>可以容忍数据在短时间内不是最新状态（最终一致性）的场景。</li>
+</ul>
+</li>
+<li>FAQ & Pitfalls
+<ul>
+<li>缓存失效策略</li>
+<li>缓存穿透/雪崩</li>
+<li>数据一致性</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=circuit-breaker-pattern>Circuit Breaker Pattern<a href=#circuit-breaker-pattern class=hash-link aria-label="Direct link to Circuit Breaker Pattern" title="Direct link to Circuit Breaker Pattern" translate=no>​</a></h2>
+<p>像电路中的保险丝一样，当一个远程服务或资源持续出现故障时，断路器会“跳闸”（打开），在一段时间内阻止应用程序继续向其发送请求，而是直接返回一个错误，从而避免应用程序被拖垮，并给下游服务恢复的时间。</p>
+<ul>
+<li>核心问题
+<ul>
+<li>当一个下游服务持续失败时，如果上游服务继续使用重试模式对其进行调用，将会导致：
+<ul>
+<li>耗尽上游服务的资源（如线程、套接字）</li>
+<li>持续向下游服务施加压力，阻碍其恢复</li>
+<li>增加用户感知的延迟，因为每次调用都在等待超时。</li>
+</ul>
+</li>
+<li>可能导致级联故障，即一个服务的失败引发整个系统的崩溃。</li>
+</ul>
+</li>
+<li>解决方案机制与架构
+<ul>
+<li>断路器模式是一个有状态的代理，它监控对受保护服务的调用。</li>
+<li>三个核心状态
+<ul>
+<li>Closed (闭合): 初始状态。所有请求都正常通过。断路器会记录成功和失败的次数。当失败次数在一定时间内超过设定的阈值时，断路器转换到“打开”状态。</li>
+<li>Open (打开): 在此状态下，所有对该服务的调用都会立即失败，并返回一个错误，而不会真正尝试调用。这可以防止对已知故障的服务发起不必要的请求。经过一个配置的超时时间后，断路器转换到“半开”状态。</li>
+<li>Half-Open (半开): 在此状态下，断路器允许一个（或少量）“探测”请求通过。如果该请求成功，断路器认为服务已恢复，转换回“闭合”状态。如果请求失败，断路器立即跳回“打开”状态，重新开始计时。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>实现考量与常见陷阱
+<ul>
+<li>阈值调整: 断路器的配置（失败阈值、打开持续时间）非常关键且难以一次性设定正确。阈值太低可能导致服务被误判为故障；太高则可能反应太慢。这通常需要根据生产环境的监控数据进行迭代调整。</li>
+<li>分布式状态管理: 在一个无状态、水平扩展的服务中，每个实例都维护自己的断路器状态。这意味着一个实例可能已经打开了断路器，而另一个新启动的实例仍然是闭合的。对于非常关键的服务，可能需要一个集中式的、共享的断路器状态（例如，存储在 Redis 中），但这会显著增加复杂性。</li>
+<li>降级逻辑 (Fallback): 当断路器打开时，仅仅返回错误可能不够。通常需要提供一个降级逻辑，例如返回缓存的旧数据、一个默认值，或者调用另一个备用服务。</li>
+<li>监控与告警: 必须对断路器的状态转换进行监控。当一个断路器频繁打开时，这是一个强烈的信号，表明下游服务存在严重问题，需要立即发出告警。</li>
+</ul>
+</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>在微服务架构中，一个服务需要调用另一个可能不稳定的服务。</li>
+<li>调用任何可能出现延迟或失败的第三方API或外部资源。</li>
+<li>保护系统自身，防止因某个依赖的故障而导致整个系统的连锁反应（雪崩效应）。</li>
+</ul>
+<div class="language-java codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-java codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token keyword" style=font-style:italic>enum</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">State</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"> </span><span class="token constant" style="color:rgb(130, 170, 255)">CLOSED</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token constant" style="color:rgb(130, 170, 255)">OPEN</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token constant" style="color:rgb(130, 170, 255)">HALF_OPEN</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>class</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">CircuitBreaker</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token class-name" style="color:rgb(255, 203, 107)">State</span><span class="token plain"> currentState </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">State</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token constant" style="color:rgb(130, 170, 255)">CLOSED</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token keyword" style=font-style:italic>int</span><span class="token plain"> failureCount </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token keyword" style=font-style:italic>long</span><span class="token plain"> lastFailureTime </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// --- 可配置的阈值 ---</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token keyword" style=font-style:italic>final</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>int</span><span class="token plain"> </span><span class="token constant" style="color:rgb(130, 170, 255)">FAILURE_THRESHOLD</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">5</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 连续失败5次就跳闸</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token keyword" style=font-style:italic>final</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>long</span><span class="token plain"> </span><span class="token constant" style="color:rgb(130, 170, 255)">OPEN_TIMEOUT_MS</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">30000</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 跳闸后，30秒内不允许新请求</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token keyword" style=font-style:italic>public</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">Response</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">call</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token class-name" style="color:rgb(255, 203, 107)">Request</span><span class="token plain"> request</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token keyword" style=font-style:italic>if</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">currentState </span><span class="token operator" style="color:rgb(137, 221, 255)">==</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">State</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token constant" style="color:rgb(130, 170, 255)">OPEN</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">            </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 状态为OPEN，检查是否过了超时时间</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">            </span><span class="token keyword" style=font-style:italic>if</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token class-name" style="color:rgb(255, 203, 107)">System</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">currentTimeMillis</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">-</span><span class="token plain"> lastFailureTime </span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token plain"> </span><span class="token constant" style="color:rgb(130, 170, 255)">OPEN_TIMEOUT_MS</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 超时了，进入HALF_OPEN状态，准备放一个请求过去试试</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                currentState </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">State</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token constant" style="color:rgb(130, 170, 255)">HALF_OPEN</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">            </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>else</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 还没超时，直接快速失败，返回降级逻辑</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                </span><span class="token keyword" style=font-style:italic>return</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">fallbackResponse</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">            </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token keyword" style=font-style:italic>if</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">currentState </span><span class="token operator" style="color:rgb(137, 221, 255)">==</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">State</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token constant" style="color:rgb(130, 170, 255)">HALF_OPEN</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">||</span><span class="token plain"> currentState </span><span class="token operator" style="color:rgb(137, 221, 255)">==</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">State</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token constant" style="color:rgb(130, 170, 255)">CLOSED</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">            </span><span class="token keyword" style=font-style:italic>try</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 尝试调用下游服务</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                </span><span class="token class-name" style="color:rgb(255, 203, 107)">Response</span><span class="token plain"> response </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">PaymentService</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">charge</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">request</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 调用成功！</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                </span><span class="token function" style="color:rgb(130, 170, 255)">reset</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 重置计数器，状态恢复为CLOSED</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                </span><span class="token keyword" style=font-style:italic>return</span><span class="token plain"> response</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">            </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>catch</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token class-name" style="color:rgb(255, 203, 107)">Exception</span><span class="token plain"> e</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 调用失败！</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                </span><span class="token function" style="color:rgb(130, 170, 255)">recordFailure</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                </span><span class="token keyword" style=font-style:italic>return</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">fallbackResponse</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">            </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token keyword" style=font-style:italic>return</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">fallbackResponse</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token keyword" style=font-style:italic>private</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>void</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">recordFailure</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        failureCount</span><span class="token operator" style="color:rgb(137, 221, 255)">++</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        lastFailureTime </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">System</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">currentTimeMillis</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token keyword" style=font-style:italic>if</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">failureCount </span><span class="token operator" style="color:rgb(137, 221, 255)">>=</span><span class="token plain"> </span><span class="token constant" style="color:rgb(130, 170, 255)">FAILURE_THRESHOLD</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">            </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 失败次数达到阈值，跳闸！</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">            currentState </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">State</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token constant" style="color:rgb(130, 170, 255)">OPEN</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token keyword" style=font-style:italic>private</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>void</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">reset</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        failureCount </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        currentState </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">State</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token constant" style="color:rgb(130, 170, 255)">CLOSED</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token keyword" style=font-style:italic>private</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">Response</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">fallbackResponse</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 降级逻辑，比如：返回“支付处理中，请稍后查看”</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token keyword" style=font-style:italic>return</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>new</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">Response</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">"Payment processing, please check later."</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=health-endpoint-monitoring-pattern>Health Endpoint Monitoring Pattern<a href=#health-endpoint-monitoring-pattern class=hash-link aria-label="Direct link to Health Endpoint Monitoring Pattern" title="Direct link to Health Endpoint Monitoring Pattern" translate=no>​</a></h2>
+<ul>
+<li>核心问题
+<ul>
+<li>在自动化和动态的云环境中，外部系统（如负载均衡器、容器编排器、监控工具）需要一种可靠的方式来确定一个应用程序实例是否正在正常工作。</li>
+<li>仅仅检查进程是否存在或端口是否在监听是远远不够的。</li>
+</ul>
+</li>
+<li>解决方案机制与架构
+<ul>
+<li>引入特定端点（如 /health 或 /status）来解决问题。</li>
+<li>外部工具可以定期轮询这个端点。端点的响应表明了应用程序的健康状况。</li>
+<li>健康检查可以分为不同级别：
+<ul>
+<li>Liveness (存活性): 一个简单的检查，仅确认应用程序进程正在运行且能够响应请求。如果此检查失败，编排器（如 Kubernetes）可能会决定重启该实例。通常返回 HTTP 200 OK 即可。</li>
+<li>Readiness (就绪性): 一个更深入的检查，确认应用程序不仅在运行，而且已经准备好接收和处理流量。这可能包括检查与数据库的连接、缓存的预热、依赖项的可用性等。如果此检查失败，编排器会保持实例运行，但不会将流量路由给它。</li>
+<li>深入检查: 端点可以返回一个包含详细信息的 JSON 响应体，列出所有关键依赖项（数据库、消息队列、外部 API）的状态。这对于调试和监控非常有用。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>实现考量与常见陷阱
+<ul>
+<li>过于简单的检查: 一个只返回 HTTP 200 OK 的健康检查几乎没有价值。它无法检测到数据库连接丢失或关键依赖项失败等问题。</li>
+<li>过于复杂的检查: 健康检查逻辑本身不应该过于复杂或耗时。如果健康检查本身就可能失败或超时，会引发误报。同时，它不应该对系统造成显著的性能负担。</li>
+<li>依赖关系图: 避免在健康检查中创建复杂的依赖链。例如，服务 A 的健康检查调用服务 B，服务 B 的健康检查又调用服务 C。这会使故障排查变得异常困难。健康检查应尽可能只检查其直接依赖项。</li>
+<li>安全性: 健康检查端点可能会暴露内部系统状态。虽然通常不需要身份验证，但应确保它不会泄露敏感信息，并且最好只在内部网络中可访问。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=cqrs>CQRS<a href=#cqrs class=hash-link aria-label="Direct link to CQRS" title="Direct link to CQRS" translate=no>​</a></h2>
+<ul>
+<li>CQRS (Command Query Responsibility Segregation) 模式
+<ul>
+<li>将读操作和写操作分离到不同的模型中，从而提高系统的可伸缩性和性能。</li>
+<li>读模型可以针对查询进行优化，而写模型则专注于处理命令。</li>
+</ul>
+</li>
+<li>应用场景:
+<ul>
+<li>读写负载差异巨大的系统。例如，写入操作很少但很复杂，而读取操作非常频繁但很简单。</li>
+<li>需要对读模型进行高度优化的场景，比如构建复杂的报表、数据分析仪表盘等。</li>
+<li>协作式领域，多个用户可能同时对同一数据进行操作，使用CQRS可以更好地管理并发和冲突。</li>
+</ul>
+</li>
+<li>FAQ
+<ul>
+<li>数据同步</li>
+<li>复杂性</li>
+<li>最终一致性</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=bulkhead-pattern>Bulkhead Pattern<a href=#bulkhead-pattern class=hash-link aria-label="Direct link to Bulkhead Pattern" title="Direct link to Bulkhead Pattern" translate=no>​</a></h2>
+<ul>
+<li>Bulkhead Pattern (舱壁模式)</li>
+<li>核心问题
+<ul>
+<li>在复杂的应用程序中，不同的功能或对不同下游服务的调用共享同一组资源（如线程池、连接池、内存）。</li>
+<li>如果其中一个功能出现性能问题或其依赖的服务变慢，它可能会耗尽共享资源，导致整个应用程序变得无响应，即使其他功能和依赖项是健康的。</li>
+</ul>
+</li>
+<li>解决方案机制与架构
+<ul>
+<li>该模式的灵感来源于船舶的舱壁设计，它将船体分割成多个水密隔舱，即使一个隔舱进水，也不会导致整艘船沉没。在软件架构中，舱壁模式通过为不同的操作或服务调用分配独立的资源池来实现隔离。</li>
+<li>线程池隔离: 为调用不同服务的客户端分配不同的线程池。例如，调用支付服务的线程池大小为 10，而调用非关键的推荐服务的线程池大小为 5。如果推荐服务变慢，它只会耗尽自己的 5 个线程，而不会影响支付服务。</li>
+<li>进程/容器隔离: 将不同的功能部署为独立的进程或容器。这是微服务架构的核心思想之一。一个服务的崩溃或资源耗尽完全不会影响其他服务。</li>
+<li>资源配额: 在容器编排平台（如 Kubernetes）中，可以为每个容器设置 CPU 和内存的请求（requests）和限制（limits），确保一个“行为不端”的容器不会抢占其他容器的资源。</li>
+</ul>
+</li>
+<li>实现考量与常见陷阱
+<ul>
+<li>配置复杂性: 确定每个舱壁的大小（线程数、内存限制等）是一个挑战。设置得太小会限制正常性能，设置得太大则会浪费资源，削弱隔离效果。这需要持续的性能测试和生产监控来调整。</li>
+<li>管理开销: 维护大量的资源池或部署单元会增加运维的复杂性和成本。</li>
+<li>隔离粒度: 决定在哪个层次上进行隔离（线程、进程、虚拟机）是一个关键的架构决策，它会影响到成本、性能和开发复杂性。</li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://learn.microsoft.com/en-us/azure/architecture/patterns/bulkhead target=_blank rel="noopener noreferrer">https://learn.microsoft.com/en-us/azure/architecture/patterns/bulkhead</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=compensating-transaction-pattern>Compensating Transaction Pattern<a href=#compensating-transaction-pattern class=hash-link aria-label="Direct link to Compensating Transaction Pattern" title="Direct link to Compensating Transaction Pattern" translate=no>​</a></h2>
+<ul>
+<li>Compensating Transaction Pattern (补偿事务模式)</li>
+<li>核心问题
+<ul>
+<li>在分布式系统中，一个业务操作通常由跨越多个服务的多个步骤组成。传统的 ACID 事务依赖于两阶段提交（2PC）等协议，但这在分布式环境中会导致锁竞争、低吞吐量和可用性问题，通常被认为是反模式。当这个多步骤操作的某个环节失败时，如何保证数据最终处于一个一致的状态？</li>
+</ul>
+</li>
+<li>解决方案机制与架构
+<ul>
+<li>补偿事务模式通过一系列"补偿"操作来撤销已经成功完成的步骤，从而实现逻辑上的回滚。一个完整的分布式事务（通常称为 Saga）由一系列可向前执行的步骤和对应的可向后执行的补偿步骤组成。</li>
+<li>Saga 编排 (Orchestration): 有一个中心的协调器（Orchestrator）负责调用每个服务来执行步骤。协调器知道整个流程，如果某一步失败，它会负责按相反的顺序调用之前已成功步骤的补偿操作。</li>
+<li>Saga 协同 (Choreography): 没有中心协调器。每个服务在完成自己的操作后，会发布一个事件。下一个服务订阅该事件并执行自己的操作。如果某个服务失败，它会发布一个失败事件，之前的服务会订阅这个失败事件并执行自己的补偿操作。</li>
+</ul>
+</li>
+<li>实现考量与常见陷阱
+<ul>
+<li>补偿逻辑的复杂性: 编写补偿操作可能非常困难。补偿操作本身也可能失败，需要设计重试机制。此外，补偿操作必须考虑在原始操作完成后，数据可能已经被其他事务所修改的情况。</li>
+<li>最终一致性: 系统在补偿完成之前，会处于一个中间的不一致状态。必须确保业务能够容忍这种暂时的不一致性。</li>
+<li>可观测性: 跟踪一个跨越多个服务的 Saga 的状态非常困难。需要投入大量的精力在日志记录、追踪（Tracing）和监控上，以便在出现问题时能够快速定位是哪个步骤失败了。</li>
+<li>数据隔离: Saga 的一个关键原则是，每个服务只拥有自己的数据，并通过 API 或事件进行通信。这避免了分布式锁的需求。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=leader-election-pattern>Leader Election Pattern<a href=#leader-election-pattern class=hash-link aria-label="Direct link to Leader Election Pattern" title="Direct link to Leader Election Pattern" translate=no>​</a></h2>
+<ul>
+<li>Leader Election Pattern (领导者选举模式)</li>
+<li>核心问题
+<ul>
+<li>在一个分布式应用程序中，通常会有一些任务只需要由一个实例来执行，以避免冲突、重复工作或数据损坏。例如，一个后台任务定期清理陈旧数据，或者一个服务实例负责维护与外部系统的单一长连接。如何在一组动态变化的实例中，可靠地选举出一个"领导者"来执行这些单例任务？</li>
+</ul>
+</li>
+<li>解决方案机制与架构
+<ul>
+<li>领导者选举模式通过一个所有实例都能访问的共享资源（如分布式锁）来实现。所有实例都会尝试获取这个锁，但只有一个能成功。成功获取锁的实例成为领导者，并开始执行任务。</li>
+<li>租约 (Lease): 领导者获取的锁通常有一个租约时间。领导者必须在租约到期前定期续约，以表明自己仍然存活。如果领导者因崩溃或网络分区而未能续约，租约会过期，其他实例就可以竞争成为新的领导者。这确保了系统的高可用性。</li>
+</ul>
+</li>
+<li>实现考量与常见陷阱
+<ul>
+<li>脑裂 (Split-Brain): 这是领导者选举中最危险的问题。由于网络分区，可能会出现两个（或更多）实例都认为自己是领导者的情况。这通常是由于锁机制的实现不够健壮或时钟不同步造成的。使用像 Azure Blob Lease 这样经过验证的服务可以最大限度地降低这种风险。</li>
+<li>领导者活性: 必须有一种机制来处理领导者崩溃的情况。基于租约的模式天然地解决了这个问题。</li>
+<li>选举过程的延迟: 当领导者失效时，选举出新领导者需要一些时间（至少要等到旧租约过期）。在此期间，单例任务将无人执行。需要根据业务需求来平衡租约时间和故障恢复速度。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=queue-based-load-leveling-pattern>Queue-Based Load Leveling Pattern<a href=#queue-based-load-leveling-pattern class=hash-link aria-label="Direct link to Queue-Based Load Leveling Pattern" title="Direct link to Queue-Based Load Leveling Pattern" translate=no>​</a></h2>
+<ul>
+<li>Queue-Based Load Leveling Pattern (基于队列的负载均衡模式)</li>
+<li>核心问题
+<ul>
+<li>许多系统的负载不是恒定的，而是突发性的。例如，一个票务系统在开票瞬间会收到海量请求。如果前端服务直接同步调用后端处理服务，这种突发的流量洪峰很可能会压垮后端，导致整个系统雪崩。</li>
+</ul>
+</li>
+<li>解决方案机制与架构
+<ul>
+<li>该模式在任务的生产者（前端服务）和消费者（后端处理服务）之间引入一个异步的消息队列作为缓冲区。</li>
+<li>前端服务接收到请求后，不再直接处理，而是将任务描述为一个消息，并将其放入队列中。这个操作非常快速，因此前端可以处理极高的并发请求。</li>
+<li>后端的一组工作者实例（消费者）以自己的节奏从队列中拉取消息并进行处理。</li>
+<li>这样，队列就像一个"削峰填谷"的水库，将前端的突发流量平滑成后端可以稳定处理的平均速率。</li>
+</ul>
+</li>
+<li>实现考量与常见陷阱
+<ul>
+<li>队列无限增长: 如果消息的生产速率持续高于消费速率，队列会不断增长，导致处理延迟越来越大，消息变得陈旧。必须对队列深度进行监控，并设置告警。这通常意味着需要增加消费者实例的数量。</li>
+<li>毒消息 (Poison Messages): 某条消息由于格式错误或包含无效数据，导致消费者每次尝试处理它都会失败。如果消费者在失败后将消息放回队列，就会形成一个无限循环，阻塞后续所有消息的处理。Service Bus 的死信队列机制可以很好地解决这个问题。对于 Queue Storage，需要在代码中实现类似的"最大处理次数"计数器。</li>
+<li>幂等性: 由于网络问题或消费者崩溃，同一条消息可能会被传递多次。因此，消费者逻辑必须设计为幂等的，即多次处理同一条消息和处理一次的效果是相同的。</li>
+<li>缺乏即时反馈: 这是一个异步模式，因此生产者无法立即知道任务是否处理成功。如果需要反馈，必须设计一个带外的通知机制。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=网络>网络<a href=#网络 class=hash-link aria-label="Direct link to 网络" title="Direct link to 网络" translate=no>​</a></h2>
+<ul>
+<li>Control plane & Data plane</li>
+<li>First path vs Fast path</li>
+<li>Slow path vs Fast path</li>
+<li>Queue based design</li>
+<li>Pipeline</li>
+<li>Finite State Machine</li>
+<li>Watchdog</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=并发>并发<a href=#并发 class=hash-link aria-label="Direct link to 并发" title="Direct link to 并发" translate=no>​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=分布式>分布式<a href=#分布式 class=hash-link aria-label="Direct link to 分布式" title="Direct link to 分布式" translate=no>​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=application-context>application context<a href=#application-context class=hash-link aria-label="Direct link to application context" title="Direct link to application context" translate=no>​</a></h2>
+<ul>
+<li>ApplicationContext as alternative to ioc</li>
+<li>作为 DI 的 Container</li>
+<li>IoC 的 容器</li>
+<li>Encapsulate Context</li>
+<li>Context Object</li>
+<li>参考
+<ul>
+<li><a href=http://www.corej2eepatterns.com/ContextObject.htm target=_blank rel="noopener noreferrer">http://www.corej2eepatterns.com/ContextObject.htm</a></li>
+<li><a href=https://www.baeldung.com/cs/context-design-pattern target=_blank rel="noopener noreferrer">https://www.baeldung.com/cs/context-design-pattern</a></li>
+<li><a href=https://stackoverflow.com/a/16161219/1870054 target=_blank rel="noopener noreferrer">https://stackoverflow.com/a/16161219/1870054</a></li>
+</ul>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/dev/pattern/README.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2025-09-18T01:27:20.000Z itemprop=dateModified>Sep 18, 2025</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/dev/opensource><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>OpenSource Awesome</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/dev/pattern/12factor><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>12 factor</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#retry-pattern class="table-of-contents__link toc-highlight">Retry Pattern</a><li><a href=#cache-aside-pattern class="table-of-contents__link toc-highlight">Cache-Aside Pattern</a><li><a href=#circuit-breaker-pattern class="table-of-contents__link toc-highlight">Circuit Breaker Pattern</a><li><a href=#health-endpoint-monitoring-pattern class="table-of-contents__link toc-highlight">Health Endpoint Monitoring Pattern</a><li><a href=#cqrs class="table-of-contents__link toc-highlight">CQRS</a><li><a href=#bulkhead-pattern class="table-of-contents__link toc-highlight">Bulkhead Pattern</a><li><a href=#compensating-transaction-pattern class="table-of-contents__link toc-highlight">Compensating Transaction Pattern</a><li><a href=#leader-election-pattern class="table-of-contents__link toc-highlight">Leader Election Pattern</a><li><a href=#queue-based-load-leveling-pattern class="table-of-contents__link toc-highlight">Queue-Based Load Leveling Pattern</a><li><a href=#网络 class="table-of-contents__link toc-highlight">网络</a><li><a href=#并发 class="table-of-contents__link toc-highlight">并发</a><li><a href=#分布式 class="table-of-contents__link toc-highlight">分布式</a><li><a href=#application-context class="table-of-contents__link toc-highlight">application context</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

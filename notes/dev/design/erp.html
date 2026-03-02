@@ -1,0 +1,3178 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-dev/design/erp/README" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>Design ERP | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/dev/design/erp /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Design ERP | Wener Live & Life"/><meta data-rh=true name=description content="- Design API"/><meta data-rh=true property=og:description content="- Design API"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/dev/design/erp /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/design/erp hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/design/erp hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/dev/","name":"开发","position":1},{"@type":"ListItem","item":"https://wener.me/notes/dev/design/","name":"Design","position":2},{"@type":"ListItem","item":"https://wener.me/notes/dev/design/erp/","name":"Design ERP","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Collapse sidebar category '开发'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/arch><span title=Architecture class=linkLabel_JPPZ>Architecture</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/ascii><span title=ASCII class=linkLabel_JPPZ>ASCII</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/benchmark><span title=Benchmark class=linkLabel_JPPZ>Benchmark</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/build><span title=构建 class=categoryLinkLabel_RkOu>构建</span></a><button aria-label="Expand sidebar category '构建'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chaos-engineering><span title=混沌工程 class=linkLabel_JPPZ>混沌工程</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chezmoi><span title=chezmoi class=linkLabel_JPPZ>chezmoi</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/circuit-breaker><span title=熔断 class=linkLabel_JPPZ>熔断</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/cloud/dapr-k8s><span title=cloud class=categoryLinkLabel_RkOu>cloud</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/code-faq><span title="Code FAQ" class=linkLabel_JPPZ>Code FAQ</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/coding><span title=Coding class=categoryLinkLabel_RkOu>Coding</span></a><button aria-label="Expand sidebar category 'Coding'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/compression><span title=压缩 class=categoryLinkLabel_RkOu>压缩</span></a><button aria-label="Expand sidebar category '压缩'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/cryptography><span title=Cryptography class=linkLabel_JPPZ>Cryptography</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/data-dict><span title=数据字典 class=linkLabel_JPPZ>数据字典</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/date><span title="Date & Time" class=linkLabel_JPPZ>Date & Time</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/dev/design><span title=Design class=categoryLinkLabel_RkOu>Design</span></a><button aria-label="Collapse sidebar category 'Design'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/design/api><span title="API Design" class=categoryLinkLabel_RkOu>API Design</span></a><button aria-label="Expand sidebar category 'API Design'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/desgn-formula><span title="Design Formula" class=linkLabel_JPPZ>Design Formula</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/accounting><span title=Accounting class=linkLabel_JPPZ>Accounting</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/auth-api><span title="Auth API" class=linkLabel_JPPZ>Auth API</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/auth><span title=Auth class=linkLabel_JPPZ>Auth</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/breakpoint><span title=响应式断点 class=linkLabel_JPPZ>响应式断点</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/builder><span title="Design Builder" class=linkLabel_JPPZ>Design Builder</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/cms><span title=CMS class=linkLabel_JPPZ>CMS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/component><span title="UI Components" class=linkLabel_JPPZ>UI Components</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/crm><span title=CRM class=linkLabel_JPPZ>CRM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/cron><span title="Design Cron" class=linkLabel_JPPZ>Design Cron</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/dashboard><span title="Design Dashboard" class=linkLabel_JPPZ>Design Dashboard</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/data-driven><span title=数据驱动 class=linkLabel_JPPZ>数据驱动</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/date-picker><span title="Date Picker" class=linkLabel_JPPZ>Date Picker</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/dms><span title=档案管理 class=linkLabel_JPPZ>档案管理</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/drive><span title=网盘设计 class=linkLabel_JPPZ>网盘设计</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/event-driven><span title=事件驱动 class=linkLabel_JPPZ>事件驱动</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/extension><span title="Design Extension" class=linkLabel_JPPZ>Design Extension</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/feature><span title="Design Feature" class=linkLabel_JPPZ>Design Feature</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/form-service><span title="Design Form Service" class=linkLabel_JPPZ>Design Form Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/frontend><span title=Frontend class=linkLabel_JPPZ>Frontend</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/iam><span title=IAM class=linkLabel_JPPZ>IAM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/im><span title=IM class=linkLabel_JPPZ>IM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/manifest><span title="Design Manifest" class=linkLabel_JPPZ>Design Manifest</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/orm><span title=ORM class=linkLabel_JPPZ>ORM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/queue><span title=Queue class=linkLabel_JPPZ>Queue</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/saas><span title=SaaS class=linkLabel_JPPZ>SaaS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/scheduler><span title="Design Scheduler" class=linkLabel_JPPZ>Design Scheduler</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/schema-migration><span title="Schema Migration" class=linkLabel_JPPZ>Schema Migration</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/schema><span title="Schema Design" class=linkLabel_JPPZ>Schema Design</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/service><span title=服务 class=linkLabel_JPPZ>服务</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/shortcut><span title="Design Shortcut" class=linkLabel_JPPZ>Design Shortcut</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/social><span title=Social class=linkLabel_JPPZ>Social</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/supervisor><span title=Supervisor class=linkLabel_JPPZ>Supervisor</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/task><span title=任务管理 class=linkLabel_JPPZ>任务管理</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/ui><span title="Design UI" class=linkLabel_JPPZ>Design UI</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/webhook><span title="Webhook 设计" class=linkLabel_JPPZ>Webhook 设计</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/window><span title="Design Window" class=linkLabel_JPPZ>Design Window</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/workflow><span title="Workflow design" class=linkLabel_JPPZ>Workflow design</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible menu__list-item-collapsible--active"><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" aria-current=page tabindex=0 href=/notes/dev/design/erp><span title="Design ERP" class=categoryLinkLabel_RkOu>Design ERP</span></a><button aria-label="Collapse sidebar category 'Design ERP'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/erp/audit><span title=审计 class=linkLabel_JPPZ>审计</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/erp/status><span title=Status class=linkLabel_JPPZ>Status</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/modeling><span title=Modeling class=linkLabel_JPPZ>Modeling</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/awesome><span title="Dev Awesome" class=linkLabel_JPPZ>Dev Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/concept><span title=开发相关概念 class=linkLabel_JPPZ>开发相关概念</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/env><span title=ENV class=linkLabel_JPPZ>ENV</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/error><span title=error class=linkLabel_JPPZ>error</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/faq><span title="Dev FAQ" class=linkLabel_JPPZ>Dev FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/glossary><span title="Dev Glossary" class=linkLabel_JPPZ>Dev Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/limits><span title=开发常见限制 class=linkLabel_JPPZ>开发常见限制</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pitfal><span title=Pitfal class=linkLabel_JPPZ>Pitfal</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/practice><span title="Dev Practice" class=linkLabel_JPPZ>Dev Practice</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/reference><span title=Reference class=linkLabel_JPPZ>Reference</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/style-guide><span title="Dev Style Guide" class=linkLabel_JPPZ>Dev Style Guide</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/devcontainer><span title=DevContainer class=linkLabel_JPPZ>DevContainer</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/dict><span title=开发用词字典 class=linkLabel_JPPZ>开发用词字典</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/domain/doc><span title=domain class=categoryLinkLabel_RkOu>domain</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/flow><span title="Workflow & Automation" class=linkLabel_JPPZ>Workflow & Automation</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/flutter><span title=Flutter class=categoryLinkLabel_RkOu>Flutter</span></a><button aria-label="Expand sidebar category 'Flutter'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/format><span title=Format class=categoryLinkLabel_RkOu>Format</span></a><button aria-label="Expand sidebar category 'Format'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/game><span title=GameDev class=categoryLinkLabel_RkOu>GameDev</span></a><button aria-label="Expand sidebar category 'GameDev'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/google-eng-practices><span title="Google Engineering Practices" class=linkLabel_JPPZ>Google Engineering Practices</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/gui/clipboard><span title=gui class=categoryLinkLabel_RkOu>gui</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/hexdump><span title=hexdump class=linkLabel_JPPZ>hexdump</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title="Internationalization (i18n)" class=linkLabel_JPPZ>Internationalization (i18n)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title=i18n class=linkLabel_JPPZ>i18n</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/ide><span title=IDE class=categoryLinkLabel_RkOu>IDE</span></a><button aria-label="Expand sidebar category 'IDE'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/libs/audio><span title=libs class=categoryLinkLabel_RkOu>libs</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/license><span title=License class=linkLabel_JPPZ>License</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/naming><span title=命名规范 class=linkLabel_JPPZ>命名规范</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/network><span title=Network class=linkLabel_JPPZ>Network</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/opensource><span title="OpenSource Awesome" class=linkLabel_JPPZ>OpenSource Awesome</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/pattern><span title=设计模式 class=categoryLinkLabel_RkOu>设计模式</span></a><button aria-label="Expand sidebar category '设计模式'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/practice/semver><span title=practice class=categoryLinkLabel_RkOu>practice</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/protocol/bittorrent><span title=protocol class=categoryLinkLabel_RkOu>protocol</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/qa><span title=质量保障 class=categoryLinkLabel_RkOu>质量保障</span></a><button aria-label="Expand sidebar category '质量保障'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/quantum><span title=Quantum class=linkLabel_JPPZ>Quantum</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/random><span title=Random class=linkLabel_JPPZ>Random</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rate-limits><span title="Rate Limits" class=linkLabel_JPPZ>Rate Limits</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/react-native><span title="React Native" class=categoryLinkLabel_RkOu>React Native</span></a><button aria-label="Expand sidebar category 'React Native'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/reverse><span title=逆向工程 class=categoryLinkLabel_RkOu>逆向工程</span></a><button aria-label="Expand sidebar category '逆向工程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rfc><span title=rfc class=linkLabel_JPPZ>rfc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/routing><span title=路由 class=linkLabel_JPPZ>路由</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/shell/ghostty><span title=shell class=categoryLinkLabel_RkOu>shell</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/std/calender><span title=std class=categoryLinkLabel_RkOu>std</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/tech/qrcode><span title=tech class=categoryLinkLabel_RkOu>tech</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/testing><span title=测试 class=categoryLinkLabel_RkOu>测试</span></a><button aria-label="Expand sidebar category '测试'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/theory><span title=理论 class=categoryLinkLabel_RkOu>理论</span></a><button aria-label="Expand sidebar category '理论'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/timezone><span title=timezone class=linkLabel_JPPZ>timezone</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/vibe-coding><span title="Vibe Coding" class=linkLabel_JPPZ>Vibe Coding</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/wall-of-shame><span title=耻辱墙 class=linkLabel_JPPZ>耻辱墙</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/dev><span>开发</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/dev/design><span>Design</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Design ERP</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Design ERP</h1></header>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>Seealso</div><div class=admonitionContent_R6P7><ul>
+<li><a href=/notes/dev/design/api>Design API</a></li>
+<li><a href=/notes/dev/design/auth>Design Auth</a></li>
+<li><a href=/notes/dev/design/schema>Design Schema</a></li>
+<li><a href=/notes/dev/design/crm>Design CRM</a></li>
+<li><a href=/notes/dev/design/service>Design Service</a></li>
+</ul></div></div>
+<ul>
+<li>分层 - 关注点分离 - 避免 阻抗失配</li>
+<li>线性销售漏斗
+<ul>
+<li>潜在客户</li>
+<li>机会</li>
+<li>成交</li>
+<li>AIDA模型</li>
+<li>线索到现金（Lead-to-Cash）模型</li>
+</ul>
+</li>
+<li>现代B2B购买 - 非线性漏斗
+<ul>
+<li>六个并行的“购买任务”（Buying Jobs）
+<ul>
+<li>问题识别（Problem Identification）：“我们需要做些什么。”</li>
+<li>方案探索（Solution Exploration）：“有哪些方案可以解决我们的问题？”</li>
+<li>需求构建（Requirements Building）：“我们具体需要采购什么？”</li>
+<li>供应商选择（Supplier Selection）：“这个方案能满足我们的需求吗？”</li>
+<li>方案验证（Validation）：“我们认为这是正确的答案，但需要确认。”</li>
+<li>达成共识（Consensus Creation）：“我们需要让所有人都同意。”</li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://growthmethod.com/gartner-b2b-buying-journey/ target=_blank rel="noopener noreferrer">https://growthmethod.com/gartner-b2b-buying-journey/</a></li>
+<li><a href=https://www.forrester.com/b2b-marketing/b2b-marketing-strategy/ target=_blank rel="noopener noreferrer">https://www.forrester.com/b2b-marketing/b2b-marketing-strategy/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>abbr.<th>stand for<th>meaning<tbody><tr><td>CRM<td>Customer Relationship Management<td>客户关系管理<tr><td>AIDA<td>Attention, Interest, Desire, Action<td>注意、兴趣、欲望、行动<tr><td>ICP<td>Ideal Customer Profile<td>理想客户画像<tr><td>ABM<td>Account-Based Marketing<td>基于账户的营销<tr><td>SDR<td>Sales Development Representative<td>销售开发代表<tr><td>MQL<td>Marketing Qualified Lead<td>营销合格线索<tr><td>SQL<td>Sales Qualified Lead<td>销售合格线索<tr><td>MAP<td>Marketing Automation Platform<td>营销自动化平台<tr><td>IVR<td>Inbound Voice Response<td>入站语音响应<tr><td>OCIC<td>Omnichannel Customer Interaction Center<td>全渠道客户互动中心<tr><td>ACW<td>After Call Work<td>通话后工作</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>en<th>cn<th>notes<tbody><tr><td>Outbound<td>出站,外呼<td>主动联系潜在客户<tr><td>Inbound<td>入站,内呼<td>被动等待客户联系<tr><td>Grading<td>评级,线索评级<td>用于评估“匹配度”<tr><td>Scoring<td>评分,线索评分<td>用于衡量“兴趣度”<tr><td>Data Enrichment<td>数据增强<td>增强线索信息，提升质量<tr><td>Single Source of Truth<td>单一真相来源<td>确保数据一致性和准确性<tr><td>Data Warehouse<td>数据仓库<td>商业智能、历史报表、分析<tr><td>Data Lake<td>数据湖<td>大数据存储、数据科学、探索性分析<tr><td>Data Hub<td>数据中心<td>数据共享、集成、治理、运营中介</table>
+<ul>
+<li>目标客群宇宙（Target Universe）
+<ul>
+<li>一个庞大的、符合ICP的、待激活的数据库</li>
+</ul>
+</li>
+<li>Lead/线索
+<ul>
+<li>一个已经与企业产生联系、进入生命周期管理的个体</li>
+<li>线索评级 (Fit)：基于明确的人口统计和公司统计数据（如职位、公司规模、行业、地理位置），衡量一个线索与理想客户画像（ICP）的匹配程度。这通常用字母等级（A-D）表示 。</li>
+<li>线索评分 (Interest)：基于隐性的行为数据（如网站访问、邮件打开、内容下载、定价页面浏览），衡量线索的兴趣水平。积极行为会加分，而长时间不活跃则可能导致分数衰减（Decay）。</li>
+</ul>
+</li>
+<li>Data Enrichment
+<ul>
+<li>统计数据（如行业、员工数、年收入）</li>
+<li>人口统计数据（如职位、级别）</li>
+<li>开放数据</li>
+<li>经过扩充的数据可以将线索评分的准确性提高多达50%</li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li>HubSpot</li>
+<li>Salesforce</li>
+<li>Data Enrichment
+<ul>
+<li>Clearbit、ZoomInfo</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=service-layer>服务分层<a href=#service-layer class=hash-link aria-label="Direct link to 服务分层" title="Direct link to 服务分层" translate=no>​</a></h2>
+<ul>
+<li>DB - Entity - EntityService - RemoteService/Controller/GraphQL/RESTful - UI</li>
+<li>接口实现的上一层可以是 RemoteService 也可以 EntityService
+<ul>
+<li>EntityService
+<ul>
+<li>能够支持类似 dataloader 这样的加载方式</li>
+<li>能够按需查询</li>
+</ul>
+</li>
+<li>RemoteService
+<ul>
+<li>相对来说功能没那么强大</li>
+</ul>
+</li>
+<li>接口其实大多时候等价于 RemoteService</li>
+</ul>
+</li>
+<li>DB - 数据库层面
+<ul>
+<li>设计以 schema 优先</li>
+</ul>
+</li>
+<li>Entity - 实体映射</li>
+<li>EntityRepository - 实体仓库 - 数据库操作</li>
+<li>EntityService - 实体服务层面
+<ul>
+<li>基础接口</li>
+<li>业务逻辑</li>
+</ul>
+</li>
+<li>RemoteService - 远程服务 - 服务界限
+<ul>
+<li>gRPC/ConnectRPC</li>
+<li>暴露 Service 为远程服务</li>
+<li>客户端通过远程服务访问</li>
+</ul>
+</li>
+<li>Resolver - 解析器
+<ul>
+<li>GraphQL</li>
+</ul>
+</li>
+<li>Controller - 控制器
+<ul>
+<li>Restful</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=model-layer>模型分层<a href=#model-layer class=hash-link aria-label="Direct link to 模型分层" title="Direct link to 模型分层" translate=no>​</a></h2>
+<ul>
+<li>模型分层
+<ul>
+<li>ContactEntity for mikro-orm</li>
+<li>ContactObject for type-graphql</li>
+<li>ContactCreateInput for create input</li>
+<li>ContactUpdateInput for update input</li>
+<li>ContactPatchInput</li>
+</ul>
+</li>
+<li>分离好处
+<ul>
+<li>关注点分离 (Separation of Concerns)</li>
+<li>API 契约</li>
+<li>安全</li>
+<li>验证</li>
+<li>解耦</li>
+</ul>
+</li>
+<li>不分离 出现的问题
+<ul>
+<li>会出现 Impedance Mismatch/阻抗失配</li>
+</ul>
+</li>
+<li>分离 出现的问题
+<ul>
+<li>会出现 Boilerplate/样板代码</li>
+<li>同步维护</li>
+</ul>
+</li>
+<li>管理
+<ul>
+<li>代码生成</li>
+<li>复用</li>
+<li>清晰命名约定</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=resource>Resource<a href=#resource class=hash-link aria-label="Direct link to Resource" title="Direct link to Resource" translate=no>​</a></h2>
+<ul>
+<li>Resource - 资源</li>
+<li>通用概念</li>
+<li>主要实体都是资源 - 非主要实体例如： 中间表，中间实体</li>
+<li>基本操作
+<ul>
+<li>增删改查</li>
+<li>Owner - 管理者 分配、认领 - 个人 释放、转移</li>
+<li>导入导出</li>
+</ul>
+</li>
+<li>扩展关联/信息
+<ul>
+<li>label - 标签 - 预定义</li>
+<li>tags - 标记 - 自定义 - 任意字符串</li>
+<li>notes - 备注</li>
+<li>task - 任务 - 资源可能被关联到任务</li>
+<li>todo</li>
+<li>reminder</li>
+<li>nofitication</li>
+<li>activity - 活动
+<ul>
+<li>comment - 评论</li>
+</ul>
+</li>
+<li>state - 系统状态</li>
+<li>status - 状态阶段、原因</li>
+<li>cid+rid 外部系统关联</li>
+<li>eid 内部系统关联</li>
+</ul>
+</li>
+<li>视图
+<ul>
+<li>列表 - List
+<ul>
+<li>支持 Table 显示
+<ul>
+<li>定制 列 显示</li>
+<li>搜索、过滤</li>
+</ul>
+</li>
+<li>支持 Kanban 显示 - 基于 status</li>
+<li>可定制 条件+列显示</li>
+<li>Overview - 概览
+<ul>
+<li>重要信息</li>
+</ul>
+</li>
+<li>Extended Overview - 扩展概览
+<ul>
+<li>活动信息、关联信息</li>
+</ul>
+</li>
+<li>Quick Stats - 快速统计</li>
+</ul>
+</li>
+<li>详情 - View/Detail
+<ul>
+<li>Resource Overview + 多 Tab 视图</li>
+<li>Summary
+<ul>
+<li>基本信息加活动跟进</li>
+</ul>
+</li>
+<li>Detail</li>
+<li>Activity</li>
+<li>File</li>
+</ul>
+</li>
+<li>创建表单</li>
+<li>编辑表单 - 如果是 inline 编辑可能会不太一样</li>
+<li>Mention - 提及 - 显示被关联引用 - ResourceChip</li>
+<li>Select/Picker - 选择关联引用</li>
+<li>Popup/Overview/Profile - 弹出层预览</li>
+</ul>
+</li>
+</ul>
+<div class="language-ts codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-ts codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token keyword" style=font-style:italic>export</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>interface</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">AnyResource</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  id</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 主键  - &lt;TYPETAG>_&lt;ULID></span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  uid</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// UUID</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  tid</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 租户</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  sid</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">number</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 顺序ID - 对用户友好 - 租户+实体类型维度递增</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  eid</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 外部 ID - 例如 对接已有系统</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  cid</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 平台 ID - CID+RID - 平台+平台ID - 组成 vendor 相关的外部资源</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  rid</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 平台关联 ID</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 常见的名字字段 - 避免使用 name</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  loginName</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 可登录对象</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  displayName</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 用于显示 - 优先显示</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  fullName</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 全名</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  title</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 标题</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  description</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 描述</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  topic</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 主题</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  code</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 大多数情况下 tid+code 是唯一的</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 基础 profile 信息</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  phoneNumber</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  phoneNumberVerifiedAt</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Date </span><span class="token operator" style="color:rgb(137, 221, 255)">|</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 常见的客户联系信息</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  contactName</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  contactPhone</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  contactEmail</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  contactAddress</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 冗余联系信息</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  alternativeName</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  alternativePhone</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  alternativeEmail</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  alternativeAddress</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 行政区划信息</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  divisionCode</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  province</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  city</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  notes</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 面向业务员 -  后台备注</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  remark</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 面向用户 - 前台备注 - 一般少用</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  state</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 状态 - 粗粒度系统定义</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  status</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 阶段 - 细粒度业务定义</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  statusReason</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 状态原因</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  stateLabel</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 自动 resolve 出来的显示内容</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  statusLabel</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  tags</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 标记体系 - 自定义</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  metadata</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Record</span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 元数据</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  userId</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 可关联用户</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  user</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  labels</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 标签体系 - 系统定义</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 排序用</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  sort</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">number</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  displayOrder</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">number</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 可归属资源</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  ownerId</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  ownerType</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">|</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'User'</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">|</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'Team'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 具体归属 ID 基于 type 生成</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  owningUserId</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  owningTeamId</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  owningUser</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  owningTeam</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 通用对象关联 Entity</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  entityId</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  entityType</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  entity</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 通常 GQL 层能够解析</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 客户所属资源</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  customerId</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  customerType</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">|</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'Account'</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">|</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'Contact'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  accountId</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  contactId</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  account</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  contact</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// audit 相关</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  createdById</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  updatedById</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  deletedById</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  createdBy</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  updatedBy</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  deletedBy</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  updatedAt</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Date </span><span class="token operator" style="color:rgb(137, 221, 255)">|</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 创建时间</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  createdAt</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Date </span><span class="token operator" style="color:rgb(137, 221, 255)">|</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 更新时间</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  deletedAt</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Date </span><span class="token operator" style="color:rgb(137, 221, 255)">|</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 删除时间</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  attributes</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Record</span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 面向客户端+服务端 - 客户端读写</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  properties</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Record</span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 面向服务端 - 客户端只读</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  extensions</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Record</span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 面向服务端内部或集成方 - 客户端不可见</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 常见级联关系</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  parentId</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  children</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  parent</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain">key</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=react>React<a href=#react class=hash-link aria-label="Direct link to React" title="Direct link to React" translate=no>​</a></h2>
+<div class="language-ts codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-ts codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token keyword" style=font-style:italic>export</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>type</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">UseSimpleQuery</span><span class="token class-name operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token class-name constant" style="color:rgb(130, 170, 255)">T</span><span class="token class-name punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token class-name" style="color:rgb(255, 203, 107)"> </span><span class="token class-name constant" style="color:rgb(130, 170, 255)">V</span><span class="token class-name" style="color:rgb(255, 203, 107)"> </span><span class="token class-name keyword" style="color:rgb(255, 203, 107);font-style:italic">extends</span><span class="token class-name" style="color:rgb(255, 203, 107)"> object </span><span class="token class-name operator" style="color:rgb(137, 221, 255)">=</span><span class="token class-name" style="color:rgb(255, 203, 107)"> Record</span><span class="token class-name operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token class-name builtin" style="color:rgb(130, 170, 255)">string</span><span class="token class-name punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token class-name" style="color:rgb(255, 203, 107)"> </span><span class="token class-name builtin" style="color:rgb(130, 170, 255)">any</span><span class="token class-name operator" style="color:rgb(137, 221, 255)">>></span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">options</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  pause</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">boolean</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  suspense</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">boolean</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  variables</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token constant" style="color:rgb(130, 170, 255)">V</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=></span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  data</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token constant" style="color:rgb(130, 170, 255)">T</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">|</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>undefined</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  loading</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">boolean</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  error</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token function-variable function" style="color:rgb(130, 170, 255)">refetch</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=></span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>void</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>export</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>type</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">UseSimpleListQuery</span><span class="token class-name operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token class-name constant" style="color:rgb(130, 170, 255)">T</span><span class="token class-name operator" style="color:rgb(137, 221, 255)">></span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> UseSimpleQuery</span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"> total</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">number</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> data</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token constant" style="color:rgb(130, 170, 255)">T</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> ListQueryInput</span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">//region 复杂组件状态模式</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>export</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>type</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">ViewComponentState</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  open</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">boolean</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  filters</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  search</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  where</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Record</span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  mounted</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">boolean</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  state</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Record</span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain">key</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>type</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">GeneralStoreState</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  error</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  loading</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">boolean</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  events</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Emittery</span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 事件系统</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 所有的操作</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  actions</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token function-variable function" style="color:rgb(130, 170, 255)">refresh</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=></span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>void</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  components</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Record</span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> ViewComponentState</span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 扩展组件</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  states</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Record</span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 持久化状态</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  metadata</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> Record</span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token operator" style="color:rgb(137, 221, 255)">></span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 数据</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  data</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">any</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"> </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 单个或数组</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 数据列表</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  selected</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  active</span><span class="token operator" style="color:rgb(137, 221, 255)">?</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> AnyResource</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  search</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  pageIndex</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">number</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  pageSize</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">number</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  sort</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> SortRule</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  filters</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">string</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  viewMode</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> ViewMode</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">//endregion</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://commerce.nearform.com/open-source/urql/docs/api/urql/ target=_blank rel="noopener noreferrer">https://commerce.nearform.com/open-source/urql/docs/api/urql/</a>
+<ul>
+<li>useQuery</li>
+<li>useMutation</li>
+</ul>
+</li>
+<li><a href=https://tanstack.com/query/latest/docs/framework/react/reference/useQuery target=_blank rel="noopener noreferrer">https://tanstack.com/query/latest/docs/framework/react/reference/useQuery</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=activity>Activity<a href=#activity class=hash-link aria-label="Direct link to Activity" title="Direct link to Activity" translate=no>​</a></h2>
+<ul>
+<li>Activity - 活动</li>
+<li>已经发生的事情或者将要发生的事情</li>
+<li>常见活动
+<ul>
+<li>Comment - 评论</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=event>Event<a href=#event class=hash-link aria-label="Direct link to Event" title="Direct link to Event" translate=no>​</a></h2>
+<ul>
+<li>Event - 事件</li>
+<li>系统内部层面的事件</li>
+<li>不直接面向用户</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=record>Record<a href=#record class=hash-link aria-label="Direct link to Record" title="Direct link to Record" translate=no>​</a></h2>
+<ul>
+<li>Record - 记录</li>
+<li>是已经发生的事情</li>
+<li>常见记录
+<ul>
+<li>PhoneCallRecord - 电话记录</li>
+<li>EmailRecord - 邮件记录</li>
+<li>ShortMessageRecord - 短信记录</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=crm>CRM<a href=#crm class=hash-link aria-label="Direct link to CRM" title="Direct link to CRM" translate=no>​</a></h2>
+<ul>
+<li>面向销售</li>
+<li>Customer - 客户
+<ul>
+<li>注意 Customer 可能是 Account 也可能是 Contact</li>
+</ul>
+</li>
+<li>核心实体
+<ul>
+<li>Account - 客户 - 可以考虑翻译为公司或者企业客户</li>
+<li>Contact - 联系人</li>
+<li>Lead - 潜在客户</li>
+<li>Opportunity - 商机</li>
+<li>Activity - 活动</li>
+</ul>
+</li>
+<li>辅助
+<ul>
+<li>Order - 销售订单</li>
+<li>Product - 产品</li>
+</ul>
+</li>
+<li>公共
+<ul>
+<li>Task - 任务</li>
+<li>Event - 事件</li>
+<li>Note - 备注</li>
+<li>Attachment - 附件</li>
+<li>Comment - 评论</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=customer>Customer<a href=#customer class=hash-link aria-label="Direct link to Customer" title="Direct link to Customer" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>阶段<th>定义<th>进入标准（触发器）<th>退出标准（晋升）<th>关键数据点<th>负责团队<tbody><tr><td>目标客群宇宙 (Target Universe)<td>一个经过筛选的、符合 ICP 的个人/客户列表，通过研究识别但尚未互动。<td>手动导入、列表购买、数据库扩充。<td>首次有意义的互动（如邮件回复、表单提交）。<td>企业信息（规模、行业）、人口统计信息（职位、级别）、技术栈信息。<td>市场/SDR<tr><td>线索 (Lead)<td>通过低意向行为或出站活动，与企业产生初次联系的个体。<td>网站访问、订阅新闻通讯、下载内容、启动出站序列。<td>满足 MQL 标准（评分/评级阈值）。<td>lead_source、first_touch_timestamp、初始行为数据。<td>市场<tr><td>市场认可线索 (MQL)<td>市场部基于"匹配度"（评级）和"兴趣度"（评分）判断已准备好移交给销售团队的线索。<td>达到预设的线索分数阈值（如 100 分）、请求演示或报价。<td>销售团队接受该线索进行跟进。<td>mql_timestamp、线索分数、线索评级、关键互动行为。<td>市场<tr><td>销售认可线索 (SQL)<td>销售团队已接受并验证其具有真实、近期需求的 MQL。<td>SDR/AE 与线索建立联系并确认 BANT/MEDDPICC 等资格标准。<td>创建正式的销售流程（商机）。<td>sql_timestamp、资格认证笔记、已识别的痛点。<td>销售 (SDR/AE)<tr><td>商机 (Opportunity)<td>一个已确认资格的潜在客户（SQL），并已进入积极的销售流程以完成交易。<td>在 CRM 中创建交易/商机记录，并关联金额和预计关闭日期。<td>交易赢单或输单。<td>deal_amount、close_date、管道阶段、竞争对手信息。<td>销售 (AE)<tr><td>客户 (Customer)<td>至少有一个赢单（Closed-Won）商机的个人或组织。<td>opportunity_status = 'Closed-Won'。<td>成为品牌倡导者或流失。<td>合同价值、产品使用数据、支持工单。<td>客户成功<tr><td>布道者 (Evangelist)<td>积极为品牌进行宣传和推荐的客户。<td>高 NPS 分数、提供推荐语、参与案例研究。<td>N/A<td>推荐活动、评价提交。<td>市场/客户成功<tr><td>不合格/培育 (Disqualified/Nurture)<td>在任何阶段被认为暂时不合适，但未来可能成为客户的联系人。<td>不符合 ICP、时机不当、失联。<td>重新通过高意向行为进行互动。<td>disqualification_reason、nurture_until_date。<td>市场/销售</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=ui-状态>UI 状态<a href=#ui-状态 class=hash-link aria-label="Direct link to UI 状态" title="Direct link to UI 状态" translate=no>​</a></h2>
+<ul>
+<li>Nothing/Before - An empty element
+<ul>
+<li><a href=https://emptystat.es/ target=_blank rel="noopener noreferrer">https://emptystat.es/</a></li>
+</ul>
+</li>
+<li>Loading - A fetch is happening</li>
+<li>None - No items returned</li>
+<li>One - A single item comes back</li>
+<li>Some - A few items comes back</li>
+<li>Too Many - Too many items, need pagination (or similar)</li>
+<li>Incorrect - An error occurred</li>
+<li>Correct - A success happened</li>
+<li>Done - The operation finished</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=ui-context>UI Context<a href=#ui-context class=hash-link aria-label="Direct link to UI Context" title="Direct link to UI Context" translate=no>​</a></h2>
+<ul>
+<li>React 视角</li>
+<li>基础重复独立组建应该有 Context
+<ul>
+<li>DialogContext</li>
+<li>PopoverContext</li>
+</ul>
+</li>
+<li>全局状态
+<ul>
+<li>UserContext</li>
+<li>ThemeContext</li>
+<li>LocaleContext</li>
+<li>AuthContext</li>
+</ul>
+</li>
+<li>数据 Context
+<ul>
+<li>Query
+<ul>
+<li>异步数据</li>
+<li>额外操作和状态 refresh/loading</li>
+<li>query + suspense 也等同于 同步数据</li>
+</ul>
+</li>
+<li>Data/Store
+<ul>
+<li>同步数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>List Context
+<ul>
+<li>用户 状态
+<ul>
+<li>用户偏好 - 选择的视图</li>
+</ul>
+</li>
+<li>布局 状态
+<ul>
+<li>选择 视图</li>
+<li>选择 列</li>
+<li>列顺序</li>
+</ul>
+</li>
+<li>查询 状态 - 部分可能需要持久化
+<ul>
+<li>排序</li>
+<li>过滤</li>
+<li>分页</li>
+<li>搜索</li>
+</ul>
+</li>
+<li>查询 - 查询参数 -> Query -> Result
+<ul>
+<li>data</li>
+<li>loading</li>
+<li>error</li>
+</ul>
+</li>
+<li>数据 状态
+<ul>
+<li>total</li>
+<li>items/data</li>
+<li>hasMore</li>
+<li>hasBefore</li>
+<li>hasAfter</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Detail Context</li>
+<li>Form Context</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=resource-view>Resource View<a href=#resource-view class=hash-link aria-label="Direct link to Resource View" title="Direct link to Resource View" translate=no>​</a></h2>
+<ul>
+<li>ResourceList
+<ul>
+<li>资源列表视图</li>
+<li>希望尽量所有操作都在列表页能完成 - 避免进入到单独的 详情页，来回切换页面效率低</li>
+<li>筛选、排序、列选择、搜索、分页</li>
+<li>Header + View + Footer</li>
+<li>Header
+<ul>
+<li>搜索, tags filter, status filter, sort</li>
+<li>actions</li>
+</ul>
+</li>
+<li>Footer
+<ul>
+<li>PageNav, PageInfo, QueryStatus - 错误、loading、refresh</li>
+<li>视图操作 Placeholder
+<ul>
+<li>例如 选择 Table 列</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>components / 自定义
+<ul>
+<li>高级筛选</li>
+<li>自定义筛选逻辑</li>
+</ul>
+</li>
+<li>视图
+<ul>
+<li>Table</li>
+<li>List
+<ul>
+<li>ListViewItem
+<ul>
+<li>选择、标题、描述、meta、备注、主要关联对象信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Kanban</li>
+<li>Calendar</li>
+<li>Map</li>
+</ul>
+</li>
+<li>Sidebar
+<ul>
+<li>左侧 - 树形侧边栏</li>
+</ul>
+</li>
+<li>Summary / 当前选中Active资源信息
+<ul>
+<li>基本信息 + 多 tabs</li>
+<li>Summary - 基本表单
+<ul>
+<li>Header</li>
+<li>Content - 例如 Form</li>
+<li>Footer - 例如 删除、状态流转</li>
+</ul>
+</li>
+<li>关联记录</li>
+<li>FileExplorer - 关联文件</li>
+<li>MetaPanel - 元数据
+<ul>
+<li>ID 之类的</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">| Header  | Title Search Filter                                  Add Action</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">|--------------------------------------------------------------------------</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">| Sidebar | View                                            | Summary Panel</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">|         |----------------------------------------------------------------</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">|         | Footer  | PageInfo PageNav Refresh        ViewActionPlaceholder</span><br/></span></code></pre></div></div>
+<hr/>
+<ul>
+<li>ResourceSummaryList
+<ul>
+<li>用于侧边栏</li>
+</ul>
+</li>
+<li>CompactList</li>
+<li>DenseList</li>
+<li>Select List / Picker</li>
+<li>Dropdown List</li>
+<li>Preview List</li>
+<li>MicroList</li>
+<li>Thumbnail List</li>
+<li>IconList</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">Title                           Actions</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">---------------------------------------</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Item DisplayName</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">---------------------------------------</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Page Info Nav Refresh</span><br/></span></code></pre></div></div>
+<hr/>
+<ul>
+<li>ResourceChip
+<ul>
+<li>用于快速引用资源</li>
+<li>方便在任何上下文中引用资源</li>
+<li>显示资源的关键信息</li>
+<li>支持点击 Popup 预览
+<ul>
+<li>ResourcePreview
+<ul>
+<li>多 tab</li>
+<li>默认为 ResourcePreviewSummary</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>支持提及功能</li>
+</ul>
+</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">Icon | Title/DisplayName | [X]</span><br/></span></code></pre></div></div>
+<hr/>
+<ul>
+<li>PopupLayout
+<ul>
+<li>用于所有需要 Popup 的场景</li>
+<li>内容可能需要 Scroll</li>
+<li>用于快速预览资源的关键信息</li>
+<li>用于 复杂选择场景</li>
+<li>显示资源的详细信息</li>
+<li>支持操作按钮</li>
+<li>支持关闭</li>
+</ul>
+</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">Icon | Title                     [Error/Loading] Refresh Toolbar Action/Simple</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">-------------------------------------------------------------------------------</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Content</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">-------------------------------------------------------------------------------</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Menu                                                              Cancel Submit</span><br/></span></code></pre></div></div>
+<hr/>
+<ul>
+<li>FileExplorer
+<ul>
+<li>用于文件和附件的管理</li>
+<li>显示文件列表</li>
+<li>支持上传、下载、删除等操作</li>
+<li>支持文件预览</li>
+<li>支持文件夹结构</li>
+</ul>
+</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">| Nav &lt; > Path Segments Selected Action           Refresh ViewSwitch Action</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">|--------------------------------------------------------------------------</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">| Sidebar | View                                            | Summary Panel</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">| Tree    |----------------------------------------------------------------</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">|         | Footer Stats</span><br/></span></code></pre></div></div>
+<hr/>
+<ul>
+<li>View/Detail - 详情
+<ul>
+<li>展示单个资源的详细信息，常以多Tab形式组织不同维度的数据。</li>
+<li>Resource Overview + 多 Tab 视图</li>
+<li>Tabs
+<ul>
+<li>Summary
+<ul>
+<li>基本信息加活动跟进</li>
+</ul>
+</li>
+<li>Detail
+<ul>
+<li>更多额外详细信息</li>
+</ul>
+</li>
+<li>Activity
+<ul>
+<li>活动</li>
+</ul>
+</li>
+<li>File
+<ul>
+<li>附件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Create
+<ul>
+<li>提供表单或界面以创建新的资源</li>
+</ul>
+</li>
+<li>QuickCreate - 快速创建
+<ul>
+<li>更简化的表单快速创建资源</li>
+<li>通常出现在 侧边栏/Drawer 或者 弹出层</li>
+</ul>
+</li>
+<li>Edit
+<ul>
+<li>允许修改资源的详情</li>
+<li>可能支持行内编辑(Inline Edit)</li>
+<li>用户可以直接在列表视图或者详情视图中修改资源</li>
+</ul>
+</li>
+<li>Mention
+<ul>
+<li>提及</li>
+<li>在文档或评论中提及资源，允许快速访问或引用</li>
+</ul>
+</li>
+<li>Select/Picker/Search
+<ul>
+<li>选择或搜索特定资源以建立关联关系</li>
+</ul>
+</li>
+<li>Popup/Overview/Profile
+<ul>
+<li>弹出层预览</li>
+<li>快速查看资源的关键信息而不离开当前界面</li>
+</ul>
+</li>
+<li>Report - 生成报告视图，支持数据分析和决策</li>
+<li>Assign - 分配资源</li>
+<li>Import - 批量导入</li>
+<li>Export - 批量导出</li>
+<li>Dashboard - 仪表盘
+<ul>
+<li>提供资源的汇总视图和关键指标，帮助用户快速获取概览</li>
+</ul>
+</li>
+<li>Review/Approve</li>
+<li>Activity
+<ul>
+<li>记录并显示资源相关的所有活动和交互历史。</li>
+</ul>
+</li>
+<li>File/Attachment
+<ul>
+<li>管理和查看资源相关的文件和附件</li>
+</ul>
+</li>
+<li>Notification
+<ul>
+<li>提醒用户关于资源的更新、截止日期、审批需求</li>
+</ul>
+</li>
+<li>History/Log
+<ul>
+<li>记录资源变更的历史或日志，提供完整的审计跟踪</li>
+</ul>
+</li>
+<li>TODO
+<ul>
+<li>Gitlab TODO
+<ul>
+<li><a href=https://docs.gitlab.com/ee/user/todos.html target=_blank rel="noopener noreferrer">https://docs.gitlab.com/ee/user/todos.html</a></li>
+<li><a href=https://docs.gitlab.com/ee/api/todos.html target=_blank rel="noopener noreferrer">https://docs.gitlab.com/ee/api/todos.html</a></li>
+<li><a href=https://docs.gitlab.com/ee/api/issues.html#create-a-to-do-item target=_blank rel="noopener noreferrer">https://docs.gitlab.com/ee/api/issues.html#create-a-to-do-item</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=note-vs-comment>Note vs Comment<a href=#note-vs-comment class=hash-link aria-label="Direct link to Note vs Comment" title="Direct link to Note vs Comment" translate=no>​</a></h2>
+<ul>
+<li>Note
+<ul>
+<li>通常是对资源的描述或者备注</li>
+<li>used to explain, annotate, or add context to data</li>
+</ul>
+</li>
+<li>Comment
+<ul>
+<li>通常是对资源的交互或者讨论</li>
+<li>有 <code>Reply</code> 功能</li>
+<li>强调交互</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<p>比如 excel 有 comment 也有 note，note 通常是对单元格的描述，comment 通常是对单元格的多人交互评论。</p>
+<hr/>
+<p><strong>参考</strong></p>
+<ul>
+<li>Dynamic
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/dynamics/customerengagement/on-premises/developer/entities/annotation?view=op--#BKMK_DocumentBody" target=_blank rel="noopener noreferrer">https://learn.microsoft.com/en-us/dynamics/customerengagement/on-premises/developer/entities/annotation?view=op--#BKMK_DocumentBody</a></li>
+<li>Note/Annotation</li>
+</ul>
+</li>
+<li>Gitlab Notes
+<ul>
+<li>等同于 Comments</li>
+<li>支持
+<ul>
+<li>Commits</li>
+<li>Epics</li>
+<li>Issues</li>
+<li>Merge requests</li>
+<li>Snippets</li>
+</ul>
+</li>
+<li><a href=https://docs.gitlab.com/ee/api/notes.html target=_blank rel="noopener noreferrer">https://docs.gitlab.com/ee/api/notes.html</a></li>
+</ul>
+</li>
+<li>Github
+<ul>
+<li><a href="https://docs.github.com/en/rest/issues/comments?apiVersion=--" target=_blank rel="noopener noreferrer">https://docs.github.com/en/rest/issues/comments?apiVersion=--</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=reminder-vs-to-do>Reminder vs To-do<a href=#reminder-vs-to-do class=hash-link aria-label="Direct link to Reminder vs To-do" title="Direct link to Reminder vs To-do" translate=no>​</a></h2>
+<ul>
+<li>Reminder - 提醒
+<ul>
+<li>触发通知</li>
+<li>日期和时间敏感的事件</li>
+<li>周期性任务</li>
+<li>与日历事件或特定时间点关联，重点是在适当的时候提醒用户采取行动或记住某件事。</li>
+</ul>
+</li>
+<li>To-do - 待办
+<ul>
+<li>需要被完成但不一定与特定的截止日期或时间绑定</li>
+<li>核心是 任务的管理和完成</li>
+<li>跟踪需要完成的工作或个人任务</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=file-vs-media-vs-attachment-vs-document>File vs Media vs Attachment vs Document<a href=#file-vs-media-vs-attachment-vs-document class=hash-link aria-label="Direct link to File vs Media vs Attachment vs Document" title="Direct link to File vs Media vs Attachment vs Document" translate=no>​</a></h2>
+<ul>
+<li>Attachment - 附件
+<ul>
+<li>上下文相关的文件</li>
+<li>补充或支持主体信息</li>
+</ul>
+</li>
+<li>Media - 媒体
+<ul>
+<li>内容可感知</li>
+<li>强调呈现</li>
+<li>图片、视频、音频、文本</li>
+</ul>
+</li>
+<li>Document - 文档
+<ul>
+<li>强调内容</li>
+<li>文档、文件</li>
+<li>通常都可以提取为文本</li>
+</ul>
+</li>
+<li>File - 文件
+<ul>
+<li>通用文件</li>
+<li>内容可能不透明 - 不需要感知内容</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=zindex>zIndex<a href=#zindex class=hash-link aria-label="Direct link to zIndex" title="Direct link to zIndex" translate=no>​</a></h2>
+<ul>
+<li>50 - dialog</li>
+<li>40 - window host - isolate</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=entity>Entity<a href=#entity class=hash-link aria-label="Direct link to Entity" title="Direct link to Entity" translate=no>​</a></h2>
+<ul>
+<li>User != 员工
+<ul>
+<li>员工是 HRM 的概念</li>
+</ul>
+</li>
+<li>User 可以是 用户、客户、服务商 - 所有能接触、访问到系统的对象</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=case>Case<a href=#case class=hash-link aria-label="Direct link to Case" title="Direct link to Case" translate=no>​</a></h2>
+<ul>
+<li>客户投诉、售后服务、内部问题</li>
+<li>紧急程度、优先级、客户满意度、处理时长、责任人</li>
+<li>-> 一个或多个任务、事件、活动、备注、附件</li>
+<li>考核指标
+<ul>
+<li>处理时长</li>
+<li>客户满意度</li>
+<li>问题解决率</li>
+<li>任务完成度</li>
+<li>任务绩效 - 每个任务的完成质量、速度等</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<ul>
+<li>CaseType
+<ul>
+<li>Question</li>
+<li>Problem</li>
+<li>Request</li>
+</ul>
+</li>
+<li>CaseOrigin
+<ul>
+<li>Phone</li>
+<li>Email</li>
+<li>Web</li>
+<li>Facebook</li>
+<li>Twitter</li>
+</ul>
+</li>
+<li>ServiceStage
+<ul>
+<li>Identify</li>
+<li>Research</li>
+<li>Resolve</li>
+</ul>
+</li>
+<li>State
+<ul>
+<li>Active
+<ul>
+<li>In Progress</li>
+<li>On Hold</li>
+<li>Waiting for Details</li>
+<li>Researching</li>
+</ul>
+</li>
+<li>Resolved
+<ul>
+<li>Problem Solved</li>
+<li>Information Provided</li>
+</ul>
+</li>
+<li>Canceled
+<ul>
+<li>Canceled</li>
+<li>Merged</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/incident-case-entities target=_blank rel="noopener noreferrer">Incident (case) entities</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=task>Task<a href=#task class=hash-link aria-label="Direct link to Task" title="Direct link to Task" translate=no>​</a></h2>
+<p>代表需要<strong>完成</strong>的工作的通用活动。</p>
+<ul>
+<li>State
+<ul>
+<li>Open
+<ul>
+<li>Not Started</li>
+<li>In Progress</li>
+<li>Waiting on someone else</li>
+<li>Deferred</li>
+</ul>
+</li>
+<li>Completed</li>
+<li>Canceled</li>
+</ul>
+</li>
+<li>事务性 - 开始、进行中、结束
+<ul>
+<li>前置审批</li>
+<li>后置确认验收</li>
+</ul>
+</li>
+<li>计划型 - 计划 开始、结束日期/时间、提醒日期</li>
+<li>审批类型 - 请求者发起，需要一个或多个审批者决策（批准/拒绝）。</li>
+<li>确认类型 - 一方执行或记录了某个事实，需要另一方进行核实和确认。这与“审批”相似，但语义上更偏向于“验证已发生/已记录的事项的准确性”，而不是“批准一个未来的行动”。</li>
+<li>任务类型定义
+<ul>
+<li>needsPreApproval</li>
+<li>needsProcessing</li>
+<li>needsPostConfirmation</li>
+</ul>
+</li>
+<li><a href=https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/entities/task target=_blank rel="noopener noreferrer">Task entity reference</a></li>
+</ul>
+<hr/>
+<ul>
+<li>To-do
+<ul>
+<li>Backlog - 待办</li>
+<li>Pending - 待处理</li>
+<li>Waiting Triage - 待分类</li>
+<li>In Progress - 进行中</li>
+<li>Done - 已完成</li>
+<li>Canceled - 已取消</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=work>Work<a href=#work class=hash-link aria-label="Direct link to Work" title="Direct link to Work" translate=no>​</a></h2>
+<ul>
+<li>事务性工作 - Transactional Work</li>
+<li>项目性工作 - Project based Work</li>
+<li>关系型/人际互动型工作 - Relational / Interpersonal Work</li>
+<li>发展性/学习型工作 - Developmental / Learning Work</li>
+<li>战略性工作 - Strategic Work</li>
+<li>分析性/解决问题型工作 - Analytical / Problem Solving Work</li>
+<li>创造性/创新性工作 - Creative / Innovative Work</li>
+<li>计划性工作 - Planning Work</li>
+<li>设计性工作 - Design Work</li>
+<li>组织性工作 - Organizational Work</li>
+<li>评估性工作 - Evaluative Work</li>
+<li>监督性工作 - Supervisory Work</li>
+<li>领导性工作 - Leadership Work</li>
+<li>研究性工作 - Research Work</li>
+<li>评审性工作 - Review Work</li>
+<li>反馈性工作 - Feedback Work</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=state--status>State & Status<a href=#state--status class=hash-link aria-label="Direct link to State & Status" title="Direct link to State & Status" translate=no>​</a></h2>
+<p><strong>Contract</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th style=text-align:left>State<th style=text-align:left>Label<th style=text-align:left>Desc<tbody><tr><td style=text-align:left><code>Draft</code><td style=text-align:left>草稿<td style=text-align:left>合同正在起草或修订中。<tr><td style=text-align:left><code>Pending</code><td style=text-align:left>待处理<td style=text-align:left>合同已提交，正在等待内部或外部的审批。<tr><td style=text-align:left><code>Active</code><td style=text-align:left>生效中<td style=text-align:left>合同已签署并生效，是其生命周期的主要活动阶段。<tr><td style=text-align:left><code>OnHold</code><td style=text-align:left>暂停中<td style=text-align:left>合同因故被暂停执行，但并未终止。<tr><td style=text-align:left><code>Terminated</code><td style=text-align:left>已终止<td style=text-align:left>合同已结束，这是一个<strong>最终状态</strong>的集合。</table>
+<ul>
+<li>Contract - 合同
+<ul>
+<li>Draft - 草稿
+<ul>
+<li>Update -> Draft</li>
+<li>Submit/SubmitForReview -> Pending</li>
+</ul>
+</li>
+<li>Pending - 待处理
+<ul>
+<li>Approve -> Active</li>
+<li>ReturnForRevision -> Draft</li>
+<li>Cancel -> Canceled</li>
+</ul>
+</li>
+<li>Active - 活动
+<ul>
+<li>NotStarted</li>
+<li>InProgress</li>
+<li>NearingExpiry</li>
+</ul>
+</li>
+<li>OnHold - 暂停</li>
+<li>Terminated - 终止
+<ul>
+<li>Completed</li>
+<li>Expired</li>
+<li>Canceled</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TaskCase - 任务案例
+<ul>
+<li>Draft - 草稿
+<ul>
+<li>Update -> Draft</li>
+<li>Submit -> Pending</li>
+</ul>
+</li>
+<li>Pending - 待处理
+<ul>
+<li>ReturnForRevision -> Draft</li>
+<li>Approve -> Approved</li>
+<li>Reject -> Rejected</li>
+</ul>
+</li>
+<li>Approved - 已批准</li>
+<li>Rejected - 已拒绝</li>
+<li>Canceled - 已取消</li>
+</ul>
+</li>
+<li>TaskCase 其他情况
+<ul>
+<li>前置审批</li>
+<li>中间过程</li>
+<li>后置确认验收</li>
+</ul>
+</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">Draft ─Submit→ Pending ─Approve→ Approved</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  ↑              ↓</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  └────Revise────Reject─→ Rejected</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  │                          ↑</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  └────────Cancel───────────┘</span><br/></span></code></pre></div></div>
+<p><strong>Invoice</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th style=text-align:left>State<th style=text-align:left>Label<th style=text-align:left>Desc<tbody><tr><td style=text-align:left><code>NotYetInvoiced</code><td style=text-align:left>未开票<td style=text-align:left>合同尚未生成任何发票。<tr><td style=text-align:left><code>PartiallyInvoiced</code><td style=text-align:left>部分开票<td style=text-align:left>已为合同的一个或多个里程碑开票。<tr><td style=text-align:left><code>FullyInvoiced</code><td style=text-align:left>全部开票<td style=text-align:left>合同的所有款项均已开具发票。<tr><td style=text-align:left><code>Overdue</code><td style=text-align:left>逾期未付<td style=text-align:left>存在已开票但超过付款期限的款项。</table>
+<hr/>
+<ul>
+<li>一个堂食订单，主状态为 已下单 - 制作中 - 请取餐 - 已完成
+<ul>
+<li>Status -> Ordered -> Making -> Ready -> Completed</li>
+</ul>
+</li>
+<li>一个外卖订单，主状态为 已下单 - 配送中 - 已送达 - 已完成
+<ul>
+<li>Status -> Ordered -> Delivering -> Delivered -> Completed</li>
+</ul>
+</li>
+</ul>
+<p><strong>Rental Management</strong></p>
+<ul>
+<li>House - 房屋
+<ul>
+<li>Active
+<ul>
+<li>Available (可租用)：房屋处于可供租赁状态。</li>
+<li>UnderMaintenance (维修中)：房屋正在进行维护或修理。</li>
+<li>Reserved (已预订)：房屋已被预订，但尚未签署</li>
+<li>Rented (已租用)：房屋已被租赁，处于使用状态。</li>
+</ul>
+</li>
+<li>Inactive
+<ul>
+<li>Delisted</li>
+<li>Unavailable (不可用)：房屋因某种原因暂时无法出租。</li>
+<li>Sold (已售出)：房屋已被出售，不再作为租赁对象</li>
+<li>Demolished (已拆除)：房屋已被拆除，不再存在</li>
+</ul>
+</li>
+<li>Archived</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=ms-dynamics356>MS Dynamics356<a href=#ms-dynamics356 class=hash-link aria-label="Direct link to MS Dynamics356" title="Direct link to MS Dynamics356" translate=no>​</a></h3>
+<ul>
+<li>statecode - State - Status - 状态</li>
+<li>statuscode - Status - Status Reason - 状态原因、阶段</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Entity<th>State<th>Status<th>notes<tbody><tr><td rowspan=2>Account<td>Active<td>Active<td><tr><td>Inactive<td>Inactive<td><tr><td rowspan=4>Activity<td>Open<td>Open<td><tr><td>Completed<td>Completed<td><tr><td>Canceled<td>Canceled<td><tr><td>Scheduled<td>Scheduled<td><tr><td rowspan=6>Appointment<td rowspan=2>Open<td>Free<td><tr><td>Tentative<td><tr><td>Completed<td>Completed<td><tr><td>Canceled<td>Canceled<td><tr><td rowspan=2>Scheduled<td>Busy<td><tr><td>Out of Office<td><tr><td rowspan=3>Article<td>Draft<td>Draft<td><tr><td>Unapproved<td>Unapproved<td><tr><td>Published<td>Published<td><tr><td rowspan=7>Campaign<td rowspan=6>Active<td>Proposed<td><tr><td>Ready To Launch<td><tr><td>Launched<td><tr><td>Completed<td><tr><td>Canceled<td><tr><td>Suspended<td><tr><td>Inactive<td>Inactive<td><tr><td rowspan=7>Campaign Activity<td rowspan=5>Open<td>InProgress<td><tr><td>Proposed<td><tr><td>Pending<td><tr><td>System Aborted<td><tr><td>Completed<td><tr><td>Closed<td>Closed<td><tr><td>Canceled<td>Canceled<td><tr><td rowspan=3>Campaign Response<td>Open<td>Open<td><tr><td>Closed<td>Closed<td><tr><td>Canceled<td>Canceled<td><tr><td rowspan=6>Case<td rowspan=4>Active<td>InProgress<td><tr><td>OnHold<td><tr><td>Waiting for Details<td><tr><td>Researching<td><tr><td>Resolved<td>Problem Solved<td><tr><td>Canceled<td>Canceled<td><tr><td rowspan=3>Case Resolution<td>Open<td>Open<td><tr><td>Completed<td>Closed<td><tr><td>Canceled<td>Canceled<td><tr><td rowspan=2>Contact<td>Active<td>Active<td><tr><td>Inactive<td>Inactive<td><tr><td rowspan=6>Contract<td>Draft<td>Draft<td><tr><td>Invoiced<td>Invoiced<td><tr><td>Active<td>Active<td><tr><td>OnHold<td>OnHold<td><tr><td>Canceled<td>Canceled<td><tr><td>Expired<td>Expired<td><tr><td rowspan=4>Contract Line<td>Existing<td>New<td><tr><td>Renewed<td>Renewed<td><tr><td>Canceled<td>Canceled<td><tr><td>Expired<td>Expired<td><tr><td rowspan=2>Currency<td>Active<td>Active<td><tr><td>Inactive<td>Inactive<td><tr><td rowspan=2>Discount<td>Active<td>Active<td><tr><td>Inactive<td>Inactive<td><tr><td rowspan=8>E-mail<td rowspan=2>Open<td>Draft<td><tr><td>Failed<td><tr><td rowspan=5>Completed<td>Completed<td><tr><td>Sent<td><tr><td>Received<td><tr><td>PendingSend<td><tr><td>Sending<td><tr><td>Canceled<td>Canceled<td><tr><td rowspan=5>Fax<td>Open<td>Open<td><tr><td rowspan=3>Completed<td>Completed<td><tr><td>Sent<td><tr><td>Received<td><tr><td>Canceled<td>Canceled<td><tr><td rowspan=10>Invoice<td rowspan=5>Active<td>New<td><tr><td>Partially Shipped<td><tr><td>Billed<td><tr><td>Booked<td><tr><td>Installed<td><tr><td rowspan=2>~~ Closed~~<td>~~ Canceled~~<td><tr><td>~~ Paid in Full~~<td><tr><td rowspan=2>Paid<td>Complete<td><tr><td>Parial<td><tr><td>Canceled<td>Canceled<td><tr><td rowspan=7>Lead<td rowspan=2>Open<td>New<td><tr><td>Contacted<td><tr><td>Qualified<td>Qualified<td><tr><td rowspan=4>Disqualified<td>Lost<td><tr><td>Cannot Contact<td><tr><td>No Longer Interested<td><tr><td>Canceled<td><tr><td rowspan=5>Letter<td rowspan=2>Open<td>Open<td><tr><td>Draft<td><tr><td rowspan=2>Completed<td>Received<td><tr><td>Sent<td><tr><td>Canceled<td>Canceled<td><tr><td rowspan=2>Marketing List<td>Active<td>Active<td><tr><td>Inactive<td>Inactive<td><tr><td rowspan=5>Opportunity<td rowspan=2>Open<td>InProgress<td><tr><td>OnHold<td><tr><td>Won<td>Won<td><tr><td rowspan=2>Lost<td>Canceled<td><tr><td>Out-Sold<td><tr><td rowspan=7>Order<td rowspan=2>Active<td>New<td><tr><td>Pending<td><tr><td>Submitted<td>InProgress<td><tr><td>Canceled<td>No Money<td><tr><td rowspan=2>Fulfilled<td>Complete<td><tr><td>Partial<td><tr><td>Invoiced<td>Invoiced<td><tr><td rowspan=4>Phone Call<td>Open<td>Open<td><tr><td rowspan=2>Completed<td>Made<td><tr><td>Received<td><tr><td>Canceled<td>Canceled<td><tr><td rowspan=2>Price List<td>Active<td>Active<td><tr><td>Inactive<td>Inactive<td><tr><td rowspan=2>Product<td>Active<td>Active<td><tr><td>Inactive<td>Inactive<td><tr><td rowspan=8>Quote<td>Draft<td>InProgress<td><tr><td rowspan=2>Active<td>InProgress<td><tr><td>Open<td><tr><td rowspan=2>Won<td>Won<td><tr><td>Out-Sold<td><tr><td rowspan=3>Closed<td>Lost<td><tr><td>Canceled<td><tr><td>Revised<td><tr><td rowspan=9>Service Activity<td rowspan=2>Open<td>Requested<td><tr><td>Tentative<td><tr><td>Closed<td>Completed<td><tr><td rowspan=2>Canceled<td>Canceled<td><tr><td>No Show<td><tr><td rowspan=4>Scheduled<td>Pending<td><tr><td>Reserved<td><tr><td>InProgress<td><tr><td>Arrived<td><tr><td rowspan=6>Task<td rowspan=4>Open<td>Not Started<td><tr><td>InProgress<td><tr><td>Waiting on someone else<td><tr><td>Deferred<td><tr><td>Completed<td>Completed<td><tr><td>Canceled<td>Canceled<td></table>
+<ul>
+<li>Invoice
+<ul>
+<li><a href=https://www.zoho.com/au/billing/kb/invoices/ target=_blank rel="noopener noreferrer">https://www.zoho.com/au/billing/kb/invoices/</a></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=leadstatus>LeadStatus<a href=#leadstatus class=hash-link aria-label="Direct link to LeadStatus" title="Direct link to LeadStatus" translate=no>​</a></h3>
+<p><strong>LeadState</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>State<th>Desc<tbody><tr><td>Open<td>订单已创建，尚未开始处理<tr><td>Qualified<td>线索已经过资质审查<tr><td>Disqualified<td>线索不再跟进，已被取消资格</table>
+<p><strong>LeadStatus</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>State<th>Status<th>Label<th>Desc<th>Condition/Trigger<tbody><tr><td rowspan=2>Open<td>New<td>新建<td>订单已创建，尚未开始处理<td>订单创建<tr><td>Contacted<td>已联系<td>已经联系线索内的联系信息<td>联系成功<tr><td rowspan=2>Qualified<td>Qualified<td>已资质审查<td>线索已经过审查<td>审查通过<tr><td>AwaitingOrder<td>等待下单<td>线索有效，等待下单<td>待客户确认订单<tr><td rowspan=5>Disqualified<td>Lost<td>已流失<td>线索流失<td>超过联系次数未响应<tr><td>Rejected<td>拒绝<td>无法提供服务<td>确认无法提供服务<tr><td>CannotContact<td>无法联系<td>无法联系线索内的联系信息<td>联系多次无响应<tr><td>NoLongerInterested<td>不再感兴趣<td>客户对产品不再感兴趣<td>客户明确表示不感兴趣<tr><td>Canceled<td>已取消<td>客户资格已被取消<td>客户取消或系统取消资格</table>
+<ul>
+<li>Unqualified - 客观，可能不具备，未达标</li>
+<li>Disqualified - 主观判断，不符合，被排除</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=serviceorderstatus>ServiceOrderStatus<a href=#serviceorderstatus class=hash-link aria-label="Direct link to ServiceOrderStatus" title="Direct link to ServiceOrderStatus" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>State<th>Status<th>Label<th>Desc<tbody><tr><td rowspan=3>Active<td>New<td>新建<td>订单已创建，尚未开始处理<tr><td>Pending<td>待处理<td>订单正在等待进一步处理或等待客户信息<tr><td>AdditionalInfoNeeded<td>需补充信息<td>需要客户提交更多文件或信息以继续处理订单<tr><td rowspan=2>Submitted<td>Processing<td>处理中<td>订单已提交至服务部门，正在进行中<tr><td>AwaitingReview<td>待审核<td>服务已执行完毕，订单正在内部审核过程中<tr><td rowspan=3>Canceled<td>InsufficientFunds<td>资金不足<td>因客户资金不足，订单被取消<tr><td>ClientCanceled<td>客户取消<td>客户主动请求取消订单<tr><td>ServiceUnavailable<td>服务不可用<td>由于服务限制或不可用，订单无法执行<tr><td rowspan=2>Fulfilled<td>Completed<td>已完成<td>所有服务已根据订单要求成功提供<tr><td>PartiallyCompleted<td>部分完成<td>部分服务已提供，其余部分由于特定原因暂未完成<tr><td rowspan=2>Invoiced<td>Invoiced<td>已开发票<td>服务已提供完毕，相应的发票已生成并发送给客户<tr><td>AwaitingPayment<td>待支付<td>发票已发出，订单正在等待客户支付</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=salesinvoicestatus>SalesInvoiceStatus<a href=#salesinvoicestatus class=hash-link aria-label="Direct link to SalesInvoiceStatus" title="Direct link to SalesInvoiceStatus" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Status<th>Label<th>Desc<tbody><tr><td>Sent<td>已发送<td>发票已发送给客户<tr><td>Paid<td>已支付<td>客户已支付发票<tr><td>Overdue<td>逾期<td>发票已超过付款日期且客户尚未支付<tr><td>Void<td>作废<td>如果发票开具错误，你可以将其作废。客户无法支付已作废的发票。<tr><td>Write Off<td>核销<td>只有当你确信客户欠款无法收回时，你才可以对发票进行坏账核销。<tr><td>Draft<td>草稿<td>你已创建一张未完成的发票，并且它尚未发送给客户。Zoho Billing 无法生成任何草稿发票。</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=accountinginvoicestatus>AccountingInvoiceStatus<a href=#accountinginvoicestatus class=hash-link aria-label="Direct link to AccountingInvoiceStatus" title="Direct link to AccountingInvoiceStatus" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>State<th>Status<th>Label<th>Desc<tbody><tr><td rowspan=4>Active<td>Draft<td>草稿<td>发票已创建但尚未最终审核或发送。用于初步录入和编辑发票信息。<tr><td>PendingApproval<td>待审批<td>发票已提交审批流程，等待相关管理者或会计审核。此步骤是确保发票准确无误的关键。<tr><td>Approved<td>已审批<td>发票已经过审批，等待进一步处理，如记账或支付。<tr><td>Paid<td>已支付<td>发票已结清款项，表示客户已完成支付，会计处理完毕。<tr><td>Completed<td>Posted<td>已过账<td>发票的财务数据已被记入总账，此状态表示发票已在会计记录中正式体现其经济效果。<tr><td rowspan=3>Cancelled<td>Cancelled<td>已取消<td>发票在完成所有必要流程前被取消，不再适用或有效，不需进一步操作。<tr><td>Written-Off<td>已核销<td>发票因确认无法收回款项而被标记为已支付，处理为坏账。<tr><td>Void<td>作废<td>发票因错误或其他原因被取消，使用作废状态来确保其不会影响财务记录。</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=taxdeclarationstatus>TaxDeclarationStatus<a href=#taxdeclarationstatus class=hash-link aria-label="Direct link to TaxDeclarationStatus" title="Direct link to TaxDeclarationStatus" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>State<th>Status<th>Label<th>Desc<tbody><tr><td rowspan=2>Draft<td>New<td>未填写<td><tr><td>Draft<td>草稿<td>填写中<tr><td rowspan=3>Submitted<td>Pending<td>待审核<td>申报已提交，正在等待税务机关的初步审核。<tr><td>Query<td>待补充资料<td>税务机关对申报有疑问，需要纳税人提供更多信息或解释。<tr><td>PendingPayment<td>未缴款<td><tr><td rowspan=4>Completed<td>Processed<td>已处理<td>申报已经完全处理完成，包括所有必要的审核、调整和确认。<tr><td>Amended<td>已修正<td>纳税人已根据税务机关的要求修正申报，并重新提交审核。<tr><td>PartiallyProcessed<td>部分处理<td>申报的部分内容已处理，其余部分可能因特定原因暂未完成处理。<tr><td>PaymentConfirmed<td>已缴款<td><tr><td rowspan=2>Closed<td>Withdrawn<td>已撤销<td>申报被纳税人撤回或税务机关关闭，无需进一步处理。<tr><td>Archived<td>已存档<td>申报处理完成后被正式存档，作为税务记录保留。</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=employeestatus>EmployeeStatus<a href=#employeestatus class=hash-link aria-label="Direct link to EmployeeStatus" title="Direct link to EmployeeStatus" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>State<th>Status<th>Label<th>Desc<tbody><tr><td rowspan=4>Active<td>Probation<td>试用期<td>员工在试用期内，正接受评估是否适合长期职位。<tr><td>Regular<td>正式员工<td>员工已完成试用期，成为正式员工。<tr><td>PartTime<td>兼职<td>员工以兼职形式在组织工作。<tr><td>Temporary<td>临时工<td>员工被临时雇佣，通常为完成特定项目或季节性工作。<tr><td rowspan=4>Leave<td>SickLeave<td>病假<td>员工因病缺勤。<tr><td>Maternity/PaternityLeave<td>产假/陪产假<td>员工因生育或陪伴配偶生育休假。<tr><td>AnnualLeave<td>年假<td>员工正在使用法定年假。<tr><td>UnpaidLeave<td>无薪假<td>员工处于批准的无薪假状态。<tr><td rowspan=2>Suspended<td>Disciplinary<td>纪律暂停<td>员工因纪律问题被暂停工作。<tr><td>Investigation<td>调查中<td>员工因涉及调查被暂停工作，等待结果。<tr><td rowspan=4>Terminated<td>Resigned<td>自愿离职<td>员工自主决定结束与公司的雇佣关系。<tr><td>Retired<td>退休<td>员工正式退休，结束职业生涯。<tr><td>LaidOff<td>裁员<td>因公司重组或缩减人员，员工被解雇。<tr><td>Fired<td>解雇<td>因员工表现或行为问题，被公司解雇。</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=clientstatus>ClientStatus<a href=#clientstatus class=hash-link aria-label="Direct link to ClientStatus" title="Direct link to ClientStatus" translate=no>​</a></h3>
+<ul>
+<li>Client 是 Service 的接受者
+<ul>
+<li>不一定直接产生交易关系</li>
+<li>不一定直接产生沟通</li>
+<li>是服务关系</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>State<th>Status<th>Label<th>Desc<tbody><tr><td rowspan=2>Pending<td>New<td>新建<td>客户服务刚刚创建，尚未开始任何实质性操作。<tr><td>Onboarding<td>准备阶段<td>客户在此阶段完成必要的准备工作，如资料提交和初步设置。<tr><td rowspan=3>Active<td>InService<td>服务中<td>客户正在接受服务，正常的服务交付期间。<tr><td>ReviewPending<td>待复核<td>服务已提供，正在等待内部复核或客户最终确认。<tr><td>ComplianceCheck<td>合规性检查<td>进行定期的合规性检查，确保服务符合所有相关法规和标准。<tr><td rowspan=2>Suspended<td>NonPayment<td>因欠款暂停<td>由于未支付服务费用，客户服务暂停。<tr><td>ComplianceIssues<td>合规问题<td>由于合规性或法律问题，客户服务被暂停。<tr><td rowspan=3>Terminated<td>ClientCanceled<td>客户取消<td>客户决定终止服务关系。<tr><td>ServiceCompleted<td>服务结束<td>服务合约期满或所有服务项目均已完成，客户状态更新为终止。<tr><td>Defaulted<td>违约<td>客户由于违反服务条款被终止服务。<tr><td rowspan=2><del>Resumed</del><td>PaymentResolved<td>欠款解决<td>客户已解决支付问题，服务恢复。<tr><td>ComplianceResolved<td>合规问题解决<td>客户已解决之前的合规问题，服务恢复。</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=enum>Enum<a href=#enum class=hash-link aria-label="Direct link to Enum" title="Direct link to Enum" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=sex>Sex<a href=#sex class=hash-link aria-label="Direct link to Sex" title="Direct link to Sex" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th style=text-align:right>enum<th>label<tbody><tr><td style=text-align:right>Unknow<td>未知<tr><td style=text-align:right>Male<td>男性<tr><td style=text-align:right>Female<td>女性<tr><td style=text-align:right>Intersex<td>间性</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=paymentmethod>PaymentMethod<a href=#paymentmethod class=hash-link aria-label="Direct link to PaymentMethod" title="Direct link to PaymentMethod" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th style=text-align:right>enum<th>label<tbody><tr><td style=text-align:right>Cash<td>现金支付<tr><td style=text-align:right>CreditCard<td>信用卡支付<tr><td style=text-align:right>DebitCard<td>借记卡支付<tr><td style=text-align:right>BankTransfer<td>银行转账<tr><td style=text-align:right>OnlinePayment<td>在线支付<tr><td style=text-align:right>Check<td>支票支付<tr><td style=text-align:right>MobilePayment<td>移动支付<tr><td style=text-align:right>DirectDebit<td>直接扣款<tr><td style=text-align:right>WireTransfer<td>电汇支付<tr><td style=text-align:right>Cryptocurrency<td>加密货币</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=onlinepaymentplatform>OnlinePaymentPlatform<a href=#onlinepaymentplatform class=hash-link aria-label="Direct link to OnlinePaymentPlatform" title="Direct link to OnlinePaymentPlatform" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th style=text-align:right>enum<th>label<tbody><tr><td style=text-align:right>PayPal<td>PayPal<tr><td style=text-align:right>Alipay<td>支付宝支付<tr><td style=text-align:right>WeChatPay<td>微信支付<tr><td style=text-align:right>Stripe<td>Stripe<tr><td style=text-align:right>Square<td>Square<tr><td style=text-align:right>ApplePay<td>Apple Pay<tr><td style=text-align:right>GooglePay<td>Google Pay</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=bankaccounttype>BankAccountType<a href=#bankaccounttype class=hash-link aria-label="Direct link to BankAccountType" title="Direct link to BankAccountType" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th style=text-align:right>enum<th>label<tbody><tr><td style=text-align:right>Savings<td>储蓄账户<tr><td style=text-align:right>Checking<td>支票账户<tr><td style=text-align:right>Business<td>商业账户<tr><td style=text-align:right>JointSavings<td>联名储蓄账户<tr><td style=text-align:right>JointChecking<td>联名支票账户<tr><td style=text-align:right>Investment<td>投资账户<tr><td style=text-align:right>CD<td>定期存款账户<tr><td style=text-align:right>MoneyMarket<td>货币市场账户<tr><td style=text-align:right>Brokerage<td>证券账户<tr><td style=text-align:right>CreditCard<td>信用卡账户<tr><td style=text-align:right>Loan<td>贷款账户<tr><td style=text-align:right>Mortgage<td>抵押贷款账户<tr><td style=text-align:right>LineOfCredit<td>信用额度账户<tr><td style=text-align:right>Other<td>其他账户</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=employmenttype>EmploymentType<a href=#employmenttype class=hash-link aria-label="Direct link to EmploymentType" title="Direct link to EmploymentType" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th style=text-align:right>enum<th>label<tbody><tr><td style=text-align:right>FullTime<td>全职<tr><td style=text-align:right>PartTime<td>兼职<tr><td style=text-align:right>Contract<td>合同工<tr><td style=text-align:right>Temporary<td>临时工</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=payment>Payment<a href=#payment class=hash-link aria-label="Direct link to Payment" title="Direct link to Payment" translate=no>​</a></h2>
+<ul>
+<li>recipient_bank_account</li>
+<li>beneficiary_account_number</li>
+<li>payee_account_number</li>
+<li>receiving_account</li>
+</ul>
+<hr/>
+<ul>
+<li>payer_bank_account</li>
+<li>sender_account</li>
+<li>sending_account</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=data>Data<a href=#data class=hash-link aria-label="Direct link to Data" title="Direct link to Data" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>标准<th>数据中心 (Data Hub)<th>数据仓库 (Data Warehouse)<th>数据湖 (Data Lake)<tbody><tr><td>主要目的<td>数据共享、集成、治理、运营中介<td>商业智能、历史报表、分析<td>大数据存储、数据科学、探索性分析<tr><td>数据形态<td>半结构化、已协调、一致性模型<td>结构化、写入时定义模式 (Schema-on-Write)、关系型<td>原始、非结构化、读取时定义模式 (Schema-on-Read)<tr><td>核心功能<td>扮演数据交换的"中转站"<td>扮演存储已整理数据的"图书馆"<td>扮演存储所有原始数据的"水库"<tr><td>延迟<td>实时、近实时、事件驱动<td>批处理、历史快照<td>批处理或流式，但数据是原始的<tr><td>数据治理<td>主动式，在数据流动过程中强制执行<td>被动式，在 ETL/ELT 过程中应用<td>需额外构建治理框架，否则易形成"数据沼泽"</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=party-model>Party 模型<a href=#party-model class=hash-link aria-label="Direct link to Party 模型" title="Direct link to Party 模型" translate=no>​</a></h2>
+<ul>
+<li>参考
+<ul>
+<li><a href=https://developer.salesforce.com/docs/platform/data-models/guide/party.html target=_blank rel="noopener noreferrer">https://developer.salesforce.com/docs/platform/data-models/guide/party.html</a></li>
+<li><a href="https://help.salesforce.com/s/articleView?id=sf.c360_a_party_data_model.htm&language=en_US&type=5" target=_blank rel="noopener noreferrer">https://help.salesforce.com/s/articleView?id=sf.c360_a_party_data_model.htm&language=en_US&type=5</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=sales>销售<a href=#sales class=hash-link aria-label="Direct link to 销售" title="Direct link to 销售" translate=no>​</a></h2>
+<ul>
+<li>初次接触的销售型通话（Discovery Call）
+<ul>
+<li>低于2分钟（无效或低效区）</li>
+<li>3-8分钟（黄金区间）
+<ul>
+<li>1分钟: 破冰，建立初步信任。</li>
+<li>2-3分钟: 提出高质量问题，挖掘客户的核心需求或痛点。</li>
+<li>2-3分钟: 针对性地介绍产品或解决方案的核心价值。</li>
+<li>1分钟: 确认客户意向，并成功约定下一步（如发送资料、预约演示、建立微信联系等）。</li>
+</ul>
+</li>
+<li>超过10分钟（潜力和风险并存区）</li>
+</ul>
+</li>
+<li>“黄金时间窗口”</li>
+</ul>
+<h1>FAQ</h1>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=银行卡-vs-银行账户>银行卡 vs 银行账户<a href=#银行卡-vs-银行账户 class=hash-link aria-label="Direct link to 银行卡 vs 银行账户" title="Direct link to 银行卡 vs �银行账户" translate=no>​</a></h2>
+<ul>
+<li>银行账户
+<ul>
+<li>金融存款账户</li>
+<li>类型有 储蓄账户、支票账户、商业账户、投资账户 等</li>
+<li>属性不同 - 如 利息率、交易限额、费用结构 等</li>
+<li>记录所有交易 - 如 存款、取款、转账 等</li>
+<li>用于存款、管理资金和其他财务活动 - 如收入管理、账单支付、定期存款等</li>
+</ul>
+</li>
+<li>银行卡
+<ul>
+<li>一种物理或数字的支付工具</li>
+<li>允许访问和使用账户中的资金</li>
+<li>主要分为 借记卡 和 信用卡</li>
+<li>银行卡主要用于消费和支付</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=服务订单-vs-商品订单>服务订单 vs 商品订单<a href=#服务订单-vs-商品订单 class=hash-link aria-label="Direct link to 服务订单 vs 商品订单" title="Direct link to 服务订单 vs 商品订单" translate=no>​</a></h2>
+<ul>
+<li>服务订单
+<ul>
+<li>无形的服务</li>
+<li>服务的时间、地点、持续时长、特定的服务详情</li>
+<li>处理流程
+<ul>
+<li>服务的预约、人员的安排、服务的执行、后续的服务评价</li>
+<li>可能涉及多次与客户的互动，以及服务过程中的调整和确认</li>
+</ul>
+</li>
+<li>客户互动
+<ul>
+<li>频繁且持续</li>
+</ul>
+</li>
+<li>物流和库存
+<ul>
+<li>不涉及实物库存管理，但需要管理服务资源，如人员和时间</li>
+<li>需要考虑服务地点的逻辑安排</li>
+</ul>
+</li>
+<li>定价和收费
+<ul>
+<li>定价可能基于时间（如按小时计费）、项目（固定费用）或成果（基于结果的定价）。</li>
+<li>收费时点可能在服务前（预付款）、服务中（分期付款）或服务后（后付款）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>商品订单
+<ul>
+<li>有形的产品或商品</li>
+<li>商品的类型、数量、规格、物理特性</li>
+<li>处理流程
+<ul>
+<li>订单的接收、商品的拣选、包装、发货以及物流跟踪</li>
+</ul>
+</li>
+<li>客户互动
+<ul>
+<li>相对较少</li>
+<li>主要是售前、售后</li>
+<li>一旦发货，除非出现问题，否则一般不需进一步交互</li>
+</ul>
+</li>
+<li>物流和库存
+<ul>
+<li>详尽的库存管理，包括库存水平的监控、仓库管理和库存补充</li>
+<li>物流管理是关键部分，包括运输方式的选择、发货时间的控制和货物跟踪。</li>
+</ul>
+</li>
+<li>商品订单
+<ul>
+<li>价格通常基于单个或批量商品的固定价格</li>
+<li>支付通常在购买时一次性完成，除非涉及分期支付的特殊情况</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=transactional-work>事务性工作<a href=#transactional-work class=hash-link aria-label="Direct link to 事务性工作" title="Direct link to 事务性工作" translate=no>​</a></h2>
+<ul>
+<li>事务性工作 - Transactional Work</li>
+<li>特点
+<ul>
+<li>高频性 - 经常发生</li>
+<li>重复性 - 流程步骤相对固定</li>
+<li>规则驱动 - 有明确的业务规则和操作指南</li>
+<li>可衡量 - 工作结果和效率容易量化</li>
+<li>关注效率和准确性 - 主要目标是快速、准确地完成任务</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=entity-vs-resource-vs-object>Entity vs Resource vs Object<a href=#entity-vs-resource-vs-object class=hash-link aria-label="Direct link to Entity vs Resource vs Object" title="Direct link to Entity vs Resource vs Object" translate=no>​</a></h2>
+<blockquote>
+<p>相同点: 有唯一标识符，有属性和行为</p>
+</blockquote>
+<ul>
+<li>Entity
+<ul>
+<li>实体</li>
+<li>通常是业务领域中的一个对象或概念</li>
+<li>通常是数据库中的表</li>
+<li>通常用于 ORM、数据模型、数据存储</li>
+<li>Entity -> Property & Relationship & Collection</li>
+</ul>
+</li>
+<li>Resource
+<ul>
+<li>资源</li>
+<li>通常是网络或分布式系统中的一个对象或概念</li>
+<li>通常是 RESTful API 中的一个端点</li>
+<li>通常面向 Client/Web/前端</li>
+<li>Resource -> URI & Method & Representation & Endpoint & View</li>
+<li>urn -> Uniform Resource Name</li>
+</ul>
+</li>
+<li>Object
+<ul>
+<li>对象</li>
+<li>通常是一个实例</li>
+<li>Object -> Field & Method</li>
+<li>GraphQL Object 可以有自定义 field resolver</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=displayorder-vs-sort-vs-rank>displayOrder vs sort vs rank<a href=#displayorder-vs-sort-vs-rank class=hash-link aria-label="Direct link to displayOrder vs sort vs rank" title="Direct link to displayOrder vs sort vs rank" translate=no>​</a></h2>
+<p>希望能够在列表中按照一定的顺序展示数据。
+一般使用浮点数或者 fraction。</p>
+<hr/>
+<ul>
+<li>displayOrder
+<ul>
+<li>显示顺序</li>
+<li>名字最为直观</li>
+</ul>
+</li>
+<li>sort
+<ul>
+<li>简短</li>
+</ul>
+</li>
+<li>rank - 排名
+<ul>
+<li>一般为整数</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=connection-vs-association-vs-link-vs-join-vs-relation>Connection vs Association vs Link vs Join vs Relation<a href=#connection-vs-association-vs-link-vs-join-vs-relation class=hash-link aria-label="Direct link to Connection vs Association vs Link vs Join vs Relation" title="Direct link to Connection vs Association vs Link vs Join vs Relation" translate=no>​</a></h2>
+<ul>
+<li>Connection
+<ul>
+<li>通用的多对多关系</li>
+</ul>
+</li>
+<li>Association
+<ul>
+<li>强调关联关系</li>
+</ul>
+</li>
+<li>Link
+<ul>
+<li>任何类型的多对多关系</li>
+</ul>
+</li>
+<li>Join
+<ul>
+<li>用于数据库设计和ORM框架</li>
+</ul>
+</li>
+<li>Relation
+<ul>
+<li>强调关系</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<ul>
+<li>字段
+<ul>
+<li>related</li>
+<li>target</li>
+<li>linked</li>
+<li>associated</li>
+</ul>
+</li>
+<li>通用 Connection Entity
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/entities/connection?view=op-9-1" target=_blank rel="noopener noreferrer">https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/entities/connection?view=op-9-1</a></li>
+</ul>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/erp>ERP</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/dev/design/erp/README.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2025-10-09T05:44:41.000Z itemprop=dateModified>Oct 9, 2025</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/dev/design/workflow><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Workflow design</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/dev/design/erp/audit><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>审计</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#service-layer class="table-of-contents__link toc-highlight">服务分层</a><li><a href=#model-layer class="table-of-contents__link toc-highlight">模型分层</a><li><a href=#resource class="table-of-contents__link toc-highlight">Resource</a><li><a href=#react class="table-of-contents__link toc-highlight">React</a><li><a href=#activity class="table-of-contents__link toc-highlight">Activity</a><li><a href=#event class="table-of-contents__link toc-highlight">Event</a><li><a href=#record class="table-of-contents__link toc-highlight">Record</a><li><a href=#crm class="table-of-contents__link toc-highlight">CRM</a><ul><li><a href=#customer class="table-of-contents__link toc-highlight">Customer</a></ul><li><a href=#ui-状态 class="table-of-contents__link toc-highlight">UI 状态</a><li><a href=#ui-context class="table-of-contents__link toc-highlight">UI Context</a><li><a href=#resource-view class="table-of-contents__link toc-highlight">Resource View</a><li><a href=#note-vs-comment class="table-of-contents__link toc-highlight">Note vs Comment</a><li><a href=#reminder-vs-to-do class="table-of-contents__link toc-highlight">Reminder vs To-do</a><li><a href=#file-vs-media-vs-attachment-vs-document class="table-of-contents__link toc-highlight">File vs Media vs Attachment vs Document</a><li><a href=#zindex class="table-of-contents__link toc-highlight">zIndex</a><li><a href=#entity class="table-of-contents__link toc-highlight">Entity</a><li><a href=#case class="table-of-contents__link toc-highlight">Case</a><li><a href=#task class="table-of-contents__link toc-highlight">Task</a><li><a href=#work class="table-of-contents__link toc-highlight">Work</a><li><a href=#state--status class="table-of-contents__link toc-highlight">State & Status</a><ul><li><a href=#ms-dynamics356 class="table-of-contents__link toc-highlight">MS Dynamics356</a><li><a href=#leadstatus class="table-of-contents__link toc-highlight">LeadStatus</a><li><a href=#serviceorderstatus class="table-of-contents__link toc-highlight">ServiceOrderStatus</a><li><a href=#salesinvoicestatus class="table-of-contents__link toc-highlight">SalesInvoiceStatus</a><li><a href=#accountinginvoicestatus class="table-of-contents__link toc-highlight">AccountingInvoiceStatus</a><li><a href=#taxdeclarationstatus class="table-of-contents__link toc-highlight">TaxDeclarationStatus</a><li><a href=#employeestatus class="table-of-contents__link toc-highlight">EmployeeStatus</a><li><a href=#clientstatus class="table-of-contents__link toc-highlight">ClientStatus</a></ul><li><a href=#enum class="table-of-contents__link toc-highlight">Enum</a><ul><li><a href=#sex class="table-of-contents__link toc-highlight">Sex</a><li><a href=#paymentmethod class="table-of-contents__link toc-highlight">PaymentMethod</a><li><a href=#onlinepaymentplatform class="table-of-contents__link toc-highlight">OnlinePaymentPlatform</a><li><a href=#bankaccounttype class="table-of-contents__link toc-highlight">BankAccountType</a><li><a href=#employmenttype class="table-of-contents__link toc-highlight">EmploymentType</a></ul><li><a href=#payment class="table-of-contents__link toc-highlight">Payment</a><li><a href=#data class="table-of-contents__link toc-highlight">Data</a><li><a href=#party-model class="table-of-contents__link toc-highlight">Party 模型</a><li><a href=#sales class="table-of-contents__link toc-highlight">销售</a><li><a href=#银行卡-vs-银行账户 class="table-of-contents__link toc-highlight">银行卡 vs 银行账户</a><li><a href=#服务订单-vs-商品订单 class="table-of-contents__link toc-highlight">服务订单 vs 商品订单</a><li><a href=#transactional-work class="table-of-contents__link toc-highlight">事务性工作</a><li><a href=#entity-vs-resource-vs-object class="table-of-contents__link toc-highlight">Entity vs Resource vs Object</a><li><a href=#displayorder-vs-sort-vs-rank class="table-of-contents__link toc-highlight">displayOrder vs sort vs rank</a><li><a href=#connection-vs-association-vs-link-vs-join-vs-relation class="table-of-contents__link toc-highlight">Connection vs Association vs Link vs Join vs Relation</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

@@ -1,0 +1,760 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-os/alpine/alpine-boot" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>Alpin Boot | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/os/alpine/boot /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Alpin Boot | Wener Live & Life"/><meta data-rh=true name=description content="- 启动顺序"/><meta data-rh=true property=og:description content="- 启动顺序"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/os/alpine/boot /><link data-rh=true rel=alternate href=https://wener.me/notes/os/alpine/boot hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/os/alpine/boot hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/os/","name":"操作系统","position":1},{"@type":"ListItem","item":"https://wener.me/notes/os/alpine/","name":"Alpine","position":2},{"@type":"ListItem","item":"https://wener.me/notes/os/alpine/boot","name":"Alpin Boot","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Collapse sidebar category '操作系统'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/os/alpine><span title=Alpine class=categoryLinkLabel_RkOu>Alpine</span></a><button aria-label="Collapse sidebar category 'Alpine'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/acf><span title="Alpine Configuration Framework" class=linkLabel_JPPZ>Alpine Configuration Framework</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/apk><span title=apk class=linkLabel_JPPZ>apk</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/aports><span title="Alpine Aports" class=linkLabel_JPPZ>Alpine Aports</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/arm><span title="Alpine on ARM" class=linkLabel_JPPZ>Alpine on ARM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/awesome><span title="AlpineLinux Awesome" class=linkLabel_JPPZ>AlpineLinux Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/os/alpine/boot><span title="Alpin Boot" class=linkLabel_JPPZ>Alpin Boot</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/chroot><span title="Alpine chroot 环境" class=linkLabel_JPPZ>Alpine chroot 环境</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/conf><span title="Alpine Config" class=linkLabel_JPPZ>Alpine Config</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/desktop><span title="Alpine Desktop" class=linkLabel_JPPZ>Alpine Desktop</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/faq><span title="Alpine FAQ" class=linkLabel_JPPZ>Alpine FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/glibc><span title="Alpine GLIBC" class=linkLabel_JPPZ>Alpine GLIBC</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/health><span title="Health Check" class=linkLabel_JPPZ>Health Check</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/image><span title="Alpine Image" class=linkLabel_JPPZ>Alpine Image</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/install><span title="AlpineLinux Install" class=linkLabel_JPPZ>AlpineLinux Install</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/intro><span title="Alpine 入门" class=linkLabel_JPPZ>Alpine 入门</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/lbu><span title="Alpine local backup" class=linkLabel_JPPZ>Alpine local backup</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/manual><span title="Alpine QEMU Manual" class=linkLabel_JPPZ>Alpine QEMU Manual</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/ops-hw><span title="Alpine Hardware Operation" class=linkLabel_JPPZ>Alpine Hardware Operation</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/ops><span title="Alpine 运维笔记" class=linkLabel_JPPZ>Alpine 运维笔记</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/pxe><span title="Alpine PXE" class=linkLabel_JPPZ>Alpine PXE</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/qemu><span title="Alpine QEMU" class=linkLabel_JPPZ>Alpine QEMU</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/rpi><span title="Alpine Linux on Raspberry Pi" class=linkLabel_JPPZ>Alpine Linux on Raspberry Pi</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/server><span title="Alpine Server" class=linkLabel_JPPZ>Alpine Server</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/setup><span title="AlpineLinux Setup" class=linkLabel_JPPZ>AlpineLinux Setup</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/takeover><span title=takeover class=linkLabel_JPPZ>takeover</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/tip><span title="Alpine Tip" class=linkLabel_JPPZ>Alpine Tip</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/version><span title="AlpineLinux 版本历史" class=linkLabel_JPPZ>AlpineLinux 版本历史</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/virt><span title="Alpine Virt" class=linkLabel_JPPZ>Alpine Virt</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/aports><span title=aports class=linkLabel_JPPZ>aports</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/alpine/postmarketos><span title=postmarketOS class=linkLabel_JPPZ>postmarketOS</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/android><span title=Android class=categoryLinkLabel_RkOu>Android</span></a><button aria-label="Expand sidebar category 'Android'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/archlinux><span title=ArchLinux class=linkLabel_JPPZ>ArchLinux</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/bsd><span title=BSD class=categoryLinkLabel_RkOu>BSD</span></a><button aria-label="Expand sidebar category 'BSD'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/busybox><span title=Busybox class=categoryLinkLabel_RkOu>Busybox</span></a><button aria-label="Expand sidebar category 'Busybox'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/centos><span title=CentOS class=categoryLinkLabel_RkOu>CentOS</span></a><button aria-label="Expand sidebar category 'CentOS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/chromeos><span title=ChromeOS class=linkLabel_JPPZ>ChromeOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/darwin><span title=Darwin class=linkLabel_JPPZ>Darwin</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/debian><span title=Debian class=categoryLinkLabel_RkOu>Debian</span></a><button aria-label="Expand sidebar category 'Debian'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/device/auto><span title=device class=categoryLinkLabel_RkOu>device</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/dual-system><span title="Dual System Boot" class=linkLabel_JPPZ>Dual System Boot</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/freebsd><span title=FreeBSD class=linkLabel_JPPZ>FreeBSD</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/fuchsia><span title=Fuchsia class=linkLabel_JPPZ>Fuchsia</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/lakka><span title="lakka tv" class=linkLabel_JPPZ>lakka tv</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/libreelec><span title=LibreELEC class=linkLabel_JPPZ>LibreELEC</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/linux/admin><span title=linux class=categoryLinkLabel_RkOu>linux</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux-distro><span title="Linux 发行版列表与比较 (Linux Distributions List & Comparison)" class=linkLabel_JPPZ>Linux 发行版列表与比较 (Linux Distributions List & Comparison)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/macos><span title=macOS class=categoryLinkLabel_RkOu>macOS</span></a><button aria-label="Expand sidebar category 'macOS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/mips><span title="MIPS 架构" class=linkLabel_JPPZ>MIPS 架构</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/mobile><span title=手机 class=linkLabel_JPPZ>手机</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/network><span title=网络设备系统 class=categoryLinkLabel_RkOu>网络设备系统</span></a><button aria-label="Expand sidebar category '网络设备系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/openbsd><span title=OpenBSD class=linkLabel_JPPZ>OpenBSD</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/awesome><span title="OS Awesome" class=linkLabel_JPPZ>OS Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/faq><span title="OS FAQ" class=linkLabel_JPPZ>OS FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/glossary><span title="OS Glossary" class=linkLabel_JPPZ>OS Glossary</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/rhel/anaconda><span title=rhel class=categoryLinkLabel_RkOu>rhel</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/synology><span title=Synology class=linkLabel_JPPZ>Synology</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/ubuntu><span title="Ubuntu Server Guide" class=categoryLinkLabel_RkOu>Ubuntu Server Guide</span></a><button aria-label="Expand sidebar category 'Ubuntu Server Guide'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/virt><span title=虚拟化 class=categoryLinkLabel_RkOu>虚拟化</span></a><button aria-label="Expand sidebar category '虚拟化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/windows><span title="Windows OS" class=categoryLinkLabel_RkOu>Windows OS</span></a><button aria-label="Expand sidebar category 'Windows OS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/os><span>操作系统</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/os/alpine><span>Alpine</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Alpin Boot</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Alpin Boot</h1></header>
+<ul>
+<li>启动顺序
+<ul>
+<li>POST - 硬件自检</li>
+<li>BIOS</li>
+<li>mbr/gpt</li>
+<li>syslinux/grub - loader
+<ul>
+<li>sh</li>
+</ul>
+</li>
+<li>initramfs-init
+<ul>
+<li><code>/bin/busybox switch_root $sysroot $chart_init "$KOPT_init" $KOPT_init_args</code></li>
+</ul>
+</li>
+<li>/sbin/init
+<ul>
+<li>busybox init
+<ul>
+<li><code>/etc/inittab</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/sbin/openrc - <code>/etc/init.d</code>
+<ul>
+<li>sysinit
+<ul>
+<li>devfs dmesg hwdrivers mdev</li>
+</ul>
+</li>
+<li>boot
+<ul>
+<li>bootmisc hostname hwclock loadkmap modules swap sysctl syslog</li>
+</ul>
+</li>
+<li>default</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=syslinux>syslinux<a href=#syslinux class=hash-link aria-label="Direct link to syslinux" title="Direct link to syslinux" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=etcupdate-extlinuxconf>/etc/update-extlinux.conf<a href=#etcupdate-extlinuxconf class=hash-link aria-label="Direct link to /etc/update-extlinux.conf" title="Direct link to /etc/update-extlinux.conf" translate=no>​</a></h3>
+<div class="language-ini codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-ini codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 覆盖 - 否则写入到 /boot/extlinux.conf.new</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">overwrite</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">1</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># vesamenu.c32 - serial 不支持</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">vesa_menu</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">0</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 默认内核参数</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 例如 cryptroot=UUID=5f68e5dc-3e88-4fa4-ad0b-4f47a0190000 cryptdm=cryptroot</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">default_kernel_opts</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">"</span><span class="token value attr-value inner-value">nomodeset quiet rootfstype=ext4</span><span class="token value attr-value">"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 在切换 root 前加载的模块</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">modules</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">sd-mod,usb-storage,ext4</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># roofs - 默认 blkid -o export /dev/root</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">root</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">UUID=58364fae-49ec-0000-0000-16698934f7e2</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 默认内核</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">default</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">lts</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">verbose</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">0</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 隐藏启动菜单</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">hidden</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">1</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 启动等待时间</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">timeout</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">3</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 串口号 - 没有则禁用</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">serial_port</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># serial_baud</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># the baudrate for the serial port. Will use 115200 if unset</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">serial_baud</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">115200</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># xen_opts</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># options to hand to xen hypervisor, useful ones are:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">#    dom0_mem=256M (give domain-0 environment 256M ram)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">xen_opts</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">dom0_mem=256M</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 复制 /usr/share/syslinux/reboot.c32 到 /boot/ 会生成 reboot 菜单</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 从 /usr/share/syslinux/ 复制 hdt.c32, libgpl.c32, 和 libmenu.c32</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 到 /boot/, 会生成 HDT 菜单</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 安装 /boot/memtest, 且启用了 HDT，则会使用，否则会生成额外的 memtest 菜单</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 密码 - 例如使用 mkpasswd 生成 SHA512 密码</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 设置了密码记得修改该文件权限 600</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">#</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 设置了密码菜单不能编辑，HDT受密码保护</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 也可以在 /etc/update-extlinux.d/ 配置 "MENU PASSWD"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">password</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">''</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=mkinitfs>mkinitfs<a href=#mkinitfs class=hash-link aria-label="Direct link to mkinitfs" title="Direct link to mkinitfs" translate=no>​</a></h2>
+<ul>
+<li>默认特性
+<ul>
+<li>v3.13 - ata base cdrom ext4 keymap kms mmc nvme raid scsi usb virtio</li>
+<li>v3.12 - ata base ide scsi usb virtio ext4</li>
+</ul>
+</li>
+<li><a href=https://github.com/alpinelinux/mkinitfs target=_blank rel="noopener noreferrer">alpinelinux/mkinitfs</a>
+<ul>
+<li><code>mkinitfs -L</code> - 特性 <a href=https://github.com/alpinelinux/mkinitfs/tree/master/features.d target=_blank rel="noopener noreferrer">features.d</a></li>
+<li><code>/etc/mkinitfs/mkinitfs.conf</code> - 配置</li>
+</ul>
+</li>
+<li>features
+<ul>
+<li>cryptsetup
+<ul>
+<li>LUKS</li>
+<li><code>apk add cryptsetup</code></li>
+<li>append <code>cryptroot=UUID=&lt;UUID></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基础文件
+<ul>
+<li>/usr/share/mkinitfs</li>
+<li>/etc/mkinitfs/features.d</li>
+</ul>
+</li>
+<li><a href=https://github.com/alpinelinux/mkinitfs/blob/master/mkinitfs.in target=_blank rel="noopener noreferrer">mkinitfs</a>
+<ul>
+<li>source 配置文件</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 所有特性</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">mkinitfs -L</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 自定义特性</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">apk --root /mnt add dmidecode</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">chroot /mnt which dmidecode > /mnt/etc/mkinitfs/features.d/dmidecode.files</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 新增特性</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 常见默认值</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># features="ata base ide scsi usb virtio ext4"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">sed -i -r "s/^(features)=\"([^\"]*)\"/\1=\"\2 dmidecode\"/" /mnt/etc/mkinitfs/mkinitfs.conf</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 查看除内核之外的文件列表</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">mkinitfs -l -n -c /mnt/etc/mkinitfs/mkinitfs.conf -b /mnt/ $(ls /mnt/lib/modules/)</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># chroot 安装</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">mkinitfs -c /mnt/etc/mkinitfs/mkinitfs.conf -b /mnt/ $(ls /mnt/lib/modules/)</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 不设置 -P 默认使用当前主机的 features.d</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 不设置 -i 默认使用当前主机的 initramfs-init</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">mkinitfs -P /mnt/etc/mkinitfs/features.d -c /mnt/etc/mkinitfs/mkinitfs.conf -i /mnt/usr/share/mkinitfs/initramfs-init -b /mnt/ $(ls /mnt/lib/modules/)</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># zstd -19</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># features="ata base ide scsi usb virtio ext4"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># gzip 13M -> 10M - 78%</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">#</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># features="ata base cdrom ext4 keymap kms mmc nvme raid scsi usb virtio"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># gzip 39M -> 23M - 59%</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">apk add zstd</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">mkinitfs -C zstd -o /tmp/initramfs-zstd</span><br/></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">usage: mkinitfs [-hkKLln] [-b basedir] [-c configfile] [-F features] [-f fstab]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                [-C initramfs compression] [-i initfile] [-o outfile]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">                [-P featuresdir] [-t tempdir] [kernelversion]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">options:</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -b  prefix files and kernel modules with basedir</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -c  use configfile instead of /etc/mkinitfs/mkinitfs.conf</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -C  initramfs compression (gzip|xz defaults to gzip)</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -f  use fstab instead of /usr/share/mkinitfs/fstab</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -F  use specified features</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -h  print this help</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -i  use initfile as init instead of /usr/share/mkinitfs/initramfs-init</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -k  keep tempdir</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -K  copy also host keys to initramfs</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -l  only list files that would have been used</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -L  list available features</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -n  don't include kernel modules or firmware</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -o  set another outfile</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -P  prepend features.d search path</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -q  Quiet mode</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -s  Include modloop signature</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -t  use tempdir when creating initramfs image</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=features>features<a href=#features class=hash-link aria-label="Direct link to features" title="Direct link to features" translate=no>​</a></h3>
+<p><a href=https://github.com/alpinelinux/mkinitfs/tree/master/features.d target=_blank rel="noopener noreferrer">features.d</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>feature<th>pkgs<th>desc<tbody><tr><td>9p<td><td>virtio-fs-9p<br/>虚拟化直接映射目录<tr><td>ata<td><td><tr><td>base<td><td>busybox,sh,mdev,apk,modprobe.d,mdev.conf,nlplug-findfs<tr><td>bootchart<td><td><a href=https://www.bootchart.org/ target=_blank rel="noopener noreferrer">bootchart</a>集成<tr><td>btrfs<td>btrfs-progs<td>/sbin/btrfs<tr><td>cdrom<td><td>driver/cdrom, isofs<tr><td>cramfs<td><td><tr><td>cryptkey<td><td>/crypto_keyfile.bin<tr><td>cryptsetup<td>cryptsetup<td>modprobe dm-crypt<tr><td>dasd_mod<td><td><tr><td>dhcp<td><td><code>/usr/share/udhcpc/default.script</code><br/>af_packet<tr><td>ena<td><td><tr><td>ext2<td><td><tr><td>ext3<td><td><tr><td>ext4<td><td><tr><td>f2fs<td><td><tr><td>floppy<td><td><tr><td>gfs2<td><td>Global File System 2<tr><td>https<td>ssl_client<td><code>/usr/bin/ssl_client</code><tr><td>jfs<td><td><tr><td>keymap<td><td><tr><td>kms<td><td>agp,gpu,i2c,video,fbdev,vc4<tr><td>lvm<td><td><tr><td>mmc<td><td><tr><td>nbd<td><td><tr><td>network<td><td><tr><td>nvme<td><td>加载 nvme 驱动 - 例如使用了 M.2 启动<tr><td>ocfs2<td><td><tr><td>qeth<td><td><tr><td>raid<td><td><tr><td>reiserfs<td><td><tr><td>scsi<td><td><tr><td>squashfs<td><td><tr><td>ubifs<td><td><tr><td>usb<td><td>drivers/usb,drivers/hid,fat,nls<tr><td>virtio<td><td><tr><td>xenpci<td><td><tr><td>xfs<td>xfsprogs<td><code>/sbin/xfs_repair</code><tr><td>zfcp<td><td><tr><td>zfs<td>zfs<td></table>
+<ul>
+<li>fs
+<ul>
+<li>fat</li>
+<li>isofs</li>
+<li>btrfs</li>
+<li>cramfs</li>
+<li>ext2,ext3,ext4</li>
+<li>zfs</li>
+<li><a href=https://en.wikipedia.org/wiki/GFS2 target=_blank rel="noopener noreferrer">gfs2</a> - Global File System 2
+<ul>
+<li>分布式文件系统</li>
+</ul>
+</li>
+<li>f2fs</li>
+<li><a href=https://en.wikipedia.org/wiki/JFS_(file_system) target=_blank rel="noopener noreferrer">jfs</a> - Journaled File System
+<ul>
+<li>Linux 2.4.18+</li>
+<li>使用较少, 性能弱于 ext4, 支持大小写无关</li>
+</ul>
+</li>
+<li>reiserfs</li>
+<li>squashfs</li>
+<li><a href=https://en.wikipedia.org/wiki/NILFS target=_blank rel="noopener noreferrer">nlsfs</a> - New Implementation of a Log-structured File System
+<ul>
+<li>Linux 2.6.30+</li>
+</ul>
+</li>
+<li>xfs</li>
+</ul>
+</li>
+<li>虚拟化
+<ul>
+<li>virtio, 9p</li>
+<li>kms</li>
+</ul>
+</li>
+<li>存储驱动
+<ul>
+<li>cdrom</li>
+<li>cryptsetup</li>
+<li>lvm</li>
+<li>floppy</li>
+<li>mmc</li>
+<li>nbd</li>
+<li>nvme</li>
+<li>raid</li>
+<li>usb</li>
+</ul>
+</li>
+<li>网络
+<ul>
+<li>dhcp</li>
+<li>https</li>
+<li>network</li>
+</ul>
+</li>
+<li>版本特性
+<ul>
+<li>v3.13 ata base cdrom ext4 keymap kms mmc nvme raid scsi usb virtio</li>
+<li>v3.12 ata base ide scsi usb virtio ext4</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=initramfs>initramfs<a href=#initramfs class=hash-link aria-label="Direct link to initramfs" title="Direct link to initramfs" translate=no>​</a></h3>
+<ul>
+<li><code>/usr/share/mkinitfs/initramfs-init</code></li>
+<li><a href=https://github.com/alpinelinux/mkinitfs/blob/master/initramfs-init.in target=_blank rel="noopener noreferrer">initramfs-init</a>
+<ul>
+<li>核心启动逻辑</li>
+<li>启动完成后进行 switch root <code>/bin/busybox switch_root $sysroot $chart_init "$KOPT_init" $KOPT_init_args</code></li>
+<li>启动方式
+<ul>
+<li>有 root
+<ul>
+<li>挂载</li>
+<li>switch_root</li>
+</ul>
+</li>
+<li>无 root
+<ul>
+<li>apkvol - 尝试构建 root
+<ul>
+<li>本地或远程</li>
+</ul>
+</li>
+<li>无盘模式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>opt<th>default<th>desc<tbody><tr><td>BOOTIF<td><td><tr><td>autodetect_serial<td><td><tr><td>alpine_dev<td><td><tr><td>alpine_repo<td><code>auto</code><td><code>http://...</code><tr><td>alpine_start<td><td><tr><td>apkovl<td><td><code>/tmp/apkovls</code><tr><td>autodetect<td><td><tr><td>autoraid<td><td><tr><td>blacklist<td><td><code>/etc/modprobe.d/boot-opt-blacklist.conf</code><tr><td>chart<td>no<td><code>bootchart</code> logging<tr><td>cryptdiscards<td>no<td><code>nlplug-findfs -D</code> - allow discards on crypto device<tr><td>cryptdm<td><td><code>nlplug-findfs -m</code> - use CRYPTNAME name for crypto device mapping<tr><td>cryptheader<td><td><tr><td>cryptkey<td><td><code>nlplug-findfs -k ${cryptkey:-/crypto_keyfile.bin}</code><tr><td>cryptoffset<td><td><code>nlplug-findfs -o</code> - cryptsetup payload offset<tr><td>cryptroot<td><td><code>nlplug-findfs -c</code> - run cryptsetup luksOpen when CRYPTDEVICE is found<tr><td>dasd<td><td>modprobe <code>dasd_mod dasd_eckd_mod dasd_fba_mod</code><br/><code>/sys/bus/ccw/devices/${dash}/online</code><tr><td>debug_init<td>no<td><code>set -x</code><tr><td>dma<td><td><tr><td>init<td><code>/sbin/init</code><td><tr><td>init_args<td><td><tr><td>ip<td><td><tr><td>keep_apk_new<td><td><tr><td>modules<td><td><code>${rootfstype} loop squashfs</code><tr><td>nbd<td><td><tr><td>overlaytmpfs<td>no<td>mount root ro, tmpfs root rw,<tr><td>ovl_dev<td><td>apkvol - diskless, <code>/boot/ovl_dev/cache</code><tr><td>pkgs<td><td><tr><td>quiet<td>no<td><code>dmesg -n 1</code><tr><td>resume<td><td><code>/sys/power/resume</code><tr><td>root<td><td><tr><td>root_size<td><td>tmpfs sysroot,使用 rootflags <code>,size=</code><tr><td>rootflags<td><td><code>ro</code><tr><td>rootfstype<td><td><code>ext4</code>, <code>zfs</code>, <code>btrfs</code><tr><td>s390x_net<td><td>modprobe <code>qeth qeth_l2 qeth_l3</code><tr><td>single,s,1<td><td>SINGLEMODE<br/>有 root，直接进入 sh，不挂载<br/> 无 root，可能启动网络和挂载设备后进入 sh<tr><td>splash<td>yes<td>无 root 时, 默认使用 <code>/media/*/fbsplash.ppm</code>,<code>/media/*/fbsplash$num.ppm</code><tr><td>ssh_key<td><td><tr><td>usbdelay<td><td><code>nlplug-findfs -t</code> delay, second</table>
+<ul>
+<li>apkvol
+<ul>
+<li><code>http://xyz/{MAC}/xyz/{UUID}/$(cat /sys/class/dmi/id/product_uuid)</code></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=inittab>inittab<a href=#inittab class=hash-link aria-label="Direct link to inittab" title="Direct link to inittab" translate=no>​</a></h2>
+<ul>
+<li>debian <a href=https://manpages.debian.org/jessie/sysvinit-core/inittab.5.en.html target=_blank rel="noopener noreferrer">inittab.5</a></li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">&lt;id>:&lt;runlevels>:&lt;action>:&lt;process></span><br/></span></code></pre></div></div>
+<blockquote>
+<p>busybox 没有 runlevels</p>
+</blockquote>
+<ul>
+<li>id - 命令终端</li>
+<li>action - 运行条件</li>
+<li>program - 程序</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>action<th>desc<tbody><tr><td>respawn<td>自动重启，例如 getty<tr><td>wait<td>runlevel 进入 init 后等待该进程完成<tr><td>once<td>runlevel 进入 后执行一次<tr><td>boot<td>忽略 runlevel，boot 时执行<tr><td>bootwait<td>忽略 runlevel，boot 时执行，等待 init 完成<tr><td>off<td>不做任何事<tr><td>ondemand<td>按需的 runlevel，调用到 runlevel 时执行，a、b、c runlevel<tr><td>initdefault<td>boot 后进入的默认 init，不存在则询问 runlevel，忽略 process<tr><td>sysinit<td>boot 后进入程序，在 boot 和 botwait 之前执行，忽略 runlevel<tr><td>powerwait<td>关闭电源时执行，一般用于 USP 通信<tr><td>powerfail<td>类似于 powerwait，但不等待完成<tr><td>powerokwait<td>init 被告知电源恢复时执行<tr><td>powerfailnow<td>告知 init 外部 UPS 没电了<tr><td>ctrlaltdel<td>SIGINT 信号，<code>CTRL-ALT-DEL</code>，用于重启和关机场景<tr><td>kbrequest<td>init 处理快捷键组合，需要映射 KeyboardSignal，使用 keymaps 文件</table>
+<p>默认 AlpineLinux inittab 配置</p>
+<p><strong>/etc/inittab</strong></p>
+<div class="language-ini codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-ini codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">::sysinit:/sbin/openrc sysinit</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">::sysinit:/sbin/openrc boot</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">::wait:/sbin/openrc default</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># Set up a couple of getty's</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">tty1::respawn:/sbin/getty 38400 tty1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">tty2::respawn:/sbin/getty 38400 tty2</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">tty3::respawn:/sbin/getty 38400 tty3</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">tty4::respawn:/sbin/getty 38400 tty4</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">tty5::respawn:/sbin/getty 38400 tty5</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">tty6::respawn:/sbin/getty 38400 tty6</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># Put a getty on the serial port</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">#ttyS0::respawn:/sbin/getty -L ttyS0 115200 vt100</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># Stuff to do for the 3-finger salute</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">::ctrlaltdel:/sbin/reboot</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># Stuff to do before rebooting</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">::shutdown:/sbin/openrc shutdown</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=grub>grub<a href=#grub class=hash-link aria-label="Direct link to grub" title="Direct link to grub" translate=no>​</a></h2>
+<p><strong>/etc/default/grub</strong></p>
+<div class="language-ini codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-ini codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token key attr-name" style="color:rgb(255, 203, 107)">GRUB_TIMEOUT</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">2</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">GRUB_DISABLE_SUBMENU</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">y</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">GRUB_DISABLE_RECOVERY</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">true</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key attr-name" style="color:rgb(255, 203, 107)">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="token punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token value attr-value">"</span><span class="token value attr-value inner-value">modules=sd-mod,usb-storage,ext4 quiet rootfstype=ext4</span><span class="token value attr-value">"</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=apkvol>apkvol<a href=#apkvol class=hash-link aria-label="Direct link to apkvol" title="Direct link to apkvol" translate=no>​</a></h2>
+<ul>
+<li>alpine <a href=/notes/os/alpine/lbu>lbu</a></li>
+<li>Initramfs-init does not respect apkovl device fstab entry
+<a href=https://gitlab.alpinelinux.org/alpine/mkinitfs/-/issues/5 target=_blank rel="noopener noreferrer">https://gitlab.alpinelinux.org/alpine/mkinitfs/-/issues/5</a></li>
+<li>Diskless APKOVL loading dosn't work on btrfs and xfs filesystems, or nvme-based devices
+<a href=https://gitlab.alpinelinux.org/alpine/aports/-/issues/11589 target=_blank rel="noopener noreferrer">https://gitlab.alpinelinux.org/alpine/aports/-/issues/11589</a></li>
+</ul>
+<h1>FAQ</h1>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=diskless-vs-data-vs-sys>diskless vs data vs sys<a href=#diskless-vs-data-vs-sys class=hash-link aria-label="Direct link to diskless vs data vs sys" title="Direct link to diskless vs data vs sys" translate=no>​</a></h2>
+<ul>
+<li>diskless
+<ul>
+<li>整个 rootfs <code>/</code> 为 tmpfs
+<ul>
+<li>系统运行在 tmpfs</li>
+<li>不安装任何东西到硬盘上 - 无盘模式=无磁盘</li>
+</ul>
+</li>
+<li>从外部媒体启动 - iso、usb</li>
+<li>推荐存储本地 pkg 缓存 - 启动时不需要网络</li>
+<li>lbu 包含数据 /var
+<ul>
+<li>一般的 lbu 只存储 /etc</li>
+</ul>
+</li>
+<li>init 参数 <code>ovl_dev</code></li>
+</ul>
+</li>
+<li>data
+<ul>
+<li>分离 系统 和 数据</li>
+<li>数据 存储在硬盘上 - /var 分区</li>
+</ul>
+</li>
+<li>sys - 桌面、虚拟机、服务器
+<ul>
+<li>传统安装方式</li>
+<li>安装启动分区 - /boot 分区</li>
+<li>安装 rootfs 分区 - /</li>
+<li>swap 可选</li>
+</ul>
+</li>
+<li>crypt, cryptsys
+<ul>
+<li>luks -> sys,data</li>
+</ul>
+</li>
+<li>lvm, lvmsys, lvmdata
+<ul>
+<li>使用 LVM 分区</li>
+</ul>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/os/alpine/alpine-boot.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2024-08-05T09:34:28.000Z itemprop=dateModified>Aug 5, 2024</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/os/alpine/awesome><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>AlpineLinux Awesome</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/os/alpine/chroot><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Alpine chroot 环境</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#syslinux class="table-of-contents__link toc-highlight">syslinux</a><ul><li><a href=#etcupdate-extlinuxconf class="table-of-contents__link toc-highlight">/etc/update-extlinux.conf</a></ul><li><a href=#mkinitfs class="table-of-contents__link toc-highlight">mkinitfs</a><ul><li><a href=#features class="table-of-contents__link toc-highlight">features</a><li><a href=#initramfs class="table-of-contents__link toc-highlight">initramfs</a></ul><li><a href=#inittab class="table-of-contents__link toc-highlight">inittab</a><li><a href=#grub class="table-of-contents__link toc-highlight">grub</a><li><a href=#apkvol class="table-of-contents__link toc-highlight">apkvol</a><li><a href=#diskless-vs-data-vs-sys class="table-of-contents__link toc-highlight">diskless vs data vs sys</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

@@ -1,0 +1,557 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-db/search/elastic/elastic-v2" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>Elasticsearch v2.x | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/db/search/elastic/v2 /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Elasticsearch v2.x | Wener Live & Life"/><meta data-rh=true name=description content="- 2016.2 ELK 交流. 讲义文稿 GoogleDoc/Slideshare"/><meta data-rh=true property=og:description content="- 2016.2 ELK 交流. 讲义文稿 GoogleDoc/Slideshare"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/db/search/elastic/v2 /><link data-rh=true rel=alternate href=https://wener.me/notes/db/search/elastic/v2 hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/db/search/elastic/v2 hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/db/","name":"数据库","position":1},{"@type":"ListItem","item":"https://wener.me/notes/db/search/","name":"搜索","position":2},{"@type":"ListItem","item":"https://wener.me/notes/db/search/elastic/v2","name":"Elasticsearch v2.x","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Collapse sidebar category '数据库'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/column><span title="Column Store" class=categoryLinkLabel_RkOu>Column Store</span></a><button aria-label="Expand sidebar category 'Column Store'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/awesome><span title="Database Awesome" class=linkLabel_JPPZ>Database Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/dsn><span title=DSN class=linkLabel_JPPZ>DSN</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/faq><span title="Database FAQ" class=linkLabel_JPPZ>Database FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/glossary><span title=数据库术语 class=linkLabel_JPPZ>数据库术语</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/olap-awesome><span title="OLAP Database Awesome" class=linkLabel_JPPZ>OLAP Database Awesome</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/document/appwrite><span title=document class=categoryLinkLabel_RkOu>document</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/graph/agensgraph><span title=graph class=categoryLinkLabel_RkOu>graph</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/hashids><span title=Hashids class=linkLabel_JPPZ>Hashids</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/kv><span title="Key Value" class=categoryLinkLabel_RkOu>Key Value</span></a><button aria-label="Expand sidebar category 'Key Value'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/mobile><span title="Mobile Database" class=categoryLinkLabel_RkOu>Mobile Database</span></a><button aria-label="Expand sidebar category 'Mobile Database'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/newsql/cockroachdb><span title=newsql class=categoryLinkLabel_RkOu>newsql</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/olap><span title=OLAP class=categoryLinkLabel_RkOu>OLAP</span></a><button aria-label="Expand sidebar category 'OLAP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/ops/atlas><span title=ops class=categoryLinkLabel_RkOu>ops</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/raft><span title="Raft Consensus Algorithm" class=linkLabel_JPPZ>Raft Consensus Algorithm</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/relational><span title=关系型数据库 class=categoryLinkLabel_RkOu>关系型数据库</span></a><button aria-label="Expand sidebar category '关系型数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/schema><span title="Service Schema" class=linkLabel_JPPZ>Service Schema</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/db/search><span title=搜索 class=categoryLinkLabel_RkOu>搜索</span></a><button aria-label="Collapse sidebar category '搜索'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/notes/db/search/elastic/v2><span title=elastic class=categoryLinkLabel_RkOu>elastic</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/db/search/elastic/v2><span title="Elasticsearch v2.x" class=linkLabel_JPPZ>Elasticsearch v2.x</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/elastic/v2.yml><span title="elasticsearch.yml v2.x" class=linkLabel_JPPZ>elasticsearch.yml v2.x</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/elastic/logstash><span title=Logstash class=linkLabel_JPPZ>Logstash</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/groonga><span title=groonga class=linkLabel_JPPZ>groonga</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/manticoresearch><span title=manticoresearch class=linkLabel_JPPZ>manticoresearch</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/meilisearch><span title=Meilisearch class=linkLabel_JPPZ>Meilisearch</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/milvus><span title=milvus class=linkLabel_JPPZ>milvus</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/opensearch-dashboard><span title="OpenSearch Dashboard" class=linkLabel_JPPZ>OpenSearch Dashboard</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/opensearch-security><span title=opensearch-security class=linkLabel_JPPZ>opensearch-security</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/opensearch><span title=OpenSearch class=linkLabel_JPPZ>OpenSearch</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/awesome><span title="Search Engine Awesome" class=linkLabel_JPPZ>Search Engine Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/faq><span title="Search Engin FAQ" class=linkLabel_JPPZ>Search Engin FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/glossary><span title="Search Glossary" class=linkLabel_JPPZ>Search Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/syntax><span title="Search Syntax" class=linkLabel_JPPZ>Search Syntax</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/searxng><span title=searxng class=linkLabel_JPPZ>searxng</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/solr><span title="Apache Solr" class=linkLabel_JPPZ>Apache Solr</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/sonic><span title=sonic class=linkLabel_JPPZ>sonic</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/typesense><span title=typesense class=linkLabel_JPPZ>typesense</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/search/zincsearch><span title=zinc class=linkLabel_JPPZ>zinc</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/sling-cli><span title=sling-cli class=linkLabel_JPPZ>sling-cli</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/sysbench><span title=Sysbench class=linkLabel_JPPZ>Sysbench</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/theory/aggregate><span title=theory class=categoryLinkLabel_RkOu>theory</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/tile38><span title=Tile38 class=linkLabel_JPPZ>Tile38</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/ulid><span title=ulid class=linkLabel_JPPZ>ulid</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/usql><span title=usql class=linkLabel_JPPZ>usql</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/db><span>数据库</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/db/search><span>搜索</span></a><li class=breadcrumbs__item><span class=breadcrumbs__link>elastic</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Elasticsearch v2.x</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Elasticsearch</h1></header>
+<ul>
+<li>2016.2 ELK 交流. 讲义文稿 <a href="https://docs.google.com/presentation/d/1UNycijD8JrkfspY87NAt9vFlJBe6drcsgF93rr_3Hn4/edit?usp=sharing" target=_blank rel="noopener noreferrer">GoogleDoc</a>/<a href=http://www.slideshare.net/3160586/elk-59003177 target=_blank rel="noopener noreferrer">Slideshare</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=tips>Tips<a href=#tips class=hash-link aria-label="Direct link to Tips" title="Direct link to Tips" translate=no>​</a></h2>
+<ul>
+<li>文档不会被删除,只会被标记删除</li>
+<li>索引在内存中构建, 然后刷到磁盘</li>
+<li>一个索引由多个段(segment)组成,搜索会在所有段执行,最终合并结果</li>
+<li>段会定期合并</li>
+<li>每个段都会缓存 Field 和 Filter</li>
+<li>Elasticsearch 不支持事务</li>
+<li>每个分片为一个 Lucene 索引</li>
+<li>近实时程度与性能有关,默认为 1 秒</li>
+<li>Lucene 自身是增量索引</li>
+<li>每个段自身为一个小索引</li>
+<li>1.4 之前默认使用 UUID, 之后使用 Flask ID</li>
+<li>无法通过查询来删除
+<ul>
+<li><a href=https://www.elastic.co/guide/en/elasticsearch/plugins/2.2/delete-by-query-usage.html target=_blank rel="noopener noreferrer">delete-by-query</a></li>
+</ul>
+</li>
+<li>无法通过查询来更新
+<ul>
+<li><a href=https://github.com/yakaz/elasticsearch-action-updatebyquery target=_blank rel="noopener noreferrer">yakaz/elasticsearch-action-updatebyquery</a>
+该插件目前已经不可用</li>
+<li>提议添加该功能 <a href=https://github.com/elastic/elasticsearch/issues/2230 target=_blank rel="noopener noreferrer">#2230</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=best-practice>Best practice<a href=#best-practice class=hash-link aria-label="Direct link to Best practice" title="Direct link to Best practice" translate=no>​</a></h2>
+<ul>
+<li>只索引不更新</li>
+<li>日志索引分日期</li>
+<li>定义好 Mapping</li>
+<li>挂载多个磁盘使用多个 path.data
+<ul>
+<li>提升索引速度</li>
+<li>减少数据丢失</li>
+</ul>
+</li>
+<li>如果允许, 增大刷新间隔</li>
+<li>最大使用 32G 内存, 利用 JVM 压缩指针
+<ul>
+<li>测试最大内存量</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">java -Xmx32600m -XX:+PrintFlagsFinal 2> /dev/null | grep UseCompressedOops</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">bool UseCompressedOops := true</span><br/></span></code></pre></div></div>
+<ul>
+<li>1.7 32600m, 1.8 32766m</li>
+<li>关闭内存 swap
+<ul>
+<li><a href=https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html target=_blank rel="noopener noreferrer">影响 GC</a></li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">swapoff -a</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 或者</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">sysctl vm.swappiness=1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 在 Elasticsearch 配置中添加 bootstrap.mlockall: true</span><br/></span></code></pre></div></div>
+<ul>
+<li>如果自定义 ID, 选择一个较好的 ID
+<ul>
+<li>前缀相同</li>
+<li>长度相同</li>
+<li><a href=http://blog.mikemccandless.com/2014/05/choosing-fast-unique-identifier-uuid.html target=_blank rel="noopener noreferrer">Choosing fast unique id</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=reference>Reference<a href=#reference class=hash-link aria-label="Direct link to Reference" title="Direct link to Reference" translate=no>​</a></h2>
+<ul>
+<li><a href=https://benchmarks.elastic.co target=_blank rel="noopener noreferrer">Elasticsearch nightly benchmarks</a></li>
+<li><a href=https://people.apache.org/~mikemccand/lucenebench/ target=_blank rel="noopener noreferrer">Lucene nightly benchmarks</a></li>
+<li>Articles
+_ <a href=https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up target=_blank rel="noopener noreferrer">Elasticsearch from the bottom up</a>
+_ <a href=https://www.elastic.co/blog/performance-considerations-elasticsearch-indexing target=_blank rel="noopener noreferrer">Performance consideration</a> * <a href=https://www.elastic.co/blog/performance-indexing-2-0 target=_blank rel="noopener noreferrer">Performance consideration 2.0</a>
+<ul>
+<li><a href=https://www.loggly.com/blog/nine-tips-configuring-elasticsearch-for-high-performance/ target=_blank rel="noopener noreferrer">9 Tips on ElasticSearch Configuration for High Performance</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=常用操作>常用操作<a href=#常用操作 class=hash-link aria-label="Direct link to 常用操作" title="Direct link to 常用操作" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=批量导入>批量导入<a href=#批量导入 class=hash-link aria-label="Direct link to 批量导入" title="Direct link to 批量导入" translate=no>​</a></h3>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 导入前关闭刷新</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPUT localhost:9200/test/_settings -d '{"index" : {"refresh_interval" : "-1"} }'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 导入前取消副本</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPUT 'localhost:9200/test/_settings' -d '{"index" : {"number_of_replicas" : 0}}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 导入完成强制合并</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST 'localhost:9200/test/_forcemerge?max_num_segments=5'</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=更改解析器>更改解析器<a href=#更改解析器 class=hash-link aria-label="Direct link to 更改解析器" title="Direct link to 更改解析器" translate=no>​</a></h3>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 更改前需要先关闭所有</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST 'localhost:9200/test/_close'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPUT 'localhost:9200/test/_settings' -d '{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  "analysis" : {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    "analyzer":{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "content":{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        "type":"custom",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        "tokenizer":"whitespace"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 完成后打开索引</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST 'localhost:9200/test/_open'</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=诊断>诊断<a href=#诊断 class=hash-link aria-label="Direct link to 诊断" title="Direct link to 诊断" translate=no>​</a></h3>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 查看 jvm 内存状态</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl localhost:9200/_nodes/stats | jq ".nodes[].jvm.mem"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 单个节点内存状态</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl localhost:9210/_nodes/stats | jq "[.nodes[]]|.[1].jvm.mem"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 快速信息查看端口, ?help 显示列的含义</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl localhost:9200/_cat</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 查看恢复进度</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl localhost:9200/_cat/recovery</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=模块>模块<a href=#模块 class=hash-link aria-label="Direct link to 模块" title="Direct link to 模块" translate=no>​</a></h2>
+<p>Elasticsearch 的所有功能都是由各个模块组成的.</p>
+<p>模块配置分为静态配置和动态配置,静态配置需要在相关节点的 <code>elasticsearch.yml</code> 中指定,动态节点可通过<a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-update-settings.html target=_blank rel="noopener noreferrer">相关接口</a> 进行更改.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>模块<th>责任<tbody><tr><td>Cluster<td>控制如何为节点申请分片.<tr><td>Discovery<td>节点在集群中如何相互发现<tr><td>Gateway<td>集群中需要多少节点才能开始恢复<tr><td>HTTP<td>控制 HTTP REST 接口<tr><td>Indices<td>全局索引相关配置<tr><td>Network<td>控制默认网络设置<tr><td>Node client<td>加入到集群中的 Java 客户端,不会持有数据和承担主节点的责任.<tr><td>Plugins<td>使用插件来扩展 Elasticsearch<tr><td>Scripting<td>定制化的 Lucene Expressions, Groovy, Python, 和 Javascript 脚本.<tr><td>Snapshot/Restore<td>备份和恢复数据<tr><td>Thread pools<td>Elasticsearch 中的线程池信息<tr><td>Transport<td>传输层控制,节点内部通信<tr><td>Tribe nodes<td>A tribe node joins one or more clusters and acts as a federated client across them.</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=query-dsl>Query DSL<a href=#query-dsl class=hash-link aria-label="Direct link to Query DSL" title="Direct link to Query DSL" translate=no>​</a></h2>
+<p>ES 的所有接口都是通过 RESTful 接口暴露的,因此所有对 ES 的数据操作均可以通过 REST Api 完成.所有的接口也都遵循 HTTP 请求方法语义.</p>
+<p>ES 提供了一套通过 JSON 表示的查询接口.查询语句主要包含</p>
+<dl><dt>叶查询语句/Leaf query clauses<dd>用于数据的指定字段,例如字段匹配,字段范围等查询.<dt>组合查询语句/Compound query clauses<dd>使用逻辑运算符来组合一个或多个叶查询或组合查询语句.</dl>
+<p>查询语句的行为可能会随使用的上下文而发生改变.</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=查询和过滤上下文>查询和过滤上下文<a href=#查询和过滤上下文 class=hash-link aria-label="Direct link to 查询和过滤上下文" title="Direct link to 查询和过滤上下文" translate=no>​</a></h3>
+<dl><dt>查询上下文<dd>查询语句在查询上下文中用于回答 "该文档与查询语句有多么匹配" 的问题,在判断一个文档是否匹配的同时,也会计算出每个文档的匹配程度(分数 <code>_score</code>),用于表示该文档与查询的的匹配和相关程度.<dt>过滤上下文<dd>在过滤上下文中查询语句用于回答 "该文档是否匹配该查询语句",其结果只有匹配或不匹配.</dl>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">GET _search</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  "query": {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    "bool": {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "must": [</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        { "match": { "title":   "Search"        }},</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        { "match": { "content": "Elasticsearch" }}</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      ],</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "filter": [</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        { "term":  { "status": "published" }},</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        { "range": { "publish_date": { "gte": "2015-01-01" }}}</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      ]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=查询地址>查询地址<a href=#查询地址 class=hash-link aria-label="Direct link to 查询地址" title="Direct link to 查询地址" translate=no>​</a></h3>
+<p>所有 Elasticsearch 的 API 均以 RESTful 的形式暴露, 基本查询的格式如下</p>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">[/索引名[,索引名...]][/类型名[,类型名...]]/_search</span><br/></span></code></pre></div></div>
+<p>查询中的索引名和类型名是可以缺省的,并且也支持通配符,例如如下请求:</p>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST localhost:9200/mq-*/meta,body/_search -d '{"query":{"match_all":{}}}'</span><br/></span></code></pre></div></div>
+<p>Elasticsearch 的查询除了支持 GET 也支持使用 POST, 因为在现有的部分系统里, GET 不允许携带请求体.例如以下请求是相同的:</p>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XGET localhost:9200/_search -d '{"query":{"match_all":{}}}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST localhost:9200/_search -d '{"query":{"match_all":{}}}'</span><br/></span></code></pre></div></div>
+<p>除此之外, Elasticsearch 也支持针对单个文档的标示符进行查询,例如:</p>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XGET localhost:9200/mq-meta-local/meta/THIS_IS_MY_DOCUMENT_ID</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=查询类型>查询类型<a href=#查询类型 class=hash-link aria-label="Direct link to 查询类型" title="Direct link to 查询类型" translate=no>​</a></h3>
+<p>Elasticsearch 的底层搜索是 Lucene, 其提供的查询也主要是对 Lucene 查询的封装.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>查询类型<th>说明<tbody><tr><td>match_all<td>匹配所有文档,<code>_score</code> 为 <code>1.0</code><br/>可通过 <code>boost</code> 更改分数值<tr><td>match<td>模糊近似匹配<tr><td>multi_match<td>与 match 相同,可指定多个字段<tr><td>common_terms<td>一个更特殊的查询,会更趋向于选择不常见的词<tr><td>query_string<td>支持 Lucene 查询语法,可使用 <code>AND,OR,NOT</code> 条件,可在单个查询中标示多个字段的搜索<br/><strong>需谨慎使用</strong><tr><td>simple_query_string<td>一个更高效的 query_string 版本,适合普通用户使用<tr><td>term<td>匹配字段包含的词<tr><td>terms<td>匹配字段包含的词<tr><td>range<td>使用范围匹配字段的值(日期,数字,字符串等)<tr><td>exists<td>匹配非空字段<tr><td>missing<td>匹配不存在字段或为空的字段<tr><td>prefix<td>匹配字段值前缀<tr><td>wildcard<td>使用通配符来匹配字段的值<br/><code>?</code> 单个字符,<code>*</code> 多个字符<tr><td>regexp<td>使用正则表达式来匹配字段的值<tr><td>fuzzy<td>模糊匹配字段的值,使用<a href=https://zh.wikipedia.org/wiki/%E8%8E%B1%E6%96%87%E6%96%AF%E5%9D%A6%E8%B7%9D%E7%A6%BB target=_blank rel="noopener noreferrer">莱文斯坦距离</a>进行度量.<tr><td>type<td>匹配文档类型<tr><td>ids<td>查找文档 ID<tr><td>constant_score<td>该查询会包装另外一个查询,并在过滤上下文中执行.所有匹配的文档都会给予一个固定的分数(<code>_score</code>)<tr><td>bool<td>用于组合多个 must, should, must_not, 和 filter 查询.must 和 should 语句结果的分数会合并, must_not 和 filter 会在过滤上下文中执行.<tr><td>dis_max<td>生成多个子查询的并集,并为单个查询结果中分数最高的文档进行增强.<tr><td>function_score<td>使用指定的函数对查询结果的分数进行从新计算.<tr><td>boosting<td>可使用指定的查询语句来增强和削弱结果分数.<tr><td>indices<td>在指定索引中进行查询<tr><td>and, or, not<td>等同于 bool<tr><td>filtered<td>于 2.0.0-beta1 遗弃,使用 bool 查询替代.<tr><td>limit<td>限制每个分片查询的文档数<tr><td>nested<td>用于搜索 nested 类型的字段.<tr><td>has_child,has_parent<td>用于搜索父子关系的文档.<tr><td>more_like_this<td>查询类似于给定的字符串,文档或文档集合.<tr><td>template<td>模板查询<tr><td>script<td>脚本查询<tr><td>geo_shape<td>查找形状交叉的文档<tr><td>geo_bounding_box<td>查找点在该矩形内文档<tr><td>geo_distance<td>查找点距之内的文档<tr><td>geo_distance_range<td>查找点距在指定范围内的文档<tr><td>geo_polygon<td>查找点在该多边形内的文档<tr><td>geohash_cell<td>查找点与指定点 geohash 交叉的文档<tr><td>span_term<td>与 term 查询相同,用于与其他跨度查询结合使用<tr><td>span_multi<td>用于包装 term, range, prefix, wildcard, regexp, 或 fuzzy 查询<tr><td>span_first<td>匹配字段满足查询,并且在前 N 位置<tr><td>span_near<td>匹配满足多个查询,并且查询跨度在一定距离内,也可指定是否保持同样的顺序<tr><td>span_or<td>多个跨度查询的逻辑或<tr><td>span_not<td>排除一个跨度查询<tr><td>span_containing<td>指定一列跨度查询,但只返回跨度满足第二个跨度查询的结果<tr><td>span_within<td>指定一个跨度查询,返回跨度满足另外一列跨度查询的结果</table>
+<dl><dt>全文查询<dd>match,multi_match,common_terms,query_string,simple_query_string<dd>查询字段必须是 analyzed<dd>在查询前会对查询字符串应用字段的解析器(analyzer,search_analyzer)<dt>词级查询<dd>term,terms,range,exists,missing,prefix,wildcard,regexp,fuzzy,type,ids<dd>不同于全文查询,在之前需要对查询字符串进行解析.词级查询用于查询字段确切的值.<dt>组合查询<dd>constant_score,bool,filter,dis_max,function_score,boosting,indices,and,or,not,filtered,limit<dt>关联查询<dd>nested,has_child,has_parent<dt>GEO 查询<dd>geo_shape,geo_bounding_box,geo_distance,geo_distance_range,geo_polygon,geohash_cell<dt>跨度查询<dd>span_term,span_multi,span_first,span_near,span_or,span_not,span_containing,span_within<dd>除了 span_multi 以外,跨度查询不能与非跨度查询混合使用<dd><a href=https://lucidworks.com/blog/2009/07/18/the-spanquery/ target=_blank rel="noopener noreferrer">https://lucidworks.com/blog/2009/07/18/the-spanquery/</a></dl>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=query-string>Query String<a href=#query-string class=hash-link aria-label="Direct link to Query String" title="Direct link to Query String" translate=no>​</a></h4>
+<p>Elasticsearch 可以利用 Lucene 中强大的 query_string 查询语法,其功能强大并且书写简单,也可以直接在 url 中进行查询.
+例如:</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># Query string syntax</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XGET 'localhost:9200/index/type/_search?q=name:wener AND age:>10'</span><br/></span></code></pre></div></div>
+<p>如果将该查询转换为基于 DSL 的查询则是</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># DSL syntax</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST 'localhost:9200/index/type/_search' -d'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">	"query":{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">		"bool":{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">			"must":[</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">				"term":{"name":"wener"},</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">				"range":{"age":{"gt":10}}</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">			]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">		}</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">	}</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}'</span><br/></span></code></pre></div></div>
+<p>可见善用 query_string 查询是非常有用的.在 Kibana 的视图查询界面均是 query_string 查询.</p>
+<ul>
+<li><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html target=_blank rel="noopener noreferrer">Query String 语法</a></li>
+<li><a href=http://lucene.apache.org/core/5_5_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description target=_blank rel="noopener noreferrer">Lucene 查询解析语法</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=总结>总结<a href=#总结 class=hash-link aria-label="Direct link to 总结" title="Direct link to 总结" translate=no>​</a></h3>
+<p>Elasticsearch 对于基础的查询提供了非常多的查询方式,但对于关系型的支持较少,官方建议是在应用端做数据关联,对关系型的处理有一定的复杂度.内置了两种对关系型数据的支持(Nested Object, Parent-Child),但支持都相对较为薄弱,难以处理复杂的场景,还不如使用通常的文档,这样对文档的控制更全面.</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=参考>参考<a href=#参考 class=hash-link aria-label="Direct link to 参考" title="Direct link to 参考" translate=no>​</a></h3>
+<ul>
+<li><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html target=_blank rel="noopener noreferrer">Query DSL</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=高可用机制>高可用机制<a href=#高可用机制 class=hash-link aria-label="Direct link to 高可用机制" title="Direct link to 高可用机制" translate=no>​</a></h2>
+<p>Elasticsearch 的高可用是通过分片的多副本保障的.对于每个索引指定一定的分片数量和副本数量.每个文档都有一个唯一标示,通过该标示符来对文档进行分片路由.如果接受到请求的节点没有该分配,则会由该分片转发到该分片主分片的主节点.</p>
+<p>ELasticsearch 的高可用形式和 Kafak, Hazelcast 的高可用几乎相同,均是固定分片和副本.</p>
+<p>Elasticsearch 集群中节点角色分为主节点,数据节点,客户端节点, Tribe 节点.</p>
+<p>所有的索引操作都会对磁盘进行追加操作,而不是直接的对文档进行修改,后台有固定的线程的追加的数据进行合并.</p>
+<ul>
+<li>同步机制</li>
+<li>数据刷盘方式</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=主副本分片交互过程>主副本分片交互过程<a href=#主副本分片交互过程 class=hash-link aria-label="Direct link to 主副本分片交互过程" title="Direct link to 主副本分片交互过程" translate=no>​</a></h3>
+<ul>
+<li>主副本分片结构
+<img decoding=async loading=lazy src=https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0401.png alt="" class=img_IxRA /></li>
+<li>创建,索引或删除文档
+<img decoding=async loading=lazy src=https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0402.png alt="" class=img_IxRA /></li>
+<li>获取单个文档
+<img decoding=async loading=lazy src=https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0403.png alt="" class=img_IxRA /></li>
+<li>部分更新
+<img decoding=async loading=lazy src=https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0404.png alt="" class=img_IxRA />
+<ul>
+<li>即便是部分更新,每次发送给副本的都是一个全量的文档</li>
+<li>此时的文档分发是异步的,不保证其顺序</li>
+</ul>
+</li>
+<li>同时操作多个文档
+<ul>
+<li>mget
+<img decoding=async loading=lazy src=https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0405.png alt="" class=img_IxRA /></li>
+<li>bulk
+<img decoding=async loading=lazy src=https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0406.png alt="" class=img_IxRA /></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href=https://www.elastic.co/guide/en/elasticsearch/guide/current/_how_primary_and_replica_shards_interact.html target=_blank rel="noopener noreferrer">How Primary and Replica Shards Interact</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=discovery>Discovery<a href=#discovery class=hash-link aria-label="Direct link to Discovery" title="Direct link to Discovery" translate=no>​</a></h3>
+<dl><dt>Master<dd>唯一可以发布新的集群状态的节点<dd>用于响应集群操作,修改节点,增删改索引信息,为节点分配分片<dd>索引和搜索等不需要牵涉到主节点</dl>
+<div class="language-yml codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-yml codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token key atrule">discovery.zen</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">minimum_master_nodes</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> 选举主节点的最小 master eligible 节点数</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">类似于 Zookeeper 里的大多数</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">ping.unicast</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> 单播时进行发现的主机信息</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">master_election</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">filter_client</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> 默认 true</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">filter_data</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> 默认 false</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">fd</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Fault Detection</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">ping_interval</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">1</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">ping_timeout</span><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> 30s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">ping_retries</span><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">3</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">publish_timeout</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> 30s 发布集群状态的超时时间</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">no_master_block</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> 当没有 Master 时需要拒绝的操作</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain">不会阻止和节点相关的 API</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    all</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    write 默认.可能会读取到过期数据.</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=local-gateway>Local Gateway<a href=#local-gateway class=hash-link aria-label="Direct link to Local Gateway" title="Direct link to Local Gateway" translate=no>​</a></h3>
+<ul>
+<li>用于本地存储集群节点和分片信息.即便在集群完全重启后也会保持.</li>
+<li>存储的节点和集群信息会用于确定何时进行数据恢复调度.</li>
+<li>配置项的更改只有在集群完全重启后才会生效.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=参考-1>参考<a href=#参考-1 class=hash-link aria-label="Direct link to 参考" title="Direct link to 参考" translate=no>​</a></h3>
+<ul>
+<li><a href=https://www.elastic.co/guide/en/elasticsearch/resiliency/current/index.html target=_blank rel="noopener noreferrer">弹性扩容的问题</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=恢复备份>恢复备份<a href=#恢复备份 class=hash-link aria-label="Direct link to 恢复备份" title="Direct link to 恢复备份" translate=no>​</a></h2>
+<p>Elasticsearch 支持快照和恢复</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 需要配置 path.repo: /home/data/es-backup</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># Snapshot repository</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPUT 'localhost:9200/_snapshot/backup' -d '{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  "type": "fs",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    "settings": {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "compress": "true",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "location": "/home/data/es-backup/backup"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XGET localhost:9200/_snapshot/backup?pretty</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XGET localhost:9200/_snapshot/_all?pretty</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># Backup</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPUT 'localhost:9200/_snapshot/backup/bckp1'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPUT 'localhost:9200/_snapshot/backup/bckp2?wait_for_completion=true&pretty'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPUT 'localhost:9200/_snapshot/backup/bckp?wait_for_completion=true&pretty' -d '{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  "indices": "mq-*",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  "ignore_unavailable": "true",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  "include_global_state": false,</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">	"partial":false</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># Restore</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST 'localhost:9200/_snapshot/backup/bckp1/_restore'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST 'localhost:9200/_snapshot/backup/bck1/_restore?pretty' -d '{"indices": "c*"}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># Cancel/Delete</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XDELETE 'localhost:9200/_snapshot/backup/bckp1/_restore'</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=参考-2>参考<a href=#参考-2 class=hash-link aria-label="Direct link to 参考" title="Direct link to 参考" translate=no>​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=数据建模>数据建模<a href=#数据建模 class=hash-link aria-label="Direct link to 数据建模" title="Direct link to 数据建模" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=parent-child>Parent-Child<a href=#parent-child class=hash-link aria-label="Direct link to Parent-Child" title="Direct link to Parent-Child" translate=no>​</a></h3>
+<ul>
+<li><a href=https://www.elastic.co/guide/en/elasticsearch/guide/current/parent-child.html target=_blank rel="noopener noreferrer">Parent Child Relationship</a></li>
+<li>适合于子文档特别多,父文档较少的情况</li>
+<li>父子关系的映射会存储在内存中</li>
+<li>更新父文档不影响子文档</li>
+<li>增删改子文档不影响父文档</li>
+<li>减少父文档 ID 长度</li>
+<li>父子都存储在同一个分片</li>
+<li>可以实现祖孙关系,增加时需要使用 routing 来指定分片</li>
+<li>has_child filter 不会缓存</li>
+<li>搜索子文档时,避免使用 score_mode</li>
+<li><code>GET /_nodes/stats/indices/id_cache?human</code> 可查看用于缓存父子占用的内存</li>
+<li>每次索引更改需要重建 Global Ordinals,当父文档较多时,需要占用大量的时间,可通过修改 fielddata 的 loading 来使其发生在 refresh 时而不是 query 时.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=nested-object>Nested Object<a href=#nested-object class=hash-link aria-label="Direct link to Nested Object" title="Direct link to Nested Object" translate=no>​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=聚合>聚合<a href=#聚合 class=hash-link aria-label="Direct link to 聚合" title="Direct link to 聚合" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=内存控制>内存控制<a href=#内存控制 class=hash-link aria-label="Direct link to 内存控制" title="Direct link to 内存控制" translate=no>​</a></h3>
+<ul>
+<li><a href=https://www.elastic.co/guide/en/elasticsearch/guide/current/controlling-memory.html target=_blank rel="noopener noreferrer">Controlling Memory</a></li>
+<li>$ES_HEAP_SIZE 可用于控制堆大小,小于可用的一半,小于 32G</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=fielddata>Fielddata<a href=#fielddata class=hash-link aria-label="Direct link to Fielddata" title="Direct link to Fielddata" translate=no>​</a></h4>
+<ul>
+<li>会将所有文档的 fielddata 加载到内存,主要是 uinvert index</li>
+<li>缓存以段位单位</li>
+<li>主要用于排序,聚合和部分过滤及脚本</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=插件>插件<a href=#插件 class=hash-link aria-label="Direct link to 插件" title="Direct link to 插件" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=常用插件>常用插件<a href=#常用插件 class=hash-link aria-label="Direct link to 常用插件" title="Direct link to 常用插件" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/mobz/elasticsearch-head target=_blank rel="noopener noreferrer">mobz/elasticsearch-head</a>
+A web front end for an elastic search cluster</li>
+<li><a href=https://github.com/lmenezes/elasticsearch-kopf target=_blank rel="noopener noreferrer">lmenezes/elasticsearch-kopf</a>
+web admin interface for elasticsearch</li>
+<li><a href=https://github.com/royrusso/elasticsearch-HQ target=_blank rel="noopener noreferrer">royrusso/elasticsearch-HQ</a>/<a href=http://www.elastichq.org/ target=_blank rel="noopener noreferrer">online</a>
+Monitoring and Management Web Application for ElasticSearch instances and clusters.</li>
+<li><a href=https://www.elastic.co/guide/en/elasticsearch/plugins/2.2/delete-by-query-usage.html target=_blank rel="noopener noreferrer">delete-by-query</a></li>
+<li>Update by query
+<ul>
+<li><a href=https://github.com/yakaz/elasticsearch-action-updatebyquery target=_blank rel="noopener noreferrer">yakaz/elasticsearch-action-updatebyquery</a>
+该插件目前已经不可用</li>
+<li><a href=https://github.com/elastic/elasticsearch/issues/2230 target=_blank rel="noopener noreferrer">#2230</a>
+添加 Update by query 请求,目前已经合并还未发布</li>
+</ul>
+</li>
+<li>bigdesk</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=插件开发>插件开发<a href=#插件开发 class=hash-link aria-label="Direct link to 插件开发" title="Direct link to 插件开发" translate=no>​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=更新>更新<a href=#更新 class=hash-link aria-label="Direct link to 更新" title="Direct link to 更新" translate=no>​</a></h2>
+<p>更新主要指部分更新,部分更新在复杂场景下是非常常见的常见.部分更新分为脚本和文档合并两种方式.</p>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPUT "localhost:9200/test/test/1" -d '{"name":"wener","age":15}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 需要</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># script.inline: true</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST "localhost:9200/test/test/1/_update" -d '{"script" : "ctx._source.age=16"}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST "localhost:9200/test/test/1/_update" -d '{"script" : "ctx._source.sex='男'"}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># params for script</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST "localhost:9200/test/test/1/_update" -d '{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">   "script" : "ctx._source.age=age",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">   "params" : {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "age" : 20</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">   }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># upsert for missing</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST "localhost:9200/test/test/1/_update" -d '{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">   "script" : "ctx._source.score+=1",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">   "upsert": {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">       "score": 0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">   }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># doc for partial update</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST "localhost:9200/test/test/1/_update" -d '{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  "doc":{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    "friends":[</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "XXX"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    ]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># doc_as_upsert will insert this doc if missing</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST "localhost:9200/test/test/2/_update" -d '{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  "doc":{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    "friends":[</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "CCC"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    ]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  },</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  "doc_as_upsert": true</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}'</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># remove field</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -XPOST "localhost:9200/test/test/1/_update" -d '{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  "script" : "ctx._source.remove('friends')"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}'</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=翻页>翻页<a href=#翻页 class=hash-link aria-label="Direct link to 翻页" title="Direct link to 翻页" translate=no>​</a></h2>
+<p>默认翻页内容最多 10000 条(配置项 <a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html target=_blank rel="noopener noreferrer">index.max_result_window</a>),</p>
+<ul>
+<li><a href=https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html target=_blank rel="noopener noreferrer">Fetch phase</a></li>
+<li><a href=https://www.elastic.co/guide/en/elasticsearch/guide/current/pagination.html target=_blank rel="noopener noreferrer">Pagination</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=vs-others>vs Others<a href=#vs-others class=hash-link aria-label="Direct link to vs Others" title="Direct link to vs Others" translate=no>​</a></h3>
+<p>将 Elasticsearch 和其他产品做比较时,需要先考虑它的设计初衷</p>
+<ul>
+<li>一次写多次读
+<ul>
+<li>符合日志的特性</li>
+<li>能够做大量缓存</li>
+</ul>
+</li>
+<li>搜索</li>
+<li>统计分析</li>
+</ul>
+<p>Elasticsearch 自身本可以作为主数据库使用, 但目前常用的做法都是作为一个附属库,当数据被写入到一个支持事务的高一致性的存储(HBase,PostgreSQL)后,再异步推送到 Elasticsearch 进行索引,以实现对存储的数据进行高性能的检索和分析.</p>
+<ul>
+<li><a href=https://www.elastic.co/blog/found-elasticsearch-as-nosql target=_blank rel="noopener noreferrer">Elasticsearch as NoSQL</a></li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=mongodb>MongoDB<a href=#mongodb class=hash-link aria-label="Direct link to MongoDB" title="Direct link to MongoDB" translate=no>​</a></h4>
+<p>MongoDB 是用于传统用途(CRUD) 的基于文档的数据库,其主要特色不是搜索或者统计分析,而是能够以数据本身的文档结构进行存储.</p>
+<p>MongoDB 与 Elasticsearch 两者并不违背,可以同时使用.</p>
+<p>虽然 Elasticsearch 不需要 Schema ,但是因为底层为 Lucene, 所有的文档都会扁平化处理,因此无法真正的把 Elasticsearch 作为 Schemaless 来使用,反而需要慎重的对待.而 MongoDB 却能很好地做到 Schemaless, 可以从 JavaScript 的处理角度出发看待起处理文档的方式.</p>
+<p>Elasticsearch 大多情况适用于处理小文档,当处理不需要索引的大文档时,其功能有限.而 MongoDB 支持 <a href=https://docs.mongodb.org/manual/core/gridfs/ target=_blank rel="noopener noreferrer">GridFS</a>, 可以很好地使用同一套接口来处理大文档.</p>
+<ul>
+<li><a href=http://blog.quarkslab.com/mongodb-vs-elasticsearch-the-quest-of-the-holy-performances.html target=_blank rel="noopener noreferrer">MongoDB vs. Elasticsearch: The Quest of the Holy Performances</a></li>
+<li><a href=http://db-engines.com/en/system/Elasticsearch%3BMongoDB target=_blank rel="noopener noreferrer">Elasticsearch vs MongoDB : DB engines</a></li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=solar>Solar<a href=#solar class=hash-link aria-label="Direct link to Solar" title="Direct link to Solar" translate=no>​</a></h4>
+<ul>
+<li><a href=http://solr-vs-elasticsearch.com/ target=_blank rel="noopener noreferrer">Apache Solr vs Elasticsearch The Feature Smackdown</a></li>
+<li><a href=http://db-engines.com/en/system/Elasticsearch%3BSolr target=_blank rel="noopener noreferrer">Elasticsearch vs Solr : DB engines</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=faq>FAQ<a href=#faq class=hash-link aria-label="Direct link to FAQ" title="Direct link to FAQ" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=指定配置文件>指定配置文件<a href=#指定配置文件 class=hash-link aria-label="Direct link to 指定配置文件" title="Direct link to 指定配置文件" translate=no>​</a></h3>
+<p>启动时可通过 <code>path.conf</code> 来指定配置文件目录, 读取的配置文件来该目录下的 <code>elasticsearch.yml</code>, 不能直接指定该配置文件,也不能修改该配置文件名.</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 确保目录下配置文件正确</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ls my-config</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">elasticsearch.yml logging.yml</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 启动时指定配置目录</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">./bin/elasticsearch -Dpath.conf=my-config</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=使用-root-启动>使用 ROOT 启动<a href=#使用-root-启动 class=hash-link aria-label="Direct link to 使用 ROOT 启动" title="Direct link to 使用 ROOT 启动" translate=no>​</a></h3>
+<p>Elasticsearch 默认是不允许使用 ROOT 用户启动的,可通过启动时添加 <code>es.insecure.allow.root</code> 参数允许使用 ROOT 启动.</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 允许使用 ROOT 启动</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">./bin/elasticsearch -Des.insecure.allow.root=true</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=java-版本>Java 版本<a href=#java-版本 class=hash-link aria-label="Direct link to Java 版本" title="Direct link to Java 版本" translate=no>​</a></h3>
+<p>Elasticsearch 对 Java 版本有要求,至少需要 1.7, 并且在 1.7 的某些版本中的 Bug 可能会影响 Lucene 的一致性,因此 Elasticsearch 在启动时会给予警告.</p>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">Exception in thread "main" java.lang.RuntimeException: Java version: Oracle Corporation 1.7.0_45 [Java HotSpot(TM) 64-Bit Server VM 24.45-b08] suffers from critical bug https://bugs.openjdk.java.net/browse/JDK-8024830 which can cause data corruption.</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Please upgrade the JVM, see http://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html for current recommendations.</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">If you absolutely cannot upgrade, please add -XX:-UseSuperWord to the JAVA_OPTS environment variable.</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Upgrading is preferred, this workaround will result in degraded performance.</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">	at org.elasticsearch.bootstrap.JVMCheck.check(JVMCheck.java:123)</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">	at org.elasticsearch.bootstrap.Bootstrap.init(Bootstrap.java:283)</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">	at org.elasticsearch.bootstrap.Elasticsearch.main(Elasticsearch.java:35)</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Refer to the log for complete error details.</span><br/></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">Use -XX:-UseSuperWord if you are running on 7u40 &lt;= JVM &lt; 7u55</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://wiki.apache.org/lucene-java/JavaBugs target=_blank rel="noopener noreferrer">https://wiki.apache.org/lucene-java/JavaBugs</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=使用-term-查找不到指定内容>使用 term 查找不到指定内容<a href=#使用-term-查找不到指定内容 class=hash-link aria-label="Direct link to 使用 term 查找不到指定内容" title="Direct link to 使用 term 查找不到指定内容" translate=no>​</a></h3>
+<ul>
+<li>
+<p>当使用 term 进行全文匹配时,要求查找的字段为非解析字段,否则无法进行全文匹配.</p>
+</li>
+<li>
+<p>大写会存储为小写,查询时需要手动转为小写.</p>
+</li>
+<li>
+<p><a href=https://www.elastic.co/guide/en/elasticsearch/guide/current/_exact_values_versus_full_text.html target=_blank rel="noopener noreferrer">Exact values versus full text</a></p>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/db/search/elastic/elastic-v2.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2023-06-21T06:37:19.000Z itemprop=dateModified>Jun 21, 2023</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/db/search><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>搜索</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/db/search/elastic/v2.yml><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>elasticsearch.yml v2.x</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#tips class="table-of-contents__link toc-highlight">Tips</a><li><a href=#best-practice class="table-of-contents__link toc-highlight">Best practice</a><li><a href=#reference class="table-of-contents__link toc-highlight">Reference</a><li><a href=#常用操作 class="table-of-contents__link toc-highlight">常用操作</a><ul><li><a href=#批量导入 class="table-of-contents__link toc-highlight">批量导入</a><li><a href=#更改解析器 class="table-of-contents__link toc-highlight">更改解析器</a><li><a href=#诊断 class="table-of-contents__link toc-highlight">诊断</a></ul><li><a href=#模块 class="table-of-contents__link toc-highlight">模块</a><li><a href=#query-dsl class="table-of-contents__link toc-highlight">Query DSL</a><ul><li><a href=#查询和过滤上下文 class="table-of-contents__link toc-highlight">查询和过滤上下文</a><li><a href=#查询地址 class="table-of-contents__link toc-highlight">查询地址</a><li><a href=#查询类型 class="table-of-contents__link toc-highlight">查询类型</a><li><a href=#总结 class="table-of-contents__link toc-highlight">总结</a><li><a href=#参考 class="table-of-contents__link toc-highlight">参考</a></ul><li><a href=#高可用机制 class="table-of-contents__link toc-highlight">高可用机制</a><ul><li><a href=#主副本分片交互过程 class="table-of-contents__link toc-highlight">主副本分片交互过程</a><li><a href=#discovery class="table-of-contents__link toc-highlight">Discovery</a><li><a href=#local-gateway class="table-of-contents__link toc-highlight">Local Gateway</a><li><a href=#参考-1 class="table-of-contents__link toc-highlight">参考</a></ul><li><a href=#恢复备份 class="table-of-contents__link toc-highlight">恢复备份</a><ul><li><a href=#参考-2 class="table-of-contents__link toc-highlight">参考</a></ul><li><a href=#数据建模 class="table-of-contents__link toc-highlight">数据建模</a><ul><li><a href=#parent-child class="table-of-contents__link toc-highlight">Parent-Child</a><li><a href=#nested-object class="table-of-contents__link toc-highlight">Nested Object</a></ul><li><a href=#聚合 class="table-of-contents__link toc-highlight">聚合</a><ul><li><a href=#内存控制 class="table-of-contents__link toc-highlight">内存控制</a></ul><li><a href=#插件 class="table-of-contents__link toc-highlight">插件</a><ul><li><a href=#常用插件 class="table-of-contents__link toc-highlight">常用插件</a><li><a href=#插件开发 class="table-of-contents__link toc-highlight">插件开发</a></ul><li><a href=#更新 class="table-of-contents__link toc-highlight">更新</a><li><a href=#翻页 class="table-of-contents__link toc-highlight">翻页</a><ul><li><a href=#vs-others class="table-of-contents__link toc-highlight">vs Others</a></ul><li><a href=#faq class="table-of-contents__link toc-highlight">FAQ</a><ul><li><a href=#指定配置文件 class="table-of-contents__link toc-highlight">指定配置文件</a><li><a href=#使用-root-启动 class="table-of-contents__link toc-highlight">使用 ROOT 启动</a><li><a href=#java-版本 class="table-of-contents__link toc-highlight">Java 版本</a><li><a href=#使用-term-查找不到指定内容 class="table-of-contents__link toc-highlight">使用 term 查找不到指定内容</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

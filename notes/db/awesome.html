@@ -1,0 +1,1002 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-db/db-awesome" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>Database Awesome | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/db/awesome /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Database Awesome | Wener Live & Life"/><meta data-rh=true name=description content="| name                 | stand for      |"/><meta data-rh=true property=og:description content="| name                 | stand for      |"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/db/awesome /><link data-rh=true rel=alternate href=https://wener.me/notes/db/awesome hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/db/awesome hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/db/","name":"数据库","position":1},{"@type":"ListItem","item":"https://wener.me/notes/db/awesome","name":"Database Awesome","position":2}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Collapse sidebar category '数据库'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/column><span title="Column Store" class=categoryLinkLabel_RkOu>Column Store</span></a><button aria-label="Expand sidebar category 'Column Store'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/db/awesome><span title="Database Awesome" class=linkLabel_JPPZ>Database Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/dsn><span title=DSN class=linkLabel_JPPZ>DSN</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/faq><span title="Database FAQ" class=linkLabel_JPPZ>Database FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/glossary><span title=数据库术语 class=linkLabel_JPPZ>数据库术语</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/olap-awesome><span title="OLAP Database Awesome" class=linkLabel_JPPZ>OLAP Database Awesome</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/document/appwrite><span title=document class=categoryLinkLabel_RkOu>document</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/graph/agensgraph><span title=graph class=categoryLinkLabel_RkOu>graph</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/hashids><span title=Hashids class=linkLabel_JPPZ>Hashids</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/kv><span title="Key Value" class=categoryLinkLabel_RkOu>Key Value</span></a><button aria-label="Expand sidebar category 'Key Value'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/mobile><span title="Mobile Database" class=categoryLinkLabel_RkOu>Mobile Database</span></a><button aria-label="Expand sidebar category 'Mobile Database'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/newsql/cockroachdb><span title=newsql class=categoryLinkLabel_RkOu>newsql</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/olap><span title=OLAP class=categoryLinkLabel_RkOu>OLAP</span></a><button aria-label="Expand sidebar category 'OLAP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/ops/atlas><span title=ops class=categoryLinkLabel_RkOu>ops</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/raft><span title="Raft Consensus Algorithm" class=linkLabel_JPPZ>Raft Consensus Algorithm</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/relational><span title=关系型数据库 class=categoryLinkLabel_RkOu>关系型数据库</span></a><button aria-label="Expand sidebar category '关系型数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/schema><span title="Service Schema" class=linkLabel_JPPZ>Service Schema</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/db/search><span title=搜索 class=categoryLinkLabel_RkOu>搜索</span></a><button aria-label="Expand sidebar category '搜索'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/sling-cli><span title=sling-cli class=linkLabel_JPPZ>sling-cli</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/sysbench><span title=Sysbench class=linkLabel_JPPZ>Sysbench</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/db/theory/aggregate><span title=theory class=categoryLinkLabel_RkOu>theory</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/tile38><span title=Tile38 class=linkLabel_JPPZ>Tile38</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/ulid><span title=ulid class=linkLabel_JPPZ>ulid</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/db/usql><span title=usql class=linkLabel_JPPZ>usql</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/db><span>数据库</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Database Awesome</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Database Awesome</h1></header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>name<th>stand for<tbody><tr><td>Relational DBMS<td>关系型数据库<tr><td>Key-value stores<td>KV 存储<tr><td>Document stores<td>文档存储<tr><td>Time Series DBMS<td>时序数据库<tr><td>Graph DBMS<td>图数据库<tr><td>Object oriented DBMS<td>面向对象数据库<tr><td>Search engines<td>搜索引擎<tr><td>RDF stores<td>RDF 存储<tr><td>Wide column stores<td>宽列存储<tr><td>Column stores<td>列存储<tr><td>Multivalue DBMS<td>多值数据库<tr><td>Native XML DBMS<td>XML 数据库<tr><td>Spatial DBMS<td>空间数据库<tr><td>Event Stores<td>事件存储<tr><td>Content stores<td>内容存储<tr><td>Navigational DBMS<td>导航数据库</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>db<th>lang<tbody><tr><td>MSSQL<td>T-SQL/Transact-SQL<tr><td>PostgreSQL<td>PL/pgSQL<tr><td>Oracle<td>PL/SQL<tr><td>MySQL<td>PL/SQL (有限支持) / Stored Procedures (SQL语法扩展)<tr><td>DB2<td>SQL PL</table>
+<ul>
+<li><a href=/notes/db/relational/postgresql/awesome>PostgreSQL Awesome</a></li>
+<li>NewSQL
+<ul>
+<li>cockroachdb</li>
+</ul>
+</li>
+<li>Realtime/Baas/Streaming/实时
+<ul>
+<li><a href=https://github.com/MaterializeInc/materialize target=_blank rel="noopener noreferrer">MaterializeInc/materialize</a>
+<ul>
+<li>基于 PostgreSQL</li>
+<li>实时的 <code>MATERIALIZED VIEW</code></li>
+<li><a href=https://materialize.com/docs/sql/create-source/ target=_blank rel="noopener noreferrer">CREATE SOURCE</a>
+<ul>
+<li>支持 Kafka, S3</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/supabase/supabase target=_blank rel="noopener noreferrer">supabase/supabase</a>
+<ul>
+<li>基于 PostgreSQL</li>
+<li>类比 Firebase</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CommandLine/CUI/CLI
+<ul>
+<li><a href=https://github.com/xo/usql target=_blank rel="noopener noreferrer">xo/usql</a>
+<ul>
+<li>MIT, Go</li>
+<li>Universal command-line interface for SQL databases</li>
+<li><code>usql -c '\drivers'</code></li>
+<li>推荐 🌟 没有依赖，方便 Windows 这样的环境使用，支持的驱动多</li>
+</ul>
+</li>
+<li><a href=https://github.com/dbcli/pgcli target=_blank rel="noopener noreferrer">dbcli/pgcli</a>
+<ul>
+<li>BSC-3, Python</li>
+</ul>
+</li>
+<li><a href=https://github.com/dbcli/mycli target=_blank rel="noopener noreferrer">dbcli/mycli</a></li>
+</ul>
+</li>
+<li>Ranking/Benchmark
+<ul>
+<li><a href=https://benchmark.clickhouse.com/ target=_blank rel="noopener noreferrer">https://benchmark.clickhouse.com/</a></li>
+<li><a href=https://db-engines.com/en/ranking target=_blank rel="noopener noreferrer">https://db-engines.com/en/ranking</a></li>
+<li><a href=https://db-benchmarks.com/ target=_blank rel="noopener noreferrer">https://db-benchmarks.com/</a>
+<ul>
+<li>by manticoresearch</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/mgramin/awesome-db-tools target=_blank rel="noopener noreferrer">https://github.com/mgramin/awesome-db-tools</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=理论>理论<a href=#理论 class=hash-link aria-label="Direct link to 理论" title="Direct link to 理论" translate=no>​</a></h2>
+<ul>
+<li>Sargable - Search ARGument ABLE
+<ul>
+<li>wikipedia <a href=https://en.wikipedia.org/wiki/Sargable target=_blank rel="noopener noreferrer">Sargable</a></li>
+<li>定义查询可利用索引的场景</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=relational>关系型<a href=#relational class=hash-link aria-label="Direct link to 关系型" title="Direct link to 关系型" translate=no>​</a></h2>
+<ul>
+<li><a href=/notes/db/relational/postgresql/awesome>PostgreSQL</a></li>
+<li>SQLite</li>
+<li>MS Access
+<ul>
+<li>.accdb, .mdb</li>
+</ul>
+</li>
+<li>MySQL</li>
+<li>Oracle</li>
+<li><a href=https://github.com/FirebirdSQL/firebird target=_blank rel="noopener noreferrer">FirebirdSQL/firebird</a>
+<ul>
+<li>MPL-1.1, C++</li>
+<li>since 1981</li>
+<li>ANSI SQL</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=mysql>MySQL<a href=#mysql class=hash-link aria-label="Direct link to MySQL" title="Direct link to MySQL" translate=no>​</a></h2>
+<ul>
+<li>Viteness</li>
+<li>TiDB</li>
+<li><a href=https://github.com/baidu/BaikalDB target=_blank rel="noopener noreferrer">baidu/BaikalDB</a>
+<ul>
+<li>Apache-2.0, C++</li>
+<li>HTAP</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=distributed>分布式<a href=#distributed class=hash-link aria-label="Direct link to 分布式" title="Direct link to 分布式" translate=no>​</a></h2>
+<ul>
+<li>分布式/Disributed/HA/高可用</li>
+<li><a href=https://github.com/rqlite/rqlite target=_blank rel="noopener noreferrer">rqlite/rqlite</a>
+<ul>
+<li>SQLite + Raft</li>
+</ul>
+</li>
+<li><a href=https://github.com/tigerbeetle/tigerbeetle target=_blank rel="noopener noreferrer">tigerbeetle/tigerbeetle</a>
+<ul>
+<li>Apache-2.0, Zig</li>
+<li>OLTP</li>
+</ul>
+</li>
+<li>PostgreSQL
+<ul>
+<li><a href=/notes/db/relational/postgresql/citus>citusdata/citus</a>
+<ul>
+<li>PostgreSQL Sharding</li>
+</ul>
+</li>
+<li><a href=/notes/db/newsql/cockroachdb>cdb</a></li>
+<li><a href=/notes/db/relational/yugabytedb>yugabyte/yugabyte-db</a></li>
+<li><a href=https://github.com/ydb-platform/ydb target=_blank rel="noopener noreferrer">ydb-platform/ydb</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=time-series>时序数据库<a href=#time-series class=hash-link aria-label="Direct link to 时序数据库" title="Direct link to 时序数据库" translate=no>​</a></h2>
+<blockquote>
+<ol>
+<li>可观察性 - 日志、指标、追踪</li>
+<li>IoT</li>
+</ol>
+</blockquote>
+<ul>
+<li><a href=/notes/db/relational/postgresql/timescale>timescale</a></li>
+<li><a href=https://github.com/CeresDB/ceresdb target=_blank rel="noopener noreferrer">CeresDB/ceresdb</a></li>
+<li><a href=https://github.com/GreptimeTeam/greptimedb target=_blank rel="noopener noreferrer">GreptimeTeam/greptimedb</a></li>
+<li><a href=https://github.com/questdb/questdb target=_blank rel="noopener noreferrer">questdb/questdb</a>
+<ul>
+<li>Java, Apache 2.0</li>
+<li>PostgreSQL 兼容协议</li>
+</ul>
+</li>
+<li><a href=https://github.com/m3db/m3 target=_blank rel="noopener noreferrer">m3db/m3</a>
+<ul>
+<li>from Uber</li>
+<li>Distributed TSDB, Aggregator and Query Engine, Prometheus Sidecar, Graphite Compatible, Metrics Platform</li>
+</ul>
+</li>
+<li><a href=https://github.com/taosdata/TDengine target=_blank rel="noopener noreferrer">taosdata/TDengine</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=olap>OLAP<a href=#olap class=hash-link aria-label="Direct link to OLAP" title="Direct link to OLAP" translate=no>​</a></h2>
+<ul>
+<li>Cube 计算</li>
+<li>BI</li>
+</ul>
+<hr/>
+<ul>
+<li>cubejs</li>
+<li><a href=/notes/db/column/duckdb>duckdb/duckdb</a>
+<ul>
+<li>SQLite for OLAP, C++, MIT</li>
+</ul>
+</li>
+<li><a href=/notes/db/column/clickhouse>ClickHouse</a></li>
+<li>Apache Druid</li>
+<li>Apache Kylin</li>
+<li>Apache Pinot
+<ul>
+<li>by LinkedIn</li>
+</ul>
+</li>
+<li>Apache <a href=https://github.com/apache/doris target=_blank rel="noopener noreferrer">Doris</a>
+<ul>
+<li>by 百度</li>
+</ul>
+</li>
+<li>pgduck_server</li>
+<li><a href=https://github.com/Snowflake-Labs/pg_lake target=_blank rel="noopener noreferrer">Snowflake-Labs/pg_lake</a>
+<ul>
+<li>Apache-2.0, C</li>
+<li>Iceberg, DuckDB</li>
+<li>Postgres for Iceberg and Data lakes</li>
+</ul>
+</li>
+<li><a href=https://github.com/Mooncake-Labs/pg_mooncake target=_blank rel="noopener noreferrer">Mooncake-Labs/pg_mooncake</a>
+<ul>
+<li>MIT, Rust</li>
+</ul>
+</li>
+<li><a href=https://en.wikipedia.org/wiki/Comparison_of_OLAP_servers target=_blank rel="noopener noreferrer">Comparison of OLAP servers</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=oltp>OLTP<a href=#oltp class=hash-link aria-label="Direct link to OLTP" title="Direct link to OLTP" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/stoneatom/stonedb target=_blank rel="noopener noreferrer">stoneatom/stonedb</a>
+<ul>
+<li>GPLv2, C++</li>
+<li>MySQL HTAP and MySQL-native database for oltp, real-time analytics</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=column-store>Column Store<a href=#column-store class=hash-link aria-label="Direct link to Column Store" title="Direct link to Column Store" translate=no>​</a></h2>
+<ul>
+<li>面向分析</li>
+<li><a href=/notes/db/column/clickhouse>Clickhouse</a></li>
+<li><a href=/notes/db/column/duckdb>DuckDB</a></li>
+<li>Apache Druid</li>
+<li>Apache Pinot</li>
+<li>InfluxDB</li>
+<li>PostgreSQL cstore_fdw, vops
+<ul>
+<li>ORC</li>
+</ul>
+</li>
+<li><a href=https://github.com/greenplum-db/gpdb target=_blank rel="noopener noreferrer">greenplum-db/gpdb</a></li>
+<li>format
+<ul>
+<li>orc</li>
+<li>parquet</li>
+</ul>
+</li>
+<li><a href=https://en.wikipedia.org/wiki/List_of_column-oriented_DBMSes target=_blank rel="noopener noreferrer">List of column-oriented DBMSes</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=wide-column>Wide-Column<a href=#wide-column class=hash-link aria-label="Direct link to Wide-Column" title="Direct link to Wide-Column" translate=no>​</a></h2>
+<ul>
+<li>宽列 - 二维 KV
+<ul>
+<li>并非标准列存储</li>
+</ul>
+</li>
+<li><a href=/notes/db/column/scylladb>Scylla</a></li>
+<li><a href=/notes/db/column/cassandra>Apache Cassandra</a></li>
+<li>Apache Accumulo</li>
+<li>Apache HBase</li>
+<li>Hypertable</li>
+<li>商业
+<ul>
+<li>Bigtable</li>
+<li>DataStax Enterprise</li>
+<li>DataStax Astra DB</li>
+<li>Azure Tables</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=图>图<a href=#图 class=hash-link aria-label="Direct link to 图" title="Direct link to 图" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/JanusGraph/janusgraph target=_blank rel="noopener noreferrer">JanusGraph/janusgraph</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=stream>Stream<a href=#stream class=hash-link aria-label="Direct link to Stream" title="Direct link to Stream" translate=no>​</a></h2>
+<ul>
+<li>airbyte</li>
+<li>nifi</li>
+<li><a href=https://github.com/benthosdev/benthos target=_blank rel="noopener noreferrer">benthosdev/benthos</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=消息队列>消息队列<a href=#消息队列 class=hash-link aria-label="Direct link to 消息队列" title="Direct link to 消息队列" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/obsidiandynamics/goharvest/wiki/Comparison-of-messaging-patterns target=_blank rel="noopener noreferrer">Comparison of messaging patterns</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=data-versioning>Data versioning<a href=#data-versioning class=hash-link aria-label="Direct link to Data versioning" title="Direct link to Data versioning" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/dolthub/dolt target=_blank rel="noopener noreferrer">dolthub/dolt</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>Git for Data</li>
+</ul>
+</li>
+<li><a href=https://github.com/treeverse/lakeFS target=_blank rel="noopener noreferrer">treeverse/lakeFS</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>Data version control for your data lake</li>
+<li><a href=https://lakefs.io/blog/dvc-vs-git-vs-dolt-vs-lakefs/ target=_blank rel="noopener noreferrer">https://lakefs.io/blog/dvc-vs-git-vs-dolt-vs-lakefs/</a></li>
+</ul>
+</li>
+<li>Git LFS</li>
+<li>DVS</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=有趣>有趣<a href=#有趣 class=hash-link aria-label="Direct link to 有趣" title="Direct link to 有趣" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/wiredtiger/wiredtiger target=_blank rel="noopener noreferrer">wiredtiger/wiredtiger</a>
+<ul>
+<li>MongoDB</li>
+</ul>
+</li>
+<li><a href=https://github.com/tantaman/aphrodite target=_blank rel="noopener noreferrer">tantaman/aphrodite</a></li>
+<li><a href=https://github.com/facebookincubator/LogDevice target=_blank rel="noopener noreferrer">facebookincubator/LogDevice</a>
+<ul>
+<li>Distributed storage for sequential data</li>
+</ul>
+</li>
+<li><a href=/notes/db/document/ferretdb>FerretDB/FerretDB</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>mongodb wire protocol to PostgreSQL</li>
+</ul>
+</li>
+<li><a href=https://github.com/fcoury/oxide target=_blank rel="noopener noreferrer">fcoury/oxide</a>
+<ul>
+<li>Apache-2.0, Rust</li>
+<li>mongodb wire protocol to PostgreSQL</li>
+</ul>
+</li>
+<li><a href=https://github.com/alash3al/redix target=_blank rel="noopener noreferrer">alash3al/redix</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>redis wire protocol to PostgreSQL</li>
+</ul>
+</li>
+<li><a href=https://www.micahlerner.com/2021/10/13/tao-facebooks-distributed-data-store-for-the-social-graph.html target=_blank rel="noopener noreferrer">TAO: Facebook’s Distributed Data Store for the Social Graph</a>
+<ul>
+<li>TAO - The Associations and Objects</li>
+<li><a href="https://news.ycombinator.com/item?id=29045443" target=_blank rel="noopener noreferrer">HN</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/EvgSkv/logica target=_blank rel="noopener noreferrer">EvgSkv/logica</a>
+<ul>
+<li>逻辑编程转 SQL</li>
+</ul>
+</li>
+<li><a href=https://github.com/ApsaraDB target=_blank rel="noopener noreferrer">ApsaraDB</a>
+<ul>
+<li>by Alibaba</li>
+</ul>
+</li>
+<li><a href=https://github.com/xtdb/xtdb target=_blank rel="noopener noreferrer">xtdb/xtdb</a>
+<ul>
+<li>MIT, Clojure</li>
+</ul>
+</li>
+<li><a href=https://github.com/codenotary/immudb target=_blank rel="noopener noreferrer">codenotary/immudb</a>
+<ul>
+<li>immutable database</li>
+</ul>
+</li>
+<li><a href=https://github.com/maxmunzel/kvass target=_blank rel="noopener noreferrer">maxmunzel/kvass</a>
+<ul>
+<li>MIT, Go</li>
+<li>personal key-value store</li>
+</ul>
+</li>
+<li><a href=https://github.com/debezium/debezium target=_blank rel="noopener noreferrer">debezium/debezium</a>
+<ul>
+<li>Apache-2.0, Java</li>
+<li>CDC - Change data capture</li>
+</ul>
+</li>
+<li><a href=https://github.com/nhost/nhost target=_blank rel="noopener noreferrer">nhost/nhost</a>
+<ul>
+<li>MIT, TS</li>
+<li>Hasura+S3</li>
+<li>Firebase Alternative with GraphQL</li>
+</ul>
+</li>
+<li><a href=https://github.com/surrealdb/surrealdb target=_blank rel="noopener noreferrer">surrealdb/surrealdb</a>
+<ul>
+<li>服务端 Rust, BSL</li>
+<li>概念 NAMESPACE, DATABASE</li>
+<li>本地存储: RocksDB</li>
+<li>分布式存储: tikv</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">docker run --rm -p 8000:8000 surrealdb/surrealdb:latest start --log debug --user root --pass root</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl --request POST \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --header "Accept: application/json" \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --user "root:root" \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --data "INFO FOR DB;" \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  http://localhost:8000/sql</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=sqlite-awesome>SQLite Awesome<a href=#sqlite-awesome class=hash-link aria-label="Direct link to SQLite Awesome" title="Direct link to SQLite Awesome" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/nalgeon/sqlean target=_blank rel="noopener noreferrer">nalgeon/sqlean</a>
+<ul>
+<li>MIT, C</li>
+<li>扩展合集</li>
+</ul>
+</li>
+<li><a href=https://github.com/dgllghr/stanchion target=_blank rel="noopener noreferrer">dgllghr/stanchion</a>
+<ul>
+<li>Column</li>
+</ul>
+</li>
+<li><a href=https://github.com/proofrock/ws4sqlite target=_blank rel="noopener noreferrer">proofrock/ws4sqlite</a>
+<ul>
+<li>Query sqlite via http</li>
+<li><a href="https://news.ycombinator.com/item?id=30636796" target=_blank rel="noopener noreferrer">HN</a></li>
+</ul>
+</li>
+<li><a href=https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/ target=_blank rel="noopener noreferrer">Hosting SQLite on Github Pages</a></li>
+<li><a href=https://github.com/subzerocloud/blue-steel target=_blank rel="noopener noreferrer">subzerocloud/blue-steel</a>
+<ul>
+<li>RUST</li>
+<li>REST api for SQLite & PostgreSQL</li>
+</ul>
+</li>
+<li><a href=https://lumosql.org/ target=_blank rel="noopener noreferrer">https://lumosql.org/</a>
+<ul>
+<li>SQLite+LMDB</li>
+</ul>
+</li>
+<li><a href=https://github.com/pocketbase/pocketbase target=_blank rel="noopener noreferrer">pocketbase/pocketbase</a>
+<ul>
+<li>MIT, Go</li>
+<li>realtime backend in 1 file</li>
+</ul>
+</li>
+<li>Replication
+<ul>
+<li><a href=https://github.com/vlcn-io/cr-sqlite target=_blank rel="noopener noreferrer">vlcn-io/cr-sqlite</a>
+<ul>
+<li>MIT, Rust</li>
+<li>CRDT</li>
+<li>之前为 tantaman/conflict-free-sqlite</li>
+</ul>
+</li>
+<li><a href=/notes/db/relational/sqlite/litestream>benbjohnson/litestream</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>Streaming replication for SQLite</li>
+<li>外部进程</li>
+<li>将一个 sqlite 同步到另外的 sqlite - 依赖中间存储</li>
+</ul>
+</li>
+<li><a href=/notes/db/relational/sqlite/litefs>superfly/litefs</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>基于 fuse 的 litestream - 批量同步</li>
+</ul>
+</li>
+<li><a href=https://github.com/maxpert/marmot target=_blank rel="noopener noreferrer">maxpert/marmot</a>
+<ul>
+<li>基于 NATS 同步 sqlite</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SQLite Based Distributed Database/基于 SQLite 的分布式数据库
+<ul>
+<li><a href=https://github.com/canonical/dqlite target=_blank rel="noopener noreferrer">dqlite</a>
+<ul>
+<li>GPLv3, C</li>
+</ul>
+</li>
+<li><a href=https://github.com/rqlite/rqlite target=_blank rel="noopener noreferrer">rqlite</a>
+<ul>
+<li>MIT, Golang</li>
+<li>HTTPS API</li>
+<li>node-discovery & automatic clustering - Kubernetes, Consul, etcd, DNS</li>
+<li><a href=https://github.com/hashicorp/raft target=_blank rel="noopener noreferrer">hashicorp/raft</a></li>
+<li><a href=https://github.com/rqlite/rqlite/blob/master/DOC/PERFORMANCE.md target=_blank rel="noopener noreferrer">https://github.com/rqlite/rqlite/blob/master/DOC/PERFORMANCE.md</a></li>
+<li>In-memory DB &lt; 2GB</li>
+<li>只能用 deterministic SQL - 因为 raft 复制，幂等</li>
+</ul>
+</li>
+<li><a href=https://github.com/losfair/mvsqlite target=_blank rel="noopener noreferrer">losfair/mvsqlite</a>
+<ul>
+<li>Apache-2.0, Rust</li>
+<li>MVCC SQLite that runs on FoundationDB</li>
+</ul>
+</li>
+<li><a href=https://github.com/bloomberg/comdb2 target=_blank rel="noopener noreferrer">bloomberg/comdb2</a>
+<ul>
+<li>Apache-2.0, C</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/LumoSQL/LumoSQL target=_blank rel="noopener noreferrer">LumoSQL/LumoSQL</a>
+<ul>
+<li>SQLite over LMDB</li>
+</ul>
+</li>
+<li><a href=https://github.com/planetopendata/awesome-sqlite target=_blank rel="noopener noreferrer">https://github.com/planetopendata/awesome-sqlite</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=id>ID<a href=#id class=hash-link aria-label="Direct link to ID" title="Direct link to ID" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/ulid/spec target=_blank rel="noopener noreferrer">ULID</a>
+<ul>
+<li><a href=https://github.com/ulid/spec/issues/41 target=_blank rel="noopener noreferrer">#41</a>
+PostgreSQL</li>
+<li>extension
+<ul>
+<li><a href=https://github.com/edoceo/pg-ulid target=_blank rel="noopener noreferrer">edoceo/pg-ulid</a></li>
+<li><a href=https://github.com/iCyberon/pg_ulid target=_blank rel="noopener noreferrer">iCyberon/pg_ulid</a></li>
+</ul>
+</li>
+<li>plpgsql
+<ul>
+<li><a href=https://github.com/geckoboard/pgulid target=_blank rel="noopener noreferrer">geckoboard/pgulid</a></li>
+</ul>
+</li>
+<li><a href=https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format-00 target=_blank rel="noopener noreferrer">UUIDv6</a>
+有点类似 ULID</li>
+</ul>
+</li>
+<li><a href=https://github.com/niieani/hashids.js target=_blank rel="noopener noreferrer">niieani/hashids.js</a>
+<ul>
+<li>YouTube-like ids</li>
+</ul>
+</li>
+<li><a href=https://instagram-engineering.com/1cf5a71e5a5c target=_blank rel="noopener noreferrer">Sharding & IDs at Instagram</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=big-data>Big Data<a href=#big-data class=hash-link aria-label="Direct link to Big Data" title="Direct link to Big Data" translate=no>​</a></h2>
+<ul>
+<li><a href=https://hakibenita.com/sql-for-data-analysis target=_blank rel="noopener noreferrer">Practical SQL for Data Analysis</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=vector>Vector<a href=#vector class=hash-link aria-label="Direct link to Vector" title="Direct link to Vector" translate=no>​</a></h2>
+<p>面向向量的多用于 <strong>搜索</strong> 和 <strong>机器学习</strong>。</p>
+<blockquote>
+<p>Vector -> <code>number[]</code></p>
+</blockquote>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>常见模型的向量维度</div><div class=admonitionContent_R6P7><ul>
+<li>OpenAI text-embedding-3-large 3072 dims</li>
+<li>mistral-derivative 4096 dims</li>
+<li><a href=https://huggingface.co/spaces/mteb/leaderboard target=_blank rel="noopener noreferrer">https://huggingface.co/spaces/mteb/leaderboard</a></li>
+</ul></div></div>
+<ul>
+<li><a href=https://github.com/tensorchord/VectorChord target=_blank rel="noopener noreferrer">tensorchord/VectorChord</a>
+<ul>
+<li>AGPLv3, ELv2, Rust</li>
+<li>successor to pgvecto.rs</li>
+</ul>
+</li>
+<li><a href=https://github.com/pgvector/pgvector target=_blank rel="noopener noreferrer">pgvector/pgvector</a>
+<ul>
+<li>PostgreSQL/MIT, C</li>
+<li>since 2021-07</li>
+<li>PG extension: vector</li>
+<li>比 pgvecto.rs 更成熟, 使用面更广泛, 最近开发没有 pgvecto.rs 活跃, 功能特性更少</li>
+<li>适合目前已有环境，能够很方便直接使用，对 vector 要求不高的场景，避免单独部署 DB 直接利用现有 PG</li>
+<li>特性
+<ul>
+<li>2000 dim</li>
+<li>使用 PG 管理索引存储</li>
+</ul>
+</li>
+<li>HNSW_MAX_DIM = IVFFLAT_MAX_DIM = 2000
+<ul>
+<li><a href=https://github.com/pgvector/pgvector/issues/461 target=_blank rel="noopener noreferrer">pgvector#461</a> Increase max vectors dimension limit for index
+<ul>
+<li>PG 默认 8KB Page, 不可调整, 限制了 1page 能存放的 float32</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Supabase PostgreSQL Image 包含了 pgvector</li>
+</ul>
+</li>
+<li><a href=https://github.com/tensorchord/pgvecto.rs target=_blank rel="noopener noreferrer">tensorchord/pgvecto.rs</a>
+<ul>
+<li>Apache-2.0, Rust</li>
+<li>since 2023-05</li>
+<li>PG extension: vectors</li>
+<li>适合需要更高性能，更多功能，更大维度的场景，可以针对 vector 需求单独部署一个 DB</li>
+<li>docker <a href=https://hub.docker.com/r/tensorchord/pgvecto-rs target=_blank rel="noopener noreferrer">tensorchord/pgvecto-rs:pg16-v0.2.1</a></li>
+<li>不是 TLE / trusted extension
+<ul>
+<li>AWS 不支持</li>
+<li>Supabase 的 PG 镜像未包含
+<ul>
+<li><a href=https://github.com/supabase/postgres/issues/895 target=_blank rel="noopener noreferrer">supabase/postgres#895</a> support pgvecto.rs extension</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>vs <a href=https://docs.pgvecto.rs/faqs/comparison-pgvector.html target=_blank rel="noopener noreferrer">pgvector</a>
+<ul>
+<li>by pgvecto.rs</li>
+<li>功能更丰富</li>
+<li>支持 sparse vector</li>
+<li>65535 dim</li>
+<li>支持 FP16, INT8</li>
+<li>独立的索引管理</li>
+<li>更好的 filtering 支持</li>
+<li><a href=https://blog.pgvecto.rs/pgvector-vs-pgvectors-in-2024-a-comprehensive-comparison-for-vector-search-in-postgresql target=_blank rel="noopener noreferrer">https://blog.pgvecto.rs/pgvector-vs-pgvectors-in-2024-a-comprehensive-comparison-for-vector-search-in-postgresql</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/immich-app/immich/discussions/5830 target=_blank rel="noopener noreferrer">immich-app/immich#5830</a> Why Pgvecto.rs over pgvector?
+<ul>
+<li>filtering 结果更准确</li>
+<li>索引更快</li>
+<li>插入更快</li>
+<li>功能更多 - quantization, VBASE</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/qdrant/qdrant target=_blank rel="noopener noreferrer">qdrant/qdrant</a>
+<ul>
+<li>Apache-2.0, Rust</li>
+</ul>
+</li>
+<li><a href=https://github.com/milvus-io/milvus target=_blank rel="noopener noreferrer">milvus-io/milvus</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>Vector database for scalable similarity search and AI applications.</li>
+</ul>
+</li>
+<li><a href=https://github.com/weaviate/weaviate target=_blank rel="noopener noreferrer">weaviate/weaviate</a>
+<ul>
+<li>BSD-3, Golang</li>
+<li>cloud-native, modular, real-time vector search engine</li>
+</ul>
+</li>
+<li><a href=https://github.com/facebookincubator/velox target=_blank rel="noopener noreferrer">facebookincubator/velox</a>
+<ul>
+<li>Apache-2.0, C++</li>
+<li>C++ vectorized database acceleration library</li>
+</ul>
+</li>
+<li><a href=https://github.com/erikbern/ann-benchmarks target=_blank rel="noopener noreferrer">erikbern/ann-benchmarks</a>
+<ul>
+<li>Benchmarks of approximate nearest neighbor</li>
+</ul>
+</li>
+<li><a href=https://github.com/eto-ai/lance target=_blank rel="noopener noreferrer">eto-ai/lance</a>
+<ul>
+<li>Apache-2.0, Rust</li>
+<li>columnar format</li>
+</ul>
+</li>
+<li><a href=https://github.com/lancedb/lancedb target=_blank rel="noopener noreferrer">lancedb/lancedb</a>
+<ul>
+<li>Apache-2.0, Rust</li>
+</ul>
+</li>
+<li><a href=https://towardsdatascience.com/9c65a3bd0696 target=_blank rel="noopener noreferrer">Not All Vector Databases Are Made Equal</a></li>
+<li><a href=https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/LanceDBIndexDemo.html target=_blank rel="noopener noreferrer">https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/LanceDBIndexDemo.html</a></li>
+<li><a href=https://github.com/jerryjliu/llama_index target=_blank rel="noopener noreferrer">jerryjliu/llama_index</a></li>
+<li>sqlite-vss</li>
+<li>Lib
+<ul>
+<li><a href=https://github.com/nmslib/hnswlib target=_blank rel="noopener noreferrer">nmslib/hnswlib</a></li>
+<li><a href=https://github.com/facebookresearch/faiss target=_blank rel="noopener noreferrer">facebookresearch/faiss</a>
+<ul>
+<li>MIT, C++</li>
+<li>efficient similarity search and clustering of dense vectors</li>
+</ul>
+</li>
+<li><a href=https://github.com/unum-cloud/usearch target=_blank rel="noopener noreferrer">unum-cloud/usearch</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=geo>Geo<a href=#geo class=hash-link aria-label="Direct link to Geo" title="Direct link to Geo" translate=no>​</a></h2>
+<ul>
+<li><a href=https://s2geometry.io/ target=_blank rel="noopener noreferrer">https://s2geometry.io/</a></li>
+<li><a href=https://github.com/uber/h3 target=_blank rel="noopener noreferrer">uber/h3</a>
+<ul>
+<li>Apache-2.0, C</li>
+<li>Hexagonal hierarchical geospatial indexing system</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=tools>Tools<a href=#tools class=hash-link aria-label="Direct link to Tools" title="Direct link to Tools" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/Netflix/ndbench target=_blank rel="noopener noreferrer">Netflix/ndbench</a>
+<ul>
+<li>Data Store Benchmark</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=interactive>Interactive<a href=#interactive class=hash-link aria-label="Direct link to Interactive" title="Direct link to Interactive" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/pocketbase/pocketbase target=_blank rel="noopener noreferrer">pocketbase/pocketbase</a>
+<ul>
+<li>MIT, Go, SQLite</li>
+</ul>
+</li>
+<li><a href=https://github.com/sqlpad/sqlpad target=_blank rel="noopener noreferrer">sqlpad/sqlpad</a>
+<ul>
+<li>Web-based SQL editor and visualizing</li>
+</ul>
+</li>
+<li><a href=https://github.com/pinterest/querybook target=_blank rel="noopener noreferrer">pinterest/querybook</a></li>
+<li><a href=https://github.com/chartbrew/chartbrew target=_blank rel="noopener noreferrer">chartbrew/chartbrew</a>
+<ul>
+<li>MIT, Node.js</li>
+<li>Data visualization tool for SQL databases</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=library>Library<a href=#library class=hash-link aria-label="Direct link to Library" title="Direct link to Library" translate=no>​</a></h2>
+<ul>
+<li>Parser/SQL
+<ul>
+<li><a href=https://github.com/prql/prql target=_blank rel="noopener noreferrer">prql/prql</a>
+<ul>
+<li>Apache-2.0, Rust</li>
+<li>Pipelined Relational Query Language</li>
+</ul>
+</li>
+<li><a href=https://tokern.io/blog/open-source-sql-parsers/ target=_blank rel="noopener noreferrer">Open Source SQL Parsers</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=31107231" target=_blank rel="noopener noreferrer">HN</a></li>
+<li><a href=https://stripe.com/en-gb/sigma target=_blank rel="noopener noreferrer">https://stripe.com/en-gb/sigma</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/runreveal/pql target=_blank rel="noopener noreferrer">runreveal/pql</a>
+<ul>
+<li>Golang</li>
+<li>Pipelined Query Language</li>
+<li><a href="https://news.ycombinator.com/item?id=39539252" target=_blank rel="noopener noreferrer">https://news.ycombinator.com/item?id=39539252</a></li>
+</ul>
+</li>
+<li><a href=https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/ target=_blank rel="noopener noreferrer">Azure Kusto Query Language (KQL)</a>
+<ul>
+<li>Azure appinsights logs</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=migration>迁移/升级/Schema 变更/Migration<a href=#migration class=hash-link aria-label="Direct link to 迁移/升级/Schema 变更/Migration" title="Direct link to 迁移/升级/Schema 变更/Migration" translate=no>​</a></h2>
+<blockquote>
+<p>不需要重复部署的环境可以不用考虑</p>
+</blockquote>
+<div class="theme-admonition theme-admonition-info admonition_phik alert alert--info"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 14 16"><path fill-rule=evenodd d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></span>常见模式迁移</div><div class=admonitionContent_R6P7><ol>
+<li>DSL - XML, YAML, HCL</li>
+</ol><ul>
+<li>支持 diff</li>
+<li>多一层学习成本</li>
+<li>支持多种数据库</li>
+<li>还支持除了 table 以外的对象</li>
+<li>必须先写 DSL - SSOT</li>
+</ul><ol start=2>
+<li>SQL</li>
+</ol><ul>
+<li>概念简单</li>
+<li>能利用所有 SQL 能力</li>
+<li>支持很多场景</li>
+<li>版本管理为主</li>
+</ul><ol start=3>
+<li>ORM -> SQL</li>
+</ol><ul>
+<li>类似 DSL</li>
+<li>减少额外定义 DSL</li>
+<li>生成 SQL 不透明</li>
+<li>功能局限</li>
+<li>一般 diff 不会做移除列操作</li>
+<li>局限于 table</li>
+</ul></div></div>
+<div class="theme-admonition theme-admonition-info admonition_phik alert alert--info"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 14 16"><path fill-rule=evenodd d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></span>版本目录模式</div><div class=admonitionContent_R6P7><ul>
+<li><code>[version]-[title].sql</code>
+<ul>
+<li>通过 注释 分割 up/down</li>
+<li><code>--- up</code></li>
+<li><code>--- down</code></li>
+</ul>
+</li>
+<li><code>[version]-[title].&lt;up|down>.sql</code></li>
+<li><code>[version]-[title]/</code> - 目录区分版本
+<ul>
+<li><code>up.sql</code></li>
+<li><code>down.sql</code></li>
+</ul>
+</li>
+</ul></div></div>
+<ul>
+<li>平台/服务/工具
+<ul>
+<li><a href=https://github.com/bytebase/bytebase target=_blank rel="noopener noreferrer">bytebase/bytebase</a>
+<ul>
+<li>MIT, Go, Vue</li>
+<li>Safe database schema change and version control for DevOps teams.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Java
+<ul>
+<li>flywaydb
+<ul>
+<li>Apache-2.0, SQL</li>
+<li><code>db/migration/&lt;Prefix>&lt;Version>__&lt;Description>.sql</code></li>
+<li><code>mvn clean flyway:migrate -Dflyway.configFiles=myFlywayConfig.conf</code></li>
+<li>IDEA JPA Budy 有 Flyway 集成</li>
+</ul>
+</li>
+<li>liquibase
+<ul>
+<li>XML</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Golang
+<ul>
+<li><a href=https://github.com/ariga/atlas target=_blank rel="noopener noreferrer">ariga/atlas</a>
+<ul>
+<li>Apache-2.0, DSL, Go</li>
+<li>SQL, HCL, ORM</li>
+<li>database schema as code</li>
+</ul>
+</li>
+<li><a href=/notes/languages/go/lib/migrate>golang-migrate/migrate</a>
+<ul>
+<li>MIT, Go</li>
+<li><code>VER_DESC.&lt;up|down>.sql</code></li>
+<li><code>migrate create -ext sql -dir db/migrations -seq create_users_table</code></li>
+</ul>
+</li>
+<li><a href=https://github.com/amacneil/dbmate target=_blank rel="noopener noreferrer">amacneil/dbmate</a>
+<ul>
+<li>SQL, Go</li>
+<li>framework-agnostic database migration tool</li>
+<li>注释分割 <code>-- migrate:up</code></li>
+</ul>
+</li>
+<li><a href=https://github.com/pressly/goose target=_blank rel="noopener noreferrer">pressly/goose</a>
+<ul>
+<li>MIT, SQL/Go</li>
+<li>Supports SQL migrations and Go functions.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NodeJS
+<ul>
+<li><a href=https://github.com/salsita/node-pg-migrate target=_blank rel="noopener noreferrer">salsita/node-pg-migrate</a>
+<ul>
+<li>MIT, TS</li>
+<li>Node.js database migration management for PostgreSQL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/djrobstep/migra target=_blank rel="noopener noreferrer">djrobstep/migra</a>
+<ul>
+<li>PG Schema Diff</li>
+</ul>
+</li>
+<li><a href=https://github.com/fabianlindfors/reshape target=_blank rel="noopener noreferrer">fabianlindfors/reshape</a>
+<ul>
+<li>zero-downtime schema migration tool for Postgres</li>
+</ul>
+</li>
+<li><a href=https://github.com/sqitchers/sqitch target=_blank rel="noopener noreferrer">sqitchers/sqitch</a>
+<ul>
+<li>MIT, Perl</li>
+</ul>
+</li>
+<li><a href=https://github.com/skeema/skeema target=_blank rel="noopener noreferrer">skeema</a>
+<ul>
+<li>MySQL & MariaDB</li>
+</ul>
+</li>
+<li>sqlite <a href=https://sqlite.org/pragma.html#pragma_user_version target=_blank rel="noopener noreferrer">user_version</a></li>
+<li><a href=https://github.com/rickbergfalk/postgrator target=_blank rel="noopener noreferrer">rickbergfalk/postgrator</a></li>
+<li>Hasura - <a href=https://hasura.io/docs/latest/migrations-metadata-seeds/manage-migrations/ target=_blank rel="noopener noreferrer">https://hasura.io/docs/latest/migrations-metadata-seeds/manage-migrations/</a>
+<ul>
+<li><code>VER_DESC/&lt;up|down>.sql</code></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=tbd>TBD<a href=#tbd class=hash-link aria-label="Direct link to TBD" title="Direct link to TBD" translate=no>​</a></h2>
+<ul>
+<li><a href=https://db.grussell.org/index.html target=_blank rel="noopener noreferrer">Database eLearning</a></li>
+<li><a href=https://db-engines.com/en/ranking target=_blank rel="noopener noreferrer">DB-Engines Ranking</a></li>
+<li>Aphyr <a href=https://aphyr.com/tags/jepsen target=_blank rel="noopener noreferrer">jepsen</a></li>
+<li><a href=https://github.com/eventql/eventql target=_blank rel="noopener noreferrer">EventQL</a>
+<ul>
+<li><a href=http://eventql.io/ target=_blank rel="noopener noreferrer">EventQL</a> is a distributed, column-oriented database built for large-scale event collection and analytics. It runs super-fast SQL and MapReduce queries.</li>
+</ul>
+</li>
+<li><a href=https://crate.io/ target=_blank rel="noopener noreferrer">Carte</a>
+<ul>
+<li>SQL FOR THINGS DATA</li>
+<li>Real-time SQL. Simple scaling. Millions of inserts per second.</li>
+<li>CrateDB offers Standard-SQL, real-time queries and document support (JSON) in a simple, horizontal way to scale.</li>
+<li>IoT & Sensors
+<ul>
+<li>Stream millions of data points per second into CrateDB and query them in real time to visualize, track, and predict.</li>
+</ul>
+</li>
+<li>Log & Event Analytics
+<ul>
+<li>Analyze logs from IT infrastructure to monitor security, compliance, usage, billing, and more.</li>
+</ul>
+</li>
+<li>Time Series, Geospatial, Machine Learning
+<ul>
+<li>Versatile SQL engine enables complex queries, text searches, and aggregations – in real time or against volumes of historic data.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/caesar0301/awesome-public-datasets target=_blank rel="noopener noreferrer">caesar0301/awesome-public-datasets</a></li>
+<li><a href=https://dbmstools.com/ target=_blank rel="noopener noreferrer">https://dbmstools.com/</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=read>Read<a href=#read class=hash-link aria-label="Direct link to Read" title="Direct link to Read" translate=no>​</a></h2>
+<ul>
+<li><a href=https://blog.the-pans.com/relational/ target=_blank rel="noopener noreferrer">How and why the Relational Model works for databases</a></li>
+<li>Youtube <a href=https://youtu.be/JOrXRsES3mk target=_blank rel="noopener noreferrer">Database Fundamentals: Memory, Storage and ACID Guarantees</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/awesome>Awesome</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/db/db-awesome.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2025-11-17T01:35:34.000Z itemprop=dateModified>Nov 17, 2025</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/db/column/scylladb/dev><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>ScyllaDB 开发</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/db/dsn><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>DSN</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#理论 class="table-of-contents__link toc-highlight">理论</a><li><a href=#relational class="table-of-contents__link toc-highlight">关系型</a><li><a href=#mysql class="table-of-contents__link toc-highlight">MySQL</a><li><a href=#distributed class="table-of-contents__link toc-highlight">分布式</a><li><a href=#time-series class="table-of-contents__link toc-highlight">时序数据库</a><li><a href=#olap class="table-of-contents__link toc-highlight">OLAP</a><li><a href=#oltp class="table-of-contents__link toc-highlight">OLTP</a><li><a href=#column-store class="table-of-contents__link toc-highlight">Column Store</a><li><a href=#wide-column class="table-of-contents__link toc-highlight">Wide-Column</a><li><a href=#图 class="table-of-contents__link toc-highlight">图</a><li><a href=#stream class="table-of-contents__link toc-highlight">Stream</a><li><a href=#消息队列 class="table-of-contents__link toc-highlight">消息队列</a><li><a href=#data-versioning class="table-of-contents__link toc-highlight">Data versioning</a><li><a href=#有趣 class="table-of-contents__link toc-highlight">有趣</a><li><a href=#sqlite-awesome class="table-of-contents__link toc-highlight">SQLite Awesome</a><li><a href=#id class="table-of-contents__link toc-highlight">ID</a><li><a href=#big-data class="table-of-contents__link toc-highlight">Big Data</a><li><a href=#vector class="table-of-contents__link toc-highlight">Vector</a><li><a href=#geo class="table-of-contents__link toc-highlight">Geo</a><li><a href=#tools class="table-of-contents__link toc-highlight">Tools</a><li><a href=#interactive class="table-of-contents__link toc-highlight">Interactive</a><li><a href=#library class="table-of-contents__link toc-highlight">Library</a><li><a href=#migration class="table-of-contents__link toc-highlight">迁移/升级/Schema 变更/Migration</a><li><a href=#tbd class="table-of-contents__link toc-highlight">TBD</a><li><a href=#read class="table-of-contents__link toc-highlight">Read</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

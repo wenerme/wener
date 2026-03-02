@@ -1,0 +1,826 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-dev/date" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>Date & Time | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/dev/date /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Date & Time | Wener Live & Life"/><meta data-rh=true name=description content="- JSON 标准为 ISO Date String RFC 3339 - 2022-01-12T0000Z"/><meta data-rh=true property=og:description content="- JSON 标准为 ISO Date String RFC 3339 - 2022-01-12T0000Z"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/dev/date /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/date hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/date hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/dev/","name":"开发","position":1},{"@type":"ListItem","item":"https://wener.me/notes/dev/date","name":"Date & Time","position":2}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Collapse sidebar category '开发'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/arch><span title=Architecture class=linkLabel_JPPZ>Architecture</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/ascii><span title=ASCII class=linkLabel_JPPZ>ASCII</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/benchmark><span title=Benchmark class=linkLabel_JPPZ>Benchmark</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/build><span title=构建 class=categoryLinkLabel_RkOu>构建</span></a><button aria-label="Expand sidebar category '构建'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chaos-engineering><span title=混沌工程 class=linkLabel_JPPZ>混沌工程</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chezmoi><span title=chezmoi class=linkLabel_JPPZ>chezmoi</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/circuit-breaker><span title=熔断 class=linkLabel_JPPZ>熔断</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/cloud/dapr-k8s><span title=cloud class=categoryLinkLabel_RkOu>cloud</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/code-faq><span title="Code FAQ" class=linkLabel_JPPZ>Code FAQ</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/coding><span title=Coding class=categoryLinkLabel_RkOu>Coding</span></a><button aria-label="Expand sidebar category 'Coding'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/compression><span title=压缩 class=categoryLinkLabel_RkOu>压缩</span></a><button aria-label="Expand sidebar category '压缩'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/cryptography><span title=Cryptography class=linkLabel_JPPZ>Cryptography</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/data-dict><span title=数据字典 class=linkLabel_JPPZ>数据字典</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/dev/date><span title="Date & Time" class=linkLabel_JPPZ>Date & Time</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/design><span title=Design class=categoryLinkLabel_RkOu>Design</span></a><button aria-label="Expand sidebar category 'Design'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/awesome><span title="Dev Awesome" class=linkLabel_JPPZ>Dev Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/concept><span title=开发相关概念 class=linkLabel_JPPZ>开发相关概念</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/env><span title=ENV class=linkLabel_JPPZ>ENV</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/error><span title=error class=linkLabel_JPPZ>error</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/faq><span title="Dev FAQ" class=linkLabel_JPPZ>Dev FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/glossary><span title="Dev Glossary" class=linkLabel_JPPZ>Dev Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/limits><span title=开发常见限制 class=linkLabel_JPPZ>开发常见限制</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pitfal><span title=Pitfal class=linkLabel_JPPZ>Pitfal</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/practice><span title="Dev Practice" class=linkLabel_JPPZ>Dev Practice</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/reference><span title=Reference class=linkLabel_JPPZ>Reference</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/style-guide><span title="Dev Style Guide" class=linkLabel_JPPZ>Dev Style Guide</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/devcontainer><span title=DevContainer class=linkLabel_JPPZ>DevContainer</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/dict><span title=开发用词字典 class=linkLabel_JPPZ>开发用词字典</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/domain/doc><span title=domain class=categoryLinkLabel_RkOu>domain</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/flow><span title="Workflow & Automation" class=linkLabel_JPPZ>Workflow & Automation</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/flutter><span title=Flutter class=categoryLinkLabel_RkOu>Flutter</span></a><button aria-label="Expand sidebar category 'Flutter'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/format><span title=Format class=categoryLinkLabel_RkOu>Format</span></a><button aria-label="Expand sidebar category 'Format'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/game><span title=GameDev class=categoryLinkLabel_RkOu>GameDev</span></a><button aria-label="Expand sidebar category 'GameDev'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/google-eng-practices><span title="Google Engineering Practices" class=linkLabel_JPPZ>Google Engineering Practices</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/gui/clipboard><span title=gui class=categoryLinkLabel_RkOu>gui</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/hexdump><span title=hexdump class=linkLabel_JPPZ>hexdump</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title="Internationalization (i18n)" class=linkLabel_JPPZ>Internationalization (i18n)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title=i18n class=linkLabel_JPPZ>i18n</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/ide><span title=IDE class=categoryLinkLabel_RkOu>IDE</span></a><button aria-label="Expand sidebar category 'IDE'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/libs/audio><span title=libs class=categoryLinkLabel_RkOu>libs</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/license><span title=License class=linkLabel_JPPZ>License</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/naming><span title=命名规范 class=linkLabel_JPPZ>命名规范</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/network><span title=Network class=linkLabel_JPPZ>Network</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/opensource><span title="OpenSource Awesome" class=linkLabel_JPPZ>OpenSource Awesome</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/pattern><span title=设计模式 class=categoryLinkLabel_RkOu>设计模式</span></a><button aria-label="Expand sidebar category '设计模式'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/practice/semver><span title=practice class=categoryLinkLabel_RkOu>practice</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/protocol/bittorrent><span title=protocol class=categoryLinkLabel_RkOu>protocol</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/qa><span title=质量保障 class=categoryLinkLabel_RkOu>质量保障</span></a><button aria-label="Expand sidebar category '质量保障'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/quantum><span title=Quantum class=linkLabel_JPPZ>Quantum</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/random><span title=Random class=linkLabel_JPPZ>Random</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rate-limits><span title="Rate Limits" class=linkLabel_JPPZ>Rate Limits</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/react-native><span title="React Native" class=categoryLinkLabel_RkOu>React Native</span></a><button aria-label="Expand sidebar category 'React Native'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/reverse><span title=逆向工程 class=categoryLinkLabel_RkOu>逆向工程</span></a><button aria-label="Expand sidebar category '逆向工程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rfc><span title=rfc class=linkLabel_JPPZ>rfc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/routing><span title=路由 class=linkLabel_JPPZ>路由</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/shell/ghostty><span title=shell class=categoryLinkLabel_RkOu>shell</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/std/calender><span title=std class=categoryLinkLabel_RkOu>std</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/tech/qrcode><span title=tech class=categoryLinkLabel_RkOu>tech</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/testing><span title=测试 class=categoryLinkLabel_RkOu>测试</span></a><button aria-label="Expand sidebar category '测试'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/theory><span title=理论 class=categoryLinkLabel_RkOu>理论</span></a><button aria-label="Expand sidebar category '理论'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/timezone><span title=timezone class=linkLabel_JPPZ>timezone</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/vibe-coding><span title="Vibe Coding" class=linkLabel_JPPZ>Vibe Coding</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/wall-of-shame><span title=耻辱墙 class=linkLabel_JPPZ>耻辱墙</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/dev><span>开发</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Date & Time</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Date & Time</h1></header>
+<ul>
+<li>JSON 标准为 ISO Date String <code>RFC 3339</code> - <code>2022-01-12T00:00:00Z</code></li>
+<li>主要操作对象
+<ul>
+<li>Date</li>
+<li>DateTime</li>
+<li>Duration</li>
+<li>Interval - start, end</li>
+<li>Calendar - 日历</li>
+</ul>
+</li>
+<li>jsonschema
+<ul>
+<li>type=string
+<ul>
+<li>format=date-time - <code>yyyy-MM-dd HH:mm:ssZ</code> - <code>2022-01-12T00:00:00Z</code></li>
+<li>format=date - <code>yyyy-MM-dd</code> - <code>2022-01-12</code></li>
+<li>format=time - <code>HH:mm:ss</code> - <code>00:00:00</code>
+<ul>
+<li><code>hh:mm:ss[.sss][Z|(+|-)hh:mm]</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>标准
+<ul>
+<li>ISO 8601
+<ul>
+<li>ISO WeekDate 2017-W24-5</li>
+</ul>
+</li>
+<li>RFC 3339
+<ul>
+<li>ISO 8601 规范化版本</li>
+</ul>
+</li>
+<li>RFC 2822 常用于电子邮件</li>
+<li>Unix Timestamp
+<ul>
+<li>自 1970-01-01T00:00:00Z（UTC） 起的秒数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>int32
+<ul>
+<li>最大 2,147,483,647</li>
+<li>最大 timestamp 2038-01-19T03:14:07Z</li>
+<li>最大 ms timestamp 1970-01-25 20:31:23 UTC
+<ul>
+<li>≈ 24.85 天</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>JS/TS
+<ul>
+<li>Date</li>
+<li>Intl for Locale and Timezone</li>
+<li>Temporal
+<ul>
+<li><a href=https://tc39.es/proposal-temporal/docs/ target=_blank rel="noopener noreferrer">https://tc39.es/proposal-temporal/docs/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/moment/luxon target=_blank rel="noopener noreferrer">luxon</a>
+<ul>
+<li>MIT, JS</li>
+<li>🌟 推荐 如果不考虑 bundle size 优先选择 luxon</li>
+<li>80Kb/20Kb minified/gzipped</li>
+<li>moment.js 的替代品 - immutable</li>
+<li><a href=https://moment.github.io/luxon/ target=_blank rel="noopener noreferrer">https://moment.github.io/luxon/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/iamkun/dayjs target=_blank rel="noopener noreferrer">dayjs</a>
+<ul>
+<li>7kB/3kB minified/gzipped</li>
+<li>2kB alternative to Moment.js with the same modern API</li>
+<li>moment.js 最小化替代</li>
+<li>通过 plugin 提供大部分额外功能</li>
+<li><a href=https://day.js.org/ target=_blank rel="noopener noreferrer">https://day.js.org/</a></li>
+</ul>
+</li>
+<li>moment.js
+<ul>
+<li>项目处于 sunset 阶段 <a href=https://momentjs.com/docs/ target=_blank rel="noopener noreferrer">https://momentjs.com/docs/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/date-fns/date-fns target=_blank rel="noopener noreferrer">date-fns</a>
+<ul>
+<li>操作 JS 的 Date 对象</li>
+<li>函数，独立功能</li>
+</ul>
+</li>
+<li>chrono - 语意化时间解析</li>
+<li><a href=https://npmtrends.com/date-fns-vs-dayjs-vs-luxon-vs-moment target=_blank rel="noopener noreferrer">https://npmtrends.com/date-fns-vs-dayjs-vs-luxon-vs-moment</a></li>
+</ul>
+</li>
+<li>Java
+<ul>
+<li>java.time - JSR-310, Java 8
+<ul>
+<li>来自于 <a href=https://github.com/JodaOrg/joda-time target=_blank rel="noopener noreferrer">JodaOrg/joda-time</a>
+<ul>
+<li><a href=https://www.joda.org/joda-time/ target=_blank rel="noopener noreferrer">https://www.joda.org/joda-time/</a></li>
+</ul>
+</li>
+<li>JS - js-joda</li>
+<li>.NET - <a href=https://github.com/nodatime/nodatime target=_blank rel="noopener noreferrer">nodatime</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PostgreSQL
+<ul>
+<li><a href=https://www.postgresql.org/docs/current/datatype-datetime.html target=_blank rel="noopener noreferrer">https://www.postgresql.org/docs/current/datatype-datetime.html</a></li>
+</ul>
+</li>
+</ul>
+<div class="language-ts codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-ts codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 得到的是 UTC 时间</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>new</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">Date</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'2021-01-02'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">getTime</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">===</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>new</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">Date</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'2021-01-02T00:00:00Z'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">getTime</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 有 daylight savings 的时区可能有问题</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// https://github.com/iamkun/dayjs/issues/1260</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 目前 luxon 能处理好这样的情况</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">dayjs</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">utc</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'2020-03-04T10:00:00Z'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">tz</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'America/New_York'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">add</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">1</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'week'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">$offset</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// offset should be -240 since DST happens on 2020-03-05</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// but the offset remains what the starting offset is, (-300)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// luxon 结果为 -240</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">luxon</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">DateTime</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">fromISO</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'2020-03-04T10:00:00Z'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"> zone</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'utc'</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">setZone</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'America/New_York'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">plus</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"> weeks</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">1</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">offset</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>abbr.<th>stand for<th>mean<tbody><tr><td>UTC<td>Coordinated Universal Time<td>协调世界时<tr><td>GMT<td>Greenwich Mean Time<td>格林尼治标准时间</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=format>Format<a href=#format class=hash-link aria-label="Direct link to Format" title="Direct link to Format" translate=no>​</a></h2>
+<ul>
+<li><code>new Date().toString()</code></li>
+<li><code>Day MMM DD YYYY HH:mm:ss GMT±HHMM (TimeZone)</code></li>
+</ul>
+<div class="language-js codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-js codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Day MMM DD YYYY HH:mm:ss GMT±HHMM (TimeZone)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Fri Oct 08 2010 07:06:05 GMT+0800 (China Standard Time)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>new</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">Date</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">2010</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">9</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">8</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">7</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">6</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">5</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token method function property-access" style="color:rgb(130, 170, 255)">toString</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// RFC 2822 常用于电子邮件</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// HTTP 头</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Day, DD MMM YYYY HH:mm:ss GMT</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Thu, 07 Oct 2010 23:06:05 GMT</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>new</span><span class="token plain"> </span><span class="token class-name" style="color:rgb(255, 203, 107)">Date</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">2010</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">9</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">8</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">7</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">6</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">5</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token method function property-access" style="color:rgb(130, 170, 255)">toGMTString</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://www.man7.org/linux/man-pages/man3/strftime.3.html target=_blank rel="noopener noreferrer">strftime</a>
+<ul>
+<li>RFC 2822 <code>%a, %d %b %Y %T %z</code></li>
+<li>RFC 3339 <code>%Y-%m-%dT%H:%M:%S%z</code></li>
+<li>RFC 822 <code>%a, %d %b %y %T %z</code></li>
+<li>JS <a href=https://github.com/samsonjs/strftime target=_blank rel="noopener noreferrer">samsonjs/strftime</a></li>
+</ul>
+</li>
+<li>Unicode CLDR
+<ul>
+<li><a href=https://cldr.unicode.org/translation/date-time/date-time-symbols target=_blank rel="noopener noreferrer">https://cldr.unicode.org/translation/date-time/date-time-symbols</a></li>
+<li><a href=https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table target=_blank rel="noopener noreferrer">https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table</a></li>
+</ul>
+</li>
+<li>date-fns
+<ul>
+<li>Unicode 日期时间标识符（CLDR 格式）</li>
+<li><a href=https://date-fns.org/docs/format target=_blank rel="noopener noreferrer">https://date-fns.org/docs/format</a></li>
+<li><a href=https://github.com/date-fns/date-fns/blob/main/docs/unicodeTokens.md target=_blank rel="noopener noreferrer">https://github.com/date-fns/date-fns/blob/main/docs/unicodeTokens.md</a></li>
+</ul>
+</li>
+<li>dayjs
+<ul>
+<li>使用自定义格式化字符串</li>
+<li><a href=https://day.js.org/docs/en/display/format target=_blank rel="noopener noreferrer">https://day.js.org/docs/en/display/format</a></li>
+</ul>
+</li>
+<li>luxon
+<ul>
+<li><a href="https://moment.github.io/luxon/#/formatting?id=table-of-tokens" target=_blank rel="noopener noreferrer">https://moment.github.io/luxon/#/formatting?id=table-of-tokens</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>meaning<th>CLDR<th>notes<tbody><tr><td>era<td>G<td>AD<tr><td rowspan=2>year<td>y<td>989,2017<tr><td>yy<td>89,17<tr><td rowspan=2>month<td>M<td>September<tr><td>L<td>Standalone<tr><td rowspan=2>Day of week<td>E<td>Tuesday<tr><td>c<td>Standalone<tr><td>day<td>d<td><tr><td rowspan=4>hour<td>h<td>12h<tr><td>H<td>0-23h<tr><td>K<td>0-11h<tr><td>k<td>1-24h<tr><td>minute<td>m<td><tr><td>second<td>s<td><tr><td rowspan=3>day period<td>a<td>AM/PM<tr><td>b<td><tr><td>B<td><tr><td>timezone<td>z/v<td><tr><td>Quarter<td>Q<td><tr><td><code>'</code><td><td></table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=duration>Duration<a href=#duration class=hash-link aria-label="Direct link to Duration" title="Direct link to Duration" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>unit<th>for<th>cn<tbody><tr><td>y<td>year<td>年<tr><td>M<td>month<td>月<tr><td>w<td>week<td>周<tr><td>d<td>day<td>天<tr><td>h<td>hour<td>小时<tr><td>m<td>minute<td>分钟<tr><td>s<td>second<td>秒<tr><td>Q<td>quarter<td>季度</table>
+<ul>
+<li>ISO 8601 Duration</li>
+<li><code>P[n]Y[n]M[n]DT[n]H[n]M[n]S</code></li>
+<li>PostgreSQL Interval
+<ul>
+<li>输入格式
+<ul>
+<li><code>P [ years-months-days ] [ T hours:minutes:seconds ]</code></li>
+<li><code>1 year 2 months 3 days 4 hours 5 minutes 6 seconds</code></li>
+<li><code>P1Y2M3DT4H5M6S</code></li>
+<li><code>P0001-02-03T04:05:06</code></li>
+<li><code>1-2</code> 1 year 2 months</li>
+<li><code>3 4:05:06</code> 3 days 4 hours 5 minutes 6 seconds</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=relative-time>Relative Time<a href=#relative-time class=hash-link aria-label="Direct link to Relative Time" title="Direct link to Relative Time" translate=no>​</a></h2>
+<ul>
+<li>Grafana
+<ul>
+<li><code>now-6h</code> - 6 小时前</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=grafana>Grafana<a href=#grafana class=hash-link aria-label="Direct link to Grafana" title="Direct link to Grafana" translate=no>​</a></h2>
+<ul>
+<li>isRelativeTimeRange
+<ul>
+<li>只要包含 now 就是</li>
+</ul>
+</li>
+<li>默认 number 为 秒 单位</li>
+</ul>
+<div class="language-ts codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-ts codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token keyword" style=font-style:italic>export</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>function</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">getDefaultTimeRange</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> TimeRange </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token keyword" style=font-style:italic>const</span><span class="token plain"> now </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dateTime</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token keyword" style=font-style:italic>return</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    from</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dateTime</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">now</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">subtract</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">6</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'hour'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    to</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> now</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    raw</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"> from</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'now-6h'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> to</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'now'</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>from<th>to<th>display<th>cn<tbody><tr><td>now/d<td>now/d<td>Today<td>今天<tr><td>now/d<td>now<td>Today so far<td>今天到目前为止<tr><td>now/w<td>now/w<td>This week<td>本周<tr><td>now/w<td>now<td>This week so far<td>本周到目前为止<tr><td>now/M<td>now/M<td>This month<td>本月<tr><td>now/M<td>now<td>This month so far<td>本月到目前为止<tr><td>now/y<td>now/y<td>This year<td>今年<tr><td>now/y<td>now<td>This year so far<td>今年到目前为止<tr><td>now-1d/d<td>now-1d/d<td>Yesterday<td>昨天<tr><td>now-2d/d<td>now-2d/d<td>Day before yesterday<td>前天<tr><td>now-7d/d<td>now-7d/d<td>This day last week<td>上周的这一天<tr><td>now-1w/w<td>now-1w/w<td>Previous week<td>上周<tr><td>now-1M/M<td>now-1M/M<td>Previous month<td>上个月<tr><td>now-1Q/fQ<td>now-1Q/fQ<td>Previous fiscal quarter<td>上个财季<tr><td>now-1y/y<td>now-1y/y<td>Previous year<td>去年<tr><td>now-1y/fy<td>now-1y/fy<td>Previous fiscal year<td>上个财年<tr><td>now-5m<td>now<td>Last 5 minutes<td>过去5分钟<tr><td>now-15m<td>now<td>Last 15 minutes<td>过去15分钟<tr><td>now-30m<td>now<td>Last 30 minutes<td>过去30分钟<tr><td>now-1h<td>now<td>Last 1 hour<td>过去1小时<tr><td>now-3h<td>now<td>Last 3 hours<td>过去3小时<tr><td>now-6h<td>now<td>Last 6 hours<td>过去6小时<tr><td>now-12h<td>now<td>Last 12 hours<td>过去12小时<tr><td>now-24h<td>now<td>Last 24 hours<td>过去24小时<tr><td>now-2d<td>now<td>Last 2 days<td>过去2天<tr><td>now-7d<td>now<td>Last 7 days<td>过去7天<tr><td>now-30d<td>now<td>Last 30 days<td>过去30天<tr><td>now-90d<td>now<td>Last 90 days<td>过去90天<tr><td>now-6M<td>now<td>Last 6 months<td>过去6个月<tr><td>now-1y<td>now<td>Last 1 year<td>过去1年<tr><td>now-2y<td>now<td>Last 2 years<td>过去2年<tr><td>now-5y<td>now<td>Last 5 years<td>过去5年<tr><td>now/fQ<td>now<td>This fiscal quarter so far<td>本财季到目前为止<tr><td>now/fQ<td>now/fQ<td>This fiscal quarter<td>本财季<tr><td>now/fy<td>now<td>This fiscal year so far<td>本财年到目前为止<tr><td>now/fy<td>now/fy<td>This fiscal year<td>本财年</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>from<th>to<th>display<th>cn<tbody><tr><td>now<td>now+1m<td>Next minute<td>下一分钟<tr><td>now<td>now+5m<td>Next 5 minutes<td>接下来的5分钟<tr><td>now<td>now+15m<td>Next 15 minutes<td>接下来的15分钟<tr><td>now<td>now+30m<td>Next 30 minutes<td>接下来的30分钟<tr><td>now<td>now+1h<td>Next hour<td>下一小时<tr><td>now<td>now+3h<td>Next 3 hours<td>接下来的3小时<tr><td>now<td>now+6h<td>Next 6 hours<td>接下来的6小时<tr><td>now<td>now+12h<td>Next 12 hours<td>接下来的12小时<tr><td>now<td>now+24h<td>Next 24 hours<td>接下来的24小时<tr><td>now<td>now+2d<td>Next 2 days<td>接下来的2天<tr><td>now<td>now+7d<td>Next 7 days<td>接下来的7天<tr><td>now<td>now+30d<td>Next 30 days<td>接下来的30天<tr><td>now<td>now+90d<td>Next 90 days<td>接下来的90天<tr><td>now<td>now+6M<td>Next 6 months<td>接下来的6个月<tr><td>now<td>now+1y<td>Next year<td>下一年<tr><td>now<td>now+2y<td>Next 2 years<td>接下来的2年<tr><td>now<td>now+5y<td>Next 5 years<td>接下来的5年</table>
+<hr/>
+<ul>
+<li>解析核心逻辑是 datemath + round</li>
+<li><a href=https://github.com/grafana/grafana/blob/3724ffd8589aaae1528a6d9b562521ee5eda20af/packages/grafana-data/src/datetime/rangeutil.ts target=_blank rel="noopener noreferrer">https://github.com/grafana/grafana/blob/3724ffd8589aaae1528a6d9b562521ee5eda20af/packages/grafana-data/src/datetime/rangeutil.ts</a></li>
+<li><a href=https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/#query-options target=_blank rel="noopener noreferrer">https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/#query-options</a></li>
+<li>dateTimeParse <a href=https://github.com/grafana/grafana/blob/3724ffd8589aaae1528a6d9b562521ee5eda20af/packages/grafana-data/src/datetime/parser.ts#L43-L53 target=_blank rel="noopener noreferrer">https://github.com/grafana/grafana/blob/3724ffd8589aaae1528a6d9b562521ee5eda20af/packages/grafana-data/src/datetime/parser.ts#L43-L53</a></li>
+<li>parseDateMath <a href=https://github.com/grafana/grafana/blob/3724ffd8589aaae1528a6d9b562521ee5eda20af/packages/grafana-data/src/datetime/datemath.ts#L119-L199 target=_blank rel="noopener noreferrer">https://github.com/grafana/grafana/blob/3724ffd8589aaae1528a6d9b562521ee5eda20af/packages/grafana-data/src/datetime/datemath.ts#L119-L199</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=momentjs>MomentJS<a href=#momentjs class=hash-link aria-label="Direct link to MomentJS" title="Direct link to MomentJS" translate=no>​</a></h2>
+<div class="language-ts codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-ts codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">moment</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token function" style="color:rgb(130, 170, 255)">updateLocale</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">'en'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  relativeTime</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    future</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'in %s'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    past</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'%s ago'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    s</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'a few seconds'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    ss</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'%d seconds'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    m</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'a minute'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    mm</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'%d minutes'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    h</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'an hour'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    hh</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'%d hours'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    d</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'a day'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    dd</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'%d days'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    w</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'a week'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    ww</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'%d weeks'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token constant" style="color:rgb(130, 170, 255)">M</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'a month'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token constant" style="color:rgb(130, 170, 255)">MM</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'%d months'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    y</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'a year'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    yy</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'%d years'</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://github.com/moment/momentjs.com/blob/master/docs/moment/07-customization/07-relative-time.md target=_blank rel="noopener noreferrer">https://github.com/moment/momentjs.com/blob/master/docs/moment/07-customization/07-relative-time.md</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=calender>Calender<a href=#calender class=hash-link aria-label="Direct link to Calender" title="Direct link to Calender" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>英文名<th>简介<th>主要用途/地区<tbody><tr><td>公历/格里历<td>Gregorian Calendar<td>目前全球最常用的历法，1582年由教皇格里高利十三世颁布。<td>国际通用、ISO标准<tr><td>儒略历<td>Julian Calendar<td>由罗马儒略·凯撒制定，公元前46年启用，后被格里历取代。<td>历史研究、东正教<tr><td>农历/阴阳历<td>Chinese Lunar Calendar<td>中国传统历法，结合太阳和月亮周期，常用于节气和传统节日。<td>中国及东亚地区<tr><td>伊斯兰历<td>Islamic Calendar<td>纯阴历，以月亮周期为基础，回历纪年。<td>伊斯兰国家<tr><td>犹太历<td>Hebrew Calendar<td>犹太教传统历法，阴阳合历。<td>犹太教、以色列<tr><td>佛历<td>Buddhist Calendar<td>基于泰国、柬埔寨等地的太阳历，纪年以佛祖涅槃为起点。<td>东南亚佛教国家<tr><td>印度历<td>Indian National Calendar<td>结合太阳和月亮周期，印度官方历法之一。<td>印度<tr><td>波斯历<td>Persian Calendar<td>太阳历，伊朗和阿富汗等地使用。<td>伊朗、阿富汗<tr><td>财年日历<td>Fiscal Calendar<td>企业或政府用于财务统计的年度周期，起止时间可自定义。<td>企业、政府<tr><td>ISO周历<td>ISO Week Calendar<td>ISO 8601标准，按周编号，常用于项目管理和统计。<td>国际标准、项目管理</table>
+<ul>
+<li><a href=https://en.wikipedia.org/wiki/Calendar target=_blank rel="noopener noreferrer">Wikipedia: Calendar</a></li>
+<li><a href=https://en.wikipedia.org/wiki/ISO_8601 target=_blank rel="noopener noreferrer">ISO 8601 标准</a></li>
+<li><a href=https://zh.wikipedia.org/wiki/%E5%86%9C%E5%8E%86 target=_blank rel="noopener noreferrer">中国农历</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/topic>Topic</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/dev/date.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2025-07-22T08:16:23.000Z itemprop=dateModified>Jul 22, 2025</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/dev/data-dict><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>数据字典</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/dev/design><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Design</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#format class="table-of-contents__link toc-highlight">Format</a><li><a href=#duration class="table-of-contents__link toc-highlight">Duration</a><li><a href=#relative-time class="table-of-contents__link toc-highlight">Relative Time</a><li><a href=#grafana class="table-of-contents__link toc-highlight">Grafana</a><li><a href=#momentjs class="table-of-contents__link toc-highlight">MomentJS</a><li><a href=#calender class="table-of-contents__link toc-highlight">Calender</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

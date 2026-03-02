@@ -1,0 +1,190 @@
+<!doctype html><html lang=en dir=ltr class="blog-wrapper blog-post-page plugin-blog plugin-id-default" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>一周 K3S 学习心得 | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/story/k3s-one-week /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docusaurus_tag content=default /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docsearch:docusaurus_tag content=default /><meta data-rh=true property=og:title content="一周 K3S 学习心得 | Wener Live & Life"/><meta data-rh=true name=description content=k3s-one-week /><meta data-rh=true property=og:description content=k3s-one-week /><meta data-rh=true property=og:type content=article /><meta data-rh=true property=article:published_time content=2020-06-13T00:00:00.000Z /><meta data-rh=true property=article:tag content=Kubernetes,K3S,运维 /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/story/k3s-one-week /><link data-rh=true rel=alternate href=https://wener.me/story/k3s-one-week hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/story/k3s-one-week hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@id":"https://wener.me/story/k3s-one-week","@type":"BlogPosting","author":[],"datePublished":"2020-06-13T00:00:00.000Z","description":"k3s-one-week","headline":"一周 K3S 学习心得","isPartOf":{"@id":"https://wener.me/story","@type":"Blog","name":"Blog"},"keywords":[],"mainEntityOfPage":"https://wener.me/story/k3s-one-week","name":"一周 K3S 学习心得","url":"https://wener.me/story/k3s-one-week"}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a class="navbar__item navbar__link" href=/notes>笔记</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class="container margin-vert--lg"><div class=row><aside class="col col--3"><nav class="sidebar_Ulkt thin-scrollbar" aria-label="Blog recent posts navigation"><div class="sidebarItemTitle_hSNJ margin-bottom--md">Recent posts</div><div role=group><h3 class=yearGroupHeading_KD0z>2025</h3><ul class="sidebarItemList_dElJ clean-list"><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/function-and-interface>工具 - 工 与 具</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/here-my-love-ch2>《我把我的矜持都给了她》：第二章 - 故事的重新开始</a></ul></div><div role=group><h3 class=yearGroupHeading_KD0z>2024</h3><ul class="sidebarItemList_dElJ clean-list"><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/decrypt-classfinal-jar>解密 ClassFinal 加密的 Java Jar 包</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/how-i-note>我记录思考的方式简单总结</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/ml-first-try>第一次尝试机器学习</a></ul></div></nav></aside><main class="col col--7"><article class=""><header><h1 class=title_U7V0>一周 K3S 学习心得</h1><div class="container_cxbP margin-vert--md"><time datetime=2020-06-13T00:00:00.000Z>June 13, 2020</time> · <!-- -->5 min read</div></header><div id=__blog-post-container class=markdown><p><img decoding=async loading=lazy alt=k3s-one-week src=/assets/images/k3s-one-week-df27d57767f5688f572c34b2287d592c.png width=1600 height=600 class=img_IxRA /></p>
+<blockquote>
+<p>K3S is five times eaiser than K8S 😊</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=一点点历史>一点点历史<a href=#一点点历史 class=hash-link aria-label="Direct link to 一点点历史" title="Direct link to 一点点历史" translate=no>​</a></h2>
+<p>刚开始了解 K8S 是大约 1.4 版本 Beta 时（2016），<a href=http://kubernetes.io/docs/getting-started-guides/kubeadm/ target=_blank rel="noopener noreferrer">kubeadm</a> 刚开始有一定雏形，K8S 才开始在一般大众面前展露头角。</p>
+<p>当时的 Docker 编排工具算是百花齐放，但当时如果想要玩好 K8S 是相当难的，因为 K8S 谷歌牵头开发，所有镜像都在 gcr 上，门槛已经算比较高了。而且部署用的工具也还相当不成熟，没有专业的运维部署都很难，况且还需要专人维护。</p>
+<p>而今天，2020，K8S 已经有很多发行版了，大多编排平台底层如果不是基于 K8S 那也是支持 K8S。Rancher 1.0 转型到 2.0 时抛弃了之前的模式，选择了基于 K8S，Rancher 定位为集群管理。</p>
+<p>因此 Rancher 之下诞生了很多辅助于 K8S 平台的工具和周边，K3S 也算是核心之一。</p>
+<p>在这之前对于 K8S 仅限于了解，而现在则是需要考虑使用了，因此开始重新学习。</p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=关于-k3s>关于 K3S<a href=#关于-k3s class=hash-link aria-label="Direct link to 关于 K3S" title="Direct link to 关于 K3S" translate=no>​</a></h2>
+<p>K3S 大大降低了 K8S 的门槛，主要在于</p>
+<ul>
+<li>单机可启动</li>
+<li>Docker 可启动</li>
+<li>不再依赖 etcd</li>
+</ul>
+<p>如果用不到集群，K3S+Dashboard 用来做单机的 Docker 界面都是非常合适的。</p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=学习过程总结>学习过程总结<a href=#学习过程总结 class=hash-link aria-label="Direct link to 学习过程总结" title="Direct link to 学习过程总结" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=理解-k3s>理解 K3S<a href=#理解-k3s class=hash-link aria-label="Direct link to 理解 K3S" title="Direct link to 理解 K3S" translate=no>​</a></h3>
+<p>Kubernates 的核心是依赖 ETCD 作为核心状态存储，就好比 Hadoop 核心依赖 Zookeeper 一样，而 K3S 以 Adapter <a href=https://github.com/rancher/kine target=_blank rel="noopener noreferrer">kine</a> 替代了对 etcd 的依赖，暴露 etcd 能力，但后端存储被适配到</p>
+<ul>
+<li>SQLite</li>
+<li>DQLite</li>
+<li>MySQL</li>
+<li>Postgres</li>
+</ul>
+<p>在部署集群 K3S 时候只要选择的存储是网络数据库存储或者内嵌的 DQLite 即可。</p>
+<p>K3S 是单独的可执行文件，将所需的大部分功能都打包到了内部</p>
+<ul>
+<li>k3s server - 主节点守护进程</li>
+<li>k3s agent - 从节点守护进程</li>
+<li>kubectl - 与 k8s 的交互工具</li>
+<li>crictl - containerd 调试工具</li>
+</ul>
+<p>在启动 k3s 的 server 或 agent 时会通过容器（docker 或者 containerd）启动 K8S 的核心服务（例如 apiserver）。使得在部署 K3S 时异常简单，所有依赖都在一个二进制，也因为这样，支持 arm 也只需要再次进行编译单个的可执行文件即可（当然也要有容器镜像是支持对应架构的）。</p>
+<p>不仅是简化了部署和集群一致性的依赖，K3S 针对部分核心服务有默认配置，并且提供了部分核心服务的实现</p>
+<ul>
+<li>servicelb - <a href=https://github.com/rancher/klipper-lb target=_blank rel="noopener noreferrer">rancher/klipper-lb</a>
+<ul>
+<li>提供最简化的 lb 实现 - 选择开放端口</li>
+</ul>
+</li>
+<li>traefik
+<ul>
+<li>提供 Ingress 和 LB</li>
+</ul>
+</li>
+<li><a href=https://github.com/kubernetes-sigs/metrics-server target=_blank rel="noopener noreferrer">metric-server</a></li>
+<li>cloud manager - K8S 能获取到节点信息</li>
+<li>corndns</li>
+</ul>
+<p>K3S server/agent 相当于是 kubeadm + 部分控制器实现。</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=部署-k3s>部署 K3S<a href=#部署-k3s class=hash-link aria-label="Direct link to 部署 K3S" title="Direct link to 部署 K3S" translate=no>​</a></h3>
+<p>官方给的部署就一行命令</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -sfL https://get.k3s.io | sh -</span><br/></span></code></pre></div></div>
+<p>拉取脚本并执行，但初次使用，还是建议自行手动部署，脚本简单明了，阅读后就知道<a href=https://wener.me/notes/devops/kubernetes/k3s#getk3sio target=_blank rel="noopener noreferrer">做了什么</a>。</p>
+<p>如果对于大批量部署，建议提前下载 k3s 然后上传启动即可。</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=部署选择>部署选择<a href=#部署选择 class=hash-link aria-label="Direct link to 部署选择" title="Direct link to 部署选择" translate=no>​</a></h3>
+<p>K8S 是分布式的 容器 编排工具，所有的功能都是围绕这个核心来展开的，因为分布式，那也必然面对着所有分布式平台都会面临的问题。</p>
+<p>通常的单节点应用我们考虑的是</p>
+<ul>
+<li>CPU+内存 - 计算 - 基础资源</li>
+<li>带宽 - 网络</li>
+<li>磁盘 - 存储</li>
+</ul>
+<p>在部署 Kubernates 的时候最开始也是考虑这些问题，K3S 的单节点部署能够把这些问题的思考时间滞后，但还是需要解决的。
+并且部署的过程就是各种选择权衡的问题，再结合自身实际使用情况和资源硬件情况进行决策。</p>
+<ul>
+<li>计算资源 - 阿里云、物理机、虚拟机</li>
+<li>网络 - 如何组网
+<ul>
+<li>跨网络</li>
+<li>混合网络</li>
+</ul>
+</li>
+<li>存储</li>
+<li>容器运行环境 - docker、containerd</li>
+<li>cni
+<ul>
+<li>flannel 组网方式 - wireguard、host-gw、vxlan</li>
+<li>calico</li>
+<li>wave</li>
+<li>其他。。。</li>
+</ul>
+</li>
+<li>servicelb - 内建、metallb</li>
+<li>ingress - traefik1（默认）、traefik2、nginx、haproxy、envoy、云平台提供</li>
+<li>K3S 存储后端 - Postgres、MySQL</li>
+</ul>
+<p>目前有的人员、硬件资源、平台、已有环境</p>
+<ul>
+<li>人员 - 1 个人 - 我</li>
+<li>硬件
+<ul>
+<li>1 服务器 - 40 核 250G</li>
+<li>阿里云若干</li>
+<li>腾讯云若干</li>
+<li>小型物理机若干</li>
+<li>树莓派若干</li>
+</ul>
+</li>
+<li>平台
+<ul>
+<li>AMD64、ARM64</li>
+<li>阿里云、腾讯云</li>
+</ul>
+</li>
+<li>已有
+<ul>
+<li>Tinc</li>
+</ul>
+</li>
+</ul>
+<p>做了如下的规划部署</p>
+<ul>
+<li>计算资源
+<ul>
+<li>阿里云 - Bare Metal</li>
+<li>服务器开虚拟机 - libvirt+qemu+kvm</li>
+<li>物理机看情况开始虚拟机或直接使用</li>
+<li>树莓派直接安装</li>
+</ul>
+</li>
+<li>网络 - flannel-host-gw + tinc + metallb
+<ul>
+<li>例如 10.10.0.0/16、其中 10.10.0.0/18 预留为宿主机、10.10.64.0/18 预留给 metallb 分配</li>
+</ul>
+</li>
+<li>存储 - zfs+longhorn
+<ul>
+<li>选取部分节点</li>
+</ul>
+</li>
+<li>容器运行环境 - docker</li>
+<li>servicelb - metallb</li>
+<li>ingress - traefik2
+<ul>
+<li>阿里云节点作为对外入口</li>
+</ul>
+</li>
+<li>K3S 存储后端 - 阿里云 Postgres</li>
+</ul>
+<p>部署完成后只是第一步，开始了解<a href=https://wener.me/notes/devops/kubernetes/k8s-glossary target=_blank rel="noopener noreferrer">各种概念</a>部署各种服务适配各种场景才是更重要的。</p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=是否应该选择-k3s>是否应该选择 K3S<a href=#是否应该选择-k3s class=hash-link aria-label="Direct link to 是否应该选择 K3S" title="Direct link to 是否应该选择 K3S" translate=no>​</a></h2>
+<p>如果你犹豫使用 K3S 还是使用 K8S 请思考以下问题</p>
+<ul>
+<li>公司在平台投入多少 ？</li>
+<li>有多少专人维护 ？
+<ul>
+<li>K8S 建议至少 3-5 人</li>
+</ul>
+</li>
+<li>节点资源性能如何 ？
+<ul>
+<li>K8S 建议至少 8 核 32G - 否则基础服务占用资源不能被平摊</li>
+</ul>
+</li>
+<li>是否选择托管的 K8S ？
+<ul>
+<li>不存在使用 K3S</li>
+</ul>
+</li>
+<li>混合云、私有云、公有云 ？</li>
+</ul>
+<p>或者用最简单的方式判断</p>
+<ul>
+<li>节点数 &lt;=50 选择 K3S
+<ul>
+<li>一人工作量</li>
+</ul>
+</li>
+<li>50 &lt; 节点数 &lt;= 150 选择 K3S 或 K8S</li>
+<li>节点数量 > 150 选择 K8S
+<ul>
+<li>有这样的规模，运维必然是一个团队，因此不存在 K8S 复杂的问题</li>
+</ul>
+</li>
+</ul></div><footer class=docusaurus-mt-lg><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/kubernetes>Kubernetes</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/k-3-s>K3S</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/运维>运维</a></ul></div></div><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/story/../story/2020/2020-06-13-k3s-one-week.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href=/story/cyw-without-w><div class=pagination-nav__sublabel>Newer post</div><div class=pagination-nav__label>你就是你</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/story/hello-cgo><div class=pagination-nav__sublabel>Older post</div><div class=pagination-nav__label>Hello CGO</div></a></nav></main><div class="col col--2"><div class="tableOfContents_wpyd thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#一点点历史 class="table-of-contents__link toc-highlight">一点点历史</a><li><a href=#关于-k3s class="table-of-contents__link toc-highlight">关于 K3S</a><li><a href=#学习过程总结 class="table-of-contents__link toc-highlight">学习过程总结</a><ul><li><a href=#理解-k3s class="table-of-contents__link toc-highlight">理解 K3S</a><li><a href=#部署-k3s class="table-of-contents__link toc-highlight">部署 K3S</a><li><a href=#部署选择 class="table-of-contents__link toc-highlight">部署选择</a></ul><li><a href=#是否应该选择-k3s class="table-of-contents__link toc-highlight">是否应该选择 K3S</a></ul></div></div></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

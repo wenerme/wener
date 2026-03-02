@@ -1,0 +1,2897 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-web/script/js/js-awesome" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>JavaScript Awesome | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/web/script/js/awesome /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="JavaScript Awesome | Wener Live & Life"/><meta data-rh=true name=description content="- novnc/noVNC"/><meta data-rh=true property=og:description content="- novnc/noVNC"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/web/script/js/awesome /><link data-rh=true rel=alternate href=https://wener.me/notes/web/script/js/awesome hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/web/script/js/awesome hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/web/","name":"Web","position":1},{"@type":"ListItem","item":"https://wener.me/notes/web/script/js/","name":"Javascript","position":2},{"@type":"ListItem","item":"https://wener.me/notes/web/script/js/awesome","name":"JavaScript Awesome","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Collapse sidebar category 'Web'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/app><span title="Web APP" class=linkLabel_JPPZ>Web APP</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/browser><span title=浏览器 class=categoryLinkLabel_RkOu>浏览器</span></a><button aria-label="Expand sidebar category '浏览器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/cdn><span title=CDN class=linkLabel_JPPZ>CDN</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/chart><span title="Web Charting" class=linkLabel_JPPZ>Web Charting</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/cookie><span title=Cookie class=linkLabel_JPPZ>Cookie</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/cors><span title=CORS class=linkLabel_JPPZ>CORS</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/deno><span title=deno class=categoryLinkLabel_RkOu>deno</span></a><button aria-label="Expand sidebar category 'deno'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/design/color><span title=design class=categoryLinkLabel_RkOu>design</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/dev><span title="Web (Frontend) Dev" class=categoryLinkLabel_RkOu>Web (Frontend) Dev</span></a><button aria-label="Expand sidebar category 'Web (Frontend) Dev'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/dom><span title=DOM class=categoryLinkLabel_RkOu>DOM</span></a><button aria-label="Expand sidebar category 'DOM'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/domain/datastore><span title=domain class=categoryLinkLabel_RkOu>domain</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/editor><span title=编辑器 class=categoryLinkLabel_RkOu>编辑器</span></a><button aria-label="Expand sidebar category '编辑器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/fancy><span title="Fancy UI" class=linkLabel_JPPZ>Fancy UI</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/favicon><span title=favicon class=linkLabel_JPPZ>favicon</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/framework/alpinejs><span title=framework class=categoryLinkLabel_RkOu>framework</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/graphics><span title=Graphical class=linkLabel_JPPZ>Graphical</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/html><span title=HTML class=categoryLinkLabel_RkOu>HTML</span></a><button aria-label="Expand sidebar category 'HTML'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/icon/fontawesome><span title=icon class=categoryLinkLabel_RkOu>icon</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/jsdelivr><span title=jsdelivr class=linkLabel_JPPZ>jsdelivr</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/jspm><span title=JSPM class=linkLabel_JPPZ>JSPM</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/media/player><span title=media class=categoryLinkLabel_RkOu>media</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/nodejs><span title=NodeJS class=categoryLinkLabel_RkOu>NodeJS</span></a><button aria-label="Expand sidebar category 'NodeJS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/open-graph><span title="Open Graph" class=linkLabel_JPPZ>Open Graph</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/react><span title=React class=categoryLinkLabel_RkOu>React</span></a><button aria-label="Expand sidebar category 'React'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/robots.txt><span title=robots.txt class=linkLabel_JPPZ>robots.txt</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/notes/web/script/js><span title=script class=categoryLinkLabel_RkOu>script</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/web/script/js><span title=Javascript class=categoryLinkLabel_RkOu>Javascript</span></a><button aria-label="Collapse sidebar category 'Javascript'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/async><span title="JS Async" class=linkLabel_JPPZ>JS Async</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/web/script/js/awesome><span title="JavaScript Awesome" class=linkLabel_JPPZ>JavaScript Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/compile><span title="JS Compile" class=linkLabel_JPPZ>JS Compile</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/cookbook><span title="JS Cookbook" class=linkLabel_JPPZ>JS Cookbook</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/decorator><span title=Decorator class=linkLabel_JPPZ>Decorator</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/faq><span title="JavaScript 常见问题" class=linkLabel_JPPZ>JavaScript 常见问题</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/fs><span title="JS File System API" class=linkLabel_JPPZ>JS File System API</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/globals><span title="JavaScript 全局对象" class=linkLabel_JPPZ>JavaScript 全局对象</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/intl><span title=Intl class=linkLabel_JPPZ>Intl</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/io><span title=IO class=linkLabel_JPPZ>IO</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/module><span title=ESM class=linkLabel_JPPZ>ESM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/pattern><span title=Pattern class=linkLabel_JPPZ>Pattern</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/prototype><span title="JavaScript Prototype" class=linkLabel_JPPZ>JavaScript Prototype</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/ref><span title="JS References" class=linkLabel_JPPZ>JS References</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/reflect><span title=Reflect class=linkLabel_JPPZ>Reflect</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/temporal><span title=Temporal class=linkLabel_JPPZ>Temporal</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/transpile><span title=transpile class=linkLabel_JPPZ>transpile</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/js/version><span title="ECMAScript Version" class=linkLabel_JPPZ>ECMAScript Version</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/script/lib/acorn><span title=lib class=categoryLinkLabel_RkOu>lib</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/polyfill><span title=Polyfill class=linkLabel_JPPZ>Polyfill</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/quickjs><span title=quickjs class=linkLabel_JPPZ>quickjs</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/threejs><span title=Three.js class=linkLabel_JPPZ>Three.js</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/tips><span title=Tips class=linkLabel_JPPZ>Tips</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/script/typescript><span title=Typescript class=categoryLinkLabel_RkOu>Typescript</span></a><button aria-label="Expand sidebar category 'Typescript'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/script/vdom><span title="Virtual DOM" class=linkLabel_JPPZ>Virtual DOM</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/spec><span title=规范 class=categoryLinkLabel_RkOu>规范</span></a><button aria-label="Expand sidebar category '规范'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/sse><span title="Server-Sent Events" class=linkLabel_JPPZ>Server-Sent Events</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/style><span title=Style class=categoryLinkLabel_RkOu>Style</span></a><button aria-label="Expand sidebar category 'Style'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/web/ui/font><span title=ui class=categoryLinkLabel_RkOu>ui</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/awesome><span title="Web Awesome" class=linkLabel_JPPZ>Web Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/faq><span title="Web FAQ" class=linkLabel_JPPZ>Web FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/vitals><span title=vitals class=linkLabel_JPPZ>vitals</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/webcomponent-awesome><span title="WebComponent Awesome" class=linkLabel_JPPZ>WebComponent Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/webcrypto><span title=WebCrypto class=linkLabel_JPPZ>WebCrypto</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/webpack><span title=Webpack class=linkLabel_JPPZ>Webpack</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/web/webrtc><span title=WebRTC class=categoryLinkLabel_RkOu>WebRTC</span></a><button aria-label="Expand sidebar category 'WebRTC'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/web/websocket><span title=WebSocket class=linkLabel_JPPZ>WebSocket</span></a></ul></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/web><span>Web</span></a><li class=breadcrumbs__item><span class=breadcrumbs__link>script</span><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/web/script/js><span>Javascript</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>JavaScript Awesome</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>JavaScript Awesome</h1></header>
+<ul>
+<li><a href=https://github.com/novnc/noVNC target=_blank rel="noopener noreferrer">novnc/noVNC</a></li>
+<li><a href=https://github.com/felixrieseberg/macintosh.js target=_blank rel="noopener noreferrer">felixrieseberg/macintosh.js</a></li>
+<li><a href=https://github.com/RobinCsl/awesome-js-tooling-not-in-js target=_blank rel="noopener noreferrer">RobinCsl/awesome-js-tooling-not-in-js</a></li>
+<li><a href=https://github.com/sorrycc/awesome-javascript target=_blank rel="noopener noreferrer">sorrycc/awesome-javascript</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=library>Library<a href=#library class=hash-link aria-label="Direct link to Library" title="Direct link to Library" translate=no>​</a></h2>
+<ul>
+<li>Event
+<ul>
+<li>DOM EventTarget - Bus</li>
+<li>DOM MessageChannel - 1-1、WebWorker</li>
+<li>DOM BroadcastChannel - origin 纬度 - 多窗口</li>
+<li>DOM Window.postMessage - 跨 origin、多窗口、iframe</li>
+<li>EventEmitter
+<ul>
+<li>npm:events</li>
+</ul>
+</li>
+<li><a href=https://github.com/sindresorhus/emittery target=_blank rel="noopener noreferrer">sindresorhus/emittery</a>
+<ul>
+<li>支持 async, generator</li>
+<li>🌟 推荐 - 更加现代</li>
+</ul>
+</li>
+<li><a href=https://github.com/primus/eventemitter3 target=_blank rel="noopener noreferrer">primus/eventemitter3</a>
+<ul>
+<li>移除 Domain 支持</li>
+</ul>
+</li>
+<li><a href=https://github.com/Morglod/tseep target=_blank rel="noopener noreferrer">Morglod/tseep</a>
+<ul>
+<li><a href=https://github.com/Morglod/tseep/blob/master/benchmarks/results.md target=_blank rel="noopener noreferrer">https://github.com/Morglod/tseep/blob/master/benchmarks/results.md</a></li>
+</ul>
+</li>
+<li><del><a href=https://github.com/EventEmitter2/EventEmitter2 target=_blank rel="noopener noreferrer">eventemitter2</a></del>
+<ul>
+<li>wildcard/namespace, ttl/once/many, async listener/setImmediate</li>
+<li>emitAsync</li>
+<li>18.2kB, 5.6kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/developit/mitt target=_blank rel="noopener noreferrer">developit/mitt</a>
+<ul>
+<li>ts, 200byte</li>
+<li>建议直接拷到项目使用</li>
+</ul>
+</li>
+<li><a href=https://github.com/pubkey/broadcast-channel target=_blank rel="noopener noreferrer">broadcast-channel</a>
+<ul>
+<li>基于 BroadcastChannel+IndexedD+LocalStorage</li>
+<li>NodeJS 使用 Sockets</li>
+<li>支持 Leader 选举</li>
+<li>20kB/6kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/browserify/events target=_blank rel="noopener noreferrer">browserify/events</a>
+<ul>
+<li>EventEmitter 同 <code>node:events</code></li>
+</ul>
+</li>
+<li>tiny-emitter</li>
+<li><del><a href=https://github.com/tunnckoCoreLabs/dush target=_blank rel="noopener noreferrer">tunnckoCoreLabs/dush</a></del></li>
+<li><a href=https://npmtrends.com/emittery-vs-eventemitter2-vs-eventemitter3-vs-events-vs-mitt-vs-tiny-emitter target=_blank rel="noopener noreferrer">emittery vs eventemitter2 vs eventemitter3 vs events vs mitt vs tiny-emitter</a></li>
+</ul>
+</li>
+<li>DOM
+<ul>
+<li><a href=https://github.com/google/incremental-dom target=_blank rel="noopener noreferrer">google/incremental-dom</a>
+<ul>
+<li>in-place DOM diffing</li>
+</ul>
+</li>
+<li>manipulation
+<ul>
+<li>dom7 - morden jquery</li>
+<li>jquery</li>
+</ul>
+</li>
+<li>parser
+<ul>
+<li>zeed-dom - Parser</li>
+<li><a href=https://github.com/cheeriojs/cheerio target=_blank rel="noopener noreferrer">cheerio</a> - jQuery like API</li>
+<li><a href=https://github.com/fb55/htmlparser2 target=_blank rel="noopener noreferrer">fb55/htmlparser2</a>
+<ul>
+<li>npm:htmlparser2</li>
+</ul>
+</li>
+<li><a href=https://github.com/fb55/domhandler target=_blank rel="noopener noreferrer">fb55/domhandler</a>
+<ul>
+<li>documents -> DOM</li>
+</ul>
+</li>
+<li><a href=https://github.com/cheeriojs/dom-serializer target=_blank rel="noopener noreferrer">cheeriojs/dom-serializer</a>
+<ul>
+<li>domhandler 序列化 DOM</li>
+</ul>
+</li>
+<li><a href=https://github.com/fb55/css-select target=_blank rel="noopener noreferrer">fb55/css-select</a>
+<ul>
+<li>CSS selector</li>
+</ul>
+</li>
+<li><a href=https://github.com/fb55/domutils target=_blank rel="noopener noreferrer">fb55/domutils</a>
+<ul>
+<li>DOM utils</li>
+</ul>
+</li>
+<li>parse5</li>
+<li>jsdom</li>
+</ul>
+</li>
+<li>santinizer
+<ul>
+<li><a href=https://github.com/cure53/DOMPurify target=_blank rel="noopener noreferrer">cure53/DOMPurify</a></li>
+</ul>
+</li>
+<li>env
+<ul>
+<li><a href=https://github.com/jsdom/jsdom target=_blank rel="noopener noreferrer">jsdom</a></li>
+<li><a href=https://github.com/WebReflection/linkedom target=_blank rel="noopener noreferrer">linkedom</a>
+<ul>
+<li><a href=https://github.com/WebReflection/jsdon target=_blank rel="noopener noreferrer">jsdon</a>
+<ul>
+<li>dom.toJSON()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/holtwick/zeed-dom target=_blank rel="noopener noreferrer">zeed-dom</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/focus-trap/focus-trap target=_blank rel="noopener noreferrer">focus-trap/focus-trap</a></li>
+</ul>
+</li>
+<li>Communication/Network/Websocket/proxy
+<ul>
+<li>WebSockets
+<ul>
+<li>浏览器 Chrome 17+, Safari 7+, Android 4.4+ - 2013+</li>
+<li>NodeJS 21+ <code>node --experimental-websocket</code></li>
+</ul>
+</li>
+<li><a href=https://github.com/websockets/ws target=_blank rel="noopener noreferrer">websockets/ws</a>
+<ul>
+<li>MIT, JS</li>
+<li>JS 实现</li>
+<li>binary 加速包 bufferutil, utf-8-validate</li>
+</ul>
+</li>
+<li><a href=https://github.com/uNetworking/uWebSockets.js target=_blank rel="noopener noreferrer">uWebSockets.js</a>
+<ul>
+<li>基于 <a href=https://github.com/uNetworking/uWebSockets target=_blank rel="noopener noreferrer">uWebSockets</a> C++ 库
+<ul>
+<li>基于 <a href=https://github.com/uNetworking/uSockets target=_blank rel="noopener noreferrer">uNetworking/uSockets</a></li>
+</ul>
+</li>
+<li>性能好</li>
+<li>针对 Linux 优化</li>
+</ul>
+</li>
+<li><a href=https://github.com/theturtle32/WebSocket-Node target=_blank rel="noopener noreferrer">theturtle32/WebSocket-Node</a>
+<ul>
+<li>Apache-2.0, JS</li>
+<li>JS 实现</li>
+<li>npm:websocket</li>
+</ul>
+</li>
+<li><a href=https://github.com/faye/faye-websocket-node target=_blank rel="noopener noreferrer">faye/faye-websocket-node</a></li>
+<li>sockjs
+<ul>
+<li>支持回滚为其他协议</li>
+</ul>
+</li>
+<li><a href=https://github.com/primus/primus target=_blank rel="noopener noreferrer">primus/primus</a></li>
+<li><a href=https://github.com/SocketCluster/socketcluster target=_blank rel="noopener noreferrer">SocketCluster/socketcluster</a>
+<ul>
+<li>realtime pub/sub and RPC framework</li>
+</ul>
+</li>
+<li>socketio</li>
+<li>eventsource</li>
+<li>WebRTC</li>
+<li>WebTransport</li>
+<li><a href=https://github.com/OptimalBits/redbird target=_blank rel="noopener noreferrer">OptimalBits/redbird</a>
+<ul>
+<li>reverse proxy for node</li>
+</ul>
+</li>
+<li><a href=https://github.com/cloudflare/partykit/tree/main/packages/partysocket target=_blank rel="noopener noreferrer">PartySocket</a>
+<ul>
+<li>fork reconnecting-websocket</li>
+<li>支持自动重连</li>
+<li>兼容 WebSocket API</li>
+<li>支持多平台</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>io/fs/storage
+<ul>
+<li><a href=https://github.com/good-lly/s3mini target=_blank rel="noopener noreferrer">good-lly/s3mini</a>
+<ul>
+<li>16kB, 6kB</li>
+<li>不支持高级功能</li>
+<li>单纯作为 s3 访问足够</li>
+</ul>
+</li>
+<li><a href=https://github.com/bradenmacdonald/s3-lite-client target=_blank rel="noopener noreferrer">bradenmacdonald/s3-lite-client</a>
+<ul>
+<li>从 minio 的修改而来</li>
+</ul>
+</li>
+<li><a href=https://github.com/good-lly/lowstorage target=_blank rel="noopener noreferrer">good-lly/lowstorage</a>
+<ul>
+<li>MIT, JS, TS</li>
+<li>object pseudo-database for S3-compatible storages using JSON or Msgpack</li>
+</ul>
+</li>
+<li>minio
+<ul>
+<li>460kB, 120kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/sentienhq/ultralight-s3 target=_blank rel="noopener noreferrer">sentienhq/ultralight-s3</a>
+<ul>
+<li>lightweight S3 client</li>
+</ul>
+</li>
+<li>npm:readable-stream
+<ul>
+<li>node:stream</li>
+</ul>
+</li>
+<li><a href=https://github.com/willfarrell/datastream target=_blank rel="noopener noreferrer">willfarrell/datastream</a>
+<ul>
+<li>Commonly used stream patterns for Web Streams API and NodeJS Stream.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>standard/dataset/数据集
+<ul>
+<li><a href=https://github.com/jshttp/mime-types target=_blank rel="noopener noreferrer">jshttp/mime-types</a>
+<ul>
+<li>npm:mime-types</li>
+<li>npm:mime-db
+<ul>
+<li>minified 160kB, gzipped 20kB</li>
+<li><a href=https://cdn.jsdelivr.net/gh/jshttp/mime-db@master/db.json target=_blank rel="noopener noreferrer">https://cdn.jsdelivr.net/gh/jshttp/mime-db@master/db.json</a>
+<ul>
+<li>200KB</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>WebWorker
+<ul>
+<li><a href=https://github.com/GoogleChromeLabs/comlink target=_blank rel="noopener noreferrer">GoogleChromeLabs/comlink</a></li>
+<li><a href=https://vitejs.dev/guide/features.html#web-workers target=_blank rel="noopener noreferrer">https://vitejs.dev/guide/features.html#web-workers</a>
+<ul>
+<li><a href=https://vitejs.dev/config/worker-options.html target=_blank rel="noopener noreferrer">https://vitejs.dev/config/worker-options.html</a></li>
+<li><code>const worker = new Worker(new URL('./worker.ts', import.meta.url, { type: 'module', }))</code></li>
+<li><code>import MyWorker from './worker?worker'</code></li>
+<li><code>import MyWorker from './worker?worker&inline'</code></li>
+<li><code>import MyWorker from './worker?worker&url'</code></li>
+<li><code>const worker = new MyWorker()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IoC/Container/DI
+<ul>
+<li><a href=/notes/web/framework/nestjs>nestjs</a>
+<ul>
+<li>整体设计类似 Spring/Angular</li>
+<li>⚠️ 只支持 NodeJS</li>
+</ul>
+</li>
+<li><a href=/notes/web/script/lib/awilix>jeffijoe/awilix</a>
+<ul>
+<li>npm:awilix</li>
+<li>9kB/3kB</li>
+<li>0 依赖</li>
+<li>Proxy+Reflect - Chrome >= 49, Safari >= 10</li>
+<li>支持代理模式 - 通过访问的字段名字进行 resolve
+<ul>
+<li>不支持异步</li>
+</ul>
+</li>
+<li>支持传统 Token 模式</li>
+<li>支持浏览器</li>
+<li>强类型 Container</li>
+<li>不支持 异步，功能相对比较欠缺</li>
+</ul>
+</li>
+<li><a href=https://github.com/inversify/InversifyJS target=_blank rel="noopener noreferrer">inversify/InversifyJS</a>
+<ul>
+<li>npm:inversify</li>
+<li>51kB/11kB</li>
+<li>功能非常全的 IoC - 使用起来有一点复杂</li>
+<li>⚠️ 不活跃</li>
+</ul>
+</li>
+<li><a href=https://github.com/typestack/typedi target=_blank rel="noopener noreferrer">typestack/typedi</a>
+<ul>
+<li>typedi</li>
+<li>220kB</li>
+<li>功能相对简单，做 DI 足够</li>
+<li>⚠️ 非常不活跃</li>
+</ul>
+</li>
+<li><a href=https://github.com/Microsoft/tsyringe target=_blank rel="noopener noreferrer">Microsoft/tsyringe</a>
+<ul>
+<li>⚠️ 非常不活跃</li>
+</ul>
+</li>
+<li><a href=https://github.com/abraham/reflection target=_blank rel="noopener noreferrer">@abraham/reflection</a>
+<ul>
+<li>~3k - 替代 reflect-metadata ～ 50k</li>
+</ul>
+</li>
+<li><a href=https://github.com/chriswoodle/async-dependency-graph target=_blank rel="noopener noreferrer">async-dependency-graph</a>
+<ul>
+<li>dependency graph that can traverse asyncronous nodes</li>
+<li>5kB, 1.5kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/fastify/avvio target=_blank rel="noopener noreferrer">fastify/avvio</a>
+<ul>
+<li>20kB, 7kB</li>
+<li>Asynchronous bootstrapping of Node applications</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>deep compare
+<ul>
+<li><a href=https://github.com/epoberezkin/fast-deep-equal target=_blank rel="noopener noreferrer">epoberezkin/fast-deep-equal</a></li>
+<li><a href=https://github.com/FormidableLabs/react-fast-compare target=_blank rel="noopener noreferrer">FormidableLabs/react-fast-compare</a>
+<ul>
+<li>支持 react 元素</li>
+</ul>
+</li>
+<li><a href=https://github.com/lukeed/dequal target=_blank rel="noopener noreferrer">lukeed/dequal</a>
+<ul>
+<li>304B to 489B</li>
+</ul>
+</li>
+<li>lodash.isEqual</li>
+<li>object-hash</li>
+<li>hash-sum</li>
+</ul>
+</li>
+<li>Date & Time
+<ul>
+<li>date-fns
+<ul>
+<li>多错误的容忍度低</li>
+<li>可 tree-shaking
+<ul>
+<li>format 约 20kB/6kB</li>
+</ul>
+</li>
+<li>format 格式为标准的 unicode CLDR</li>
+</ul>
+</li>
+<li>dayjs
+<ul>
+<li>Fast 2kB alternative to Moment.js</li>
+<li>接口友好</li>
+<li>不可 tree-shaking</li>
+<li>format 格式 follow Moment.js - 非标准</li>
+<li>Immutable</li>
+<li>plugins
+<ul>
+<li>duration</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><del>moment</del>
+<ul>
+<li>不再维护</li>
+</ul>
+</li>
+<li>d3-time-format</li>
+<li><a href=https://github.com/wanasit/chrono target=_blank rel="noopener noreferrer">chrono-node</a>
+<ul>
+<li>natural language date parser</li>
+</ul>
+</li>
+<li><a href=https://github.com/moment/luxon target=_blank rel="noopener noreferrer">moment/luxon</a>
+<ul>
+<li>70kB, 21kB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>format/intl/unit - number, time, money
+<ul>
+<li><a href=https://github.com/SheetJS/printj target=_blank rel="noopener noreferrer">SheetJS/printj</a>
+<ul>
+<li>Apache-2.0, JS</li>
+<li>sprintf for JS</li>
+</ul>
+</li>
+<li><a href=https://github.com/BenjaminVanRyseghem/numbro target=_blank rel="noopener noreferrer">numbro</a>
+<ul>
+<li>MIT, JS</li>
+<li>基于 numeral</li>
+</ul>
+</li>
+<li><a href=https://github.com/EvanHahn/HumanizeDuration.js target=_blank rel="noopener noreferrer">EvanHahn/HumanizeDuration.js</a></li>
+<li><a href=https://github.com/adamwdraper/Numeral-js target=_blank rel="noopener noreferrer">adamwdraper/Numeral-js</a>
+<ul>
+<li>MIT, JS</li>
+<li>npm:numeral</li>
+<li>不再维护</li>
+</ul>
+</li>
+<li><a href=https://github.com/ben-ng/convert-units target=_blank rel="noopener noreferrer">ben-ng/convert-units</a>
+<ul>
+<li>不再维护</li>
+</ul>
+</li>
+<li><a href=https://github.com/tc39/ecma402 target=_blank rel="noopener noreferrer">ECMA-402</a></li>
+<li><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat target=_blank rel="noopener noreferrer">Intl.NumberFormat</a></li>
+</ul>
+</li>
+<li>money
+<ul>
+<li><a href=https://github.com/dinerojs/dinero.js target=_blank rel="noopener noreferrer">dinero.js</a>
+<ul>
+<li>create, calculate, format money</li>
+</ul>
+</li>
+<li><a href=https://github.com/scurker/currency.js target=_blank rel="noopener noreferrer">currency.js</a></li>
+<li><a href=https://github.com/openexchangerates/accounting.js target=_blank rel="noopener noreferrer">accounting.js</a></li>
+</ul>
+</li>
+<li>flip effect
+<ul>
+<li><a href=https://github.com/bluebill1049/react-flip-numbers target=_blank rel="noopener noreferrer">react-flip-numbers</a></li>
+<li><a href=https://github.com/mzabriskie/react-flipcard target=_blank rel="noopener noreferrer">react-flipcard</a></li>
+<li>[number-flip] (<a href=https://github.com/gaoryrt/flip target=_blank rel="noopener noreferrer">https://github.com/gaoryrt/flip</a>)</li>
+<li><a href=https://github.com/objectivehtml/FlipClock target=_blank rel="noopener noreferrer">objectivehtml/FlipClock</a>
+<ul>
+<li>不再维护</li>
+</ul>
+</li>
+<li><a href=https://github.com/ramda/ramda target=_blank rel="noopener noreferrer">ramda</a></li>
+<li><a href=https://github.com/gcanti/fp-ts target=_blank rel="noopener noreferrer">fp-ts</a></li>
+<li>io-ts</li>
+</ul>
+</li>
+<li>reactive
+<ul>
+<li>rxjs</li>
+</ul>
+</li>
+<li>core
+<ul>
+<li><a href=https://github.com/toss/es-toolkit target=_blank rel="noopener noreferrer">toss/es-toolkit</a>
+<ul>
+<li>lodash alternative</li>
+</ul>
+</li>
+<li>lodash</li>
+<li><a href=https://github.com/angus-c/just target=_blank rel="noopener noreferrer">angus-c/just</a></li>
+<li>core-js</li>
+<li>underscore</li>
+<li><a href=https://github.com/stdlib-js/stdlib target=_blank rel="noopener noreferrer">stdlib-js/stdlib</a></li>
+</ul>
+</li>
+<li>Error
+<ul>
+<li>verror</li>
+<li>@netflix/nerror</li>
+<li><a href=https://github.com/voxpelli/pony-cause target=_blank rel="noopener noreferrer">voxpelli/pony-cause</a></li>
+<li>Error Cause <a href=https://github.com/tc39/proposal-error-cause target=_blank rel="noopener noreferrer">tc39/proposal-error-cause</a>
+<ul>
+<li>Chrome 93+, Safari 15+, Firefox 91+, Node 16+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>clone
+<ul>
+<li>structuredClone - Chrome 98</li>
+<li><a href=https://github.com/lukeed/klona target=_blank rel="noopener noreferrer">lukeed/klona</a></li>
+</ul>
+</li>
+<li>regex
+<ul>
+<li><a href=https://github.com/pillarjs/path-to-regexp target=_blank rel="noopener noreferrer">pillarjs/path-to-regexp</a></li>
+<li><a href=https://github.com/VerbalExpressions/JSVerbalExpressions target=_blank rel="noopener noreferrer">VerbalExpressions/JSVerbalExpressions</a>
+<ul>
+<li>DSL 方式构建正则</li>
+</ul>
+</li>
+<li><a href=https://github.com/francisrstokes/super-expressive target=_blank rel="noopener noreferrer">francisrstokes/super-expressive</a>
+<ul>
+<li>MIT, JS</li>
+</ul>
+</li>
+<li><a href=https://github.com/IonicaBizau/regex-parser.js target=_blank rel="noopener noreferrer">IonicaBizau/regex-parser.js</a></li>
+</ul>
+</li>
+<li>json
+<ul>
+<li><a href=https://github.com/Starcounter-Jack/JSON-Patch target=_blank rel="noopener noreferrer">fast-json-patch</a></li>
+<li><a href=https://github.com/fastify/fast-json-stringify target=_blank rel="noopener noreferrer">fastify/fast-json-stringify</a>
+<ul>
+<li>基于 schema - 更快更安全</li>
+</ul>
+</li>
+<li><a href=https://github.com/Rich-Harris/devalue target=_blank rel="noopener noreferrer">devalue</a>
+<ul>
+<li>支持循环依赖</li>
+<li>支持 undefined, Infinity, NaN, -0, Date, Map, Set, BigInt, RegExp</li>
+</ul>
+</li>
+<li>class-transformer
+<ul>
+<li>object &lt;-> class</li>
+<li>依赖 reflect-metadata</li>
+<li>基于 decorator</li>
+</ul>
+</li>
+<li>json5
+<ul>
+<li>Human-readable JSON</li>
+</ul>
+</li>
+<li><a href=https://github.com/unjs/destr target=_blank rel="noopener noreferrer">unjs/destr</a>
+<ul>
+<li>JSON.parse</li>
+</ul>
+</li>
+<li><a href=https://github.com/uhop/stream-json target=_blank rel="noopener noreferrer">uhop/stream-json</a></li>
+</ul>
+</li>
+<li>json+ - 扩展 toJSON 支持更多类型
+<ul>
+<li><a href=https://github.com/yahoo/serialize-javascript target=_blank rel="noopener noreferrer">yahoo/serialize-javascript</a>
+<ul>
+<li>支持 Function</li>
+</ul>
+</li>
+<li><a href=https://github.com/blitz-js/superjson target=_blank rel="noopener noreferrer">blitz-js/superjson</a>
+<ul>
+<li>支持 Date, undefined, bigint, RegExp, Set, Map, Error, URL</li>
+<li>可以配合 NextJS 使用</li>
+<li>可以配合 Decimal.js / Prisma.Decimal 使用</li>
+</ul>
+</li>
+<li><a href=https://github.com/iccicci/next-json target=_blank rel="noopener noreferrer">https://github.com/iccicci/next-json</a></li>
+</ul>
+</li>
+<li>html/dom/xml
+<ul>
+<li>fast-xml-parser</li>
+<li>@xmldom/xmldom</li>
+<li>xml2js</li>
+<li>saxjs</li>
+<li>xmlbuilder</li>
+<li>htmlparser2
+<ul>
+<li>Fast & forgiving HTML/XML parser</li>
+</ul>
+</li>
+<li>domhandler
+<ul>
+<li>Handler for htmlparser2</li>
+<li>callback interface
+<ul>
+<li>资源占用更少，速度快</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>parser5
+<ul>
+<li>HTML parser and serializer</li>
+<li>Strict HTML5 specification compliance and accuracy.</li>
+</ul>
+</li>
+<li>jsdom
+<ul>
+<li>模拟 DOM</li>
+</ul>
+</li>
+<li><a href=https://github.com/cheeriojs/cheerio target=_blank rel="noopener noreferrer">cheeriojs/cheerio</a>
+<ul>
+<li>默认 parser5</li>
+<li>slim 为 htmlparser2</li>
+<li>npm:cherrio-select
+<ul>
+<li>CSS selector engine</li>
+</ul>
+</li>
+<li>npm:dom-serializer
+<ul>
+<li>render domhandler DOM nodes to a string</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>diff
+<ul>
+<li><a href=https://github.com/AsyncBanana/microdiff target=_blank rel="noopener noreferrer">microdiff</a></li>
+</ul>
+</li>
+<li>fs/filesystem/virtual file
+<ul>
+<li><a href=https://github.com/isomorphic-git/isomorphic-git target=_blank rel="noopener noreferrer">isomorphic-git</a></li>
+<li>lighting-fs</li>
+<li><a href=https://github.com/jvilk/BrowserFS target=_blank rel="noopener noreferrer">jvilk/BrowserFS</a>
+<ul>
+<li>MIT, JS</li>
+<li>emulates the Node JS file system API</li>
+</ul>
+</li>
+<li><a href=https://github.com/filerjs/filer target=_blank rel="noopener noreferrer">filer</a>
+<ul>
+<li>BSD-2, JS</li>
+<li>258kB/68Kb</li>
+<li>drop-in replacement for node's fs module</li>
+<li>backend: indexeddb, memory, custom</li>
+<li><a href=https://github.com/feross/buffer target=_blank rel="noopener noreferrer">feross/buffer</a>
+<ul>
+<li>26.8kB/8kB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/browserify/path-browserify target=_blank rel="noopener noreferrer">browserify/path-browserify</a></li>
+<li><a href=https://github.com/vfile/vfile target=_blank rel="noopener noreferrer">vfile/vfile</a></li>
+<li><a href=https://github.com/gulpjs/vinyl target=_blank rel="noopener noreferrer">gulpjs/vinyl</a></li>
+<li><a href=https://github.com/ebidel/idb.filesystem.js/blob/2f9e8fb3ece3aeca8388e60ba75d622dd354e6da/src/idb.filesystem.js target=_blank rel="noopener noreferrer">ebidel/idb.filesystem.js</a></li>
+<li><a href=https://github.com/LiteCode-IDE/virtual-file-system target=_blank rel="noopener noreferrer">LiteCode-IDE/virtual-file-system</a></li>
+<li><a href=https://manual.os-js.org/tutorial/vfs/ target=_blank rel="noopener noreferrer">OS.js vfs tutorial</a></li>
+<li><a href=https://github.com/aaronhuggins/jsvfs target=_blank rel="noopener noreferrer">aaronhuggins/jsvfs</a></li>
+</ul>
+</li>
+<li>files
+<ul>
+<li>tar
+<ul>
+<li>77.4kB/23kB</li>
+</ul>
+</li>
+<li>node:zlib</li>
+</ul>
+</li>
+<li>diagram
+<ul>
+<li>d3</li>
+<li><a href=https://github.com/eclipse/sprotty target=_blank rel="noopener noreferrer">eclipse/sprotty</a></li>
+<li><a href=https://github.com/kieler/elkjs target=_blank rel="noopener noreferrer">elkjs</a>
+<ul>
+<li>1.3MB/404kB</li>
+<li>Eclipse Layout Kernel</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2d rendering/canvas
+<ul>
+<li><a href=https://github.com/fabricjs/fabric.js target=_blank rel="noopener noreferrer">fabricjs/fabric.js</a>
+<ul>
+<li>SVG &lt;-> Canvas</li>
+<li><a href=https://blog.logrocket.com/build-indoor-maps-fabric-js-using-react/ target=_blank rel="noopener noreferrer">Build indoor maps with Fabric.js and React</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/obsidianmd/jsoncanvas target=_blank rel="noopener noreferrer">obsidianmd/jsoncanvas</a>
+<ul>
+<li>file format for infinite canvas data</li>
+<li><a href="https://news.ycombinator.com/item?id=39670922" target=_blank rel="noopener noreferrer">HN</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/jonobr1/two.js target=_blank rel="noopener noreferrer">jonobr1/two.js</a></li>
+<li><a href=https://github.com/szimek/signature_pad target=_blank rel="noopener noreferrer">signature_pad</a></li>
+<li><a href=https://github.com/jakubfiala/atrament target=_blank rel="noopener noreferrer">jakubfiala/atrament</a>
+<ul>
+<li>MIT, JS</li>
+<li>drawing & handwriting</li>
+<li><a href=https://www.fiala.space/atrament/demo/ target=_blank rel="noopener noreferrer">https://www.fiala.space/atrament/demo/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/yisibl/resvg-js target=_blank rel="noopener noreferrer">yisibl/resvg-js</a>
+<ul>
+<li>SVG renderer, powered by Rust based resvg and napi-rs</li>
+</ul>
+</li>
+<li><a href=https://github.com/svgdotjs/svg.js target=_blank rel="noopener noreferrer">svgdotjs/svg.js</a>
+<ul>
+<li>manipulating and animating SVG</li>
+</ul>
+</li>
+<li><a href=https://github.com/chearon/dropflow target=_blank rel="noopener noreferrer">chearon/dropflow</a>
+<ul>
+<li>MIT, TS</li>
+<li>CSS layout engine for canvas</li>
+</ul>
+</li>
+<li><a href=https://github.com/konvajs/konva target=_blank rel="noopener noreferrer">konvajs/konva</a>
+<ul>
+<li>MIT, JS+TS</li>
+<li>react-konva</li>
+<li>使用的项目
+<ul>
+<li><a href=https://github.com/rowsncolumns/grid target=_blank rel="noopener noreferrer">rowsncolumns/grid</a>
+<ul>
+<li>MIT</li>
+<li>React Components for Tabular data.</li>
+</ul>
+</li>
+<li><a href=https://github.com/React-Proto/react-proto target=_blank rel="noopener noreferrer">React-Proto/react-proto</a>
+<ul>
+<li>原型设计</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/catdad/canvas-confetti target=_blank rel="noopener noreferrer">catdad/canvas-confetti</a></li>
+<li><a href=https://github.com/Microsoft/maker.js target=_blank rel="noopener noreferrer">Microsoft/maker.js</a>
+<ul>
+<li>Apache-2.0, TS</li>
+<li>2D vector line drawing and shape modeling for CNC and laser cutters</li>
+</ul>
+</li>
+<li><a href=https://github.com/fathyb/html2svg target=_blank rel="noopener noreferrer">fathyb/html2svg</a>
+<ul>
+<li>HTML, <code>&lt;canvas></code> to SVG</li>
+<li><a href=https://fathy.fr/html2svg target=_blank rel="noopener noreferrer">https://fathy.fr/html2svg</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/Brooooooklyn/canvas target=_blank rel="noopener noreferrer">Brooooooklyn/canvas</a>
+<ul>
+<li>skia binding to Node.js</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3d rendering/canvas/webgl
+<ul>
+<li>threejs</li>
+<li><a href=https://wiggle.three.tools/ target=_blank rel="noopener noreferrer">Wiggle Tools</a></li>
+<li><a href=https://www.shadertoy.com/ target=_blank rel="noopener noreferrer">Shadertoy</a></li>
+<li><a href=https://github.com/pmndrs/react-three-fiber target=_blank rel="noopener noreferrer">pmndrs/react-three-fiber</a>
+<ul>
+<li>React renderer for Three.js</li>
+</ul>
+</li>
+<li><a href=https://github.com/3d-dice/dice-box target=_blank rel="noopener noreferrer">3d-dice/dice-box</a>
+<ul>
+<li>3D Game Dice</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>animation
+<ul>
+<li><a href=https://github.com/motion-canvas/motion-canvas target=_blank rel="noopener noreferrer">motion-canvas/motion-canvas</a>
+<ul>
+<li>MIT, TS</li>
+<li>uses generators to program animations</li>
+<li>creating animated videos using the Canvas API</li>
+<li>Visualize Complex Ideas Programmatically</li>
+</ul>
+</li>
+<li><a href=https://github.com/framer/motion target=_blank rel="noopener noreferrer">framer/motion</a></li>
+<li>react-spring</li>
+<li>react-motion</li>
+<li>react-move</li>
+<li><a href=https://github.com/danro/easing-js target=_blank rel="noopener noreferrer">danro/easing-js</a></li>
+<li><a href=https://github.com/mojs/mojs target=_blank rel="noopener noreferrer">mojs/mojs</a></li>
+<li><a href=https://github.com/gijsroge/tilt.js target=_blank rel="noopener noreferrer">gijsroge/tilt.js</a></li>
+<li>transition
+<ul>
+<li><a href=https://github.com/barbajs/barba target=_blank rel="noopener noreferrer">barbajs/barba</a>
+<ul>
+<li><a href=https://barba.js.org/ target=_blank rel="noopener noreferrer">https://barba.js.org/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/swup/swup target=_blank rel="noopener noreferrer">swup/swup</a>
+<ul>
+<li><a href=https://swup.github.io/swup-gia-demo/index.html target=_blank rel="noopener noreferrer">https://swup.github.io/swup-gia-demo/index.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>functional</li>
+<li>ar/vr/xr
+<ul>
+<li><a href=https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API target=_blank rel="noopener noreferrer">WebXR Device API</a>
+<ul>
+<li>Chrome 79</li>
+</ul>
+</li>
+<li><a href=https://github.com/AR-js-org/AR.js target=_blank rel="noopener noreferrer">AR-js-org/AR.js</a>
+<ul>
+<li>MIT, JS</li>
+<li>webgl, webrtc</li>
+</ul>
+</li>
+<li><a href=https://github.com/fcor/arjs-gestures target=_blank rel="noopener noreferrer">fcor/arjs-gestures</a>
+<ul>
+<li>Rotate and zoom with touch gestures</li>
+</ul>
+</li>
+<li><a href=https://github.com/hiukim/mind-ar-js target=_blank rel="noopener noreferrer">hiukim/mind-ar-js</a>
+<ul>
+<li>MIT, JS</li>
+<li>Image Tracking, Face Tracking. Tensorflow.js</li>
+</ul>
+</li>
+<li><a href=https://github.com/AR-js-org/studio target=_blank rel="noopener noreferrer">AR-js-org/studio</a></li>
+<li>Demo
+<ul>
+<li><a href=https://github.com/a86861636/webAR-demo target=_blank rel="noopener noreferrer">webAR-demo</a>
+<ul>
+<li><a href=https://blog.csdn.net/qq_28864105/article/details/119609531 target=_blank rel="noopener noreferrer">CSDN Blog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>color
+<ul>
+<li>randomcolor</li>
+<li><a href=https://github.com/Evercoder/culori target=_blank rel="noopener noreferrer">Evercoder/culori</a>
+<ul>
+<li>npm:culori</li>
+<li>👍 在维护，功能多，支持新的 colorspace</li>
+</ul>
+</li>
+<li><a href=https://github.com/Qix-/color target=_blank rel="noopener noreferrer">Qix-/color</a>
+<ul>
+<li>MIT, JS</li>
+<li>npm:color</li>
+<li>color conversion and manipulation</li>
+</ul>
+</li>
+<li><a href=https://github.com/gka/chroma.js target=_blank rel="noopener noreferrer">gka/chroma.js</a>
+<ul>
+<li>Apache-2.0, JS</li>
+<li>npm:chroma-js</li>
+<li>color manipulations</li>
+</ul>
+</li>
+<li><a href=https://github.com/colorjs/color-name target=_blank rel="noopener noreferrer">colorjs/color-name</a>
+<ul>
+<li><a href=http://dev.w3.org/csswg/css-color/#named-colors target=_blank rel="noopener noreferrer">http://dev.w3.org/csswg/css-color/#named-colors</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/davidmerfield/randomColor target=_blank rel="noopener noreferrer">davidmerfield/randomColor</a>
+<ul>
+<li>npm:randomColor</li>
+</ul>
+</li>
+<li><a href=https://github.com/bgrins/TinyColor target=_blank rel="noopener noreferrer">bgrins/TinyColor</a>
+<ul>
+<li>npm:tinycolor2 - 14kb</li>
+</ul>
+</li>
+<li>color-parse</li>
+<li>color</li>
+<li><a href=https://github.com/brehaut/color-js target=_blank rel="noopener noreferrer">brehaut/color-js</a></li>
+<li>color2k</li>
+<li><a href=https://github.com/styled-components/polished target=_blank rel="noopener noreferrer">styled-components/polished</a>
+<ul>
+<li>MIT, JS</li>
+<li>writing styles in JavaScript</li>
+</ul>
+</li>
+<li><a href=https://github.com/rvanwijnen/spectral.js target=_blank rel="noopener noreferrer">rvanwijnen/spectral.js</a>
+<ul>
+<li>MIT, JS</li>
+<li>paint like color mixing library utilizing the Kubelka-Munk theory</li>
+</ul>
+</li>
+<li>CSS color
+<ul>
+<li>MDN <a href=https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix target=_blank rel="noopener noreferrer">color-mix</a></li>
+<li><a href=https://developer.chrome.com/docs/css-ui/css-color-mix target=_blank rel="noopener noreferrer">css-color-mix</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>css
+<ul>
+<li>css-tree - parser</li>
+<li>csstype - TypeScript for CSS</li>
+<li>css in js
+<ul>
+<li>nano-css - 0.5 kb</li>
+<li>jss - 22kb</li>
+</ul>
+</li>
+<li>processor
+<ul>
+<li>stylis - 10kb - nesting, selector namespacing, vendor prefixing, minification</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>store
+<ul>
+<li>sessionStorage - 单 Tab, 关闭消息, 打开新 Tab 继承</li>
+<li>localStorage - origin 纬度, 可监听跨 tab 变化</li>
+<li>cookie - C/S 交互</li>
+<li>tinybase
+<ul>
+<li>功能集成非常多</li>
+</ul>
+</li>
+<li><a href=https://github.com/localForage/localForage target=_blank rel="noopener noreferrer">localforage</a>
+<ul>
+<li>async 的 localStorage</li>
+<li>可以存储到 IndexedDB, WebSQL, localStorage</li>
+<li>多实例</li>
+</ul>
+</li>
+<li><a href=https://github.com/pubkey/rxdb target=_blank rel="noopener noreferrer">rxdb</a>
+<ul>
+<li>135kB, 36kB</li>
+<li>rxjs</li>
+<li>adapters: pouchdb, lokijs</li>
+<li>replication: couchdb, graphql</li>
+</ul>
+</li>
+<li><a href=https://github.com/techfort/LokiJS target=_blank rel="noopener noreferrer">lokijs</a></li>
+<li><a href=https://github.com/dfahlander/Dexie.js target=_blank rel="noopener noreferrer">dexie</a>
+<ul>
+<li>Apache-2.0, JS, TS</li>
+<li>82kB, 26kB - 无依赖</li>
+<li>IndexedDB wrapper</li>
+<li>支持 Sync, Subscribe</li>
+</ul>
+</li>
+<li><a href=https://github.com/maxnowack/signaldb target=_blank rel="noopener noreferrer">maxnowack/signaldb</a></li>
+<li><a href=https://github.com/share/sharedb target=_blank rel="noopener noreferrer">share/sharedb</a>
+<ul>
+<li>126kB, 35kB - ot-json0, array-diff</li>
+<li>JSON OT database backend</li>
+<li>Realtime database backend based on Operational Transformation (OT)</li>
+</ul>
+</li>
+<li><a href=https://github.com/YousefED/SyncedStore target=_blank rel="noopener noreferrer">YousefED/SyncedStore</a>
+<ul>
+<li>yjs</li>
+<li>提供 react, vue, svelte 组件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DB/SQL Builder/Database
+<ul>
+<li><a href=https://github.com/electric-sql/pglite target=_blank rel="noopener noreferrer">electric-sql/pglite</a></li>
+<li>pgmock</li>
+<li>knex</li>
+<li>[kysely]</li>
+</ul>
+</li>
+<li>reactive
+<ul>
+<li>rxjs</li>
+</ul>
+</li>
+<li>utils
+<ul>
+<li><a href=https://github.com/mathiasbynens/he target=_blank rel="noopener noreferrer">he</a> HTML entities</li>
+</ul>
+</li>
+<li>office
+<ul>
+<li><a href=https://github.com/dolanmiu/docx target=_blank rel="noopener noreferrer">dolanmiu/docx</a>
+<ul>
+<li>generate .docx files</li>
+</ul>
+</li>
+<li><a href=https://github.com/ZEISS/react-view-pdf target=_blank rel="noopener noreferrer">ZEISS/react-view-pdf</a>
+<ul>
+<li>react, pdf.js</li>
+</ul>
+</li>
+<li><a href=https://github.com/SheetJS/sheetjs target=_blank rel="noopener noreferrer">SheetJS/sheetjs</a>
+<ul>
+<li>Apache-2.0</li>
+</ul>
+</li>
+<li><a href=/notes/web/service/office/luckysheet.md>mengshukeji/Luckysheet</a></li>
+<li><a href=https://github.com/handsontable/hyperformula target=_blank rel="noopener noreferrer">handsontable/hyperformula</a></li>
+</ul>
+</li>
+<li>crdt
+<ul>
+<li><a href=https://github.com/yjs/yjs target=_blank rel="noopener noreferrer">yjs/yjs</a>
+<ul>
+<li>实现协作编辑</li>
+<li><a href=https://github.com/dmonad/lib0 target=_blank rel="noopener noreferrer">dmonad/lib0</a></li>
+<li>vs automerge <a href=https://github.com/yjs/yjs/issues/145 target=_blank rel="noopener noreferrer">#145</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/y-crdt/y-crdt target=_blank rel="noopener noreferrer">y-crdt/y-crdt</a>
+<ul>
+<li>Rust port of Yjs</li>
+</ul>
+</li>
+<li><a href=https://github.com/yousefed/SyncedStore target=_blank rel="noopener noreferrer">yousefed/SyncedStore</a>
+<ul>
+<li>YJS based</li>
+</ul>
+</li>
+<li><a href=https://github.com/josephg/diamond-types target=_blank rel="noopener noreferrer">josephg/diamond-types</a></li>
+<li><a href=https://github.com/automerge/automerge target=_blank rel="noopener noreferrer">automerge/automerge</a>
+<ul>
+<li>通用状态，自定义 CRDT</li>
+</ul>
+</li>
+<li><a href=https://github.com/dmonad/crdt-benchmarks target=_blank rel="noopener noreferrer">dmonad/crdt-benchmarks</a></li>
+<li>Where is the CRDT for syntax trees <a href="https://news.ycombinator.com/item?id=29433896" target=_blank rel="noopener noreferrer">HN</a></li>
+<li><del><a href=https://github.com/inkandswitch/peritext target=_blank rel="noopener noreferrer">inkandswitch/peritext</a></del></li>
+<li><del><a href=https://github.com/felipeleivav/yboard target=_blank rel="noopener noreferrer">felipeleivav/yboard</a></del>
+<ul>
+<li>Vue</li>
+<li>multiplayer desktop-like workspace</li>
+</ul>
+</li>
+<li><a href="https://news.ycombinator.com/item?id=30983770" target=_blank rel="noopener noreferrer">HN Discussion</a></li>
+<li><a href=https://github.com/partykit/partykit target=_blank rel="noopener noreferrer">partykit/partykit</a>
+<ul>
+<li>MIT, TS</li>
+</ul>
+</li>
+<li><a href=https://github.com/streamich/json-joy target=_blank rel="noopener noreferrer">streamich/json-joy</a>
+<ul>
+<li>JSON CRDT, JSON CRDT Patch, JSON Patch+, JSON Predicate, JSON Pointer, JSON Expression, JSON Type</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>p2p
+<ul>
+<li><a href=https://github.com/hyperhyperspace/hyperhyperspace-core target=_blank rel="noopener noreferrer">hyperhyperspace/hyperhyperspace-core</a></li>
+<li>gnudb</li>
+</ul>
+</li>
+<li>editor
+<ul>
+<li><a href=/notes/web/script/editor/tiptap.md>tiptap</a>
+<ul>
+<li>headless, framework-agnostic and extendable rich text editor, based on ProseMirror</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ui
+<ul>
+<li><a href=https://github.com/floating-ui/floating-ui target=_blank rel="noopener noreferrer">floating-ui/floating-ui</a>
+<ul>
+<li>low-level 接口</li>
+<li>支持 web, React Native, Canvas</li>
+<li>popper -> floating-ui - 2021 - ~600b</li>
+<li>popper - ~3kb - 2006</li>
+<li>react <a href=https://floating-ui.com/docs/react-dom target=_blank rel="noopener noreferrer">https://floating-ui.com/docs/react-dom</a></li>
+<li><a href=https://github.com/floating-ui/floating-ui/discussions/1425 target=_blank rel="noopener noreferrer">Popper is evolving into Floating UI!</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/atomiks/tippyjs target=_blank rel="noopener noreferrer">atomiks/tippyjs</a>
+<ul>
+<li>基于 @popperjs/core</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ml
+<ul>
+<li><a href=https://github.com/matiasvlevi/Dann target=_blank rel="noopener noreferrer">matiasvlevi/Dann</a></li>
+<li><a href=https://github.com/ml5js/ml5-library target=_blank rel="noopener noreferrer">ml5js/ml5-library</a></li>
+</ul>
+</li>
+<li>invariant
+<ul>
+<li><a href=https://github.com/alexreardon/tiny-invariant target=_blank rel="noopener noreferrer">tiny-invariant</a></li>
+<li><a href=https://github.com/alexreardon/tiny-warning target=_blank rel="noopener noreferrer">tiny-warning</a>
+<ul>
+<li>不 throw</li>
+</ul>
+</li>
+<li><a href=https://github.com/apollographql/invariant-packages target=_blank rel="noopener noreferrer">ts-invariant</a></li>
+<li>condition build
+<ul>
+<li><a href=https://www.npmjs.com/package/babel-plugin-dev-expression target=_blank rel="noopener noreferrer">babel-plugin-dev-expression</a></li>
+<li><a href=https://github.com/jaredpalmer/tsdx target=_blank rel="noopener noreferrer">tsdx</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>image/media
+<ul>
+<li><a href=https://github.com/nhn/tui.image-editor target=_blank rel="noopener noreferrer">nhn/tui.image-editor</a></li>
+<li><a href=https://github.com/fengyuanchen/compressorjs target=_blank rel="noopener noreferrer">fengyuanchen/compressorjs</a>
+<ul>
+<li>image compressor</li>
+</ul>
+</li>
+<li><a href=https://github.com/photopea target=_blank rel="noopener noreferrer">https://github.com/photopea</a></li>
+<li><a href=/notes/web/script/lib/sharp>sharp</a></li>
+<li><a href=https://github.com/jimp-dev/jimp target=_blank rel="noopener noreferrer">jimp-dev/jimp</a>
+<ul>
+<li>纯 JS</li>
+<li>JavaScript Image Manipulation Program</li>
+<li>支持 jpeg, png, bmp, tiff, gif</li>
+</ul>
+</li>
+<li><a href=https://github.com/rsms/node-imagemagick target=_blank rel="noopener noreferrer">rsms/node-imagemagick</a>
+<ul>
+<li>npm:imagemagick</li>
+</ul>
+</li>
+<li>gm
+<ul>
+<li>GraphicsMagick</li>
+</ul>
+</li>
+<li>fluent-ffmpeg</li>
+<li><a href=https://github.com/GoogleChromeLabs/squoosh target=_blank rel="noopener noreferrer">GoogleChromeLabs/squoosh</a>
+<ul>
+<li>Make images smaller using best-in-class codecs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>compression/zip/unzip
+<ul>
+<li>fflate</li>
+<li>TextEncoderStream</li>
+<li><a href=https://github.com/gildas-lormeau/zip.js target=_blank rel="noopener noreferrer">gildas-lormeau/zip.js</a>
+<ul>
+<li>zip and unzip</li>
+<li>streams, zip64, split files and encryption</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>interactive
+<ul>
+<li><a href=https://github.com/transloadit/uppy target=_blank rel="noopener noreferrer">transloadit/uppy</a></li>
+<li><a href=https://github.com/anvaka/panzoom target=_blank rel="noopener noreferrer">anvaka/panzoom</a></li>
+<li>dnd
+<ul>
+<li><a href=https://github.com/Shopify/draggable target=_blank rel="noopener noreferrer">Shopify/draggable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>core
+<ul>
+<li>core-js</li>
+<li><a href=https://github.com/dmonad/lib0 target=_blank rel="noopener noreferrer">dmonad/lib0</a>
+<ul>
+<li><a href=https://github.com/dmonad/isomorphic.js target=_blank rel="noopener noreferrer">dmonad/isomorphic.js</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/fabiospampinato/cash target=_blank rel="noopener noreferrer">fabiospampinato/cash</a></li>
+<li>jquery</li>
+</ul>
+</li>
+<li>logger/logging
+<ul>
+<li>console</li>
+<li><a href=/notes/web/nodejs/pino>pino</a>
+<ul>
+<li>6.5kB/2.5kB</li>
+</ul>
+</li>
+<li><a href=https://www.npmjs.com/package/picocolors target=_blank rel="noopener noreferrer">picocolors</a>
+<ul>
+<li><a href=https://github.com/alexeyraspopov/picocolors/blob/main/picocolors.js target=_blank rel="noopener noreferrer">picocolors source</a></li>
+</ul>
+</li>
+<li>roarr
+<ul>
+<li>13kB/4kB</li>
+</ul>
+</li>
+<li>winston</li>
+<li>bunyan</li>
+<li>log4js</li>
+<li><a href=https://github.com/unjs/consola target=_blank rel="noopener noreferrer">unjs/consola</a>
+<ul>
+<li>console wrapper</li>
+</ul>
+</li>
+<li><a href=https://github.com/HuolalaTech/page-spy-web target=_blank rel="noopener noreferrer">HuolalaTech/page-spy-web</a></li>
+<li><a href=https://github.com/Tencent/vConsole target=_blank rel="noopener noreferrer">Tencent/vConsole</a></li>
+</ul>
+</li>
+<li>validate
+<ul>
+<li><a href=https://github.com/decs/typeschema target=_blank rel="noopener noreferrer">decs/typeschema</a>
+<ul>
+<li>adapter for TypeScript schema validation.</li>
+</ul>
+</li>
+<li><a href=https://standardschema.dev/ target=_blank rel="noopener noreferrer">https://standardschema.dev/</a></li>
+<li><a href=/notes/web/script/js/lib/ajv.md>ajv</a>
+<ul>
+<li>JSON Schema</li>
+</ul>
+</li>
+<li><a href=/notes/web/script/js/lib/zod.md>zod</a>
+<ul>
+<li>58kB/14kB, 不可 tree-shaking</li>
+<li>定义的校验会生成 ts 类型</li>
+<li>TypeScript-first schema validation</li>
+</ul>
+</li>
+<li>valibot
+<ul>
+<li><code>import * as v from 'valibot'</code></li>
+<li>可 tree-shaking
+<ul>
+<li>一个简单对象约 3kB/1kB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/validatorjs/validator.js target=_blank rel="noopener noreferrer">validatorjs/validator.js</a></li>
+<li><a href=https://github.com/jquense/yup target=_blank rel="noopener noreferrer">yup</a></li>
+<li><a href=https://github.com/hapijs/joi target=_blank rel="noopener noreferrer">joi</a></li>
+<li>vest</li>
+<li>superstruct</li>
+<li><a href=https://github.com/quicktype/quicktype target=_blank rel="noopener noreferrer">quicktype/quicktype</a></li>
+<li><a href=https://github.com/imbrn/v8n target=_blank rel="noopener noreferrer">imbrn/v8n</a></li>
+<li>npmtrends <a href=https://www.npmtrends.com/yup-vs-joi-vs-ajv-vs-zod target=_blank rel="noopener noreferrer">ajv vs joi vs yup vs zod</a></li>
+<li><a href=https://github.com/ar-nelson/spartan-schema target=_blank rel="noopener noreferrer">ar-nelson/spartan-schema</a>
+<ul>
+<li>定义的校验可生成 ts 类型</li>
+</ul>
+</li>
+<li><a href=https://github.com/validatorjs/validator.js target=_blank rel="noopener noreferrer">validatorjs/validator.js</a></li>
+<li><a href=https://github.com/typestack/class-validator target=_blank rel="noopener noreferrer">typestack/class-validator</a></li>
+<li><a href=https://github.com/moltar/typescript-runtime-type-benchmarks target=_blank rel="noopener noreferrer">https://github.com/moltar/typescript-runtime-type-benchmarks</a></li>
+<li><a href=https://github.com/sinclairzx81/typebox target=_blank rel="noopener noreferrer">typebox</a></li>
+<li><a href=/notes/web/script/lib/zod>zod</a></li>
+</ul>
+</li>
+<li>typescript
+<ul>
+<li><a href=https://github.com/true-myth/true-myth target=_blank rel="noopener noreferrer">true-myth/true-myth</a></li>
+<li><a href=https://github.com/gcanti/io-ts target=_blank rel="noopener noreferrer">io-ts</a></li>
+<li><a href=https://github.com/gcanti/fp-ts target=_blank rel="noopener noreferrer">fp-ts</a></li>
+<li>trpc</li>
+<li>typia</li>
+<li>ts-rest</li>
+</ul>
+</li>
+<li>typescript codegen / Generating Schema from TypeScript
+<ul>
+<li><a href=https://github.com/vega/ts-json-schema-generator target=_blank rel="noopener noreferrer">vega/ts-json-schema-generator</a>
+<ul>
+<li>MIT, TS</li>
+<li>生成一个单一的 jsonschema，通过 deifinition 查找类型引用</li>
+<li>生成带 <span class=katex><span class=katex-mathml><math xmlns=http://www.w3.org/1998/Math/MathML><semantics><mrow><mi>i</mi><mi>d</mi><mtext>的时候</mtext></mrow><annotation encoding=application/x-tex>id 的时候 </annotation></semantics></math></span><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:0.6944em></span><span class="mord mathnormal">i</span><span class="mord mathnormal">d</span><span class="mord cjk_fallback">的时候</span></span></span></span>ref 有问题
+<ul>
+<li><a href=https://github.com/vega/ts-json-schema-generator/issues/1732 target=_blank rel="noopener noreferrer">https://github.com/vega/ts-json-schema-generator/issues/1732</a></li>
+</ul>
+</li>
+<li><a href=https://transform.tools/typescript-to-json-schema target=_blank rel="noopener noreferrer">https://transform.tools/typescript-to-json-schema</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/YousefED/typescript-json-schema target=_blank rel="noopener noreferrer">YousefED/typescript-json-schema</a>
+<ul>
+<li>BSD-3. TS</li>
+<li>json-schema from ts</li>
+</ul>
+</li>
+<li><a href=https://github.com/sinclairzx81/typebox-workbench target=_blank rel="noopener noreferrer">sinclairzx81/typebox-workbench</a>
+<ul>
+<li>单一文件</li>
+<li>生成 typebox - JSONSchema</li>
+<li>生成 zod, effect, arktype, io-ts, valibot</li>
+<li>直接调用 <a href=https://github.com/sinclairzx81/typebox-codegen target=_blank rel="noopener noreferrer">sinclairzx81/typebox-codegen</a></li>
+</ul>
+</li>
+<li>使用 astexplorer 比较好开发这种工具
+<ul>
+<li><a href=https://astexplorer.net/#/gist/8f70c44afee08eed1c73c5ab1ce081b0/3f353f76499783b10169974ff3d2b81184ce36ce target=_blank rel="noopener noreferrer">https://astexplorer.net/#/gist/8f70c44afee08eed1c73c5ab1ce081b0/3f353f76499783b10169974ff3d2b81184ce36ce</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>math
+<ul>
+<li>jsbi - pure-JavaScript BigInts
+<ul>
+<li>33kB/10kB</li>
+<li>Uniswap SDK</li>
+<li>Chrome 67+, Opera 54+, Firefox 68+, Edge 79+, Safari 14+, Node.js v10.4+</li>
+<li>babel 插件可 transpile</li>
+<li><a href=https://tc39.es/proposal-bigint/ target=_blank rel="noopener noreferrer">BigInt Proposal</a></li>
+<li><a href=https://github.com/GoogleChromeLabs/jsbi target=_blank rel="noopener noreferrer">jsbi</a></li>
+</ul>
+</li>
+<li>bn.js
+<ul>
+<li>44kB/11.5kB</li>
+<li>ether.js</li>
+</ul>
+</li>
+<li>MikeMcl
+<ul>
+<li><a href=https://github.com/MikeMcl/decimal.js target=_blank rel="noopener noreferrer">decimal.js</a>
+<ul>
+<li>31kB/12kB</li>
+<li>scientific</li>
+</ul>
+</li>
+<li><a href=/notes/web/script/lib/bignumberjs>bignumber.js</a>
+<ul>
+<li>18kB/8kB</li>
+<li>financial</li>
+<li>支持 exp,ln,log</li>
+</ul>
+</li>
+<li><a href=https://github.com/MikeMcl/big.js target=_blank rel="noopener noreferrer">big.js</a>
+<ul>
+<li>7kB/3kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/MikeMcl/decimal.js-light target=_blank rel="noopener noreferrer">decimal.js-light</a>
+<ul>
+<li>13kB/5.5kB</li>
+<li>不支持 NaN, Infinity, -0</li>
+<li>不支持其他 base</li>
+</ul>
+</li>
+<li><a href=https://github.com/MikeMcl/big.js/wiki target=_blank rel="noopener noreferrer">big.js vs bignumber.js vs decimal.js</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/josdejong/mathjs target=_blank rel="noopener noreferrer">josdejong/mathjs</a>
+<ul>
+<li>Apache-2.0, JS</li>
+<li>plot <a href=https://plotly.com/javascript/ target=_blank rel="noopener noreferrer">https://plotly.com/javascript/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/stdlib-js/stdlib target=_blank rel="noopener noreferrer">stdlib-js/stdlib</a>
+<ul>
+<li>@stdlib/plot - 基于 d3</li>
+</ul>
+</li>
+<li><a href=https://mathnotepad.com/ target=_blank rel="noopener noreferrer">https://mathnotepad.com/</a></li>
+<li><a href=https://www.mathcha.io/ target=_blank rel="noopener noreferrer">https://www.mathcha.io/</a>
+<ul>
+<li>Mathematics Editor</li>
+</ul>
+</li>
+<li><a href=https://github.com/thoughtspile/grafar target=_blank rel="noopener noreferrer">thoughtspile/grafar</a></li>
+<li><a href=https://mafs.dev/ target=_blank rel="noopener noreferrer">https://mafs.dev/</a>
+<ul>
+<li>React components for interactive math</li>
+<li><a href=https://github.com/stevenpetryk/mafs target=_blank rel="noopener noreferrer">stevenpetryk/mafs</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/imaphatduc/cubecubed target=_blank rel="noopener noreferrer">imaphatduc/cubecubed</a></li>
+<li><a href=https://github.com/3b1b/manim target=_blank rel="noopener noreferrer">3b1b/manim</a></li>
+<li><a href=https://github.com/jsxgraph/jsxgraph target=_blank rel="noopener noreferrer">jsxgraph/jsxgraph</a>
+<ul>
+<li>MIT, LGPL, JS</li>
+<li>interactive geometry, function plotting, charting, and data visualization</li>
+</ul>
+</li>
+<li>mathjax</li>
+<li><a href=https://github.com/CindyJS/CindyJS target=_blank rel="noopener noreferrer">CindyJS/CindyJS</a>
+<ul>
+<li>Apache-2.0, JS</li>
+<li>interactive mathematical</li>
+<li>2D Geometry, 3D Geometry, Algebra, Calculus, Differential Equations, Statistics, Probability, Linear Algebra, Complex Numbers, Trigonometry</li>
+</ul>
+</li>
+<li><a href=https://upmath.me/ target=_blank rel="noopener noreferrer">https://upmath.me/</a> Math Online Editor
+<ul>
+<li>tex, tikz</li>
+</ul>
+</li>
+<li><a href=https://github.com/kisonecat/tikzjax target=_blank rel="noopener noreferrer">kisonecat/tikzjax</a>
+<ul>
+<li>TikZ running under WebAssembly in the browser</li>
+</ul>
+</li>
+<li>katex</li>
+<li>Asymptote (vector graphics language)</li>
+</ul>
+</li>
+<li>geo
+<ul>
+<li><a href=https://github.com/Turfjs/turf target=_blank rel="noopener noreferrer">Turfjs/turf</a>
+<ul>
+<li>MIT, TS</li>
+<li>geospatial engine</li>
+</ul>
+</li>
+<li><a href=https://geojson.io/ target=_blank rel="noopener noreferrer">https://geojson.io/</a></li>
+</ul>
+</li>
+<li>Phy</li>
+<li>stat/bi/data
+<ul>
+<li><a href=https://github.com/jstat/jstat target=_blank rel="noopener noreferrer">jstat</a></li>
+<li><a href=https://cube.dev/ target=_blank rel="noopener noreferrer">cubejs</a></li>
+<li><a href=https://github.com/uwdata/arquero target=_blank rel="noopener noreferrer">uwdata/arquero</a></li>
+<li><a href=https://github.com/pbeshai/tidy target=_blank rel="noopener noreferrer">pbeshai/tidy</a></li>
+</ul>
+</li>
+<li>markdown
+<ul>
+<li><a href=/notes/web/script/editor/markdown-it.md>markdown-it</a></li>
+<li><a href=https://github.com/mdx-js/mdx target=_blank rel="noopener noreferrer">mdx-js/mdx</a>
+<ul>
+<li><a href=https://github.com/mdx-js/specification target=_blank rel="noopener noreferrer">mdx-js/specification</a></li>
+<li><a href=https://github.com/mdx-js/mdx/tree/main/packages/remark-mdx target=_blank rel="noopener noreferrer">remark-mdx</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/wooorm/xdm target=_blank rel="noopener noreferrer">wooorm/xdm</a>
+<ul>
+<li>MDX compiler</li>
+</ul>
+</li>
+<li><a href=https://github.com/micromark/micromark target=_blank rel="noopener noreferrer">micromark/micromark</a>
+<ul>
+<li>替代 remark-parse</li>
+</ul>
+</li>
+<li><a href=https://github.com/markedjs/marked target=_blank rel="noopener noreferrer">markedjs/marked</a></li>
+<li><a href=/notes/web/script/editor/unifiedjs.md>unifiedjs</a></li>
+</ul>
+</li>
+<li>Auth/ACL/Security
+<ul>
+<li><a href=https://github.com/stalniy/casl target=_blank rel="noopener noreferrer">stalniy/casl</a></li>
+</ul>
+</li>
+<li>Syntax Highlighter
+<ul>
+<li><a href=https://github.com/PrismJS/prism target=_blank rel="noopener noreferrer">PrismJS/prism</a>
+<ul>
+<li>MIT, JS</li>
+</ul>
+</li>
+<li><a href=https://github.com/shikijs/shiki target=_blank rel="noopener noreferrer">shikijs/shiki</a>
+<ul>
+<li>MIT, TS</li>
+<li><a href=https://github.com/shikijs/shiki-magic-move target=_blank rel="noopener noreferrer">shikijs/shiki-magic-move</a></li>
+</ul>
+</li>
+<li>Highlight.js</li>
+<li><a href=https://github.com/wooorm/lowlight target=_blank rel="noopener noreferrer">wooorm/lowlight</a>
+<ul>
+<li>基于 lowlight</li>
+</ul>
+</li>
+<li><a href=https://github.com/wooorm/refractor target=_blank rel="noopener noreferrer">wooorm/refractor</a>
+<ul>
+<li>基于 Prism.js</li>
+</ul>
+</li>
+<li><a href=https://github.com/wooorm/starry-night target=_blank rel="noopener noreferrer">wooorm/starry-night</a>
+<ul>
+<li>TextMate syntax</li>
+</ul>
+</li>
+<li><a href=https://github.com/react-syntax-highlighter/react-syntax-highlighter target=_blank rel="noopener noreferrer">react-syntax-highlighter/react-syntax-highlighter</a>
+<ul>
+<li>基于 lowlight, refractor</li>
+<li>prismjs, highlightjs</li>
+</ul>
+</li>
+<li><a href=https://lezer.codemirror.net target=_blank rel="noopener noreferrer">Lezer</a></li>
+<li><a href=https://github.com/antonmedv/codejar target=_blank rel="noopener noreferrer">antonmedv/codejar</a>
+<ul>
+<li>embeddable code editor</li>
+</ul>
+</li>
+<li><a href=https://github.com/react-simple-code-editor/react-simple-code-editor target=_blank rel="noopener noreferrer">react-simple-code-editor/react-simple-code-editor</a>
+<ul>
+<li>基于 prismjs</li>
+</ul>
+</li>
+<li><a href=https://github.com/inokawa/rich-textarea target=_blank rel="noopener noreferrer">inokawa/rich-textarea</a>
+<ul>
+<li>MIT, TS, React</li>
+<li>基于 textarea overlay</li>
+</ul>
+</li>
+<li><a href=https://github.com/inokawa/edix target=_blank rel="noopener noreferrer">inokawa/edix</a>
+<ul>
+<li>framework agnostic</li>
+</ul>
+</li>
+<li><a href=https://github.com/Justineo/highlightable-input target=_blank rel="noopener noreferrer">Justineo/highlightable-input</a>
+<ul>
+<li>基于 contenteditable</li>
+</ul>
+</li>
+<li><a href=https://github.com/twoslashes/twoslash target=_blank rel="noopener noreferrer">twoslashes/twoslash</a>
+<ul>
+<li>Markup for generating rich type information in your documentations ahead of time</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>jwt
+<ul>
+<li><a href=https://github.com/panva/node-openid-client target=_blank rel="noopener noreferrer">openid-client</a>
+<ul>
+<li>nodejs RP client for passport.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>dev
+<ul>
+<li><a href=https://github.com/nolanlawson/fuite target=_blank rel="noopener noreferrer">nolanlawson/fuite</a>
+<ul>
+<li>finding memory leaks in web apps</li>
+</ul>
+</li>
+<li><a href=https://github.com/sverweij/dependency-cruiser target=_blank rel="noopener noreferrer">sverweij/dependency-cruiser</a></li>
+</ul>
+</li>
+<li>i18n
+<ul>
+<li><a href=https://github.com/lingodotdev/lingo.dev target=_blank rel="noopener noreferrer">lingodotdev/lingo.dev</a>
+<ul>
+<li>Apache-2.0, TS</li>
+<li>AI-powered i18n toolkit</li>
+</ul>
+</li>
+<li><a href=https://github.com/lingui/js-lingui target=_blank rel="noopener noreferrer">lingui/js-lingui</a>
+<ul>
+<li>core - 30kB, 8kB</li>
+<li>react + 7kB, 2.5kB</li>
+<li>@lingui/macro</li>
+<li>支持语义</li>
+<li>支持 自动提取</li>
+<li><a href=https://lingui.dev/ target=_blank rel="noopener noreferrer">https://lingui.dev/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/i18next/i18next target=_blank rel="noopener noreferrer">i18next</a>
+<ul>
+<li>MIT, JS, TS</li>
+<li>56kB, 15kB</li>
+<li>key-based</li>
+</ul>
+</li>
+<li><a href=https://github.com/globalizejs/globalize target=_blank rel="noopener noreferrer">globalizejs/globalize</a>
+<ul>
+<li>MIT, JS</li>
+</ul>
+</li>
+<li><a href=https://github.com/airbnb/polyglot.js target=_blank rel="noopener noreferrer">airbnb/polyglot.js</a>
+<ul>
+<li>BSD-2, JS</li>
+</ul>
+</li>
+<li><a href=https://github.com/lukeed/rosetta target=_blank rel="noopener noreferrer">lukeed/rosetta</a>
+<ul>
+<li>27 LOC</li>
+<li><a href=https://github.com/lukeed/templite target=_blank rel="noopener noreferrer">lukeed/templite</a></li>
+<li>dlv</li>
+</ul>
+</li>
+<li>react-intl</li>
+<li>服务
+<ul>
+<li>translation.io</li>
+<li><a href=https://crowdin.com/ target=_blank rel="noopener noreferrer">Crowdin</a></li>
+<li><a href=https://localise.biz/ target=_blank rel="noopener noreferrer">Loco</a></li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li>PO - Portable Object</li>
+<li>POT - Portable Object Template</li>
+<li><a href=https://medium.com/@radist2s/4b07ac73a9bb target=_blank rel="noopener noreferrer">i18next -> LinguiJS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>object path
+<ul>
+<li><a href=https://github.com/developit/dlv target=_blank rel="noopener noreferrer">dlv</a>
+<ul>
+<li>get by path</li>
+<li><a href=https://github.com/lukeed/dset target=_blank rel="noopener noreferrer">lukeed/dset</a>
+<ul>
+<li>set by path</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>benchmark
+<ul>
+<li><a href=https://krausest.github.io/js-framework-benchmark/current.html target=_blank rel="noopener noreferrer">js-framework-benchmark</a></li>
+</ul>
+</li>
+<li>framework
+<ul>
+<li><a href=https://github.com/Effect-TS/effect target=_blank rel="noopener noreferrer">Effect-TS/effect</a>
+<ul>
+<li>MIT, TS</li>
+<li>ecosystem of tools to build robust applications in TypeScript.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>debug
+<ul>
+<li><a href=https://github.com/HuolalaTech/page-spy-web target=_blank rel="noopener noreferrer">HuolalaTech/page-spy-web</a>
+<ul>
+<li>MIT, TS</li>
+<li>by 货拉拉</li>
+<li>Debug remotely and easily like chrome devtools.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>data/io
+<ul>
+<li>ArrayBuffer
+<ul>
+<li>js 标准里的 nodejs Buffer 对等角色</li>
+</ul>
+</li>
+<li>mdn-data - <a href=https://github.com/mdn/data target=_blank rel="noopener noreferrer">mdn/data</a></li>
+<li><a href=https://github.com/feross/buffer target=_blank rel="noopener noreferrer">feross/buffer</a>
+<ul>
+<li>NodeJS Buffer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>fetch/network
+<ul>
+<li>axios
+<ul>
+<li>30kB/18kB</li>
+<li>based on XMLHttpRequests</li>
+</ul>
+</li>
+<li><a href=https://github.com/elbywan/wretch target=_blank rel="noopener noreferrer">elbywan/wretch</a>
+<ul>
+<li>tiny wrapper built around fetch</li>
+</ul>
+</li>
+<li><a href=https://github.com/sindresorhus/ky target=_blank rel="noopener noreferrer">sindresorhus/ky</a>
+<ul>
+<li>fetch wrapper</li>
+<li>9.5kB/3.3kB</li>
+<li>0 依赖</li>
+</ul>
+</li>
+<li><a href=https://github.com/sindresorhus/got target=_blank rel="noopener noreferrer">sindresorhus/got</a>
+<ul>
+<li>for NodeJS</li>
+</ul>
+</li>
+<li>undici
+<ul>
+<li>NodeJS 的 fetch 实现</li>
+<li>如果需要用代理功能则需要直接引入</li>
+</ul>
+</li>
+<li>superagent</li>
+<li><del>request</del></li>
+<li>node-fetch
+<ul>
+<li>NodeJS v18 内置</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>codec/parser
+<ul>
+<li>punycode</li>
+<li>url-js</li>
+<li>url</li>
+</ul>
+</li>
+<li>AST/parser
+<ul>
+<li><a href=https://github.com/meriyah/meriyah target=_blank rel="noopener noreferrer">meriyah/meriyah</a>
+<ul>
+<li>127kB, 40kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/acornjs/acorn target=_blank rel="noopener noreferrer">acornjs/acorn</a>
+<ul>
+<li>107kB, 31.1kB</li>
+<li>acorn-jsx</li>
+<li>acorn-bigint</li>
+</ul>
+</li>
+<li><a href=https://github.com/estree/estree target=_blank rel="noopener noreferrer">estree/estree</a>
+<ul>
+<li>eslint, acorn, babel, Esprima</li>
+</ul>
+</li>
+<li><a href=https://github.com/jquery/esprima target=_blank rel="noopener noreferrer">jquery/esprima</a></li>
+</ul>
+</li>
+<li>router
+<ul>
+<li>URLPattern Chrome 95+</li>
+<li><a href=https://github.com/lukeed/regexparam target=_blank rel="noopener noreferrer">lukeed/regexparam</a></li>
+<li><a href=https://github.com/lukeed/polka target=_blank rel="noopener noreferrer">lukeed/polka</a>
+<ul>
+<li>Web Server</li>
+</ul>
+</li>
+<li><a href=https://github.com/pillarjs/path-to-regexp target=_blank rel="noopener noreferrer">pillarjs/path-to-regexp</a>
+<ul>
+<li>React router 之前版本</li>
+</ul>
+</li>
+<li><a href=https://hono.dev/docs/concepts/routers target=_blank rel="noopener noreferrer">hono RegExpRouter</a></li>
+</ul>
+</li>
+<li>audio/sound
+<ul>
+<li><a href=https://github.com/katspaugh/wavesurfer.js target=_blank rel="noopener noreferrer">katspaugh/wavesurfer.js</a>
+<ul>
+<li>BSD-3, TS</li>
+<li>waveform player</li>
+</ul>
+</li>
+<li><a href=https://github.com/makeusabrew/audioteejs target=_blank rel="noopener noreferrer">makeusabrew/audioteejs</a>
+<ul>
+<li>NodeJS wrapper library around <a href=https://github.com/makeusabrew/audiotee target=_blank rel="noopener noreferrer">Audiotee</a></li>
+<li>语音输入</li>
+</ul>
+</li>
+<li><a href=https://github.com/goldfire/howler.js target=_blank rel="noopener noreferrer">goldfire/howler.js</a>
+<ul>
+<li>MIT, JS</li>
+<li>Web Audio API, HTML5 Audio</li>
+<li><a href=https://github.com/DawidWraga/davstack/tree/main/packages/sound target=_blank rel="noopener noreferrer">https://github.com/DawidWraga/davstack/tree/main/packages/sound</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/bbc/peaks.js target=_blank rel="noopener noreferrer">bbc/peaks.js</a>
+<ul>
+<li>LGPLv3, JS</li>
+<li>audio waveforms</li>
+</ul>
+</li>
+<li><a href=https://github.com/BenzLeung/benz-amr-recorder target=_blank rel="noopener noreferrer">BenzLeung/benz-amr-recorder</a></li>
+<li><a href=https://github.com/jpemartins/amr.js target=_blank rel="noopener noreferrer">jpemartins/amr.js</a>
+<ul>
+<li>opencore-amr version 0.1.3 using emscripten</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>glob
+<ul>
+<li><a href=https://github.com/thecodrr/fdir target=_blank rel="noopener noreferrer">thecodrr/fdir</a>
+<ul>
+<li>MIT, TS</li>
+<li>fastest directory crawler & globbing library</li>
+<li>0 依赖，glob 通过传入函数实现</li>
+</ul>
+</li>
+<li><a href=https://github.com/sindresorhus/globby target=_blank rel="noopener noreferrer">globby</a>
+<ul>
+<li>MIT</li>
+<li>基于 fast-glob 增加部分功能</li>
+<li>支持 ignore 文件 - .gitignore</li>
+</ul>
+</li>
+<li><a href=https://github.com/mrmlnc/fast-glob target=_blank rel="noopener noreferrer">fast-glob</a>
+<ul>
+<li>使用 micromatch</li>
+</ul>
+</li>
+<li><a href=https://github.com/isaacs/node-glob target=_blank rel="noopener noreferrer">glob</a></li>
+<li><a href=https://github.com/micromatch/micromatch target=_blank rel="noopener noreferrer">micromatch/micromatch</a>
+<ul>
+<li>wildcard and glob matching library</li>
+<li>picomatch+brace 展开 - <code>{.ts,.js}</code> 展开</li>
+<li>依赖 npm:braces npm:fill-range npm:to-regex-range</li>
+<li>替代 minimatch, multimatch</li>
+</ul>
+</li>
+<li><a href=https://github.com/micromatch/picomatch target=_blank rel="noopener noreferrer">micromatch/picomatch</a>
+<ul>
+<li>轻量级，0依赖</li>
+<li>支持 <code>*</code>, <code>?</code>, <code>**</code></li>
+<li>支持 extglob <code>@(pattern)</code>, <code>*(pattern)</code>, <code>+(pattern)</code>, <code>?(pattern)</code>, <code>!(pattern)</code></li>
+<li>支持 POSIX brackets <code>[[:alpha:]]</code> - alnum, alpha, ascii, blank, cntrl, digit, graph, lower, print, punct, space, upper, word, xdigit</li>
+<li>不支持 Braces</li>
+<li>20kB/7kB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test - WebStorm 支持 jest, mocha
+<ul>
+<li>node:test
+<ul>
+<li>NodeJS v18 内置 Test Runner</li>
+</ul>
+</li>
+<li><a href=/notes/web/script/dev/testing/jest.md>jest</a>
+<ul>
+<li>by Facebook</li>
+</ul>
+</li>
+<li>mocha
+<ul>
+<li>Selenium</li>
+</ul>
+</li>
+<li>jasmine</li>
+<li>karma</li>
+<li>puppeteer</li>
+<li>storybook</li>
+<li>playwright</li>
+<li><a href=https://github.com/lost-pixel/lost-pixel target=_blank rel="noopener noreferrer">lost-pixel</a></li>
+<li><a href=/notes/web/script/dev/testing/ava.md>ava</a>
+<ul>
+<li>WebStrom Plugin <a href=https://plugins.jetbrains.com/plugin/13835 target=_blank rel="noopener noreferrer">AVA Test Run Configuration Generator</a></li>
+<li><a href=https://youtrack.jetbrains.com/issue/WEB-21788 target=_blank rel="noopener noreferrer">WEB-21788</a></li>
+</ul>
+</li>
+<li><a href=/notes/web/script/dev/testing/vitest.md>vitest</a></li>
+<li><a href=https://github.com/testing-library target=_blank rel="noopener noreferrer">testing library</a>
+<ul>
+<li>react, dom</li>
+</ul>
+</li>
+<li><a href=https://github.com/lukeed/uvu target=_blank rel="noopener noreferrer">lukeed/uvu</a></li>
+<li>webdriver io</li>
+<li>E2E - Browser
+<ul>
+<li>cypress</li>
+<li><a href=https://modern-web.dev/docs/test-runner/overview/ target=_blank rel="noopener noreferrer">Web Test Runner</a></li>
+<li><a href=https://github.com/nightwatchjs/nightwatch target=_blank rel="noopener noreferrer">nightwatch</a>
+<ul>
+<li>MIT, JS</li>
+<li>W3C Webdriver API</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tap - 测试协议
+<ul>
+<li><a href=https://github.com/tapjs/node-tap target=_blank rel="noopener noreferrer">tapjs/node-tap</a></li>
+<li><a href=http://tap4j.org/ target=_blank rel="noopener noreferrer">http://tap4j.org/</a></li>
+<li>WebStorm 暂不支持 <a href=https://youtrack.jetbrains.com/issue/WEB-20916 target=_blank rel="noopener noreferrer">WEB-20916</a></li>
+</ul>
+</li>
+<li><a href=https://npmtrends.com/ava-vs-jasmine-vs-jest-vs-mocha-vs-qunit target=_blank rel="noopener noreferrer">ava vs jasmine vs jest vs mocha vs qunit</a></li>
+</ul>
+</li>
+<li>random data generator/mock data
+<ul>
+<li><a href=/notes/web/script/js/lib/json-schema-faker.md>json-schema-faker</a>
+<ul>
+<li><a href=https://json-schema-faker.js.org/ target=_blank rel="noopener noreferrer">https://json-schema-faker.js.org/</a></li>
+<li>不支持 draft 2019-09 <a href=https://github.com/json-schema-faker/json-schema-faker/issues/289#issuecomment-383902618 target=_blank rel="noopener noreferrer">#289</a></li>
+</ul>
+</li>
+<li><a href=/notes/web/script/js/lib/faker.md>@faker-js/faker</a>
+<ul>
+<li>2.8MB, 907kB</li>
+</ul>
+</li>
+<li><a href=/notes/web/script/lib/chance>chance</a>
+<ul>
+<li>206kB, 67kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/danibram/mocker-data-generator target=_blank rel="noopener noreferrer">danibram/mocker-data-generator</a></li>
+</ul>
+</li>
+<li>Presentation Slides
+<ul>
+<li><a href=https://github.com/slidevjs/slidev target=_blank rel="noopener noreferrer">slidevjs/slidev</a>
+<ul>
+<li>TS, Vue</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Font
+<ul>
+<li><a href=https://github.com/opentypejs/opentype.js target=_blank rel="noopener noreferrer">opentypejs/opentype.js</a></li>
+</ul>
+</li>
+<li>MISC
+<ul>
+<li><a href=https://github.com/trevorlinton/webkit.js target=_blank rel="noopener noreferrer">trevorlinton/webkit.js</a></li>
+</ul>
+</li>
+<li>useragent/figureprint
+<ul>
+<li><a href=https://github.com/51Degrees/Renderer target=_blank rel="noopener noreferrer">51Degrees/Renderer</a>
+<ul>
+<li>return the GPU renderer string for iPhone and iPad</li>
+</ul>
+</li>
+<li><a href=https://github.com/pmndrs/detect-gpu target=_blank rel="noopener noreferrer">pmndrs/detect-gpu</a></li>
+<li><a href=https://shaka-player-demo.appspot.com/support.html target=_blank rel="noopener noreferrer">https://shaka-player-demo.appspot.com/support.html</a></li>
+</ul>
+</li>
+<li>webcomponents
+<ul>
+<li><a href=https://github.com/google/model-viewer target=_blank rel="noopener noreferrer">google/model-viewer</a>
+<ul>
+<li>3D Model</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>state / store
+<ul>
+<li><a href=/notes/web/react/jotai>jotai</a></li>
+<li><a href=/notes/web/react/zustand>zustand</a></li>
+<li><a href=/notes/web/react/valtio>valtio</a></li>
+<li><a href=https://github.com/nanostores/nanostores target=_blank rel="noopener noreferrer">nanostore</a>
+<ul>
+<li>类似于 jotai</li>
+<li>297 bytes</li>
+<li>React, Vue, Svelte, Solid, Lit, Angular, SSR</li>
+</ul>
+</li>
+<li><a href=https://github.com/saasquatch/bunshi target=_blank rel="noopener noreferrer">saasquatch/bunshi</a>
+<ul>
+<li>1.18kb</li>
+<li>Molecule pattern for jotai, nanostore, valtio, zustand</li>
+<li>React, Vue, Vanilla</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>FSM / Finite state machines
+<ul>
+<li>XState</li>
+<li><a href=https://github.com/chakra-ui/zag target=_blank rel="noopener noreferrer">chakra-ui/zag</a>
+<ul>
+<li>React, Vue, Solid</li>
+<li>from chakra-ui</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>search/fuzz
+<ul>
+<li><a href=https://github.com/nextapps-de/flexsearch target=_blank rel="noopener noreferrer">nextapps-de/flexsearch</a>
+<ul>
+<li>size min.mjs 16kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/krisk/fuse target=_blank rel="noopener noreferrer">krisk/fuse</a>
+<ul>
+<li>MIT, JS</li>
+<li>npm:fuse.js</li>
+<li>size min.mjs 16kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/olivernn/lunr.js target=_blank rel="noopener noreferrer">olivernn/lunr.js</a>
+<ul>
+<li>MIT, JS</li>
+</ul>
+</li>
+<li><a href=https://github.com/farzher/fuzzysort target=_blank rel="noopener noreferrer">farzher/fuzzysort)</a>
+<ul>
+<li>MIT, JS</li>
+<li>npm:fuzzysort</li>
+</ul>
+</li>
+<li><a href=https://github.com/lucaong/minisearch target=_blank rel="noopener noreferrer">lucaong/minisearch</a>
+<ul>
+<li>MIT, TS, JS</li>
+<li>npm:minisearch</li>
+</ul>
+</li>
+<li><a href=https://github.com/kentcdodds/match-sorter target=_blank rel="noopener noreferrer">kentcdodds/match-sorter</a>
+<ul>
+<li>MIT, TS</li>
+<li>npm:match-sorter</li>
+</ul>
+</li>
+<li><a href=https://github.com/leeoniya/uFuzzy target=_blank rel="noopener noreferrer">leeoniya/uFuzzy</a>
+<ul>
+<li>MIT, JS</li>
+</ul>
+</li>
+<li><a href=https://github.com/Nozbe/microfuzz target=_blank rel="noopener noreferrer">Nozbe/microfuzz</a>
+<ul>
+<li>MIT, JS</li>
+<li>npm:microfuzz</li>
+</ul>
+</li>
+<li><a href=https://github.com/m31coding/fuzzy-search target=_blank rel="noopener noreferrer">m31coding/fuzzy-search</a>
+<ul>
+<li>MIT, TS</li>
+</ul>
+</li>
+<li><a href=https://npmtrends.com/flexsearch-vs-fuse.js-vs-fuzzysort-vs-match-sorter-vs-minisearch target=_blank rel="noopener noreferrer">flexsearch vs fuse.js vs fuzzysort vs match-sorter vs minisearch</a></li>
+</ul>
+</li>
+<li>security/fuzzer
+<ul>
+<li><a href=https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/jsfuzz target=_blank rel="noopener noreferrer">jsfuzz</a></li>
+</ul>
+</li>
+<li>layout
+<ul>
+<li><a href=https://github.com/gridstack/gridstack.js target=_blank rel="noopener noreferrer">gridstack/gridstack.js</a>
+<ul>
+<li>MIT, TS</li>
+<li>Build interactive dashboards</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>shell/script
+<ul>
+<li><a href=https://github.com/sindresorhus/execa target=_blank rel="noopener noreferrer">sindresorhus/execa</a>
+<ul>
+<li>MIT, JS+TS</li>
+</ul>
+</li>
+<li><a href=https://github.com/shelljs/shelljs target=_blank rel="noopener noreferrer">shelljs/shelljs</a>
+<ul>
+<li>BSD-3, JS</li>
+<li>Portable Unix shell commands for Node.js</li>
+</ul>
+</li>
+<li><a href=https://github.com/google/zx target=_blank rel="noopener noreferrer">google/zx</a></li>
+</ul>
+</li>
+<li>http
+<ul>
+<li><a href=https://github.com/jshttp/negotiator target=_blank rel="noopener noreferrer">jshttp/negotiator</a>
+<ul>
+<li>MIT, JS</li>
+<li>HTTP content negotiator</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/xyflow/xyflow target=_blank rel="noopener noreferrer">xyflow/xyflow</a></li>
+</ul>
+<hr/>
+<ul>
+<li>npmtrends <a href=https://www.npmtrends.com/dexie-vs-localforage-vs-pouchdb-vs-rxdb-vs-lokijs target=_blank rel="noopener noreferrer">dexie vs localforage vs lokijs vs pouchdb vs rxdb</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=runtimes--engines>Runtimes & Engines<a href=#runtimes--engines class=hash-link aria-label="Direct link to Runtimes & Engines" title="Direct link to Runtimes & Engines" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Engine<th>Since<th>author<th style=text-align:left>License<th style=text-align:right>Size<th>notes<tbody><tr><td>[V8]<td><td><td style=text-align:left>BSD-3<td style=text-align:right>28M<td><tr><td>[JavaScriptCore]<td><td><td style=text-align:left>MIT<td style=text-align:right>620K<td><tr><td>Node<td><td><td style=text-align:left><td style=text-align:right><td><tr><td>Bun<td><td><td style=text-align:left><td style=text-align:right>60M<td><tr><td>Deno<td><td><td style=text-align:left><td style=text-align:right><td><tr><td>[QuickJS]<td><td><td style=text-align:left>MIT<td style=text-align:right>620K<td><tr><td>[DukTape]<td><td><td style=text-align:left>MIT<td style=text-align:right>331K<td><tr><td>[MuJS]<td>2013<td><td style=text-align:left>ISC<td style=text-align:right>244K<td><tr><td>[JerryScript]<td><td><td style=text-align:left>Apache-2.0<td style=text-align:right>211K<td><tr><td>[Hermes]<td><td>Meta<td style=text-align:left>MIT<td style=text-align:right>27M<td><tr><td>[XS]<td><td><td style=text-align:left>GPL<td style=text-align:right>1.2M<td><tr><td><a href=https://github.com/saghul/txiki.js target=_blank rel="noopener noreferrer">saghul/txiki.js</a><td>2019<td><td style=text-align:left>MIT<td style=text-align:right>1.2M<td>QuickJS, libuv, wasm3, curl, libffi,WinterCG<tr><td><a href=https://github.com/holepunchto/bare target=_blank rel="noopener noreferrer">holepunchto/bare</a><td>2022<td><td style=text-align:left>Apache-2.0<td style=text-align:right><td>libuv, libjs, v8<tr><td><a href=https://github.com/just-js/lo target=_blank rel="noopener noreferrer">just-js/lo</a><td>2023<td><td style=text-align:left>MIT<td style=text-align:right>15M<td>v8<tr><td><a href=https://gitlab.gnome.org/GNOME/gjs target=_blank rel="noopener noreferrer">GNOME/gjs</a><td>2008<td><td style=text-align:left><td style=text-align:right><td>based on SpiderMonkey, binding to GNOME<tr><td><del><a href=https://github.com/creationix/dukluv target=_blank rel="noopener noreferrer">creationix/dukluv</a></del><td>2014<td><td style=text-align:left><td style=text-align:right><td>libuv-based, duktape<tr><td><del><a href=https://developer.apple.com/library/archive/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/Introduction.html target=_blank rel="noopener noreferrer">JXA</a></del><td>2014<td>Apple<td style=text-align:left><td style=text-align:right><td>JavaScript for Automation, macOS only<tr><td><del><a href=https://github.com/microsoft/napajs target=_blank rel="noopener noreferrer">microsoft/napajs</a></del><td>2016<td>Microsoft<td style=text-align:left>MIT<td style=text-align:right><td>multi-threaded, v8<tr><td>GraalJS<td><td>Oracle<td style=text-align:left><td style=text-align:right><td><tr><td>ChakraCore<td><td>Microsoft<td style=text-align:left><td style=text-align:right><td></table>
+<ul>
+<li>Runtime - stdlib/sandboxing
+<ul>
+<li>NodeJS</li>
+<li>Deno</li>
+<li>Bun</li>
+<li><a href=https://github.com/andrewmd5/hako target=_blank rel="noopener noreferrer">andrewmd5/hako</a>
+<ul>
+<li>fork of PrimJS</li>
+</ul>
+</li>
+<li><a href=https://github.com/lynx-family/primjs target=_blank rel="noopener noreferrer">lynx-family/primjs</a>
+<ul>
+<li>based on QuickJS</li>
+<li>for <a href=https://github.com/lynx-family/lynx target=_blank rel="noopener noreferrer">lynx</a>
+<ul>
+<li>字节 跨平台框架</li>
+<li>目前 React 为主</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=/notes/web/script/dev/workerd.md>workerd</a></li>
+<li><a href=/notes/web/script/dev/edge-runtime.md>edge-runtime</a></li>
+<li><a href=https://github.com/losfair/blueboat target=_blank rel="noopener noreferrer">losfair/blueboat</a>
+<ul>
+<li>Apache-2.0, Rust</li>
+<li>multi-tenant serverless JavaScript runtime</li>
+<li>V8 isolate</li>
+</ul>
+</li>
+<li><a href=https://github.com/patriksimek/vm2 target=_blank rel="noopener noreferrer">vm2</a>
+<ul>
+<li>vs node:vm
+<ul>
+<li>更安全</li>
+<li>暴露更少的内容</li>
+<li>使用 proxy 避免逃逸</li>
+<li>覆盖 require 避免访问内部</li>
+<li>支持 transpiler</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://nodejs.org/api/vm.html target=_blank rel="noopener noreferrer">vm</a> - NodeJS</li>
+<li><a href=https://github.com/ringo/ringojs target=_blank rel="noopener noreferrer">ringo/ringojs</a>
+<ul>
+<li>JVM</li>
+</ul>
+</li>
+<li><a href=https://github.com/saghul/txiki.js target=_blank rel="noopener noreferrer">saghul/txiki.js</a>
+<ul>
+<li>MIT, C</li>
+<li>QuickJS + libuv + wasm3 + curl + libffi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Engine - JIT
+<ul>
+<li><a href=https://github.com/v8/v8 target=_blank rel="noopener noreferrer">V8</a>
+<ul>
+<li>Chrome</li>
+</ul>
+</li>
+<li>JavaScriptCore
+<ul>
+<li><a href=https://github.com/WebKit/WebKit target=_blank rel="noopener noreferrer">Webkit</a></li>
+</ul>
+</li>
+<li>SpiderMonkey
+<ul>
+<li>Firefox</li>
+</ul>
+</li>
+<li>GraalJS
+<ul>
+<li>Oracle</li>
+<li>GraalVM</li>
+<li>JVM</li>
+</ul>
+</li>
+<li><a href=https://github.com/chakra-core/ChakraCore target=_blank rel="noopener noreferrer">ChakraCore</a>
+<ul>
+<li>MIT, C++</li>
+<li>早先的 Microsoft Edge</li>
+</ul>
+</li>
+<li><del><a href=https://github.com/just-js/just target=_blank rel="noopener noreferrer">just-js/just</a></del>
+<ul>
+<li>small v8 for linux only</li>
+<li>~15 MB</li>
+</ul>
+</li>
+<li><a href=https://github.com/facebook/hermes target=_blank rel="noopener noreferrer">facebook/hermes</a>
+<ul>
+<li>MIT, C++</li>
+<li>React Native</li>
+</ul>
+</li>
+<li>XS Moddable
+<ul>
+<li>GPL</li>
+</ul>
+</li>
+<li><a href=https://github.com/CanadaHonk/porffor target=_blank rel="noopener noreferrer">CanadaHonk/porffor</a>
+<ul>
+<li>MIT, JS</li>
+<li>from-scratch AOT JS -> WASM</li>
+<li><a href=https://porffor.goose.icu/ target=_blank rel="noopener noreferrer">https://porffor.goose.icu/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Engine - embeddable/interpreter
+<ul>
+<li><a href=https://github.com/svaarala/duktape target=_blank rel="noopener noreferrer">svaarala/duktape</a>
+<ul>
+<li>MIT, C</li>
+</ul>
+</li>
+<li><a href=https://github.com/bellard/quickjs target=_blank rel="noopener noreferrer">bellard/quickjs</a>
+<ul>
+<li>MIT, C</li>
+<li>Typescript</li>
+<li><a href=https://bellard.org/quickjs/bench.html target=_blank rel="noopener noreferrer">https://bellard.org/quickjs/bench.html</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/quickjs-ng/quickjs target=_blank rel="noopener noreferrer">quickjs-ng/quickjs</a></li>
+<li><a href=https://github.com/cesanta/mjs target=_blank rel="noopener noreferrer">cesanta/mjs</a>
+<ul>
+<li>GPLv2, C</li>
+</ul>
+</li>
+<li><a href=https://github.com/ccxvii/mujs target=_blank rel="noopener noreferrer">ccxvii/mujs</a>
+<ul>
+<li>ISC, C</li>
+</ul>
+</li>
+<li><a href=https://github.com/fastschema/qjs target=_blank rel="noopener noreferrer">fastschema/qjs</a>
+<ul>
+<li>MIT, Go, Wazero</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Sandbox
+<ul>
+<li>v8 isolate</li>
+<li><a href=https://github.com/WICG/portals target=_blank rel="noopener noreferrer">WICG/portals</a></li>
+<li><a href=https://github.com/JetBrains/websandbox target=_blank rel="noopener noreferrer">JetBrains/websandbox</a>
+<ul>
+<li>Apache-2.0, TS</li>
+<li>iframe</li>
+</ul>
+</li>
+<li><a href=https://github.com/NeilFraser/JS-Interpreter target=_blank rel="noopener noreferrer">NeilFraser/JS-Interpreter</a>
+<ul>
+<li>sandboxed JavaScript interpreter in JavaScript</li>
+</ul>
+</li>
+<li><a href=https://github.com/LavaMoat/LavaMoat target=_blank rel="noopener noreferrer">LavaMoat/LavaMoat</a>
+<ul>
+<li>MIT</li>
+<li>based on endo</li>
+</ul>
+</li>
+<li><a href=https://github.com/endojs/endo target=_blank rel="noopener noreferrer">endojs/endo</a>
+<ul>
+<li>distributed secure JavaScript sandbox, based on SES</li>
+<li>SES - Secure EcmaScript</li>
+<li><a href=https://github.com/tc39/proposal-ses target=_blank rel="noopener noreferrer">tc39/proposal-ses</a></li>
+<li><a href=https://github.com/endojs/Jessie target=_blank rel="noopener noreferrer">endojs/Jessie</a>
+<ul>
+<li>simple universal safe mobile code</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/markwylde/workerbox target=_blank rel="noopener noreferrer">markwylde/workerbox</a>
+<ul>
+<li>MIT, JS</li>
+</ul>
+</li>
+<li><a href=https://github.com/justjake/quickjs-emscripten target=_blank rel="noopener noreferrer">justjake/quickjs-emscripten</a></li>
+<li><a href=https://github.com/tc39/proposal-shadowrealm target=_blank rel="noopener noreferrer">tc39/proposal-shadowrealm</a>
+<ul>
+<li><a href=https://tc39.es/proposal-shadowrealm/ target=_blank rel="noopener noreferrer">https://tc39.es/proposal-shadowrealm/</a></li>
+</ul>
+</li>
+<li>Azure <a href=https://github.com/Azure/portaldocs/blob/main/portal-sdk/generated/portalfx-blades-appblades.md target=_blank rel="noopener noreferrer">AppBlades</a></li>
+</ul>
+</li>
+<li>IoT
+<ul>
+<li><a href=https://github.com/espruino/Espruino target=_blank rel="noopener noreferrer">espruino</a>
+<ul>
+<li>MPLv2, C</li>
+<li>128kB Flash, 8kB RAM</li>
+</ul>
+</li>
+<li><a href=https://github.com/jerryscript-project/jerryscript target=_blank rel="noopener noreferrer">jerryscript-project/jerryscript</a>
+<ul>
+<li>Apache-2.0, C99</li>
+<li>ECMAScript 5.1</li>
+<li>160K</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/GoogleChromeLabs/jsvu target=_blank rel="noopener noreferrer">GoogleChromeLabs/jsvu</a>
+<ul>
+<li>JavaScript engine Version Updater</li>
+<li>支持 charkra, gralljs, hermes, JavaScriptCore, quickjs, SpiderMonkey, v8, v8 debug, xs</li>
+</ul>
+</li>
+<li>Typescript
+<ul>
+<li><a href=/notes/web/script/nodejs/ts-node.md>ts-node</a>
+<ul>
+<li>ts-node+swc - 支持新特性</li>
+</ul>
+</li>
+<li><a href=/notes/web/script/nodejs/tsx.md>tsx</a>
+<ul>
+<li>esbuild</li>
+<li>不支持 legacy decorator</li>
+</ul>
+</li>
+<li>swc/cli</li>
+<li><a href=https://github.com/unjs/jiti target=_blank rel="noopener noreferrer">unjs/jiti</a>
+<ul>
+<li>babel transform</li>
+<li><code>import "jiti/register";</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>detection/user agent/fingerprinting
+<ul>
+<li><a href=https://github.com/abrahamjuliot/creepjs target=_blank rel="noopener noreferrer">abrahamjuliot/creepjs</a>
+<ul>
+<li><a href=https://abrahamjuliot.github.io/creepjs/ target=_blank rel="noopener noreferrer">https://abrahamjuliot.github.io/creepjs/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/AssemblyScript/assemblyscript target=_blank rel="noopener noreferrer">AssemblyScript/assemblyscript</a>
+<ul>
+<li>Apache-2.0, TypeScript</li>
+<li><a href=https://github.com/WebAssembly/binaryen target=_blank rel="noopener noreferrer">WebAssembly/binaryen</a>
+<ul>
+<li>Apache-2.0, C++</li>
+<li>Binaryen IR</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/CanadaHonk/porffor target=_blank rel="noopener noreferrer">CanadaHonk/porffor</a>
+<ul>
+<li>MIT, JS, TS</li>
+<li>JS/TS -> WASM</li>
+<li>WASM -> Native</li>
+</ul>
+</li>
+<li><a href=https://github.com/turbolent/w2c2 target=_blank rel="noopener noreferrer">turbolent/w2c2</a>
+<ul>
+<li>MIT, C, WebAssembly</li>
+<li>WASM -> C</li>
+</ul>
+</li>
+<li><a href=https://github.com/microsoft/pxt target=_blank rel="noopener noreferrer">microsoft/pxt</a>
+<ul>
+<li>MIT, TS, JS</li>
+<li>Microsoft MakeCode (PXT - Programming eXperience Toolkit)</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<ul>
+<li><a href=https://github.com/sablejs/sablejs target=_blank rel="noopener noreferrer">sablejs/sablejs</a>
+<ul>
+<li>JS</li>
+<li>国产</li>
+<li>ECMA5.1</li>
+<li>License 不明确 - <a href=https://github.com/sablejs/sablejs/issues/19 target=_blank rel="noopener noreferrer">https://github.com/sablejs/sablejs/issues/19</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+<ul>
+<li><a href=https://github.com/plasma-umass/doppio target=_blank rel="noopener noreferrer">plasma-umass/doppio</a>
+<ul>
+<li>JVM in TypeScript v0.5.0</li>
+</ul>
+</li>
+<li><a href=https://en.wikipedia.org/wiki/List_of_ECMAScript_engines target=_blank rel="noopener noreferrer">List of ECMAScript engines</a></li>
+<li><a href=https://github.com/privatenumber/ts-runtime-comparison target=_blank rel="noopener noreferrer">privatenumber/ts-runtime-comparison</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=bun-awesome>Bun Awesome<a href=#bun-awesome class=hash-link aria-label="Direct link to Bun Awesome" title="Direct link to Bun Awesome" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/oven-sh/awesome-bun target=_blank rel="noopener noreferrer">oven-sh/awesome-bun</a></li>
+<li><a href=https://github.com/tr1ckydev/webview-bun target=_blank rel="noopener noreferrer">tr1ckydev/webview-bun</a>
+<ul>
+<li>Binding for <a href=https://github.com/webview/webview target=_blank rel="noopener noreferrer">webview/webview</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=webserver>WebServer<a href=#webserver class=hash-link aria-label="Direct link to WebServer" title="Direct link to WebServer" translate=no>​</a></h2>
+<ul>
+<li>Reuqest/Response/WebStandard - 支持 EdgeRuntime/Deno/Bun/Cloudflare
+<ul>
+<li><a href=https://github.com/honojs/hono target=_blank rel="noopener noreferrer">honojs/hono</a>
+<ul>
+<li><a href=https://ultrajs.dev/ target=_blank rel="noopener noreferrer">https://ultrajs.dev/</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/elysiajs/elysia target=_blank rel="noopener noreferrer">elysiajs/elysia</a></li>
+<li><a href=https://github.com/hattipjs/hattip target=_blank rel="noopener noreferrer">hattipjs/hattip</a></li>
+<li><a href=https://github.com/unjs/nitro target=_blank rel="noopener noreferrer">unjs/nitro</a></li>
+</ul>
+</li>
+<li>Router
+<ul>
+<li><a href=https://github.com/lukeautry/tsoa target=_blank rel="noopener noreferrer">lukeautry/tsoa</a>
+<ul>
+<li>Build OpenAPI-compliant REST APIs using TypeScript and Node</li>
+<li>support Express, Hapi, Koa</li>
+</ul>
+</li>
+<li>itty-router</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<ul>
+<li>fastify</li>
+<li>koa</li>
+<li>express</li>
+<li>[polka]</li>
+<li>trpc</li>
+<li>nextjs</li>
+<li><a href=https://github.com/jeremydaly/lambda-api target=_blank rel="noopener noreferrer">jeremydaly/lambda-api</a></li>
+<li>路由
+<ul>
+<li><a href=https://github.com/typestack/routing-controllers target=_blank rel="noopener noreferrer">typestack/routing-controllers</a>
+<ul>
+<li>通过 修饰器 为 express.js, koa.js 定义路由</li>
+</ul>
+</li>
+<li><a href=https://github.com/typestack/socket-controllers target=_blank rel="noopener noreferrer">typestack/socket-controllers</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=typescript>Typescript<a href=#typescript class=hash-link aria-label="Direct link to Typescript" title="Direct link to Typescript" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/typestack target=_blank rel="noopener noreferrer">https://github.com/typestack</a>
+<ul>
+<li><a href=https://github.com/typestack/class-transformer target=_blank rel="noopener noreferrer">typestack/class-transformer</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/dsherret/ts-morph target=_blank rel="noopener noreferrer">dsherret/ts-morph</a>
+<ul>
+<li>Compiler API wrapper</li>
+<li>AST edit</li>
+<li>替代 tsc</li>
+</ul>
+</li>
+<li>ts-patch</li>
+<li>typia</li>
+<li>trpc</li>
+<li>zod</li>
+</ul>
+<h1>Polyfill</h1>
+<ul>
+<li>core-js</li>
+<li><a href=https://github.com/ardatan/whatwg-node target=_blank rel="noopener noreferrer">ardatan/whatwg-node</a>
+<ul>
+<li>fetch
+<ul>
+<li>busboy -> parse form data</li>
+<li>fast-querystring</li>
+<li>fast-url-parser</li>
+</ul>
+</li>
+<li>events</li>
+<li>server</li>
+</ul>
+</li>
+<li><a href=https://github.com/aermin/web-locks target=_blank rel="noopener noreferrer">aermin/web-locks</a></li>
+<li><a href=https://github.com/Modernizr/Modernizr target=_blank rel="noopener noreferrer">Modernizr/Modernizr</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=edgeserverless>Edge/Serverless<a href=#edgeserverless class=hash-link aria-label="Direct link to Edge/Serverless" title="Direct link to Edge/Serverless" translate=no>​</a></h2>
+<ul>
+<li>blueboat</li>
+<li><a href=https://github.com/flareact/flareact target=_blank rel="noopener noreferrer">flareact/flareact</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=game>Game<a href=#game class=hash-link aria-label="Direct link to Game" title="Direct link to Game" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/KilledByAPixel/LittleJS target=_blank rel="noopener noreferrer">KilledByAPixel/LittleJS</a>
+<ul>
+<li>Tiny, 2D, WebGL</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=template>Template<a href=#template class=hash-link aria-label="Direct link to Template" title="Direct link to Template" translate=no>​</a></h2>
+<ul>
+<li><a href=/notes/web/script/js/lib/eta.md>eta</a>
+<ul>
+<li>5.7kB/2.4kB</li>
+</ul>
+</li>
+<li><a href=https://github.com/edge-js/edge target=_blank rel="noopener noreferrer">edge-js/edge</a>
+<ul>
+<li>MIT, TS</li>
+</ul>
+</li>
+<li><a href=https://github.com/lukeed/templite target=_blank rel="noopener noreferrer">lukeed/templite</a>
+<ul>
+<li>154 bytes</li>
+<li><code>{{name}}</code></li>
+</ul>
+</li>
+<li><a href=https://github.com/lukeed/tempura target=_blank rel="noopener noreferrer">lukeed/tempura</a></li>
+<li><a href=https://github.com/linkedin/dustjs target=_blank rel="noopener noreferrer">linkedin/dustjs</a></li>
+<li><a href=https://github.com/tj/consolidate.js target=_blank rel="noopener noreferrer">tj/consolidate.js</a></li>
+<li>ejs</li>
+<li>nunjucks</li>
+<li>pug</li>
+<li>twig</li>
+<li>liquid</li>
+<li>doT</li>
+<li>通用/跨语言/非信任代码
+<ul>
+<li>handlebars</li>
+<li>mustache</li>
+</ul>
+</li>
+<li><a href=https://github.com/aui/art-template target=_blank rel="noopener noreferrer">aui/art-template</a>
+<ul>
+<li>高性能，不再维护</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=有趣>有趣<a href=#有趣 class=hash-link aria-label="Direct link to 有趣" title="Direct link to 有趣" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/enkimute/ganja.js target=_blank rel="noopener noreferrer">enkimute/ganja.js</a> - 几何代数</li>
+<li><a href=https://github.com/lokesh/color-thief target=_blank rel="noopener noreferrer">lokesh/color-thief</a>
+<ul>
+<li>提取 image 颜色</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=crypto>Crypto<a href=#crypto class=hash-link aria-label="Direct link to Crypto" title="Direct link to Crypto" translate=no>​</a></h2>
+<ul>
+<li>Hashing</li>
+<li><a href=https://github.com/brix/crypto-js target=_blank rel="noopener noreferrer">brix/crypto-js</a></li>
+<li><a href=https://github.com/rzcoder/node-rsa target=_blank rel="noopener noreferrer">rzcoder/node-rsa</a>
+<ul>
+<li>pure js, 不依赖 OpenSSL, 支持浏览器</li>
+</ul>
+</li>
+<li><a href=https://github.com/travist/jsencrypt target=_blank rel="noopener noreferrer">travist/jsencrypt</a>
+<ul>
+<li>RSA</li>
+</ul>
+</li>
+<li><a href=https://github.com/digitalbazaar/forge target=_blank rel="noopener noreferrer">digitalbazaar/forge</a>
+<ul>
+<li>node-forge</li>
+</ul>
+</li>
+<li><a href=https://github.com/dchest/tweetnacl-js target=_blank rel="noopener noreferrer">dchest/tweetnacl-js</a>
+<ul>
+<li>Port of TweetNaCl cryptographic library to JavaScript</li>
+</ul>
+</li>
+<li>aes-decrypter</li>
+<li>pkcs7</li>
+<li>videojs-contrib-hls
+<ul>
+<li>AES-128 segment encryption</li>
+</ul>
+</li>
+<li><a href=https://github.com/originjs/crypto-js-wasm target=_blank rel="noopener noreferrer">https://github.com/originjs/crypto-js-wasm</a>
+<ul>
+<li>Rust -> WASM</li>
+<li>npm:@originjs/crypto-js-wasm</li>
+</ul>
+</li>
+<li>JavaScript Crypto Libraries <a href=https://gist.github.com/jo/8619441 target=_blank rel="noopener noreferrer">https://gist.github.com/jo/8619441</a></li>
+<li><a href=http://www.webtoolkit.info/javascript-sha1.html target=_blank rel="noopener noreferrer">http://www.webtoolkit.info/javascript-sha1.html</a></li>
+<li><a href=http://www.webtoolkit.info/javascript-sha256.html target=_blank rel="noopener noreferrer">http://www.webtoolkit.info/javascript-sha256.html</a></li>
+<li><a href=http://www.webtoolkit.info/javascript-md5.html target=_blank rel="noopener noreferrer">http://www.webtoolkit.info/javascript-md5.html</a></li>
+<li><a href=http://www.webtoolkit.info/javascript-base64.html target=_blank rel="noopener noreferrer">http://www.webtoolkit.info/javascript-base64.html</a></li>
+<li><a href=http://pajhome.org.uk/crypt/md5/ target=_blank rel="noopener noreferrer">http://pajhome.org.uk/crypt/md5/</a></li>
+<li>Object hash
+<ul>
+<li><a href=https://github.com/tjwebb/fnv-plus target=_blank rel="noopener noreferrer">https://github.com/tjwebb/fnv-plus</a></li>
+<li><a href=https://github.com/sinclairzx81/typebox/#hash target=_blank rel="noopener noreferrer">https://github.com/sinclairzx81/typebox/#hash</a>
+<ul>
+<li><a href=https://github.com/sinclairzx81/typebox/blob/master/src/value/hash.ts target=_blank rel="noopener noreferrer">https://github.com/sinclairzx81/typebox/blob/master/src/value/hash.ts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=ux>UX<a href=#ux class=hash-link aria-label="Direct link to UX" title="Direct link to UX" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/usablica/intro.js target=_blank rel="noopener noreferrer">usablica/intro.js</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=toolchain>工具<a href=#toolchain class=hash-link aria-label="Direct link to 工具" title="Direct link to 工具" translate=no>​</a></h2>
+<ul>
+<li>bundler/transpile/build/tool
+<ul>
+<li><a href=https://github.com/evanw/esbuild target=_blank rel="noopener noreferrer">evanw/esbuild</a>
+<ul>
+<li>MIT, Go</li>
+</ul>
+</li>
+<li>babel</li>
+<li>ts</li>
+<li><a href=https://github.com/egoist/tsup target=_blank rel="noopener noreferrer">egoist/tsup</a>
+<ul>
+<li>MIT, TS, esbuild</li>
+<li>Bundle .js, .json, .mjs, .ts, .tsx</li>
+<li>主要用于 NodeJS, Library 环境</li>
+<li>次要关注 HTML, CSS 等场景</li>
+</ul>
+</li>
+<li>swc</li>
+<li>rsbuild
+<ul>
+<li>by rspack</li>
+</ul>
+</li>
+<li><a href=https://github.com/web-infra-dev/rspack target=_blank rel="noopener noreferrer">web-infra-dev/rspack</a>
+<ul>
+<li>MIT, Rust, SWC, NAPI-RS</li>
+<li>Rust-based web bundler</li>
+</ul>
+</li>
+<li><a href=https://github.com/farm-fe/farm target=_blank rel="noopener noreferrer">farm-fe/farm</a>
+<ul>
+<li>MIT, Rust, TS, SWC, NAPI-RS</li>
+</ul>
+</li>
+<li><a href=https://github.com/alangpierce/sucrase target=_blank rel="noopener noreferrer">alangpierce/sucrase</a></li>
+<li>turbopack</li>
+<li><a href=https://github.com/rolldown/rolldown target=_blank rel="noopener noreferrer">rolldown</a></li>
+<li>webpack</li>
+<li>rollup</li>
+<li>parcel</li>
+<li>vite</li>
+<li><a href=https://github.com/developit/microbundle target=_blank rel="noopener noreferrer">developit/microbundle</a></li>
+<li><a href=https://github.com/webpro-nl/knip target=_blank rel="noopener noreferrer">webpro-nl/knip</a>
+<ul>
+<li>Find unused</li>
+</ul>
+</li>
+<li>retire.js</li>
+<li><del><a href=https://github.com/wooorm/xdm target=_blank rel="noopener noreferrer">wooorm/xdm</a></del>
+<ul>
+<li>MDX compiler - No runtime. With esbuild, Rollup, and webpack plugins</li>
+</ul>
+</li>
+<li><del><a href=https://github.com/preactjs/wmr target=_blank rel="noopener noreferrer">preactjs/wmr</a></del>
+<ul>
+<li>MIT, JS</li>
+<li>tiny all-in-one development tool for modern web apps</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>formatter
+<ul>
+<li>prettier</li>
+</ul>
+</li>
+<li>linter
+<ul>
+<li>eslint
+<ul>
+<li><a href=https://github.com/xojs/xo target=_blank rel="noopener noreferrer">xojs/xo</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/biomejs/biome target=_blank rel="noopener noreferrer">biomejs/biome</a>
+<ul>
+<li>MIT, Rust</li>
+<li>linter</li>
+</ul>
+</li>
+<li><a href=https://github.com/arethetypeswrong/arethetypeswrong.github.io target=_blank rel="noopener noreferrer">https://github.com/arethetypeswrong/arethetypeswrong.github.io</a></li>
+<li>publint.dev</li>
+</ul>
+</li>
+<li>tester
+<ul>
+<li>ava</li>
+<li>vitest</li>
+<li>tap</li>
+<li>ava</li>
+<li>mocha</li>
+</ul>
+</li>
+<li>e2e test
+<ul>
+<li>cypress</li>
+<li>webdriver io</li>
+</ul>
+</li>
+<li>coverage
+<ul>
+<li><a href=https://github.com/istanbuljs/nyc target=_blank rel="noopener noreferrer">istanbuljs/nyc</a></li>
+<li>c8</li>
+</ul>
+</li>
+<li><a href=https://github.com/CryogenicPlanet/depp target=_blank rel="noopener noreferrer">CryogenicPlanet/depp</a></li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">go install github.com/cryogenicplanet/depp@latest</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># .depp/config.json</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">depp init</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">depp</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 检查 package.json</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npx -y publint</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npx -y @biomejs/biome check ./src</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=fun>Fun<a href=#fun class=hash-link aria-label="Direct link to Fun" title="Direct link to Fun" translate=no>​</a></h2>
+<ul>
+<li><a href=https://gist.github.com/OrionReed/4c3778ebc2b5026d2354359ca49077ca target=_blank rel="noopener noreferrer">https://gist.github.com/OrionReed/4c3778ebc2b5026d2354359ca49077ca</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=reading>Reading<a href=#reading class=hash-link aria-label="Direct link to Reading" title="Direct link to Reading" translate=no>​</a></h2>
+<ul>
+<li><a href=https://javascript.info/ target=_blank rel="noopener noreferrer">The Modern JavaScript Tutorial</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=debugging>Debugging<a href=#debugging class=hash-link aria-label="Direct link to Debugging" title="Direct link to Debugging" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/Tencent/vConsole/blob/dev/README_CN.md target=_blank rel="noopener noreferrer">vConsole</a></li>
+<li><a href=https://github.com/samdenty/console-feed target=_blank rel="noopener noreferrer">samdenty/console-feed</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/awesome>Awesome</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/web/script/js/js-awesome.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-01-03T14:49:30.000Z itemprop=dateModified>Jan 3, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/web/script/js/async><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>JS Async</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/web/script/js/compile><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>JS Compile</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#library class="table-of-contents__link toc-highlight">Library</a><li><a href=#runtimes--engines class="table-of-contents__link toc-highlight">Runtimes & Engines</a><li><a href=#bun-awesome class="table-of-contents__link toc-highlight">Bun Awesome</a><li><a href=#webserver class="table-of-contents__link toc-highlight">WebServer</a><li><a href=#typescript class="table-of-contents__link toc-highlight">Typescript</a><li><a href=#edgeserverless class="table-of-contents__link toc-highlight">Edge/Serverless</a><li><a href=#game class="table-of-contents__link toc-highlight">Game</a><li><a href=#template class="table-of-contents__link toc-highlight">Template</a><li><a href=#有趣 class="table-of-contents__link toc-highlight">有趣</a><li><a href=#crypto class="table-of-contents__link toc-highlight">Crypto</a><li><a href=#ux class="table-of-contents__link toc-highlight">UX</a><li><a href=#toolchain class="table-of-contents__link toc-highlight">工具</a><li><a href=#fun class="table-of-contents__link toc-highlight">Fun</a><li><a href=#reading class="table-of-contents__link toc-highlight">Reading</a><li><a href=#debugging class="table-of-contents__link toc-highlight">Debugging</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

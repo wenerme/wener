@@ -1,0 +1,497 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-service/storage/seaweedfs" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>seaweedfs | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/service/storage/seaweedfs /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="seaweedfs | Wener Live & Life"/><meta data-rh=true name=description content="- 默认构建的单 weed volume 只支持 30G - 对分布式文件系统来说太小了"/><meta data-rh=true property=og:description content="- 默认构建的单 weed volume 只支持 30G - 对分布式文件系统来说太小了"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/service/storage/seaweedfs /><link data-rh=true rel=alternate href=https://wener.me/notes/service/storage/seaweedfs hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/service/storage/seaweedfs hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/service/","name":"服务","position":1},{"@type":"ListItem","item":"https://wener.me/notes/service/storage/","name":"存储服务","position":2},{"@type":"ListItem","item":"https://wener.me/notes/service/storage/seaweedfs","name":"seaweedfs","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Collapse sidebar category '服务'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/ais><span title="会计信息系统 (AIS)" class=linkLabel_JPPZ>会计信息系统 (AIS)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/analytics><span title=统计 class=categoryLinkLabel_RkOu>统计</span></a><button aria-label="Expand sidebar category '统计'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/api/awesome><span title=api class=categoryLinkLabel_RkOu>api</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/auth><span title=Auth class=categoryLinkLabel_RkOu>Auth</span></a><button aria-label="Expand sidebar category 'Auth'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/baas><span title="Backend as a Service" class=categoryLinkLabel_RkOu>Backend as a Service</span></a><button aria-label="Expand sidebar category 'Backend as a Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/bi><span title="Business Intelligence (BI)" class=categoryLinkLabel_RkOu>Business Intelligence (BI)</span></a><button aria-label="Expand sidebar category 'Business Intelligence (BI)'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/business/glossary><span title=business class=categoryLinkLabel_RkOu>business</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/cctv><span title=CCTV class=linkLabel_JPPZ>CCTV</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/cms><span title="CMS 概览" class=categoryLinkLabel_RkOu>CMS 概览</span></a><button aria-label="Expand sidebar category 'CMS 概览'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/collaboration><span title=协同软件 class=categoryLinkLabel_RkOu>协同软件</span></a><button aria-label="Expand sidebar category '协同软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/commerce><span title=电商 class=categoryLinkLabel_RkOu>电商</span></a><button aria-label="Expand sidebar category '电商'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/data><span title=数据 class=categoryLinkLabel_RkOu>数据</span></a><button aria-label="Expand sidebar category '数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/dev/backstage><span title=dev class=categoryLinkLabel_RkOu>dev</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/dns><span title="DNS Service" class=categoryLinkLabel_RkOu>DNS Service</span></a><button aria-label="Expand sidebar category 'DNS Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/document><span title=办公套件 class=categoryLinkLabel_RkOu>办公套件</span></a><button aria-label="Expand sidebar category '办公套件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/download><span title=下载器 class=categoryLinkLabel_RkOu>下载器</span></a><button aria-label="Expand sidebar category '下载器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/edms><span title=档案管理 class=categoryLinkLabel_RkOu>档案管理</span></a><button aria-label="Expand sidebar category '档案管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/email><span title=EMail class=categoryLinkLabel_RkOu>EMail</span></a><button aria-label="Expand sidebar category 'EMail'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/erp><span title=ERP class=categoryLinkLabel_RkOu>ERP</span></a><button aria-label="Expand sidebar category 'ERP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/file><span title="File Sharing & Storage Services" class=categoryLinkLabel_RkOu>File Sharing & Storage Services</span></a><button aria-label="Expand sidebar category 'File Sharing & Storage Services'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/financial/awesome><span title=financial class=categoryLinkLabel_RkOu>financial</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/forge><span title=Forge class=categoryLinkLabel_RkOu>Forge</span></a><button aria-label="Expand sidebar category 'Forge'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/forum/awesome><span title=forum class=categoryLinkLabel_RkOu>forum</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/game/gba><span title=game class=categoryLinkLabel_RkOu>game</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/geo/awesome><span title=geo class=categoryLinkLabel_RkOu>geo</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/im><span title="Instant Messaging" class=categoryLinkLabel_RkOu>Instant Messaging</span></a><button aria-label="Expand sidebar category 'Instant Messaging'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/lms><span title=LMS class=linkLabel_JPPZ>LMS</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/media><span title=Media class=categoryLinkLabel_RkOu>Media</span></a><button aria-label="Expand sidebar category 'Media'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/message><span title="Message Service" class=categoryLinkLabel_RkOu>Message Service</span></a><button aria-label="Expand sidebar category 'Message Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/messaging/centrifugo><span title=messaging class=categoryLinkLabel_RkOu>messaging</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/network><span title=网络服务 class=categoryLinkLabel_RkOu>网络服务</span></a><button aria-label="Expand sidebar category '网络服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/notification><span title="Notification Service" class=categoryLinkLabel_RkOu>Notification Service</span></a><button aria-label="Expand sidebar category 'Notification Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/notion><span title=Notion class=linkLabel_JPPZ>Notion</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/observability><span title=可观察性 class=categoryLinkLabel_RkOu>可观察性</span></a><button aria-label="Expand sidebar category '可观察性'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/p2p/ipfs><span title=p2p class=categoryLinkLabel_RkOu>p2p</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/password><span title=密码管理 class=categoryLinkLabel_RkOu>密码管理</span></a><button aria-label="Expand sidebar category '密码管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/placeholder><span title=Placeholder class=linkLabel_JPPZ>Placeholder</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/realtime><span title=Realtime class=categoryLinkLabel_RkOu>Realtime</span></a><button aria-label="Expand sidebar category 'Realtime'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/search/awesome><span title=search class=categoryLinkLabel_RkOu>search</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/security/infisical><span title=security class=categoryLinkLabel_RkOu>security</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/selfhost><span title=SelfHost class=categoryLinkLabel_RkOu>SelfHost</span></a><button aria-label="Expand sidebar category 'SelfHost'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/serverless><span title=Serverless class=categoryLinkLabel_RkOu>Serverless</span></a><button aria-label="Expand sidebar category 'Serverless'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/awesome><span title="Service Awesome" class=linkLabel_JPPZ>Service Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/faq><span title="Service FAQ" class=linkLabel_JPPZ>Service FAQ</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/service/storage><span title=存储服务 class=categoryLinkLabel_RkOu>存储服务</span></a><button aria-label="Collapse sidebar category '存储服务'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/alist><span title=Alist class=linkLabel_JPPZ>Alist</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/storage/backup/borg><span title=backup class=categoryLinkLabel_RkOu>backup</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/storage/ceph><span title=Ceph class=categoryLinkLabel_RkOu>Ceph</span></a><button aria-label="Expand sidebar category 'Ceph'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/storage/client/filebrowser><span title=client class=categoryLinkLabel_RkOu>client</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/cloudreve><span title=Cloudreve class=linkLabel_JPPZ>Cloudreve</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/croc><span title=croc class=linkLabel_JPPZ>croc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/cubefs><span title=cubefs class=linkLabel_JPPZ>cubefs</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/cyberduck><span title=cyberduck class=linkLabel_JPPZ>cyberduck</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/distributed-storage><span title=分布式存储 class=linkLabel_JPPZ>分布式存储</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/gluster><span title=Gluster class=linkLabel_JPPZ>Gluster</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/immich><span title=immich class=linkLabel_JPPZ>immich</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/storage/juicefs><span title=juicefs class=categoryLinkLabel_RkOu>juicefs</span></a><button aria-label="Expand sidebar category 'juicefs'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/storage/minio><span title=MinIO class=categoryLinkLabel_RkOu>MinIO</span></a><button aria-label="Expand sidebar category 'MinIO'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/mutagen><span title=mutagen class=linkLabel_JPPZ>mutagen</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/netatalk><span title=netatalk class=linkLabel_JPPZ>netatalk</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/storage/nextcloud><span title=NextCloud class=categoryLinkLabel_RkOu>NextCloud</span></a><button aria-label="Expand sidebar category 'NextCloud'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/photoprism><span title=PhotoPrism class=linkLabel_JPPZ>PhotoPrism</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/storage/rclone><span title=rclone class=categoryLinkLabel_RkOu>rclone</span></a><button aria-label="Expand sidebar category 'rclone'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/rustfs><span title=rustfs class=linkLabel_JPPZ>rustfs</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/storage/s3><span title=S3 class=categoryLinkLabel_RkOu>S3</span></a><button aria-label="Expand sidebar category 'S3'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/samba><span title=Samba class=linkLabel_JPPZ>Samba</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/service/storage/seaweedfs><span title=seaweedfs class=linkLabel_JPPZ>seaweedfs</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/sftpgo><span title=sftpgo class=linkLabel_JPPZ>sftpgo</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/awesome><span title="Storage Awesome" class=linkLabel_JPPZ>Storage Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/faq><span title=存储服务常见问题 class=linkLabel_JPPZ>存储服务常见问题</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/glossary><span title="Storage Glossary" class=linkLabel_JPPZ>Storage Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/tus><span title=tus class=linkLabel_JPPZ>tus</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/storage/uppy><span title=uppy class=linkLabel_JPPZ>uppy</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/storage/webdav><span title=WebDAV class=categoryLinkLabel_RkOu>WebDAV</span></a><button aria-label="Expand sidebar category 'WebDAV'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/telecom/device><span title=telecom class=categoryLinkLabel_RkOu>telecom</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/torrent><span title=Torrent class=categoryLinkLabel_RkOu>Torrent</span></a><button aria-label="Expand sidebar category 'Torrent'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/vpn/goproxy><span title=vpn class=categoryLinkLabel_RkOu>vpn</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/wiki><span title=Wiki class=categoryLinkLabel_RkOu>Wiki</span></a><button aria-label="Expand sidebar category 'Wiki'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/workflow><span title=Workflow class=categoryLinkLabel_RkOu>Workflow</span></a><button aria-label="Expand sidebar category 'Workflow'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/xaas/awesome><span title=xaas class=categoryLinkLabel_RkOu>xaas</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/service><span>服务</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/service/storage><span>存储服务</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>seaweedfs</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>seaweedfs</h1></header>
+<div class="theme-admonition theme-admonition-caution admonition_phik alert alert--warning"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 16 16"><path fill-rule=evenodd d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></span>caution</div><div class=admonitionContent_R6P7><ul>
+<li>默认构建的单 <code>weed volume</code> 只支持 30G - 对分布式文件系统来说太小了</li>
+<li>weed 的 filer/s3 依赖 metadata - 维护 metadata db 增加复杂度，影响稳定性</li>
+</ul></div></div>
+<ul>
+<li><a href=https://github.com/chrislusf/seaweedfs target=_blank rel="noopener noreferrer">chrislusf/seaweedfs</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>起源于 <a href=http://www.usenix.org/event/osdi10/tech/full_papers/Beaver.pdf target=_blank rel="noopener noreferrer">Facebook's Haystack design paper</a>, f4</li>
+<li>每个文件 40byte 元数据</li>
+<li>底层对象存储</li>
+<li>通过 filer 实现 POSIX 兼容文件系统
+<ul>
+<li>支持暴露 S3 接口</li>
+</ul>
+</li>
+<li>REST 接口 - JSON、JSONP 返回</li>
+<li>架构简单</li>
+</ul>
+</li>
+<li>特性
+<ul>
+<li>冷热数据分离</li>
+<li>热数据 O(1) 访问时间</li>
+<li>可选择无副本或不同副本级别 - 感知 rack 和 dc</li>
+<li>无单点 - 主节点 failover</li>
+<li>基于文件 mime 就行 gzip</li>
+<li>更新或删除后就行空间回收</li>
+<li>支持 TTL</li>
+<li>只要有磁盘空间就可以添加总存储空间</li>
+<li>添加删除节点不会导致数据进行从新平衡</li>
+<li>图片大小调整 - 可选</li>
+<li>Tag, Accept-Range, Last-Modified 等</li>
+<li>in-memory/leveldb/readonly mode tuning for memory/performance balance.</li>
+<li>支持在线 rebalancing</li>
+<li>透明云集成 - 对热数据就行层叠结构存储实现无限空间</li>
+<li>热数据 Erasure Coding - 感知 Rack
+<ul>
+<li>RS(10,4) - 允许丢失 4 分片，总数据为原来 1.4 倍</li>
+<li>1GB 连续块，1MB 块大小，提升读取性能</li>
+<li>不会将索引加载到内存 - 节省内存，启动块</li>
+<li>服务器灵活布局，没有最低 server 和 rack 要求</li>
+<li>通过 volume 管理 ec</li>
+<li>如果少于 4 volume，ec 可以用保护磁盘损坏</li>
+<li>如果大于等于 4 volume，ec 可以用于保护系统失败</li>
+<li>如果大于 4 rack，ec 可保护 rack 失败</li>
+<li>劣势
+<ul>
+<li>丢失分片在访问时会变慢</li>
+<li>重构 ec 需要传输整个 volume - 传输量大但效率高</li>
+<li>只支持删除不支持更新</li>
+<li>压缩需要先转换为普通 volume</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Filer 特性
+<ul>
+<li>支持 HTTP 暴露文件和目录</li>
+<li>支持大文件 - TB 级别</li>
+<li>支持 FUSE 挂载
+<ul>
+<li><code>weed mount</code></li>
+</ul>
+</li>
+<li>HDFS 兼容接口</li>
+<li>异步备份到 S3, Google Cloud Storage, Azure, BackBlaze</li>
+<li>WebDAV 接口
+<ul>
+<li><code>weed webdav</code></li>
+<li>无认证</li>
+</ul>
+</li>
+<li>AES256-GCM 加密存储</li>
+<li>支持 TTL</li>
+<li>Kubernetes CSI 驱动</li>
+</ul>
+</li>
+<li>场景
+<ul>
+<li>相对小文件高并发</li>
+<li>CDN</li>
+<li>分布式文件缓存</li>
+<li>图片服务器</li>
+</ul>
+</li>
+<li>端口
+<ul>
+<li>主节点
+<ul>
+<li>9333</li>
+</ul>
+</li>
+<li>存储节点
+<ul>
+<li>8080</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储大小
+<ul>
+<li>单卷最大 32G - 32GiB or 8x2^32 bytes
+<ul>
+<li>8 bytes 对齐</li>
+<li>增加对齐可增加空间大小，但对齐可能需要 pad 浪费空间</li>
+</ul>
+</li>
+<li>最多 4Gi / 2^32 卷
+<ul>
+<li>因此默认最大集群 8 x 4GiB x 4GiB = 128 128EiB</li>
+</ul>
+</li>
+<li>单文件最大为卷大小</li>
+</ul>
+</li>
+<li>文件元信息存储于内存
+<ul>
+<li>key 16 bytes - <code>&lt;64bit key, 32bit offset, 32bit size></code></li>
+</ul>
+</li>
+<li>副本级别
+<ul>
+<li>xyz -> 不同 DC|同 DC 不同 Rack|同 Rack</li>
+<li>000 - 无</li>
+<li>001 - 同 rack 1 副本</li>
+<li>010 - 不同 rack 同 dc 1 副本</li>
+<li>100 - 不同 dc 1 副本</li>
+<li>200 - 不同 dc 2 副本</li>
+<li>110 - 不同 rack 1 副本，不同 dc 1 副本</li>
+</ul>
+</li>
+<li>Volume
+<ul>
+<li>存储固定节点 - 位置可以缓存，可订阅变化</li>
+<li>类似于分片/Sharding</li>
+<li>写入到所有 replica 才算成功</li>
+<li>如果失败，则标记 volume 只读，下次分配其他可写入 volume id</li>
+</ul>
+</li>
+<li>Volume Server - <code>weed volume</code>
+<ul>
+<li>最多 30G - 构建添加 tag 5BytesOffset 支持可最多 8T</li>
+<li>提供 volume 存储 - 默认最多 8 个 volume id
+<ul>
+<li>相当于平均单个 volume id 最多 30G/8 ~ 3.75G</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Usually hot data are fresh and warm data are old
+<ul>
+<li>newly created volumes on local servers, and optionally upload the older volumes on the cloud</li>
+</ul>
+</li>
+</ul>
+<div class="theme-admonition theme-admonition-note admonition_phik alert alert--secondary"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 14 16"><path fill-rule=evenodd d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"/></svg></span>note</div><div class=admonitionContent_R6P7><ul>
+<li>volume -fileSizeLimitMB=256 - 默认单文件最大 256MB，配置过大可能导致 OOM
+<ul>
+<li><a href=https://github.com/chrislusf/seaweedfs/wiki/Large-File-Handling target=_blank rel="noopener noreferrer">Large file handleing</a></li>
+</ul>
+</li>
+</ul></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 下载 https://github.com/chrislusf/seaweedfs/releases</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 安装</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">go get -u -v github.com/chrislusf/seaweedfs/weed</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># $GOPATH/src/github.com/chrislusf/seaweedfs/weed</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 生成配置</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 配置目录 ./ $HOME/.seaweedfs /etc/seaweedfs</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># config filer|notification|replication|security|master</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed scaffold -config master -output ./</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed scaffold -config filer -output ./</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed scaffold -config replication -output ./</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># matser</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># http://localhost:9333</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># -metrics.address Prometheus gateway</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">mkdir -p meta-data v1 v2 mnt-cache mnt</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed master -mdir=./meta-data -port=9333</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># volumes</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># -dataCenter</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># -rack</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># -index=memory</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># -max=8 卷数量</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed volume -dir=$PWD/v1 -max=5  -mserver=localhost:9333 -port=8080</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed volume -dir=$PWD/v2 -max=10 -mserver=localhost:9333 -port=8081</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 快捷启动 - 单 master 单 volumn 包含 filer</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed server -filer=true -s3=true -master.port=9333 -volume.port=8080 -filer.port=8888 -dir="./data"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 性能测试</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 1M 1k 的文件</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 两个 volume - 5808.88 #/sec 5987.44 Kbytes/sec</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 运行完成后删除 collection - http://localhost:9333/col/delete?collection=benchmark</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed benchmark -master=localhost:9333</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 文件系统</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed filer -port=8888</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 本地挂载</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># -filer.path</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># -replication</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># -ttl</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># -umask</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed mount -filer=localhost:8888 -cacheDir=$PWD/mnt-cache -dir=$PWD/mnt -dirAutoCreate</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 匿名读 public</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># admin 管理</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># test 访问 test bucket</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">cat &lt;&lt;JSON > s3.json</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  "identities": [</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "name": "anonymous",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "actions": ["Read:public"]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    },</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "name": "admin",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "credentials": [</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">          "accessKey": "admin",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">          "secretKey": "secret"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      ],</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "actions": ["Admin", "Read", "Write"]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    },</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "name": "test",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "credentials": [</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">          "accessKey": "test",</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">          "secretKey": "test"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      ],</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      "actions": ["Read:test", "Read:test", "Write:test"]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  ]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">JSON</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed s3 -port=8333 -filer=localhost:8888 -config s3.json</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=volume>volume<a href=#volume class=hash-link aria-label="Direct link to volume" title="Direct link to volume" translate=no>​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=weed-shell>weed shell<a href=#weed-shell class=hash-link aria-label="Direct link to weed shell" title="Direct link to weed shell" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/chrislusf/seaweedfs/wiki/weed-shell target=_blank rel="noopener noreferrer">weed-shell</a></li>
+<li>命令参数要看源码</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 查看所有</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">volume.list</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 修改之前需要 lock</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">lock</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 将 volume 157 副本设置为 001 - 同 rack 1 副本</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">volume.configure.replication -volumeId=157 -replication=001</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 修复副本</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">volume.fix.replication</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 修改之后 unlock</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">unlock</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 删除</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># volume-server volume-id</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">volume.delete 127.0.0.1:8080 157</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=优化>优化<a href=#优化 class=hash-link aria-label="Direct link to 优化" title="Direct link to 优化" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/chrislusf/seaweedfs/wiki/Optimization target=_blank rel="noopener noreferrer">https://github.com/chrislusf/seaweedfs/wiki/Optimization</a></li>
+<li>dc 可用于标示不同存储层
+<ul>
+<li>例如 SSD</li>
+</ul>
+</li>
+<li>assign 时可指定 dc</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=kubernetes>Kubernetes<a href=#kubernetes class=hash-link aria-label="Direct link to Kubernetes" title="Direct link to Kubernetes" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/seaweedfs/seaweedfs-csi-driver target=_blank rel="noopener noreferrer">seaweedfs/seaweedfs-csi-driver</a> - 创建 sc 指向 filer
+<ul>
+<li>storageclass - <code>seaweedfs-storage</code>
+<ul>
+<li>会被设置成默认，按需编辑 yaml 取消</li>
+<li>provisioner: <code>com.seaweedfs.csi</code></li>
+</ul>
+</li>
+<li>SEAWEEDFS_FILER - 指向 filer
+<ul>
+<li>编辑 yaml 修改</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/seaweedfs/seaweedfs-operator target=_blank rel="noopener noreferrer">seaweedfs/seaweedfs-operator</a></li>
+<li>helm <a href=https://github.com/chrislusf/seaweedfs/tree/master/k8s target=_blank rel="noopener noreferrer">chart</a>
+<ul>
+<li>不推荐使用，可用于参考</li>
+<li>master/filer/volume
+<ul>
+<li>statefulsets</li>
+<li>anti-affinity on hostname</li>
+<li>memsql(mysql) filer backend</li>
+<li>secret-seaweedfs-db.yaml - mysql password</li>
+</ul>
+</li>
+<li>host path
+<ul>
+<li>/storage/logs/seaweedfs - 日志 <code>-logdir</code>
+<ul>
+<li>master</li>
+<li>volume</li>
+<li>filer</li>
+</ul>
+</li>
+<li>/ssd/seaweed-master/ - master 元数据 <code>-mdir</code></li>
+<li>/storage/object_store/ - volume 数据 <code>-dir</code></li>
+</ul>
+</li>
+<li>目前数据账号密码是硬编码 - YourSWUser:HardCodedPassword</li>
+<li>默认会创建 ingress - 且无法自定义</li>
+</ul>
+</li>
+</ul>
+<h1>Notes</h1>
+<ul>
+<li>volumn
+<ul>
+<li>副本、冗余、TTL 的最小单位</li>
+<li>默认 30GB，8 volumn
+<ul>
+<li>1.29+ 提供 large_disk 构建的 binary - 8T</li>
+<li>volumn 过多也会对 master 造成压力</li>
+</ul>
+</li>
+<li>如果修改较多，建议 volumn 小一点</li>
+<li>如果大多为只读，使用 large_disk 可以将 volumn 设置大一点</li>
+</ul>
+</li>
+<li>collection
+<ul>
+<li>volume 集合</li>
+<li>s3 buckect 对应 collection</li>
+</ul>
+</li>
+<li>rpc
+<ul>
+<li>服务之间 rpc 为 grpc</li>
+<li>grpc 端口为默认+10000 - 例如 8080 -> 18080
+<ul>
+<li>可自定义 <code>&lt;host>:&lt;port>.&lt;grpcPort></code></li>
+</ul>
+</li>
+<li>支持 HTTP 接口</li>
+</ul>
+</li>
+<li>vacuum
+<ul>
+<li>when garbage is more than 30%</li>
+<li>立即触发 weed shell <code>volume.vacuum -garbageThreshold=0.0001</code></li>
+</ul>
+</li>
+<li>fid - 每个被存储的对象的唯一 ID - 文件信息可由外部存储 id 映射进行跟踪
+<ul>
+<li><code>3,01637037d6</code> - 字符串最长 33 bytes，二进制存储最长 16 bytes
+<ul>
+<li>uint32 volume id=3</li>
+<li>uint64 file key=0x01 - 文件数量 - 增加
+<ul>
+<li>大文件 chunk 也会增加</li>
+</ul>
+</li>
+<li>uint32 file cookie=0x637037d6 - 用于避免 URL 猜测文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ttl
+<ul>
+<li>是 volume 级别的</li>
+<li>因此 assign 指定 ttl 时会尝试找匹配 ttl 的 volumn，如果找不到则会创建 volumn</li>
+<li>会跟踪每个 volumn 里的最大失效时间</li>
+<li>当全失效后经过 <code>min(10%*ttl, 10m)</code> 时间则 volumn server 会删除 volumn</li>
+<li>不推荐 频繁 ttl 和 非 ttl volumn 在相同集群</li>
+</ul>
+</li>
+<li>Erasure Coding - <a href=https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf target=_blank rel="noopener noreferrer">f4: Facebook’s Warm BLOB Storage System</a>
+<ul>
+<li>seal 冷数据，利用 EC 节省空间、提高有效性</li>
+<li>默认 <code>RS(10,4)</code></li>
+<li>1GB chunks</li>
+<li>ec 后会删除副本</li>
+<li>downside
+<ul>
+<li>不能更新，只能删除</li>
+<li>恢复需要传输整个 volumn</li>
+<li>读取会更慢 - 多了网络跳转</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>server<th>http port<th>gRPC port<tbody><tr><td>master<td>9333<td>19333<tr><td>volume<td>8080<td>18080<tr><td>filer<td>8888<td>18888<tr><td>s3<td>8333<td><tr><td>webdav<td>7333<td><tr><td>iam<td>8111<td><tr><td>filer.debug<td>6060<td></table>
+<div class="language-shell codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-shell codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># ec 95% 1h 没操作的 volumn</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ec.encode -fullPercent=95 -quietFor=1h</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 修复 ec</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ec.rebuild -force</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 从新平衡 ec volumn 分布</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ec.balance -force</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=master-service>master service<a href=#master-service class=hash-link aria-label="Direct link to master service" title="Direct link to master service" translate=no>​</a></h2>
+<ul>
+<li><a href=http://localhost:9333 target=_blank rel="noopener noreferrer">http://localhost:9333</a></li>
+<li>raft 协议 - 偶数个节点</li>
+<li>大多情况下单节点足矣</li>
+<li>添加新节点需要重启所有节点 - peers</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=volumn-service>volumn service<a href=#volumn-service class=hash-link aria-label="Direct link to volumn service" title="Direct link to volumn service" translate=no>​</a></h2>
+<ul>
+<li><a href=http://localhost:8080/ui/index.html target=_blank rel="noopener noreferrer">http://localhost:8080/ui/index.html</a></li>
+<li>提供存储空间</li>
+<li>维护 volumn</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 可以将 index 存储在更快的存储提高查询性能</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">weed volume -dir.idx=/fast/disk/dir</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=filer-service>filer service<a href=#filer-service class=hash-link aria-label="Direct link to filer service" title="Direct link to filer service" translate=no>​</a></h2>
+<ul>
+<li><a href=http://localhost:8888 target=_blank rel="noopener noreferrer">http://localhost:8888</a></li>
+<li>组织维护 fs 信息</li>
+<li>提供 fs 接口</li>
+<li>元信息需要存储 - Cassandra, Mongodb, Redis, Elastic Search, MySql, Postgres, MemSql, TiDB, CockroachDB, Etcd</li>
+<li>为确保原子性可使用 Postgres, MySQL
+<ul>
+<li>文件重命名、目录重命名需要原子性支持</li>
+</ul>
+</li>
+<li>支持订阅文件变化发送消息</li>
+<li><strong>不支持递归目录删除</strong></li>
+<li><strong>如果 filer 元信息丢失，则会导致文件结构信息丢失</strong> - 无法恢复，基本等同于文件丢失，且无法访问</li>
+<li>可运行多个 filer - 多租户、负载</li>
+<li>支持按 path 配置 filer store
+<ul>
+<li>可以 trim prefix - 因此也能提供类似 mount 能力</li>
+</ul>
+</li>
+<li>文件分 chunk
+<ul>
+<li>chunk info 大约 40 bytes</li>
+</ul>
+</li>
+<li>大文件
+<ul>
+<li>manifest chunk to hold 1000 pieces of chunk info</li>
+</ul>
+</li>
+<li>支持加密 - AES256-GCM
+<ul>
+<li>每个文件的 key 会存储到 filer store</li>
+<li>写到 volumn 的是加密后的数据</li>
+</ul>
+</li>
+<li>支持 Automatic Peer Discovery
+<ul>
+<li>filer 启动会注册到 master</li>
+<li>从 master 发现其他 filer</li>
+</ul>
+</li>
+<li>支持 同步 - embedded store replay 其他 filer
+<ul>
+<li>通过 filer.store.id 识别不同 filer
+<ul>
+<li>启动随机生成 uuid</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>-saveToFilerLimit=1024</code> - 小于 1k 的文件直接存储到 filer store</li>
+<li>支持 Key-Value 存储</li>
+<li>支持监听 filer.meta.tail</li>
+<li>metadata 事件 /topics/.system/log/yyyy-MM-dd/hh-mm.segment</li>
+</ul>
+<div class="language-shell codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-shell codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">fs.cd /</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 迁移 filer store</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">fs.meta.save            # 备份 meta</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">fs.meta.load uuid.meta  # 恢复 meta</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 同步 filer a&lt;->b</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 支持指定路径 -a.path -b.path</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># -isActivePassive a->b</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">filer.sync -a &lt;filer1_host>:&lt;filer1_port> -b &lt;filer2_host>:&lt;filer2_port></span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=webdav>webdav<a href=#webdav class=hash-link aria-label="Direct link to webdav" title="Direct link to webdav" translate=no>​</a></h2>
+<ul>
+<li><code>weed webdav</code></li>
+<li>暂不支持 auth</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=s3-service>s3 service<a href=#s3-service class=hash-link aria-label="Direct link to s3 service" title="Direct link to s3 service" translate=no>​</a></h2>
+<ul>
+<li>依赖 filer 存储在 <code>/buckets/&lt;bucket_name></code></li>
+<li>提供 s3 接口</li>
+<li>filer 可内置启动 <code>-s3=true</code></li>
+<li><code>weed s3</code> 启动 Gateway</li>
+<li>不支持 Policy</li>
+<li><code>weed iam</code> 支持 IAM</li>
+</ul>
+<h1>source</h1>
+<ul>
+<li>postgres2
+<ul>
+<li>支持原子操作</li>
+<li>支持 Fast Bucket Deletion</li>
+</ul>
+</li>
+</ul>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token keyword" style=font-style:italic>CREATE</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>TABLE</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>IF</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">NOT</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>EXISTS</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"%s"</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  dirhash   </span><span class="token keyword" style=font-style:italic>BIGINT</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  name      </span><span class="token keyword" style=font-style:italic>VARCHAR</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">65535</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  directory </span><span class="token keyword" style=font-style:italic>VARCHAR</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">65535</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  meta      bytea</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token keyword" style=font-style:italic>PRIMARY</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>KEY</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">dirhash</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> name</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://github.com/viant/ptrie target=_blank rel="noopener noreferrer">https://github.com/viant/ptrie</a>
+<ul>
+<li>prefix tree</li>
+<li>匹配 store 路径</li>
+</ul>
+</li>
+</ul>
+<div class="language-go codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-go codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token keyword" style=font-style:italic>type</span><span class="token plain"> Filer </span><span class="token keyword" style=font-style:italic>struct</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  Store               VirtualFilerStore</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  MasterClient        </span><span class="token operator" style="color:rgb(137, 221, 255)">*</span><span class="token plain">wdclient</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">MasterClient</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">	RemoteStorage       </span><span class="token operator" style="color:rgb(137, 221, 255)">*</span><span class="token plain">FilerRemoteStorage</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">	UniqueFileId        </span><span class="token builtin" style="color:rgb(130, 170, 255)">uint32</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">	MetaAggregator      </span><span class="token operator" style="color:rgb(137, 221, 255)">*</span><span class="token plain">MetaAggregator</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  buckets             </span><span class="token operator" style="color:rgb(137, 221, 255)">*</span><span class="token plain">FilerBuckets</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<ul>
+<li>VirtualFilerStore
+<ul>
+<li>path 匹配映射多个 store</li>
+</ul>
+</li>
+<li>MetaAggregator
+<ul>
+<li>聚合多个 filer 元数据</li>
+</ul>
+</li>
+<li><code>weed filer -webdav -s3 -ima</code>
+<ul>
+<li>同时启动多个服务，通过端口通讯，而不是直接传递的内部 filer 实现</li>
+</ul>
+</li>
+<li>webdav
+<ul>
+<li>基于 golang.org/x/net/webdav 实现
+<ul>
+<li>使用 in-memory LockSystem</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/service/storage/seaweedfs.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2024-08-18T06:06:18.000Z itemprop=dateModified>Aug 18, 2024</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/service/storage/samba><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Samba</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/service/storage/sftpgo><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>sftpgo</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#volume class="table-of-contents__link toc-highlight">volume</a><li><a href=#weed-shell class="table-of-contents__link toc-highlight">weed shell</a><li><a href=#优化 class="table-of-contents__link toc-highlight">优化</a><li><a href=#kubernetes class="table-of-contents__link toc-highlight">Kubernetes</a><li><a href=#master-service class="table-of-contents__link toc-highlight">master service</a><li><a href=#volumn-service class="table-of-contents__link toc-highlight">volumn service</a><li><a href=#filer-service class="table-of-contents__link toc-highlight">filer service</a><li><a href=#webdav class="table-of-contents__link toc-highlight">webdav</a><li><a href=#s3-service class="table-of-contents__link toc-highlight">s3 service</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

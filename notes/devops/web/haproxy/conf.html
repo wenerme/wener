@@ -1,0 +1,433 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-devops/web/haproxy/haproxy-conf" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>HAProxy 配置 | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/devops/web/haproxy/conf /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="HAProxy 配置 | Wener Live & Life"/><meta data-rh=true name=description content="- http-tunnel"/><meta data-rh=true property=og:description content="- http-tunnel"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/devops/web/haproxy/conf /><link data-rh=true rel=alternate href=https://wener.me/notes/devops/web/haproxy/conf hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/devops/web/haproxy/conf hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/devops/","name":"DevOps","position":1},{"@type":"ListItem","item":"https://wener.me/notes/devops/web/","name":"Web","position":2},{"@type":"ListItem","item":"https://wener.me/notes/devops/web/haproxy/","name":"HAProxy","position":3},{"@type":"ListItem","item":"https://wener.me/notes/devops/web/haproxy/conf","name":"HAProxy 配置","position":4}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Collapse sidebar category 'DevOps'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/aiops><span title=AIOps class=categoryLinkLabel_RkOu>AIOps</span></a><button aria-label="Expand sidebar category 'AIOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/container><span title=容器 class=categoryLinkLabel_RkOu>容器</span></a><button aria-label="Expand sidebar category '容器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/awesome><span title="DevOps Awesome" class=linkLabel_JPPZ>DevOps Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/faq><span title="DevOps 常见问题" class=linkLabel_JPPZ>DevOps 常见问题</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/glossary><span title="DevOps Glossary" class=linkLabel_JPPZ>DevOps Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/practice><span title="DevOps Practice" class=linkLabel_JPPZ>DevOps Practice</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/docker><span title=Docker class=categoryLinkLabel_RkOu>Docker</span></a><button aria-label="Expand sidebar category 'Docker'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/dotenv><span title=dotenv class=linkLabel_JPPZ>dotenv</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/gomplate><span title=gomplate class=linkLabel_JPPZ>gomplate</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/infra><span title=基础设施 class=categoryLinkLabel_RkOu>基础设施</span></a><button aria-label="Expand sidebar category '基础设施'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes><span title=Kubernetes class=categoryLinkLabel_RkOu>Kubernetes</span></a><button aria-label="Expand sidebar category 'Kubernetes'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/devops/metrics/altermanager><span title=metrics class=categoryLinkLabel_RkOu>metrics</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/sla><span title=SLA class=linkLabel_JPPZ>SLA</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/sre><span title=SRE class=linkLabel_JPPZ>SRE</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/status><span title=Status class=linkLabel_JPPZ>Status</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/storage><span title=Storage class=categoryLinkLabel_RkOu>Storage</span></a><button aria-label="Expand sidebar category 'Storage'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/telementry><span title=Telementry class=linkLabel_JPPZ>Telementry</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/upgrade><span title=系统升级 class=linkLabel_JPPZ>系统升级</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/devops/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Collapse sidebar category 'Web'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/web/apisix><span title="Apache APISIX" class=categoryLinkLabel_RkOu>Apache APISIX</span></a><button aria-label="Expand sidebar category 'Apache APISIX'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/web/caddy><span title=Caddy class=categoryLinkLabel_RkOu>Caddy</span></a><button aria-label="Expand sidebar category 'Caddy'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/cdn><span title=CDN class=linkLabel_JPPZ>CDN</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/envoy><span title=Envoy class=linkLabel_JPPZ>Envoy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/gateway><span title="API Gateways" class=linkLabel_JPPZ>API Gateways</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/devops/web/haproxy><span title=HAProxy class=categoryLinkLabel_RkOu>HAProxy</span></a><button aria-label="Collapse sidebar category 'HAProxy'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/devops/web/haproxy/conf><span title="HAProxy 配置" class=linkLabel_JPPZ>HAProxy 配置</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/haproxy/cookbook><span title="HAProxy Cookbook & Useful Snippets" class=linkLabel_JPPZ>HAProxy Cookbook & Useful Snippets</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/haproxy/dataplane><span title="HAProxy Data Plane" class=linkLabel_JPPZ>HAProxy Data Plane</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/haproxy/faq><span title="HAProxy FAQ" class=linkLabel_JPPZ>HAProxy FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/haproxy/logging><span title="HAProxy Logging" class=linkLabel_JPPZ>HAProxy Logging</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/haproxy/mgmt><span title="HAProxy Management & Operations" class=linkLabel_JPPZ>HAProxy Management & Operations</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/haproxy/proxy-protocol><span title="HAProxy Proxy Protocol" class=linkLabel_JPPZ>HAProxy Proxy Protocol</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/haproxy/spoe><span title=SPOE class=linkLabel_JPPZ>SPOE</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/haproxy/tuning><span title="HAProxy Tuning" class=linkLabel_JPPZ>HAProxy Tuning</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/haproxy/version><span title="HAProxy Version" class=linkLabel_JPPZ>HAProxy Version</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/higress><span title=higress class=linkLabel_JPPZ>higress</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/httpd><span title="Apache HTTPD" class=linkLabel_JPPZ>Apache HTTPD</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/web/kong><span title=Kong class=categoryLinkLabel_RkOu>Kong</span></a><button aria-label="Expand sidebar category 'Kong'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/lighttpd><span title=lighttpd class=linkLabel_JPPZ>lighttpd</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/web/nginx><span title=Nginx class=categoryLinkLabel_RkOu>Nginx</span></a><button aria-label="Expand sidebar category 'Nginx'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/web/traefik><span title=Traefik class=categoryLinkLabel_RkOu>Traefik</span></a><button aria-label="Expand sidebar category 'Traefik'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/tyk><span title=Tyk class=linkLabel_JPPZ>Tyk</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/varnish><span title=varnish class=linkLabel_JPPZ>varnish</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/awesome><span title=Awesome class=linkLabel_JPPZ>Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/web/faq><span title="Web Server FAQ" class=linkLabel_JPPZ>Web Server FAQ</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/devops/xaas/db-schema><span title=xaas class=categoryLinkLabel_RkOu>xaas</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经��济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准��数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/devops><span>DevOps</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/devops/web><span>Web</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/devops/web/haproxy><span>HAProxy</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>HAProxy 配置</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>HAProxy 配置</h1></header>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">haproxy -c -V -f /etc/haproxy/haproxy.cfg # 检测配置</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ulimit -n 8036</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">haproxy -f /etc/haproxy/haproxy.cfg -d # Debug 启动</span><br/></span></code></pre></div></div>
+<ul>
+<li>http-tunnel
+<ul>
+<li>处理 HTTP CONNECT</li>
+</ul>
+</li>
+<li><a href=https://cbonte.github.io/haproxy-dconv target=_blank rel="noopener noreferrer">https://cbonte.github.io/haproxy-dconv</a></li>
+<li><a href=https://www.haproxy.com/documentation/hapee/latest/onepage target=_blank rel="noopener noreferrer">https://www.haproxy.com/documentation/hapee/latest/onepage</a></li>
+</ul>
+<hr/>
+<ul>
+<li>maxconn
+<ul>
+<li>frontend 接受的最大连接数</li>
+<li>4096 fd 默认 maxconn ~ 1700</li>
+<li>10000 连接 ~450MB - ~580MB</li>
+<li>fd ~= maxconn*2 + 1000</li>
+</ul>
+</li>
+<li>/proc/sys/fs/file-max</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=timeout>Timeout<a href=#timeout class=hash-link aria-label="Direct link to Timeout" title="Direct link to Timeout" translate=no>​</a></h2>
+<ul>
+<li>HTTP or TCP</li>
+<li>One Shot or Stream</li>
+<li>Latency or Bandwidth</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># HTTP 场景</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout connect 5s    # 客户端 connect 上的时间</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout client 50s    # 客户端 idle 时长，一般 5m</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout server 50s    # 服务端响应时长 - 504</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">retries                 3</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout http-request    10s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout queue           1m</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout connect         10s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout client          10m</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout server          10m</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout http-keep-alive 10s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout check           10s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">maxconn                 30000</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout http-request    10s # 整个请求时长</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout http-keep-alive 2s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout queue           5s  # concurrent connections，默认 timeout connect</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout tunnel          2m  # WebSockets，类似 keep-alive</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout client-fin      1s  # dropped client side connections 可能会恢复的时间</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">timeout server-fin      1s</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://www.papertrail.com/solution/tips/haproxy-logging-how-to-tune-timeouts-for-performance/ target=_blank rel="noopener noreferrer">https://www.papertrail.com/solution/tips/haproxy-logging-how-to-tune-timeouts-for-performance/</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=env>env<a href=#env class=hash-link aria-label="Direct link to env" title="Direct link to env" translate=no>​</a></h2>
+<ul>
+<li><code>${ENV_NAME-默认值}</code></li>
+<li>HAPROXY_LOCALPEER
+<ul>
+<li><code>-L</code></li>
+</ul>
+</li>
+<li>HAPROXY_CFGFILES</li>
+<li>HAPROXY_HTTP_LOG_FMT</li>
+<li>HAPROXY_HTTPS_LOG_FMT</li>
+<li>HAPROXY_TCP_LOG_FMT</li>
+<li>HAPROXY_MWORKER</li>
+<li>HAPROXY_MASTER_CLI</li>
+<li>HAPROXY_STARTUP_VERSION</li>
+<li>伪变量
+<ul>
+<li><code>.FILE</code></li>
+<li><code>.LINE</code></li>
+<li><code>.SECTION</code></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=control-flow>控制流<a href=#control-flow class=hash-link aria-label="Direct link to 控制流" title="Direct link to 控制流" translate=no>​</a></h2>
+<ul>
+<li><code>.if</code>,<code>.elif</code>,<code>.else</code>,<code>.endif</code></li>
+<li>断言
+<ul>
+<li><code>defined(&lt;name>)</code></li>
+<li><code>feature(&lt;name>)</code> - <code>haproxy -vv</code></li>
+<li><code>streq(&lt;str1>,&lt;str2>)</code></li>
+<li><code>strneq(&lt;str1>,&lt;str2>)</code></li>
+<li><code>version_atleast(&lt;ver>)</code></li>
+<li><code>version_before(&lt;ver>)</code></li>
+</ul>
+</li>
+<li>.diag "message"</li>
+<li>.notice</li>
+<li>.warning</li>
+<li>.alert</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=acl>acl<a href=#acl class=hash-link aria-label="Direct link to acl" title="Direct link to acl" translate=no>​</a></h2>
+<ul>
+<li>named acl
+<ul>
+<li><code>acl is_static path -i -m beg /static/</code></li>
+</ul>
+</li>
+<li>in-line acl
+<ul>
+<li><code>use_backend be_static if { path -i -m beg /static/ }</code></li>
+<li>if, unless</li>
+</ul>
+</li>
+<li>多个条件默认为 and 关系
+<ul>
+<li><code>http-request deny if { path -i -m beg /api/ } { src 10.0.0.0/16 }</code></li>
+</ul>
+</li>
+<li>支持逻辑: || or && and !
+<ul>
+<li><code>http-request deny if { path -i -m beg /api/ } || !{ src 10.0.0.0/16 }</code></li>
+</ul>
+</li>
+<li>fetch - 指匹配的来源信息
+<ul>
+<li>例如: src, path, hdr 等</li>
+</ul>
+</li>
+<li>converter - 转换
+<ul>
+<li>例如: lower, upper, base64, field, bytes, map</li>
+</ul>
+</li>
+<li>flag - fetch 操作支持通过 flag 修改行为</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>flag<th>for<tbody><tr><td>-i<td>忽略大小写，匹配后续所有<tr><td>-f<td>匹配文件内 patterns<tr><td>-m<td>指定匹配方式<tr><td>-n<td>禁止 DNS 解析<tr><td>-M<td>load the file pointed by -f like a map file.<tr><td>-u<td>force the unique id of the ACL<tr><td>--<td>force end of flags. Useful when a string looks like one of the flags.</table>
+<ul>
+<li>匹配方法 - -m
+<ul>
+<li>部分 fetch 有变种 <code>path_beg</code> -> <code>path -m beg</code></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>-m<th>for<tbody><tr><td>str<td>完整匹配<tr><td>sub<td>包含<tr><td>end<td>开头<tr><td>beg<td>结尾<tr><td>dir<td><code>/</code> 分隔，路径匹配<tr><td>dom<td><code>.</code> 分隔，域名匹配<tr><td>reg<td>正则匹配 - <strong>注意性能问题</strong><tr><td>found<td>存在<tr><td>len<td>长度匹配<tr><td>bin<td>二进制数据匹配 - Hex</table>
+<ul>
+<li>dom</li>
+<li><code>hdr_end(host) .wener.me</code> 不会匹配 <code>wener.me</code></li>
+<li><code>hdr_end(host) wener.me</code> 会匹配 <code>xyzwener.me</code></li>
+<li><code>hdr_dom(host) wener.me</code> 会匹配 <code>wener.me</code> 和 <code>*.wener.me</code>, 不会匹配 <code>xyzwener.me</code>
+<ul>
+<li>大多时候期望结果</li>
+</ul>
+</li>
+<li><code>_beg, _dir, _dom, _end, _len, _reg, _sub</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>method<th>alias<tbody><tr><td>base_beg<td>base -m beg<tr><td>hdr_end<td>hdr -m end<tr><td>path_beg<td>path -m beg</table>
+<div class="language-haproxy codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-haproxy codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">redirect scheme code 301 https if !{ ssl_fc }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 动态名字</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">use_backend be_%[path,map_beg(/etc/haproxy/paths.map, mydefault)]</span><br/></span></code></pre></div></div>
+<ul>
+<li><code>%[var()]</code></li>
+</ul>
+<hr/>
+<ul>
+<li>参考
+<ul>
+<li><a href=http://wtarreau.blogspot.com/2011/12/elastic-binary-trees-ebtree.html target=_blank rel="noopener noreferrer">ebtree</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=balance>balance<a href=#balance class=hash-link aria-label="Direct link to balance" title="Direct link to balance" translate=no>​</a></h2>
+<ul>
+<li><a href=https://www.haproxy.com/documentation/hapee/latest/onepage/#4.2-balance target=_blank rel="noopener noreferrer">balance</a></li>
+<li>hash - 2.6+</li>
+<li>roundrobin
+<ul>
+<li>根据 weight 轮训 - weight 可动态调整</li>
+<li>最多 4095 server</li>
+</ul>
+</li>
+<li>static-rr
+<ul>
+<li>同 roundrobin 但不支持调整 weight，不限制 server 数量</li>
+</ul>
+</li>
+<li>leastconn
+<ul>
+<li>选择最少连接数的 server</li>
+<li>在 server 中使用 rr 就行选择 - 支持动态 weight</li>
+<li>适用于长链接 （例如：LDAP, SQL, TSE） 不适用于短链接 （例如： HTTP）</li>
+</ul>
+</li>
+<li>first
+<ul>
+<li>通过 server id 顺序选择第一个 slot - id 默认为 server 顺序</li>
+<li>当 server 达到 maxconn 时选择下一个 - 使用该算法要设置了 maxconn 才有意义</li>
+<li>该算法可以使后面的 server 按需启动 - 配合基础设施动态控制服务器起停</li>
+<li>忽略 weight，更适用于长链接</li>
+<li>可使用 <code>http-check send-state</code> 告知服务器负载</li>
+</ul>
+</li>
+<li>source
+<ul>
+<li>通过 IP hash 取模选择 server</li>
+<li>修改 server 数量会影响选取结果 - server up、down 也会影响</li>
+<li>默认静态 weight 无效，可配置 hash-type</li>
+</ul>
+</li>
+<li>uri
+<ul>
+<li>URL hash 取模选择 server</li>
+<li>URL 使用路径 <code>?</code> 前面部分，可指定为 <code>whole</code> 使用所有</li>
+<li>可增加缓存命中，只适用于 HTTP 后端</li>
+<li>默认静态 weight 无效，可配置 hash-type</li>
+<li>参数
+<ul>
+<li>len - 截取长度</li>
+<li>depth - 目录深度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>url_param
+<ul>
+<li>使用 HTTP GET 请求上的 URL 参数</li>
+<li>未找到参数则使用 rr</li>
+<li>默认静态 weight 无效，可配置 hash-type</li>
+<li>参数
+<ul>
+<li>check_post - 针对 POST 也检测</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>hdr(&lt;name>)</code>
+<ul>
+<li>使用 HTTP 头 <code>&lt;name></code> - 大小写不敏感，不存在则使用 rr</li>
+<li>默认静态 weight 无效，可配置 hash-type</li>
+<li>参数
+<ul>
+<li>use_domain_only - HASH 域名，也就是 <code>Host</code> 头</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>random</code>, <code>random(&lt;draws>)</code>
+<ul>
+<li>随机数，一致性 hash - weight 动态</li>
+<li>适用于 server 数量多且频繁加减场景 - 比 roundrobin 和 leastconn 影响更小</li>
+<li><code>&lt;draws></code> - number of draws before selecting the least loaded of these servers
+<ul>
+<li>默认 2</li>
+</ul>
+</li>
+<li>参数
+<ul>
+<li>hash-balance-factor
+<ul>
+<li>可增强公平性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=http://www.eecs.harvard.edu/~michaelm/postscripts/handbook2001.pdf target=_blank rel="noopener noreferrer">Power of Two Random Choices</a></li>
+</ul>
+</li>
+<li>rdp-cookie, <code>rdp-cookie(&lt;name>)</code>
+<ul>
+<li>name 默认 <code>mstshash</code></li>
+<li>需要 <code>tcp-request content accept</code> + <code>req_rdp_cookie_cnt</code></li>
+<li>默认静态 weight 无效，可配置 hash-type</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=haproxy-透明代理traefik>HAProxy 透明代理+Traefik<a href=#haproxy-透明代理traefik class=hash-link aria-label="Direct link to HAProxy 透明代理+Traefik" title="Direct link to HAProxy 透明代理+Traefik" translate=no>​</a></h2>
+<ul>
+<li><a href=https://www.haproxy.com/blog/haproxy/proxy-protocol target=_blank rel="noopener noreferrer">haproxy/proxy-protocol</a></li>
+<li><a href=https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt target=_blank rel="noopener noreferrer">proxy-protocol.txt</a></li>
+<li><a href=https://docs.traefik.io/routing/entrypoints/#proxyprotocol target=_blank rel="noopener noreferrer">traefik proxy protocol</a></li>
+<li>参考
+<ul>
+<li><a href=https://stackoverflow.com/a/57503161/1870054 target=_blank rel="noopener noreferrer">HAProxy tcp mode source client ip</a></li>
+<li><a href=https://yq.aliyun.com/articles/492367 target=_blank rel="noopener noreferrer">Haproxy 全透明代理</a></li>
+</ul>
+</li>
+</ul>
+<div class="language-haproxy codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-haproxy codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">global</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  log /dev/log    local0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  log /dev/log    local1 notice</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  chroot /var/lib/haproxy</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  # 常见位置</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  # /run/haproxy/admin.sock</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  # /var/run/haproxy.sock</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  stats socket /var/lib/haproxy/stats mode 660 level admin</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  # stats socket ipv4@192.168.0.1:9999 level admin</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  stats timeout 30s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  user haproxy</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  group haproxy</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  daemon</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">defaults</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  log global</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  retries 2</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  option  dontlognull</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  timeout connect 10000</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  timeout server 600000</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  timeout client 600000</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">frontend https</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  bind 0.0.0.0:443</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  default_backend https</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">backend https</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  mode tcp</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  balance roundrobin</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  option tcp-check</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  # traefik 后端也支持 proxy 协议</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  server traefik 192.168.128.5:9443 check fall 3 rise 2 send-proxy</span><br/></span></code></pre></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">iptables -F</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">iptables -t mangle -N DIVERT</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">iptables -t mangle -A PREROUTING -p tcp -m socket -j DIVERT</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">iptables -t mangle -A DIVERT -j MARK --set-mark 222</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">iptables -t mangle -A DIVERT -j ACCEPT</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip rule add fwmark 222 lookup 100</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ip route add local 0.0.0.0/0 dev lo table 100</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 允许ip转发</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">echo 1 > /proc/sys/net/ipv4/conf/all/forwarding</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 设置松散逆向路径过滤</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">echo 2 > /proc/sys/net/ipv4/conf/default/rp_filter</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">echo 2 > /proc/sys/net/ipv4/conf/all/rp_filter</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">echo 0 > /proc/sys/net/ipv4/conf/enp0s8/rp_filter</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 允许ICMP重定向</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">echo 1 > /proc/sys/net/ipv4/conf/all/send_redirects</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">echo 1 > /proc/sys/net/ipv4/conf/enp0s8/send_redirects</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=保留状态>保留状态<a href=#保留状态 class=hash-link aria-label="Direct link to 保留状态" title="Direct link to 保留状态" translate=no>​</a></h2>
+<ul>
+<li>不会保留统计信息</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">global</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  # 状态文件</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  server-state-file /var/lib/haproxy/server-state</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  stats socket /var/lib/haproxy/stats</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">defaults</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  # 加载统计</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  load-server-state-from-file global</span><br/></span></code></pre></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 保留状态</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">echo "show servers state" | socat /var/lib/haproxy/stats stdio > /var/lib/haproxy/server-state</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=交互命令>交互命令<a href=#交互命令 class=hash-link aria-label="Direct link to 交互命令" title="Direct link to 交互命令" translate=no>​</a></h2>
+<ul>
+<li><a href=https://cbonte.github.io/haproxy-dconv/2.2/management.html#9.3 target=_blank rel="noopener noreferrer">Unix Socket commands</a></li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 脚本一次执行</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># socat 可能需要 sudo</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">echo "show info;show stat;show table" | socat /var/lib/haproxy/stats stdio</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 交互式</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">socat /var/lib/haproxy/stats readline</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># prompt</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=sni-proxy>SNI Proxy<a href=#sni-proxy class=hash-link aria-label="Direct link to SNI Proxy" title="Direct link to SNI Proxy" translate=no>​</a></h2>
+<ul>
+<li><a href=http://blog.haproxy.com/2012/04/13/enhanced-ssl-load-balancing-with-server-name-indication-sni-tls-extension/ target=_blank rel="noopener noreferrer">http://blog.haproxy.com/2012/04/13/enhanced-ssl-load-balancing-with-server-name-indication-sni-tls-extension/</a></li>
+<li><a href=https://www.liip.ch/en/blog/haproxy-selective-tls-termination target=_blank rel="noopener noreferrer">HAProxy selective TLS termination</a></li>
+</ul>
+<div class="language-haproxy codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-haproxy codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">backend bk_ssl</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  mode tcp</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  no option checkcache</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  no option httpclose</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  tcp-request inspect-delay 5s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  tcp-request content accept if { req.ssl_hello_type 1 }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  tcp-request content reject</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  use-server server1 if { req.ssl_sni -m beg app1. }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  server server1 server1:8443 check id 1 weight 0</span><br/></span></code></pre></div></div>
+<div class="language-haproxy codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-haproxy codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">backend https</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  option tcplog</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  bind 0.0.0.0:443</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  tcp-request inspect-delay 5s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  tcp-request content accept if { req_ssl_hello_type 1 }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  use_backend s1 if { req.ssl_sni -i site1.example.com or site1alias.example.com }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  use_backend s2 if { ssl_fc_sni_end s2.example.com }</span><br/></span></code></pre></div></div>
+<p>-m end
+use_backend apache if { ssl_fc_sni_end domain.com }</p>
+<p>hdr(host)
+hdr_end(host) -i .wener.me
+hdr_beg(host) -i .wener.me</p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=ssl-配置>SSL 配置<a href=#ssl-配置 class=hash-link aria-label="Direct link to SSL 配置" title="Direct link to SSL 配置" translate=no>​</a></h2>
+<ul>
+<li><a href=https://www.haproxy.com/blog/haproxy-ssl-termination/ target=_blank rel="noopener noreferrer">HAProxy SSL Termination</a></li>
+<li><a href="https://ssl-config.mozilla.org/#server=haproxy" target=_blank rel="noopener noreferrer">Mozilla SSL Configuration Generator</a></li>
+</ul>
+<div class="language-haproxy codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-haproxy codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">global</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    ssl-default-bind-options ssl-min-ver TLSv1.2</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">frontend www.mysite.com</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    bind 10.0.0.3:80</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    bind 10.0.0.3:443 ssl crt /etc/ssl/certs/mysite.pem ssl-min-ver TLSv1.2</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    # HTTP -> HTTPS</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    http-request redirect scheme https unless { ssl_fc }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    default_backend web_servers</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=参考>参考<a href=#参考 class=hash-link aria-label="Direct link to 参考" title="Direct link to 参考" translate=no>​</a></h2>
+<ul>
+<li><a href=https://cbonte.github.io/haproxy-dconv/ target=_blank rel="noopener noreferrer">HAProxy Documentation Converter</a>
+<ul>
+<li><a href=https://cbonte.github.io/haproxy-dconv/2.6/configuration.html#4.1 target=_blank rel="noopener noreferrer">Proxy keywords matrix</a></li>
+</ul>
+</li>
+<li><a href=https://www.haproxy.com/blog/the-four-essential-sections-of-an-haproxy-configuration/ target=_blank rel="noopener noreferrer">The Four Essential Sections of an HAProxy Configuration</a></li>
+<li><a href=https://cbonte.github.io/haproxy-dconv/2.2/configuration.html#7.4 target=_blank rel="noopener noreferrer">Pre-defined ACLs</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=实验>实验<a href=#实验 class=hash-link aria-label="Direct link to 实验" title="Direct link to 实验" translate=no>​</a></h2>
+<div class="language-haproxy codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-haproxy codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">global</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  log stdout format raw local0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  log stdout format raw daemon debug</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">defaults</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  log global</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  option httplog</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  timeout client 300s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  timeout server 300s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  timeout connect 5s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  mode http</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">frontend f1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  bind 0.0.0.0:8088</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  use_backend http:b1 if { hdr_dom(host) -i wener.me }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">backend http:b1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  mode http</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">backend tcp:b1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  mode tcp</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">listen stats</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  bind :8084</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  mode http</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  http-request use-service prometheus-exporter if { path /metrics }</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  stats enable</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  stats hide-version</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  stats uri /</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  stats refresh 5s</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  stats realm Haproxy\ Statistics</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  # stats auth Username:Password</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span></code></pre></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">haproxy -c -f haproxy.cfg # Check</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">haproxy -f haproxy.cfg    # Run</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># stats http://127.0.0.1:8083</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 验证路由</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -H 'Host: wener.me' 127.0.0.1:8088</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=redispatch>redispatch<a href=#redispatch class=hash-link aria-label="Direct link to redispatch" title="Direct link to redispatch" translate=no>​</a></h2>
+<ul>
+<li>session redistribution in case of connection failure</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=health-check>Health Check<a href=#health-check class=hash-link aria-label="Direct link to Health Check" title="Direct link to Health Check" translate=no>​</a></h2>
+<ul>
+<li>agent-check</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">option ldap-check</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># user USER</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">option mysql-check</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">option pgsql-check</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">option redis-check</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">option smtpchk</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># [HELO|EHLO] [&lt;domain>]</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">option smtpchk EHLO mydomain.com</span><br/></span></code></pre></div></div>
+<ul>
+<li>如果设置了密码， PING 也需要密码</li>
+<li><a href=https://www.haproxy.com/documentation/hapee/latest/service-reliability/health-checking/active-checks/ target=_blank rel="noopener noreferrer">https://www.haproxy.com/documentation/hapee/latest/service-reliability/health-checking/active-checks/</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/configuration>Configuration</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/devops/web/haproxy/haproxy-conf.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-02-09T03:18:22.000Z itemprop=dateModified>Feb 9, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/devops/web/haproxy><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>HAProxy</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/devops/web/haproxy/cookbook><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>HAProxy Cookbook & Useful Snippets</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#timeout class="table-of-contents__link toc-highlight">Timeout</a><li><a href=#env class="table-of-contents__link toc-highlight">env</a><li><a href=#control-flow class="table-of-contents__link toc-highlight">控制流</a><li><a href=#acl class="table-of-contents__link toc-highlight">acl</a><li><a href=#balance class="table-of-contents__link toc-highlight">balance</a><li><a href=#haproxy-透明代理traefik class="table-of-contents__link toc-highlight">HAProxy 透明代理+Traefik</a><li><a href=#保留状态 class="table-of-contents__link toc-highlight">保留状态</a><li><a href=#交互命令 class="table-of-contents__link toc-highlight">交互命令</a><li><a href=#sni-proxy class="table-of-contents__link toc-highlight">SNI Proxy</a><li><a href=#ssl-配置 class="table-of-contents__link toc-highlight">SSL 配置</a><li><a href=#参考 class="table-of-contents__link toc-highlight">参考</a><li><a href=#实验 class="table-of-contents__link toc-highlight">实验</a><li><a href=#redispatch class="table-of-contents__link toc-highlight">redispatch</a><li><a href=#health-check class="table-of-contents__link toc-highlight">Health Check</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

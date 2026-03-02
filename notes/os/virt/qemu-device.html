@@ -1,0 +1,715 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-os/virt/qemu-device" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>QEMU Devices Reference | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/os/virt/qemu-device /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="QEMU Devices Reference | Wener Live & Life"/><meta data-rh=true name=description content=qemu-devices-reference} /><meta data-rh=true property=og:description content=qemu-devices-reference} /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/os/virt/qemu-device /><link data-rh=true rel=alternate href=https://wener.me/notes/os/virt/qemu-device hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/os/virt/qemu-device hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/os/","name":"操作系统","position":1},{"@type":"ListItem","item":"https://wener.me/notes/os/virt/","name":"虚拟化","position":2},{"@type":"ListItem","item":"https://wener.me/notes/os/virt/qemu-device","name":"QEMU Devices Reference","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Collapse sidebar category '操作系统'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/alpine><span title=Alpine class=categoryLinkLabel_RkOu>Alpine</span></a><button aria-label="Expand sidebar category 'Alpine'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/android><span title=Android class=categoryLinkLabel_RkOu>Android</span></a><button aria-label="Expand sidebar category 'Android'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/archlinux><span title=ArchLinux class=linkLabel_JPPZ>ArchLinux</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/bsd><span title=BSD class=categoryLinkLabel_RkOu>BSD</span></a><button aria-label="Expand sidebar category 'BSD'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/busybox><span title=Busybox class=categoryLinkLabel_RkOu>Busybox</span></a><button aria-label="Expand sidebar category 'Busybox'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/centos><span title=CentOS class=categoryLinkLabel_RkOu>CentOS</span></a><button aria-label="Expand sidebar category 'CentOS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/chromeos><span title=ChromeOS class=linkLabel_JPPZ>ChromeOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/darwin><span title=Darwin class=linkLabel_JPPZ>Darwin</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/debian><span title=Debian class=categoryLinkLabel_RkOu>Debian</span></a><button aria-label="Expand sidebar category 'Debian'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/device/auto><span title=device class=categoryLinkLabel_RkOu>device</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/dual-system><span title="Dual System Boot" class=linkLabel_JPPZ>Dual System Boot</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/freebsd><span title=FreeBSD class=linkLabel_JPPZ>FreeBSD</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/fuchsia><span title=Fuchsia class=linkLabel_JPPZ>Fuchsia</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/lakka><span title="lakka tv" class=linkLabel_JPPZ>lakka tv</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/libreelec><span title=LibreELEC class=linkLabel_JPPZ>LibreELEC</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/linux/admin><span title=linux class=categoryLinkLabel_RkOu>linux</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/linux-distro><span title="Linux 发行版列表与比较 (Linux Distributions List & Comparison)" class=linkLabel_JPPZ>Linux 发行版列表与比较 (Linux Distributions List & Comparison)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/macos><span title=macOS class=categoryLinkLabel_RkOu>macOS</span></a><button aria-label="Expand sidebar category 'macOS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/mips><span title="MIPS 架构" class=linkLabel_JPPZ>MIPS 架构</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/mobile><span title=手机 class=linkLabel_JPPZ>手机</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/network><span title=网络设备系统 class=categoryLinkLabel_RkOu>网络设备系统</span></a><button aria-label="Expand sidebar category '网络设备系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/openbsd><span title=OpenBSD class=linkLabel_JPPZ>OpenBSD</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/awesome><span title="OS Awesome" class=linkLabel_JPPZ>OS Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/faq><span title="OS FAQ" class=linkLabel_JPPZ>OS FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/glossary><span title="OS Glossary" class=linkLabel_JPPZ>OS Glossary</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/os/rhel/anaconda><span title=rhel class=categoryLinkLabel_RkOu>rhel</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/synology><span title=Synology class=linkLabel_JPPZ>Synology</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/ubuntu><span title="Ubuntu Server Guide" class=categoryLinkLabel_RkOu>Ubuntu Server Guide</span></a><button aria-label="Expand sidebar category 'Ubuntu Server Guide'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/os/virt><span title=虚拟化 class=categoryLinkLabel_RkOu>虚拟化</span></a><button aria-label="Collapse sidebar category '虚拟化'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/e2b><span title=e2b class=linkLabel_JPPZ>e2b</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/edk2><span title=edk2 class=linkLabel_JPPZ>edk2</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/esxi><span title=ESXi class=linkLabel_JPPZ>ESXi</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/firecracker><span title=Firecracker class=linkLabel_JPPZ>Firecracker</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/guacamole><span title="Apache Guacamole" class=linkLabel_JPPZ>Apache Guacamole</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/haxm><span title=HAXM class=linkLabel_JPPZ>HAXM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/hyperv><span title=HyperV class=linkLabel_JPPZ>HyperV</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/ignite><span title=ignite class=linkLabel_JPPZ>ignite</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/ksm><span title=KSM class=linkLabel_JPPZ>KSM</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/virt/libvirt><span title=Libvirt class=categoryLinkLabel_RkOu>Libvirt</span></a><button aria-label="Expand sidebar category 'Libvirt'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/libvirt-api><span title="Libvirt API" class=linkLabel_JPPZ>Libvirt API</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/lima><span title=lima class=linkLabel_JPPZ>lima</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/manageiq><span title=ManageIQ class=linkLabel_JPPZ>ManageIQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/novnc><span title=noVNC class=linkLabel_JPPZ>noVNC</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/virt/qemu><span title=QEMU class=categoryLinkLabel_RkOu>QEMU</span></a><button aria-label="Expand sidebar category 'QEMU'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/os/virt/qemu-device><span title="QEMU Devices Reference" class=linkLabel_JPPZ>QEMU Devices Reference</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/qemu-network><span title="QEMU Networking" class=linkLabel_JPPZ>QEMU Networking</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/qemu-osx><span title="QEMU on macOS" class=linkLabel_JPPZ>QEMU on macOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/qemu-storage><span title="QEMU Storage & Block Devices" class=linkLabel_JPPZ>QEMU Storage & Block Devices</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/qemu-uefi><span title="QEMU UEFI Support (OVMF)" class=linkLabel_JPPZ>QEMU UEFI Support (OVMF)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/seabios><span title=SeaBIOS class=linkLabel_JPPZ>SeaBIOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/selkies><span title=Selkies class=linkLabel_JPPZ>Selkies</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/smbios><span title=SMBIOS class=linkLabel_JPPZ>SMBIOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/tigervnc><span title=TigerVNC class=linkLabel_JPPZ>TigerVNC</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/vagrant><span title=Vagrant class=linkLabel_JPPZ>Vagrant</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/awesome><span title="Virt Awesome" class=linkLabel_JPPZ>Virt Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/faq><span title=虚拟化常见问题 class=linkLabel_JPPZ>虚拟化常见问题</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/glossary><span title=虚拟化术语表 class=linkLabel_JPPZ>虚拟化术语表</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/nested><span title=嵌套虚拟化 class=linkLabel_JPPZ>嵌套虚拟化</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/virtio><span title=Virtio class=linkLabel_JPPZ>Virtio</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/virtiofs><span title=virtio-fs class=linkLabel_JPPZ>virtio-fs</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/vmware><span title=VmWare class=linkLabel_JPPZ>VmWare</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/vnc-awesome><span title="VNC Awesome" class=linkLabel_JPPZ>VNC Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/webvm><span title=WebVM class=linkLabel_JPPZ>WebVM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/os/virt/wine><span title=wine class=linkLabel_JPPZ>wine</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/os/windows><span title="Windows OS" class=categoryLinkLabel_RkOu>Windows OS</span></a><button aria-label="Expand sidebar category 'Windows OS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/os><span>操作系统</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/os/virt><span>虚拟化</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>QEMU Devices Reference</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>QEMU Devices Reference</h1></header>
+<ul>
+<li><a href=https://www.spice-space.org/usbredir.html target=_blank rel="noopener noreferrer">USB Redirection - SPICE</a></li>
+<li><a href=http://www.linux-kvm.org/page/How_to_assign_devices_with_VT-d_in_KVM target=_blank rel="noopener noreferrer">Assign Devices with VT-d - Linux KVM</a></li>
+<li><a href=https://unix.stackexchange.com/questions/452934/can-i-pass-through-a-usb-port-via-qemu-command-line target=_blank rel="noopener noreferrer">Pass through USB Port - StackExchange</a></li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># List all devices</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">qemu-system-x86_64 -device ?</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=device-list>Device List<a href=#device-list class=hash-link aria-label="Direct link to Device List" title="Direct link to Device List" translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">Controller/Bridge/Hub devices:</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">name "i82801b11-bridge", bus PCI</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">name "igd-passthrough-isa-bridge", bus PCI, desc "ISA bridge faked to support IGD PT"</span><br/></span></code></pre></div></div>
+<p>name "ioh3420", bus PCI, desc "Intel IOH device id 3420 PCIE Root Port"
+name "pci-bridge", bus PCI, desc "Standard PCI Bridge"
+name "pci-bridge-seat", bus PCI, desc "Standard PCI Bridge (multiseat)"
+name "pcie-pci-bridge", bus PCI
+name "pcie-root-port", bus PCI, desc "PCI Express Root Port"
+name "pxb", bus PCI, desc "PCI Expander Bridge"
+name "pxb-pcie", bus PCI, desc "PCI Express Expander Bridge"
+name "usb-host", bus usb-bus
+name "usb-hub", bus usb-bus
+name "vfio-pci-igd-lpc-bridge", bus PCI, desc "VFIO dummy ISA/LPC bridge for IGD assignment"
+name "x3130-upstream", bus PCI, desc "TI X3130 Upstream Port of PCI Express Switch"
+name "xio3130-downstream", bus PCI, desc "TI X3130 Downstream Port of PCI Express Switch"</p>
+<p>USB devices:
+name "ich9-usb-ehci1", bus PCI
+name "ich9-usb-ehci2", bus PCI
+name "ich9-usb-uhci1", bus PCI
+name "ich9-usb-uhci2", bus PCI
+name "ich9-usb-uhci3", bus PCI
+name "ich9-usb-uhci4", bus PCI
+name "ich9-usb-uhci5", bus PCI
+name "ich9-usb-uhci6", bus PCI
+name "nec-usb-xhci", bus PCI
+name "pci-ohci", bus PCI, desc "Apple USB Controller"
+name "piix3-usb-uhci", bus PCI
+name "piix4-usb-uhci", bus PCI
+name "qemu-xhci", bus PCI
+name "usb-ehci", bus PCI
+name "vt82c686b-usb-uhci", bus PCI</p>
+<p>Storage devices:
+name "am53c974", bus PCI, desc "AMD Am53c974 PCscsi-PCI SCSI adapter"
+name "dc390", bus PCI, desc "Tekram DC-390 SCSI adapter"
+name "floppy", bus floppy-bus, desc "virtual floppy drive"
+name "ich9-ahci", bus PCI, alias "ahci"
+name "ide-cd", bus IDE, desc "virtual IDE CD-ROM"
+name "ide-drive", bus IDE, desc "virtual IDE disk or CD-ROM (legacy)"
+name "ide-hd", bus IDE, desc "virtual IDE disk"
+name "isa-fdc", bus ISA
+name "isa-ide", bus ISA
+name "lsi53c810", bus PCI
+name "lsi53c895a", bus PCI, alias "lsi"
+name "megasas", bus PCI, desc "LSI MegaRAID SAS 1078"
+name "megasas-gen2", bus PCI, desc "LSI MegaRAID SAS 2108"
+name "mptsas1068", bus PCI, desc "LSI SAS 1068"
+name "nvme", bus PCI, desc "Non-Volatile Memory Express"
+name "piix3-ide", bus PCI
+name "piix3-ide-xen", bus PCI
+name "piix4-ide", bus PCI
+name "pvscsi", bus PCI
+name "scsi-block", bus SCSI, desc "SCSI block device passthrough"
+name "scsi-cd", bus SCSI, desc "virtual SCSI CD-ROM"
+name "scsi-disk", bus SCSI, desc "virtual SCSI disk or CD-ROM (legacy)"
+name "scsi-generic", bus SCSI, desc "pass through generic scsi device (/dev/sg*)"
+name "scsi-hd", bus SCSI, desc "virtual SCSI disk"
+name "sd-card", bus sd-bus
+name "sdhci-pci", bus PCI
+name "usb-bot", bus usb-bus
+name "usb-mtp", bus usb-bus, desc "USB Media Transfer Protocol device"
+name "usb-storage", bus usb-bus
+name "usb-uas", bus usb-bus
+name "vhost-scsi", bus virtio-bus
+name "vhost-scsi-pci", bus PCI
+name "vhost-scsi-pci-non-transitional", bus PCI
+name "vhost-scsi-pci-transitional", bus PCI
+name "vhost-user-blk", bus virtio-bus
+name "vhost-user-blk-pci", bus PCI
+name "vhost-user-blk-pci-non-transitional", bus PCI
+name "vhost-user-blk-pci-transitional", bus PCI
+name "vhost-user-fs-device", bus virtio-bus
+name "vhost-user-fs-pci", bus PCI
+name "vhost-user-scsi", bus virtio-bus
+name "vhost-user-scsi-pci", bus PCI
+name "vhost-user-scsi-pci-non-transitional", bus PCI
+name "vhost-user-scsi-pci-transitional", bus PCI
+name "virtio-9p-device", bus virtio-bus
+name "virtio-9p-pci", bus PCI, alias "virtio-9p"
+name "virtio-9p-pci-non-transitional", bus PCI
+name "virtio-9p-pci-transitional", bus PCI
+name "virtio-blk-device", bus virtio-bus
+name "virtio-blk-pci", bus PCI, alias "virtio-blk"
+name "virtio-blk-pci-non-transitional", bus PCI
+name "virtio-blk-pci-transitional", bus PCI
+name "virtio-scsi-device", bus virtio-bus
+name "virtio-scsi-pci", bus PCI, alias "virtio-scsi"
+name "virtio-scsi-pci-non-transitional", bus PCI
+name "virtio-scsi-pci-transitional", bus PCI</p>
+<p>Network devices:
+name "e1000", bus PCI, alias "e1000-82540em", desc "Intel Gigabit Ethernet"
+name "e1000-82544gc", bus PCI, desc "Intel Gigabit Ethernet"
+name "e1000-82545em", bus PCI, desc "Intel Gigabit Ethernet"
+name "e1000e", bus PCI, desc "Intel 82574L GbE Controller"
+name "i82550", bus PCI, desc "Intel i82550 Ethernet"
+name "i82551", bus PCI, desc "Intel i82551 Ethernet"
+name "i82557a", bus PCI, desc "Intel i82557A Ethernet"
+name "i82557b", bus PCI, desc "Intel i82557B Ethernet"
+name "i82557c", bus PCI, desc "Intel i82557C Ethernet"
+name "i82558a", bus PCI, desc "Intel i82558A Ethernet"
+name "i82558b", bus PCI, desc "Intel i82558B Ethernet"
+name "i82559a", bus PCI, desc "Intel i82559A Ethernet"
+name "i82559b", bus PCI, desc "Intel i82559B Ethernet"
+name "i82559c", bus PCI, desc "Intel i82559C Ethernet"
+name "i82559er", bus PCI, desc "Intel i82559ER Ethernet"
+name "i82562", bus PCI, desc "Intel i82562 Ethernet"
+name "i82801", bus PCI, desc "Intel i82801 Ethernet"
+name "ne2k_isa", bus ISA
+name "ne2k_pci", bus PCI
+name "pcnet", bus PCI
+name "rocker", bus PCI, desc "Rocker Switch"
+name "rtl8139", bus PCI
+name "tulip", bus PCI
+name "usb-net", bus usb-bus
+name "virtio-net-device", bus virtio-bus
+name "virtio-net-pci", bus PCI, alias "virtio-net"
+name "virtio-net-pci-non-transitional", bus PCI
+name "virtio-net-pci-transitional", bus PCI
+name "vmxnet3", bus PCI, desc "VMWare Paravirtualized Ethernet v3"</p>
+<p>Input devices:
+name "i8042", bus ISA
+name "ipoctal232", bus IndustryPack, desc "GE IP-Octal 232 8-channel RS-232 IndustryPack"
+name "isa-parallel", bus ISA
+name "isa-serial", bus ISA
+name "pci-serial", bus PCI
+name "pci-serial-2x", bus PCI
+name "pci-serial-4x", bus PCI
+name "tpci200", bus PCI, desc "TEWS TPCI200 IndustryPack carrier"
+name "usb-braille", bus usb-bus
+name "usb-ccid", bus usb-bus, desc "CCID Rev 1.1 smartcard reader"
+name "usb-kbd", bus usb-bus
+name "usb-mouse", bus usb-bus
+name "usb-serial", bus usb-bus
+name "usb-tablet", bus usb-bus
+name "usb-wacom-tablet", bus usb-bus, desc "QEMU PenPartner Tablet"
+name "vhost-user-input", bus virtio-bus
+name "vhost-user-input-pci", bus PCI
+name "virtconsole", bus virtio-serial-bus
+name "virtio-input-host-device", bus virtio-bus
+name "virtio-input-host-pci", bus PCI, alias "virtio-input-host"
+name "virtio-keyboard-device", bus virtio-bus
+name "virtio-keyboard-pci", bus PCI, alias "virtio-keyboard"
+name "virtio-mouse-device", bus virtio-bus
+name "virtio-mouse-pci", bus PCI, alias "virtio-mouse"
+name "virtio-serial-device", bus virtio-bus
+name "virtio-serial-pci", bus PCI, alias "virtio-serial"
+name "virtio-serial-pci-non-transitional", bus PCI
+name "virtio-serial-pci-transitional", bus PCI
+name "virtio-tablet-device", bus virtio-bus
+name "virtio-tablet-pci", bus PCI, alias "virtio-tablet"
+name "virtserialport", bus virtio-serial-bus</p>
+<p>Display devices:
+name "ati-vga", bus PCI
+name "bochs-display", bus PCI
+name "cirrus-vga", bus PCI, desc "Cirrus CLGD 54xx VGA"
+name "isa-cirrus-vga", bus ISA
+name "isa-vga", bus ISA
+name "qxl", bus PCI, desc "Spice QXL GPU (secondary)"
+name "qxl-vga", bus PCI, desc "Spice QXL GPU (primary, vga compatible)"
+name "ramfb", bus System, desc "ram framebuffer standalone device"
+name "secondary-vga", bus PCI
+name "sga", bus ISA, desc "Serial Graphics Adapter"
+name "VGA", bus PCI
+name "vhost-user-gpu", bus virtio-bus
+name "vhost-user-gpu-pci", bus PCI
+name "vhost-user-vga", bus PCI
+name "virtio-gpu-device", bus virtio-bus
+name "virtio-gpu-pci", bus PCI, alias "virtio-gpu"
+name "virtio-vga", bus PCI
+name "vmware-svga", bus PCI</p>
+<p>Sound devices:
+name "AC97", bus PCI, desc "Intel 82801AA AC97 Audio"
+name "adlib", bus ISA, desc "Yamaha YM3812 (OPL2)"
+name "cs4231a", bus ISA, desc "Crystal Semiconductor CS4231A"
+name "ES1370", bus PCI, desc "ENSONIQ AudioPCI ES1370"
+name "gus", bus ISA, desc "Gravis Ultrasound GF1"
+name "hda-duplex", bus HDA, desc "HDA Audio Codec, duplex (line-out, line-in)"
+name "hda-micro", bus HDA, desc "HDA Audio Codec, duplex (speaker, microphone)"
+name "hda-output", bus HDA, desc "HDA Audio Codec, output-only (line-out)"
+name "ich9-intel-hda", bus PCI, desc "Intel HD Audio Controller (ich9)"
+name "intel-hda", bus PCI, desc "Intel HD Audio Controller (ich6)"
+name "sb16", bus ISA, desc "Creative Sound Blaster 16"
+name "usb-audio", bus usb-bus</p>
+<p>Misc devices:
+name "amd-iommu", bus System, desc "AMD IOMMU (AMD-Vi) DMA Remapping device"
+name "edu", bus PCI
+name "hyperv-testdev", bus ISA
+name "i2c-ddc", bus i2c-bus
+name "i6300esb", bus PCI
+name "ib700", bus ISA
+name "intel-iommu", bus System, desc "Intel IOMMU (VT-d) DMA Remapping device"
+name "isa-applesmc", bus ISA
+name "isa-debug-exit", bus ISA
+name "isa-debugcon", bus ISA
+name "ivshmem-doorbell", bus PCI, desc "Inter-VM shared memory"
+name "ivshmem-plain", bus PCI, desc "Inter-VM shared memory"
+name "kvaser_pci", bus PCI, desc "Kvaser PCICANx"
+name "loader", desc "Generic Loader"
+name "mioe3680_pci", bus PCI, desc "Mioe3680 PCICANx"
+name "pc-testdev", bus ISA
+name "pci-testdev", bus PCI, desc "PCI Test Device"
+name "pcm3680_pci", bus PCI, desc "Pcm3680i PCICANx"
+name "pvpanic", bus ISA
+name "smbus-ipmi", bus i2c-bus
+name "tpm-crb"
+name "usb-redir", bus usb-bus
+name "vfio-pci", bus PCI, desc "VFIO-based PCI device assignment"
+name "vfio-pci-nohotplug", bus PCI, desc "VFIO-based PCI device assignment"
+name "vhost-vsock-device", bus virtio-bus
+name "vhost-vsock-pci", bus PCI
+name "vhost-vsock-pci-non-transitional", bus PCI
+name "vhost-vsock-pci-transitional", bus PCI
+name "virtio-balloon-device", bus virtio-bus
+name "virtio-balloon-pci", bus PCI, alias "virtio-balloon"
+name "virtio-balloon-pci-non-transitional", bus PCI
+name "virtio-balloon-pci-transitional", bus PCI
+name "virtio-crypto-device", bus virtio-bus
+name "virtio-crypto-pci", bus PCI
+name "virtio-iommu-device", bus virtio-bus
+name "virtio-iommu-pci", bus PCI, alias "virtio-iommu"
+name "virtio-iommu-pci-non-transitional", bus PCI
+name "virtio-iommu-pci-transitional", bus PCI
+name "virtio-pmem-pci", bus PCI
+name "virtio-rng-device", bus virtio-bus
+name "virtio-rng-pci", bus PCI, alias "virtio-rng"
+name "virtio-rng-pci-non-transitional", bus PCI
+name "virtio-rng-pci-transitional", bus PCI
+name "vmcoreinfo"
+name "vmgenid"</p>
+<p>CPU devices:
+name "486-v1-x86_64-cpu"
+name "486-x86_64-cpu"
+name "athlon-v1-x86_64-cpu"
+name "athlon-x86_64-cpu"
+name "base-x86_64-cpu"
+name "Broadwell-IBRS-x86_64-cpu"
+name "Broadwell-noTSX-IBRS-x86_64-cpu"
+name "Broadwell-noTSX-x86_64-cpu"
+name "Broadwell-v1-x86_64-cpu"
+name "Broadwell-v2-x86_64-cpu"
+name "Broadwell-v3-x86_64-cpu"
+name "Broadwell-v4-x86_64-cpu"
+name "Broadwell-x86_64-cpu"
+name "Cascadelake-Server-noTSX-x86_64-cpu"
+name "Cascadelake-Server-v1-x86_64-cpu"
+name "Cascadelake-Server-v2-x86_64-cpu"
+name "Cascadelake-Server-v3-x86_64-cpu"
+name "Cascadelake-Server-x86_64-cpu"
+name "Conroe-v1-x86_64-cpu"
+name "Conroe-x86_64-cpu"
+name "Cooperlake-v1-x86_64-cpu"
+name "Cooperlake-x86_64-cpu"
+name "core2duo-v1-x86_64-cpu"
+name "core2duo-x86_64-cpu"
+name "coreduo-v1-x86_64-cpu"
+name "coreduo-x86_64-cpu"
+name "Denverton-v1-x86_64-cpu"
+name "Denverton-v2-x86_64-cpu"
+name "Denverton-x86_64-cpu"
+name "Dhyana-v1-x86_64-cpu"
+name "Dhyana-x86_64-cpu"
+name "EPYC-IBPB-x86_64-cpu"
+name "EPYC-Rome-v1-x86_64-cpu"
+name "EPYC-Rome-x86_64-cpu"
+name "EPYC-v1-x86_64-cpu"
+name "EPYC-v2-x86_64-cpu"
+name "EPYC-v3-x86_64-cpu"
+name "EPYC-x86_64-cpu"
+name "Haswell-IBRS-x86_64-cpu"
+name "Haswell-noTSX-IBRS-x86_64-cpu"
+name "Haswell-noTSX-x86_64-cpu"
+name "Haswell-v1-x86_64-cpu"
+name "Haswell-v2-x86_64-cpu"
+name "Haswell-v3-x86_64-cpu"
+name "Haswell-v4-x86_64-cpu"
+name "Haswell-x86_64-cpu"
+name "host-x86_64-cpu"
+name "Icelake-Client-noTSX-x86_64-cpu"
+name "Icelake-Client-v1-x86_64-cpu"
+name "Icelake-Client-v2-x86_64-cpu"
+name "Icelake-Client-x86_64-cpu"
+name "Icelake-Server-noTSX-x86_64-cpu"
+name "Icelake-Server-v1-x86_64-cpu"
+name "Icelake-Server-v2-x86_64-cpu"
+name "Icelake-Server-v3-x86_64-cpu"
+name "Icelake-Server-x86_64-cpu"
+name "IvyBridge-IBRS-x86_64-cpu"
+name "IvyBridge-v1-x86_64-cpu"
+name "IvyBridge-v2-x86_64-cpu"
+name "IvyBridge-x86_64-cpu"
+name "KnightsMill-v1-x86_64-cpu"
+name "KnightsMill-x86_64-cpu"
+name "kvm32-v1-x86_64-cpu"
+name "kvm32-x86_64-cpu"
+name "kvm64-v1-x86_64-cpu"
+name "kvm64-x86_64-cpu"
+name "max-x86_64-cpu"
+name "n270-v1-x86_64-cpu"
+name "n270-x86_64-cpu"
+name "Nehalem-IBRS-x86_64-cpu"
+name "Nehalem-v1-x86_64-cpu"
+name "Nehalem-v2-x86_64-cpu"
+name "Nehalem-x86_64-cpu"
+name "Opteron_G1-v1-x86_64-cpu"
+name "Opteron_G1-x86_64-cpu"
+name "Opteron_G2-v1-x86_64-cpu"
+name "Opteron_G2-x86_64-cpu"
+name "Opteron_G3-v1-x86_64-cpu"
+name "Opteron_G3-x86_64-cpu"
+name "Opteron_G4-v1-x86_64-cpu"
+name "Opteron_G4-x86_64-cpu"
+name "Opteron_G5-v1-x86_64-cpu"
+name "Opteron_G5-x86_64-cpu"
+name "Penryn-v1-x86_64-cpu"
+name "Penryn-x86_64-cpu"
+name "pentium-v1-x86_64-cpu"
+name "pentium-x86_64-cpu"
+name "pentium2-v1-x86_64-cpu"
+name "pentium2-x86_64-cpu"
+name "pentium3-v1-x86_64-cpu"
+name "pentium3-x86_64-cpu"
+name "phenom-v1-x86_64-cpu"
+name "phenom-x86_64-cpu"
+name "qemu32-v1-x86_64-cpu"
+name "qemu32-x86_64-cpu"
+name "qemu64-v1-x86_64-cpu"
+name "qemu64-x86_64-cpu"
+name "SandyBridge-IBRS-x86_64-cpu"
+name "SandyBridge-v1-x86_64-cpu"
+name "SandyBridge-v2-x86_64-cpu"
+name "SandyBridge-x86_64-cpu"
+name "Skylake-Client-IBRS-x86_64-cpu"
+name "Skylake-Client-noTSX-IBRS-x86_64-cpu"
+name "Skylake-Client-v1-x86_64-cpu"
+name "Skylake-Client-v2-x86_64-cpu"
+name "Skylake-Client-v3-x86_64-cpu"
+name "Skylake-Client-x86_64-cpu"
+name "Skylake-Server-IBRS-x86_64-cpu"
+name "Skylake-Server-noTSX-IBRS-x86_64-cpu"
+name "Skylake-Server-v1-x86_64-cpu"
+name "Skylake-Server-v2-x86_64-cpu"
+name "Skylake-Server-v3-x86_64-cpu"
+name "Skylake-Server-x86_64-cpu"
+name "Snowridge-v1-x86_64-cpu"
+name "Snowridge-v2-x86_64-cpu"
+name "Snowridge-x86_64-cpu"
+name "Westmere-IBRS-x86_64-cpu"
+name "Westmere-v1-x86_64-cpu"
+name "Westmere-v2-x86_64-cpu"
+name "Westmere-x86_64-cpu"</p>
+<p>Uncategorized devices:
+name "AMDVI-PCI", bus PCI
+name "ipmi-bmc-extern"
+name "ipmi-bmc-sim"
+name "isa-ipmi-bt", bus ISA
+name "isa-ipmi-kcs", bus ISA
+name "mc146818rtc", bus ISA
+name "nvdimm", desc "DIMM memory module"
+name "pc-dimm", desc "DIMM memory module"
+name "pci-ipmi-bt", bus PCI, desc "PCI IPMI BT"
+name "pci-ipmi-kcs", bus PCI, desc "PCI IPMI KCS"
+name "tpm-tis", bus ISA
+name "virtio-pmem", bus virtio-bus
+name "vmmouse", bus ISA</p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=aarch64>aarch64<a href=#aarch64 class=hash-link aria-label="Direct link to aarch64" title="Direct link to aarch64" translate=no>​</a></h2>
+<p>Controller/Bridge/Hub devices:
+name "i82801b11-bridge", bus PCI
+name "ioh3420", bus PCI, desc "Intel IOH device id 3420 PCIE Root Port"
+name "pci-bridge", bus PCI, desc "Standard PCI Bridge"
+name "pci-bridge-seat", bus PCI, desc "Standard PCI Bridge (multiseat)"
+name "pcie-pci-bridge", bus PCI
+name "pcie-root-port", bus PCI, desc "PCI Express Root Port"
+name "usb-host", bus usb-bus
+name "usb-hub", bus usb-bus
+name "x3130-upstream", bus PCI, desc "TI X3130 Upstream Port of PCI Express Switch"
+name "xio3130-downstream", bus PCI, desc "TI X3130 Downstream Port of PCI Express Switch"</p>
+<p>USB devices:
+name "ich9-usb-ehci1", bus PCI
+name "ich9-usb-ehci2", bus PCI
+name "ich9-usb-uhci1", bus PCI
+name "ich9-usb-uhci2", bus PCI
+name "ich9-usb-uhci3", bus PCI
+name "ich9-usb-uhci4", bus PCI
+name "ich9-usb-uhci5", bus PCI
+name "ich9-usb-uhci6", bus PCI
+name "nec-usb-xhci", bus PCI
+name "pci-ohci", bus PCI, desc "Apple USB Controller"
+name "piix3-usb-uhci", bus PCI
+name "piix4-usb-uhci", bus PCI
+name "qemu-xhci", bus PCI
+name "usb-ehci", bus PCI
+name "vt82c686b-usb-uhci", bus PCI</p>
+<p>Storage devices:
+name "am53c974", bus PCI, desc "AMD Am53c974 PCscsi-PCI SCSI adapter"
+name "dc390", bus PCI, desc "Tekram DC-390 SCSI adapter"
+name "ich9-ahci", bus PCI, alias "ahci"
+name "ide-cd", bus IDE, desc "virtual IDE CD-ROM"
+name "ide-drive", bus IDE, desc "virtual IDE disk or CD-ROM (legacy)"
+name "ide-hd", bus IDE, desc "virtual IDE disk"
+name "lsi53c810", bus PCI
+name "lsi53c895a", bus PCI, alias "lsi"
+name "megasas", bus PCI, desc "LSI MegaRAID SAS 1078"
+name "megasas-gen2", bus PCI, desc "LSI MegaRAID SAS 2108"
+name "mptsas1068", bus PCI, desc "LSI SAS 1068"
+name "nvme", bus PCI, desc "Non-Volatile Memory Express"
+name "pvscsi", bus PCI
+name "scsi-block", bus SCSI, desc "SCSI block device passthrough"
+name "scsi-cd", bus SCSI, desc "virtual SCSI CD-ROM"
+name "scsi-disk", bus SCSI, desc "virtual SCSI disk or CD-ROM (legacy)"
+name "scsi-generic", bus SCSI, desc "pass through generic scsi device (/dev/sg*)"
+name "scsi-hd", bus SCSI, desc "virtual SCSI disk"
+name "sd-card", bus sd-bus
+name "sdhci-pci", bus PCI
+name "usb-bot", bus usb-bus
+name "usb-mtp", bus usb-bus, desc "USB Media Transfer Protocol device"
+name "usb-storage", bus usb-bus
+name "usb-uas", bus usb-bus
+name "vhost-scsi", bus virtio-bus
+name "vhost-scsi-pci", bus PCI
+name "vhost-scsi-pci-non-transitional", bus PCI
+name "vhost-scsi-pci-transitional", bus PCI
+name "vhost-user-blk", bus virtio-bus
+name "vhost-user-blk-pci", bus PCI
+name "vhost-user-blk-pci-non-transitional", bus PCI
+name "vhost-user-blk-pci-transitional", bus PCI
+name "vhost-user-fs-device", bus virtio-bus
+name "vhost-user-fs-pci", bus PCI
+name "vhost-user-scsi", bus virtio-bus
+name "vhost-user-scsi-pci", bus PCI
+name "vhost-user-scsi-pci-non-transitional", bus PCI
+name "vhost-user-scsi-pci-transitional", bus PCI
+name "virtio-9p-device", bus virtio-bus
+name "virtio-9p-pci", bus PCI, alias "virtio-9p"
+name "virtio-9p-pci-non-transitional", bus PCI
+name "virtio-9p-pci-transitional", bus PCI
+name "virtio-blk-device", bus virtio-bus
+name "virtio-blk-pci", bus PCI, alias "virtio-blk"
+name "virtio-blk-pci-non-transitional", bus PCI
+name "virtio-blk-pci-transitional", bus PCI
+name "virtio-scsi-device", bus virtio-bus
+name "virtio-scsi-pci", bus PCI, alias "virtio-scsi"
+name "virtio-scsi-pci-non-transitional", bus PCI
+name "virtio-scsi-pci-transitional", bus PCI</p>
+<p>Network devices:
+name "e1000", bus PCI, alias "e1000-82540em", desc "Intel Gigabit Ethernet"
+name "e1000-82544gc", bus PCI, desc "Intel Gigabit Ethernet"
+name "e1000-82545em", bus PCI, desc "Intel Gigabit Ethernet"
+name "e1000e", bus PCI, desc "Intel 82574L GbE Controller"
+name "i82550", bus PCI, desc "Intel i82550 Ethernet"
+name "i82551", bus PCI, desc "Intel i82551 Ethernet"
+name "i82557a", bus PCI, desc "Intel i82557A Ethernet"
+name "i82557b", bus PCI, desc "Intel i82557B Ethernet"
+name "i82557c", bus PCI, desc "Intel i82557C Ethernet"
+name "i82558a", bus PCI, desc "Intel i82558A Ethernet"
+name "i82558b", bus PCI, desc "Intel i82558B Ethernet"
+name "i82559a", bus PCI, desc "Intel i82559A Ethernet"
+name "i82559b", bus PCI, desc "Intel i82559B Ethernet"
+name "i82559c", bus PCI, desc "Intel i82559C Ethernet"
+name "i82559er", bus PCI, desc "Intel i82559ER Ethernet"
+name "i82562", bus PCI, desc "Intel i82562 Ethernet"
+name "i82801", bus PCI, desc "Intel i82801 Ethernet"
+name "ne2k_pci", bus PCI
+name "pcnet", bus PCI
+name "rocker", bus PCI, desc "Rocker Switch"
+name "rtl8139", bus PCI
+name "tulip", bus PCI
+name "usb-net", bus usb-bus
+name "virtio-net-device", bus virtio-bus
+name "virtio-net-pci", bus PCI, alias "virtio-net"
+name "virtio-net-pci-non-transitional", bus PCI
+name "virtio-net-pci-transitional", bus PCI
+name "vmxnet3", bus PCI, desc "VMWare Paravirtualized Ethernet v3"</p>
+<p>Input devices:
+name "ipoctal232", bus IndustryPack, desc "GE IP-Octal 232 8-channel RS-232 IndustryPack"
+name "pci-serial", bus PCI
+name "pci-serial-2x", bus PCI
+name "pci-serial-4x", bus PCI
+name "tpci200", bus PCI, desc "TEWS TPCI200 IndustryPack carrier"
+name "usb-braille", bus usb-bus
+name "usb-ccid", bus usb-bus, desc "CCID Rev 1.1 smartcard reader"
+name "usb-kbd", bus usb-bus
+name "usb-mouse", bus usb-bus
+name "usb-serial", bus usb-bus
+name "usb-tablet", bus usb-bus
+name "usb-wacom-tablet", bus usb-bus, desc "QEMU PenPartner Tablet"
+name "vhost-user-input", bus virtio-bus
+name "vhost-user-input-pci", bus PCI
+name "virtconsole", bus virtio-serial-bus
+name "virtio-input-host-device", bus virtio-bus
+name "virtio-input-host-pci", bus PCI, alias "virtio-input-host"
+name "virtio-keyboard-device", bus virtio-bus
+name "virtio-keyboard-pci", bus PCI, alias "virtio-keyboard"
+name "virtio-mouse-device", bus virtio-bus
+name "virtio-mouse-pci", bus PCI, alias "virtio-mouse"
+name "virtio-serial-device", bus virtio-bus
+name "virtio-serial-pci", bus PCI, alias "virtio-serial"
+name "virtio-serial-pci-non-transitional", bus PCI
+name "virtio-serial-pci-transitional", bus PCI
+name "virtio-tablet-device", bus virtio-bus
+name "virtio-tablet-pci", bus PCI, alias "virtio-tablet"
+name "virtserialport", bus virtio-serial-bus</p>
+<p>Display devices:
+name "ati-vga", bus PCI
+name "bochs-display", bus PCI
+name "cirrus-vga", bus PCI, desc "Cirrus CLGD 54xx VGA"
+name "ramfb", bus System, desc "ram framebuffer standalone device"
+name "secondary-vga", bus PCI
+name "VGA", bus PCI
+name "vhost-user-gpu", bus virtio-bus
+name "vhost-user-gpu-pci", bus PCI
+name "virtio-gpu-device", bus virtio-bus
+name "virtio-gpu-pci", bus PCI, alias "virtio-gpu"
+name "vmware-svga", bus PCI</p>
+<p>Sound devices:
+name "AC97", bus PCI, desc "Intel 82801AA AC97 Audio"
+name "ES1370", bus PCI, desc "ENSONIQ AudioPCI ES1370"
+name "hda-duplex", bus HDA, desc "HDA Audio Codec, duplex (line-out, line-in)"
+name "hda-micro", bus HDA, desc "HDA Audio Codec, duplex (speaker, microphone)"
+name "hda-output", bus HDA, desc "HDA Audio Codec, output-only (line-out)"
+name "ich9-intel-hda", bus PCI, desc "Intel HD Audio Controller (ich9)"
+name "intel-hda", bus PCI, desc "Intel HD Audio Controller (ich6)"
+name "usb-audio", bus usb-bus</p>
+<p>Misc devices:
+name "dpcd", bus aux-bus
+name "ds1338", bus i2c-bus
+name "edu", bus PCI
+name "i2c-ddc", bus i2c-bus
+name "i6300esb", bus PCI
+name "ivshmem-doorbell", bus PCI, desc "Inter-VM shared memory"
+name "ivshmem-plain", bus PCI, desc "Inter-VM shared memory"
+name "kvaser_pci", bus PCI, desc "Kvaser PCICANx"
+name "lm8323", bus i2c-bus
+name "loader", desc "Generic Loader"
+name "max7310", bus i2c-bus
+name "mioe3680_pci", bus PCI, desc "Mioe3680 PCICANx"
+name "pca9552", bus i2c-bus
+name "pci-testdev", bus PCI, desc "PCI Test Device"
+name "pcm3680_pci", bus PCI, desc "Pcm3680i PCICANx"
+name "pxa2xx-i2c-slave", bus i2c-bus
+name "sii9022", bus i2c-bus
+name "ssd0303", bus i2c-bus
+name "tmp105", bus i2c-bus
+name "tmp421", bus i2c-bus
+name "tmp422", bus i2c-bus
+name "tmp423", bus i2c-bus
+name "tosa_dac", bus i2c-bus
+name "twl92230", bus i2c-bus
+name "usb-redir", bus usb-bus
+name "vfio-amd-xgbe", bus System, desc "VFIO AMD XGBE"
+name "vfio-calxeda-xgmac", bus System, desc "VFIO Calxeda XGMAC"
+name "vfio-pci", bus PCI, desc "VFIO-based PCI device assignment"
+name "vfio-pci-nohotplug", bus PCI, desc "VFIO-based PCI device assignment"
+name "vfio-platform", bus System, desc "VFIO-based platform device assignment"
+name "vhost-vsock-device", bus virtio-bus
+name "vhost-vsock-pci", bus PCI
+name "vhost-vsock-pci-non-transitional", bus PCI
+name "vhost-vsock-pci-transitional", bus PCI
+name "virtio-balloon-device", bus virtio-bus
+name "virtio-balloon-pci", bus PCI, alias "virtio-balloon"
+name "virtio-balloon-pci-non-transitional", bus PCI
+name "virtio-balloon-pci-transitional", bus PCI
+name "virtio-crypto-device", bus virtio-bus
+name "virtio-crypto-pci", bus PCI
+name "virtio-iommu-device", bus virtio-bus
+name "virtio-iommu-pci", bus PCI, alias "virtio-iommu"
+name "virtio-iommu-pci-non-transitional", bus PCI
+name "virtio-iommu-pci-transitional", bus PCI
+name "virtio-rng-device", bus virtio-bus
+name "virtio-rng-pci", bus PCI, alias "virtio-rng"
+name "virtio-rng-pci-non-transitional", bus PCI
+name "virtio-rng-pci-transitional", bus PCI
+name "vmcoreinfo"
+name "wm8750", bus i2c-bus</p>
+<p>Uncategorized devices:
+name "160s33b", bus SSI
+name "320s33b", bus SSI
+name "640s33b", bus SSI
+name "ads7846", bus SSI
+name "at25128a-nonjedec", bus SSI
+name "at25256a-nonjedec", bus SSI
+name "at25df041a", bus SSI
+name "at25df321a", bus SSI
+name "at25df641", bus SSI
+name "at25fs010", bus SSI
+name "at25fs040", bus SSI
+name "at26df081a", bus SSI
+name "at26df161a", bus SSI
+name "at26df321", bus SSI
+name "at26f004", bus SSI
+name "at45db081d", bus SSI
+name "corgi-ssp", bus SSI
+name "en25f32", bus SSI
+name "en25p32", bus SSI
+name "en25p64", bus SSI
+name "en25q32b", bus SSI
+name "en25q64", bus SSI
+name "gd25q32", bus SSI
+name "gd25q64", bus SSI
+name "m25p05", bus SSI
+name "m25p10", bus SSI
+name "m25p128", bus SSI
+name "m25p16", bus SSI
+name "m25p20", bus SSI
+name "m25p32", bus SSI
+name "m25p40", bus SSI
+name "m25p64", bus SSI
+name "m25p80", bus SSI
+name "m25pe16", bus SSI
+name "m25pe20", bus SSI
+name "m25pe80", bus SSI
+name "m25px32", bus SSI
+name "m25px32-s0", bus SSI
+name "m25px32-s1", bus SSI
+name "m25px64", bus SSI
+name "m45pe10", bus SSI
+name "m45pe16", bus SSI
+name "m45pe80", bus SSI
+name "max1110", bus SSI
+name "max1111", bus SSI
+name "mt25ql01g", bus SSI
+name "mt25qu01g", bus SSI
+name "mx25l12805d", bus SSI
+name "mx25l12855e", bus SSI
+name "mx25l1606e", bus SSI
+name "mx25l2005a", bus SSI
+name "mx25l25635e", bus SSI
+name "mx25l25655e", bus SSI
+name "mx25l3205d", bus SSI
+name "mx25l4005a", bus SSI
+name "mx25l6405d", bus SSI
+name "mx25l8005", bus SSI
+name "mx66l1g45g", bus SSI
+name "mx66u1g45g", bus SSI
+name "mx66u51235f", bus SSI
+name "n25q00", bus SSI
+name "n25q00a", bus SSI
+name "n25q032", bus SSI
+name "n25q032a11", bus SSI
+name "n25q032a13", bus SSI
+name "n25q064", bus SSI
+name "n25q064a11", bus SSI
+name "n25q064a13", bus SSI
+name "n25q128", bus SSI
+name "n25q128a11", bus SSI
+name "n25q128a13", bus SSI
+name "n25q256a", bus SSI
+name "n25q256a11", bus SSI
+name "n25q256a13", bus SSI
+name "n25q512a", bus SSI
+name "n25q512a11", bus SSI
+name "n25q512a13", bus SSI
+name "nand"
+name "pc-dimm", desc "DIMM memory module"
+name "s25fl016k", bus SSI
+name "s25fl064k", bus SSI
+name "s25fl129p0", bus SSI
+name "s25fl129p1", bus SSI
+name "s25fl256s0", bus SSI
+name "s25fl256s1", bus SSI
+name "s25fl512s", bus SSI
+name "s25fs512s", bus SSI
+name "s25sl004a", bus SSI
+name "s25sl008a", bus SSI
+name "s25sl016a", bus SSI
+name "s25sl032a", bus SSI
+name "s25sl032p", bus SSI
+name "s25sl064a", bus SSI
+name "s25sl064p", bus SSI
+name "s25sl12800", bus SSI
+name "s25sl12801", bus SSI
+name "s70fl01gs", bus SSI
+name "s70fs01gs", bus SSI
+name "spitz-lcdtg", bus SSI
+name "ssd0323", bus SSI
+name "sst25vf016b", bus SSI
+name "sst25vf032b", bus SSI
+name "sst25vf040b", bus SSI
+name "sst25vf080b", bus SSI
+name "sst25wf010", bus SSI
+name "sst25wf020", bus SSI
+name "sst25wf040", bus SSI
+name "sst25wf080", bus SSI
+name "sst25wf512", bus SSI
+name "tosa-ssp", bus SSI
+name "tpm-tis-device", bus System
+name "w25q256", bus SSI
+name "w25q32", bus SSI
+name "w25q32dw", bus SSI
+name "w25q512jv", bus SSI
+name "w25q64", bus SSI
+name "w25q80", bus SSI
+name "w25q80bl", bus SSI
+name "w25x10", bus SSI
+name "w25x16", bus SSI
+name "w25x20", bus SSI
+name "w25x32", bus SSI
+name "w25x40", bus SSI
+name "w25x64", bus SSI
+name "w25x80", bus SSI</div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/virtualization>Virtualization</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/qemu>QEMU</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/device>Device</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/hardware>Hardware</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/os/virt/qemu-device.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-01-03T14:49:30.000Z itemprop=dateModified>Jan 3, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/os/virt/qemu/windows-host><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>QEMU Windows 宿主机</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/os/virt/qemu-network><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>QEMU Networking</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#device-list class="table-of-contents__link toc-highlight">Device List</a><li><a href=#aarch64 class="table-of-contents__link toc-highlight">aarch64</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

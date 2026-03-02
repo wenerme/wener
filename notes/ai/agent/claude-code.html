@@ -1,0 +1,700 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ai/agent/claude-code" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>Claude Code | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/ai/agent/claude-code /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Claude Code | Wener Live & Life"/><meta data-rh=true name=description content="- anthropics/claude-code"/><meta data-rh=true property=og:description content="- anthropics/claude-code"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/ai/agent/claude-code /><link data-rh=true rel=alternate href=https://wener.me/notes/ai/agent/claude-code hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/ai/agent/claude-code hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/ai/","name":"AI","position":1},{"@type":"ListItem","item":"https://wener.me/notes/ai/agent/","name":"Agent","position":2},{"@type":"ListItem","item":"https://wener.me/notes/ai/agent/claude-code","name":"Claude Code","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Collapse sidebar category 'AI'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/ai/agent><span title=Agent class=categoryLinkLabel_RkOu>Agent</span></a><button aria-label="Collapse sidebar category 'Agent'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/acp><span title=ACP class=linkLabel_JPPZ>ACP</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/awesome><span title="AI Agent Awesome" class=linkLabel_JPPZ>AI Agent Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/browser><span title="Agent Browser" class=linkLabel_JPPZ>Agent Browser</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/design><span title="Agent Design" class=linkLabel_JPPZ>Agent Design</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/faq><span title="Agent FAQ" class=linkLabel_JPPZ>Agent FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/rule><span title="Agent Rule" class=linkLabel_JPPZ>Agent Rule</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/antigravity><span title=Antigravity class=linkLabel_JPPZ>Antigravity</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/ax><span title=AX class=linkLabel_JPPZ>AX</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/ai/agent/claude-code><span title="Claude Code" class=linkLabel_JPPZ>Claude Code</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/claude-flow><span title="Claude Flow" class=linkLabel_JPPZ>Claude Flow</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/cursor><span title=Cursor class=linkLabel_JPPZ>Cursor</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/gemini-cli><span title=gemini-cli class=linkLabel_JPPZ>gemini-cli</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/happy><span title=slopus/happy class=linkLabel_JPPZ>slopus/happy</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/agent/mcp><span title=MCP class=categoryLinkLabel_RkOu>MCP</span></a><button aria-label="Expand sidebar category 'MCP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/nanobot><span title=NanoBot class=linkLabel_JPPZ>NanoBot</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/openclaw><span title="OpenClaw 项目分析" class=linkLabel_JPPZ>OpenClaw 项目分析</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/opencode><span title=opencode class=linkLabel_JPPZ>opencode</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/peekaboo><span title=Peekaboo class=linkLabel_JPPZ>Peekaboo</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/agent/skill><span title=skill class=linkLabel_JPPZ>skill</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/awesome><span title="AI Awesome" class=linkLabel_JPPZ>AI Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/faq><span title="AI FAQ" class=linkLabel_JPPZ>AI FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/glossary><span title="AI Glossary" class=linkLabel_JPPZ>AI Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/insight><span title="AI Insight" class=linkLabel_JPPZ>AI Insight</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/aigc><span title=AIGC class=linkLabel_JPPZ>AIGC</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/ai/coding/continue><span title=coding class=categoryLinkLabel_RkOu>coding</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dayflow><span title=Dayflow class=linkLabel_JPPZ>Dayflow</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/ai/dev/awesome><span title=dev class=categoryLinkLabel_RkOu>dev</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/diffusion><span title=Diffusion class=categoryLinkLabel_RkOu>Diffusion</span></a><button aria-label="Expand sidebar category 'Diffusion'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/dify><span title=Dify class=linkLabel_JPPZ>Dify</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/embedding><span title=Embedding class=linkLabel_JPPZ>Embedding</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/gan><span title=GANs class=categoryLinkLabel_RkOu>GANs</span></a><button aria-label="Expand sidebar category 'GANs'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/gpt><span title=GPT class=categoryLinkLabel_RkOu>GPT</span></a><button aria-label="Expand sidebar category 'GPT'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/inference><span title=推理 class=categoryLinkLabel_RkOu>推理</span></a><button aria-label="Expand sidebar category '推理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/llm><span title=LLM class=categoryLinkLabel_RkOu>LLM</span></a><button aria-label="Expand sidebar category 'LLM'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/maas><span title=MaaS class=categoryLinkLabel_RkOu>MaaS</span></a><button aria-label="Expand sidebar category 'MaaS'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/ml><span title=机器学习 class=categoryLinkLabel_RkOu>机器学习</span></a><button aria-label="Expand sidebar category '机器学习'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/ai/model/awesome><span title=model class=categoryLinkLabel_RkOu>model</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/ner><span title="Named Entity Recognition" class=linkLabel_JPPZ>Named Entity Recognition</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/nlp><span title=NLP class=categoryLinkLabel_RkOu>NLP</span></a><button aria-label="Expand sidebar category 'NLP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/ocr><span title=OCR class=categoryLinkLabel_RkOu>OCR</span></a><button aria-label="Expand sidebar category 'OCR'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/precision><span title=精度 class=linkLabel_JPPZ>精度</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/projects><span title="AI Projects" class=linkLabel_JPPZ>AI Projects</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/prompt-awesome><span title="Prompt Awesome" class=linkLabel_JPPZ>Prompt Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/prompts><span title=Prompts class=linkLabel_JPPZ>Prompts</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/prompts-cookbook><span title="Prompts Cookbook" class=linkLabel_JPPZ>Prompts Cookbook</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/service><span title="AI Service" class=categoryLinkLabel_RkOu>AI Service</span></a><button aria-label="Expand sidebar category 'AI Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/training><span title=训练 class=categoryLinkLabel_RkOu>训练</span></a><button aria-label="Expand sidebar category '训练'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/ai/vision><span title=视觉 class=linkLabel_JPPZ>视觉</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/ai/voice><span title=Voice class=categoryLinkLabel_RkOu>Voice</span></a><button aria-label="Expand sidebar category 'Voice'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/ai><span>AI</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/ai/agent><span>Agent</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Claude Code</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Claude Code</h1></header>
+<ul>
+<li><a href=https://github.com/anthropics/claude-code target=_blank rel="noopener noreferrer">anthropics/claude-code</a></li>
+<li><a href=https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md target=_blank rel="noopener noreferrer">https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md</a></li>
+<li>Awesome
+<ul>
+<li><a href=https://github.com/musistudio/claude-code-router target=_blank rel="noopener noreferrer">musistudio/claude-code-router</a></li>
+<li><a href=https://github.com/Maciek-roboblog/Claude-Code-Usage-Monitor target=_blank rel="noopener noreferrer">Maciek-roboblog/Claude-Code-Usage-Monitor</a>
+<ul>
+<li>MIT, Python</li>
+</ul>
+</li>
+<li><a href=https://github.com/hesreallyhim/awesome-claude-code target=_blank rel="noopener noreferrer">hesreallyhim/awesome-claude-code</a></li>
+<li><a href=https://github.com/ruvnet/claude-flow target=_blank rel="noopener noreferrer">ruvnet/claude-flow</a>
+<ul>
+<li>MIT, TS, JS</li>
+</ul>
+</li>
+<li><a href=https://github.com/ryoppippi/ccusage target=_blank rel="noopener noreferrer">ryoppippi/ccusage</a></li>
+<li><a href=https://github.com/eyaltoledano/claude-task-master target=_blank rel="noopener noreferrer">eyaltoledano/claude-task-master</a></li>
+<li><a href=https://github.com/Piebald-AI/tweakcc target=_blank rel="noopener noreferrer">https://github.com/Piebald-AI/tweakcc</a>
+<ul>
+<li><code>npx -y tweakcc</code></li>
+</ul>
+</li>
+<li><a href=https://github.com/sirmalloc/ccstatusline target=_blank rel="noopener noreferrer">https://github.com/sirmalloc/ccstatusline</a>
+<ul>
+<li><code>npx -y ccstatusline@latest</code></li>
+<li><a href=https://github.com/powerline/fonts target=_blank rel="noopener noreferrer">https://github.com/powerline/fonts</a>
+<ul>
+<li>brew install font-powerline-symbols</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="theme-admonition theme-admonition-caution admonition_phik alert alert--warning"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 16 16"><path fill-rule=evenodd d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></span>caution</div><div class=admonitionContent_R6P7><ul>
+<li>Add dynamic loading/unloading of MCP servers during active sessions <a href=https://github.com/anthropics/claude-code/issues/6638 target=_blank rel="noopener noreferrer">#6638</a>
+<ul>
+<li>目前 mcp 太多会导致 token 消耗过多</li>
+<li>可以临时 deny 一些 mcp</li>
+</ul>
+</li>
+<li>Add --session-name and /session-name for custom session identification <a href=https://github.com/anthropics/claude-code/issues/2112 target=_blank rel="noopener noreferrer">https://github.com/anthropics/claude-code/issues/2112</a></li>
+<li>官方正在 Work 把 CC 做到 Web 和 移动端</li>
+</ul></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">brew install claude-code</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">curl -fsSL https://claude.ai/install.sh | bash</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 目前不推荐 NPM 安装了</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm install -g @anthropic-ai/claude-code</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 claude</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ANTHROPIC_BASE_URL= ANTHROPIC_AUTH_TOKEN= ANTHROPIC_MODEL= claude</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npx -y ccusage blocks --live</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npx -y ccusage session</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">claude config list</span><br/></span></code></pre></div></div>
+<ul>
+<li>Native Install
+<ul>
+<li><code>~/.local/share/claude/versions/</code></li>
+<li><code>https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{VERSION}/manifest.json</code></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>cmd<th>for<tbody><tr><td><code>!</code><td>进入 bash 模式运行终端命令<tr><td><code>/</code><td>执行 Claude Code 内置命令<tr><td><code>@</code><td>快速引用或操作文件路径<tr><td><code>#</code><td>记忆内容供后续使用<tr><td>esc esc<td>清空当前输入<tr><td>ctrl + _<td>撤销操作<tr><td>shift + tab<td>自动接受编辑建议<tr><td>ctrl + r<td>启用详细输出模式<tr><td>ctrl + z<td>暂停 Claude Code<tr><td>shift + ⏎<td>换行（在输入框中）</table>
+<ul>
+<li>~/.claude.json</li>
+</ul>
+<p>:::tips API Key 最小配置</p>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockTitle_Lwh4>~/.claude/settings.json</div><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"env"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"ANTHROPIC_BASE_URL"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"https://api.anthropic.com"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"ANTHROPIC_AUTH_TOKEN"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">""</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<ul>
+<li>按需修改 base url 和 auth token</li>
+<li>如果需要自定义模型, 配置这些
+<ul>
+<li>ANTHROPIC_MODEL</li>
+<li>ANTHROPIC_DEFAULT_HAIKU_MODEL</li>
+<li>ANTHROPIC_DEFAULT_OPUS_MODEL</li>
+<li>ANTHROPIC_DEFAULT_SONNET_MODEL</li>
+</ul>
+</li>
+</ul>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockTitle_Lwh4>~/.claude.json</div><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"hasCompletedOnboarding"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token boolean" style="color:rgb(255, 88, 116)">true</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<ul>
+<li>配置这个跳过 onbording 过程</li>
+</ul>
+<p>:::</p>
+<p><strong>配置文件和优先级</strong></p>
+<ul>
+<li>~/.claude/settings.json</li>
+<li>.claude/settings.json</li>
+<li>.claude/settings.local.json</li>
+<li>命令行参数</li>
+<li>enterprise managed policy settings
+<ul>
+<li>/Library/Application Support/ClaudeCode/managed-settings.json</li>
+<li>/etc/claude-code/managed-settings.json</li>
+<li>C:\ProgramData\ClaudeCode\managed-settings.json</li>
+</ul>
+</li>
+</ul>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockTitle_Lwh4>settings.json</div><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"permissions"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"allow"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(npm run lint)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(npm run test:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"Read(~/.zshrc)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"deny"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(curl:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"ask"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Claude 可以访问的额外工作目录</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// /add-dir</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// --add-dir &lt;path></span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"additionalDirectories"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// default - 标准行为：首次使用每个工具时提示权限</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// acceptEdits - 自动接受会话的文件编辑权限</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// plan - 计划模式：Claude 可以分析但不能修改文件或执行命令</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// bypassPermissions - 跳过所有权限提示</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"defaultMode"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"default"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 设置为 "disable" 可防止激活 bypassPermissions 模式</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"disableBypassPermissionsMode"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"disable"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"env"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"CLAUDE_CODE_ENABLE_TELEMETRY"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"1"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"OTEL_METRICS_EXPORTER"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"otlp"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 覆盖 Claude Code 使用的默认模型</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"model"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">""</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"hooks"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"apiKeyHelper"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">""</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 基于最后活动日期，本地保留聊天记录的天数</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"cleanupPeriodDays"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">30</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 是否在 git 提交和拉取请求中包含 Claude 共同作者标记</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"includeCoAuthoredBy"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token boolean" style="color:rgb(255, 88, 116)">true</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"statusLine"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"> </span><span class="token property">"type"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"command"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token property">"command"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"~/.claude/statusline.sh"</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"forceLoginMethod"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"claudeai"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 自动批准项目 .mcp.json 文件中定义的所有 MCP 服务器</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"enableAllProjectMcpServers"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token boolean" style="color:rgb(255, 88, 116)">true</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 批准的 .mcp.json 文件中的特定 MCP 服务器列表</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"enabledMcpjsonServers"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token string" style="color:rgb(195, 232, 141)">"memory"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"github"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 拒绝的 .mcp.json 文件中的特定 MCP 服务器列表</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"disabledMcpjsonServers"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token string" style="color:rgb(195, 232, 141)">"filesystem"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 修改 .aws 目录的自定义脚本</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"awsAuthRefresh"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"aws sso login --profile myprofile"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// 输出包含 AWS 凭据的 JSON 的自定义脚本</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"awsCredentialExport"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"/bin/generate_aws_grant.sh"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<ul>
+<li>权限格式
+<ul>
+<li>Tool, Tool(optional-specifier)</li>
+</ul>
+</li>
+<li>Tool
+<ul>
+<li>Edit</li>
+<li>Read</li>
+<li>WebFetch</li>
+<li><code>mcp__github</code>
+<ul>
+<li>整个 MCP</li>
+</ul>
+</li>
+<li><code>mcp__github__get_issue</code>
+<ul>
+<li>单个 MCP 工具</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>工具<th>描述<th>需要权限<tbody><tr><td>Bash<td>在环境中执行 shell 命令<td>是<tr><td>Edit<td>对特定文件进行精确编辑<td>是<tr><td>Glob<td>基于模式匹配查找文件<td>否<tr><td>Grep<td>在文件内容中搜索模式<td>否<tr><td>LS<td>列出文件和目录<td>否<tr><td>MultiEdit<td>对单个文件原子性地执行多次编辑<td>是<tr><td>NotebookEdit<td>修改 Jupyter 笔记本单元格<td>是<tr><td>NotebookRead<td>读取并显示 Jupyter 笔记本内容<td>否<tr><td>Read<td>读取文件内容<td>否<tr><td>Task<td>运行子代理处理复杂的多步骤任务<td>否<tr><td>TodoWrite<td>创建和管理结构化任务列表<td>否<tr><td>WebFetch<td>从指定 URL 获取内容<td>是<tr><td>WebSearch<td>执行带域名过滤的网络搜索<td>是<tr><td>Write<td>创建或覆盖文件<td>是</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>env<th>for<tbody><tr><td>ANTHROPIC_API_KEY<td>API 密钥，作为 X-Api-Key 头发送，Claude SDK 使用（交互式运行 /login）<tr><td>ANTHROPIC_AUTH_TOKEN<td>Authorization 头的自定义值（设置值将添加 Bearer 前缀）<tr><td>ANTHROPIC_BASE_URL<td>自定义 API 端点 URL<tr><td>ANTHROPIC_CUSTOM_HEADERS<td>添加到请求的自定义头（Name: Value 格式）<tr><td>ANTHROPIC_MODEL<td>要使用的自定义模型名称（如 claude-sonnet-4-20250514）<tr><td>ANTHROPIC_DEFAULT_HAIKU_MODEL<td><tr><td>ANTHROPIC_DEFAULT_OPUS_MODEL<td><tr><td>ANTHROPIC_DEFAULT_SONNET_MODEL<td><tr><td>CLAUDE_CODE_SUBAGENT_MODEL<td><tr><td>ANTHROPIC_SMALL_FAST_MODEL<td>Haiku 类模型名称，用于后台任务<tr><td>ANTHROPIC_SMALL_FAST_MODEL_AWS_REGION<td>使用 Bedrock 时小型快速模型的 AWS 区域覆盖<tr><td>ANTHROPIC_BEDROCK_BASE_URL<td>AWS Bedrock 端点 URL<tr><td>ANTHROPIC_VERTEX_BASE_URL<td>Google Vertex AI 端点 URL<tr><td>ANTHROPIC_VERTEX_PROJECT_ID<td>Google Cloud 项目 ID<tr><td>AWS_BEARER_TOKEN_BEDROCK<td>Bedrock 认证的 API 密钥（参见 Bedrock API 密钥）<tr><td>BASH_DEFAULT_TIMEOUT_MS<td>长时间运行 bash 命令的默认超时时间（毫秒）<tr><td>BASH_MAX_TIMEOUT_MS<td>模型可设置的长时间运行 bash 命令的最大超时时间（毫秒）<tr><td>BASH_MAX_OUTPUT_LENGTH<td>bash 输出在被中间截断前的最大字符数<tr><td>CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR<td>每次 Bash 命令后返回原始工作目录<tr><td>CLAUDE_CODE_API_KEY_HELPER_TTL_MS<td>凭据刷新间隔（毫秒），使用 apiKeyHelper 时<tr><td>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC<td>禁用非必要流量（等同于设置 DISABLE_AUTOUPDATER、DISABLE_BUG_COMMAND、DISABLE_ERROR_REPORTING 和 DISABLE_TELEMETRY）<tr><td>CLAUDE_CODE_DISABLE_TERMINAL_TITLE<td>设为 1 可禁用基于对话上下文的自动终端标题更新<tr><td>CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL<td>跳过 IDE 扩展的自动安装<tr><td>CLAUDE_CODE_MAX_OUTPUT_TOKENS<td>设置大多数请求的最大输出令牌数<tr><td>CLAUDE_CODE_SKIP_BEDROCK_AUTH<td>跳过 Bedrock 的 AWS 认证（如使用 LLM 网关时）<tr><td>CLAUDE_CODE_SKIP_VERTEX_AUTH<td>跳过 Vertex 的 Google 认证（如使用 LLM 网关时）<tr><td>CLAUDE_CODE_USE_BEDROCK<td>使用 Bedrock<tr><td>CLAUDE_CODE_USE_VERTEX<td>使用 Vertex<tr><td>DISABLE_AUTOUPDATER<td>设为 1 可禁用自动更新，优先于 autoUpdates 配置设置<tr><td>DISABLE_BUG_COMMAND<td>设为 1 可禁用 /bug 命令<tr><td>DISABLE_COST_WARNINGS<td>设为 1 可禁用成本警告消息<tr><td>DISABLE_ERROR_REPORTING<td>设为 1 可选择退出 Sentry 错误报告<tr><td>DISABLE_NON_ESSENTIAL_MODEL_CALLS<td>设为 1 可禁用非关键路径（如风格化文本）的模型调用<tr><td>DISABLE_TELEMETRY<td>设为 1 可选择退出 Statsig 遥测（注意 Statsig 事件不包含代码、文件路径或 bash 命令等用户数据）<tr><td>HTTP_PROXY<td>指定网络连接的 HTTP 代理服务器<tr><td>HTTPS_PROXY<td>指定网络连接的 HTTPS 代理服务器<tr><td>MAX_MCP_OUTPUT_TOKENS<td>MCP 工具响应中允许的最大令牌数（默认：25000）<tr><td>MAX_THINKING_TOKENS<td>强制模型思考预算的令牌数<tr><td>MCP_TIMEOUT<td>MCP 服务器启动超时时间（毫秒）<tr><td>MCP_TOOL_TIMEOUT<td>MCP 工具执行超时时间（毫秒）<tr><td>USE_BUILTIN_RIPGREP<td>设为 0 可使用系统安装的 rg 而非 Claude Code 自带的 rg<tr><td>VERTEX_REGION_CLAUDE_3_5_HAIKU<td>使用 Vertex AI 时 Claude 3.5 Haiku 的区域覆盖<tr><td>VERTEX_REGION_CLAUDE_3_5_SONNET<td>使用 Vertex AI 时 Claude Sonnet 3.5 的区域覆盖<tr><td>VERTEX_REGION_CLAUDE_3_7_SONNET<td>使用 Vertex AI 时 Claude 3.7 Sonnet 的区域覆盖<tr><td>VERTEX_REGION_CLAUDE_4_0_OPUS<td>使用 Vertex AI 时 Claude 4.0 Opus 的区域覆盖<tr><td>VERTEX_REGION_CLAUDE_4_0_SONNET<td>使用 Vertex AI 时 Claude 4.0 Sonnet 的区域覆盖<tr><td>VERTEX_REGION_CLAUDE_4_1_OPUS<td>使用 Vertex AI 时 Claude 4.1 Opus 的区域覆盖</table>
+<ul>
+<li>MAX_THINKING_TOKENS
+<ul>
+<li>499</li>
+<li>有些 provider 需要至少 1024</li>
+<li>会让所有请求变成思考请求</li>
+<li><a href=https://github.com/anthropics/claude-code/issues/5257 target=_blank rel="noopener noreferrer">https://github.com/anthropics/claude-code/issues/5257</a></li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">export ANTHROPIC_AUTH_TOKEN=sk-1234</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">export ANTHROPIC_BASE_URL=http://localhost:4000</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">export ANTHROPIC_MODEL=openrouter/qwen/qwen3-coder</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">export ANTHROPIC_SMALL_FAST_MODEL=openrouter/qwen/qwen3-coder</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 等同于</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">export DISABLE_TELEMETRY=1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">export DISABLE_ERROR_REPORTING=1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">export DISABLE_BUG_COMMAND=1</span><br/></span></code></pre></div></div>
+<ul>
+<li>Qwen3-Coder-480B-A35B</li>
+<li>自定义 slash 命令 .claude/commands/fix-github-issue.md</li>
+<li><a href=https://docs.anthropic.com/en/docs/claude-code/settings target=_blank rel="noopener noreferrer">https://docs.anthropic.com/en/docs/claude-code/settings</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=claudemd>CLAUDE.md<a href=#claudemd class=hash-link aria-label="Direct link to CLAUDE.md" title="Direct link to CLAUDE.md" translate=no>​</a></h2>
+<ul>
+<li>~/.claude/CLAUDE.md</li>
+<li>CLAUDE.md</li>
+<li>CLAUDE.local.md</li>
+<li>“提示即程序”（Prompt as a Program）</li>
+</ul>
+<hr/>
+<ul>
+<li>技术栈 (Tech Stack): 声明项目使用的语言、框架和工具及其版本。</li>
+<li>项目结构 (Project Structure): 概述关键目录的用途和组织方式。</li>
+<li>命令 (Commands): 列出重要的构建、测试、部署等 shell 命令。</li>
+<li>代码风格与约定 (Code Style & Conventions): 定义编码规范，如命名约定、导入顺序等。</li>
+<li>仓库礼仪 (Repository Etiquette): 说明分支命名规则、提交信息格式等版本控制流程。</li>
+<li>核心文件 (Core Files): 指向项目中关键的配置文件或实用工具模块。</li>
+<li>禁止触碰列表 (Do Not Touch): 明确指出 AI 不应修改的敏感文件或代码区域，如配置文件或遗留代码。</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># Bash commands</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">- npm run build: Build the project</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">- npm run typecheck: Run the typechecker</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># Code style</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">- Use ES modules (import/export) syntax, not CommonJS (require)</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">- Destructure imports when possible (eg. import { foo } from 'bar')</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># Workflow</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">- Be sure to typecheck when you’re done making a series of code changes</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">- Prefer running single tests, and not the whole test suite, for performance</span><br/></span></code></pre></div></div>
+<ul>
+<li>工作流
+<ul>
+<li>探索、计划、编码、提交
+<ul>
+<li>探索：要求 Claude 阅读相关文件、图片或 URL，但明确指示它暂时不要编写代码。</li>
+<li>计划：让 Claude 制定一个计划。使用 "think"、"think hard" 或 "ultrathink" 等关键词可以为其分配更多计算时间进行深度思考 。</li>
+<li>编码：指示 Claude 根据计划实现解决方案。</li>
+<li>提交：让 Claude 提交结果、创建拉取请求 (Pull Request)，并更新相关文档。</li>
+</ul>
+</li>
+<li>测试驱动开发 (TDD)</li>
+<li>可视化驱动开发</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=mcp>MCP<a href=#mcp class=hash-link aria-label="Direct link to MCP" title="Direct link to MCP" translate=no>​</a></h2>
+<ul>
+<li>范围
+<ul>
+<li>local：个人服务器、实验性配置或特定于单个项目的敏感凭据
+<ul>
+<li>~/.claude.json</li>
+</ul>
+</li>
+<li>project：团队共享的服务器、项目特定的工具或协作所需的服务
+<ul>
+<li>.mcp.json</li>
+</ul>
+</li>
+<li>user：跨多个项目需要的个人工具、开发工具或常用服务</li>
+</ul>
+</li>
+<li>.mcp.json 支持展开 <code>${VAR:-default}</code>
+<ul>
+<li>command, args, env, url, headers</li>
+</ul>
+</li>
+</ul>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"mcpServers"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"api-server"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"type"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"sse"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"url"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"${API_BASE_URL:-https://api.example.com}/mcp"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token property">"headers"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token property">"Authorization"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"Bearer ${API_KEY}"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">claude mcp add --transport http sentry https://mcp.sentry.dev/mcp</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=settingslocaljson>settings.local.json<a href=#settingslocaljson class=hash-link aria-label="Direct link to settings.local.json" title="Direct link to settings.local.json" translate=no>​</a></h2>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockTitle_Lwh4>settings.local.json</div><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"permissions"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"allow"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(cat:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(cp:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(find:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(git add:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(git checkout:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(git commit:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(git fetch:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(git merge:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(git log:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(git push:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(git rm:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(git stash:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(go build:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(go get:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(go mod:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(go test:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(ls:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(mkdir:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(npm run lint)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(npm run test:*)"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(python3:*)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"Bash(true)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"WebFetch(domain:docs.anthropic.com)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token string" style="color:rgb(195, 232, 141)">"WebFetch(domain:github.com)"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"env"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"CLAUDE_CODE_ENABLE_TELEMETRY"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"1"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"OTEL_METRICS_EXPORTER"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"otlp"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># base</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">awk</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">cat</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">date</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">diff</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">du</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">find</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">fzf</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">grep</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">head</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">less</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ls</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">man</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">mkdir</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">more</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ps</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pwd</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">sed</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">sort</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">touch</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">tree</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">true</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">uname</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">whoami</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># git</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">git diff</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">git pull</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">git checkout</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">git fetch</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">git log</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">git stash</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">git status</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">git remote -v</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">git shortlog</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">git add</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">git commit</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># golang</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">go build</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">go get</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">go mod</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">go test</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># node/npm/pnpm</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm run lint</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npm run test</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pnpm run format</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pnpm run lint</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pnpm run test</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pnpm install</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pnpm dev</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">pnpm ls</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># docker</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">docker ps</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">docker events</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">docker logs</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">docker inspect</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=claudecommands>.claude/commands<a href=#claudecommands class=hash-link aria-label="Direct link to .claude/commands" title="Direct link to .claude/commands" translate=no>​</a></h2>
+<ul>
+<li>reusable prompt</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=claudesubagents>.claude/subagents<a href=#claudesubagents class=hash-link aria-label="Direct link to .claude/subagents" title="Direct link to .claude/subagents" translate=no>​</a></h2>
+<ul>
+<li>subagent</li>
+<li>独立上下文</li>
+<li>内置
+<ul>
+<li>general-purpose</li>
+<li>statusline-setup</li>
+<li>output-style-setup</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=sandbox>sandbox<a href=#sandbox class=hash-link aria-label="Direct link to sandbox" title="Direct link to sandbox" translate=no>​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=claude-code-router>Claude Code Router<a href=#claude-code-router class=hash-link aria-label="Direct link to Claude Code Router" title="Direct link to Claude Code Router" translate=no>​</a></h2>
+<ul>
+<li>~/.claude-code-router/config.json</li>
+<li>ccr</li>
+<li><a href=https://github.com/musistudio/claude-code-router target=_blank rel="noopener noreferrer">https://github.com/musistudio/claude-code-router</a></li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">npm install -g @musistudio/claude-code-router</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ccr code   # 启动 Claude Code</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ccr ui     # UI 模式</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">ccr status # 状态</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=cc-switch>cc-switch<a href=#cc-switch class=hash-link aria-label="Direct link to cc-switch" title="Direct link to cc-switch" translate=no>​</a></h2>
+<ul>
+<li>GUI 切换 .claude/settings.json 文件</li>
+<li><a href=https://github.com/farion1231/cc-switch target=_blank rel="noopener noreferrer">https://github.com/farion1231/cc-switch</a></li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">brew install farion1231/ccswitch/cc-switch</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=cc-mirror>cc-mirror<a href=#cc-mirror class=hash-link aria-label="Direct link to cc-mirror" title="Direct link to cc-mirror" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/numman-ali/cc-mirror target=_blank rel="noopener noreferrer">https://github.com/numman-ali/cc-mirror</a></li>
+<li>创建多个 claude 这样的命令行，使用预设的环境变量</li>
+<li>~/.cc-mirror/NAME/
+<ul>
+<li>npm/ Claude Code installation</li>
+<li>config/ API keys, sessions, MCP servers</li>
+<li>tweakcc/ Theme & prompt customization</li>
+<li>variant.json Metadata</li>
+</ul>
+</li>
+<li>~/.local/bin/NAME</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">npx -y cc-mirror quick --provider custom --no-tweak --no-prompt-pack \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --base-url http://localhost:7180 \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --api-key dummy \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --model-opus claude-opus-4-5-thinking \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --model-sonnet claude-sonnet-4-5-thinking \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --model-haiku claude-sonnet-4-5 \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --name cc-anti</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">npx -y cc-mirror quick --provider custom --no-tweak --no-prompt-pack \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --base-url http://localhost:7180 \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --api-key dummy \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --model-opus gemini-3-pro-high \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --model-sonnet gemini-3-flash \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --model-haiku gemini-2.5-flash-lite \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --name cc-gemini</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=plugin>plugin<a href=#plugin class=hash-link aria-label="Direct link to plugin" title="Direct link to plugin" translate=no>​</a></h2>
+<ul>
+<li>hooks/hooks.json</li>
+</ul>
+<h1>FAQ</h1>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=this-organization-has-been-disabled>This organization has been disabled.<a href=#this-organization-has-been-disabled class=hash-link aria-label="Direct link to This organization has been disabled." title="Direct link to This organization has been disabled." translate=no>​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=vsc-multi-session>VSC multi session<a href=#vsc-multi-session class=hash-link aria-label="Direct link to VSC multi session" title="Direct link to VSC multi session" translate=no>​</a></h2>
+<p>当多个 claude 的时候，VSC 只能 connect 到一个, 断开的一个可以使用 <code>/ide</code> 重连</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">VSCODE_PID= VSCODE_CWD= TERM_PROGRAM= command claude</span><br/></span></code></pre></div></div>
+<ul>
+<li><a href=https://github.com/anthropics/claude-code/issues/1276 target=_blank rel="noopener noreferrer">https://github.com/anthropics/claude-code/issues/1276</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=teammate>Teammate<a href=#teammate class=hash-link aria-label="Direct link to Teammate" title="Direct link to Teammate" translate=no>​</a></h2>
+<ul>
+<li>类似 Claude Flow</li>
+<li><a href=https://gist.github.com/kieranklaassen/4f2aba89594a4aea4ad64d753984b2ea target=_blank rel="noopener noreferrer">https://gist.github.com/kieranklaassen/4f2aba89594a4aea4ad64d753984b2ea</a></li>
+</ul>
+<h1>Version</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>version<th>date<th>notes<tbody><tr><td>2.1<td>2026-01-07<td><tr><td>2.0<td>2025-09-29<td></table>
+<ul>
+<li><a href=https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md target=_blank rel="noopener noreferrer">https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md</a></li>
+<li><a href=https://claudelog.com/claude-code-changelog/ target=_blank rel="noopener noreferrer">https://claudelog.com/claude-code-changelog/</a></li>
+<li>ENABLE_EXPERIMENTAL_MCP_CLI</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>env<th>since<tbody><tr><td>CLAUDE_CODE_TMPDIR<td>2.1.5<tr><td>CLAUDE_CODE_DISABLE_BACKGROUND_TASKS<td>2.1.4<tr><td>CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS<td>2.1.0<tr><td>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS<td>2.1.32</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=claude-code-2132>Claude Code 2.1.32<a href=#claude-code-2132 class=hash-link aria-label="Direct link to Claude Code 2.1.32" title="Direct link to Claude Code 2.1.32" translate=no>​</a></h2>
+<ul>
+<li>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS 启用实验性 Team</li>
+<li>会加载 --add-dir 的 .claude/skills/</li>
+<li>skill 最多占用 2% 上下文，会随着上下文增加加载内容</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=claude-code-2120>Claude Code 2.1.20<a href=#claude-code-2120 class=hash-link aria-label="Direct link to Claude Code 2.1.20" title="Direct link to Claude Code 2.1.20" translate=no>​</a></h2>
+<ul>
+<li>CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD
+<ul>
+<li>支持读取 --add-dir 目录下的 CLAUDE.md</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=claude-code-2117>Claude Code 2.1.17<a href=#claude-code-2117 class=hash-link aria-label="Direct link to Claude Code 2.1.17" title="Direct link to Claude Code 2.1.17" translate=no>​</a></h2>
+<ul>
+<li>TOOD -> Task
+<ul>
+<li>支持依赖</li>
+<li>支持多个共同使用</li>
+<li>CLAUDE_CODE_TASK_LIST_ID</li>
+<li>~/.claude/tasks</li>
+<li>~/.claude/tasks/ID/N.json</li>
+<li>以前的 ~/.claude/todos/ID.json</li>
+</ul>
+</li>
+</ul>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockTitle_Lwh4>~/.claude/tasks/ID/N.json</div><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"id"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"3"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"subject"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">""</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"description"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">""</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"activeForm"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">""</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"status"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"completed"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"blocks"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"blockedBy"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockTitle_Lwh4>~/.claude/todos/ID.json</div><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"content"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">""</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"status"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"completed"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token property">"activeForm"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">""</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=claude-code-21>Claude Code 2.1<a href=#claude-code-21 class=hash-link aria-label="Direct link to Claude Code 2.1" title="Direct link to Claude Code 2.1" translate=no>​</a></h2>
+<ul>
+<li>技能热重载
+<ul>
+<li>~/.claude/skills</li>
+<li>.claude/skills</li>
+</ul>
+</li>
+<li>skill <code>context: fork</code> to run skill in forked sub-agent context</li>
+<li><code>list_changed</code> notification to reload mpc tools</li>
+<li>支持 <code>language</code> 设置</li>
+<li><code>Shift+Enter</code> 能正常使用</li>
+<li>permission Bash 支持 <code>*</code> 通配符在任意位置
+<ul>
+<li>例如 <code>Bash(git * main)</code></li>
+<li>之前必须 <code>:*</code> 例如 <code>Bash(git checkout:*)</code></li>
+</ul>
+</li>
+<li><code>Ctrl+B</code> 能同时控制 Bash 和 Agent 在后台运行</li>
+<li><code>CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS</code> 能控制文件读取的输出 token 数</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/claude>Claude</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/ai>AI</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/code>Code</a><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/agent>Agent</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/ai/agent/claude-code.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-03-02T05:29:28.000Z itemprop=dateModified>Mar 2, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/ai/agent/ax><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>AX</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/ai/agent/claude-flow><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Claude Flow</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#claudemd class="table-of-contents__link toc-highlight">CLAUDE.md</a><li><a href=#mcp class="table-of-contents__link toc-highlight">MCP</a><li><a href=#settingslocaljson class="table-of-contents__link toc-highlight">settings.local.json</a><li><a href=#claudecommands class="table-of-contents__link toc-highlight">.claude/commands</a><li><a href=#claudesubagents class="table-of-contents__link toc-highlight">.claude/subagents</a><li><a href=#sandbox class="table-of-contents__link toc-highlight">sandbox</a><li><a href=#claude-code-router class="table-of-contents__link toc-highlight">Claude Code Router</a><li><a href=#cc-switch class="table-of-contents__link toc-highlight">cc-switch</a><li><a href=#cc-mirror class="table-of-contents__link toc-highlight">cc-mirror</a><li><a href=#plugin class="table-of-contents__link toc-highlight">plugin</a><li><a href=#this-organization-has-been-disabled class="table-of-contents__link toc-highlight">This organization has been disabled.</a><li><a href=#vsc-multi-session class="table-of-contents__link toc-highlight">VSC multi session</a><li><a href=#teammate class="table-of-contents__link toc-highlight">Teammate</a><li><a href=#claude-code-2132 class="table-of-contents__link toc-highlight">Claude Code 2.1.32</a><li><a href=#claude-code-2120 class="table-of-contents__link toc-highlight">Claude Code 2.1.20</a><li><a href=#claude-code-2117 class="table-of-contents__link toc-highlight">Claude Code 2.1.17</a><li><a href=#claude-code-21 class="table-of-contents__link toc-highlight">Claude Code 2.1</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>

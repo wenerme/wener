@@ -1,0 +1,583 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-java/spring/spring-version" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>版本 | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/java/spring/version /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="版本 | Wener Live & Life"/><meta data-rh=true name=description content="- https://spring.io/blog/category/releases"/><meta data-rh=true property=og:description content="- https://spring.io/blog/category/releases"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/java/spring/version /><link data-rh=true rel=alternate href=https://wener.me/notes/java/spring/version hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/java/spring/version hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/java/","name":"Java","position":1},{"@type":"ListItem","item":"https://wener.me/notes/java/spring/","name":"Spring","position":2},{"@type":"ListItem","item":"https://wener.me/notes/java/spring/version","name":"版本","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.1c95f9ff.js defer></script><script src=/assets/js/main.8891074e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Collapse sidebar category 'Java'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/java/build/google-java-format><span title=build class=categoryLinkLabel_RkOu>build</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/java/hibernate><span title=Hibernate class=categoryLinkLabel_RkOu>Hibernate</span></a><button aria-label="Expand sidebar category 'Hibernate'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/hot-qa><span title="LinkedList vs ArrayList" class=linkLabel_JPPZ>LinkedList vs ArrayList</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/awesome><span title="Java Awesome" class=linkLabel_JPPZ>Java Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/concurrent><span title=Concurrent class=linkLabel_JPPZ>Concurrent</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/faq><span title=常见问题 class=linkLabel_JPPZ>常见问题</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/glossary><span title="Java Glossary" class=linkLabel_JPPZ>Java Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/native><span title="Java Native" class=linkLabel_JPPZ>Java Native</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/observe><span title=Observe class=linkLabel_JPPZ>Observe</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/tuning><span title=Tuning class=linkLabel_JPPZ>Tuning</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/jdwp><span title=JDWP class=linkLabel_JPPZ>JDWP</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/jnlp><span title="JNLP (Java Network Launching Protocol)" class=linkLabel_JPPZ>JNLP (Java Network Launching Protocol)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/java/jvm/classloader><span title=jvm class=categoryLinkLabel_RkOu>jvm</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/java/lib/arrow><span title=lib class=categoryLinkLabel_RkOu>lib</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/osgi><span title="OSGi (Open Services Gateway initiative)" class=linkLabel_JPPZ>OSGi (Open Services Gateway initiative)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/productive><span title=生产力 class=linkLabel_JPPZ>生产力</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/sdkman><span title=sdkman class=linkLabel_JPPZ>sdkman</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/java/spec/servlet><span title=spec class=categoryLinkLabel_RkOu>spec</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/java/spring><span title=Spring class=categoryLinkLabel_RkOu>Spring</span></a><button aria-label="Collapse sidebar category 'Spring'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/java/spring/boot><span title="Spring Boot" class=categoryLinkLabel_RkOu>Spring Boot</span></a><button aria-label="Expand sidebar category 'Spring Boot'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/spring/cloud><span title="Spring Cloud" class=linkLabel_JPPZ>Spring Cloud</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/spring/querydsl><span title=QueryDSL class=linkLabel_JPPZ>QueryDSL</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/spring/actuator><span title="Spring actuator" class=linkLabel_JPPZ>Spring actuator</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/spring/awesome><span title="Spring Awesome" class=linkLabel_JPPZ>Spring Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/spring/data-rest><span title="Spring Data REST" class=linkLabel_JPPZ>Spring Data REST</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/spring/data><span title="Spring Data" class=linkLabel_JPPZ>Spring Data</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/spring/faq><span title="Spring FAQ" class=linkLabel_JPPZ>Spring FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/spring/metrics><span title=metrics class=linkLabel_JPPZ>metrics</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/spring/security-oauth2><span title="Spring Security OAuth2" class=linkLabel_JPPZ>Spring Security OAuth2</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/spring/security><span title="Spring Security" class=linkLabel_JPPZ>Spring Security</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/java/spring/version><span title=版本 class=linkLabel_JPPZ>版本</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/java/spring/web><span title="Spring MVC" class=linkLabel_JPPZ>Spring MVC</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/java/version><span title="Java 版本" class=categoryLinkLabel_RkOu>Java 版本</span></a><button aria-label="Expand sidebar category 'Java 版本'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/java><span>Java</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/java/spring><span>Spring</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>版本</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Releases</h1></header>
+<ul>
+<li><a href=https://spring.io/blog/category/releases target=_blank rel="noopener noreferrer">https://spring.io/blog/category/releases</a></li>
+<li><a href=http://start.spring.io/ target=_blank rel="noopener noreferrer">Spring Initializr</a></li>
+</ul>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>tip</div><div class=admonitionContent_R6P7><ul>
+<li>SpringBoot 2.4+ 支持 Redis username+password</li>
+</ul></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>SpringBoot<th>Release<th>Note<tbody><tr><td>SpringBoot 3.0<td>2022-11-24<td>Java 17+<tr><td>SpringBoot 2.7<td>2022-05-19<td><tr><td>SpringBoot 2.6<td>2021-11-19<td><tr><td>SpringBoot 2.5<td>2021-05-22<td><tr><td>SpringBoot 2.4<td>2020-11-12<td><tr><td>SpringBoot 2.3<td>2020-05-15<td><tr><td>SpringBoot 2.2<td>2019-10-16<td><tr><td>SpringBoot 2.1<td>2018-10-30<td><tr><td>SpringBoot 2.0<td>2018-03-01<td></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Spring Framework<th>Release<th>Note<tbody><tr><td>Spring Framework 6.0<td>2022-11-16<td>Java 17+<tr><td>Spring Framework 5.0<td>2017-09-28<td><tr><td>Spring Framework 4.0<td>2013-12-12<td></table>
+<ul>
+<li><a href=https://github.com/spring-projects target=_blank rel="noopener noreferrer">https://github.com/spring-projects</a></li>
+<li><a href=https://github.com/spring-projects-experimental target=_blank rel="noopener noreferrer">https://github.com/spring-projects-experimental</a></li>
+<li><a href=https://mvnrepository.com/artifact/org.springframework/spring-core target=_blank rel="noopener noreferrer">org.springframework/spring-core</a></li>
+<li><a href=https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter target=_blank rel="noopener noreferrer">org.springframework.boot/spring-boot-starter</a></li>
+<li><a href=https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter target=_blank rel="noopener noreferrer">org.springframework.cloud/spring-cloud-starter</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=springboot>SpringBoot<a href=#springboot class=hash-link aria-label="Direct link to SpringBoot" title="Direct link to SpringBoot" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=springboot-30>SpringBoot 3.0<a href=#springboot-30 class=hash-link aria-label="Direct link to SpringBoot 3.0" title="Direct link to SpringBoot 3.0" translate=no>​</a></h3>
+<ul>
+<li>Java 17+</li>
+<li>Spring Framework 6+</li>
+<li>直接支持 native，废弃 <del>Spring Native</del></li>
+<li>Jakarta EE 10</li>
+<li><a href=https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes target=_blank rel="noopener noreferrer">Spring Boot 3.0 Release Notes</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=spring>Spring<a href=#spring class=hash-link aria-label="Direct link to Spring" title="Direct link to Spring" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=50>5.0<a href=#50 class=hash-link aria-label="Direct link to 5.0" title="Direct link to 5.0" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-the-Spring-Framework#whats-new-in-spring-framework-5x target=_blank rel="noopener noreferrer">What's New in Spring Framework 5.x</a></li>
+<li>Java8+</li>
+<li>JavaEE7+</li>
+<li>Kotlin 1.1+
+<ul>
+<li><a href=https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0 target=_blank rel="noopener noreferrer">Introducing Kotlin support in Spring Framework 5.0</a></li>
+</ul>
+</li>
+<li>Core
+<ul>
+<li><code>@Nullable</code> 注解的注入会被认为是可选的</li>
+<li><code>spring-jcl</code> 模块用于桥接 jcl</li>
+</ul>
+</li>
+<li>MVC
+<ul>
+<li>Servlet 3.1</li>
+<li>Reactor 3.1</li>
+<li><a href=https://github.com/FasterXML/jackson/wiki/Jackson-Release-2.9 target=_blank rel="noopener noreferrer">Jackson 2.9</a></li>
+<li>Protobuf 3</li>
+<li>新的路径匹配类 <a href=http://docs.spring.io/spring/docs/5.0.0.BUILD-SNAPSHOT/javadoc-api/org/springframework/web/util/patterns/PathPattern.html target=_blank rel="noopener noreferrer">PathPattern</a></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=43>4.3<a href=#43 class=hash-link aria-label="Direct link to 4.3" title="Direct link to 4.3" translate=no>​</a></h3>
+<ul>
+<li><a href=https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/new-in-4.3.html target=_blank rel="noopener noreferrer">What's new in 4.3</a></li>
+<li>如果 Bean 只有一个构造函数,可以不指定 <code>@Autowired</code></li>
+<li><code>@Configuration</code> 类支持构造函数注入</li>
+<li><code>@EventListener</code> 中的条件 SpEL 可引用 bean <code>@beanName.method()</code></li>
+<li><code>@Scheduled</code> 和 <code>@Schedules</code> 可用于元注解,实现自定义注解</li>
+<li>缓存
+<ul>
+<li>缓存的 SpEL 可访问 bean <code>@beanName.method()</code></li>
+</ul>
+</li>
+<li>Web
+<ul>
+<li>支持 <code>HEAD</code> 和 <code>OPTION</code> <a href=http://docs.spring.io/spring-framework/docs/4.3.x/spring-framework-reference/htmlsingle/#mvc-ann-requestmapping-head-options target=_blank rel="noopener noreferrer">操作</a></li>
+<li>新增 <code>@GetMapping</code>, <code>@PostMapping</code>, <code>@PutMapping</code>, <code>@DeleteMapping</code>, 和 <code>@PatchMapping</code></li>
+<li>新增 <code>@RequestScope</code>, <code>@SessionScope</code>, 和 <code>@ApplicationScope</code></li>
+<li>新增 <code>@RestControllerAdvice</code></li>
+<li><code>@ResponseStatus</code> 现在可指定在类上,所有方法继承</li>
+<li>新增 <code>@SessionAttribute</code></li>
+<li>新增 <code>@RequestAttribute</code></li>
+</ul>
+</li>
+<li>依赖
+<ul>
+<li>Hibernate ORM 5.2</li>
+<li>Hibernate Validator 5.3</li>
+<li>Jackson 2.8</li>
+<li>OkHttp 3.x</li>
+<li>Tomcat 8.5 as well as 9.0 milestones</li>
+<li>Netty 4.1</li>
+<li>Undertow 1.4</li>
+<li>WildFly 10.1</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=42x>4.2.x<a href=#42x class=hash-link aria-label="Direct link to 4.2.x" title="Direct link to 4.2.x" translate=no>​</a></h3>
+<ul>
+<li>完善对 Java 8 的支持
+<ul>
+<li>Java 8 的新增类型</li>
+<li>Java 8 的接口默认方法支持</li>
+</ul>
+</li>
+<li>支持 Hibernate ORM 5.0</li>
+<li>Web
+<ul>
+<li>支持 HTTP SSE</li>
+<li>內建支持 CORS</li>
+<li><code>@Controller</code> 可返回 <code>java.util.concurrent.CompletableFuture</code></li>
+<li>静态资源支持断点续传</li>
+<li><code>RestTemplate</code> 集成 OkHTTP</li>
+<li>添加 <code>RequestBodyAdvice</code> 扩展点,以支持在 <code>@RequestBody</code> 上使用 <code>@JsonView</code></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=31x>3.1.x<a href=#31x class=hash-link aria-label="Direct link to 3.1.x" title="Direct link to 3.1.x" translate=no>​</a></h3>
+<ul>
+<li>2011-11-13</li>
+<li><a href=https://docs.spring.io/spring/docs/3.1.0.RELEASE/spring-framework-reference/html/new-in-3.1.html target=_blank rel="noopener noreferrer">New in 3.1</a></li>
+<li>3.1 支持非标准的 Bean Setter</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=spring-data>Spring Data<a href=#spring-data class=hash-link aria-label="Direct link to Spring Data" title="Direct link to Spring Data" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=ingalls>Ingalls<a href=#ingalls class=hash-link aria-label="Direct link to Ingalls" title="Direct link to Ingalls" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/spring-projects/spring-data-commons/wiki/Release-Train-Ingalls target=_blank rel="noopener noreferrer">Release Train Ingalls</a></li>
+<li><a href=https://spring.io/blog/2017/01/30/what-s-new-in-spring-data-release-ingalls target=_blank rel="noopener noreferrer">What's new</a></li>
+<li>Spring 4.3</li>
+<li>Deps
+<ul>
+<li>Cassandra 3</li>
+<li>Jackson 2.8</li>
+<li>Elasticsearch 2.3.3</li>
+</ul>
+</li>
+<li>New
+<ul>
+<li>Spring Data LDAP</li>
+</ul>
+</li>
+<li>Highlights
+<ul>
+<li>使用 method handles 在转换子系统中操作对象属性,提升性能</li>
+<li>支持 XML 和 JSON 的 REST 映射</li>
+<li>Spring Data REST 共享 Cross-Origin</li>
+<li>支持更多的 MongoDB 聚合操作</li>
+<li>支持 Redis GEO 指令</li>
+<li>更新到 Cassandra 3.0, 支持更多的类型和查询方法</li>
+<li>仓库查询方法支持 Javaslang 的 Optional, 集合和 map 类型</li>
+<li>支持 Java 8 中的 Optionl 和 Stream, 支持 JSR 310</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=hopper>Hopper<a href=#hopper class=hash-link aria-label="Direct link to Hopper" title="Direct link to Hopper" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/spring-projects/spring-data-commons/wiki/Release-Hopper-Ingalls target=_blank rel="noopener noreferrer">Release Train Ingalls</a></li>
+<li>Spring 4.2</li>
+<li>Spring Data Envers</li>
+<li>Deps
+<ul>
+<li>Querydsl 4</li>
+<li>Solr 5</li>
+<li>Elasticsearch 2</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=spring-boot>Spring Boot<a href=#spring-boot class=hash-link aria-label="Direct link to Spring Boot" title="Direct link to Spring Boot" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=20>2.0<a href=#20 class=hash-link aria-label="Direct link to 2.0" title="Direct link to 2.0" translate=no>​</a></h3>
+<ul>
+<li><a href=https://github.com/spring-projects/spring-boot/milestones target=_blank rel="noopener noreferrer">spring-boot/milestones</a>
+<ul>
+<li>2.0.0 正式发布时间 2017.12.8</li>
+</ul>
+</li>
+<li><a href=https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Release-Notes target=_blank rel="noopener noreferrer">Spring Boot 2.0 Release Notes</a></li>
+<li>Java8+</li>
+<li>Spring Framework 5.0</li>
+<li>移除之前废弃的内容
+<ul>
+<li>Spring Loaded</li>
+<li>CRaSH</li>
+</ul>
+</li>
+<li>可删除 Session</li>
+<li>支持 JSON-B</li>
+<li><a href=https://github.com/micrometer-metrics/micrometer target=_blank rel="noopener noreferrer">micrometer</a> 支持</li>
+<li>使用 Lettuce 替代 Jedis</li>
+<li>合并 OAuth 到 Spring Securety 核心模块</li>
+<li>至少 Mockito 2</li>
+<li>默认禁用 Jolokia</li>
+<li>Actuator 修改为使用原生的 SpringMVC, SpringWebFlux 和 Jersey</li>
+<li>添加 ApplicationContextRunner 用于测试自动配置</li>
+<li>插件控制的配置属性前缀都修改为了 <code>spring-boot</code>
+<ul>
+<li><code>mvn spring-boot:run -Dspring-boot.run.profiles=foo</code></li>
+</ul>
+</li>
+<li>所有请求默认压缩</li>
+<li>连接池默认为 HikariCP</li>
+<li>支持使用 Quartz 作为调度器 <code>spring-boot-starter-quartz</code></li>
+<li>提供 <code>spring.data.web</code> 用于控制分页和排序的选项</li>
+<li>添加 <code>spring-boot-starter-json</code></li>
+<li>响应式数据模块</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=15>1.5<a href=#15 class=hash-link aria-label="Direct link to 1.5" title="Direct link to 1.5" translate=no>​</a></h3>
+<ul>
+<li>
+<p><a href=https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.5-Release-Notes target=_blank rel="noopener noreferrer">1.5 Release Notes</a></p>
+</li>
+<li>
+<p><a href=https://spring.io/blog/2017/01/30/spring-boot-1-5-1-released target=_blank rel="noopener noreferrer">1.5.1 Released</a></p>
+</li>
+<li>
+<p><a href=https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.5-Configuration-Changelog target=_blank rel="noopener noreferrer">1.5 Configuration Changelog</a></p>
+</li>
+<li>
+<p>1.5.3</p>
+<ul>
+<li>Java 7+</li>
+<li>Spring Framework 4.3.8.RELEASE</li>
+</ul>
+</li>
+<li>
+<p>Deps</p>
+<ul>
+<li>Spring Data Ingalls</li>
+<li>Jetty 9.4</li>
+<li>JooQ 3.9</li>
+<li>AssertJ 2.6.0</li>
+<li>Hikari 2.5</li>
+<li>Neo4J 2.1</li>
+</ul>
+</li>
+<li>
+<p>New</p>
+<ul>
+<li>Cloud Foundry actuator extensions</li>
+<li>LDAP support</li>
+</ul>
+</li>
+<li>
+<p>Deprecate</p>
+<ul>
+<li>ApplicationStartedEvent replaced by ApplicationStartingEvent</li>
+<li>Apache DBCP -> Apache DBCP 2</li>
+<li>CRaSH
+<ul>
+<li>项目没人维护</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Highlights</p>
+<ul>
+<li>Devtools 默认不再包含在最终的 jar 中</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=14>1.4<a href=#14 class=hash-link aria-label="Direct link to 1.4" title="Direct link to 1.4" translate=no>​</a></h3>
+<ul>
+<li>
+<p><a href=https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.4-Release-Notes target=_blank rel="noopener noreferrer">1.4 Release Notes</a></p>
+</li>
+<li>
+<p><a href=https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.4-Configuration-Changelog target=_blank rel="noopener noreferrer">1.4 Configuration Changelog</a></p>
+</li>
+<li>
+<p>Deps</p>
+<ul>
+<li>Hibernate 5
+<ul>
+<li><a href=https://github.com/hibernate/hibernate-orm/blob/5.0/migration-guide.adoc target=_blank rel="noopener noreferrer">5.0 Migration Guide</a></li>
+</ul>
+</li>
+<li>Jetty 9.3</li>
+<li>Tomcat 8.5
+<ul>
+<li>8.5 支持 HTTP2</li>
+</ul>
+</li>
+<li>Jackson 2.7</li>
+<li>Solr 5.5</li>
+<li>Spring Data Hopper</li>
+<li>Hazelcast 3.6</li>
+<li>Ehcache 3.1</li>
+<li>Elasticsearch 2.3</li>
+</ul>
+</li>
+<li>
+<p>Highlights</p>
+<ul>
+<li>默认不再设置 Server 头, 除非手动设置 <code>server.server-header</code></li>
+<li><code>@Transactional</code> 默认为使用 cglib 代理</li>
+<li>支持使用图片作为 banner,例如 banner.gif, banner.jpg, banner.png
+<ul>
+<li>可通过 banner.image.width, banner.image.height, banner.image.invert 做更多控制</li>
+</ul>
+</li>
+<li><code>@JsonComponent</code> 支持自定义的 Jackson 序列化和反序列化</li>
+<li>统一了 <code>@EntityScan</code></li>
+<li>添加了 <code>@JsonTest</code>, <code>@WebMvcTest</code>, <code>@RestClientTest</code>, <code>@DataJpaTest</code> 用来测试指定功能</li>
+</ul>
+</li>
+<li>
+<p>New</p>
+<ul>
+<li>Couchbase</li>
+<li>Neo4J</li>
+<li>Redis Spring Data</li>
+<li>Narayana JTA</li>
+<li>Caffeine</li>
+<li>Elasticsearch Jest</li>
+</ul>
+</li>
+<li>
+<p>Deprecate</p>
+<ul>
+<li><code>@org.springframework.boot.orm.jpa.EntityScan</code> -> <code>@org.springframework.boot.autoconfigure.domain.EntityScan</code></li>
+<li><code>multipart.</code> -> <code>spring.http.multipart.</code></li>
+<li>HornetQ -> Artemis</li>
+<li>spring-integration-file</li>
+<li>spring-integration-http</li>
+<li>spring-integration-ip</li>
+<li>spring-integration-stream</li>
+</ul>
+</li>
+<li>
+<p><a href=https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.4-Release-Notes target=_blank rel="noopener noreferrer">Spring-Boot-1.4-Release-Notes</a></p>
+</li>
+<li>
+<p><a href=https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.4-Configuration-Changelog target=_blank rel="noopener noreferrer">https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.4-Configuration-Changelog</a></p>
+</li>
+<li>
+<p>代号为 Ingalls</p>
+</li>
+<li>
+<p>移除对 Log4j 1 的支持</p>
+</li>
+<li>
+<p>依赖版本更新</p>
+<ul>
+<li>Hibernate 5.0</li>
+<li>Spring Framework 4.3</li>
+<li>Tomcat 8.5</li>
+<li>Jackson 2.7</li>
+</ul>
+</li>
+<li>
+<p>合并了 EntityScan 标签</p>
+</li>
+<li>
+<p>废弃 Guava 缓存,推荐使用 Caffeine</p>
+</li>
+<li>
+<p>集成对 Neo4j 配置</p>
+</li>
+<li>
+<p>支持 Redis Spring Data Repository</p>
+</li>
+<li>
+<p>支持 Elasticsearch Jest</p>
+</li>
+<li>
+<p>添加了 <code>@JsonComponent</code> 以支持自定义 Jackson 的序列化和反序列化</p>
+</li>
+<li>
+<p>Actuator</p>
+<ul>
+<li>提供 InfoContributor 用于获取构建和应用的信息</li>
+</ul>
+</li>
+<li>
+<p>废弃 Velocity</p>
+</li>
+<li>
+<p>使用 artemis 替代 hornetq</p>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=13>1.3<a href=#13 class=hash-link aria-label="Direct link to 1.3" title="Direct link to 1.3" translate=no>​</a></h3>
+<ul>
+<li><a href=https://spring.io/blog/2016/05/10/spring-boot-1-3-5-released target=_blank rel="noopener noreferrer">1.3.5 Released</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=spring-cloud>Spring Cloud<a href=#spring-cloud class=hash-link aria-label="Direct link to Spring Cloud" title="Direct link to Spring Cloud" translate=no>​</a></h2>
+<ul>
+<li>Spring Cloud <a href=http://start.spring.io/info target=_blank rel="noopener noreferrer">版本关系</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=dalston>Dalston<a href=#dalston class=hash-link aria-label="Direct link to Dalston" title="Direct link to Dalston" translate=no>​</a></h3>
+<ul>
+<li>Spring Boot 1.5.x</li>
+<li><a href=https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Dalston-Release-Notes target=_blank rel="noopener noreferrer">Spring Cloud Dalston Release Notes</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=camden>Camden<a href=#camden class=hash-link aria-label="Direct link to Camden" title="Direct link to Camden" translate=no>​</a></h3>
+<ul>
+<li>Spring Boot 1.4.x</li>
+<li><a href=https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Camden-Release-Notes target=_blank rel="noopener noreferrer">Spring Cloud Camden Release Notes</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=brixton>Brixton<a href=#brixton class=hash-link aria-label="Direct link to Brixton" title="Direct link to Brixton" translate=no>​</a></h3>
+<ul>
+<li>Spring Boot 1.3.x</li>
+<li><a href=https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Brixton-Release-Notes target=_blank rel="noopener noreferrer">Spring Cloud Brixton Release Notes</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=angel>Angel<a href=#angel class=hash-link aria-label="Direct link to Angel" title="Direct link to Angel" translate=no>​</a></h3>
+<ul>
+<li>Spring Boot 1.2.x</li>
+<li><a href=https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Angel-Release-Notes target=_blank rel="noopener noreferrer">Spring Cloud Angel Release Notes</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=querydsl>QueryDSL<a href=#querydsl class=hash-link aria-label="Direct link to QueryDSL" title="Direct link to QueryDSL" translate=no>​</a></h2>
+<p><a href=http://www.querydsl.com/releases target=_blank rel="noopener noreferrer">http://www.querydsl.com/releases</a></p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=hibernate>Hibernate<a href=#hibernate class=hash-link aria-label="Direct link to Hibernate" title="Direct link to Hibernate" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=52>5.2<a href=#52 class=hash-link aria-label="Direct link to 5.2" title="Direct link to 5.2" translate=no>​</a></h3>
+<ul>
+<li>要求 Java 8
+<ul>
+<li>可以使用 Query.stream()</li>
+</ul>
+</li>
+<li>Session 扩展自 EntityManager</li>
+<li>支持 JCache</li>
+<li>Session 级别的 batch size
+<ul>
+<li><a href=https://vladmihalcea.com/2016/09/27/how-to-customize-the-jdbc-batch-size-for-each-persistence-context-with-hibernate/ target=_blank rel="noopener noreferrer">How to customize jdbc batch size for each persistence context</a></li>
+</ul>
+</li>
+<li>全局的时区设置
+<ul>
+<li>针对 Timestamp 和 Time</li>
+<li><a href=http://in.relation.to/2016/09/12/jdbc-time-zone-configuration-property/ target=_blank rel="noopener noreferrer">How to store timestamps in UTC using the new hibernate.jdbc.time_zone configuration property</a></li>
+</ul>
+</li>
+<li><a href=http://in.relation.to/2016/06/01/hibernate-orm-520-final-release/ target=_blank rel="noopener noreferrer">Hibernate ORM 5.2 release</a></li>
+<li><a href=http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html target=_blank rel="noopener noreferrer">User Guide</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=51>5.1<a href=#51 class=hash-link aria-label="Direct link to 5.1" title="Direct link to 5.1" translate=no>​</a></h3>
+<ul>
+<li>Ad-hoc joins</li>
+<li>Multi-entity load</li>
+<li><a href=http://in.relation.to/2016/02/10/hibernate-orm-510-final-release/ target=_blank rel="noopener noreferrer">ORM 5.1 feature release</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=50-1>5.0<a href=#50-1 class=hash-link aria-label="Direct link to 5.0" title="Direct link to 5.0" translate=no>​</a></h3>
+<ul>
+<li>Hibernate
+<ul>
+<li>新的启动接口</li>
+<li>集成 Hibernate Spatial</li>
+<li>能处理 GIS</li>
+<li>Java 8
+<ul>
+<li>日期类型</li>
+<li><code>@Past</code>,<code>@Future</code> 注解</li>
+</ul>
+</li>
+<li>支持更多的类型
+<ul>
+<li>UUID</li>
+</ul>
+</li>
+<li>Session 支持泛型</li>
+<li>二级缓存引用
+<ul>
+<li>可直接将不可变的实体引用存入二级缓存</li>
+</ul>
+</li>
+<li>新的文档
+<ul>
+<li><a href=http://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html target=_blank rel="noopener noreferrer">User Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Hibernate Search</li>
+<li>Hibernate OGM
+<ul>
+<li>第一个稳定版</li>
+</ul>
+</li>
+<li>Hibernate Validator
+<ul>
+<li>提供很多实用的注解</li>
+</ul>
+</li>
+<li><a href=http://stackoverflow.com/q/31965179/1870054 target=_blank rel="noopener noreferrer">What's new in Hibernate ORM 5?</a></li>
+<li>Release report <a href=https://hibernate.atlassian.net/projects/HHH/versions/23150/tab/release-report-done target=_blank rel="noopener noreferrer">5.0</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=faq>FAQ<a href=#faq class=hash-link aria-label="Direct link to FAQ" title="Direct link to FAQ" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=spring-boot-与-hibernate-5>Spring Boot 与 Hibernate 5<a href=#spring-boot-与-hibernate-5 class=hash-link aria-label="Direct link to Spring Boot 与 Hibernate 5" title="Direct link to Spring Boot 与 Hibernate 5" translate=no>​</a></h3>
+<ul>
+<li>1.5.x 与 Hibernate 5.2 兼容不好
+<ul>
+<li>SessionFactory 与 EMF 相互之间似乎有冲突</li>
+</ul>
+</li>
+<li>Hazelcast-Hibernate52 支持 Hibernate 5.2</li>
+<li>但是 Hazelcast-Hibernate5-1.2 不支持 Hibernate-5.0.11 最多支持到 5.0.10
+<ul>
+<li>接口有变动</li>
+</ul>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/version>Version</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/java/spring/spring-version.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2023-08-27T07:43:16.000Z itemprop=dateModified>Aug 27, 2023</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/java/spring/security><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Spring Security</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/java/spring/web><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Spring MVC</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#springboot class="table-of-contents__link toc-highlight">SpringBoot</a><ul><li><a href=#springboot-30 class="table-of-contents__link toc-highlight">SpringBoot 3.0</a></ul><li><a href=#spring class="table-of-contents__link toc-highlight">Spring</a><ul><li><a href=#50 class="table-of-contents__link toc-highlight">5.0</a><li><a href=#43 class="table-of-contents__link toc-highlight">4.3</a><li><a href=#42x class="table-of-contents__link toc-highlight">4.2.x</a><li><a href=#31x class="table-of-contents__link toc-highlight">3.1.x</a></ul><li><a href=#spring-data class="table-of-contents__link toc-highlight">Spring Data</a><ul><li><a href=#ingalls class="table-of-contents__link toc-highlight">Ingalls</a><li><a href=#hopper class="table-of-contents__link toc-highlight">Hopper</a></ul><li><a href=#spring-boot class="table-of-contents__link toc-highlight">Spring Boot</a><ul><li><a href=#20 class="table-of-contents__link toc-highlight">2.0</a><li><a href=#15 class="table-of-contents__link toc-highlight">1.5</a><li><a href=#14 class="table-of-contents__link toc-highlight">1.4</a><li><a href=#13 class="table-of-contents__link toc-highlight">1.3</a></ul><li><a href=#spring-cloud class="table-of-contents__link toc-highlight">Spring Cloud</a><ul><li><a href=#dalston class="table-of-contents__link toc-highlight">Dalston</a><li><a href=#camden class="table-of-contents__link toc-highlight">Camden</a><li><a href=#brixton class="table-of-contents__link toc-highlight">Brixton</a><li><a href=#angel class="table-of-contents__link toc-highlight">Angel</a></ul><li><a href=#querydsl class="table-of-contents__link toc-highlight">QueryDSL</a><li><a href=#hibernate class="table-of-contents__link toc-highlight">Hibernate</a><ul><li><a href=#52 class="table-of-contents__link toc-highlight">5.2</a><li><a href=#51 class="table-of-contents__link toc-highlight">5.1</a><li><a href=#50-1 class="table-of-contents__link toc-highlight">5.0</a></ul><li><a href=#faq class="table-of-contents__link toc-highlight">FAQ</a><ul><li><a href=#spring-boot-与-hibernate-5 class="table-of-contents__link toc-highlight">Spring Boot 与 Hibernate 5</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-03-02 13:32</div></div></div></footer></div></body>
