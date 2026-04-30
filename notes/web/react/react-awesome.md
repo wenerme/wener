@@ -473,7 +473,7 @@ npm add date-fns lodash-es react-fast-compare
     - 4500, MIT
 - [popperjs/react-popper](https://github.com/popperjs/react-popper)
   - 显示弹出气泡
-- [signavio/react-mentions](https://github.com/signavio/react-mentions)
+- [hbmartin/react-mentions-ts](https://github.com/hbmartin/react-mentions-ts)
   - 支持 `@username`
 - [twobin/react-lazyload](https://github.com/twobin/react-lazyload)
   - 懒加载 UI 组件
