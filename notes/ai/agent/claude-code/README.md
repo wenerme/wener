@@ -275,6 +275,16 @@ ANTHROPIC_SMALL_FAST_MODEL=gpt-5.4-mini ANTHROPIC_MODEL=gpt-5.4 claude
 - 自定义 slash 命令 .claude/commands/fix-github-issue.md
 - https://docs.anthropic.com/en/docs/claude-code/settings
 
+```bash title="ds-cc.sh
+#!/bin/sh
+export ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic
+export ANTHROPIC_AUTH_TOKEN=sk-secret
+export ANTHROPIC_MODEL=deepseek-v4-pro[1m]
+export ANTHROPIC_SUBAGENT_MODEL=deepseek-v4-flash
+export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+exec claude $@
+```
+
 ## CLAUDE.md
 
 - ~/.claude/CLAUDE.md

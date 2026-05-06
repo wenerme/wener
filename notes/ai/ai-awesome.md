@@ -498,6 +498,14 @@ tags:
   - https://otranscribe.com/opensource/
 - Speaker Diarization
   - 分离说话者
+- Keybord/Input
+  - https://github.com/macmixing/keyvox
+    - macOS, iOS
+  - https://github.com/getdictus/dictus-ios
+  - https://github.com/omachala/diction
+  - https://github.com/moinulmoin/voicetypr
+- https://github.com/FluidInference/FluidAudio
+- https://github.com/microsoft/VibeVoice
 - 商业
   - https://spectropic.ai/
   - https://audiogest.app/

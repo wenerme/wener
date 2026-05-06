@@ -90,9 +90,6 @@ osascript -e 'display notification "通知内容" with title "标题" subtitle "
 # 如果安装了快捷指令 app -> 快捷指令名
 shortcuts run "Notify" <<< "这是通知内容"
 
-# 如果安装了 raycast
-raycast notify "通知标题" -m "通知详细内容"
-
 # brew install terminal-notifier
 terminal-notifier -title "标题" -message "内容" -open "http://google.com" -bundleID "com.apple.Terminal"
 
@@ -100,3 +97,5 @@ alerter -title "标题" -message "内容" -actions "接受","拒绝"
 
 notificator --title "标题" --text "内容"
 ```
+
+- https://github.com/saihgupr/NotifiCLI

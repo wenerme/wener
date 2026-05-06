@@ -34,6 +34,12 @@ hermes                 # 启动交互 CLI
 hermes update          # 升级（git pull + 重装）
 hermes config edit     # 编辑配置
 hermes gateway install # 安装后台 gateway（Telegram/Discord/飞书等）
+
+
+# profile
+hermes profile create ops-agent --clone
+ops-agent config
+hermes --profile ops-agent chat -q 'Reply OK only.' --toolsets '' --quiet
 ```
 
 ## 配置 {#configuration}

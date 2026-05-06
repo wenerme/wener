@@ -60,6 +60,11 @@ tags:
   - https://github.com/smtg-ai/claude-squad
   - https://github.com/Pimzino/claude-code-spec-workflow
   - https://github.com/SuperClaude-Org/SuperClaude_Framework
+- Monitor
+  - https://github.com/steipete/CodexBar
+    - brew install --cask steipete/tap/codexbar
+- sandbox
+  - https://github.com/always-further/nono
 - Accessbility
   - https://github.com/googleworkspace/cli
 - [microsoft/autogen](https://github.com/microsoft/autogen)

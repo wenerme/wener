@@ -341,8 +341,10 @@ npx --package @7nohe/openapi-react-query-codegen openapi-rq -i ./petstore.yaml
   - [vs Postman](https://www.usebruno.com/compare/bruno-vs-postman)
 - [Hoppscotch](./hoppscotch.md)
   - MIT, Vue+Typescript
-  - 不能持久化
+  - 可以 Selfhost
   - 支持 OpenAPI, GraphQL
+- [mountain-loop/yaak](https://github.com/mountain-loop/yaak)
+  - MIT, TypeScript, Rust, Tauri
 - [Kong/insomnia](https://github.com/Kong/insomnia)
   - MIT, JS+TS
   - GraphQL, REST, WebSockets, gRPC

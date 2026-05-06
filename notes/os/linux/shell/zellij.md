@@ -10,6 +10,9 @@ title: zellij
 - 参考
   - [Zellij Official Website](https://zellij.dev/)
   - [Zellij Documentation](https://zellij.dev/documentation/)
+  - https://zellijcheatsheet.dev/
+  - https://github.com/zellij-org/zellij/blob/main/zellij-utils/assets/config/default.kdl
+    - 默认按键绑定
 
 ```bash
 brew install zellij

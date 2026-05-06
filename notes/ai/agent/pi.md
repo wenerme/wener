@@ -16,6 +16,11 @@ tags:
     - 没有 Plan
 - 参考
   - https://github.com/can1357/oh-my-pi
+  - https://github.com/davebcn87/pi-autoresearch
+  - https://github.com/qualisero/awesome-pi-agent
+  - https://github.com/tmustier/pi-extensions
+- 会自动下载 fd, ripgrep
+  - Widnows `C:\Users\$USER\.pi\agent\bin`
 
 ```bash
 # 安装
@@ -23,8 +28,21 @@ bun add -g @mariozechner/pi-coding-agent
 # 或者使用 npm
 npm install -g @mariozechner/pi-coding-agent
 
+export PI_SKIP_VERSION_CHECK=1 # 只关版本检查
+export PI_CACHE_RETENTION=long # 1h 缓存
+export PI_TELEMETRY=0          # 关遥测
+
 pi
 ```
+
+| Variable                | Description                                   |
+| ----------------------- | --------------------------------------------- |
+| `PI_CODING_AGENT_DIR`   | `~/.pi/agent`                                 |
+| `PI_PACKAGE_DIR`        |                                               |
+| `PI_SKIP_VERSION_CHECK` | 关闭版本检测                                  |
+| `PI_TELEMETRY`          | 1/true/yes to enable or 0/false/no to disable |
+| `PI_CACHE_RETENTION`    | long (Anthropic: 1h, OpenAI: 24h)             |
+| `VISUAL`, `EDITOR`      |                                               |
 
 - .pi/
 - ~/.pi/agent
@@ -34,6 +52,7 @@ pi
 
 ```json title=~/.pi/agent/settings.json
 {
+  "enableInstallTelemetry": false,
   "skills": [
     // "+/path/SKILL.md"
   ]

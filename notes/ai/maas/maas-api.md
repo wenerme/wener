@@ -261,9 +261,38 @@ title: MaaS API
 }
 ```
 
+```json
+{
+  "prompt_cache_key": "",
+  // in_memory, 24h
+  // min 1024 tokens
+  // gpt-5.5, gpt-5.5-pro 后默认是 24h
+  "prompt_cache_retention": "24h"
+}
+```
+
+```json
+{
+  "usage": {
+    "prompt_tokens": 2006,
+    "completion_tokens": 300,
+    "total_tokens": 2306,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  }
+}
+```
+
 ---
 
 - https://ai.google.dev/gemini-api/docs/caching
 - https://platform.claude.com/docs/en/build-with-claude/prompt-caching
 - https://platform.openai.com/docs/guides/prompt-caching
+- https://developers.openai.com/api/docs/guides/prompt-caching
 - https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html

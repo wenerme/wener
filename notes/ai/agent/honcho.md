@@ -193,3 +193,32 @@ AUTH_JWT_SECRET=your-secret-key
 # ~/.honcho/config.json
 uv tool install honcho-cli
 ```
+
+## 配置
+
+```json
+{
+  "environmentUrl": "",
+  "apiKey": "",
+  "hosts": {
+    "pi": {
+      "sessionStrategy": "repo",
+      "endpoint": "http://127.0.0.1:8055"
+    },
+    "claude_code": {
+      "workspace": "wener",
+      "aiPeer": "claude"
+    }
+  },
+  "endpoint": {
+    "environment": "production",
+    "baseUrl": "http://127.0.0.1:8055/v3"
+  },
+  "peerName": "wener",
+  "sessions": {
+    "": ""
+  }
+}
+```
+
+- sessionStrategy
