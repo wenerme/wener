@@ -15,7 +15,6 @@ tags:
     - 内置 几个 个 Tool
     - 没有 Plan
 - 参考
-  - https://github.com/can1357/oh-my-pi
   - https://github.com/davebcn87/pi-autoresearch
   - https://github.com/qualisero/awesome-pi-agent
   - https://github.com/tmustier/pi-extensions
@@ -24,9 +23,9 @@ tags:
 
 ```bash
 # 安装
-bun add -g @mariozechner/pi-coding-agent
+bun add -g @earendil-works/pi-coding-agent
 # 或者使用 npm
-npm install -g @mariozechner/pi-coding-agent
+npm install -g @earendil-works/pi-coding-agent
 
 export PI_SKIP_VERSION_CHECK=1 # 只关版本检查
 export PI_CACHE_RETENTION=long # 1h 缓存
@@ -85,3 +84,32 @@ pi
 ```
 
 - https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/src/core/model-registry.ts
+
+# Awesome
+
+- RTK
+  - https://github.com/MasuRii/pi-rtk-optimizer
+  - https://github.com/sherif-fanous/pi-rtk
+  - https://github.com/mcowger/pi-rtk
+- Tools
+  - https://github.com/RimuruW/pi-hashline-edit
+- Agent
+  - https://github.com/can1357/oh-my-pi
+  - https://github.com/itayinbarr/little-coder
+
+```bash
+# ~/.pi/agent/extensions/pi-rtk-optimizer
+pi install npm:pi-rtk-optimizer
+```
+
+# Version
+
+## v0.74
+
+- repo 变更为 badlogic/pi-mono -> earendil-works/pi
+- npm @mariozechner/pi-coding-agent -> @earendil-works/pi-coding-agent
+
+```bash
+pi update
+pi update --self
+```

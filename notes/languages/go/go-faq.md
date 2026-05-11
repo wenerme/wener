@@ -597,3 +597,14 @@ sudo xcode-select --switch /Library/Developer/CommandLineTools
 
 - 也可以手动下载
   - https://developer.apple.com/download/all/
+
+
+## memory limit
+
+- GOMEMLIMIT
+- `debug.SetMemoryLimit(uint64)`
+- 不会自动读取 cgroup
+
+---
+
+- https://github.com/golang/go/issues/75164

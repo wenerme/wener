@@ -5,7 +5,7 @@ title: nebula
 # nebula
 
 - [slackhq/nebula](https://github.com/slackhq/nebula) 是什么？
-  - MIT
+  - MIT, Go
   - P2P overlay 网络 - 类似 Tinc
   - Layer 3 - IP 层 - 不支持 MAC - 预先配置网络
   - 注重性能和简洁
@@ -375,3 +375,33 @@ firewall:
 ## NAT
 
 - [slackhq/nebula#33](https://github.com/slackhq/nebula/issues/33)
+
+## sshd
+
+```bash
+ssh -i ~/.ssh/id_ed25519 -p 2222 admin@127.0.0.1 device-info
+```
+
+| 命令 | 说明 |
+|---|---|
+| `change-remote` | 更改指定 VPN 地址在隧道中使用的远端地址 |
+| `close-tunnel` | 关闭指定 VPN 地址的隧道 |
+| `create-tunnel` | 为指定 VPN 地址创建隧道 |
+| `device-info` | 打印有关网络设备的信息 |
+| `help` | 打印可用命令，或使用 `help <command>` 获取特定用法的说明 |
+| `list-hostmap` | 列出所有已知且之前连接过的主机 |
+| `list-lighthouse-addrmap` | 列出所有的 lighthouse 映射条目 |
+| `list-pending-hostmap` | 列出所有正在握手的主机 |
+| `log-format` | 获取或设置当前的日志格式 |
+| `log-level` | 获取或设置当前的日志级别 |
+| `mutex-profile-fraction` | 获取或设置 `runtime.SetMutexProfileFraction` |
+| `print-cert` | 打印当前正在使用的证书，或指定 VPN 地址的证书 |
+| `print-relays` | 打印有关所有中继信息的 JSON 详情 |
+| `print-tunnel` | 打印指定 VPN 地址隧道的 JSON 详情 |
+| `query-lighthouse` | 向 lighthouse 查询指定 VPN 地址的信息 |
+| `reload` | 从磁盘重新加载配置，等同于向进程发送 HUP 信号 |
+| `save-heap-profile` | 将堆内存分析数据保存到指定路径，例如：`heap-profile.pb.gz` |
+| `save-mutex-profile` | 将互斥锁分析数据保存到指定路径，例如：`mutex-profile.pb.gz` |
+| `start-cpu-profile` | 启动 CPU 性能分析并将输出写入指定文件，例如：`cpu-profile.pb.gz` |
+| `stop-cpu-profile` | 停止 CPU 性能分析并将输出写入之前指定的文件 |
+| `version` | 打印当前运行的 nebula 版本 |

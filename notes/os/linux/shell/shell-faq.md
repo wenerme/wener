@@ -407,3 +407,12 @@ unset HISTFILE # 关闭写入
 # HISTORY_IGNORE
 TOEKN="ABC"
 ```
+
+## polyglot shebang
+
+```sh
+#!/bin/sh
+ ':' //; exec "$(command -v bun || command -v node)" "$0" "$@"
+
+console.log("Running on:", process.versions.bun ? "Bun" : "Node");
+```

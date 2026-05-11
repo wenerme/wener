@@ -107,6 +107,9 @@ tags:
 - [rapiz1/rathole](https://github.com/rapiz1/rathole)
   - Apache-2.0, Rust
   - 类似 frp，但 rust 实现
+- [nicocha30/ligolo-ng](https://github.com/nicocha30/ligolo-ng)
+  - GPL-3.0, Go
+  - An advanced, yet simple, tunneling/pivoting tool that uses a TUN interface.
 
 ```bash
 curl https://1.1.1.1/cdn-cgi/trace
