@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["715588"],{420523:function(e){e.exports=JSON.parse('{"tag":{"label":"MIDI","permalink":"/notes/tags/midi","allTagsPath":"/notes/tags","count":1,"items":[{"id":"web/domain/midi","title":"Web MIDI","description":"- JZZ","permalink":"/notes/web/domain/midi"}],"unlisted":false}}')}}]);

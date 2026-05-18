@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["343026"],{299814:function(e){e.exports=JSON.parse('{"tag":{"label":"Icon","permalink":"/notes/tags/icon","allTagsPath":"/notes/tags","count":1,"items":[{"id":"web/icon/fontawesome","title":"FontAwesome","description":"","permalink":"/notes/web/icon/fontawesome"}],"unlisted":false}}')}}]);

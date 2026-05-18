@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["171834"],{866556:function(e){e.exports=JSON.parse('{"tag":{"label":"BusyBox","permalink":"/notes/tags/busy-box","allTagsPath":"/notes/tags","count":1,"items":[{"id":"os/busybox/udhcpd","title":"BusyBox udhcpd","description":"","permalink":"/notes/os/busybox/udhcpd"}],"unlisted":false}}')}}]);
