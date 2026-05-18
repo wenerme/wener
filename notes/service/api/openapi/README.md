@@ -25,6 +25,11 @@ title: OpenAPI
 - [zalando/zally](https://github.com/zalando/zally)
   - linter
 
+```bash
+pnpm dlx @apidevtools/swagger-cli validate openapi.yaml
+pnpm --package=@redocly/cli dlx redocly lint openapi.yaml
+```
+
 ## OpenAPI
 
 - https://www.linode.com/docs/api/openapi.yaml

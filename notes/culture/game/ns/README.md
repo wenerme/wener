@@ -12,3 +12,5 @@ title: NS
 <!--
 sub 03e1ec3335c0430b
 -->
+
+- https://accounts.nintendo.com/profile/edit

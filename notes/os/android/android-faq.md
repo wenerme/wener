@@ -17,3 +17,12 @@ adb shell input text "你好"
 adb shell input keyevent 279
 adb shell input keyevent PASTE
 ```
+
+- https://github.com/senzhk/ADBKeyBoard
+  - com.android.adbkeyboard/.AdbIME
+
+```bash
+adb install ADBKeyboard.apk
+adb shell ime enable com.android.adbkeyboard/.AdbIME
+adb shell ime set com.android.adbkeyboard/.AdbIME
+```

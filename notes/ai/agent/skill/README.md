@@ -27,6 +27,10 @@ tags:
     - `npx skills add <owner/repo>`
   - https://context7.com/?tab=skills
     - `npx ctx7 skills search pdf`
+- UI/Design
+  - https://github.com/anthropics/skills/tree/main/skills/frontend-design
+  - https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+  - https://github.com/google-labs-code/stitch-skills
 - index
   - https://github.com/openai/skills
   - https://github.com/openclaw/openclaw/tree/main/skills

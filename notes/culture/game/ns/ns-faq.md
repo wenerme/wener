@@ -6,6 +6,17 @@ tags:
 
 # Nitendo Switch FAQ
 
+- 修改地区
+  - https://accounts.nintendo.com/profile/edit
+- 兑换
+  - https://ec.nintendo.com/redeem
+
+```
+此帳號擁有自動繼續購買的使用券。若未解除自動繼續購買，則無法變更國家/地區。
+```
+
+先 Switch 上关闭 Online 自动续费
+
 ## 搜索不到 5g WiFi
 
 将路由的 5g WiFi 控制通道修改为小于 149 的通道

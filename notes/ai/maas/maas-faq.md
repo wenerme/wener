@@ -37,6 +37,17 @@ title: FAQ
 | Orchestration               | 编排（业务中对多个 Agent 或工具的流程调度）            |
 | Few-shot / Zero-shot        | 少样本 / 零样本（提示工程技巧）                        |
 
+**阿里云 ASR 模型错误**
+
+```
+InternalError.Algo.InvalidParameter: The dedicated task `asr` corresponding to the current service does not support this input
+```
+
+| error               |
+| ------------------- |
+| usage_limit_reached |
+| stream_incomplete   |
+
 ## finish_reason
 
 | finish_reason                  | 说明                                 |
@@ -300,5 +311,3 @@ An error occurred while processing your request. You can retry your request, or 
 ## thinking is enabled but reasoning_content is missing in assistant tool call message at index
 
 - API_ERROR
-
-
