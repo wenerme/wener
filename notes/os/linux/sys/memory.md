@@ -54,6 +54,55 @@ tags:
   - fs/proc/page.c，kpageflags_read
 - /proc/kpagecgroup
 
+## Usage
+
+| item          | stand for                                       |
+| ------------- | ----------------------------------------------- |
+| rss           | 匿名内存 / heap / stack / mmap 后实际驻留的内存 |
+| page cache    | 读文件、写文件、加载 mmap - 可回收内存          |
+| inactive_file | 不活跃的文件缓存                                |
+| kernel/cgroup | 内核 / cgroup 内存使用                          |
+| working_set   | 工作集 usage - inactive_file                    |
+| usage         | 内存使用量                                      |
+| anon          | 匿名内存 / heap / stack / mmap 后实际驻留的内存 |
+| file          | 读文件、写文件、加载 mmap - 可回收内存          |
+| inactive_file | 不活跃的文件缓存                                |
+| active_file   | 活跃的文件缓存                                  |
+| dirty         | 脏页                                            |
+| writeback     | 回写页                                          |
+| slab          | 内核 slab 分配器内存                            |
+
+| f                             | for |
+| ----------------------------- | --- |
+| /sys/fs/cgroup/memory.current |
+| /sys/fs/cgroup/memory.stat    |
+| /sys/fs/cgroup/memory.max     |
+
+```
+container_memory_working_set_bytes = Usage - inactive_file
+
+container_memory_rss = 匿名内存 / heap / stack / mmap 后实际驻留的内存
+
+
+不活跃的文件缓存
+container_memory_total_inactive_file_bytes = usage - working_set
+```
+
+内存泄漏
+
+- RSS ↑
+- Working Set ↑
+- Go Heap ↑
+- Page Cache 不高
+
+Linux 文件缓存 / IO 行为
+
+- Usage ↑
+- Page Cache ↑
+- inactive_file ↑
+- usage - working_set ↑
+- RSS / Go Heap 稳定
+
 # 参考
 
 ## 启动时物理内存概念布局

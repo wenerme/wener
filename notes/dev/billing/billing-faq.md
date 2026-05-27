@@ -21,6 +21,7 @@ tags:
 | CRO    | Chief Revenue Officer       | 首席营收官         | 负责公司整体营收增长的高管                                                   |
 | ARPU   | Average Revenue Per User    | 平均每用户收入     | 在特定周期内，平均每个用户或客户为企业贡献的收入金额（通常用于衡量用户价值） |
 | ARPA   | Average Revenue Per Account | 平均每客户收入     | 在特定周期内，平均每个客户为企业贡献的收入金额（通常用于衡量客户价值）       |
+| CUR    | Cost and Usage Report       | 成本和用量报告     | 企业对成本和用量进行详细分析的报告，用于监控和优化资源使用效率               |
 
 | en                     | cn            | desc                                                          |
 | ---------------------- | ------------- | ------------------------------------------------------------- |
@@ -48,6 +49,7 @@ tags:
 
 - https://stripe.com/en-hk/resources/more/meter-to-cash-germany
 - https://stripe.com/en-hk/resources/more
+- [What are AWS Cost and Usage Reports?](https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html)
 
 ## RevOps
 

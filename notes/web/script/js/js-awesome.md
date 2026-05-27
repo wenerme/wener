@@ -372,6 +372,8 @@ tags:
         - React Components for Tabular data.
       - [React-Proto/react-proto](https://github.com/React-Proto/react-proto)
         - 原型设计
+  - https://github.com/samizdatco/skia-canvas
+  - https://github.com/google/skia/tree/main/modules/canvaskit
   - [catdad/canvas-confetti](https://github.com/catdad/canvas-confetti)
   - [Microsoft/maker.js](https://github.com/Microsoft/maker.js)
     - Apache-2.0, TS
@@ -566,6 +568,7 @@ tags:
     - image compressor
   - https://github.com/photopea
   - [sharp](../lib/sharp.md)
+  - https://github.com/kleisauke/wasm-vips
   - [jimp-dev/jimp](https://github.com/jimp-dev/jimp)
     - 纯 JS
     - JavaScript Image Manipulation Program

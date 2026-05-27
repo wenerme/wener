@@ -44,6 +44,8 @@ tags:
   - AGENTS.md
   - [a2aproject/A2A](https://github.com/a2aproject/A2A)
 - Claude Based/WebUI Agent/Manager/Automation/Integration
+  - [slopus/happy](https://github.com/slopus/happy)
+  - [getpaseo/paseo](https://github.com/getpaseo/paseo)
   - [siteboon/claudecodeui](https://github.com/siteboon/claudecodeui)
     - GPLv3, JS, React
     - 不能 accept/deny 工具
@@ -103,3 +105,42 @@ npx skills add vercel-labs/agent-browser
   - 不关心过程，只关心结果
   - 对话额外最后的总结性输出，而不是包含中间思考过程、工具调用 这样的输出
   - 更像是一个 Agent/助手，而不是一个 Coding Assistant
+
+## Computer Use
+
+- https://ai.google.dev/gemini-api/docs/computer-use
+  - click_at
+  - hover_at
+  - type_text_at - x, y, text, press_enter, clear_before_typing
+  - key_combination - keys
+  - scroll_document - direction: ("up", "down", "left", "right")
+  - scroll_at - x, y, direction, magnitude
+  - drag_and_drop - x, y, destination_x, destination_y
+  - search
+  - wait
+  - go_back / go_forward
+- https://huggingface.co/collections/johannhartmann/computer-use-models
+- https://huggingface.co/microsoft/Phi-Ground
+  - Text-First
+  - box_2d `[ymin, xmin, ymax, xmax]`  scale 1000
+  - $1008 \times 672$ 像素（即代码中的 336 * 3 宽，336 * 2 高）
+- https://huggingface.co/microsoft/Fara-7B
+  - visit_url - url
+  - web_search - query
+  - mouse_move - `[x,y]`
+  - left_click - `[x,y]`
+  - type - coordinate`[x,y]`, text
+  - key - keys
+  - scroll - pixels
+  - history_back
+  - wait - time
+  - pause_and_memorize_fact - fact
+  - terminate - status
+- benchmark
+  - ScreenSpot-Pro
+  - Screenspot-V2
+  - GroundUI-Web
+  - Showdown
+  - WebClick
+- 参考
+  - https://github.com/omxyz/zoom-consistency-routing

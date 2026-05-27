@@ -170,3 +170,40 @@ Opera/9.80 (J2ME/MIDP; Opera Mini/4.3.24214; iPhone; CPU iPhone OS 4_2_1 like Ma
   }
 }
 ```
+
+## Schema
+
+```
+request_id
+trace_id
+span_id
+client_ip
+user_agent
+auth_user_id
+
+http_method
+request_url
+query_string
+http_version
+
+response_status
+
+duration_ms
+
+bytes_sent
+bytes_received
+
+rpc_service
+rpc_method
+rpc_status
+rpc_protocol
+rpc_endpoint
+```
+
+**参考**
+
+- https://www.elastic.co/docs/reference/ecs
+  - https://www.elastic.co/docs/reference/ecs/ecs-http
+- https://github.com/open-telemetry/semantic-conventions
+- https://www.w3.org/TR/WD-logfile.html
+- https://github.com/cloudevents/spec

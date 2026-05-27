@@ -60,6 +60,21 @@ title: Memory
   - replace
   - remove
 
+# Dream
+
+OpenClawDreams
+
+工作机制（三段式睡眠 pipeline）：
+
+- 浅度睡眠（Light Sleep）：在用户闲时，扫描当天的原始对话、日志和 RAG 检索痕迹，去除重复信息，生成一个“候选项列表”（此时不修改核心文档）。
+- 深度睡眠（Deep Sleep）：通过 6 个加权信号和 3 层阈值进行严格筛选（看某些信息是否被多次提及、是否真正重要）。只有通过考核的记忆，才会被合并写入长期的核心文件（如 MEMORY.md）。
+- REM（快速眼动期）：进行模式识别、自主合成（Synthetic Synthesis）和超现实叙事生成。智能体通过自我反思当天表现，去寻找那些隐藏的关联，并更新自己的运行指南。
+
+
+---
+
+- https://docs.openclaw.ai/concepts/dreaming
+
 # FAQ
 
 - 长期、短期记忆

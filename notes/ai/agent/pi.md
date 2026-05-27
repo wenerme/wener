@@ -25,7 +25,7 @@ tags:
 # 安装
 bun add -g @earendil-works/pi-coding-agent
 # 或者使用 npm
-npm install -g @earendil-works/pi-coding-agent
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 
 export PI_SKIP_VERSION_CHECK=1 # 只关版本检查
 export PI_CACHE_RETENTION=long # 1h 缓存
@@ -43,11 +43,29 @@ pi
 | `PI_CACHE_RETENTION`    | long (Anthropic: 1h, OpenAI: 24h)             |
 | `VISUAL`, `EDITOR`      |                                               |
 
-- .pi/
+- $PWD/.pi/
+  - settings.json
+  - SYSTEM.md
+  - APPEND_SYSTEM.md
+  - skills/
+  - prompts/
+  - extenstions/
+  - npm/
+    - node_modules/
+  - git/
+    - github.com/org/repo/
+  - themes/
 - ~/.pi/agent
   - auth.json
   - models.json
   - sessions/--PATH--/TIMESTAMP_UUID.jsonl
+- .agents/skills
+  - 主要支持 skills 递归向上查找
+
+```bash
+pi install -l npm:@org/pi-package
+pi install -l git:github.com/org/repo
+```
 
 ```json title=~/.pi/agent/settings.json
 {
@@ -102,6 +120,37 @@ pi
 pi install npm:pi-rtk-optimizer
 ```
 
+## Session
+
+```bash
+# session dir
+ls ~/.pi/agent/sessions/-$(echo "$PWD/" | sed 's#/#-#g')-
+cd ~/.pi/agent/sessions/-$(echo "$PWD/" | sed 's#/#-#g')-
+
+jq -r 'select(.type=="message" and .message.role=="user") | if (.message.content|type)=="string" then .message.content else [.message.content[]? | select(.type=="text") | .text] | join("\n---\n") end' *.jsonl
+```
+
+## Inside
+
+```ts
+type KnownApi =
+    | "openai-completions"
+    | "mistral-conversations"
+    | "openai-responses"
+    | "azure-openai-responses"
+    | "openai-codex-responses"
+    | "anthropic-messages"
+    | "bedrock-converse-stream"
+    | "google-generative-ai"
+    | "google-vertex";
+```
+
+- openrouter-images
+- OpenAI-compatible proxy / Ollama / vLLM / LM Studio：openai-completions
+- Anthropic-compatible proxy：anthropic-messages
+- Google AI Studio：google-generative-ai
+- OpenAI Responses-compatible：openai-responses
+
 # Version
 
 ## v0.74
@@ -112,4 +161,13 @@ pi install npm:pi-rtk-optimizer
 ```bash
 pi update
 pi update --self
+```
+
+# FAQ
+
+
+```bash
+# 修复会话 cwd
+cd /new/project/path
+pi --fork /path/to/old/session.jsonl
 ```

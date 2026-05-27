@@ -43,10 +43,12 @@ title: FAQ
 InternalError.Algo.InvalidParameter: The dedicated task `asr` corresponding to the current service does not support this input
 ```
 
-| error               |
+| error type          |
 | ------------------- |
 | usage_limit_reached |
 | stream_incomplete   |
+| invalid_json_schema |
+| stream_read_error   |
 
 ## finish_reason
 
@@ -208,10 +210,25 @@ Gemini 限制
 FIELD: Extra inputs are not permitted
 ```
 
-## `tool_use` ids were found without `tool_result` blocks immediately after
+## tool_use ids were found without tool_result blocks immediately after
 
 ```
-`tool_use` ids were found without `tool_result` blocks immediately after: <*>. Each `tool_use` block must have a corresponding `tool_result` block in the next message.
+tool_use ids were found without tool_result blocks immediately after: <*>. Each `tool_use` block must have a corresponding `tool_result` block in the next message.
+```
+
+转换
+
+```
+assistant: [tool_use a, tool_use b]
+user: [tool_result a]
+user: [tool_result b]
+```
+
+为
+
+```
+assistant: [tool_use a, tool_use b]
+user: [tool_result a, tool_result b]
 ```
 
 - https://github.com/anthropics/claude-code/issues/1894

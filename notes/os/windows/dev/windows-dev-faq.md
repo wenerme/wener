@@ -5,11 +5,12 @@ tags:
 
 # Windows Dev FAQ
 
-| abbr. | stand for                | cn      | notes |
-| ----- | ------------------------ | ------- | ----- |
-| DWM   | Desktop Window Manager   | dwm.exe |
-| WGC   | Windows Graphics Capture |
-| UWP   | Universal Windows Platform |
+| abbr. | stand for                      | cn  | notes   |
+| ----- | ------------------------------ | --- | ------- |
+| DWM   | Desktop Window Manager         |     | dwm.exe |
+| WGC   | Windows Graphics Capture       |
+| UWP   | Universal Windows Platform     |
+| MSAA  | Microsoft Active Accessibility |     |
 
 - DWM
   - 窗口合成 compositing
@@ -106,6 +107,7 @@ tags:
   - 这类不是单纯“截一张图”，而是视频采集流水线。
 
 ## 自动化操作
+
 - `SendInput`
 - `mouse_event` / `keybd_event`，旧 API
 - AutoHotkey
@@ -115,22 +117,21 @@ tags:
 
 ---
 
- Win32 消息：可以后台发，但兼容性有限
+Win32 消息：可以后台发，但兼容性有限
 
- - `SendMessage`
- - `PostMessage`
- - `WM_KEYDOWN`
- - `WM_KEYUP`
- - `WM_CHAR`
- - `WM_LBUTTONDOWN`
- - `WM_LBUTTONUP`
- - `BM_CLICK`
- - `WM_COMMAND`
+- `SendMessage`
+- `PostMessage`
+- `WM_KEYDOWN`
+- `WM_KEYUP`
+- `WM_CHAR`
+- `WM_LBUTTONDOWN`
+- `WM_LBUTTONUP`
+- `BM_CLICK`
+- `WM_COMMAND`
 
+---
 
- ---
-
- UI Automation / UIA：推荐的系统级 UI 自动化
+UI Automation / UIA：推荐的系统级 UI 自动化
 
 - `Microsoft UI Automation
 - `UIAutomationCore.dll`
@@ -188,7 +189,7 @@ PowerShell / WMI / Registry：系统管理自动化
 
 ---
 
- WebDriver / WinAppDriver / Appium for Windows
+WebDriver / WinAppDriver / Appium for Windows
 
 ---
 
@@ -202,7 +203,6 @@ Hook / DLL 注入 / 内部渲染捕获：能力强，但侵入性高
 - DirectX Hook
 - OpenGL/Vulkan Hook
 - 游戏/图形程序内部捕获
-
 
 ---
 

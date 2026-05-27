@@ -43,3 +43,45 @@ is not present, omit that field from the output.
 
 Text: {{text}}
 ```
+
+- my_prompt.prompt
+  - my_prompt.VARIANT.prompt
+
+
+```go
+type PromptMetadata struct {
+	HasMetadata
+	// The name of the prompt.
+	Name string `json:"name,omitempty"`
+	// The variant name for the prompt.
+	Variant string `json:"variant,omitempty"`
+	// The version of the prompt.
+	Version string `json:"version,omitempty"`
+	// A description of the prompt.
+	Description string `json:"description,omitempty"`
+	// The name of the model to use for this prompt, e.g. `vertexai/gemini-3.0-pro`
+	Model string `json:"model,omitempty"`
+	// Number of tool max turns
+	MaxTurns int `json:"maxTurns,omitempty"`
+	// Names of tools (registered separately) to allow use of in this prompt.
+	Tools []string `json:"tools,omitempty"`
+	// Definitions of tools to allow use of in this prompt.
+	ToolDefs []ToolDefinition `json:"toolDefs,omitempty"`
+	// Model configuration. Not all models support all options.
+	Config ModelConfig `json:"config,omitempty"`
+	// Configuration for input variables.
+	Input PromptMetadataInput `json:"input"`
+	// Defines the expected model output format.
+	Output PromptMetadataOutput `json:"output"`
+	// This field will contain the raw frontmatter as parsed with no additional
+	// processing or substitutions. If your implementation requires custom
+	// fields they will be available here.
+	Raw map[string]any `json:"raw,omitempty"`
+	// Fields that contain a period will be considered "extension fields" in the
+	// frontmatter and will be gathered by namespace. For example, `myext.foo:
+	// 123` would be available at `parsedPrompt.ext.myext.foo`. Nested
+	// namespaces will be flattened, so `myext.foo.bar: 123` would be available
+	// at `parsedPrompt.ext["myext.foo"].bar`.
+	Ext map[string]map[string]any `json:"ext,omitempty"`
+}
+```
