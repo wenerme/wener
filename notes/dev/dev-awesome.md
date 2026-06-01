@@ -345,6 +345,9 @@ scc --exclude-dir={vendor,.gen,node_modules} --by-file --sort=lines --include-ex
 
 ## Code quality
 
+- [qltysh/qlty](https://github.com/qltysh/qlty)
+  - BSL, Rust
+  - codeclimate/codeclimate
 - [facebook/infer](https://github.com/facebook/infer)
   - MIT, OCaml
   - Java, C, C++, Objective-C
@@ -354,6 +357,7 @@ scc --exclude-dir={vendor,.gen,node_modules} --by-file --sort=lines --include-ex
   - Kotlin
 - [pmd/pmd](https://github.com/pmd/pmd)
 - [SonarSource/sonarqube](https://github.com/SonarSource/sonarqube)
+  - LGPLv3, Java
 - [checkstyle/checkstyle](https://github.com/checkstyle/checkstyle)
 - [reviewdog/reviewdog](https://github.com/reviewdog/reviewdog)
 

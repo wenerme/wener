@@ -6,6 +6,16 @@ tags:
 
 # Schema Design
 
+## 专题
+
+- [Resource](./design-schema-resource.md) - 资源表、基础字段、扩展字段、来源字段。
+- [State](./design-schema-state.md) - `state` / `status` / `*_changed_at` / reason / 软删除。
+- [Ownership](./design-schema-ownership.md) - `created_by`、`owner_user_id`、`owner_type`、visibility、共享授权。
+- [Auth](./design-schema-auth.md) - AuthN、AuthZ、access token、permission grant、RBAC 边界。
+- [Logging](./design-schema-logging.md) - request log、audit log、append-only 分析日志、脱敏。
+- [Wode Practice](./design-schema-wode.md) - 历史 Wode PostgreSQL schema 实践参考。
+- [Migration](./design-schema-migration.md) - schema migration。
+
 :::tip Schema 设计参考
 
 - 表尽量不要前缀 - 清晰明了
@@ -18,7 +28,7 @@ tags:
 - 尽量 **不要** 用自增长 ID
   - 容易被遍历
   - 面向用户的可以 增加额外的 自增长 编号/序号
-- 使用 有序的 随机主键 - ULID, UUID
+- 使用 有序的 随机主键 - ULID, UUID, UUIDv7
 - 建议主键增加 type tag
 - PostgreSQL
   - 尽量用 text, bigint, jsonb, bool, timestamptz
@@ -41,6 +51,7 @@ tags:
 
 :::
 
+- UUIDv7
 - [ULID](../../db/ulid.md)
   - 128bit - 编码后 26 字符 - base32
   - timestamp 48bits + random 80bits

@@ -207,7 +207,7 @@ Gemini 限制
 # Anthropic
 
 ```
-FIELD: Extra inputs are not permitted
+<FIELD>: Extra inputs are not permitted
 ```
 
 ## tool_use ids were found without tool_result blocks immediately after
@@ -318,7 +318,8 @@ An error occurred while processing your request. You can retry your request, or 
 # Misc
 
 ```
-
+the upstream load is saturated, please try again later
+Upstream service temporarily unavailable
 ```
 
 ## The `content[].thinking` in the thinking mode must be passed back to the API.

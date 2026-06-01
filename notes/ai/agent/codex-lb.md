@@ -56,3 +56,8 @@ uvx codex-lb
   }
 }
 ```
+
+```
+HTTP bridge session closed before response.completed
+Proxy request budget exhausted
+```
