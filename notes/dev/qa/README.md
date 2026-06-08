@@ -19,6 +19,14 @@ title: 质量保障
 - 持续集成工具
   - Jenkins
   - Travis CI
+- 质量门禁 (Quality Gating)
+  - 一旦代码偏离规范，门禁就会熔断。
+- 工程治理 / 代码治理 (Engineering / Code Governance)
+  - 开发倾向于发散和产出，而治理倾向于收敛和约束。
+- 内建质量 (Built-in Quality)
+  - 精益开发体系（Lean Development）中的核心概念。它强调质量不是最后靠人工 QA 测试出来的，而是在代码 Push 的瞬间，通过 CI 工具链层层过滤，直接“长”在软件骨架里的。
+- 预防性技术债务控制 (Proactive Tech-Debt Prevention)
+  - “债务阻断”
 
 ## 质量保障事项
 

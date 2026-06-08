@@ -8,21 +8,41 @@ title: xds
 
 - xDS API - 一套 DP API - Mesh CP <-> Proxies
   - 用于 gRPC Mesh - `xds://pkg.service`
+  - gRPC 集成了 xDS `grpc.Dial("xds:///my-service")`
+    - 走控制面去发现服务
 - 负载均衡
   - LDS - Listener Discovery Service - type.googleapis.com/envoy.config.listener.v3.Listener
+    - 监听器发现服务
   - RDS - Route Discovery Service - type.googleapis.com/envoy.config.route.v3.RouteConfiguration
+    - 路由发现服务
   - CDS - Cluster Discovery Service - type.googleapis.com/envoy.config.cluster.v3.Cluster
+    - 集群发现服务
   - EDS - Endpoint Discovery Service - type.googleapis.com/envoy.config.endpoint.v3.ClusterLoadAssignment
+    - 端点发现服务
   - ADS - Aggregate Discovery Service - gRPC
+    - 聚合发现服务
+    - 聚合所有 LDS, RDS, CDS, EDS 到一个服务
+    - https://github.com/envoyproxy/envoy/blob/main/api/envoy/service/discovery/v3/ads.proto
 - 负载报告 - LRS
 - xDSv3
-- CP 实现
+- gRPC Proxyless
+- Proxyless Service Mesh
+- 控制面
+  - Istio
+  - Kuma
+  - AWS App Mesh
+  - Aliyun ASM
   - GCP Traffic Director
-  - istio
   - [envoyproxy/go-control-plane](https://github.com/envoyproxy/go-control-plane)
+- 数据面
+  - Envoy, MOSN, AeroFS
 - UDPA - Universal Data Plane API
   - 服务发现，负载均衡分配，路由发现，监听器配置，安全发现，负载报告，运行状况检查委托
 - 参考
+  - adopted by
+    - Apache Dubbo 3.0 集成
+    - 字节 Kitex Go RPC 框架
+    - 百度 bRPC
   - [envoyproxy/data-plane-api](https://github.com/envoyproxy/data-plane-api)
   - [xDS REST and gRPC protocol](https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol)
 

@@ -200,3 +200,9 @@ Bun.serve({
 ## Bun.serve expects idleTimeout to be 255 or less
 
 - idleTimeout 可以为 0
+
+## zig to rust
+
+- 社区反应
+  - Bun support is now limited and deprecated
+    - https://github.com/yt-dlp/yt-dlp/issues/16766

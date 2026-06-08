@@ -148,6 +148,17 @@ AUTH_JWT_SECRET=your-secret-key
     - explicit ← 直接从消息里提取的事实
     - deductive ← 从 explicit 推断的结论
 
+## Peer 策略
+
+- userPeer
+  - HONCHO_PEER_NAME
+  - ~/.honcho/config.json peerName
+  - OS username
+  - user
+- aiPeer
+  - HONCHO_AI_PEER
+  - - ~/.honcho/config.json aiPeer
+
 ## mcp
 
 - https://github.com/plastic-labs/claude-honcho

@@ -54,9 +54,21 @@ tags:
   - Go
 - [neutralinojs/neutralinojs](https://github.com/neutralinojs/neutralinojs)
   - 使用 Native WebView
+  - 没有 Node 环境，直接实现 Native 相关的能力
+  - 类似 tarui, wails
+    - 区别在于 Native 部分如何实现
 - [nwjs/nw.js](https://github.com/nwjs/nw.js)
   - Chromium + node.js
   - 在 DOM 可使用 Node 环境
+  - adopted by
+    - Intel® XDK
+    - RPG Maker
+    - Construct 2 / Construct 3
+    - Pinegrow Web Editor
+    - 微信开发者工具（早期） -> Electron
+- [blackboardsh/electrobun](https://github.com/blackboardsh/electrobun)
+  - bun zig -> rust 的影响
+    - https://github.com/blackboardsh/electrobun/issues/439
 - [Elanis/web-to-desktop-framework-comparison](https://github.com/Elanis/web-to-desktop-framework-comparison)
 - [tauri-apps/tauri](./framework/tauri.md)
   - Build desktop applications with a web frontend

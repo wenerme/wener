@@ -111,6 +111,11 @@ pi install -l git:github.com/org/repo
   - https://github.com/mcowger/pi-rtk
 - Tools
   - https://github.com/RimuruW/pi-hashline-edit
+  - https://github.com/fitchmultz/pi-codex-goal
+- Subagents
+  - https://github.com/nicobailon/pi-subagents
+  - https://github.com/tintinweb/pi-subagents
+  - https://github.com/mjakl/pi-subagent
 - Agent
   - https://github.com/can1357/oh-my-pi
   - https://github.com/itayinbarr/little-coder
@@ -134,15 +139,15 @@ jq -r 'select(.type=="message" and .message.role=="user") | if (.message.content
 
 ```ts
 type KnownApi =
-    | "openai-completions"
-    | "mistral-conversations"
-    | "openai-responses"
-    | "azure-openai-responses"
-    | "openai-codex-responses"
-    | "anthropic-messages"
-    | "bedrock-converse-stream"
-    | "google-generative-ai"
-    | "google-vertex";
+  | 'openai-completions'
+  | 'mistral-conversations'
+  | 'openai-responses'
+  | 'azure-openai-responses'
+  | 'openai-codex-responses'
+  | 'anthropic-messages'
+  | 'bedrock-converse-stream'
+  | 'google-generative-ai'
+  | 'google-vertex';
 ```
 
 - openrouter-images
@@ -150,6 +155,93 @@ type KnownApi =
 - Anthropic-compatible proxy：anthropic-messages
 - Google AI Studio：google-generative-ai
 - OpenAI Responses-compatible：openai-responses
+
+| 项            | openai-responses                                 | openai-codex-responses                               |
+| ------------- | ------------------------------------------------ | ---------------------------------------------------- |
+| 目标          | OpenAI 官方 Responses API                        | ChatGPT/Codex 后端                                   |
+| 默认 endpoint | model.baseUrl 通常 /v1 下 Responses              | https://chatgpt.com/backend-api/codex/responses      |
+| 认证          | OpenAI API key                                   | Codex/ChatGPT auth token                             |
+| 传输          | OpenAI SDK streaming                             | WebSocket 优先，SSE fallback                         |
+| system prompt | 转成 Responses input                             | 单独放 instructions                                  |
+| tools         | 标准 Responses tools                             | Codex 兼容 tools，strict: null                       |
+| retry/timeout | SDK request options                              | 自定义 retry、SSE header timeout、WebSocket fallback |
+| 典型 provider | openai, github-copilot, cloudflare-ai-gateway 等 | openai-codex                                         |
+
+- openai-codex-responses
+  - baseUrl 是 https://chatgpt.com/backend-api
+  - 要求 key 是 JWT
+
+## Awesome
+
+- [tintinweb/pi-subagents](https://github.com/tintinweb/pi-subagents)
+  - Agent
+    - schedule
+  - get_subagent_result
+  -  steer_subagent
+    - 给正在运行的子 agent 发 steering message。
+
+```ts
+{
+  subagent_type: "Explore" | "Plan" | "general-purpose" | "<custom>",
+  prompt: "...",
+  description: "...",
+  model?: "sonnet" | "provider/model",
+  thinking?: "off" | "minimal" | "low" | "medium" | "high" | "xhigh",
+  max_turns?: number,
+  run_in_background?: boolean,
+  resume?: string,
+  isolated?: boolean,
+  inherit_context?: boolean,
+  isolation?: "worktree",
+  schedule?: string
+}
+```
+
+## Prompt
+
+````md
+---
+# 不写则取正文第一条非空行，最多 60 字符
+description: Review staged git changes
+argument-hint: "[focus]"
+---
+Review staged changes.
+
+Focus: $ARGUMENTS
+````
+
+- `Review $1 with $ARGUMENTS`
+  - `/review 789 XYZ`
+
+---
+
+```md
+<project_context>
+
+Project-specific instructions and guidelines:
+
+<project_instructions path="/path/to/AGENTS.md">
+...文件内容...
+</project_instructions>
+
+</project_context>
+
+<available_skills>
+  <skill>
+    <name>pi-dev-guide</name>
+    <description>Use when modifying...</description>
+    <location>/path/to/SKILL.md</location>
+  </skill>
+</available_skills>
+
+<skill name="foo" location="/path/to/SKILL.md">
+References are relative to /path/to/skill-dir.
+
+...SKILL.md 正文，去掉 frontmatter...
+</skill>
+
+args
+```
 
 # Version
 
@@ -164,7 +256,6 @@ pi update --self
 ```
 
 # FAQ
-
 
 ```bash
 # 修复会话 cwd

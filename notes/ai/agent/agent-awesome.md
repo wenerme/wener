@@ -136,11 +136,21 @@ npx skills add vercel-labs/agent-browser
   - wait - time
   - pause_and_memorize_fact - fact
   - terminate - status
+- https://huggingface.co/Hcompany/Holo2-30B-A3B
+  - Qwen3-VL-30B-A3B-Thinking
+- UI-Venus
+  - Qwen3-VL
+  - UI-Venus-Navi
+  - UI-Venus-Ground
+  - https://huggingface.co/inclusionAI/UI-Venus-1.5-2B
+  - https://huggingface.co/collections/inclusionAI/ui-venus
 - benchmark
   - ScreenSpot-Pro
   - Screenspot-V2
   - GroundUI-Web
   - Showdown
   - WebClick
+  - OSWorld-G
+  - UI-Vision
 - 参考
   - https://github.com/omxyz/zoom-consistency-routing

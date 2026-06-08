@@ -315,6 +315,14 @@ An error occurred while processing your request. You can retry your request, or 
 {"type":"error","sequence_number":0,"error":{"type":"upstream_error","message":"stream_read_error","code":"stream_read_error"}}
 ```
 
+**Codex**
+
+```
+Your input exceeds the context window of this model. Please adjust your input and try again.
+
+Previous response with id <*> not found
+```
+
 # Misc
 
 ```
