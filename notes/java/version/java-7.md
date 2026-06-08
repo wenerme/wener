@@ -4,85 +4,65 @@ title: Java 7
 
 # Java 7
 
-- Java SE 7 (Dolphin)
 - Released: 2011-07-28
-- Major features: Project Coin, NIO.2, Fork/Join.
+- Codename: Dolphin
 
-## Features
+## 核心总结
 
-### Language (Project Coin)
+- Java SE 7 Dolphin。Project Coin、NIO.2、Fork/Join、invokedynamic、try-with-resources、switch string、multi-catch。
 
-- **Switch on String**
-  - `switch` 语句支持字符串类型。
+## 语言 / Project Coin
 
-  ```java
-  switch (day) {
-      case "Monday": break;
-      // ...
+- switch on String。
+- try-with-resources 与 AutoCloseable。
+- Diamond operator。
+- multi-catch 与更精确的 rethrow。
+- 数字字面量下划线和二进制字面量。
+
+## 核心库/虚拟机
+
+- NIO.2：Path、Files、WatchService、异步文件通道、文件属性 API。
+- Fork/Join Framework：RecursiveTask/RecursiveAction 与 ForkJoinPool。
+- invokedynamic：动态语言支持，也是后续 Lambda 实现的重要基础。
+- Objects、try-with-resources 相关 AutoCloseable 等基础 API。
+
+## 总结
+
+- Java 7 是 Java 8 前的铺垫版本：Project Coin 改善语法，NIO.2 和 Fork/Join 补齐库能力，invokedynamic 为 JVM 语言生态打开空间。
+
+## 示例
+
+### try-with-resources、multi-catch、switch string
+
+```java
+java.nio.file.Path path = java.nio.file.Paths.get("app.log");
+try (java.io.BufferedReader in = java.nio.file.Files.newBufferedReader(path)) {
+  switch (in.readLine()) {
+    case "start":
+      System.out.println("started");
+      break;
+    default:
+      System.out.println("unknown");
   }
-  ```
+} catch (java.io.IOException | IllegalArgumentException e) {
+  e.printStackTrace();
+}
+```
 
-- **Try-with-resources**
-  - 自动资源管理，实现了 `AutoCloseable` 接口的资源会自动关闭。
+### NIO.2 与 Fork/Join
 
-  ```java
-  try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-      return br.readLine();
-  }
-  ```
+```java
+java.nio.file.Path path = java.nio.file.Paths.get("app.log");
+long size = java.nio.file.Files.size(path);
 
-- **Diamond Operator**
-  - 泛型示例推断。
-
-  ```java
-  List<String> list = new ArrayList<>(); // `<>`
-  ```
-
-- **Multi-catch**
-  - 捕获多种类型的异常。
-
-  ```java
-  try {
-      // ...
-  } catch (IOException | SQLException ex) {
-      logger.log(ex);
-  }
-  ```
-
-- **Numeric Literals with Underscores**
-  - 数字字面量支持下划线分割，提高可读性。
-
-  ```java
-  int million = 1_000_000;
-  ```
-
-- **Binary Literals**
-  - 二进制字面量前缀 `0b`。
-  ```java
-  int binary = 0b1001_1001;
-  ```
-
-### Library
-
-- **NIO.2 (JSR 203)**
-  - 新的 I/O API，位于 `java.nio.file` 包。
-  - 核心类: `Path`, `Paths`, `Files`。
-  - 支持文件系统操作、文件属性访问、异步 I/O (AsynchronousFileChannel)。
-  - `WatchService` 用于监控文件系统变化。
-
-- **Fork/Join Framework**
-  - 用于并行任务执行的框架 (`java.util.concurrent.ForkJoinPool`)。
-  - 核心类: `ForkJoinTask`, `RecursiveTask`, `RecursiveAction`。
-
-- **Objects Class**
-  - `java.util.Objects` 工具类，提供 `equals`, `hashCode`, `requireNonNull` 等静态方法。
-
-### JVM
-
-- **InvokeDynamic (JSR 292)**
-  - 新的字节码指令 `invokedynamic`，主要用于支持动态语言在 JVM 上运行。
-  - 后续也是 Java 8 Lambda 的基础。
+java.util.concurrent.ForkJoinPool pool = new java.util.concurrent.ForkJoinPool();
+```
 
 ## References
 
-- [JDK 7 Documentation](https://docs.oracle.com/javase/7/docs/)
+- [JDK 7 Features](https://openjdk.org/projects/jdk7/features/)
+- [Project Coin](https://openjdk.org/projects/coin/)
+- [JSR 203: NIO.2](https://jcp.org/en/jsr/detail?id=203)
+- [JSR 292: invokedynamic](https://jcp.org/en/jsr/detail?id=292)
+- [JSR 334: Project Coin](https://jcp.org/en/jsr/detail?id=334)
+- [JSR 336: Java SE 7](https://jcp.org/en/jsr/detail?id=336)

@@ -16,3 +16,4 @@ title: Prompt
   - 完整任务描述
 - 参考
   - https://github.com/VoltAgent/awesome-claude-code-subagents
+  - https://github.com/Piebald-AI/claude-code-system-prompts

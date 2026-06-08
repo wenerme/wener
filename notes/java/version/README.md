@@ -8,6 +8,7 @@ title: Java 版本
   - 每 6 个月一个版本
   - 每 2 年一个 LTS - 每 4 个版本
     - Java 11 - Java 17 隔了 3 年, 之后为每隔两年
+- [Java JEP 与版本变化](./java-jep.md)
 - 参考
   - [Java version history](https://en.wikipedia.org/wiki/Java_version_history)
 - 未来特性
@@ -27,51 +28,35 @@ title: Java 版本
 javap -verbose MyClass | grep "major"
 ```
 
-| version  | major | release    | note |
-| -------- | ----- | ---------- | ---- |
-| Java 25  | 69    | 2025-09    | LTS  |
-| Java 24  | 68    | 2025-03    |      |
-| Java 23  | 67    | 2024-09-18 |      |
-| Java 22  | 66    | 2024-03    |      |
-| Java 21  | 65    | 2023-09    | LTS  |
-| Java 20  | 64    | 2023-03    |      |
-| Java 19  | 63    | 2022-09    |      |
-| Java 18  | 62    | 2022-03    |      |
-| Java 17  | 61    | 2021-09    | LTS  |
-| Java 16  | 60    | 2021-03    |      |
-| Java 15  | 59    | 2020-09    |      |
-| Java 14  | 58    | 2020-03    |      |
-| Java 13  | 57    | 2019-09    |      |
-| Java 12  | 56    | 2019-03    |      |
-| Java 11  | 55    | 2018-09    | LTS  |
-| Java 10  | 54    | 2018-03    |      |
-| Java 9   | 53    | 2017-09    |      |
-| Java 8   | 52    | 2014-03    | LTS  |
-| Java 7   | 51    | 2011-07    |      |
-| Java 6   | 50    | 2006-12    |      |
-| Java 5   | 49    | 2004-09    |      |
-| Java 1.4 | 48    | 2002-02    |      |
-| Java 1.3 | 47    | 2000-05    |      |
-| Java 1.2 | 46    | 1998-12    |      |
-| Java 1.1 |       | 1997-02    |      |
-| Java 1.0 |       | 1996-01    |      |
-
-## Java 23
-
-- 455: Primitive Types in Patterns, instanceof, and switch (Preview)
-- 466: Class-File API (Second Preview)
-- 467: Markdown Documentation Comments
-- 469: Vector API (Eighth Incubator)
-- 473: Stream Gatherers (Second Preview)
-- 471: Deprecate the Memory-Access Methods in sun.misc.Unsafe for Removal
-- 474: ZGC: Generational Mode by Default
-- 476: Module Import Declarations (Preview)
-- 477: Implicitly Declared Classes and Instance Main Methods (Third Preview)
-- 480: Structured Concurrency (Third Preview)
-- 481: Scoped Values (Third Preview)
-- 482: Flexible Constructor Bodies (Second Preview)
-- 参考
-  - https://openjdk.org/projects/jdk/23/
+| version                    | major | release    | note |
+| -------------------------- | ----- | ---------- | ---- |
+| [Java 26](./java-26.md)    | 70    | 2026-03-17 |      |
+| [Java 25](./java-25.md)    | 69    | 2025-09    | LTS  |
+| [Java 24](./java-24.md)    | 68    | 2025-03    |      |
+| [Java 23](./java-23.md)    | 67    | 2024-09-18 |      |
+| [Java 22](./java-22.md)    | 66    | 2024-03    |      |
+| [Java 21](./java-21.md)    | 65    | 2023-09    | LTS  |
+| [Java 20](./java-20.md)    | 64    | 2023-03    |      |
+| [Java 19](./java-19.md)    | 63    | 2022-09    |      |
+| [Java 18](./java-18.md)    | 62    | 2022-03    |      |
+| [Java 17](./java-17.md)    | 61    | 2021-09    | LTS  |
+| [Java 16](./java-16.md)    | 60    | 2021-03    |      |
+| [Java 15](./java-15.md)    | 59    | 2020-09    |      |
+| [Java 14](./java-14.md)    | 58    | 2020-03    |      |
+| [Java 13](./java-13.md)    | 57    | 2019-09    |      |
+| [Java 12](./java-12.md)    | 56    | 2019-03    |      |
+| [Java 11](./java-11.md)    | 55    | 2018-09    | LTS  |
+| [Java 10](./java-10.md)    | 54    | 2018-03    |      |
+| [Java 9](./java-9.md)      | 53    | 2017-09    |      |
+| [Java 8](./java-8.md)      | 52    | 2014-03    | LTS  |
+| [Java 7](./java-7.md)      | 51    | 2011-07    |      |
+| [Java 6](./java-6.md)      | 50    | 2006-12    |      |
+| [Java 5](./java-5.md)      | 49    | 2004-09    |      |
+| Java 1.4                   | 48    | 2002-02    |      |
+| Java 1.3                   | 47    | 2000-05    |      |
+| Java 1.2                   | 46    | 1998-12    |      |
+| Java 1.1                   |       | 1997-02    |      |
+| Java 1.0                   |       | 1996-01    |      |
 
 ## Java 6
 

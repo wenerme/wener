@@ -4,48 +4,58 @@ title: Java 6
 
 # Java 6
 
-- Java SE 6 (Mustang)
 - Released: 2006-12-11
-- 侧重于性能提升、库增强和 Web 服务支持。
+- Codename: Mustang
 
-## Features
+## 核心总结
 
-### Language & Core
+- Java SE 6 Mustang。JSR 223 脚本、JSR 199 Compiler API、JSR 269 注解处理、JDBC 4、JAX-WS/JAXB、监控工具增强。
 
-- **Scripting Language Support (JSR 223)**
-  - 集成脚本语言支持，默认包含 Rhino JavaScript 引擎 (后被 Nashorn 替代)。
+## 语言
 
-  ```java
-  ScriptEngineManager manager = new ScriptEngineManager();
-  ScriptEngine engine = manager.getEngineByName("JavaScript");
-  engine.eval("print('Hello from JS')");
-  ```
+- 语言本身变化较少，主要是平台、工具和库完善。
 
-- **Compiler API (JSR 199)**
-  - 允许在程序中调用 Java 编译器编译代码。
-  - `javax.tools.JavaCompiler`
+## 核心库/规范
 
-- **Pluggable Annotation Processing API (JSR 269)**
-  - 插件化注解处理 API，整合在编译器中。
+- JSR 223 Scripting：标准脚本引擎 API，默认集成 Rhino JavaScript。
+- JSR 199 Compiler API：程序内调用 javac。
+- JSR 269 Pluggable Annotation Processing：标准注解处理器 API，替代 apt 方向。
+- JDBC 4.0：驱动自动加载、SQLException 层次增强、XML 支持。
+- JAX-WS 2.0 / JAXB 2.0：Web Services 和 XML Binding 集成。
 
-### Library & Tools
+## 工具/运行时
 
-- **JDBC 4.0**
-  - 自动加载驱动 (无需 `Class.forName`)。
-  - 改进的异常处理 (`SQLException` 子类)。
-  - `XML` 类型支持。
+- JConsole、VisualVM、诊断和监控能力增强。
+- 同步、锁优化、启动和运行时性能改进。
 
-- **Web Services (JAX-WS 2.0)**
-  - 集成 SOAP Web Service 支持。
-  - 支持 JAXB 2.0 (Java Architecture for XML Binding)。
+## 总结
 
-- **JConsole & VisualVM**
-  - 增强的监控和管理工具。
+- Java 6 是企业应用的稳定平台版本，重点不是新语法，而是工具链、Web Services、编译器 API 和性能。
 
-- **Performance**
-  - 同步优化 (Lock Coarsening, Biased Locking)。
-  - 启动速度和运行时性能提升。
+## 示例
+
+### Scripting API
+
+```java
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+
+ScriptEngineManager manager = new ScriptEngineManager();
+ScriptEngine engine = manager.getEngineByName("JavaScript");
+engine.eval("print('hello from script')");
+```
+
+### Compiler API
+
+```java
+import javax.tools.JavaCompiler;
+import javax.tools.ToolProvider;
+
+JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+int exit = compiler.run(null, null, null, "Hello.java");
+```
 
 ## References
 
 - [JDK 6 Documentation](https://docs.oracle.com/javase/6/docs/)
+- [JSR 270: Java SE 6](https://jcp.org/en/jsr/detail?id=270)

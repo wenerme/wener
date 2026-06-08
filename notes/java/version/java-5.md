@@ -4,84 +4,65 @@ title: Java 5
 
 # Java 5
 
-- J2SE 5.0 (Tiger)
 - Released: 2004-09-30
-- 重大里程碑版本，引入了 Generics, Annotations, Enums 等核心特性。
+- Codename: Tiger
 
-## Features
+## 核心总结
 
-### Language
+- J2SE 5.0 Tiger。泛型、注解、枚举、自动装箱、增强 for、可变参数、静态导入、JUC。
 
-- **Generics (泛型)**
-  - 提供了编译时类型安全检测机制，允许在定义类、接口和方法时使用类型参数。
+## 语言
 
-  ```java
-  List<String> list = new ArrayList<>();
-  list.add("Hello");
-  String s = list.get(0); // 无需强制转换
-  ```
+- Generics：编译期类型安全，减少集合取值时的强制类型转换。
+- Annotations：为语言、编译器、框架提供标准元数据机制。
+- Enums：类型安全枚举，支持方法、字段和接口实现。
+- Autoboxing/Unboxing：原始类型与包装类型自动转换。
+- Varargs：可变参数方法。
+- Enhanced for-loop：增强 for 循环。
+- Static Import：静态导入。
 
-- **Annotations (注解)**
-  - 提供了一种为代码添加元数据的方式。
-  - 常用注解: `@Override`, `@Deprecated`, `@SuppressWarnings`。
+## 核心库
 
-  ```java
-  @Override
-  public String toString() {
-      return "MyObject";
-  }
-  ```
+- java.util.concurrent：Executor、Future、BlockingQueue、ConcurrentHashMap、Locks、Atomics 等并发基础设施。
+- Scanner、Formatter、Queue、Deque 等集合与文本处理增强。
+- Instrumentation API、Management API 增强，便于监控和工具集成。
 
-- **Enums (枚举)**
-  - 类型安全的枚举类型。
+## 总结
 
-  ```java
-  public enum Color {
-      RED, GREEN, BLUE
-  }
-  ```
+- Java 5 是现代 Java 的起点：泛型、注解、枚举、JUC 直接影响后续所有主流框架。
 
-- **Autoboxing/Unboxing (自动装箱/拆箱)**
-  - 自动在原始类型 (int) 和包装类型 (Integer) 之间转换。
+## 示例
 
-  ```java
-  Integer i = 10; // Autoboxing
-  int n = i;      // Unboxing
-  ```
+### 泛型、枚举、增强 for
 
-- **Varargs (可变参数)**
-  - 允许方法接受不定数量的参数。
+```java
+import java.util.*;
 
-  ```java
-  public void print(String... strings) {
-      for (String s : strings) System.out.println(s);
-  }
-  ```
+enum Role { ADMIN, USER }
 
-- **Enhanced for-loop (增强 for 循环)**
-  - `for-each` 循环，简化数组和集合的遍历。
+List<String> names = new ArrayList<String>();
+names.add("Wener");
+for (String name : names) {
+  System.out.println(Role.USER + ": " + name);
+}
+```
 
-  ```java
-  for (String s : list) {
-      System.out.println(s);
-  }
-  ```
+### 注解与可变参数
 
-- **Static Import (静态导入)**
-  - 允许访问类的静态成员而无需类限定。
-  ```java
-  import static java.lang.Math.*;
-  double r = sqrt(pow(x, 2) + pow(y, 2));
-  ```
+```java
+@Override
+public String toString() {
+  return "demo";
+}
 
-### Library
-
-- **java.util.concurrent**
-  - 高并发工具包 (JUC)，包含 `ExecutorService`, `Future`, `BlockingQueue`, `ConcurrentHashMap` 等。
-
-- **Scanner**
-  - `java.util.Scanner` 用于简化的文本扫描和解析。
+static int sum(int... values) {
+  int total = 0;
+  for (int v : values) total += v;
+  return total;
+}
+```
 
 ## References
 
 - [JDK 5.0 Documentation](https://docs.oracle.com/javase/1.5.0/docs/relnotes/features.html)
+- [JSR 176: J2SE 5.0](https://jcp.org/en/jsr/detail?id=176)

@@ -4,113 +4,80 @@ title: Java 11
 
 # Java 11
 
-- Java 8 之后的第一个 LTS 版本，第一个带 module 的 LTS 版本
-- [JDK 11](http://openjdk.java.net/projects/jdk/11/)
-- 2018-09-25
-- 动态 class 文件常量
-- Dynamic Class-File Constants
-- Epsilon: A No-Op Garbage Collector
-- Remove the Java EE and CORBA Modules
-- HTTP Client
-- Local-Variable Syntax for Lambda Parameters
-- 参考
-  - [迁移 Maven 项目到 Java 11](https://winterbe.com/posts/2018/08/29/migrate-maven-projects-to-java-11-jigsaw/)
+- Released: 2018-09-25
+- LTS
+- [JDK 11 Project](https://openjdk.org/projects/jdk/11/)
 
-It’s time! Migrating to Java 11
-https://medium.com/criciumadev/5eb3868354f9
+## 核心总结
 
-https://medium.com/criciumadev/create-a-cloud-native-image-using-java-modules-a670be616b29
+- Java 8 后第一个 LTS。HTTP Client 标准化，Java EE/CORBA 移除，Flight Recorder 开源，ZGC/Epsilon 进入实验。
 
-http://mvnrepository.com/artifact/org.openjfx
+## 升级关注
 
-https://www.reddit.com/r/java/comments/7ukei4/best_tool_for_packaging_jar_file_as_desktop/
-https://docs.oracle.com/javase/10/tools/javapackager.htm
+- Java EE/CORBA 模块移除是从 Java 8 升级的最大断点之一，需要显式引入 JAXB/JAX-WS 等依赖。
+- HTTP Client、JFR、TLS 1.3 是长期可用能力。
 
-Remove javapackager sources from OpenJFX repo
-https://bugs.openjdk.java.net/browse/JDK-8203379
+## 示例
 
-https://github.com/javafx-maven-plugin/javafx-maven-plugin
+### HTTP Client
 
-https://github.com/javafx-maven-plugin/javafx-maven-plugin/issues/287
+```java
+import java.net.URI;
+import java.net.http.*;
 
-https://docs.oracle.com/javase/9/tools/jmod.htm
+var client = HttpClient.newHttpClient();
+var request = HttpRequest.newBuilder(URI.create("https://example.com")).build();
+var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+System.out.println(response.statusCode());
+```
 
-https://simply-how.com/getting-started-with-java-11
+### 直接运行单文件源码
 
-## 变化
-
-- 新增 `Collection#toArray(IntFunction)`
-- `-XX:+UseDynamicNumberOfCompilerThreads`
-  - 动态控制编译器线程数
+```bash
+java Hello.java
+```
 
 ## JEPs
 
-- [181](http://openjdk.java.net/jeps/181): Nest-Based Access Control
-  - 基于嵌套的成员访问控制
-  - 该访问上下文允许嵌套的内容被编译到不同的类文件，并允许访问彼此的私有成员
-  - 因为很多语言都运行一个源文件包含多个类，导致彼此成员访问时需要生成包级别的访问方法
-- [309](http://openjdk.java.net/jeps/309): Dynamic Class-File Constants
-  - 动态类文件常量
-  - 类文件添加新的常量池 CONSTANT_Dynamic
-  - 加载 CONSTANT_Dynamic 会代理到一个启动方法上，类似于 invokedynamic 调用
-  - 简化创建可固化的类文件常量，为语言设计者和编译器实现提供更高效简便的操作方式
-- [315](http://openjdk.java.net/jeps/315): Improve Aarch64 Intrinsics
-  - 优化字符串和数组内建方法
-  - 优化 java.lang.Math sin, cos 和 log 方法
-- [318](http://openjdk.java.net/jeps/318): Epsilon: A No-Op Garbage Collector
-  - ZeroGC - ZGC
-  - 会管理内存请求但不会回收内存，当内存用完时则会停止 JVM
-- [320](http://openjdk.java.net/jeps/320): Remove the Java EE and CORBA Modules
-  - 从 JavaSE 移除 JavaEE 和 CORBA 模块
-  - 自 Java9 废弃
-  - 移除模块
-    - java.xml.ws - JAX-WS, SAAJ, Web Services Metadata
-    - java.xml.bind - JAXB
-    - java.activation - JAF
-    - java.xml.ws.annotation - Common Annotations
-    - java.corba - CORBA
-    - java.transaction - JTA
-  - 相关模块
-    - java.se.ee - Aggregator module for the six modules above
-    - jdk.xml.ws - Tools for JAX-WS
-    - jdk.xml.bind - Tools for JAXB
-  - 会移除的工具
-    - wsgen, wsimport - jdk.xml.ws
-    - schemagen, xjc - jdk.xml.bind
-    - idlj, orbd, servertool, tnamesrv - java.corba
-- [321](http://openjdk.java.net/jeps/321): HTTP Client (Standard)
-  - 标准化 Java9 引入的 HTTP 客户端
-  - 移除孵化接口，添加标准接口到 `java.net.http`
-- [323](http://openjdk.java.net/jeps/323): Local-Variable Syntax for Lambda Parameters
-  - 允许使用 `var` 来定义 lambda 参数的推导类型
-- [324](http://openjdk.java.net/jeps/324): Key Agreement with Curve25519 and Curve448
-  - RFC7748: Curve25519,Curve448
-  - Java 实现, 平台独立
-- [327](http://openjdk.java.net/jeps/327): Unicode 10
-- [328](http://openjdk.java.net/jeps/328): Flight Recorder
-  - 开源 Flight Recorder
-- [329](http://openjdk.java.net/jeps/329): ChaCha20 and Poly1305 Cryptographic Algorithms
-  - ChaCha20 和 Poly1305 加密算法
-- [330](http://openjdk.java.net/jeps/330): Launch Single-File Source-Code Programs
-  - 启动单源文件程序
-  - 通过 `#!` 来启动 java 程序，类似于 shell
-  - `#!/path/to/java --source version`
-  - 也允许直接调用 `java -Dtrace=true --source 10 factorial 3`
-- [331](http://openjdk.java.net/jeps/331): Low-Overhead Heap Profiling
-  - 通过 JVMTI 操作
-- [332](http://openjdk.java.net/jeps/332): Transport Layer Security (TLS) 1.3
-- [333](http://openjdk.java.net/jeps/333): ZGC: A Scalable Low-Latency Garbage Collector
-  - ZGC 可扩展的低延时 gc
-  - 试验阶段
-  - gc < 10ms
-  - mb 到 tb
-  - 对比 g1，应用吞吐量不应该损耗不应该超过 15%
-  - 作为未来优化基础
-  - 先支持 Linux/x64
-- [335](http://openjdk.java.net/jeps/335): Deprecate the Nashorn JavaScript Engine
-  - 废弃 JS 引擎模块
-  - 涉及的包
-    - jdk.scripting.nashorn - 包括 jdk.nashorn.api.scripting 和 jdk.nashorn.api.tree
-    - jdk.scripting.nashorn.shell - 包括 jjs 工具
-- [336](http://openjdk.java.net/jeps/336): Deprecate the Pack200 Tools and API
-  - 废弃 java.util.jar 中的 pack200, unpack200 工具和 Pack200 接口
+| JEP | 状态 | 分类 | 标题 | 中文描述 |
+| --- | --- | --- | --- | --- |
+| [JEP 181] | 正式 | 库/API | Nest-Based Access Control | 支持 nestmate 访问控制，嵌套类可直接访问彼此私有成员。 |
+| [JEP 309] | 正式 | 工具/平台 | Dynamic Class-File Constants | CONSTANT_Dynamic，支持动态计算类文件常量。 |
+| [JEP 315] | 正式 | 库/API | Improve Aarch64 Intrinsics | 优化 AArch64 字符串、数组和数学 intrinsics。 |
+| [JEP 318] | 正式 | GC/Runtime | Epsilon: A No-Op Garbage Collector | 不回收内存的 GC，适合测试、短生命周期任务和性能基线。 |
+| [JEP 320] | 移除/禁用 | 库/API | Remove the Java EE and CORBA Modules | 移除 Java EE 与 CORBA 模块和相关工具。 |
+| [JEP 321] | 正式 | 库/API | HTTP Client (Standard) | java.net.http 标准 HTTP/2 和 WebSocket 客户端。 |
+| [JEP 323] | 正式 | 语言 | Local-Variable Syntax for Lambda Parameters | Lambda 参数允许使用 var，便于添加注解。 |
+| [JEP 324] | 正式 | 安全/加密 | Key Agreement with Curve25519 and Curve448 | 支持 X25519/X448 密钥协商。 |
+| [JEP 327] | 正式 | 库/API | Unicode 10 | 升级 Unicode 10。 |
+| [JEP 328] | 正式 | 工具/平台 | Flight Recorder | JFR 开源并进入 OpenJDK。 |
+| [JEP 329] | 正式 | 安全/加密 | ChaCha20 and Poly1305 Cryptographic Algorithms | 支持 ChaCha20-Poly1305 加密算法。 |
+| [JEP 330] | 正式 | 工具/平台 | Launch Single-File Source-Code Programs | java 可直接运行单文件源码。 |
+| [JEP 331] | 正式 | 库/API | Low-Overhead Heap Profiling | 低开销堆分配采样分析。 |
+| [JEP 332] | 正式 | 安全/加密 | Transport Layer Security (TLS) 1.3 | 支持 TLS 1.3。 |
+| [JEP 333] | 实验 | GC/Runtime | ZGC: A Scalable Low-Latency Garbage Collector (Experimental) | 实验性 ZGC，目标大堆低延迟。 |
+| [JEP 335] | 废弃 | 工具/平台 | Deprecate the Nashorn JavaScript Engine | 废弃 Nashorn JS 引擎。 |
+| [JEP 336] | 废弃 | 工具/平台 | Deprecate the Pack200 Tools and API | 废弃 Pack200 工具和 API。 |
+
+[JEP 181]: https://openjdk.org/jeps/181
+[JEP 309]: https://openjdk.org/jeps/309
+[JEP 315]: https://openjdk.org/jeps/315
+[JEP 318]: https://openjdk.org/jeps/318
+[JEP 320]: https://openjdk.org/jeps/320
+[JEP 321]: https://openjdk.org/jeps/321
+[JEP 323]: https://openjdk.org/jeps/323
+[JEP 324]: https://openjdk.org/jeps/324
+[JEP 327]: https://openjdk.org/jeps/327
+[JEP 328]: https://openjdk.org/jeps/328
+[JEP 329]: https://openjdk.org/jeps/329
+[JEP 330]: https://openjdk.org/jeps/330
+[JEP 331]: https://openjdk.org/jeps/331
+[JEP 332]: https://openjdk.org/jeps/332
+[JEP 333]: https://openjdk.org/jeps/333
+[JEP 335]: https://openjdk.org/jeps/335
+[JEP 336]: https://openjdk.org/jeps/336
+
+## References
+
+- [JDK 11 Project](https://openjdk.org/projects/jdk/11/)
+- [Java 11 Release Notes](https://jdk.java.net/11/release-notes)
