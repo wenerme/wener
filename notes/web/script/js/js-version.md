@@ -6,68 +6,81 @@ tags:
 
 # ECMAScript Version
 
-| Version | Official Name                       | Date | Description     |
-| ------- | ----------------------------------- | ---- | --------------- |
-|         | JavaScript 1.0                      | 1995 | by Brendan Eich |
-| ES1     | ECMAScript 1                        | 1997 | ECMA-262        |
-| ES2     | ECMAScript 2                        | 1998 |
-| ES3     | ECMAScript 3                        | 1999 |
-| ES4     | ECMAScript 4                        |      | 未发布          |
-| ES5     | [ECMAScript 5](#ecmascript-5)       | 2009 |
-| ES6     | [ECMAScript 2015](#ecmascript-2015) | 2015 |
-|         | [ECMAScript 2016](#ecmascript-2016) | 2016 |
-|         | [ECMAScript 2017](#ecmascript-2017) | 2017 |
-|         | [ECMAScript 2018](#ecmascript-2018) | 2018 |
-|         | [ECMAScript 2019](#ecmascript-2019) | 2019 |
-|         | [ECMAScript 2020](#ecmascript-2020) | 2020 |
-|         | [ECMAScript 2021](#ecmascript-2021) | 2021 |
-|         | [ECMAScript 2022](#ecmascript-2022) | 2022 |
-|         | [ECMAScript 2023](#ecmascript-2023) | 2023 |
-|         | [ECMAScript 2024](#ecmascript-2024) | 2024 |
-| ES.Next |                                     |      | 下一个版本      |
+- ECMAScript 2015 之后改为年度版本，通常在每年 6 月左右批准并发布。
+- TC39 proposal 达到 Stage 4 后会进入规范草案，并按 Expected Publication Year 进入某个年度版本。
 
-| ES     | NodeJS      |
-| ------ | ----------- |
-| ES2022 | NodeJS 20   |
-| ES2022 | NodeJS 18   |
-| ES2021 | NodeJS 16   |
-| ES2020 | NodeJS 14   |
-| ES2019 | NodeJS 12   |
-| ES2018 | NodeJS 10   |
-| ES2017 | NodeJS 8.10 |
+| Version | Official Name                       | Date | Description                  |
+| ------- | ----------------------------------- | ---- | ---------------------------- |
+|         | JavaScript 1.0                      | 1995 | by Brendan Eich              |
+| ES1     | ECMAScript 1                        | 1997 | ECMA-262                     |
+| ES2     | ECMAScript 2                        | 1998 |                              |
+| ES3     | ECMAScript 3                        | 1999 |                              |
+| ES4     | ECMAScript 4                        |      | 未发布                       |
+| ES5     | [ECMAScript 5](#ecmascript-5)       | 2009 |                              |
+| ES6     | [ECMAScript 2015](#ecmascript-2015) | 2015 |                              |
+| ES2016  | [ECMAScript 2016](#ecmascript-2016) | 2016 |                              |
+| ES2017  | [ECMAScript 2017](#ecmascript-2017) | 2017 |                              |
+| ES2018  | [ECMAScript 2018](#ecmascript-2018) | 2018 |                              |
+| ES2019  | [ECMAScript 2019](#ecmascript-2019) | 2019 |                              |
+| ES2020  | [ECMAScript 2020](#ecmascript-2020) | 2020 |                              |
+| ES2021  | [ECMAScript 2021](#ecmascript-2021) | 2021 |                              |
+| ES2022  | [ECMAScript 2022](#ecmascript-2022) | 2022 |                              |
+| ES2023  | [ECMAScript 2023](#ecmascript-2023) | 2023 |                              |
+| ES2024  | [ECMAScript 2024](#ecmascript-2024) | 2024 |                              |
+| ES2025  | [ECMAScript 2025](#ecmascript-2025) | 2025 | Stage 4 proposals for 2025   |
+| ES2026  | [ECMAScript 2026](#ecmascript-2026) | 2026 | draft / expected publication |
+| ES.Next | [Next](#next)                       |      | 下一个版本                   |
+
+## Runtime Target
+
+| Runtime | Ver | Notes                         |
+| ------- | --------- | ----------------------------- |
+| Node 24 | ES2024    | `nodenext` / TS 5.9+ `node20` |
+| Node 22 | ES2023    | `nodenext` / TS 5.9+ `node20` |
+| Node 20 | ES2023    | `nodenext` / TS 5.9+ `node20` |
+| Node 18 | ES2022    | `node16`                      |
+| Node 16 | ES2021    | `node16` / `nodenext`         |
+| Node 14 | ES2020    | old LTS                       |
+| Node 12 | ES2019    | EOL                           |
+| Node 10 | ES2018    | EOL                           |
+| Node 8  | ES2017    | EOL                           |
 
 - https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping
+- Node 20/22/24 的实际 feature 支持高于 baseline 时很常见，最终仍以运行时/V8 版本和兼容表为准。
 
 :::tip
 
-- 今年采纳的建议，发布到下一年版本，因此会相差一年版本号
+- 今年达到 Stage 4 的 proposal，通常发布到下一年年度版本，因此 proposal 进入标准和版本号会相差一段时间。
+- TypeScript 的 `target` 主要影响语法降级与 helper emit，`lib` 影响类型定义；两者不等价于运行时 polyfill。
 
 :::
 
-| stage   | for         | note                  |
-| ------- | ----------- | --------------------- |
-| stage 0 | Strawperson |
-| stage 1 | Proposal    |
-| stage 2 | Draft       | 描述准确              |
-| stage 3 | Candidate   | 实现,等待用户使用反馈 |
-| stage 4 | Finished    | 准备添加到 标准       |
+## TC39 Process
 
-|             proposal | stage   | note   |
-| -------------------: | ------- | ------ |
-|         [decorators] | stage 3 | TS 5.0 |
-| [decorator-metadata] | stage 3 | TS 5.2 |
-|    Import Attributes |         | TS 5.3 |
-|           [temporal] | stage 3 |
-|        [shadowrealm] | stage 3 |
-|         [binary-ast] |
-|        [set-methods] | stage 3 |
-|       [record-tuple] | stage 2 |
-|      [async-context] | stage 2 |
+| stage     | for           | note                       |
+| --------- | ------------- | -------------------------- |
+| stage 0   | Strawperson   | 初步想法                   |
+| stage 1   | Proposal      | 明确问题、用例、Champion   |
+| stage 2   | Draft         | 规范草案方向基本明确       |
+| stage 2.7 | Draft + tests | 需要测试与实现反馈         |
+| stage 3   | Candidate     | 实现、等待用户使用反馈     |
+| stage 4   | Finished      | 准备添加到 ECMAScript 标准 |
+
+| proposal                     | stage     | expected | note                      |
+| ---------------------------- | --------- | -------- | ------------------------- |
+| [temporal]                   | stage 4   | 2027     | 替代 Date                 |
+| Explicit Resource Management | stage 4   | 2027     | `using` / dispose         |
+| [decorators]                 | stage 2.7 |          | TS 5.0 已支持新版语义     |
+| [decorator-metadata]         | stage 2.7 |          | TS 5.2 metadata           |
+| [shadowrealm]                | stage 2.7 |          | isolate realm             |
+| [async-context]              | stage 2   |          | async context propagation |
+| [record-tuple]               | inactive  |          | 不可变值类型，当前非活跃  |
+| [binary-ast]                 | inactive  |          | 当前非活跃                |
 
 [async-context]: https://github.com/tc39/proposal-async-context
 [record-tuple]: https://github.com/tc39/proposal-record-tuple
 [decorators]: https://github.com/tc39/proposal-decorators
-[decorator-metadata]: github.com/tc39/proposal-decorator-metadata
+[decorator-metadata]: https://github.com/tc39/proposal-decorator-metadata
 [binary-ast]: https://github.com/tc39/proposal-binary-ast
 [temporal]: https://github.com/tc39/proposal-temporal
 [shadowrealm]: https://github.com/tc39/proposal-shadowrealm
@@ -75,40 +88,29 @@ tags:
 
 :::tip 👀
 
-- [Promise.try](https://github.com/tc39/proposal-promise-try)
-  - `new Promise(r => r(f()))` -> `Promise.try(f)`
-- Stage 3 - 接下来可能会加入到语言中的功能特性
-  - ~~Import Assertions~~
-  - Import Attribute `import data from 'data.json' with {type:'json']}`
-  - JSON Modules
-  - Intl.DisplayNames
-  - [temporal] - Temporal - 替代 Date
-  - 2023
-    - array group, groupToMap
-      - https://github.com/tc39/proposal-array-grouping
-    - Array - toReversed, toSorted, toSpliced, with
-      - https://github.com/tc39/proposal-change-array-by-copy
-    - Array.fromAsync
+- 近期已经进入或即将进入年度标准的重点：
+  - ES2025: Iterator Helpers、Set methods、Import Attributes、JSON Modules、RegExp.escape、Promise.try、Float16。
+  - ES2026: Array.fromAsync、JSON.parse source text access、Uint8Array Base64/Hex、Math.sumPrecise、Error.isError、Map/WeakMap upsert、Iterator.concat。
+  - ES2027 expected: Temporal、Explicit Resource Management、Atomics.pause、Joint Iteration。
+- Stage 3 / 2.7 仍需要关注实现差异：Decorators、ShadowRealm、Source Phase Imports、Import Text、Deferring Module Evaluation、iterator chunking/includes/join。
 - [modules-import-hooks-refactor](https://github.com/nicolo-ribaudo/modules-import-hooks-refactor)
   - stage 1
   - import 过程可控
 - [Function.memo](https://github.com/tc39/proposal-function-memo)
-- `Array.fromAsync`
-  [tc39/proposal-array-from-async](https://github.com/tc39/proposal-array-from-async)
 
 :::
 
-| syntax  | Chrome   | Name                          | Note   |
-| ------- | -------- | ----------------------------- | ------ |
-| `?.`    | Chrome80 | Optional chaining             |
-| `??`    | Chrome80 | Nullish coalescing operator   |
-| `??=`   | Chrome85 | Nullish coalescing assignment |
-| `#name` | Chrome74 | Private class fields          |
-| `using` |          | Explicit Resource Management  | TS 5.2 |
+| syntax  | Chrome   | Name                          | Note       |
+| ------- | -------- | ----------------------------- | ---------- |
+| `?.`    | Chrome80 | Optional chaining             | ES2020     |
+| `??`    | Chrome80 | Nullish coalescing operator   | ES2020     |
+| `??=`   | Chrome85 | Nullish coalescing assignment | ES2021     |
+| `#name` | Chrome74 | Private class fields          | ES2022     |
+| `using` |          | Explicit Resource Management  | ES2027 exp |
 
-| feat       | Version            | note |
-| ---------- | ------------------ | ---- |
-| globalThis | Chrome71, NodeJS12 |
+| feat       | Version            | note   |
+| ---------- | ------------------ | ------ |
+| globalThis | Chrome71, NodeJS12 | ES2020 |
 
 - es5 和 es6 是一个分界线
   - 2018 年所有浏览器支持 es6
@@ -123,9 +125,9 @@ tags:
   - Inactive/Withdrawn Proposals
 - [ECMAScript Language Specification](https://tc39.es/ecma262/)
 - 参考
-  - [Tarjan's strongly connected components algorithm](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm)
   - [tc39/agendas](https://github.com/tc39/agendas)
   - [finished-proposals](https://github.com/tc39/proposals/blob/HEAD/finished-proposals.md)
+  - [active proposals](https://github.com/tc39/proposals/blob/HEAD/README.md)
   - https://caniuse.com/#search=es6
   - [compat-table](https://compat-table.github.io/compat-table/)
     - [2016+](https://kangax.github.io/compat-table/es2016plus/)
@@ -133,49 +135,180 @@ tags:
   - https://www.proposals.es/
   - https://polyfill-fastly.io/
   - https://webstatus.dev/
-- Explicit Resource Management
-  - Symbol.dispose
-  - Symbol.asyncDispose
-  - DisposableStack
-  - AsyncDisposableStack
-  - SuppressedError
 
 ## Next
 
-- Temporal
-  - Temporal.PlainDate
-  - Temporal.PlainTime
-  - Temporal.PlainMonthDay
-  - Temporal.PlainYearMonth
+- Temporal - ES2027 expected
+  - `Temporal.PlainDate`
+  - `Temporal.PlainTime`
+  - `Temporal.PlainMonthDay`
+  - `Temporal.PlainYearMonth`
   - [fullcalendar/temporal-polyfill](https://github.com/fullcalendar/temporal-polyfill)
     - `import 'temporal-polyfill/global';`
-    - 部分实现， 20kb
+    - 部分实现，约 20kb
   - [js-temporal/temporal-polyfill](https://github.com/js-temporal/temporal-polyfill)
     - 没有 global
-    - 完整实现，更大， 56+kb
+    - 完整实现，更大，约 56+kb
+- Explicit Resource Management - ES2027 expected
+  - `Symbol.dispose`
+  - `Symbol.asyncDispose`
+  - `DisposableStack`
+  - `AsyncDisposableStack`
+  - `SuppressedError`
+  - `using` / `await using`
+- Atomics.pause - ES2027 expected
+- Joint Iteration - ES2027 expected
 
 ```ts
-const date = Temporal.PlainDate(2024, 5, 1);
+const date = new Temporal.PlainDate(2024, 5, 1);
 const time = new Temporal.PlainTime(10, 30);
 const md = new Temporal.PlainMonthDay(5, 1);
 const ym = new Temporal.PlainYearMonth(2024, 5);
 ```
 
+```js
+using file = openFile();
+await using conn = await openConnection();
+```
+
+## ECMAScript 2026
+
+- 当前为 draft / Expected Publication Year 2026；最终以 TC39 finished proposals 和 ECMA-262 发布版本为准。
+- Upsert
+  - `Map.prototype.getOrInsert`
+  - `Map.prototype.getOrInsertComputed`
+  - `WeakMap.prototype.getOrInsert`
+  - `WeakMap.prototype.getOrInsertComputed`
+- JSON.parse source text access
+  - reviver 增加 context，可访问原始 source text
+  - 适合恢复大整数、精确 decimal、保留原始 token 信息
+- Iterator Sequencing
+  - `Iterator.concat(...)`
+  - 把多个 iterable/iterator 串接成一个 iterator
+- Uint8Array to/from Base64 and Hex
+  - `Uint8Array.fromBase64`
+  - `Uint8Array.prototype.toBase64`
+  - `Uint8Array.prototype.setFromBase64`
+  - `Uint8Array.fromHex`
+  - `Uint8Array.prototype.toHex`
+  - `Uint8Array.prototype.setFromHex`
+- `Math.sumPrecise`
+  - 对 iterable number 做更精确求和
+  - 类似 Python `math.fsum`
+- `Error.isError`
+  - 比 `instanceof Error` 更适合跨 realm 判断
+- `Array.fromAsync`
+  - 从 async iterable 或 iterable of promises 创建 Array
+
+```js
+// Upsert
+const groups = new Map();
+groups.getOrInsertComputed('a', () => []).push(1);
+
+// JSON.parse source text access
+const id = JSON.parse('9007199254740993', (key, value, context) => {
+  return key === '' ? BigInt(context.source) : value;
+});
+
+// Iterator sequencing
+const it = Iterator.concat([1, 2], new Set([3, 4]));
+
+// Base64 / Hex
+const bytes = Uint8Array.fromBase64('aGVsbG8=');
+bytes.toBase64();
+bytes.toHex();
+
+// Precise sum
+Math.sumPrecise([0.1, 0.2, -0.3]);
+
+// Cross-realm friendly Error check
+Error.isError(new TypeError('bad'));
+
+// Async iterable to Array
+const arr = await Array.fromAsync(fetchPages());
+```
+
+---
+
+- https://github.com/tc39/proposal-upsert
+- https://github.com/tc39/proposal-json-parse-with-source
+- https://github.com/tc39/proposal-iterator-sequencing
+- https://github.com/tc39/proposal-arraybuffer-base64
+- https://github.com/tc39/proposal-math-sum
+- https://github.com/tc39/proposal-is-error
+- https://github.com/tc39/proposal-array-from-async
+
 ## ECMAScript 2025
 
-- RegExp 支持捕获重复名字分组
+- RegExp duplicate named capture groups
+  - 支持在互斥 alternatives 中复用捕获组名
 - RegExp Pattern Modifiers
   - 支持调整 modifiers - `/^a(?i:a)(?-i:a)/`
-  - 支持 `i`, `m`, `s`, `x`
+  - 当前主要面向 `i`, `m`, `s` 等可局部修改 flag；`x` 依赖另一个 proposal
 - RegExp.escape
+  - 把任意字符串转为可安全嵌入 RegExp pattern 的文本
 - Set 方法扩展
-  - intersection, union, difference, symmetricDifference, isDisjointFrom, isSubsetOf, isSupersetOf
+  - `intersection`, `union`, `difference`, `symmetricDifference`
+  - `isDisjointFrom`, `isSubsetOf`, `isSupersetOf`
 - Iterator 方法扩展
-  - 新增全局 Iterator 对象
-  - Iterator.from
-  - Iterator.prototype.{drop,every,filter,find,flatMap,forEach,map,reduce,some,take,toArray}
+  - 新增全局 `Iterator` 对象
+  - `Iterator.from`
+  - `Iterator.prototype.{drop,every,filter,find,flatMap,forEach,map,reduce,some,take,toArray}`
   - [tc39/proposal-iterator-helpers](https://github.com/tc39/proposal-iterator-helpers)
 - Promise.try
+- Import Attributes
+  - `import data from './data.json' with { type: 'json' }`
+  - 替代早期 Import Assertions `assert { type: 'json' }`
+- JSON Modules
+- Float16
+  - `Float16Array`
+  - `DataView.prototype.getFloat16`
+  - `DataView.prototype.setFloat16`
+  - `Math.f16round`
+- Redeclarable global `eval`-introduced `var`s
+  - 语义修正，通常不是业务代码直接使用的功能
+
+```js
+// RegExp.escape
+const re = new RegExp(`^${RegExp.escape(userInput)}$`);
+
+// Duplicate named capture groups in disjoint alternatives
+const date = /(?<year>\d{4})-\d{2}|\d{2}-(?<year>\d{4})/;
+
+// Pattern modifiers
+/^a(?i:a)(?-i:a)/.test('aAa');
+
+// Set methods
+const both = new Set([1, 2]).intersection(new Set([2, 3]));
+
+// Iterator helpers
+Iterator.from([1, 2, 3])
+  .map((x) => x * 2)
+  .filter((x) => x > 2)
+  .toArray();
+
+// Promise.try
+Promise.try(() => maybeThrows());
+
+// Import Attributes / JSON Modules
+import data from './data.json' with { type: 'json' };
+
+// Float16
+const values = new Float16Array([1.5, Math.f16round(1 / 3)]);
+```
+
+---
+
+- https://github.com/tc39/proposals/blob/HEAD/finished-proposals.md
+- https://github.com/tc39/proposal-regex-escaping
+- https://github.com/tc39/proposal-duplicate-named-capturing-groups
+- https://github.com/tc39/proposal-regexp-modifiers
+- https://github.com/tc39/proposal-set-methods
+- https://github.com/tc39/proposal-iterator-helpers
+- https://github.com/tc39/proposal-promise-try
+- https://github.com/tc39/proposal-import-attributes
+- https://github.com/tc39/proposal-json-modules
+- https://github.com/tc39/proposal-float16array
 
 ## ECMAScript 2024
 

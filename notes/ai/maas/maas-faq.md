@@ -321,6 +321,10 @@ An error occurred while processing your request. You can retry your request, or 
 Your input exceeds the context window of this model. Please adjust your input and try again.
 
 Previous response with id <*> not found
+
+Codex SSE response headers timed out after 10000ms
+
+Our servers are currently overloaded. Please try again later.
 ```
 
 # Misc

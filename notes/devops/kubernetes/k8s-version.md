@@ -11,28 +11,36 @@ tags:
   - [pkg/features/kube_features.go](https://github.com/kubernetes/kubernetes/blob/master/pkg/features/kube_features.go)
 - [kubernetes/enhancements](https://github.com/kubernetes/enhancements)
 - 每年 3 版本，约 15 周一个版本
-- 一个版本支持 1 年
+- Kubernetes 1.19+ 一般提供约 1 年 patch support；进入 maintenance 后仅接受关键安全修复
 - [Version Skew Policy](https://kubernetes.io/releases/version-skew-policy/)
-  - 维护最近 3 个版本
-  - kubelet +/- 1 版本 - 因此升级需要一个版本一个版本升
-    - 半年至少升级一次
+  - kube-apiserver 通常先升级，kubelet/kube-proxy 再逐步升级
+  - Kubernetes 1.28 起，kubelet 可比 kube-apiserver 旧最多 3 个 minor（n-3）
+  - 实务上仍建议一个 minor 一个 minor 升级，并至少半年评估一次
 
-| version                            | release    |
-| ---------------------------------- | ---------- |
-| [Kubernetes 1.31](#kubernetes-131) | 2024-08-13 |
-| [Kubernetes 1.30](#kubernetes-130) | 2024-04-17 |
-| [Kubernetes 1.29](#kubernetes-129) | 2023-12-13 |
-| [Kubernetes 1.28](#kubernetes-128) | 2023-08-15 |
-| [Kubernetes 1.27](#kubernetes-127) | 2023-04-11 |
-| [Kubernetes 1.25](#kubernetes-125) | 2022-08-23 |
-| [Kubernetes 1.24](#kubernetes-124) | 2022-05-03 |
-| [Kubernetes 1.23](#kubernetes-123) | 2021-12-07 |
-| [Kubernetes 1.22](#kubernetes-122) | 2021-08-04 |
-| [Kubernetes 1.21](#kubernetes-121) | 2021-04-08 |
-| [Kubernetes 1.20](#kubernetes-120) | 2020-12-08 |
-| [Kubernetes 1.19](#kubernetes-119) |            |
+| version                            | release    | latest patch | status      | EOL        |
+| ---------------------------------- | ---------- | ------------ | ----------- | ---------- |
+| [Kubernetes 1.36](#kubernetes-136) | 2026-04-22 | 1.36.1       | Active      | 2027-06-28 |
+| [Kubernetes 1.35](#kubernetes-135) | 2025-12-17 | 1.35.5       | Active      | 2027-02-28 |
+| [Kubernetes 1.34](#kubernetes-134) | 2025-08-27 | 1.34.8       | Active      | 2026-10-27 |
+| [Kubernetes 1.33](#kubernetes-133) | 2025-04-23 | 1.33.12      | Maintenance | 2026-06-28 |
+| [Kubernetes 1.32](#kubernetes-132) | 2024-12-11 | 1.32.13      | EOL         | 2026-02-28 |
+| [Kubernetes 1.31](#kubernetes-131) | 2024-08-13 | 1.31.14      | EOL         | 2025-11-11 |
+| [Kubernetes 1.30](#kubernetes-130) | 2024-04-17 | 1.30.14      | EOL         | 2025-07-15 |
+| [Kubernetes 1.29](#kubernetes-129) | 2023-12-13 | 1.29.14      | EOL         | 2025-02-28 |
+| [Kubernetes 1.28](#kubernetes-128) | 2023-08-15 | 1.28.15      | EOL         | 2024-10-22 |
+| [Kubernetes 1.27](#kubernetes-127) | 2023-04-11 | 1.27.16      | EOL         | 2024-07-16 |
+| [Kubernetes 1.26](#kubernetes-126) | 2022-12-09 |              | EOL         |            |
+| [Kubernetes 1.25](#kubernetes-125) | 2022-08-23 |              | EOL         |            |
+| [Kubernetes 1.24](#kubernetes-124) | 2022-05-03 |              | EOL         |            |
+| [Kubernetes 1.23](#kubernetes-123) | 2021-12-07 |              | EOL         |            |
+| [Kubernetes 1.22](#kubernetes-122) | 2021-08-04 |              | EOL         |            |
+| [Kubernetes 1.21](#kubernetes-121) | 2021-04-08 |              | EOL         |            |
+| [Kubernetes 1.20](#kubernetes-120) | 2020-12-08 |              | EOL         |            |
+| [Kubernetes 1.19](#kubernetes-119) | 2020-08-26 |              | EOL         |            |
 
 - 参考
+  - [Releases](https://kubernetes.io/releases/)
+  - [Patch Releases](https://kubernetes.io/releases/patch-releases/)
   - [废弃 API 迁移文档](https://kubernetes.io/docs/reference/using-api/deprecation-guide)
 - 如何选择版本
   - GKE 最近 2 版本
@@ -82,6 +90,250 @@ tags:
 [cronjobcontrollerv2]: ./k8s-features.md#CronJobControllerV2
 [ipv6dualstack]: ./k8s-features.md#IPv6DualStack
 [statefulsetautodeletepvc]: ./k8s-features.md#StatefulSetAutoDeletePVC
+
+## Kubernetes 1.36
+
+- Release: 2026-04-22
+- Theme: Haru
+- 70 enhancements: 18 Stable, 20 Beta, 32 Alpha
+- 重点
+  - Fine-grained API authorization
+  - Resource health status
+  - Workload Aware Scheduling（WAS）
+- Stable
+  - Volume group snapshots
+  - Mutable volume attach limits
+  - External signing of ServiceAccount tokens
+  - DRA 部分能力 GA
+  - Mutating admission policies
+  - Declarative validation for Kubernetes native types
+  - 移除 Kubernetes API types 对 gogo protobuf 的依赖
+  - Node log query
+  - User Namespaces in Pods
+  - PSI based on cgroup v2
+- Beta
+  - Staleness mitigation for controllers
+  - IP/CIDR validation improvements
+  - `.kuberc` user preferences 从 kubeconfig 拆分
+  - Suspended Job 的 mutable container resources
+  - Constrained impersonation
+  - DRA 更多能力 beta
+  - `/statusz`、`/flagz` 结构化输出
+  - Mixed version proxy / unknown version interoperability proxy
+  - Memory QoS with cgroups v2
+- Alpha
+  - Workload-aware scheduling / gang scheduling 相关能力继续推进
+- 升级关注
+  - 1.33 即将 EOL，1.34+ 为主要升级目标；如果要保留更长窗口，优先看 1.35/1.36。
+  - DRA、WAS、GPU/AI 相关调度能力变化较多，设备插件和调度扩展需要跟随验证。
+
+---
+
+- https://kubernetes.io/blog/2026/04/22/kubernetes-v1-36-release/
+- https://kubernetes.io/releases/1.36/
+
+## Kubernetes 1.35
+
+- Release: 2025-12-17
+- Theme: Timbernetes / The World Tree Release
+- 44 enhancements: 14 Stable, 18 Beta, 12 Alpha
+- 重点
+  - In-place update of Pod resources GA
+    - 可不重启 Pod/Container 调整 CPU/Memory requests/limits
+  - Pod certificates for workload identity and security Beta
+  - Node declared features before scheduling Alpha
+- Stable
+  - PreferSameNode / PreferSameZone traffic distribution
+  - Job API `managedBy`
+  - Pod `.metadata.generation`、`.status.observedGeneration`
+  - Topology Manager configurable NUMA node limit
+- Beta
+  - Node topology labels via Downward API
+  - Native storage version migration
+  - Mutable CSI volume attach limits
+  - Scheduler opportunistic batching
+  - StatefulSet `maxUnavailable`
+  - `.kuberc` credential plugin policy
+  - KYAML 默认启用
+  - HPA configurable tolerance
+  - User namespaces in Pods
+  - OCI artifact / image volumes
+  - Kubelet credential verification for cached images
+  - Fine-grained container restart rules
+  - CSI driver ServiceAccount token via `secrets` field
+  - Deployment `terminatingReplicas`
+- Alpha
+  - Gang scheduling / Workload API / PodGroup
+  - Constrained impersonation
+  - `/flagz`、`/statusz` JSON 输出
+  - CCM route controller watch-based reconciliation
+- 升级关注
+  - In-place Pod resize GA 后，VPA/自研控制器可以减少重建 Pod，但要验证运行时、指标和回滚语义。
+  - KYAML、kuberc、credential plugin policy 会影响 CLI/运维体验，注意团队工具链兼容。
+
+---
+
+- https://kubernetes.io/blog/2025/12/17/kubernetes-v1-35-release/
+- https://kubernetes.io/releases/1.35/
+
+## Kubernetes 1.34
+
+- Release: 2025-08-27
+- Theme: Of Wind & Will (O' WaW)
+- 58 enhancements: 23 Stable, 22 Beta, 13 Alpha
+- 重点
+  - Dynamic Resource Allocation（DRA）core GA
+    - `resource.k8s.io/v1`、ResourceClaim、DeviceClass、ResourceSlice 等 API 稳定
+  - Projected ServiceAccount tokens for kubelet image credential providers Beta
+  - KYAML Alpha
+- Stable
+  - Job `.spec.podReplacementPolicy`
+  - Recovery from volume expansion failure
+  - VolumeAttributesClass
+  - Structured authentication configuration
+  - Selector-aware fine-grained authorization
+  - Anonymous request endpoint allowlist
+  - Scheduler plugin-specific requeue callbacks
+  - Ordered namespace deletion
+  - Streaming list responses
+  - Resilient watch cache initialization
+  - Relaxed DNS search path validation
+  - Windows kube-proxy DSR
+  - Container lifecycle hook Sleep action
+  - Linux node swap support
+  - Special characters in env var names
+  - Taint manager 与 Node lifecycle 解耦
+- Beta
+  - Pod-level resource requests/limits
+  - `.kuberc` user preferences
+  - External ServiceAccount token signing
+  - DRA admin access、prioritized alternatives、kubelet DRA resource reporting
+  - kube-scheduler non-blocking API calls
+  - Mutating admission policies
+  - Snapshottable API server cache
+- 升级关注
+  - 大规模集群可重点关注 streaming list、watch cache、scheduler requeue、snapshottable cache。
+  - GPU/TPU/NIC 等设备管理应评估 DRA API 与现有 device plugin 迁移路径。
+
+---
+
+- https://kubernetes.io/blog/2025/08/27/kubernetes-v1-34-release/
+- https://kubernetes.io/releases/1.34/
+
+## Kubernetes 1.33
+
+- Release: 2025-04-23
+- Theme: Octarine / The Color of Magic
+- 64 enhancements: 18 Stable, 20 Beta, 24 Alpha, 2 Deprecated/Withdrawn
+- 重点
+  - Sidecar containers GA
+  - In-place Pod resource resize Beta
+  - `.kuberc` Alpha
+- Stable
+  - Indexed Job backoff limits per index
+  - Job success policy
+  - Bound ServiceAccount token security improvements
+  - kubectl subresource support
+  - Multiple Service CIDRs
+  - nftables backend for kube-proxy
+  - SMT alignment rejection options
+  - Pod affinity/anti-affinity `matchLabelKeys` / `mismatchLabelKeys`
+  - Pod topology spread skew considers taints/tolerations
+  - Volume populators
+  - Honor PersistentVolume reclaim policy
+- Beta
+  - Windows kube-proxy DSR
+  - DRA structured parameters
+  - DRA for network interfaces
+  - Scheduler asynchronous preemption
+  - ClusterTrustBundles
+  - Fine-grained SupplementalGroups control
+  - Image volumes
+  - User namespaces in Linux Pods
+- Alpha
+  - `.kuberc` user preferences
+  - Ordered namespace deletion
+  - Declarative validation for native Kubernetes types
+- 升级关注
+  - Sidecar containers GA 后可替代大量 init/sidecar 生命周期 hack。
+  - 1.33 当前已进入 maintenance，EOL 为 2026-06-28，应尽快规划到 1.34+。
+
+---
+
+- https://kubernetes.io/blog/2025/04/23/kubernetes-v1-33-release/
+- https://kubernetes.io/releases/1.33/
+
+## Kubernetes 1.32
+
+- Release: 2024-12-11
+- Theme: Penelope
+- 44 enhancements: 13 Stable, 12 Beta, 19 Alpha
+- 更新重点
+  - DRA 持续推进
+  - Node 与 sidecar container 体验改善
+- Stable
+  - CustomResource field selectors
+  - Memory-backed volume sizing
+  - Bound ServiceAccount token improvements
+  - Structured authorization configuration
+  - StatefulSet-created PVC auto removal
+- Beta
+  - Job API `managedBy`
+  - Anonymous auth endpoint allowlist
+  - Scheduler plugin callback based requeue
+  - Volume expansion failure recovery
+  - Volume group snapshot
+  - DRA structured parameters
+  - Label and field selector authorization
+- Alpha
+  - Scheduler asynchronous preemption
+  - CEL mutating admission policies
+  - Pod-level resources
+  - PreStop sleep action zero value
+  - Standardized network interface data in ResourceClaim status
+- 升级关注
+  - 1.32 已 EOL；不要作为新集群目标版本。
+  - StatefulSet PVC 自动删除、CRD field selector、structured authz 对平台控制面有实际价值。
+
+---
+
+- https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/
+- https://kubernetes.io/releases/1.32/
+
+## Kubernetes 1.31
+
+- Release: 2024-08-13
+- Theme: Elli
+- 45 enhancements: 11 Stable, 22 Beta, 12 Alpha
+- Stable
+  - AppArmor support
+  - kube-proxy ingress connectivity reliability
+  - PersistentVolume last phase transition time
+- Beta
+  - kube-proxy nftables backend
+  - PersistentVolume reclaim policy changes
+  - Bound ServiceAccount token improvements
+  - Multiple Service CIDRs
+  - Service `trafficDistribution`
+  - VolumeAttributesClass / ModifyVolume
+- Alpha
+  - New DRA APIs
+  - Image volumes
+  - Device health in Pod status
+  - Selector-based authorization
+  - Anonymous API access restrictions
+- Deprecations / Removals
+  - cgroup v1 进入 maintenance mode
+  - SHA-1 signature support 需要关注
+  - Node `.status.nodeInfo.kubeProxyVersion` deprecated
+- 升级关注
+  - Service `trafficDistribution` 从 1.31 开始进入演进，后续 1.34/1.35 变得更明确。
+  - 1.31 已 EOL；仅作为历史参考，不建议继续运行。
+
+---
+
+- https://kubernetes.io/blog/2024/08/13/kubernetes-v1-31-release/
+- https://kubernetes.io/releases/1.31/
 
 ## Kubernetes 1.30
 

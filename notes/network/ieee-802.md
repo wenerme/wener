@@ -4,7 +4,7 @@ tags:
   - IEEE
 ---
 
-| spec         |
+| spec         | note                |
 | ------------ | ------------------- |
 | IEEE 802.1d  | STP                 |
 | IEEE 802.1q  | VLAN tagging        |

@@ -49,12 +49,13 @@ kubeconfig.yaml
 *.env
 
 ### AI
-.agents/
-.claude/
-.codex/
-.cursor/
-.gemini/
-.opencode/
+.pi
+.agents
+.claude
+.codex
+.cursor
+.gemini
+.opencode
 .mcp.json
 CLAUDE.md
 AGENTS.md
@@ -99,5 +100,3 @@ mcps.json
 /tbd
 site/dist/
 site/lib/
-
-

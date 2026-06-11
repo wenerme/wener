@@ -244,6 +244,13 @@ osascript -e 'tell application "Finder" to tell front window to update every ite
   - 资源管理
 - 参考 [What's the difference between Mac OS X, Darwin OS and a popular Linux distribution like Ubuntu? What can be done on Darwin?](https://www.quora.com/Whats-the-difference-between-Mac-OS-X-Darwin-OS-and-a-popular-Linux-distribution-like-Ubuntu-What-can-be-done-on-Darwin)
 
+## 进入恢复模式
+
+- Intel macOS
+  - 启动的时候 Command+R
+- Apple Silicon macOS
+  - 关机 - 开机长按开机键 10s 出现选项
+
 ## 载入更新失败
 
 进入恢复模式关闭 sip - System Integrity Protection
