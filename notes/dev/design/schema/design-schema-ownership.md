@@ -213,7 +213,7 @@ created_by_user_id = null
 
 ## 实践参考
 
-`account`、`lead`、`file`、`flow`、`preference` 等表使用了同一套 owner 模式：
+`account`、`lead`、`file`、`flow`、`preference` 等表使用同一套 owner 模式：
 
 ```sql
 owner_id text,

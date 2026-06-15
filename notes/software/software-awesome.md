@@ -91,6 +91,9 @@ tags:
 - https://www.synfig.org/
   - Open-source 2D Animation Software
 - https://www.leocad.org/
+- Misc
+  - [NixRTR/nebula-commander](https://github.com/NixRTR/nebula-commander)
+    - Nebula Commander 项目。
 
 ## Online
 

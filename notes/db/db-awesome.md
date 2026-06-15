@@ -60,6 +60,11 @@ tags:
   - https://db-benchmarks.com/
     - by manticoresearch
 - https://github.com/mgramin/awesome-db-tools
+- Reactive / Embedded Backend
+  - [get-convex/convex-backend](https://github.com/get-convex/convex-backend)
+    - 面向应用开发者的开源 reactive database backend。
+  - [trailbaseio/trailbase](https://github.com/trailbaseio/trailbase)
+    - 基于 Rust、SQLite 和 Wasmtime 的单文件 Firebase 替代方案。
 
 ## 理论
 

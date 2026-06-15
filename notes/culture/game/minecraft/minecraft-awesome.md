@@ -115,7 +115,9 @@ tags:
   - .mcpack
   - .mcworld
   - .mcaddon
-
+- Agent
+  - [cnsdqd-dyb/VillagerAgent-Minecraft-multiagent-framework](https://github.com/cnsdqd-dyb/VillagerAgent-Minecraft-multiagent-framework)
+    - 基于图的 Minecraft 多 Agent 框架。
 
 ## Resource Pack
 

@@ -87,3 +87,7 @@ tags:
 - CompVis
   - 慕尼黑大学 (LMU Munich) 的计算机视觉与学习研究组 (Computer Vision & Learning Group)
 - LAION: 大型人工智能开放网络 (Large-scale Artificial Intelligence Open Network)，提供了训练数据集。
+
+- Prompt / Image
+  - [EvoLinkAI/awesome-gpt-image-2-prompts](https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts)
+    - GPT Image 相关提示词精选集合。

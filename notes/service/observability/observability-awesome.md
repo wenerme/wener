@@ -76,6 +76,11 @@ tags:
 - [google/mtail](https://github.com/google/mtail)
   - Apache-2.0, Go
   - 从应用程序日志中提取监控指标
+- Logging / Trend / LLM Observability
+  - [openobserve/openobserve](https://github.com/openobserve/openobserve)
+    - 开源可观测性平台，覆盖 logs、metrics、traces、frontend monitoring、pipelines 和 LLM observability。
+  - [sansan0/TrendRadar](https://github.com/sansan0/TrendRadar)
+    - AI 驱动的舆情与趋势监控工具，聚合多平台热点、RSS 和推送渠道。
 
 ## Tracing
 

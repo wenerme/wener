@@ -7,6 +7,8 @@ title: OLAP Database Awesome
 ## Database
 
 - clickhouse
+  - [ClickHouse/clickhouse-js](https://github.com/ClickHouse/clickhouse-js)
+    - ClickHouse 官方 JavaScript client。
 - kylin
 - [trinodb/trino](https://github.com/trinodb/trino)
   - [之前的 presto](https://trino.io/blog/2020/12/27/announcing-trino.html)

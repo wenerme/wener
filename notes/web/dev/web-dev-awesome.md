@@ -45,3 +45,9 @@ find node_modules -type f -name "*.node" 2> /dev/null | grep -v "obj\.target" | 
 # 依赖分析
 pnpx node-modules-inspector
 ```
+
+- Agent / Clone
+  - [alibaba/page-agent](https://github.com/alibaba/page-agent)
+    - 运行在页面内的 JavaScript GUI Agent，可用自然语言控制 Web UI。
+  - [firecrawl/open-lovable](https://github.com/firecrawl/open-lovable)
+    - 把任意网站克隆/重建成现代 React 应用的工具。

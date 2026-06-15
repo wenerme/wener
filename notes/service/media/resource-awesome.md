@@ -64,6 +64,11 @@ tags:
   - https://jujuso.com/
   - https://www.alipansou.com/
     - https://pan.alipanso.com/
+- Video / Subtitle
+  - [88lin/video_vip](https://github.com/88lin/video_vip)
+    - 整合多解析接口的视频 VIP 解析脚本，用于绕过会员限制和广告。
+  - [pa4373/subhd.py](https://github.com/pa4373/subhd.py)
+    - 自动从 subhd.com 下载字幕的工具。
 
 ## Index
 

@@ -916,6 +916,16 @@ goweight
 - https://bugs.alpinelinux.org/issues/4276
   - gcc-arm-none-eabi
 
+- Logging / Rate Limit / Stream
+  - [veqryn/slog-context](https://github.com/veqryn/slog-context)
+    - 为 Go slog 提供 context 集成，支持 logger/attributes/trace id 等上下文值。
+  - [bcicen/jstream](https://github.com/bcicen/jstream)
+    - Go 实现的 streaming JSON parser。
+  - [ulule/limiter](https://github.com/ulule/limiter)
+    - 简单的 Go 限流 middleware。
+  - [sethvargo/go-limiter](https://github.com/sethvargo/go-limiter)
+    - 高性能 Go 限流库，提供 HTTP middleware。
+
 ## Scripts
 
 - https://github.com/peterh/liner

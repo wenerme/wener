@@ -37,6 +37,11 @@ sw_vers
 
 - https://github.com/jaywcjlove/awesome-mac
 - https://www.torrentmac.net/
+- Notification / Automation
+  - [vjeantet/alerter](https://github.com/vjeantet/alerter)
+    - macOS 命令行通知工具，支持发送用户提醒通知。
+  - [openclaw/Peekaboo](https://github.com/openclaw/Peekaboo)
+    - macOS 截图 CLI 与可选 MCP server，供 AI Agent 捕获屏幕和应用。
 
 ## System
 

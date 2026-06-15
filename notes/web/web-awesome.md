@@ -344,6 +344,12 @@ tags:
 - https://hexed.it
 - https://webvm.io
 
+- Desktop / Runtime
+  - [microsoft/duroxide-node](https://github.com/microsoft/duroxide-node)
+    - Microsoft Duroxide 的 Node.js 相关项目。
+  - [vercel-labs/wterm](https://github.com/vercel-labs/wterm)
+    - 面向 Web 的 terminal emulator。
+
 ## CDN
 
 - http://www.jsdelivr.com/

@@ -254,5 +254,12 @@ tags:
 ---
 
 - https://www.truefoundry.com/blog/llm-agents
+- AI Dev Tools
+  - [earendil-works/absurd](https://github.com/earendil-works/absurd)
+    - 关于 durability 的实验项目。
+  - [jparkerweb/semantic-chunking](https://github.com/jparkerweb/semantic-chunking)
+    - 用于 LLM workflow 的语义分块工具。
+  - [NixRTR/nebula-commander](https://github.com/NixRTR/nebula-commander)
+    - Nebula Commander 项目。
 
 # FAQ

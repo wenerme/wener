@@ -114,6 +114,8 @@ tags:
   - [swaggest/go-asyncapi](https://github.com/swaggest/go-asyncapi)
   - https://medium.com/event-driven-utopia/understanding-asyncapis-with-a-practical-example-ee2b4be221d8
 - https://swagger.io/specification/
+- [SchemaStore/schemastore](https://github.com/SchemaStore/schemastore)
+  - JSON Schema 集合，覆盖大量 API 和配置格式。
 - https://jsonapi.org/format/
 - [webrpc/webrpc](https://github.com/webrpc/webrpc)
 
@@ -416,6 +418,7 @@ npx --package @7nohe/openapi-react-query-codegen openapi-rq -i ./petstore.yaml
 - https://www.postman.com/ai-engineer/generative-ai-apis/overview
 - [How Uber Engineering Evaluated JSON Encoding and Compression Algorithms to Put the Squeeze on Trip Data](https://eng.uber.com/trip-data-squeeze-json-encoding-compression/)
   - 2016-02
+
 
 ## Service Discovery
 

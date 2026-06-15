@@ -68,8 +68,6 @@ winget install Zellij.Zellij
 # admin PowerShell
 Start-Process powershell.exe -Verb RunAs
 
-
-
 # https://github.com/microsoft/winget-pkgs
 # https://winstall.app/
 # https://winget.run/
@@ -77,8 +75,6 @@ winget source list
 winget source update
 
 winget install gerardog.gsudo
-
-
 
 # 用户信息
 whoami /all
@@ -131,6 +127,9 @@ where cmd
 Get-Command cmd
 Set-Alias which Get-Command
 ```
+- UI Automation
+  - [g4-api/uia-peek](https://github.com/g4-api/uia-peek)
+    - Windows UI Automation inspector 与 recorder，支持 REST/CLI/SignalR。
 
 ## Sysinternals
 

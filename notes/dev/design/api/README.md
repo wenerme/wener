@@ -1,6 +1,7 @@
 ---
 tags:
   - Design
+  - API
 ---
 
 # API Design
@@ -118,7 +119,6 @@ tags:
 - 增加业务灵活性 - 业务变化接口不变
 
 :::
-
 
 - [Filter](./design-api-filter.md)
 

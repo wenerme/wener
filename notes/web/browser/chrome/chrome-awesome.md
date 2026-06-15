@@ -15,6 +15,9 @@ tags:
 - Chrome Extensions
   - [Picture-in-Picture Extension (by Google)](https://chromewebstore.google.com/detail/picture-in-picture-extens/hkgfoiooedgoejojocmhlaklaeopbecg)
     - [GoogleChromeLabs/picture-in-picture-chrome-extension](https://github.com/GoogleChromeLabs/picture-in-picture-chrome-extension)
+- CDP
+  - [gildas-lormeau/simple-cdp](https://github.com/gildas-lormeau/simple-cdp)
+    - 用于通过 Chrome DevTools Protocol 操作 Chromium 浏览器的轻量 JS 库。
 
 ## Awesome
 

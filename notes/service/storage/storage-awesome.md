@@ -33,6 +33,9 @@ tags:
 基于单机存储也可以实现 SDS - 软件定义存储。
 
 :::
+- Durability
+  - [earendil-works/absurd](https://github.com/earendil-works/absurd)
+    - 关于 durability 的实验项目。
 
 ## 网络接口协议 {#protocols}
 
@@ -195,7 +198,6 @@ tags:
 - 参考
   - [distributed_fs_evaluation](https://www.reddit.com/r/homelab/comments/q9weh4/distributed_fs_evaluation/)
   - [Comparison of distributed file systems](https://en.wikipedia.org/wiki/Comparison_of_distributed_file_systems)
-
 
 ## 协议库 {#library}
 

@@ -101,6 +101,8 @@ tags:
 - [tembo-io/pgmq](https://github.com/tembo-io/pgmq)
   - PostgreSQL, Rust
   - lightweight message queue
+- [NikolayS/PgQue](https://github.com/NikolayS/PgQue)
+  - 基于 PostgreSQL 的轻量队列，使用 SQL 文件安装并通过 pg_cron 驱动。
 
 ## PL
 
@@ -116,6 +118,7 @@ tags:
 - Audit
   - https://eager.io/blog/audit-postgres/
   - [How Postgres Audit Tables Saved Us From Taking Down Production](https://heap.io/blog/how-postgres-audit-tables-saved-us-from-taking-down-production)
+
 
 ## Internal
 

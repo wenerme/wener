@@ -17,6 +17,13 @@ tags:
 - [Responsive Images 101 Definitions](https://cloudfour.com/thinks/responsive-images-101-definitions/)
 - [Magic UI](https://magicui.design/)
   - [HN](https://news.ycombinator.com/item?id=40450128)
+- Text / Canvas
+  - [joshmarinacci/node-pureimage](https://github.com/joshmarinacci/node-pureimage)
+    - 纯 JS 实现的 HTML Canvas 2D API。
+  - [chenglou/pretext](https://github.com/chenglou/pretext)
+    - 快速、准确、覆盖完整的文本测量与排版库。
+  - [KurtGokhan/tegaki](https://github.com/KurtGokhan/tegaki)
+    - Web 手写动画库，支持任意字体或文本。
 
 ## Reading
 

@@ -87,6 +87,21 @@ skill-name/
   - 动态能力
 - SubAgent
   - 人设，Persona
+- Community Skill Repos
+  - [warpdotdev/oz-skills](https://github.com/warpdotdev/oz-skills)
+    - Warp 维护的 Agent skills 集合。
+  - [mattpocock/skills](https://github.com/mattpocock/skills)
+    - 面向工程实践的 Agent skills 集合。
+  - [obra/superpowers](https://github.com/obra/superpowers)
+    - Agentic skills framework 与软件开发方法论。
+  - [kodustech/awesome-agent-skills](https://github.com/kodustech/awesome-agent-skills)
+    - 面向 Claude Code、Codex、Cursor 等 coding agent 的 curated skills 列表。
+  - [android/skills](https://github.com/android/skills)
+    - Android 官方/社区 skills 仓库。
+  - [SimoneAvogadro/android-reverse-engineering-skill](https://github.com/SimoneAvogadro/android-reverse-engineering-skill)
+    - 支持 Android app 逆向工程的 Claude Code skill。
+  - [garrytan/gstack](https://github.com/garrytan/gstack)
+    - Garry Tan 的 Claude Code setup，包含多角色工具和工作流。
 
 ## Awesome
 

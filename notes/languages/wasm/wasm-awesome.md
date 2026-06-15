@@ -48,6 +48,8 @@ tags:
     - Apache-2.0, Go
     - 不依赖 CGO
 - Toolchain
+  - [hectorm/chafa-wasm](https://github.com/hectorm/chafa-wasm)
+    - Chafa 的 WebAssembly 模块，可把图像转换为文本/终端图形。
   - [bytecodealliance/javy](https://github.com/bytecodealliance/javy)
     - Apache-2.0, Rust
     - JavaScript to Webassembly toolchain
@@ -161,6 +163,7 @@ tags:
 - [modfy/modfy.video](https://github.com/modfy/modfy.video)
 - [Introduction to WebAssembly components](https://radu-matei.com/blog/intro-wasm-components/)
 - [grain-lang](https://grain-lang.org/)
+
 
 ## Learn
 

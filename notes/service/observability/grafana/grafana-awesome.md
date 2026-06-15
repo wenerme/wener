@@ -4,7 +4,9 @@ tags:
 ---
 
 # Grafana Awesome
-
+- Datasource
+  - [Windforce17/openobserve-grafana-plugin](https://github.com/Windforce17/openobserve-grafana-plugin)
+    - OpenObserve 的 Grafana data source plugin。
 
 ## Plugins
 

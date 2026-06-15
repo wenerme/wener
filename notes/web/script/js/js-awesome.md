@@ -10,6 +10,9 @@ tags:
 - [felixrieseberg/macintosh.js](https://github.com/felixrieseberg/macintosh.js)
 - [RobinCsl/awesome-js-tooling-not-in-js](https://github.com/RobinCsl/awesome-js-tooling-not-in-js)
 - [sorrycc/awesome-javascript](https://github.com/sorrycc/awesome-javascript)
+- CLI / Table
+  - [console-table-printer/console-table-printer](https://github.com/console-table-printer/console-table-printer)
+    - Node.js 控制台表格打印工具。
 
 ## Library
 

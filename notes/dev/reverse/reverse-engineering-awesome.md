@@ -13,6 +13,9 @@ tags:
     - GPLv3, C++
 - Ghidra
 - IDA Pro
+- Android
+  - [SimoneAvogadro/android-reverse-engineering-skill](https://github.com/SimoneAvogadro/android-reverse-engineering-skill)
+    - 支持 Android app 逆向工程的 Claude Code skill。
 
 ```bash
 brew install radare2

@@ -121,6 +121,10 @@ npm add date-fns lodash-es react-fast-compare
 - 其他风格
   - [cloudscape-design/components](https://github.com/cloudscape-design/components)
     - design system for the cloud
+  - [magicuidesign/magicui](https://github.com/magicuidesign/magicui)
+    - 面向设计工程师的 UI 组件和动效集合。
+  - [DavidHDev/react-bits](https://github.com/DavidHDev/react-bits)
+    - 可复制使用的动效和交互 React 组件集合。
   - [mantinedev/mantine](https://github.com/mantinedev/mantine)
     - emotion
     - CSS in JS
@@ -207,6 +211,9 @@ npm add date-fns lodash-es react-fast-compare
   - [fullcalendar/fullcalendar](https://github.com/fullcalendar/fullcalendar)
     - 功能最为强大的日历组件 - 支持 React 绑定
   - [wojtekmaj/react-calendar](https://github.com/wojtekmaj/react-calendar)
+- layout/dock
+  - [ticlo/rc-dock](https://github.com/ticlo/rc-dock)
+    - React dock layout 组件。
 - flow/diagram
   - [wbkd/react-flow](https://github.com/wbkd/react-flow)
     - 流程节点 UI
@@ -881,6 +888,8 @@ npm add date-fns lodash-es react-fast-compare
   Sandbox for developing and testing UI components in isolation
 - Preact
 - [aidenybai/million](./million.md)
+- [millionco/react-doctor](https://github.com/millionco/react-doctor)
+  - 用于发现 React 代码质量问题的工具，尤其适合 Agent 生成代码后的检查。
 
 ## 工具
 
@@ -926,6 +935,7 @@ npm add date-fns lodash-es react-fast-compare
 
 - [alan2207/bulletproof-react](https://github.com/alan2207/bulletproof-react)
 - [Shopify/hydrogen](https://github.com/Shopify/hydrogen)
+
 
 ## Rendering/Native
 

@@ -131,7 +131,7 @@ tags:
 - Registry
   - [SchemaStore/schemastore](https://github.com/SchemaStore/schemastore)
     - https://www.schemastore.org/json/
-  - https://schemas.sourcemeta.com/
+  - JSON Schema 集合，覆盖大量 API 和配置格式。
 - usecases
   - https://json-schema.org/tools
   - OpenAPI

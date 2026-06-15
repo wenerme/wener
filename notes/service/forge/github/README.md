@@ -30,6 +30,9 @@ git am 2875.diff
 curl https://api.github.com
 curl https://api.github.com/meta
 ```
+- GitHub Actions
+  - [actions/upload-artifact](https://github.com/actions/upload-artifact)
+    - GitHub Actions 上传 artifact 的官方 action。
 
 ## gh
 

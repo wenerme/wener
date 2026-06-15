@@ -116,6 +116,9 @@ tags:
 
 - 参考
   - [NX211/workbench](https://github.com/NX211/workbench)
+- Personal Cloud / Workspace
+  - [beclab/Olares](https://github.com/beclab/Olares)
+    - 开源个人云，用于重新掌控个人数据。
 
 ## Clone
 

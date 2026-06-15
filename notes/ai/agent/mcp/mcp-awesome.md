@@ -121,6 +121,19 @@ tags:
 - Antigravity
   - ./.gemini/antigravity/mcp_config.json
   - ~/.gemini/antigravity/mcp_config.json
+- Registry / Server
+  - [modelcontextprotocol/registry](https://github.com/modelcontextprotocol/registry)
+    - 社区驱动的 Model Context Protocol server registry。
+  - [negokaz/excel-mcp-server](https://github.com/negokaz/excel-mcp-server)
+    - 可读写 Excel 数据的 MCP server。
+  - [nicobailon/pi-mcp-adapter](https://github.com/nicobailon/pi-mcp-adapter)
+    - 面向 Pi coding agent 的 token-efficient MCP adapter。
+  - [gildas-lormeau/simple-cdp](https://github.com/gildas-lormeau/simple-cdp)
+    - 用于通过 Chrome DevTools Protocol 操作 Chromium 浏览器的轻量 JS 库。
+
+- Protocol
+  - [device-context-protocol/dcp](https://github.com/device-context-protocol/dcp)
+    - Device Context Protocol，用于把 LLM Agent 连接到物理设备，和 MCP 互补。
 
 ## Commercial
 

@@ -30,3 +30,7 @@ tags:
   Airtable alternative
   - AGPL-3.0, Vue+TypeScript
 - [eatonphil/dbcore](https://github.com/eatonphil/dbcore)
+
+- Backend
+  - [trailbaseio/trailbase](https://github.com/trailbaseio/trailbase)
+    - 基于 Rust、SQLite 和 Wasmtime 的单文件 Firebase 替代方案。

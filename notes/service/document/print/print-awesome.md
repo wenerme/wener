@@ -13,6 +13,9 @@ tags:
 - [OpenPrinting/cups](https://github.com/OpenPrinting/cups)
 - [OpenPrinting/system-config-printer](https://github.com/OpenPrinting/system-config-printer) - Graphical user interface for CUPS administration
 - p910nd - non-spooling
+- PDF
+  - [k-yle/pdf-to-img](https://github.com/k-yle/pdf-to-img)
+    - Node.js 下把 PDF 转成图片的工具。
 - 打印材料
   - https://printables.hp.com/cn/zh
 

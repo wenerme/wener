@@ -52,6 +52,9 @@ caddy reverse-proxy --to https://wener.me --internal-certs --from :8081 --change
 caddy add-package github.com/caddy-dns/cloudflare
 # caddy remove-package
 ```
+- Plugin
+  - [dotvezz/caddy-mirror](https://github.com/dotvezz/caddy-mirror)
+    - Caddy 2 的请求镜像与 shadow testing 模块。
 
 ## Docker reload
 

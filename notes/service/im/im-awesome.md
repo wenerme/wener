@@ -13,6 +13,13 @@ tags:
   - Notification
   - Room
   - State Sync
+- CLI / Automation
+  - [WecomTeam/wecom-cli](https://github.com/WecomTeam/wecom-cli)
+    - 企业微信开放平台命令行工具，让人和 AI Agent 都能在终端操作企业微信。
+  - [whoamihappyhacking/lzc-im-all-in-one](https://github.com/whoamihappyhacking/lzc-im-all-in-one)
+    - 多种即时通讯软件的一体化 Docker 部署。
+  - [zhinianboke/xianyu-auto-reply](https://github.com/zhinianboke/xianyu-auto-reply)
+    - 闲鱼自动回复与虚拟商品自动化客服系统。
 
 ## Open Protocol
 

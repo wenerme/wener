@@ -73,6 +73,59 @@ tags:
 - [DavidZWZ/Awesome-Deep-Research](https://github.com/DavidZWZ/Awesome-Deep-Research)
 - learning
   - https://openai.com/index/unrolling-the-codex-agent-loop/
+- Agent OS / Workspace
+  - [RightNow-AI/openfang](https://github.com/RightNow-AI/openfang)
+    - 开源 Agent 操作系统。
+  - [gastownhall/gastown](https://github.com/gastownhall/gastown)
+    - 面向多 Agent 的 workspace manager。
+  - [desplega-ai/agent-swarm](https://github.com/desplega-ai/agent-swarm)
+    - 面向 AI coding agents 的 Agent Swarm 框架。
+  - [chaterm/Chaterm](https://github.com/chaterm/Chaterm)
+    - 面向云和基础设施管理的开源 AI Terminal，可用自然语言部署、排障和自动化服务。
+  - [AstrBotDevs/AstrBot](https://github.com/AstrBotDevs/AstrBot)
+    - 集成 IM 平台、LLM、插件和 AI 能力的 Agent Assistant 与开发框架。
+  - [nextlevelbuilder/goclaw](https://github.com/nextlevelbuilder/goclaw)
+    - 用 Go 重构的 OpenClaw，支持多租户隔离、安全层和原生并发。
+  - [microsoft/agent-framework](https://github.com/microsoft/agent-framework)
+    - 用于构建、编排和部署 AI Agent / multi-agent workflow 的框架。
+  - [pewdiepie-archdaemon/odysseus](https://github.com/pewdiepie-archdaemon/odysseus)
+    - 自托管 AI workspace。
+  - [jnMetaCode/agency-orchestrator](https://github.com/jnMetaCode/agency-orchestrator)
+    - 一句话调度多个 AI 角色协作并生成完整方案的编排工具。
+  - [iannuttall/ralph](https://github.com/iannuttall/ralph)
+    - 极简、基于文件的 autonomous coding agent loop。
+  - [jmfederico/pi-web](https://github.com/jmfederico/pi-web)
+    - Pi Coding Agent 的 Web UI，可让 sessions 在真实 workspace 中持续运行。
+  - [BlackBeltTechnology/pi-agent-dashboard](https://github.com/BlackBeltTechnology/pi-agent-dashboard)
+    - Pi coding-agent sessions 的实时 Web dashboard，支持多 session、终端、diff 和远程控制。
+  - [alibaba/page-agent](https://github.com/alibaba/page-agent)
+    - 运行在页面内的 JavaScript GUI Agent，可用自然语言控制 Web UI。
+  - [firecrawl/web-agent](https://github.com/firecrawl/web-agent)
+    - 面向结构化 Web research 的开源 Web data agent。
+  - [firecrawl/open-lovable](https://github.com/firecrawl/open-lovable)
+    - 把任意网站克隆/重建成现代 React 应用的工具。
+  - [iFurySt/open-codex-computer-use](https://github.com/iFurySt/open-codex-computer-use)
+    - Codex Computer Use 的开源替代实现。
+
+- Pi / Codex Tools
+  - [ericc-ch/copilot-api](https://github.com/ericc-ch/copilot-api)
+    - 将 GitHub Copilot 转成 OpenAI/Anthropic API 兼容服务，可配合 Claude Code 使用。
+  - [RielJ/pi-git-worktrees](https://github.com/RielJ/pi-git-worktrees)
+    - 面向 Pi coding agent 的 git worktrees 辅助工具。
+  - [san-tian/pi-codex-remote-compaction](https://github.com/san-tian/pi-codex-remote-compaction)
+    - Pi/Codex 远程 compaction 相关工具。
+  - [BA-CalderonMorales/codex-cheat-sheet](https://github.com/BA-CalderonMorales/codex-cheat-sheet)
+    - Codex CLI tips、技巧和 workflow 速查集合。
+
+- LLM Ops / Gateway
+  - [tensorzero/tensorzero](https://github.com/tensorzero/tensorzero)
+    - 开源 LLMOps 平台，统一 LLM gateway、observability、evaluation、optimization 和 experimentation。
+  - [funstory-ai/aifw](https://github.com/funstory-ai/aifw)
+    - 轻量 LLM firewall，可进行 PII mask、路由和无痕处理。
+  - [MukundaKatta/llm-bench-cli](https://github.com/MukundaKatta/llm-bench-cli)
+    - 本地 LLM benchmark CLI，用于比较速度、吞吐和质量。
+  - [higress-group/higress](https://github.com/higress-group/higress)
+    - AI Gateway / AI Native API Gateway。
 
 ## configuration
 

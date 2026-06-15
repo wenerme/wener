@@ -8,6 +8,8 @@ tags:
 
 - [grpc-ecosystem/grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)
   - gRPC -> OpenAPIv2
+  - [sudorandom/protoc-gen-connect-openapi](https://github.com/sudorandom/protoc-gen-connect-openapi)
+    - 从 protobuf/Connect RPC 接口生成 OpenAPI v3 的插件。
   - [grpc-ecosystem/grpc-gateway#441](https://github.com/grpc-ecosystem/grpc-gateway/issues/441)
     - OpenAPIv3
   - [grpc-ecosystem/protoc-gen-grpc-gateway-ts](https://github.com/grpc-ecosystem/protoc-gen-grpc-gateway-ts)
@@ -31,6 +33,8 @@ tags:
       - 基于 class
   - [timostamm/protobuf-ts](https://github.com/timostamm/protobuf-ts)
     - 依赖 tsc 生成代码
+  - [smithy-lang/smithy-typescript](https://github.com/smithy-lang/smithy-typescript)
+    - Smithy 的 TypeScript 代码生成器。
 
 ## LB/Gateway/Proxy
 
@@ -67,6 +71,7 @@ tags:
 -path:vendor path:*.proto
 language:"Protocol Buffers"
 -->
+
 
 ## 工具
 

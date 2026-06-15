@@ -31,6 +31,11 @@ https://www.game-game.com.ua/
 - 发现
   - https://itch.io/
   - https://www.crazygames.com/
+- Open World / World Builder
+  - [hasanharman/isomiddleearth](https://github.com/hasanharman/isomiddleearth)
+    - 受 Tolkien 中土世界启发的等距世界构建器。
+  - [veloren/veloren](https://github.com/veloren/veloren)
+    - 开源开放世界 voxel RPG，灵感来自 Dwarf Fortress 和 Cube World。
 
 ## NES
 

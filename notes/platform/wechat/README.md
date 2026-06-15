@@ -49,6 +49,13 @@ title: WeChat
   - [BlueMatthew/WechatExporter](https://github.com/BlueMatthew/WechatExporter)
     - GPLv2, C++
   - [Hello-Mr-Crab/pywechat](https://github.com/Hello-Mr-Crab/pywechat)
+- Automation / Cloud
+  - [Gloridust/WechatOnCloud](https://github.com/Gloridust/WechatOnCloud)
+    - 云微信项目，用于云端连接微信。
+  - [ox01024/air-wechat](https://github.com/ox01024/air-wechat)
+    - 跨端、全平台的私有化云微信方案。
+  - [hicccc77/WeFlow](https://github.com/hicccc77/WeFlow)
+    - 本地微信聊天记录导出和年度报告应用。
 
 ## 接口
 

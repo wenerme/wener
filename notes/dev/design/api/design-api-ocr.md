@@ -1,5 +1,7 @@
 ---
 title: OCR API
+tags:
+  - OCR
 ---
 
 # Design OCR API

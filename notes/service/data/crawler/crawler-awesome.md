@@ -25,6 +25,11 @@ tags:
   - Cheerio
   - Puppeteer
   - Playwright
+- Web / Platform
+  - [firecrawl/web-agent](https://github.com/firecrawl/web-agent)
+    - 面向结构化 Web research 的开源 Web data agent。
+  - [firecrawl/open-lovable](https://github.com/firecrawl/open-lovable)
+    - 把任意网站克隆/重建成现代 React 应用的工具。
 
 ## Bots
 

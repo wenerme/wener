@@ -8,6 +8,11 @@ tags:
 
 - [cncf landscape](https://landscape.cncf.io/)
 - [awesome-cloud-native](https://jimmysong.io/awesome-cloud-native)
+- Service Mesh / Cloud Native
+  - [GoogleCloudPlatform/scion](https://github.com/GoogleCloudPlatform/scion)
+    - Google Cloud Platform 相关的 Go 项目。
+  - [kumahq/kuma](https://github.com/kumahq/kuma)
+    - 基于 Envoy 的多区域 service mesh，支持容器、Kubernetes 和 VM。
 
 ## 学习
 

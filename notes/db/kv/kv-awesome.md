@@ -15,6 +15,11 @@ title: KV DB Awesome
 
 - KV 最容易实现分布式
 - 数据库都是某种形式上的 KV
+- Redis
+  - [redis/node-redis](https://github.com/redis/node-redis)
+    - Redis 官方/主流 Node.js client。
+  - [go-redis/redis_rate](https://github.com/go-redis/redis_rate)
+    - 基于 go-redis 的限流库。
 
 ## Redis Compatible
 

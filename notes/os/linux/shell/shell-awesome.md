@@ -156,6 +156,11 @@ tags:
   - [trzsz/trzsz-ssh](https://github.com/trzsz/trzsz-ssh)
   - [trzsz/trzsz.js](https://github.com/trzsz/trzsz.js)
     - https://github.com/jumpserver/jumpserver/issues/10679
+- Terminal Graphics / TUI
+  - [hpjansson/chafa](https://github.com/hpjansson/chafa)
+    - 面向终端的图像/图形渲染工具。
+  - [Gaurav-Gosain/tuios](https://github.com/Gaurav-Gosain/tuios)
+    - 终端 UI OS / terminal multiplexer。
 
 ## Shell
 

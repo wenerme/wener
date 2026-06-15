@@ -33,17 +33,17 @@ tags:
 
 ## Runtime Target
 
-| Runtime | Ver | Notes                         |
-| ------- | --------- | ----------------------------- |
-| Node 24 | ES2024    | `nodenext` / TS 5.9+ `node20` |
-| Node 22 | ES2023    | `nodenext` / TS 5.9+ `node20` |
-| Node 20 | ES2023    | `nodenext` / TS 5.9+ `node20` |
-| Node 18 | ES2022    | `node16`                      |
-| Node 16 | ES2021    | `node16` / `nodenext`         |
-| Node 14 | ES2020    | old LTS                       |
-| Node 12 | ES2019    | EOL                           |
-| Node 10 | ES2018    | EOL                           |
-| Node 8  | ES2017    | EOL                           |
+| Runtime | Ver    | Notes                         |
+| ------- | ------ | ----------------------------- |
+| Node 24 | ES2024 | `nodenext` / TS 5.9+ `node20` |
+| Node 22 | ES2023 | `nodenext` / TS 5.9+ `node20` |
+| Node 20 | ES2023 | `nodenext` / TS 5.9+ `node20` |
+| Node 18 | ES2022 | `node16`                      |
+| Node 16 | ES2021 | `node16` / `nodenext`         |
+| Node 14 | ES2020 | old LTS                       |
+| Node 12 | ES2019 | EOL                           |
+| Node 10 | ES2018 | EOL                           |
+| Node 8  | ES2017 | EOL                           |
 
 - https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping
 - Node 20/22/24 的实际 feature 支持高于 baseline 时很常见，最终仍以运行时/V8 版本和兼容表为准。
