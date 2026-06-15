@@ -37,8 +37,6 @@ pacman -S bubblewrap
 
 # Alpine
 apk add bubblewrap
-
-# macOS 不是目标平台；bubblewrap 依赖 Linux namespaces
 ```
 
 最小示例：创建一个临时 rootfs，只暴露 `/usr`、`/proc`、`/dev`，并新建 PID namespace。

@@ -1,5 +1,7 @@
 ---
 title: KubeVirt
+tags:
+  - Virt
 ---
 
 # KubeVirt

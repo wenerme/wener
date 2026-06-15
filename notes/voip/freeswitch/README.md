@@ -1,5 +1,5 @@
 ---
-id: freeswitch
+title: FreeSWITCH
 ---
 
 # FreeSWITCH

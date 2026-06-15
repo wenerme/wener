@@ -6,31 +6,124 @@ tags:
 
 # HAProxy Version
 
-| version       | date       |
-| ------------- | ---------- |
-| [HAProxy 3.1] | 2024-11-26 |
-| [HAProxy 3.0] | 2024-05-29 |
-| [HAProxy 2.9] | 2023-12-05 |
-| [HAProxy 2.8] | 2023-05-31 |
-| [HAProxy 2.7] | 2022-12-01 |
-| [HAProxy 2.6] | 2022-05-31 |
-| [HAProxy 2.5] | 2021-11-23 |
-| [HAProxy 2.4] | 2021-05-13 |
-| [HAProxy 2.3] | 2020-11-05 |
+- [haproxy/haproxy](https://github.com/haproxy/haproxy)
+  - GPL-2.0 / LGPL-2.1, C, TCP/HTTP Load Balancer, Reverse Proxy
+  - Reliable, high performance TCP/HTTP reverse proxy and load balancer.
+- Release cadence
+  - 每年约 2 个 feature branch。
+  - 偶数 minor 是 LTS，维护约 5 年，适合生产长期使用。
+  - 奇数 minor 是 stable，维护约 12–18 个月，适合需要新功能且能快速升级/回滚的用户。
+  - 同一 branch 内应尽量使用最新 patch。
+- 参考
+  - [HAProxy.org](https://www.haproxy.org/)
+  - [Branches and life cycle](https://github.com/haproxy/haproxy/blob/master/BRANCHES)
+  - [HAProxy Blog](https://www.haproxy.com/blog/)
 
-[haproxy 3.0]: #haproxy-30
-[haproxy 2.9]: #haproxy-29
-[haproxy 2.8]: #haproxy-28
-[haproxy 2.7]: #haproxy-27
-[haproxy 2.6]: #haproxy-26
-[haproxy 2.5]: #haproxy-25
-[haproxy 2.4]: #haproxy-24
-[haproxy 2.3]: #haproxy-23
+| version | date | latest | status / EOL | notes |
+| ------- | ---- | ------ | ------------ | ----- |
+| [HAProxy 3.4](#haproxy-34) | 2026-06-03 | 3.4.0 | LTS, 2031-Q2 | dynamic backends, QMux, ACME dns-persist-01, OpenTelemetry |
+| [HAProxy 3.3](#haproxy-33) | 2025-11-26 | 3.3.10 | stable, 2027-Q1 | QUIC backend, persistent stats, ACME, Kernel TLS, ECH |
+| [HAProxy 3.2](#haproxy-32) | 2025-05-28 | 3.2.19 | LTS, 2030-Q2 | ACME/SSL management, CPU scalability, QUIC performance |
+| [HAProxy 3.1](#haproxy-31) | 2024-11-26 | 3.1.17 | unmaintained, 2026-Q1 | troubleshooting, config reliability, SPOE, H2/QUIC |
+| [HAProxy 3.0](#haproxy-30) | 2024-05-29 | 3.0.23 | LTS, 2029-Q2 | crt-stores, persistent stats, JSON/CBOR logs, syslog LB |
+| [HAProxy 2.9](#haproxy-29) | 2023-12-05 | 2.9.15 | unmaintained, 2025-Q1 | reverse-http, log backends, zero-copy forwarding |
+| [HAProxy 2.8](#haproxy-28) | 2023-05-31 | 2.8.24 | critical fixes, 2028-Q2 | QUIC production-ready, Lua mailers, OCSP auto updates |
+| [HAProxy 2.7](#haproxy-27) | 2022-12-01 | 2.7.12 | unmaintained, 2024-Q1 | traffic shaping, QUIC, thread groups |
+| [HAProxy 2.6](#haproxy-26) | 2022-05-31 | 2.6.29 | critical fixes, 2027-Q2 | QUIC/HTTP3, OpenSSL 3.0 |
+| [HAProxy 2.5](#haproxy-25) | 2021-11-23 | 2.5.14 | unmaintained, 2023-Q1 | dynamic servers, runtime CA/CRL, Lua httpclient |
+| [HAProxy 2.4](#haproxy-24) | 2021-05-14 | 2.4.35 | unmaintained, 2026-Q2 | TCP syslog/DNS, OpenTracing, dynamic SSL update |
+| [HAProxy 2.3](#haproxy-23) | 2020-11-05 | 2.3.21 | unmaintained, 2022-Q1 | syslog forwarding, stricter config checking |
+
+## 版本选择
+
+- 新部署优先选最新 LTS：当前为 HAProxy 3.4；保守生产也可选成熟 LTS 3.2 / 3.0 / 2.8 / 2.6。
+- 不建议新上 3.1/2.9/2.7/2.5 等已 unmaintained stable branch。
+- 2.4/2.2 等旧 LTS 已到或接近 EOL，应规划迁移。
+- 使用 QUIC/HTTP3、ACME、OpenTelemetry、dynamic backend 等新能力时，优先看 3.4+。
+- 当前开发分支为 3.5-dev，预计进入下一个 stable cycle；生产不要使用 dev 分支。
+
+## HAProxy 3.4
+
+- LTS
+- Release: 2026-06-03
+- Latest: 3.4.0
+- Dynamic backends
+  - Runtime API 可动态 `add backend`、`publish backend`、`unpublish backend`、`del backend`。
+  - 配合 virtual map 可实现更完整的 reload-free backend lifecycle。
+- QMux
+  - 实验性支持 HTTP/3 / QUIC over TCP，适合 UDP 被阻断或数据中心内 TCP 更合适的场景。
+- ACME 增强
+  - `dns-persist-01` challenge。
+  - DNS-01 readiness：`challenge-ready`、`dns-delay`、`dns-timeout`。
+  - ACME profile、IP SAN、EAB。
+- TLS
+  - dummy/self-signed certificate generation。
+  - TLS certificate compression。
+  - 更方便生成 TLS keylog 变量。
+- Performance / Reliability
+  - 更细 buffer tuning，小 buffer/大 buffer 按需使用。
+  - 自动 CPU binding 继续增强。
+  - HTTP/1 glitch detector、HTTP/2 error log 控制。
+  - reusable `healthcheck` section。
+  - `random` balancing 算法考虑近期 RPS，分布更均匀。
+- Observability
+  - 新增 OpenTelemetry filter。
+  - OpenTracing deprecated，计划 3.5 移除。
+- Breaking / Deprecated
+  - stats page 默认不再显示 HAProxy version；需要 `stats show-version`。
+  - `compression-direction` deprecated。
+
+## HAProxy 3.3
+
+- stable
+- Release: 2025-11-26
+- Latest: 3.3.10
+- TLS / Security
+  - ACME 支持增强。
+  - SNI、passphrase protected cert、Encrypted Client Hello。
+  - Kernel TLS + splicing。
+  - JWT/OAuth 相关增强。
+- Observability
+  - Persistent stats 继续增强，reload 后保留更多统计状态。
+  - trace 能力改进。
+- Performance
+  - `random` load balancing 成为默认算法，替代 `roundrobin`。
+  - 多处连接、buffer、scheduler、HTTP/2/3 性能优化。
+- Flexibility
+  - QUIC on backend / HTTP/3 backend 方向增强。
+  - 新 fetch methods、converters、Runtime API 能力。
+- Usability / Deprecated
+  - 更严格的配置检查：重复 `frontend` / `backend` / `listen` / `defaults` 名称会被拒绝。
+  - `program` section 行为收紧。
+
+## HAProxy 3.2
+
+- LTS
+- Release: 2025-05-28
+- Latest: 3.2.19
+- Performance
+  - Automatic CPU binding：`cpu-policy`、`thread-groups` 相关配置简化大核数机器调优。
+  - QUIC performance 改进。
+  - deadlock watchdog / thread dump 调整，排障更可靠。
+- TLS / ACME
+  - ACME protocol 内置能力增强。
+  - `ssl-f-use` 简化多证书 frontend 的引用。
+- Observability / Debug
+  - Prometheus exporter、Runtime API 增强。
+  - `debug counters`、`show events`、`show quic`、`show sess`、`show ssl cert`、`show ssl sni`、trace 改进。
+- Load balancing
+  - `strict-maxconn`。
+  - HTTP compression 增加最小文件大小控制。
+  - relaxed HTTP parsing。
+- 适合
+  - 需要 5 年 LTS，又想要 ACME/SSL 管理和新 QUIC/调试能力的生产环境。
 
 ## HAProxy 3.1
 
+- stable，已 unmaintained
 - 新的 SPOE
-- 提升 H2 性能
+- 提升 H2 / QUIC 性能
+- improved config reliability、finer error reporting、troubleshooting
 - https://www.haproxy.com/blog/announcing-haproxy-3-1
 
 ## HAProxy 3.0

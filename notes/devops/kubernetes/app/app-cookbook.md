@@ -1,6 +1,7 @@
 ---
-id: app-cookbook
 title: K8S Apps
+tags:
+- Cookbook
 ---
 
 ## debug
@@ -127,4 +128,3 @@ kubectl -n cattle-system get deploy rancher
 # 转发访问 rancher
 kubectl port-forward -n cattle-system svc/rancher --address 0.0.0.0 8080:80
 ```
-

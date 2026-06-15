@@ -1,5 +1,7 @@
 ---
 title: argocd-vault-plugin
+tags:
+  - Plugin
 ---
 
 # argocd-vault-plugin

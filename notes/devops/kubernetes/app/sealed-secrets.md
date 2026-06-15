@@ -1,5 +1,7 @@
 ---
 title: sealed-secrets
+tags:
+  - credential
 ---
 
 # sealed-secrets

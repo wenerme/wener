@@ -1,6 +1,7 @@
 ---
-id: k8s-minio
 title: Minio
+tags:
+  - S3
 ---
 
 # Minio on K8S

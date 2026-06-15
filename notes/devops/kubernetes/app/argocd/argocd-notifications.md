@@ -1,5 +1,7 @@
 ---
 title: ArgoCD Notifications
+tags:
+  - Notification
 ---
 
 # ArgoCD Notifications

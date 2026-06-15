@@ -1,5 +1,4 @@
 ---
-id: intro
 title: 硬件设备
 ---
 

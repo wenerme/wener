@@ -1,5 +1,7 @@
 ---
 title: zalando/postgres-operator
+tags:
+  - kubernetes-operator
 ---
 
 # zalando/postgres-operator

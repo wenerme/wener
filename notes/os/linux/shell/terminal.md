@@ -45,3 +45,9 @@ screen -r ${SESSION}
 |             Select function or press Enter for none.              |
 +-------------------------------------------------------------------+
 ```
+
+## Protocol
+
+- https://sw.kovidgoyal.net/kitty/graphics-protocol
+- https://sw.kovidgoyal.net/kitty/open_actions
+- https://yazi-rs.github.io/docs/image-preview/

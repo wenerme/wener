@@ -1,5 +1,4 @@
 ---
-id: provider
 title: SIP 提供商
 ---
 
@@ -26,4 +25,3 @@ title: SIP 提供商
     * $4.25/month, per DID number
       * Incoming Calls	$0/minute
       * Outgoing Calls (Termination)	$0.005/minute
-

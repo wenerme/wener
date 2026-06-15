@@ -1,5 +1,4 @@
 ---
-id: cert-manager
 title: Cert Manager
 ---
 

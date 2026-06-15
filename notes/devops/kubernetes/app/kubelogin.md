@@ -1,5 +1,8 @@
 ---
 title: kubelogin
+tags:
+  - plugin
+  - credential
 ---
 
 # kubelogin

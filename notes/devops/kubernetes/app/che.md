@@ -4,7 +4,6 @@ tags:
   - DevOps
   - Kubernetes
   - IDE
-  - EclipseChe
 ---
 
 # Eclipse Che on Kubernetes

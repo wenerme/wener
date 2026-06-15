@@ -1,5 +1,7 @@
 ---
 title: CrunchyData PGO
+tags:
+  - postgres
 ---
 
 # CrunchyData PostgreSQL Operator

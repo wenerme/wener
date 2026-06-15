@@ -1,5 +1,8 @@
 ---
 title: prometheus-config-reloader
+tags:
+  - prometheus
+  - automation
 ---
 
 # prometheus-config-reloader

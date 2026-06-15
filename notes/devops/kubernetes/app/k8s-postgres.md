@@ -1,5 +1,7 @@
 ---
 title: PostgreSQL
+tags:
+- Postgres
 ---
 
 # PostgreSQL on Kubernetes
@@ -13,4 +15,3 @@ title: PostgreSQL
     * 相对复杂
     * 支持更大规模 pg
     * [zalando/postgres-operator](https://github.com/zalando/postgres-operator)
-

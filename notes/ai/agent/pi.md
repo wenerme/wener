@@ -44,6 +44,8 @@ pi
 | `VISUAL`, `EDITOR`      |                                               |
 
 - ~/.pi/agent/keybindings.json
+- PI_CODING_AGENT=true
+  - env 检测
 
 | 快捷键           | 说明                                |
 | ---------------- | ----------------------------------- |

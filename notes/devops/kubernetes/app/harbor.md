@@ -1,5 +1,7 @@
 ---
 title: Harbor
+tags:
+  - Container Registry
 ---
 
 # Habor

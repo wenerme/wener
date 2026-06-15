@@ -1,5 +1,7 @@
 ---
 title: OpenLens
+tags:
+  - Deprecated
 ---
 
 # OpenLens

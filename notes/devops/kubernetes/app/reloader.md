@@ -1,5 +1,7 @@
 ---
 title: Reloader
+tags:
+  - automation
 ---
 
 # Reloader

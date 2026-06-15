@@ -1,5 +1,7 @@
 ---
 title: FluxCD
+tags:
+  - CD
 ---
 
 # FluxCD
