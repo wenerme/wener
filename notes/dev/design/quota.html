@@ -1,0 +1,524 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-dev/design/design-quota" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>Quota | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/dev/design/quota /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Quota | Wener Live & Life"/><meta data-rh=true name=description content=概念 /><meta data-rh=true property=og:description content=概念 /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/dev/design/quota /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/design/quota hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/design/quota hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/dev/","name":"开发","position":1},{"@type":"ListItem","item":"https://wener.me/notes/dev/design/","name":"Design","position":2},{"@type":"ListItem","item":"https://wener.me/notes/dev/design/quota","name":"Quota","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.45af05fc.js defer></script><script src=/assets/js/main.c1f5ee0f.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Collapse sidebar category '开发'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/arch><span title=Architecture class=linkLabel_JPPZ>Architecture</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/ascii><span title=ASCII class=linkLabel_JPPZ>ASCII</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/backup><span title=Backup class=linkLabel_JPPZ>Backup</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/benchmark><span title=Benchmark class=linkLabel_JPPZ>Benchmark</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/billing/faq><span title=billing class=categoryLinkLabel_RkOu>billing</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/build><span title=构建 class=categoryLinkLabel_RkOu>构建</span></a><button aria-label="Expand sidebar category '构建'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chaos-engineering><span title=混沌工程 class=linkLabel_JPPZ>混沌工程</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chezmoi><span title=chezmoi class=linkLabel_JPPZ>chezmoi</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/circuit-breaker><span title=熔断 class=linkLabel_JPPZ>熔断</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/cloud/dapr-k8s><span title=cloud class=categoryLinkLabel_RkOu>cloud</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/code-faq><span title="Code FAQ" class=linkLabel_JPPZ>Code FAQ</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/coding><span title=Coding class=categoryLinkLabel_RkOu>Coding</span></a><button aria-label="Expand sidebar category 'Coding'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/compression><span title=压缩 class=categoryLinkLabel_RkOu>压缩</span></a><button aria-label="Expand sidebar category '压缩'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/cryptography><span title=Cryptography class=linkLabel_JPPZ>Cryptography</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/data-dict><span title=数据字典 class=linkLabel_JPPZ>数据字典</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/date><span title="Date & Time" class=linkLabel_JPPZ>Date & Time</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/dev/design><span title=Design class=categoryLinkLabel_RkOu>Design</span></a><button aria-label="Collapse sidebar category 'Design'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/design/api><span title="API Design" class=categoryLinkLabel_RkOu>API Design</span></a><button aria-label="Expand sidebar category 'API Design'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/desgn-formula><span title="Design Formula" class=linkLabel_JPPZ>Design Formula</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/accounting><span title=Accounting class=linkLabel_JPPZ>Accounting</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/auth-api><span title="Auth API" class=linkLabel_JPPZ>Auth API</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/auth><span title=Auth class=linkLabel_JPPZ>Auth</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/breakpoint><span title=响应式断点 class=linkLabel_JPPZ>响应式断点</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/builder><span title="Design Builder" class=linkLabel_JPPZ>Design Builder</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/cms><span title=CMS class=linkLabel_JPPZ>CMS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/component><span title="UI Components" class=linkLabel_JPPZ>UI Components</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/crm><span title=CRM class=linkLabel_JPPZ>CRM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/cron><span title="Design Cron" class=linkLabel_JPPZ>Design Cron</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/dashboard><span title="Design Dashboard" class=linkLabel_JPPZ>Design Dashboard</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/data-driven><span title=数据驱动 class=linkLabel_JPPZ>数据驱动</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/date-picker><span title="Date Picker" class=linkLabel_JPPZ>Date Picker</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/dms><span title=档案管理 class=linkLabel_JPPZ>档案管理</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/drive><span title=网盘设计 class=linkLabel_JPPZ>网盘设计</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/event-driven><span title=事件驱动 class=linkLabel_JPPZ>事件驱动</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/extension><span title="Design Extension" class=linkLabel_JPPZ>Design Extension</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/feature><span title="Design Feature" class=linkLabel_JPPZ>Design Feature</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/form-service><span title="Design Form Service" class=linkLabel_JPPZ>Design Form Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/frontend><span title=Frontend class=linkLabel_JPPZ>Frontend</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/iam><span title=IAM class=linkLabel_JPPZ>IAM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/im><span title=IM class=linkLabel_JPPZ>IM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/manifest><span title="Design Manifest" class=linkLabel_JPPZ>Design Manifest</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/orm><span title=ORM class=linkLabel_JPPZ>ORM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/queue><span title=Queue class=linkLabel_JPPZ>Queue</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/dev/design/quota><span title=Quota class=linkLabel_JPPZ>Quota</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/saas><span title=SaaS class=linkLabel_JPPZ>SaaS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/scheduler><span title="Design Scheduler" class=linkLabel_JPPZ>Design Scheduler</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/service><span title=服务 class=linkLabel_JPPZ>服务</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/shortcut><span title="Design Shortcut" class=linkLabel_JPPZ>Design Shortcut</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/social><span title=Social class=linkLabel_JPPZ>Social</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/supervisor><span title=Supervisor class=linkLabel_JPPZ>Supervisor</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/task><span title=任务管理 class=linkLabel_JPPZ>任务管理</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/ui><span title="Design UI" class=linkLabel_JPPZ>Design UI</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/webhook><span title="Webhook 设计" class=linkLabel_JPPZ>Webhook 设计</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/window><span title="Design Window" class=linkLabel_JPPZ>Design Window</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/workflow><span title="Workflow design" class=linkLabel_JPPZ>Workflow design</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/design/erp><span title="Design ERP" class=categoryLinkLabel_RkOu>Design ERP</span></a><button aria-label="Expand sidebar category 'Design ERP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/modeling><span title=Modeling class=linkLabel_JPPZ>Modeling</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/design/schema><span title="Schema Design" class=categoryLinkLabel_RkOu>Schema Design</span></a><button aria-label="Expand sidebar category 'Schema Design'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/awesome><span title="Dev Awesome" class=linkLabel_JPPZ>Dev Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/concept><span title=开发相关概念 class=linkLabel_JPPZ>开发相关概念</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/env><span title=ENV class=linkLabel_JPPZ>ENV</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/error><span title=error class=linkLabel_JPPZ>error</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/faq><span title="Dev FAQ" class=linkLabel_JPPZ>Dev FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/glossary><span title="Dev Glossary" class=linkLabel_JPPZ>Dev Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/limits><span title=开发常见限制 class=linkLabel_JPPZ>开发常见限制</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pitfal><span title=Pitfal class=linkLabel_JPPZ>Pitfal</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/practice><span title="Dev Practice" class=linkLabel_JPPZ>Dev Practice</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/reference><span title=Reference class=linkLabel_JPPZ>Reference</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/style-guide><span title="Dev Style Guide" class=linkLabel_JPPZ>Dev Style Guide</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/devcontainer><span title=DevContainer class=linkLabel_JPPZ>DevContainer</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/dict><span title=开发用词字典 class=linkLabel_JPPZ>开发用词字典</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/domain/doc><span title=domain class=categoryLinkLabel_RkOu>domain</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/flow><span title="Workflow & Automation" class=linkLabel_JPPZ>Workflow & Automation</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/flutter><span title=Flutter class=categoryLinkLabel_RkOu>Flutter</span></a><button aria-label="Expand sidebar category 'Flutter'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/format><span title=Format class=categoryLinkLabel_RkOu>Format</span></a><button aria-label="Expand sidebar category 'Format'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/game><span title=GameDev class=categoryLinkLabel_RkOu>GameDev</span></a><button aria-label="Expand sidebar category 'GameDev'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/gherkin><span title=Gherkin class=linkLabel_JPPZ>Gherkin</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/google-eng-practices><span title="Google Engineering Practices" class=linkLabel_JPPZ>Google Engineering Practices</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/gui/clipboard><span title=gui class=categoryLinkLabel_RkOu>gui</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/hexdump><span title=hexdump class=linkLabel_JPPZ>hexdump</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title="Internationalization (i18n)" class=linkLabel_JPPZ>Internationalization (i18n)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title=i18n class=linkLabel_JPPZ>i18n</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/ide><span title=IDE class=categoryLinkLabel_RkOu>IDE</span></a><button aria-label="Expand sidebar category 'IDE'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/libs/audio><span title=libs class=categoryLinkLabel_RkOu>libs</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/license><span title=License class=linkLabel_JPPZ>License</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/naming><span title=命名规范 class=linkLabel_JPPZ>命名规范</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/network><span title=Network class=linkLabel_JPPZ>Network</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/opensource><span title="OpenSource Awesome" class=linkLabel_JPPZ>OpenSource Awesome</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/pattern><span title=设计模式 class=categoryLinkLabel_RkOu>设计模式</span></a><button aria-label="Expand sidebar category '设计模式'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/practice/semver><span title=practice class=categoryLinkLabel_RkOu>practice</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/protocol/bittorrent><span title=protocol class=categoryLinkLabel_RkOu>protocol</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/qa><span title=质量保障 class=categoryLinkLabel_RkOu>质量保障</span></a><button aria-label="Expand sidebar category '质量保障'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/quantum><span title=Quantum class=linkLabel_JPPZ>Quantum</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/random><span title=Random class=linkLabel_JPPZ>Random</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rate-limits><span title="Rate Limits" class=linkLabel_JPPZ>Rate Limits</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/react-native><span title="React Native" class=categoryLinkLabel_RkOu>React Native</span></a><button aria-label="Expand sidebar category 'React Native'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/reverse><span title=逆向工程 class=categoryLinkLabel_RkOu>逆向工程</span></a><button aria-label="Expand sidebar category '逆向工程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rfc><span title=rfc class=linkLabel_JPPZ>rfc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/routing><span title=路由 class=linkLabel_JPPZ>路由</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/shell/ghostty><span title=shell class=categoryLinkLabel_RkOu>shell</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/std/calender><span title=std class=categoryLinkLabel_RkOu>std</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/tech/qrcode><span title=tech class=categoryLinkLabel_RkOu>tech</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/testing><span title=测试 class=categoryLinkLabel_RkOu>测试</span></a><button aria-label="Expand sidebar category '测试'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/theory><span title=理论 class=categoryLinkLabel_RkOu>理论</span></a><button aria-label="Expand sidebar category '理论'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/timezone><span title=timezone class=linkLabel_JPPZ>timezone</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/vibe-coding><span title="Vibe Coding" class=linkLabel_JPPZ>Vibe Coding</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/wall-of-shame><span title=耻辱墙 class=linkLabel_JPPZ>耻辱墙</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/workspace><span title=Workspace class=linkLabel_JPPZ>Workspace</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '�数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/dev><span>开发</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/dev/design><span>Design</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Quota</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Design Quota</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=concept>概念<a href=#concept class=hash-link aria-label="Direct link to 概念" title="Direct link to 概念" translate=no>​</a></h2>
+<ul>
+<li>Quota - 业务规则 - 强一致性
+<ul>
+<li>用户/租户/套餐/资源在某个周期内拥有多少可用额度</li>
+<li>账户权益 - 管理权益、周期额度、用量、账单、余额</li>
+<li>关联概念
+<ul>
+<li>billing - 计费</li>
+<li>subscription - 订阅</li>
+<li>plan</li>
+<li>entitlement - 权益</li>
+<li>usage - 用量</li>
+<li>metering - 计量</li>
+<li>balance - 余额</li>
+<li>credit</li>
+</ul>
+</li>
+<li>实现考量
+<ul>
+<li>period - 周期</li>
+<li>reset、timezone、proration、plan change</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Limiter - 技术机制 - 弱一致性
+<ul>
+<li>在请求发生时，根据 quota、rate、并发、成本等规则决定是否放行</li>
+<li>流量控制 - 管理速率、并发、排队、拒绝、等待</li>
+<li>关联概念
+<ul>
+<li>rate limit - 限速</li>
+<li>throttle - 阈值</li>
+<li>concurrency - 并发</li>
+<li>queue - 队列</li>
+<li>backpressure - 背压</li>
+<li>retry-after</li>
+<li>burst</li>
+<li>window - 窗口</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">Request -> Auth</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> Quota check</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> Limiter check</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> Execute -> Usage metering</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> Quota update / reconciliation</span><br/></span></code></pre></div></div>
+<ul>
+<li>Usage -> Metering -> Price -> Cost -> Billing</li>
+<li>reserve estimated cost -> execute -> commit actual usage -> release/refund delta</li>
+</ul>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href=https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html target=_blank rel="noopener noreferrer">https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html</a></li>
+<li><a href=https://github.com/envoyproxy/data-plane-api/blob/master/envoy/service/ratelimit/v3/rls.proto target=_blank rel="noopener noreferrer">https://github.com/envoyproxy/data-plane-api/blob/master/envoy/service/ratelimit/v3/rls.proto</a></li>
+<li><a href=https://pkg.go.dev/golang.org/x/time/rate target=_blank rel="noopener noreferrer">https://pkg.go.dev/golang.org/x/time/rate</a></li>
+<li><a href=https://github.com/square/quotaservice target=_blank rel="noopener noreferrer">https://github.com/square/quotaservice</a></li>
+<li><a href=https://developer.konghq.com/plugins/rate-limiting/ target=_blank rel="noopener noreferrer">https://developer.konghq.com/plugins/rate-limiting/</a></li>
+<li><a href=https://raw.githubusercontent.com/Salah856/System-Design/refs/heads/main/Design%20Rate%20Limiter.md target=_blank rel="noopener noreferrer">https://raw.githubusercontent.com/Salah856/System-Design/refs/heads/main/Design%20Rate%20Limiter.md</a></li>
+<li><a href=https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers target=_blank rel="noopener noreferrer">https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=rate-limiter>Rate Limiter<a href=#rate-limiter class=hash-link aria-label="Direct link to Rate Limiter" title="Direct link to Rate Limiter" translate=no>​</a></h2>
+<ul>
+<li>目标
+<ul>
+<li>限制单位时间内的请求量、并发量或成本消耗。</li>
+<li>保护下游系统，避免瞬时流量、重试风暴、恶意请求或高成本请求拖垮服务。</li>
+<li>给调用方明确反馈：允许、拒绝、等待、排队、降级，通常配合 <code>Retry-After</code>、剩余额度、reset time。</li>
+</ul>
+</li>
+<li>常见参数
+<ul>
+<li><code>limit</code>：窗口内允许的最大请求数或最大成本。</li>
+<li><code>window</code>：统计窗口，例如 1s、1m、1h、1d。</li>
+<li><code>rate</code>：令牌生成速率或漏出速率，例如 100 req/s。</li>
+<li><code>burst</code>：允许的瞬时突发容量。</li>
+<li><code>cost</code>：单次请求消耗的权重，例如 1 request、N tokens、N credits。</li>
+<li><code>scope</code>：限流维度，例如 global、tenant、user、API key、IP、route、model。</li>
+</ul>
+</li>
+<li>算法选择
+<ul>
+<li>Token bucket：平均速率 + 可控 burst，最常用。</li>
+<li>Leaky bucket：平滑输出速率，更像排队/整形。</li>
+<li>Fixed window counter：实现最简单，边界误差最大。</li>
+<li>Sliding window log：最精确，存储成本最高。</li>
+<li>Sliding window counter：精度和成本折中，工程上常用。</li>
+<li>Exponential backoff：不是服务端限流计数算法，而是超限/失败后的重试退避策略，常与 <code>429</code>、<code>Retry-After</code>、queue、client SDK 配合。</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=token-bucket>Token Bucket<a href=#token-bucket class=hash-link aria-label="Direct link to Token Bucket" title="Direct link to Token Bucket" translate=no>​</a></h3>
+<ul>
+<li>基本概念
+<ul>
+<li>桶里最多保存 <code>burst</code> 个 token。</li>
+<li>系统按固定 <code>rate</code> 持续补充 token，最多补到桶容量。</li>
+<li>请求到来时消耗 <code>cost</code> 个 token；token 足够则放行，不足则拒绝或等待。</li>
+<li><code>golang.org/x/time/rate</code> 使用的就是 token bucket 思路。</li>
+</ul>
+</li>
+<li>Pros
+<ul>
+<li>支持突发流量，用户体验比严格匀速更好。</li>
+<li>能同时表达平均速率和最大 burst。</li>
+<li>状态很小，通常每个 key 只需要保存 token 数和上次更新时间。</li>
+<li>容易扩展到加权请求，例如大请求消耗更多 token。</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>不能保证任意固定窗口内绝不超过 <code>limit</code>，因为允许 burst。</li>
+<li>分布式环境需要原子更新，否则并发下可能超发 token。</li>
+<li>burst 设置过大时，下游仍会被瞬时流量打爆。</li>
+<li>对长任务只控制进入速度，不控制执行中的并发和资源占用。</li>
+</ul>
+</li>
+<li>适用场景
+<ul>
+<li>API QPS、LLM 请求入口、短信/邮件发送、按成本加权的请求入口限流。</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=leaky-bucket>Leaky Bucket<a href=#leaky-bucket class=hash-link aria-label="Direct link to Leaky Bucket" title="Direct link to Leaky Bucket" translate=no>​</a></h3>
+<ul>
+<li>基本概念
+<ul>
+<li>请求进入桶或队列，系统以固定速率把请求“漏出”并执行。</li>
+<li>桶满时新请求被拒绝、丢弃或阻塞等待。</li>
+<li>与 token bucket 相比，leaky bucket 更强调输出速率稳定，而不是允许 burst。</li>
+</ul>
+</li>
+<li>Pros
+<ul>
+<li>输出更平滑，可以保护下游系统免受尖峰流量影响。</li>
+<li>适合把突发流量整形成稳定消费速率。</li>
+<li>队列长度可作为 backpressure 指标。</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>排队会引入延迟，不适合低延迟交互请求。</li>
+<li>队列过长时容易造成超时、取消、堆积和 head-of-line blocking。</li>
+<li>需要处理请求取消、超时、优先级和队列持久化问题。</li>
+<li>只限制流出速率，不天然表达“某窗口最多 N 次”的业务规则。</li>
+</ul>
+</li>
+<li>适用场景
+<ul>
+<li>后台任务、异步发送、写入削峰、下游吞吐固定的 worker / queue 消费。</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=fixed-window-counter>Fixed Window Counter<a href=#fixed-window-counter class=hash-link aria-label="Direct link to Fixed Window Counter" title="Direct link to Fixed Window Counter" translate=no>​</a></h3>
+<ul>
+<li>基本概念
+<ul>
+<li>把时间切成固定窗口，例如每分钟一个 bucket。</li>
+<li>每个 <code>scope + window</code> 维护一个 counter，请求到来时递增。</li>
+<li>counter 小于等于 limit 则放行，超过则拒绝；窗口结束后重置或依赖 TTL 过期。</li>
+</ul>
+</li>
+<li>Pros
+<ul>
+<li>实现最简单，Redis <code>INCR</code> + <code>EXPIRE</code> 就能完成。</li>
+<li>存储成本低，每个 scope 每个窗口一个 counter。</li>
+<li>易于解释、观测和排查，例如“本分钟已使用 83/100”。</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>窗口边界会产生双倍 burst：上一窗口末尾和下一窗口开头各打满一次。</li>
+<li>对窗口边界附近的用户不公平，限流体验有跳变。</li>
+<li>只适合粗粒度限流，不适合严格平滑流量。</li>
+<li>多节点本地计数会不一致，集中式计数又会增加 Redis / DB 压力。</li>
+</ul>
+</li>
+<li>适用场景
+<ul>
+<li>日配额、小时配额、管理后台操作、低成本粗粒度 API 限制。</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=sliding-window-log>Sliding Window Log<a href=#sliding-window-log class=hash-link aria-label="Direct link to Sliding Window Log" title="Direct link to Sliding Window Log" translate=no>​</a></h3>
+<ul>
+<li>基本概念
+<ul>
+<li>为每个 scope 保存最近窗口内每次请求的时间戳。</li>
+<li>请求到来时删除窗口外时间戳，再判断剩余数量是否超过 limit。</li>
+<li>如果未超过则记录当前时间戳并放行。</li>
+</ul>
+</li>
+<li>Pros
+<ul>
+<li>精度最高，能严格表达“过去 N 秒内最多 M 次”。</li>
+<li>不存在 fixed window 的边界双倍 burst 问题。</li>
+<li>便于审计和调试，因为保留了每次请求时间。</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>存储成本高，请求越多日志越多。</li>
+<li>每次请求都需要清理旧记录和写入新记录，热 key 压力大。</li>
+<li>高 QPS 场景下 Redis sorted set / list 容易成为瓶颈。</li>
+<li>不适合全量用户、全路由的大规模通用限流。</li>
+</ul>
+</li>
+<li>适用场景
+<ul>
+<li>登录尝试、验证码发送、敏感操作、防滥用、安全风控等低频但需要精确的场景。</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=sliding-window-counter>Sliding Window Counter<a href=#sliding-window-counter class=hash-link aria-label="Direct link to Sliding Window Counter" title="Direct link to Sliding Window Counter" translate=no>​</a></h3>
+<ul>
+<li>基本概念
+<ul>
+<li>用当前窗口和上一个窗口的 counter 估算滑动窗口内请求数。</li>
+<li>常见估算：<code>estimated = current_count + previous_count * overlap_ratio</code>。</li>
+<li>比 fixed window 更平滑，比 sliding window log 更省存储。</li>
+</ul>
+</li>
+<li>Pros
+<ul>
+<li>大幅降低 fixed window 的边界突刺。</li>
+<li>存储成本低，通常每个 scope 只需要当前和上一个窗口 counter。</li>
+<li>适合大规模 API 限流，比 log 方案更容易扩展。</li>
+<li>可以用 Redis counter / Lua 原子脚本实现。</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>是近似算法，不如 sliding window log 精确。</li>
+<li>窗口粒度和 overlap 计算会影响误差。</li>
+<li>分布式原子性、时钟偏差和热 key 仍然需要处理。</li>
+<li>对强审计场景不够透明，因为没有保留每次请求时间戳。</li>
+</ul>
+</li>
+<li>适用场景
+<ul>
+<li>大部分面向用户/API key/租户的通用限流，尤其是需要比 fixed window 更平滑但不想保存请求日志的场景。</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=exponential-backoff>Exponential Backoff<a href=#exponential-backoff class=hash-link aria-label="Direct link to Exponential Backoff" title="Direct link to Exponential Backoff" translate=no>​</a></h3>
+<ul>
+<li>基本概念
+<ul>
+<li>请求被限流、下游过载或临时失败后，不立即等间隔重试，而是按指数增长等待时间。</li>
+<li>常见公式：<code>delay = min(base * factor^attempt, max_delay)</code>。</li>
+<li>实践中通常加 jitter：<code>delay = random(0, delay)</code> 或在 delay 附近随机抖动，避免大量客户端同一时间重试。</li>
+<li>服务端限流返回 <code>Retry-After</code> 时，客户端应优先尊重服务端建议，再结合 backoff 上限和重试预算。</li>
+</ul>
+</li>
+<li>Pros
+<ul>
+<li>能快速降低重试风暴对服务端、队列、数据库和第三方 API 的压力。</li>
+<li>实现简单，适合 client SDK、worker、queue consumer、webhook delivery。</li>
+<li>配合 jitter 可以避免 thundering herd / synchronized retry。</li>
+<li>可以和 token bucket / leaky bucket 组合：服务端拒绝或排队，客户端按 backoff 重试。</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>不是准入控制算法，不能替代服务端 rate limiter。</li>
+<li>增加尾延迟；用户交互请求通常不能无限退避。</li>
+<li>如果没有 max attempts、deadline、retry budget，可能造成长时间堆积或隐藏真实故障。</li>
+<li>如果所有客户端使用相同 backoff 且无 jitter，仍可能形成周期性流量尖峰。</li>
+<li>对非幂等请求可能产生重复副作用，需要 idempotency key 或去重机制。</li>
+</ul>
+</li>
+<li>适用场景
+<ul>
+<li>客户端遇到 <code>429</code> / <code>503</code> 后重试。</li>
+<li>后台任务、消息消费、webhook 投递、第三方 API 调用。</li>
+<li>分布式系统里处理临时错误、网络抖动、leader 切换、短暂过载。</li>
+</ul>
+</li>
+<li>实践建议
+<ul>
+<li>设置 <code>max_delay</code>、<code>max_attempts</code>、总 <code>deadline</code> 和 retry budget。</li>
+<li>对 <code>429</code> 优先使用 <code>Retry-After</code>，不要抢跑服务端窗口。</li>
+<li>必须加 jitter，尤其是大规模客户端或 worker fleet。</li>
+<li>区分可重试错误和不可重试错误，例如 4xx 业务错误通常不应重试。</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=multi-window>多窗口<a href=#multi-window class=hash-link aria-label="Direct link to 多窗口" title="Direct link to 多窗口" translate=no>​</a></h3>
+<ul>
+<li>基本概念
+<ul>
+<li>一个 subject 通常同时受多个窗口约束，例如 <code>1min</code>、<code>5min</code>、<code>1d</code>、<code>7d</code>、<code>billing_month</code>。</li>
+<li>短窗口更偏 limiter，用于保护系统瞬时压力。</li>
+<li>长窗口更偏 quota，用于表达套餐权益、成本预算和账务周期。</li>
+<li>hard rule 通常需要全部通过：<code>allow = entitlement_ok && all(quota_windows_ok) && all(limiter_windows_ok)</code>。</li>
+</ul>
+</li>
+<li>常见组合
+<ul>
+<li><code>60 req / 1min</code>：限制瞬时请求速度。</li>
+<li><code>300 req / 5min</code>：限制持续小突发，避免每分钟打满后长期压住系统。</li>
+<li><code>100k tokens / 1d</code>：每日权益或成本保护。</li>
+<li><code>500k tokens / rolling 7d</code>：防止短期跨日集中消耗。</li>
+<li><code>2M tokens / billing_month</code>：套餐或账期总额度。</li>
+</ul>
+</li>
+<li>Limiter vs Quota 窗口
+<ul>
+<li>Limiter 常用 <code>1s</code>、<code>1min</code>、<code>5min</code>、<code>1h</code>，关注实时保护和弱一致性。</li>
+<li>Quota 常用 <code>1d</code>、<code>7d</code>、<code>1mo</code>、<code>billing_cycle</code>，关注权益、账务、对账和强一致性。</li>
+<li>短窗口不能替代长窗口：当前分钟没超，不代表今天或本月额度没超。</li>
+<li>长窗口不能替代短窗口：月度额度还有剩余，也可能瞬间打爆下游。</li>
+</ul>
+</li>
+<li>Rolling vs Calendar
+<ul>
+<li><code>rolling 7d</code>：从当前时间向前滚动计算 7 天，更平滑，但实现和解释成本更高。</li>
+<li><code>calendar day/week/month</code>：按自然日/周/月重置，易解释，但边界有突刺风险。</li>
+<li><code>billing_month</code>：按订阅账期或合同账期重置，不一定等于自然月。</li>
+<li>文档和 API 里避免用 <code>1m</code> 表示分钟或月份，建议用 <code>1min</code> / <code>1mo</code> / <code>billing_month</code>。</li>
+</ul>
+</li>
+<li>评估顺序
+<ul>
+<li>先做 entitlement：是否允许使用该能力。</li>
+<li>再做长窗口 quota pre-check / reserve：是否还有足够权益或余额。</li>
+<li>再做短窗口 limiter：是否允许当前瞬时请求进入系统。</li>
+<li>执行后按实际 usage commit，并对预估差额 refund / adjust。</li>
+</ul>
+</li>
+<li>Key 设计
+<ul>
+<li>limiter key 可包含短窗口 bucket：<code>rl:tenant:t1:route:/v1/chat:1min:2026-06-16T10:03</code>。</li>
+<li>quota key 应包含业务周期：<code>quota:tenant:t1:tokens:billing_month:2026-06</code>。</li>
+<li>rolling window 通常不能只靠一个固定 bucket，需要 log、counter ring 或分桶聚合。</li>
+</ul>
+</li>
+<li>策略
+<ul>
+<li>多窗口 hard limit：任一窗口超限即拒绝。</li>
+<li>多窗口 soft limit：长窗口超限可告警、降级、转按量付费或人工审批。</li>
+<li>返回错误时应指明命中的 rule/window，例如 <code>tokens_daily_exceeded</code>、<code>requests_1min_exceeded</code>。</li>
+<li>对用户展示时优先解释业务窗口；对工程排障时同时暴露短窗口 limiter 命中情况。</li>
+</ul>
+</li>
+</ul>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">pre-check aggregate</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> reserve estimated cost</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> execute</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> commit actual usage</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> refund/release delta</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> append usage ledger</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> update aggregate/cache</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=放置位置>放置位置<a href=#放置位置 class=hash-link aria-label="Direct link to 放置位置" title="Direct link to 放置位置" translate=no>​</a></h3>
+<ul>
+<li>Client-side
+<ul>
+<li>只能作为友好提示或 SDK 自我保护，不能作为安全边界。</li>
+<li>客户端可被绕过、伪造或降级，服务端仍必须做最终判断。</li>
+</ul>
+</li>
+<li>Server-side / in-process
+<ul>
+<li>适合单体应用、内部服务、需要强业务上下文的限流。</li>
+<li>优点是能直接访问用户、租户、套餐、成本估算等上下文。</li>
+<li>缺点是多语言/多服务重复实现，跨实例全局一致性需要外部存储。</li>
+</ul>
+</li>
+<li>Middleware / API Gateway / Edge
+<ul>
+<li>适合统一入口、API key/IP/route 维度、早拒绝和保护后端。</li>
+<li>常与 auth、WAF、IP allowlist、SSL termination、静态资源等能力共用。</li>
+<li>缺点是业务上下文有限，复杂 quota / billing 语义通常仍要回源查询。</li>
+</ul>
+</li>
+<li>Dedicated rate limit service
+<ul>
+<li>适合多服务共享规则、统一审计、集中配置和跨语言接入。</li>
+<li>常见形态是 gateway/filter 调用 rate-limit service，service 再读规则和计数存储。</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=存储与规则>存储与规则<a href=#存储与规则 class=hash-link aria-label="Direct link to 存储与规则" title="Direct link to 存储与规则" translate=no>​</a></h3>
+<ul>
+<li>规则存储
+<ul>
+<li>静态配置：YAML / JSON / config repo，适合平台级限流规则。</li>
+<li>动态配置：DB / control plane / admin API，适合租户、套餐、客户级规则。</li>
+<li>缓存：规则加载到本地内存或 Redis，降低请求路径延迟。</li>
+</ul>
+</li>
+<li>计数存储
+<ul>
+<li>本地内存：低延迟，但只能做单实例局部限流，重启丢失。</li>
+<li>Redis / Memcached：工程上常用，支持 TTL、原子计数和跨实例共享。</li>
+<li>数据库：不适合高频请求路径；更适合账务级 usage ledger、审计、对账。</li>
+</ul>
+</li>
+<li>Redis 常见实现
+<ul>
+<li>Fixed window：<code>INCR</code> + <code>EXPIRE</code>。</li>
+<li>Sliding log：sorted set 记录 timestamp，按窗口裁剪。</li>
+<li>Sliding counter / token bucket：通常用 Lua script 保证读改写原子性。</li>
+</ul>
+</li>
+<li>Key 设计
+<ul>
+<li><code>rl:{scope}:{id}:{dimension}:{window}</code>，例如 <code>rl:tenant:t1:route:/v1/chat:2026-06-16T10:03</code>。</li>
+<li>需要控制 key cardinality，避免把 user-agent、完整 URL、trace id 等高基数字段放入限流 key。</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=请求流程>请求流程<a href=#请求流程 class=hash-link aria-label="Direct link to 请求流程" title="Direct link to 请求流程" translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">Request</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> Identify subject: tenant / user / API key / IP</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> Load rule: scope + route + plan + priority</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> Build limit key and cost</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> Atomic check/update counter or bucket</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> Allow: forward to upstream</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> Deny: return 429 / enqueue / degrade</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -> Emit metrics and audit event</span><br/></span></code></pre></div></div>
+<ul>
+<li>对低成本 API，可在 allow 时直接计数。</li>
+<li>对高成本或成本未知请求，建议先 reserve，再按实际 usage commit / refund。</li>
+<li>对异步任务，rate limiter 控制入队速度；worker 侧还需要 concurrency limiter 和 queue backpressure。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=超限响应>超限响应<a href=#超限响应 class=hash-link aria-label="Direct link to 超限响应" title="Direct link to 超限响应" translate=no>​</a></h3>
+<ul>
+<li>HTTP 状态码
+<ul>
+<li><code>429 Too Many Requests</code>：客户端超过限流规则。</li>
+<li><code>503 Service Unavailable</code>：系统过载或保护性拒绝，有时更适合全局熔断。</li>
+</ul>
+</li>
+<li>常见响应头
+<ul>
+<li><code>Retry-After</code>：建议多久后重试。</li>
+<li><code>X-RateLimit-Limit</code> / <code>RateLimit-Limit</code>：当前窗口限制。</li>
+<li><code>X-RateLimit-Remaining</code> / <code>RateLimit-Remaining</code>：当前窗口剩余额度。</li>
+<li><code>X-RateLimit-Reset</code> / <code>RateLimit-Reset</code>：窗口重置时间或剩余秒数。</li>
+</ul>
+</li>
+<li>超限策略
+<ul>
+<li>Drop：直接拒绝，适合交互 API 和安全风控。</li>
+<li>Queue：排队稍后处理，适合订单、消息、后台任务。</li>
+<li>Degrade：降级模型、降低并发、减少返回内容或切换缓存。</li>
+<li>Shadow：只记录 would-block，不实际拒绝，用于新规则灰度验证。</li>
+</ul>
+</li>
+<li><a href=https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers target=_blank rel="noopener noreferrer">https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=分布式注意事项>分布式注意事项<a href=#分布式注意事项 class=hash-link aria-label="Direct link to 分布式注意事项" title="Direct link to 分布式注意事项" translate=no>​</a></h3>
+<ul>
+<li>原子性
+<ul>
+<li>多实例共享限流时，check + update 必须原子化，否则并发请求会穿透限制。</li>
+<li>Redis 可用 Lua script / transaction；数据库可用条件更新，但通常延迟更高。</li>
+</ul>
+</li>
+<li>时钟
+<ul>
+<li>Sliding window / token refill 依赖时间，分布式节点时钟漂移会影响公平性。</li>
+<li>尽量使用存储端时间或统一 monotonic 时间来源。</li>
+</ul>
+</li>
+<li>Fail open vs fail closed
+<ul>
+<li><code>fail open</code>：限流存储不可用时放行，保护可用性但可能放大流量。</li>
+<li><code>fail closed</code>：限流存储不可用时拒绝，保护下游但可能误伤用户。</li>
+<li>通常按接口重要性、滥用风险、成本风险分级选择。</li>
+</ul>
+</li>
+<li>热 key
+<ul>
+<li>全局限流、热门租户、热门 route 会形成 Redis 热点。</li>
+<li>可用分片 key、本地预取 token、分层限流（local + global）降低压力。</li>
+</ul>
+</li>
+<li>多层限流
+<ul>
+<li>Edge：IP / API key 粗粒度防护。</li>
+<li>Gateway：tenant / route / plan 维度。</li>
+<li>Service：业务上下文、成本估算、并发和下游保护。</li>
+<li>Worker：队列消费速率和并发控制。</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=监控与调参>监控与调参<a href=#监控与调参 class=hash-link aria-label="Direct link to 监控与调参" title="Direct link to 监控与调参" translate=no>​</a></h3>
+<ul>
+<li>核心指标
+<ul>
+<li>allowed / blocked / shadow-blocked request count。</li>
+<li>over-limit rate、429 rate、Retry-After 分布。</li>
+<li>limiter check latency、Redis latency、Lua error、timeout。</li>
+<li>key cardinality、hot key、规则命中分布。</li>
+<li>queue depth、wait time、drop count、degrade count。</li>
+</ul>
+</li>
+<li>调参判断
+<ul>
+<li>误伤正常用户：放宽规则、增加 burst、区分 plan / priority。</li>
+<li>突发流量穿透：降低 burst、增加并发限制、改用 leaky bucket / queue。</li>
+<li>Redis 压力过高：本地预限流、分层限流、降低 key cardinality、换近似算法。</li>
+<li>规则不生效：检查 scope 提取、descriptor 顺序、默认规则、灰度/shadow 配置。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=envoyproxyratelimit>envoyproxy/ratelimit<a href=#envoyproxyratelimit class=hash-link aria-label="Direct link to envoyproxy/ratelimit" title="Direct link to envoyproxy/ratelimit" translate=no>​</a></h2>
+<ul>
+<li>descriptor-based rate limit</li>
+<li><a href=https://github.com/envoyproxy/ratelimit target=_blank rel="noopener noreferrer">https://github.com/envoyproxy/ratelimit</a></li>
+</ul>
+<div class="language-proto codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-proto codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">// 支持 ADS（Aggregated Discovery Service，SotW 或 delta 协议）的管理服务，</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// 可以通过 RateLimitConfig 消息类型下发限流服务配置。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// 限流服务中的 ADS client 会使用资源类型 URL</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// "type.googleapis.com/ratelimit.config.ratelimit.v3.RateLimitConfig"</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// 发送 Discovery Request 流。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// ADS 管理服务应返回相同类型 URL 的 Discovery Response 流，</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// 并在 Discovery Response 的 resources 中包含 RateLimitConfig 数组。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// 单个 domain 的限流配置。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">message RateLimitConfig {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 限流配置名称。每个配置应保持唯一。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  string name = 1;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 限流配置所属的 domain 名称。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  string domain = 2;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 限流配置 descriptor 列表。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  repeated RateLimitDescriptor descriptors = 3;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// 限流配置 descriptor。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">message RateLimitDescriptor {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // descriptor 的 key。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  string key = 1;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // descriptor 的可选 value。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  string value = 2;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // descriptor 的限流策略。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  RateLimitPolicy rate_limit = 3;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 子级限流 descriptor 列表。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  repeated RateLimitDescriptor descriptors = 4;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 将 descriptor 标记为 shadow。为 true 时，限流服务会放行请求到后端。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  bool shadow_mode = 5;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 为 descriptor 设置 `detailed_metric: true` 会扩展生成的指标。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  bool detailed_metric = 6;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 将 descriptor 标记为 quota 模式。quota_mode 为 true 时，限流服务会持续放行请求，</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 直到所有 quota descriptor 都超过限制。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  bool quota_mode = 7;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// 限流策略。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">message RateLimitPolicy {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 限流的时间单位。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  RateLimitUnit unit = 1;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 在 `unit` 时间内允许的请求数。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  uint32 requests_per_unit = 2;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 将限流策略标记为无限制。所有请求都会被放行到后端。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  bool unlimited = 3;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 限流策略的可选名称。如果该策略需要被其他策略替换（跳过评估），则应命名。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  string name = 4;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 该限流策略会替换（跳过评估）的限流策略列表。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 更多信息：https://github.com/envoyproxy/ratelimit/tree/0b2f4d5fb04bf55e1873e2c5e2bb28da67c0643f#replaces</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 示例：https://github.com/envoyproxy/ratelimit/tree/0b2f4d5fb04bf55e1873e2c5e2bb28da67c0643f#example-7</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  repeated RateLimitReplace replaces = 5;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// Replace 指定应被替换（跳过评估）的限流策略。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// 更多信息：https://github.com/envoyproxy/ratelimit/tree/0b2f4d5fb04bf55e1873e2c5e2bb28da67c0643f#replaces</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">message RateLimitReplace {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  // 被替换（跳过评估）的限流策略名称。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  string name = 1;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">// 标识限流的时间单位。</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">enum RateLimitUnit {</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  UNKNOWN = 0;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  SECOND = 1;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  MINUTE = 2;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  HOUR = 3;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  DAY = 4;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  WEEK = 7;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  MONTH = 5;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  YEAR = 6;</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">}</span><br/></span></code></pre></div></div>
+<h1>FAQ</h1>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=quota-vs-entitlement-vs-balance>Quota vs Entitlement vs Balance<a href=#quota-vs-entitlement-vs-balance class=hash-link aria-label="Direct link to Quota vs Entitlement vs Balance" title="Direct link to Quota vs Entitlement vs Balance" translate=no>​</a></h2>
+<ul>
+<li>Entitlement 是“是否有权使用某能力/资源”。</li>
+<li>Quota 是“在某范围/周期/维度下允许多少”。</li>
+<li>Balance/Credit 是“可消费余额”，通常更像账户资金或赠送额度。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=hard-quota-vs-soft-quota>Hard quota vs Soft quota<a href=#hard-quota-vs-soft-quota class=hash-link aria-label="Direct link to Hard quota vs Soft quota" title="Direct link to Hard quota vs Soft quota" translate=no>​</a></h2>
+<ul>
+<li>Hard quota：超过即拒绝，例如 API calls/month。</li>
+<li>Soft quota：超过后告警、降级、排队、转按量付费或人工审批。</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/dev/design/design-quota.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-06-24T04:00:14.000Z itemprop=dateModified>Jun 24, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/dev/design/queue><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Queue</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/dev/design/saas><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>SaaS</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#concept class="table-of-contents__link toc-highlight">概念</a><li><a href=#rate-limiter class="table-of-contents__link toc-highlight">Rate Limiter</a><ul><li><a href=#token-bucket class="table-of-contents__link toc-highlight">Token Bucket</a><li><a href=#leaky-bucket class="table-of-contents__link toc-highlight">Leaky Bucket</a><li><a href=#fixed-window-counter class="table-of-contents__link toc-highlight">Fixed Window Counter</a><li><a href=#sliding-window-log class="table-of-contents__link toc-highlight">Sliding Window Log</a><li><a href=#sliding-window-counter class="table-of-contents__link toc-highlight">Sliding Window Counter</a><li><a href=#exponential-backoff class="table-of-contents__link toc-highlight">Exponential Backoff</a><li><a href=#multi-window class="table-of-contents__link toc-highlight">多窗口</a><li><a href=#放置位置 class="table-of-contents__link toc-highlight">放置位置</a><li><a href=#存储与规则 class="table-of-contents__link toc-highlight">存储与规则</a><li><a href=#请求流程 class="table-of-contents__link toc-highlight">请求流程</a><li><a href=#超限响应 class="table-of-contents__link toc-highlight">超限响应</a><li><a href=#分布式注意事项 class="table-of-contents__link toc-highlight">分布式注意事项</a><li><a href=#监控与调参 class="table-of-contents__link toc-highlight">监控与调参</a></ul><li><a href=#envoyproxyratelimit class="table-of-contents__link toc-highlight">envoyproxy/ratelimit</a><li><a href=#quota-vs-entitlement-vs-balance class="table-of-contents__link toc-highlight">Quota vs Entitlement vs Balance</a><li><a href=#hard-quota-vs-soft-quota class="table-of-contents__link toc-highlight">Hard quota vs Soft quota</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-06-24 12:20</div></div></div></footer></div></body>

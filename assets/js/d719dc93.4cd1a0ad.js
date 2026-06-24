@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["112158"],{360201:function(e){e.exports=JSON.parse('{"tag":{"label":"POSIX","permalink":"/notes/tags/posix","allTagsPath":"/notes/tags","count":1,"items":[{"id":"os/windows/cygwin","title":"Cygwin","description":"cygwin}","permalink":"/notes/os/windows/cygwin"}],"unlisted":false}}')}}]);

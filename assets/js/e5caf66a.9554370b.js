@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["813007"],{594940:function(e){e.exports=JSON.parse('{"tag":{"label":"Office","permalink":"/notes/tags/office","allTagsPath":"/notes/tags","count":1,"items":[{"id":"dev/domain/doc","title":"Document","description":"Tips","permalink":"/notes/dev/domain/doc"}],"unlisted":false}}')}}]);

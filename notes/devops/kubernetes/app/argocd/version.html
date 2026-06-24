@@ -1,0 +1,611 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-devops/kubernetes/app/argocd/argocd-version" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>Argo CD 版本 | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/devops/kubernetes/app/argocd/version /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Argo CD 版本 | Wener Live & Life"/><meta data-rh=true name=description content="- argoproj/argo-cd"/><meta data-rh=true property=og:description content="- argoproj/argo-cd"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/devops/kubernetes/app/argocd/version /><link data-rh=true rel=alternate href=https://wener.me/notes/devops/kubernetes/app/argocd/version hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/devops/kubernetes/app/argocd/version hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/devops/","name":"DevOps","position":1},{"@type":"ListItem","item":"https://wener.me/notes/devops/kubernetes/","name":"Kubernetes","position":2},{"@type":"ListItem","item":"https://wener.me/notes/devops/kubernetes/app/","name":"Kubernetes App Essentials","position":3},{"@type":"ListItem","item":"https://wener.me/notes/devops/kubernetes/app/argocd/","name":"ArgoCD","position":4},{"@type":"ListItem","item":"https://wener.me/notes/devops/kubernetes/app/argocd/version","name":"Argo CD 版本","position":5}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.45af05fc.js defer></script><script src=/assets/js/main.c1f5ee0f.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Collapse sidebar category 'DevOps'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/aiops><span title=AIOps class=categoryLinkLabel_RkOu>AIOps</span></a><button aria-label="Expand sidebar category 'AIOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/container><span title=容器 class=categoryLinkLabel_RkOu>容器</span></a><button aria-label="Expand sidebar category '容器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/awesome><span title="DevOps Awesome" class=linkLabel_JPPZ>DevOps Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/faq><span title="DevOps 常见问题" class=linkLabel_JPPZ>DevOps 常见问题</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/glossary><span title="DevOps Glossary" class=linkLabel_JPPZ>DevOps Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/practice><span title="DevOps Practice" class=linkLabel_JPPZ>DevOps Practice</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/docker><span title=Docker class=categoryLinkLabel_RkOu>Docker</span></a><button aria-label="Expand sidebar category 'Docker'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/dotenv><span title=dotenv class=linkLabel_JPPZ>dotenv</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/gomplate><span title=gomplate class=linkLabel_JPPZ>gomplate</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/infra><span title=基础设施 class=categoryLinkLabel_RkOu>基础设施</span></a><button aria-label="Expand sidebar category '基础设施'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/devops/kubernetes><span title=Kubernetes class=categoryLinkLabel_RkOu>Kubernetes</span></a><button aria-label="Collapse sidebar category 'Kubernetes'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/devops/kubernetes/app><span title="Kubernetes App Essentials" class=categoryLinkLabel_RkOu>Kubernetes App Essentials</span></a><button aria-label="Collapse sidebar category 'Kubernetes App Essentials'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/cookbook><span title="K8S Apps" class=linkLabel_JPPZ>K8S Apps</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/app/argo><span title=Argo class=categoryLinkLabel_RkOu>Argo</span></a><button aria-label="Expand sidebar category 'Argo'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/devops/kubernetes/app/argocd><span title=ArgoCD class=categoryLinkLabel_RkOu>ArgoCD</span></a><button aria-label="Collapse sidebar category 'ArgoCD'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/argocd/applicationset><span title="ArgoCD ApplicationSet" class=linkLabel_JPPZ>ArgoCD ApplicationSet</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/argocd/cdr><span title=CDR class=linkLabel_JPPZ>CDR</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/argocd/cli><span title=argocd-cli class=linkLabel_JPPZ>argocd-cli</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/argocd/extensions><span title="ArgoCD Extensions" class=linkLabel_JPPZ>ArgoCD Extensions</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/argocd/faq><span title="ArgoCD FAQ" class=linkLabel_JPPZ>ArgoCD FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/argocd/image-updater><span title="ArgoCD Image Updater" class=linkLabel_JPPZ>ArgoCD Image Updater</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/argocd/notifications><span title="ArgoCD Notifications" class=linkLabel_JPPZ>ArgoCD Notifications</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/argocd/secrets><span title=Secrets class=linkLabel_JPPZ>Secrets</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/argocd/vault-plugin><span title=argocd-vault-plugin class=linkLabel_JPPZ>argocd-vault-plugin</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/devops/kubernetes/app/argocd/version><span title="Argo CD 版本" class=linkLabel_JPPZ>Argo CD 版本</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/cert-manager-version><span title="cert-manager version" class=linkLabel_JPPZ>cert-manager version</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/cert-manager><span title="Cert Manager" class=linkLabel_JPPZ>Cert Manager</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/charts><span title="Kubernetes Helm Charts" class=linkLabel_JPPZ>Kubernetes Helm Charts</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/che><span title="Eclipse Che on Kubernetes" class=linkLabel_JPPZ>Eclipse Che on Kubernetes</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/crunchy-postgres-operator><span title=pgo class=linkLabel_JPPZ>pgo</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/external-secrets><span title=external-secrets class=linkLabel_JPPZ>external-secrets</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/fleet><span title=FleetCD class=linkLabel_JPPZ>FleetCD</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/flux><span title=FluxCD class=linkLabel_JPPZ>FluxCD</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/harbor><span title=Harbor class=linkLabel_JPPZ>Harbor</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/headlamp><span title=healmap class=linkLabel_JPPZ>healmap</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/k8s-app-faq><span title="Kubernetest Application FAQ" class=linkLabel_JPPZ>Kubernetest Application FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/k8s-consul><span title=Consul class=linkLabel_JPPZ>Consul</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/k8s-metric><span title="Kubernetes Metrics & Monitoring" class=linkLabel_JPPZ>Kubernetes Metrics & Monitoring</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/k8s-minio><span title=Minio class=linkLabel_JPPZ>Minio</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/k8s-nexus><span title="Nexus on Kubernetes" class=linkLabel_JPPZ>Nexus on Kubernetes</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/k8s-operator><span title="Kubernetes Operators" class=linkLabel_JPPZ>Kubernetes Operators</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/k8s-postgres><span title=PostgreSQL class=linkLabel_JPPZ>PostgreSQL</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/k8s-secret><span title="K8S Secrets" class=linkLabel_JPPZ>K8S Secrets</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/keel><span title=Keel class=linkLabel_JPPZ>Keel</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/kubed><span title=kubed class=linkLabel_JPPZ>kubed</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/kubeflow><span title=Kubeflow class=linkLabel_JPPZ>Kubeflow</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/kubelogin><span title=kubelogin class=linkLabel_JPPZ>kubelogin</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/kubevirt><span title=KubeVirt class=linkLabel_JPPZ>KubeVirt</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/lens><span title=Lens class=linkLabel_JPPZ>Lens</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/minio-operator><span title="MinIO Kubernetes Operator" class=linkLabel_JPPZ>MinIO Kubernetes Operator</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/openlens><span title=OpenLens class=linkLabel_JPPZ>OpenLens</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/pgo><span title="CrunchyData PGO" class=linkLabel_JPPZ>CrunchyData PGO</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/prometheus-config-reloader><span title=prometheus-config-reloader class=linkLabel_JPPZ>prometheus-config-reloader</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/reloader><span title=Reloader class=linkLabel_JPPZ>Reloader</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/sealed-secrets><span title=sealed-secrets class=linkLabel_JPPZ>sealed-secrets</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/stolon><span title=stolon class=linkLabel_JPPZ>stolon</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/tekton><span title=tekton class=linkLabel_JPPZ>tekton</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/app/zalando-postgres-operator><span title=zalando/postgres-operator class=linkLabel_JPPZ>zalando/postgres-operator</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/cncf><span title=CNCF class=linkLabel_JPPZ>CNCF</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/dev><span title="Kubernetes 开发" class=categoryLinkLabel_RkOu>Kubernetes 开发</span></a><button aria-label="Expand sidebar category 'Kubernetes 开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/distro><span title=发行版 class=categoryLinkLabel_RkOu>发行版</span></a><button aria-label="Expand sidebar category '发行版'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/internal><span title="Kubernetes Internal" class=categoryLinkLabel_RkOu>Kubernetes Internal</span></a><button aria-label="Expand sidebar category 'Kubernetes Internal'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/awesome><span title="K8S Awesome" class=linkLabel_JPPZ>K8S Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/components><span title="Kubernetes Components Overview" class=linkLabel_JPPZ>Kubernetes Components Overview</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/dashboard><span title="Kubernates 面板" class=linkLabel_JPPZ>Kubernates 面板</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/event><span title=Event class=linkLabel_JPPZ>Event</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/faq><span title="K8S 常见问题" class=linkLabel_JPPZ>K8S 常见问题</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/feature><span title=MountPropagation class=linkLabel_JPPZ>MountPropagation</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/features><span title="K8S Features" class=linkLabel_JPPZ>K8S Features</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/glossary><span title="K8S 词汇表" class=linkLabel_JPPZ>K8S 词汇表</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/managed><span title=Managed class=linkLabel_JPPZ>Managed</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/my-practice><span title="我的 K8S 实践" class=linkLabel_JPPZ>我的 K8S 实践</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/practice><span title="Kubernetes Best Practices" class=linkLabel_JPPZ>Kubernetes Best Practices</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/start><span title="Kubernetes Getting Started" class=linkLabel_JPPZ>Kubernetes Getting Started</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/story><span title="K8S 使用经验" class=linkLabel_JPPZ>K8S 使用经验</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/version><span title="Kubernetes 版本" class=linkLabel_JPPZ>Kubernetes 版本</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/network><span title="Kubernates 网络" class=categoryLinkLabel_RkOu>Kubernates 网络</span></a><button aria-label="Expand sidebar category 'Kubernates 网络'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/devops/kubernetes/ops/cluster-admin><span title=ops class=categoryLinkLabel_RkOu>ops</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/platform><span title="K8S 平台" class=categoryLinkLabel_RkOu>K8S 平台</span></a><button aria-label="Expand sidebar category 'K8S 平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/resources><span title="Kubernetes Resources & Operators" class=linkLabel_JPPZ>Kubernetes Resources & Operators</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/security><span title="Kubernetes Security & Network Policy" class=linkLabel_JPPZ>Kubernetes Security & Network Policy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/service-catalog><span title="Kubernetes Service Catalog" class=linkLabel_JPPZ>Kubernetes Service Catalog</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/kubernetes/storage><span title="Kubernates 存储" class=categoryLinkLabel_RkOu>Kubernates 存储</span></a><button aria-label="Expand sidebar category 'Kubernates 存储'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/kubernetes/workload><span title="Kubernetes Workload Objects" class=linkLabel_JPPZ>Kubernetes Workload Objects</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/devops/metrics/altermanager><span title=metrics class=categoryLinkLabel_RkOu>metrics</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/sla><span title=SLA class=linkLabel_JPPZ>SLA</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/sre><span title=SRE class=linkLabel_JPPZ>SRE</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/status><span title=Status class=linkLabel_JPPZ>Status</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/storage><span title=Storage class=categoryLinkLabel_RkOu>Storage</span></a><button aria-label="Expand sidebar category 'Storage'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/telementry><span title=Telementry class=linkLabel_JPPZ>Telementry</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/devops/upgrade><span title=系统升级 class=linkLabel_JPPZ>系统升级</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/devops/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/devops/xaas/db-schema><span title=xaas class=categoryLinkLabel_RkOu>xaas</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/devops><span>DevOps</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/devops/kubernetes><span>Kubernetes</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/devops/kubernetes/app><span>Kubernetes App Essentials</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/devops/kubernetes/app/argocd><span>ArgoCD</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Argo CD 版本</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Argo CD 版本</h1></header>
+<ul>
+<li><a href=https://github.com/argoproj/argo-cd target=_blank rel="noopener noreferrer">argoproj/argo-cd</a>
+<ul>
+<li>Apache-2.0, Go, Kubernetes, GitOps, CD</li>
+<li>Declarative Continuous Deployment for Kubernetes.</li>
+</ul>
+</li>
+<li>Release cadence
+<ul>
+<li>minor release 每年约 4 次：2 月、5 月、8 月、11 月。</li>
+<li>只有最近 3 个 minor series 继续获得 patch release；更旧版本 EOL，不再接收 bug fix/security update。</li>
+<li>截至 2026-06，当前支持线为 <code>v3.4</code>、<code>v3.3</code>、<code>v3.2</code>；<code>v3.1</code> 已 EOL。</li>
+</ul>
+</li>
+<li>镜像
+<ul>
+<li>1.x 常见 <code>argoproj/argocd:v1.8.4</code></li>
+<li>2.x+ 常见 <code>quay.io/argoproj/argocd:&lt;version></code></li>
+<li>建议生产使用明确 patch tag，不要直接依赖 <code>stable</code>。</li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href=https://github.com/argoproj/argo-cd/releases target=_blank rel="noopener noreferrer">Releases</a></li>
+<li><a href=https://argo-cd.readthedocs.io/en/latest/developer-guide/release-process-and-cadence/ target=_blank rel="noopener noreferrer">Release Process And Cadence</a></li>
+<li><a href=https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/ target=_blank rel="noopener noreferrer">Upgrading</a></li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># 安装和升级类似；stable tag 总是指向最新 stable 版本</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 升级前先阅读对应 upgrading 文档，特别是 argocd-cm / argocd-rbac-cm / CRD / Helm / Kustomize 变化</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 普通安装</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># HA 安装</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># 推荐生产升级时 pin 到明确版本</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.3/manifests/install.yaml</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=版本表>版本表<a href=#版��本表 class=hash-link aria-label="Direct link to 版本表" title="Direct link to 版本表" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>version<th>GA date<th>latest patch<th>status<th>notes<tbody><tr><td><a href=#argo-cd-34>Argo CD 3.4</a><td>2026-05-05<td>v3.4.3<td>Supported<td>Teams Workflows、Application filters、Hydrator UI<tr><td><a href=#argo-cd-33>Argo CD 3.3</a><td>2026-02-02<td>v3.3.11<td>Supported<td>Source Hydrator Git Notes、AppSet CRD SSA 注意<tr><td><a href=#argo-cd-32>Argo CD 3.2</a><td>2025-11-03<td>v3.2.12<td>Supported<td>Hydrator non-root path、Kustomize version in source<tr><td><a href=#argo-cd-31>Argo CD 3.1</a><td>2025-08-04<td>v3.1.16<td>EOL<td>OCI support、SSA stabilization<tr><td><a href=#argo-cd-30>Argo CD 3.0</a><td>2025-05-06<td>v3.0.23<td>EOL<td>v3 major；RBAC/metrics/repo config/tracking 变化<tr><td><a href=#argo-cd-214>Argo CD 2.14</a><td>2025-02-03<td>v2.14.21<td>EOL<td>最后 2.x minor；Global Sync Timeout、Deletion Protection<tr><td><a href=#argo-cd-213>Argo CD 2.13</a><td>2024-11-04<td>v2.13.9<td>EOL<td>Multi-source GA、ApplicationSet preview<tr><td><a href=#argo-cd-212>Argo CD 2.12</a><td>2024-08-05<td>v2.12.13<td>EOL<td>Multi-source 增强<tr><td><a href=#argo-cd-211>Argo CD 2.11</a><td>2024-05-06<td>v2.11.14<td>EOL<td>manifest-generate-paths<tr><td><a href=#argo-cd-210>Argo CD 2.10</a><td>2024-02-05<td>v2.10.20<td>EOL<td>Apps in Any Namespace、PKCE、OIDC<tr><td><a href=#argo-cd-29>Argo CD 2.9</a><td>2023-11-06<td>v2.9.22<td>EOL<td>新增扩展能力与 UI/CLI 改进<tr><td><a href=#argo-cd-28>Argo CD 2.8</a><td>2023-08-07<td>v2.8.21<td>EOL<td>多源应用进入 Beta、ApplicationSet 改进<tr><td><a href=#argo-cd-27>Argo CD 2.7</a><td>2023-05-01<td>v2.7.18<td>EOL<td>UI/SSO/notifications 改进<tr><td><a href=#argo-cd-26>Argo CD 2.6</a><td>2023-02-06<td>v2.6.15<td>EOL<td>多源应用 Alpha、插件 sidecar<tr><td><a href=#argo-cd-25>Argo CD 2.5</a><td>2022-10-25<td>v2.5.22<td>EOL<td>Applications in any namespace Alpha<tr><td><a href=#argo-cd-24>Argo CD 2.4</a><td>2022-06-10<td>v2.4.28<td>EOL<td>ApplicationSet 进入核心安装<tr><td><a href=#argo-cd-23>Argo CD 2.3</a><td>2022-03-06<td>v2.3.17<td>EOL<td>cli/appset/notifications 改进<tr><td><a href=#argo-cd-22>Argo CD 2.2</a><td>2021-12-14<td>v2.2.16<td>EOL<td>Applicationset、Kustomize、Helm 改进<tr><td><a href=#argo-cd-21>Argo CD 2.1</a><td>2021-08-20<td>v2.1.16<td>EOL<td>Project scoped repo/cluster、GnuPG<tr><td><a href=#argo-cd-20>Argo CD 2.0</a><td>2021-04-07<td>v2.0.5<td>EOL<td>UI redesign、Lua health checks<tr><td><a href=#argo-cd-18>Argo CD 1.8</a><td>2020-12-09<td>v1.8.7<td>EOL<td>Helm 3、Git LFS、Kustomize 3.8</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=维护策略>维护策略<a href=#维护策略 class=hash-link aria-label="Direct link to 维护策略" title="Direct link to 维护策略" translate=no>​</a></h2>
+<ul>
+<li>Minor release
+<ul>
+<li>每季度一次。</li>
+<li>RC1 大约在 GA 前 7 周发布，也意味着 feature freeze。</li>
+</ul>
+</li>
+<li>Patch release
+<ul>
+<li>按需发布。</li>
+<li>只支持最近 3 个 minor series。</li>
+</ul>
+</li>
+<li>Security
+<ul>
+<li>Argo CD 自身 CVE 会在支持版本中修复。</li>
+<li>依赖 CVE 通常按高危/严重且适用性评估后回补到支持版本。</li>
+</ul>
+</li>
+<li>Upgrade
+<ul>
+<li>Argo CD 每个 minor 都可能升级 Helm、Kustomize、Dex、Go、Kubernetes library。</li>
+<li>升级前先检查对应 <code>operator-manual/upgrading/&lt;from>-&lt;to>/</code>。</li>
+<li>注意 CRD 大小、SSA/client-side apply、RBAC、repo secret、tracking method、metric rename/removal。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-34>Argo CD 3.4<a href=#argo-cd-34 class=hash-link aria-label="Direct link to Argo CD 3.4" title="Direct link to Argo CD 3.4" translate=no>​</a></h2>
+<ul>
+<li>GA: 2026-05-05</li>
+<li>Latest: v3.4.3</li>
+<li>Support: Supported</li>
+<li>Highlights
+<ul>
+<li>支持 Microsoft Teams Workflows，替代逐步退役的 Office 365 Connectors。</li>
+<li>Applications list filter 改进：annotation-based filtering、operation status filter、Clear all。</li>
+<li>Source Hydrator UI 改进：summary tab 展示 hydrator properties，app create panel 支持 Hydrator。</li>
+<li>ApplicationSet UI/API 增强：list/filter、tree view、watch/listResourceEvents API、status health field。</li>
+<li>新增 <code>Prune</code>、<code>Delete</code> application-level sync option、<code>argocd account session-token</code>。</li>
+<li>OpenTelemetry instrumentation 覆盖 authentication/handlers。</li>
+</ul>
+</li>
+<li>Upgrade notes
+<ul>
+<li>Helm 3.19 改变 Kubernetes cluster version 解释方式，Argo CD 调整 cluster version format；使用 cluster generator 过滤版本时需检查表达式。</li>
+<li>默认关闭 gRPC service config DNS TXT lookup。</li>
+<li>Helm、Kustomize、Dex、go-oidc、OpenTelemetry 均有升级。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-33>Argo CD 3.3<a href=#argo-cd-33 class=hash-link aria-label="Direct link to Argo CD 3.3" title="Direct link to Argo CD 3.3" translate=no>​</a></h2>
+<ul>
+<li>GA: 2026-02-02</li>
+<li>Latest: v3.3.11</li>
+<li>Support: Supported</li>
+<li>Highlights
+<ul>
+<li>Source Hydrator 使用 Git Notes 跟踪 hydration state。</li>
+<li>ApplicationSet CRD 体积超过 client-side apply 限制，升级自管理 Argo CD 时需要先正确应用 CRD。</li>
+<li>Hydration 不再清理 Application path，避免误删生成路径以外内容。</li>
+<li>新增 Kubernetes API server-side timeout 环境变量。</li>
+<li><code>--self-heal-backoff-cooldown-seconds</code> deprecated。</li>
+<li>Helm 升级到 3.19.2，Kustomize 升级到 5.8.0。</li>
+</ul>
+</li>
+<li>Upgrade notes
+<ul>
+<li>自管理 Argo CD 或手工用 Kustomize/plain manifests/Helm 升级时，先按官方升级文档处理 CRD SSA。</li>
+<li>Anonymous settings API 返回字段减少。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-32>Argo CD 3.2<a href=#argo-cd-32 class=hash-link aria-label="Direct link to Argo CD 3.2" title="Direct link to Argo CD 3.2" translate=no>​</a></h2>
+<ul>
+<li>GA: 2025-11-03</li>
+<li>Latest: v3.2.12</li>
+<li>Support: Supported</li>
+<li>Highlights
+<ul>
+<li>Source Hydrator 继续成熟，hydration path 必须是 non-root。</li>
+<li>Argo CD 会尊重 <code>.argocd-source.yaml</code> 里的 Kustomize version。</li>
+<li>新增或改进 Server-Side Diff CLI、<code>get-resource</code> CLI、ApplicationSet pprof、Progressive Sync deletion order。</li>
+<li>CronJob health 判定变化，新增多类 health checks。</li>
+<li>ApplicationSet <code>status.resources</code> 限制到 5000 条，避免状态过大。</li>
+</ul>
+</li>
+<li>Upgrade notes
+<ul>
+<li>大 monorepo 需要关注 repo-server lock contention；早期 patch 版本曾提示可能需要重启 repo-server pod。</li>
+<li>repo-server gRPC service 里部分字段 deprecated。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-31>Argo CD 3.1<a href=#argo-cd-31 class=hash-link aria-label="Direct link to Argo CD 3.1" title="Direct link to Argo CD 3.1" translate=no>​</a></h2>
+<ul>
+<li>GA: 2025-08-04</li>
+<li>Latest: v3.1.16</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>OCI support：支持从 OCI registry 使用配置/manifest source。</li>
+<li>Source Hydrator 支持将 dry commit SHA 与 hydrated commit SHA 关联。</li>
+<li>Server-Side Apply stabilization。</li>
+<li>UI parameterized action。</li>
+<li>可显式设置 Application auto-sync；<code>SkipDryRunOnMissingResource</code> 可作为 sync option。</li>
+<li>Helm 升级到 3.18.4，Kustomize 升级到 5.7.0。</li>
+</ul>
+</li>
+<li>Upgrade notes
+<ul>
+<li>API <code>--staticassets</code> 目录增加 symlink protection。</li>
+<li>v1 Actions API deprecated。</li>
+<li>OIDC authorization code flow with PKCE 由 server 处理；自定义 OIDC/CLI flow 需检查。</li>
+<li>Project API response sanitization。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-30>Argo CD 3.0<a href=#argo-cd-30 class=hash-link aria-label="Direct link to Argo CD 3.0" title="Direct link to Argo CD 3.0" translate=no>​</a></h2>
+<ul>
+<li>GA: 2025-05-06</li>
+<li>Latest: v3.0.23</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>v3 major；官方定位为 low-risk major upgrade，但包含若干安全/一致性 breaking changes。</li>
+<li>3.0 发布后不再发布新的 2.x minor，只继续给最近两个/三个 2.x minor 切 patch，直到支持窗口结束。</li>
+</ul>
+</li>
+<li>Breaking / upgrade notes
+<ul>
+<li>Fine-grained RBAC：<code>applications update/delete</code> 不再自动覆盖 sub-resources；需要显式授权 <code>update/*</code>、<code>delete/*</code>。</li>
+<li>Logs RBAC 成为一等 RBAC 资源；默认强制 <code>logs, get</code> 权限。</li>
+<li>默认 <code>resource.exclusions</code> 包含高频高 churn 资源，降低 API server 压力。</li>
+<li>移除旧 metrics：<code>argocd_app_sync_status</code>、<code>argocd_app_health_status</code>、<code>argocd_app_created_time</code>；改用 <code>argocd_app_info</code> label。</li>
+<li>Dex SSO RBAC subject 从 Dex <code>sub</code> 调整到 <code>federated_claims.user_id</code>。</li>
+<li>移除 <code>argocd-cm</code> legacy repo config；repository/credential 应迁移到 Secret。</li>
+<li>ApplicationSet <code>applyNestedSelectors</code> 被忽略，行为等价于始终启用 nested selector。</li>
+<li>Helm 升级到 3.17.1；<code>values.yaml</code> 中 <code>null</code> object 行为可能变化。</li>
+<li>默认 resource tracking 从 label-based 改为 annotation-based；使用 <code>ApplyOutOfSyncOnly=true</code> 时需额外 sync 避免 orphan resource。</li>
+<li>Helm OCI tag 从 <code>+</code> 改为 <code>_</code>。</li>
+<li>Kaniko health check removed。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-214>Argo CD 2.14<a href=#argo-cd-214 class=hash-link aria-label="Direct link to Argo CD 2.14" title="Direct link to Argo CD 2.14" translate=no>​</a></h2>
+<ul>
+<li>GA: 2025-02-03</li>
+<li>Latest: v2.14.21</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>最后一个 2.x minor。</li>
+<li>Global Sync Timeout for Applications。</li>
+<li>Helm 升级到 3.16.2，并支持 <code>skipSchemaValidation</code> / <code>--skip-schema-validation</code>。</li>
+<li>Application resource deletion protection。</li>
+<li>可对单个 resource 禁用 Server-Side Apply。</li>
+<li>可禁用写 Kubernetes Events。</li>
+<li>Faster Application Refreshes。</li>
+</ul>
+</li>
+<li>Upgrade notes
+<ul>
+<li>避免使用 v2.14.0 manifests，官方升级文档建议使用 v2.14.1+。</li>
+<li>升级到 3.0 前，先在 2.14 上完成 repo secret、RBAC、resource tracking、metrics 等兼容性清理。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-213>Argo CD 2.13<a href=#argo-cd-213 class=hash-link aria-label="Direct link to Argo CD 2.13" title="Direct link to Argo CD 2.13" translate=no>​</a></h2>
+<ul>
+<li>GA: 2024-11-04</li>
+<li>Latest: v2.13.9</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>ApplicationSet troubleshooting：CLI/服务端可预览渲染后的 Application manifests。</li>
+<li>改进 monorepo 工作流。</li>
+<li>Multi-source applications out of beta。</li>
+<li>Applications in any namespace 增加 regex support。</li>
+<li>大应用 reconciliation performance 改进。</li>
+<li>新增 ApplicationSet metrics，减少 resource tree 更新带来的 Redis traffic。</li>
+</ul>
+</li>
+<li>Upgrade notes
+<ul>
+<li>Helm 升级；检查 chart/template 行为差异。</li>
+<li>注意从 2.12 升级时 Helm、Kustomize、Dex 等依赖变更。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-212>Argo CD 2.12<a href=#argo-cd-212 class=hash-link aria-label="Direct link to Argo CD 2.12" title="Direct link to Argo CD 2.12" translate=no>​</a></h2>
+<ul>
+<li>GA: 2024-08-05</li>
+<li>Latest: v2.12.13</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>Multi-source applications 继续增强。</li>
+<li>ApplicationSet、notifications、UI/CLI、performance 等常规改进。</li>
+</ul>
+</li>
+<li>Upgrade notes
+<ul>
+<li>Helm 升级；使用 OCI/Helm repo/插件的环境需要重点验证。</li>
+<li>检查 <code>argocd-repo-server</code> plugin sidecar、Kustomize、resource tracking 相关配置。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-211>Argo CD 2.11<a href=#argo-cd-211 class=hash-link aria-label="Direct link to Argo CD 2.11" title="Direct link to Argo CD 2.11" translate=no>​</a></h2>
+<ul>
+<li>GA: 2024-05-06</li>
+<li>Latest: v2.11.14</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>manifest-generate-paths 改进，适合 monorepo 减少不必要刷新。</li>
+<li>ApplicationSet、notifications、repo-server、UI/CLI 常规增强。</li>
+</ul>
+</li>
+</ul>
+<div class="language-yaml codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-yaml codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token key atrule">apiVersion</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> argoproj.io/v1alpha1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">kind</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Application</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">metadata</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">name</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> guestbook</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">namespace</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> argocd</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">annotations</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># resolves to the 'guestbook' directory</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 支持相对目录、绝对目录、glob；多个路径用 ; 分隔</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">argocd.argoproj.io/manifest-generate-paths</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> .</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">spec</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">source</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">repoURL</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> https</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain">//github.com/argoproj/argocd</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">example</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">apps.git</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">targetRevision</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> HEAD</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">path</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> guestbook</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-210>Argo CD 2.10<a href=#argo-cd-210 class=hash-link aria-label="Direct link to Argo CD 2.10" title="Direct link to Argo CD 2.10" translate=no>​</a></h2>
+<ul>
+<li>GA: 2024-02-05</li>
+<li>Latest: v2.10.20</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>ApplicationSet Templates。</li>
+<li>Applications in any namespace 继续成熟：<code>--application-namespaces</code>、<code>argocd-cm</code> <code>application.namespaces</code>。</li>
+<li>PKCE / OIDC / auth 相关增强。</li>
+<li>Server-Side Diff 基于 Kubernetes structured-merge-diff；适合配合 Server-Side Apply 验证差异。</li>
+<li>CLI、UI、ApplicationSet、diff/sync 体验改进。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-29>Argo CD 2.9<a href=#argo-cd-29 class=hash-link aria-label="Direct link to Argo CD 2.9" title="Direct link to Argo CD 2.9" translate=no>​</a></h2>
+<ul>
+<li>GA: 2023-11-06</li>
+<li>Latest: v2.9.22</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>扩展和 UI 能力增强。</li>
+<li>ApplicationSet、notifications、diff/sync 常规增强。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-28>Argo CD 2.8<a href=#argo-cd-28 class=hash-link aria-label="Direct link to Argo CD 2.8" title="Direct link to Argo CD 2.8" translate=no>​</a></h2>
+<ul>
+<li>GA: 2023-08-07</li>
+<li>Latest: v2.8.21</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>Multi-source applications 进入 Beta。</li>
+<li>ApplicationSet、notifications、UI、SSO 相关增强。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-27>Argo CD 2.7<a href=#argo-cd-27 class=hash-link aria-label="Direct link to Argo CD 2.7" title="Direct link to Argo CD 2.7" translate=no>​</a></h2>
+<ul>
+<li>GA: 2023-05-01</li>
+<li>Latest: v2.7.18</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>UI、SSO、notifications、ApplicationSet 常规增强。</li>
+<li>继续完善 sync/diff 和 repo-server 行为。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-26>Argo CD 2.6<a href=#argo-cd-26 class=hash-link aria-label="Direct link to Argo CD 2.6" title="Direct link to Argo CD 2.6" translate=no>​</a></h2>
+<ul>
+<li>GA: 2023-02-06</li>
+<li>Latest: v2.6.15</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>Multi-source applications Alpha。</li>
+<li>Plugin sidecar 更安全地运行 config management plugin。</li>
+<li><code>managedNamespaceMetadata</code> 可在 Argo CD 创建 namespace 时写入 labels/annotations。</li>
+<li>ApplicationSet、notifications、repo-server、UI 改进。</li>
+</ul>
+</li>
+<li>Notes
+<ul>
+<li>早期 2.6.0 发布后很快有 patch release，生产应使用后续 patch。</li>
+</ul>
+</li>
+</ul>
+<div class="language-yaml codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-yaml codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token key atrule">apiVersion</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> argoproj.io/v1alpha1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">kind</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Application</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">metadata</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">namespace</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> test</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">spec</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 多源 - Argo CD 会合并多个 source 的渲染结果</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">sources</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain"> </span><span class="token key atrule">chart</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> elasticsearch</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">repoURL</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> https</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain">//helm.elastic.co</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">targetRevision</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> 7.6.0</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain"> </span><span class="token key atrule">repoURL</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> https</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain">//github.com/argoproj/argocd</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">example</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">apps.git</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">path</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> guestbook</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">targetRevision</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> HEAD</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">syncPolicy</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">managedNamespaceMetadata</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">labels</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token key atrule">any</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> label</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token key atrule">you</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> like</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">annotations</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token key atrule">the</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> same</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token key atrule">applies</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> for</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token key atrule">annotations</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> on</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">the</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">namespace</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">syncOptions</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain"> CreateNamespace=true</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-25>Argo CD 2.5<a href=#argo-cd-25 class=hash-link aria-label="Direct link to Argo CD 2.5" title="Direct link to Argo CD 2.5" translate=no>​</a></h2>
+<ul>
+<li>GA: 2022-10-25</li>
+<li>Latest: v2.5.22</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>Applications in any namespace Alpha。</li>
+<li>UI/CLI、notifications、ApplicationSet 改进。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-24>Argo CD 2.4<a href=#argo-cd-24 class=hash-link aria-label="Direct link to Argo CD 2.4" title="Direct link to Argo CD 2.4" translate=no>​</a></h2>
+<ul>
+<li>GA: 2022-06-10</li>
+<li>Latest: v2.4.28</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>ApplicationSet Controller 被集成到 Argo CD 核心安装中。</li>
+<li>Notifications Controller 也逐步成为核心能力。</li>
+<li>新增 logs RBAC 相关配置，为 3.0 默认强制做铺垫。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-23>Argo CD 2.3<a href=#argo-cd-23 class=hash-link aria-label="Direct link to Argo CD 2.3" title="Direct link to Argo CD 2.3" translate=no>​</a></h2>
+<ul>
+<li>GA: 2022-03-06</li>
+<li>Latest: v2.3.17</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>内置 ApplicationSet & Notifications。</li>
+<li><code>RespectIgnoreDifferences=true</code>：同步时不修改 ignoreDifferences 指定字段。</li>
+<li><code>argocd admin dashboard</code>，本地调试 UI 更方便。</li>
+<li>appset controller 支持更多 generator/template 能力。</li>
+<li>notifications、sync window、repo credentials、UI 体验改进。</li>
+</ul>
+</li>
+</ul>
+<div class="language-yaml codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-yaml codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token key atrule">apiVersion</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> argoproj.io/v1alpha1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">kind</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Application</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">metadata</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">name</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> example</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">spec</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">ignoreDifferences</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain"> </span><span class="token key atrule">group</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> apps</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">kind</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Deployment</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">jsonPointers</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain"> /spec/replicas</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain"> </span><span class="token key atrule">group</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'*'</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">kind</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">'*'</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 可以通过 managedFieldsManagers 告诉 Argo CD 需要忽略的字段管理者</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">managedFieldsManagers</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain"> rollouts</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">controller</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">syncPolicy</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">syncOptions</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain"> RespectIgnoreDifferences=true</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-22>Argo CD 2.2<a href=#argo-cd-22 class=hash-link aria-label="Direct link to Argo CD 2.2" title="Direct link to Argo CD 2.2" translate=no>​</a></h2>
+<ul>
+<li>GA: 2021-12-14</li>
+<li>Latest: v2.2.16</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>Project scoped repositories / clusters：仓库和集群可限定到 AppProject。</li>
+<li>Config Management Plugins V2：<code>argocd-cmp-server</code> 作为 repo-server sidecar 管理插件。</li>
+<li>支持使用 annotation <code>argocd.argoproj.io/tracking-id</code> 跟踪资源，减少 label <code>app.kubernetes.io/instance</code> 冲突。</li>
+<li>Helm v3.7.1：pass credentials、OCI。</li>
+<li>ApplicationSet、Kustomize、Helm、Jsonnet、OIDC / SSO / RBAC 改进。</li>
+</ul>
+</li>
+</ul>
+<div class="language-yaml codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-yaml codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token key atrule">apiVersion</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> v1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">kind</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> ConfigMap</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">data</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 默认 label；可设置 annotation+label 或 annotation</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">application.resourceTrackingMethod</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> annotation</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">---</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">apiVersion</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> v1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">kind</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Secret</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">metadata</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">name</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> kube</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">stub</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">cluster</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">repo</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">labels</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">argocd.argoproj.io/secret-type</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> repository</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">type</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> Opaque</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">stringData</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 限定 Project</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">project</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> my</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">project1</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">name</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> kube</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">stub</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">cluster</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">url</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> https</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain">//github.com/wenerme/kube</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">stub</span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain">cluster.git</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">username</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">''</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token key atrule">password</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">''</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-21>Argo CD 2.1<a href=#argo-cd-21 class=hash-link aria-label="Direct link to Argo CD 2.1" title="Direct link to Argo CD 2.1" translate=no>​</a></h2>
+<ul>
+<li>GA: 2021-08-20</li>
+<li>Latest: v2.1.16</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>Project scoped repositories / clusters。</li>
+<li>GnuPG signature verification。</li>
+<li>Application controller、repo-server、UI/CLI 改进。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-20>Argo CD 2.0<a href=#argo-cd-20 class=hash-link aria-label="Direct link to Argo CD 2.0" title="Direct link to Argo CD 2.0" translate=no>​</a></h2>
+<ul>
+<li>GA: 2021-04-07</li>
+<li>Latest: v2.0.5</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>UI redesign。</li>
+<li>Lua custom health checks。</li>
+<li>Resource tracking、diff/sync、SSO 体验增强。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=argo-cd-18>Argo CD 1.8<a href=#argo-cd-18 class=hash-link aria-label="Direct link to Argo CD 1.8" title="Direct link to Argo CD 1.8" translate=no>​</a></h2>
+<ul>
+<li>GA: 2020-12-09</li>
+<li>Latest: v1.8.7</li>
+<li>Support: EOL</li>
+<li>Highlights
+<ul>
+<li>Helm 3 支持成熟。</li>
+<li>Git LFS 支持。</li>
+<li>Kustomize 3.8。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=upgrade-checklist>Upgrade Checklist<a href=#upgrade-checklist class=hash-link aria-label="Direct link to Upgrade Checklist" title="Direct link to Upgrade Checklist" translate=no>​</a></h2>
+<ul>
+<li>先升级到当前 minor 的最新 patch，再跨 minor。</li>
+<li>先备份：<code>argocd-cm</code>、<code>argocd-rbac-cm</code>、repository Secret、cluster Secret、AppProject、Application、ApplicationSet。</li>
+<li>对自管理 Argo CD，先单独 apply 新 CRD，再升级 controller/server/repo-server。</li>
+<li>检查 Helm/Kustomize 升级带来的模板结果差异。</li>
+<li>检查 RBAC：尤其是 3.0+ 的 <code>logs</code>、<code>update/*</code>、<code>delete/*</code>。</li>
+<li>检查 metrics dashboard/alert：特别是 3.0 移除的 legacy app status metrics。</li>
+<li>如果从 2.x 升到 3.x，优先完成 legacy repo config 到 Secret 的迁移。</li>
+<li>如果仍使用 label-based resource tracking，评估切换 annotation tracking 后的 orphan resource 风险。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=faq>FAQ<a href=#faq class=hash-link aria-label="Direct link to FAQ" title="Direct link to FAQ" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=生产应该选择哪个版本>生产应该选择哪个版本？<a href=#生产应该选择哪个版本 class=hash-link aria-label="Direct link to 生产应该选择哪个版本？" title="Direct link to 生产应该选择哪个版本？" translate=no>​</a></h3>
+<p>选择最新 supported minor 的最新 patch。需要更保守时选择 supported 中较旧的一条 patch 线，例如当前可在 <code>v3.4.x</code>、<code>v3.3.x</code>、<code>v3.2.x</code> 之间取舍。</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=可以直接从-2x-升级到-3x-吗>可以直接从 2.x 升级到 3.x 吗？<a href=#可以直接从-2x-升级到-3x-吗 class=hash-link aria-label="Direct link to 可以直接从 2.x 升级到 3.x 吗？" title="Direct link to 可以直接从 2.x 升级到 3.x 吗？" translate=no>​</a></h3>
+<p>不建议跨太多 minor 直接升级。至少先升级到 2.14 最新 patch，修复配置兼容性问题，再按官方 2.14 -> 3.0 文档升级。</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=为什么旧版本仍有很新的-patch-date>为什么旧版本仍有很新的 patch date？<a href=#为什么旧版本仍有很新的-patch-date class=hash-link aria-label="Direct link to 为什么旧版本仍有很新的 patch date？" title="Direct link to 为什么旧版本仍有很新的 patch date？" translate=no>​</a></h3>
+<p>Argo CD 在某些窗口内会为旧 minor backport patch/security fix，但 release policy 只保证最近 3 个 minor。查看版本时应同时看 support policy 和实际 latest patch。</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=v2140-可以用吗>v2.14.0 可以用吗？<a href=#v2140-可以用吗 class=hash-link aria-label="Direct link to v2.14.0 可以用吗？" title="Direct link to v2.14.0 可以用吗？" translate=no>​</a></h3>
+<p>不建议。官方升级文档明确提示避免 v2.14.0 manifests，使用 v2.14.1 或更新 patch。</div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/notes/tags/version>Version</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/devops/kubernetes/app/argocd/argocd-version.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-06-15T05:59:13.000Z itemprop=dateModified>Jun 15, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/devops/kubernetes/app/argocd/vault-plugin><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>argocd-vault-plugin</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/devops/kubernetes/app/cert-manager-version><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>cert-manager version</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#版本表 class="table-of-contents__link toc-highlight">版本表</a><li><a href=#维护策略 class="table-of-contents__link toc-highlight">维护策略</a><li><a href=#argo-cd-34 class="table-of-contents__link toc-highlight">Argo CD 3.4</a><li><a href=#argo-cd-33 class="table-of-contents__link toc-highlight">Argo CD 3.3</a><li><a href=#argo-cd-32 class="table-of-contents__link toc-highlight">Argo CD 3.2</a><li><a href=#argo-cd-31 class="table-of-contents__link toc-highlight">Argo CD 3.1</a><li><a href=#argo-cd-30 class="table-of-contents__link toc-highlight">Argo CD 3.0</a><li><a href=#argo-cd-214 class="table-of-contents__link toc-highlight">Argo CD 2.14</a><li><a href=#argo-cd-213 class="table-of-contents__link toc-highlight">Argo CD 2.13</a><li><a href=#argo-cd-212 class="table-of-contents__link toc-highlight">Argo CD 2.12</a><li><a href=#argo-cd-211 class="table-of-contents__link toc-highlight">Argo CD 2.11</a><li><a href=#argo-cd-210 class="table-of-contents__link toc-highlight">Argo CD 2.10</a><li><a href=#argo-cd-29 class="table-of-contents__link toc-highlight">Argo CD 2.9</a><li><a href=#argo-cd-28 class="table-of-contents__link toc-highlight">Argo CD 2.8</a><li><a href=#argo-cd-27 class="table-of-contents__link toc-highlight">Argo CD 2.7</a><li><a href=#argo-cd-26 class="table-of-contents__link toc-highlight">Argo CD 2.6</a><li><a href=#argo-cd-25 class="table-of-contents__link toc-highlight">Argo CD 2.5</a><li><a href=#argo-cd-24 class="table-of-contents__link toc-highlight">Argo CD 2.4</a><li><a href=#argo-cd-23 class="table-of-contents__link toc-highlight">Argo CD 2.3</a><li><a href=#argo-cd-22 class="table-of-contents__link toc-highlight">Argo CD 2.2</a><li><a href=#argo-cd-21 class="table-of-contents__link toc-highlight">Argo CD 2.1</a><li><a href=#argo-cd-20 class="table-of-contents__link toc-highlight">Argo CD 2.0</a><li><a href=#argo-cd-18 class="table-of-contents__link toc-highlight">Argo CD 1.8</a><li><a href=#upgrade-checklist class="table-of-contents__link toc-highlight">Upgrade Checklist</a><li><a href=#faq class="table-of-contents__link toc-highlight">FAQ</a><ul><li><a href=#生产应该选择哪个版本 class="table-of-contents__link toc-highlight">生产应该选择哪个版本？</a><li><a href=#可以直接从-2x-升级到-3x-吗 class="table-of-contents__link toc-highlight">可以直接从 2.x 升级到 3.x 吗？</a><li><a href=#为什么旧版本仍有很新的-patch-date class="table-of-contents__link toc-highlight">为什么旧版本仍有很新的 patch date？</a><li><a href=#v2140-可以用吗 class="table-of-contents__link toc-highlight">v2.14.0 可以用吗？</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-06-24 12:20</div></div></div></footer></div></body>

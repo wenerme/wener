@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["450749"],{573064:function(e){e.exports=JSON.parse('{"tag":{"label":"Setup","permalink":"/notes/tags/setup","allTagsPath":"/notes/tags","count":1,"items":[{"id":"os/debian/debian-setup","title":"Debian Setup","description":"","permalink":"/notes/os/debian/setup"}],"unlisted":false}}')}}]);
