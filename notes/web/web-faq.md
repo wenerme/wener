@@ -257,3 +257,20 @@ location.origin;
   - 有些场景创建 Object URL 不一定需要关心 revoke
     - 例如 磁盘上的 File
 - 调用 URL.revokeObjectURL 也不会立即释放内存，只是减少 ref 引用
+
+## URL vs URI
+
+- URI（Uniform Resource Identifier）用于标识资源，是更泛化的概念
+- URL（Uniform Resource Locator）是 URI 的子集，除了标识资源，还描述如何定位/访问资源
+- URN（Uniform Resource Name）也是 URI 的子集，强调稳定命名，不要求直接可访问
+- 日常 Web 场景里，大多数 `https://example.com/path?q=1` 都是 URL，也同时是 URI
+
+| 概念 | 全称 | 重点 | 示例 |
+|---|---|---|---|
+| URI | Uniform Resource Identifier | 标识资源 | `mailto:foo@example.com` |
+| URL | Uniform Resource Locator | 定位资源，包含访问方式 | `https://example.com/a?b=1` |
+| URN | Uniform Resource Name | 命名资源，不强调位置 | `urn:isbn:9780131103627` |
+
+:::tip
+简单理解：URL 一定是 URI，但 URI 不一定是 URL。
+:::

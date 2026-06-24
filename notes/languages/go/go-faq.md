@@ -569,7 +569,6 @@ type SysProcAttr struct {
 - `//go:build linux` >= go 1.17
 - https://github.com/golang/go/issues/36060
 
-
 ## ld: warning: object file was built for newer 'macOS' version (15.0) than being linked (11.0)
 
 ```bash
@@ -598,7 +597,6 @@ sudo xcode-select --switch /Library/Developer/CommandLineTools
 - 也可以手动下载
   - https://developer.apple.com/download/all/
 
-
 ## memory limit
 
 - GOMEMLIMIT
@@ -608,3 +606,21 @@ sudo xcode-select --switch /Library/Developer/CommandLineTools
 ---
 
 - https://github.com/golang/go/issues/75164
+
+## safe panic pattern
+
+- https://pkg.go.dev/k8s.io/apimachinery/pkg/util/runtime
+  - HandleCrash
+- https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/controller
+  - RecoverPanic
+- https://pkg.go.dev/github.com/zeromicro/go-zero/core/threading
+  - GoSafe
+- https://github.com/sourcegraph/conc
+
+## 模块依赖版本
+
+- MVS / Minimal Version Selection - 最小版本选择
+- MVS 基于 go.mod require
+- go 1.17+ 引入 module graph pruning
+  - 会减少加载的 module graph
+- Go modules 的版本选择是模块级 MVS，不是按实际 import 的子包裁剪依赖。

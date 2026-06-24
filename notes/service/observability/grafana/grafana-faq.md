@@ -56,3 +56,14 @@ tags:
 | 2026-04-09 10:01 | 38.5          | 8.3           |
 
 每个 series 是一列，列名/labels 就是维度标识。适合多 series 对比。
+
+## DatasourceError
+
+- 考虑增加 timeout
+- 考虑 filter 内容为 DatasourceError 的情况
+
+```ini
+[alerting]
+evaluation_timeout = 1m
+max_attempts = 3
+```

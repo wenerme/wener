@@ -175,8 +175,8 @@ npx skills add vercel-labs/agent-browser
 - https://huggingface.co/collections/johannhartmann/computer-use-models
 - https://huggingface.co/microsoft/Phi-Ground
   - Text-First
-  - box_2d `[ymin, xmin, ymax, xmax]`  scale 1000
-  - $1008 \times 672$ 像素（即代码中的 336 * 3 宽，336 * 2 高）
+  - box_2d `[ymin, xmin, ymax, xmax]` scale 1000
+  - $1008 \times 672$ 像素（即代码中的 336 &times; 3 宽，336 &times; 2 高）
 - https://huggingface.co/microsoft/Fara-7B
   - visit_url - url
   - web_search - query

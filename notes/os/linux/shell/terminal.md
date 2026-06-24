@@ -51,3 +51,4 @@ screen -r ${SESSION}
 - https://sw.kovidgoyal.net/kitty/graphics-protocol
 - https://sw.kovidgoyal.net/kitty/open_actions
 - https://yazi-rs.github.io/docs/image-preview/
+- https://iterm2.com/feature-reporting/

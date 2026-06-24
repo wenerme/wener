@@ -47,44 +47,44 @@ pi
 - PI_CODING_AGENT=true
   - env 检测
 
-| 快捷键           | 说明                                |
-| ---------------- | ----------------------------------- |
+| 快捷键           | 说明                                        |
+| ---------------- | ------------------------------------------- |
 | **主界面**       |
-| Enter            | 提交输入                            |
-| Shift+Enter      | 换行                                |
-| Esc              | 中断/取消当前操作或生成             |
-| Ctrl+C           | 清空编辑器；在选择器里取消          |
-| Ctrl+D           | 编辑器为空时退出                    |
-| Ctrl+Z           | 挂起到后台，之后可 fg 回来          |
-| Ctrl+G           | 用外部编辑器打开输入                |
-| Ctrl+V           | 粘贴剪贴板图片                      |
-| Ctrl+L           | 打开模型选择器                      |
-| Ctrl+P           | 切换到下一个模型                    |
-| Shift+Ctrl+P     | 切换到上一个模型                    |
-| Shift+Tab        | 切换 thinking level                 |
-| Ctrl+T           | 展开/折叠 thinking blocks           |
-| Ctrl+O           | 展开/折叠 tool output               |
+| Enter            | 提交输入                                    |
+| Shift+Enter      | 换行                                        |
+| Esc              | 中断/取消当前操作或生成                     |
+| Ctrl+C           | 清空编辑器；在选择器里取消                  |
+| Ctrl+D           | 编辑器为空时退出                            |
+| Ctrl+Z           | 挂起到后台，之后可 fg 回来                  |
+| Ctrl+G           | 用外部编辑器打开输入                        |
+| Ctrl+V           | 粘贴剪贴板图片                              |
+| Ctrl+L           | 打开模型选择器                              |
+| Ctrl+P           | 切换到下一个模型                            |
+| Shift+Ctrl+P     | 切换到上一个模型                            |
+| Shift+Tab        | 切换 thinking level                         |
+| Ctrl+T           | 展开/折叠 thinking blocks                   |
+| Ctrl+O           | 展开/折叠 tool output                       |
 | **消息队列**     |
 | Alt+Enter        | Queue follow-up message；当前回复后继续发送 |
-| Alt+Up           | Dequeue；把队列消息恢复到编辑器     |
+| Alt+Up           | Dequeue；把队列消息恢复到编辑器             |
 | **编辑器**       |
-| ←/→/↑/↓          | 移动光标                            |
-| Ctrl+A / Ctrl+E  | 行首 / 行尾                         |
-| Ctrl+B / Ctrl+F  | 左/右移动一格                       |
-| Alt+B / Alt+F    | 左/右移动一个词                     |
-| Ctrl+W           | 删除前一个词                        |
-| Alt+D            | 删除后一个词                        |
-| Ctrl+U           | 删除到行首                          |
-| Ctrl+K           | 删除到行尾                          |
-| Ctrl+Y           | 粘贴最近删除内容                    |
-| Alt+Y            | 循环 kill ring                      |
-| Ctrl+-           | 撤销                                |
+| ←/→/↑/↓          | 移动光标                                    |
+| Ctrl+A / Ctrl+E  | 行首 / 行尾                                 |
+| Ctrl+B / Ctrl+F  | 左/右移动一格                               |
+| Alt+B / Alt+F    | 左/右移动一个词                             |
+| Ctrl+W           | 删除前一个词                                |
+| Alt+D            | 删除后一个词                                |
+| Ctrl+U           | 删除到行首                                  |
+| Ctrl+K           | 删除到行尾                                  |
+| Ctrl+Y           | 粘贴最近删除内容                            |
+| Alt+Y            | 循环 kill ring                              |
+| Ctrl+-           | 撤销                                        |
 | **pi -r/Resume** |
-| Ctrl+D           | 删除当前选中的 session - 会请求确认 |
-| Ctrl+P           | 显示/隐藏路径                       |
-| Ctrl+N           | 只看 named sessions                 |
-| Ctrl+S           | 切换排序                            |
-| Ctrl+R           | 重命名                              |
+| Ctrl+D           | 删除当前选中的 session - 会请求确认         |
+| Ctrl+P           | 显示/隐藏路径                               |
+| Ctrl+N           | 只看 named sessions                         |
+| Ctrl+S           | 切换排序                                    |
+| Ctrl+R           | 重命名                                      |
 
 - $PWD/.pi/
   - settings.json
@@ -305,4 +305,18 @@ pi update --self
 # 修复会话 cwd
 cd /new/project/path
 pi --fork /path/to/old/session.jsonl
+```
+
+## 图片输入
+
+```
+Current model does not support images. The image will be omitted from this request.
+```
+
+配置模型
+
+```json
+{
+  "input": ["text", "image"]
+}
 ```
