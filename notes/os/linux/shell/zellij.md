@@ -66,6 +66,8 @@ zellij action new-pane -d down   # 水平分屏
 zellij action new-pane -d right  # 垂直分屏
 ```
 
+- Alt + left-click 然后拖动可以快速选择所有
+
 | flag                      | for                                                              |
 | ------------------------- | ---------------------------------------------------------------- |
 | `-p, --pane-id <PANE_ID>` | 窗口 ID (可通过 `list-panes` 获取)；用于 `subscribe` 或 `action` |

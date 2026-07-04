@@ -17,6 +17,20 @@ tags:
   - 是 stream 解析
   - 默认不限制大小
 
+**Database**
+
+```
+go_sql_max_open_connections
+go_sql_open_connections
+go_sql_in_use_connections
+go_sql_idle_connections
+go_sql_wait_count_total
+go_sql_wait_duration_seconds_total
+go_sql_max_idle_closed_total
+go_sql_max_idle_time_closed_total
+go_sql_max_lifetime_closed_total
+```
+
 ## 合理指标数量
 
 - 指标条数 (Series Count):

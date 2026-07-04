@@ -16,6 +16,8 @@ tags:
   - [CRM](./design-crm.md)
   - [ERP](./erp/README.md) - ERP 建模
 - [数据库 Schema 设计](./design-schema.md) - 数据库设计基本原则
+- [QoS](./design-qos.md) - Quality of Service、traffic conditioning、policing、shaping
+- [Quota](./design-quota.md) - 额度、限流、rate limiter
 - Architecture
   - [事件驱动](./design-event-driven.md)
   - [数据驱动](./design-data-driven.md)

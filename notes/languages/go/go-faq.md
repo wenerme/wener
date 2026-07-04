@@ -624,3 +624,13 @@ sudo xcode-select --switch /Library/Developer/CommandLineTools
 - go 1.17+ 引入 module graph pruning
   - 会减少加载的 module graph
 - Go modules 的版本选择是模块级 MVS，不是按实际 import 的子包裁剪依赖。
+
+## go doc
+
+```bash
+go install golang.org/x/pkgsite/cmd/internal/pkgsite-cli@latest
+
+pkgsite-cli search "uuid"
+```
+
+- https://opensource.googleblog.com/2026/06/a-new-pkggodev-api-for-go.html

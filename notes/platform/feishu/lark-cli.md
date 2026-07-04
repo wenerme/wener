@@ -53,7 +53,9 @@ lark-cli config init --new
 lark-cli auth login --recommend --no-wait
 
 # 如果需要稍后继续轮询
-lark-cli auth login --device-code <DEVICE_CODE>
+lark-cli auth login --device-code DEVICE_CODE
+#
+lark-cli auth login --scope "im:chat:read im:message:readonly im:message.group_msg:get_as_user im:message.p2p_msg:get_as_user search:message offline_access" --recommend
 ```
 
 # Command Model

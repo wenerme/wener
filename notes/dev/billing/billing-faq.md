@@ -22,12 +22,19 @@ tags:
 | ARPU   | Average Revenue Per User    | 平均每用户收入     | 在特定周期内，平均每个用户或客户为企业贡献的收入金额（通常用于衡量用户价值） |
 | ARPA   | Average Revenue Per Account | 平均每客户收入     | 在特定周期内，平均每个客户为企业贡献的收入金额（通常用于衡量客户价值）       |
 | CUR    | Cost and Usage Report       | 成本和用量报告     | 企业对成本和用量进行详细分析的报告，用于监控和优化资源使用效率               |
+| SKU    | Stock Keeping Unit          | 库存单位 / 商品规格 | 用于唯一标识可售卖、可计费或可库存管理的产品规格、服务项或计费项             |
 
 | en                     | cn            | desc                                                          |
 | ---------------------- | ------------- | ------------------------------------------------------------- |
 | Usage                  | 用量 / 使用量 | 客户实际使用服务或资源的数量指标记录                          |
 | Metering               | 计量          | 收集、验证、聚合 Usage 数据的过程                             |
-| Price                  | 价格 / 定价   | 为特定服务或产品设定的单价及计价规则                          |
+| SKU                    | 库存单位/商品规格 | 可销售或可计费的最小规格单元，用于连接产品目录、价格、用量和账单 |
+| Product                | 产品              | 面向客户销售的产品或服务，通常可包含多个 SKU / Price             |
+| Product Code           | 产品编码          | 产品或服务在产品目录、ERP、CRM 中的业务编码，不一定直接等同 SKU  |
+| Part Number            | 料号 / 物料号     | 制造、采购、库存系统中的物料或零件编码，偏供应链和库存管理       |
+| Offer                  | 报价 / 售卖方案   | 面向客户可购买的一组产品、权益、价格、折扣或合同条件             |
+| Plan                   | 套餐 / 计划       | 订阅或服务的客户可选档位，例如 Free、Pro、Enterprise             |
+| Price                  | 价格 / 定价       | 为特定服务或产品设定的单价及计价规则                             |
 | Rate                   | 费率          | 按单位资源、时间、请求、Token 等维度收取的价格                 |
 | Unit Price             | 单价          | 某个计费单位对应的价格，例如每 GB、每分钟、每 1K Token         |
 | List Price             | 目录价 / 标价 | 公开价目表或产品目录中的标准价格，通常是折扣前的基准价格      |
@@ -44,8 +51,9 @@ tags:
 | Net Price              | 净价          | 扣除折扣、优惠、返利、抵扣后的实际计费价格                    |
 | Gross Price            | 毛价 / 含税前总价 | 折扣或税费处理前的价格口径，需结合上下文确认是否含税        |
 | Effective Price        | 有效价 / 实际单价 | 把折扣、返利、赠送额度、阶梯价摊销后得到的真实单价          |
-| Billing Price          | 计费价        | 计费引擎最终用于生成 charge / invoice line 的价格             |
-| Charge Amount          | 计费金额      | 单条计费项按用量和价格计算出的金额                            |
+| Billing Price          | 计费价            | 计费引擎最终用于生成 charge / invoice line 的价格                |
+| Line Item              | 明细行 / 账单行   | 订单、报价、账单或发票中的一行明细，通常关联 Product / SKU / Price / Usage |
+| Charge Amount          | 计费金额          | 单条计费项按用量和价格计算出的金额                               |
 | Invoice Amount         | 发票金额      | 进入账单或发票的金额，通常包含多个 charge 并可能含税费        |
 | Payable Amount         | 应付金额      | 客户最终需要支付的金额，通常等于发票金额扣除抵扣和已付款      |
 | Cost                   | 成本 / 费用   | 基于 Usage 和 Price 计算得出的金额                            |
@@ -54,7 +62,7 @@ tags:
 | Churn Rate             | 流失率        | 在特定时期内，流失的客户占总客户数的比例                      |
 
 - 流程
-  - Usage -> Metering -> Price -> Cost -> Billing -> Invoicing -> Payment
+  - Product / SKU -> Price -> Usage -> Metering -> Cost -> Billing -> Invoicing -> Payment
 - RevOps
   - Revenue Operations
   - 从产品使用转化为财务收入
@@ -65,6 +73,9 @@ tags:
 
 ## 价格名词关系
 
+- Product 是面向客户的产品或服务；Product Code 是业务编码；SKU 是可售卖/可计费规格；Part Number 更偏库存、采购、物料管理。
+- Offer / Plan 是客户可购买的商业包装，可能组合多个 Product / SKU，并附带价格、权益、折扣和合同条件。
+- Price 通常挂在 Product / SKU / Plan 上；Usage 需要能映射到对应 SKU / Price，才能生成 Charge / Line Item。
 - 目录价 / 标价 / 标准价通常是 price book 或 catalog 里的公开基准价。
 - 原价通常用于展示“优惠前价格”，不一定等于目录价；促销场景里可能只是对比口径。
 - 合同价 / 协议价 / 议定价是客户级覆盖价，通常优先级高于目录价。

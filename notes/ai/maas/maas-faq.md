@@ -315,6 +315,9 @@ An error occurred while processing your request. You can retry your request, or 
 This content was flagged for possible cybersecurity risk. If this seems wrong, try rephrasing your request. To get authorized for security work, join the Trusted Access for Cyber program: https://chatgpt.com/cyber
 
 {"type":"error","sequence_number":0,"error":{"type":"upstream_error","message":"stream_read_error","code":"stream_read_error"}}
+
+
+this model has beta-limitations, temperature, top_p and n are fixed at 1, while presence_penalty and frequency_penalty are fixed at 0
 ```
 
 **Codex**

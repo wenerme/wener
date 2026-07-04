@@ -18,6 +18,7 @@ tags:
   - https://github.com/davebcn87/pi-autoresearch
   - https://github.com/qualisero/awesome-pi-agent
   - https://github.com/tmustier/pi-extensions
+  - https://github.com/diegopetrucci/pi-extensions
 - 会自动下载 fd, ripgrep
   - Widnows `C:\Users\$USER\.pi\agent\bin`
 

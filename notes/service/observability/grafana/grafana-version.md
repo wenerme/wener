@@ -8,20 +8,33 @@ title: Grafana Version
   - Grafana, Loki, Tempo relicensed to AGPLv3
 - [What’s new Grafana](https://grafana.com/docs/grafana/latest/whatsnew/)
 
-| Version | Release Date |
-| ------- | ------------ |
-| 12.0    | 2025-05-05   |
-| 11.0    | 2024-05-14   |
-| 10.0    | 2023-06-13   |
-| 9.0     | 2022-06-14   |
-| 8.0     | 2021-06-09   |
-| 7.0     | 2020-05-18   |
+| Version         | Release Date |
+| --------------- | ------------ |
+| [Grafana v13.0] | 2026-04-14   |
+| [Grafana v12.0] | 2025-05-05   |
+| [Grafana v11.0] | 2024-05-14   |
+| [Grafana v10.0] | 2023-06-13   |
+| [Grafana v9.0]  | 2022-06-14   |
+| [Grafana v8.0]  | 2021-06-09   |
+| [Grafana v7.0]  | 2020-05-18   |
+
+## Grafana v13.0
+
+- Git Sync GA：Grafana Cloud 和 self-managed Grafana 均可把 dashboards/folders 连接到 GitHub、GitLab、Bitbucket 或任意 Git repo，实现 UI 编辑后保存、commit、开 PR。
+- Dynamic dashboards GA：默认启用新的 dashboard layout engine、编辑体验和 dashboard schema，打开旧 dashboard 时自动迁移到新 schema。
+- Dashboard 体验增强：支持恢复已删除 dashboard、revamped gauge visualization GA、Ad hoc filters 重命名为 Filters、legend limits、panel styles、annotation clustering、section-level variables、saved query 驱动建 panel 和更好的 visualization suggestions。
+- AI：Grafana Assistant 开始支持 self-managed/OSS/Enterprise 场景的 on-prem 访问预览；Assistant 可辅助 dashboard templates 和 SQL Expressions。
+- Data sources：Elasticsearch 支持 raw query editor、Query DSL 和 ES|QL；IBM DB2 datasource 进入 public preview。
+- Plugins / Health：Grafana Advisor GA，可检查 datasource health、过期 plugin、SSO 配置等实例健康问题。
+- Breaking changes：`/api` 路径开始被 `/apis` 取代；pre-Scenes dashboard 架构开关移除；Grafana database metrics deprecation；Git Sync 早期用户需注意 v13.0.0 dashboard/folder migration 风险；Grafana Image Renderer plugin 支持移除，渲染默认 auth mode 改为 JWT；`grafana-cli`/`grafana-server` 命令移除；numeric datasource id API 默认禁用；`enable_gzip` 默认开启；React 19 可能影响依赖旧 React API 的 plugin。
+- [What’s new in Grafana v13.0](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v13-0/)
 
 ## Grafana v12.0
 
 - 可观测性即代码 (Observability as Code): 进一步强化 IaC 能力，支持使用 Terraform 和 API 管理 Grafana 配置。
 - 动态仪表盘 (Dynamic Dashboards): 通过 Scenes API 和其他功能实现更高级的动态仪表盘。
 - 智能日志分析: 改进日志面板，支持更深入、更快速地洞察日志，并可能利用 AI 检测日志异常模式。
+- [What’s new in Grafana v12.0](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v12-0/)
 
 ## Grafana v11.0
 
@@ -29,6 +42,7 @@ title: Grafana Version
 - Explore Metrics (无查询体验): 允许用户在不编写查询的情况下探索 Prometheus 指标。
 - AI 辅助功能: 引入由 LLM 驱动的仪表盘标题和描述自动生成功能，提高效率。
 - 告警故障排除改进: 增强告警规则细节的概览，并增加“保持最后状态” (Keep last state) 功能以帮助调试。
+- [What’s new in Grafana v11.0](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v11-0/)
 
 ## Grafana v10.0
 
@@ -36,6 +50,7 @@ title: Grafana Version
 - Grafana as Code (IaC) 更新: 增强了通过配置文件或 Terraform 自动配置 Grafana 资源的能力。
 - 改进的入门体验: 简化了新用户的安装、数据源设置和创建第一个仪表盘的流程。
 - Canvas 面板正式发布 (GA): 允许用户使用拖放组件创建完全自定义的可视化。
+- [What’s new in Grafana v10.0](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v10-0/)
 
 ## Grafana v9.0
 
@@ -43,6 +58,7 @@ title: Grafana Version
 - 基于角色的访问控制 (RBAC) GA: 基于角色的访问控制正式普遍可用，支持跨仪表盘、数据源等功能进行细粒度权限管理。
 - 日志探索改进: 重新设计的日志面板和新的字段选择器组件，使日志探索更快、更直观。
 - Grafana OnCall 开源: 将 OnCall 管理功能开源，使用户能够将告警管理集成到现有的 Grafana 部署中
+- [What’s new in Grafana v9.0](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v9-0/)
 
 ## Grafana v8.0
 
@@ -65,6 +81,7 @@ title: Grafana Version
 - Plugin catalog
 - JWT Auth
 - Generic OAuth
+- [What’s new in Grafana v8.0](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v8-0/)
 
 ## Grafana v7.5
 
@@ -72,6 +89,7 @@ title: Grafana Version
 - Alerting for Loki
 - Loki label browser
 - Tempo as a backend data source
+- [What’s new in Grafana v7.0](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v7-0/)
 
 ## Grafana v7.4
 
@@ -106,3 +124,7 @@ title: Grafana Version
 - Prometheus
   - 新增 `$__rate_interval` 变量
 - [v7-2-x](https://community.grafana.com/t/release-notes-v7-2-x/36321)
+
+## 参考
+
+- [Grafana v13.0.0 release](https://github.com/grafana/grafana/releases/tag/v13.0.0)

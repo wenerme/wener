@@ -54,6 +54,8 @@ Request -> Auth
 - https://developer.konghq.com/plugins/rate-limiting/
 - https://raw.githubusercontent.com/Salah856/System-Design/refs/heads/main/Design%20Rate%20Limiter.md
 - https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers
+- https://datatracker.ietf.org/doc/html/rfc2475 - Differentiated Services: traffic conditioning, policing, shaping
+- https://www.cisco.com/c/en/us/support/docs/quality-of-service-qos/qos-policing/19645-policevsshape.html
 
 ## Rate Limiter
 
@@ -75,6 +77,14 @@ Request -> Auth
   - Sliding window log：最精确，存储成本最高。
   - Sliding window counter：精度和成本折中，工程上常用。
   - Exponential backoff：不是服务端限流计数算法，而是超限/失败后的重试退避策略，常与 `429`、`Retry-After`、queue、client SDK 配合。
+
+### 与 QoS 的关系
+
+- Rate limiter 在应用层通常更接近 `traffic policing`：超限后立即拒绝、降级或返回 `429` / `Retry-After`。
+- 如果 limiter 支持 queue、等待、调度、backpressure，则开始承担 `traffic shaping` 角色：把突发流量延迟释放为更平滑的输出。
+- Token bucket 常作为 policing 和 shaping 的 meter：token 不足时，policer 拒绝/降级，shaper 等待/排队。
+- Leaky bucket 更接近 shaping：强调稳定输出速率。
+- 详细概念见 [Design QoS](./design-qos.md#traffic-policing-vs-traffic-shaping)。
 
 ### Token Bucket
 

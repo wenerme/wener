@@ -5,29 +5,30 @@ tags:
 
 # Training Glossary
 
-| abbr.    | stand for                                  | meaning          |
-| -------- | ------------------------------------------ | ---------------- |
-| AWR      | Advantage-Weighted Regression              | 优势加权回归     |
-| CPO      | Contextual Policy Optimization             | 上下文策略优化   |
-| DoRA     | Weight-Decomposed Low-Rank Adaptation      | 动态秩适配       |
-| DPO      | Direct Preference Optimization             | 直接偏好优化     |
-| FSDP     | Fully Sharded Data Parallelism             | 完全分片数据并行 |
-| GaLore   | Gated Low-Rank Adaptation                  | 门控低秩适配     |
-| GRPO     | Group Relative Policy Optimization         | 组相对策略优化   |
-| KTO      | Knowledge Transfer Optimization            | 知识迁移优化     |
-| LoftQ    | LoRA-Fine-Tuning-Aware Quantization        | 低秩微调感知量化 |
-| LoRA     | Low-Rank Adaptation                        | 低秩适配         |
-| ORPO     | Online Relative Policy Optimization        | 在线相对策略优化 |
-| P-Tuning | Prompt Tuning                              | 提示微调         |
-| PEFT     | Parameter-Efficient Fine-Tuning            | 仅微调部分参数   |
-| PPO      | Proximal Policy Optimization               | 近端策略优化     |
-| QLoRA    | Quantized LoRA                             | 量化低秩适配     |
-| ReFT     | Recurrent Fine-Tuning                      | 递归微调         |
-| RLHF     | Reinforcement Learning from Human Feedback | 人类反馈强化学习 |
-| RS-LoRA  | Rank-Stabilized LoRA                       | 稳定秩低秩适配   |
-| RSLORA   | Rank-Stabilized LoRA                       | 稳定秩低秩适配   |
-| SFT      | Supervised Fine-Tuning                     | 监督微调         |
-| SimPO    | Similarity Policy Optimization             | 相似性策略优化   |
+| abbr.    | stand for                                  | meaning            |
+| -------- | ------------------------------------------ | ------------------ |
+| AWR      | Advantage-Weighted Regression              | 优势加权回归       |
+| CPO      | Contextual Policy Optimization             | 上下文策略优化     |
+| DoRA     | Weight-Decomposed Low-Rank Adaptation      | 动态秩适配         |
+| DPO      | Direct Preference Optimization             | 直接偏好优化       |
+| FSDP     | Fully Sharded Data Parallelism             | 完全分片数据并行   |
+| GaLore   | Gated Low-Rank Adaptation                  | 门控低秩适配       |
+| GRPO     | Group Relative Policy Optimization         | 组相对策略优化     |
+| KTO      | Knowledge Transfer Optimization            | 知识迁移优化       |
+| LoftQ    | LoRA-Fine-Tuning-Aware Quantization        | 低秩微调感知量化   |
+| LoRA     | Low-Rank Adaptation                        | 低秩适配           |
+| ORPO     | Online Relative Policy Optimization        | 在线相对策略优化   |
+| P-Tuning | Prompt Tuning                              | 提示微调           |
+| PEFT     | Parameter-Efficient Fine-Tuning            | 仅微调部分参数     |
+| PPO      | Proximal Policy Optimization               | 近端策略优化       |
+| QLoRA    | Quantized LoRA                             | 量化低秩适配       |
+| ReFT     | Recurrent Fine-Tuning                      | 递归微调           |
+| RLHF     | Reinforcement Learning from Human Feedback | 人类反馈强化学习   |
+| RS-LoRA  | Rank-Stabilized LoRA                       | 稳定秩低秩适配     |
+| RSLORA   | Rank-Stabilized LoRA                       | 稳定秩低秩适配     |
+| SFT      | Supervised Fine-Tuning                     | 监督微调           |
+| SimPO    | Similarity Policy Optimization             | 相似性策略优化     |
+| DDP      | Distributed Data Parallel                  | 分布式数据并行训练 |
 
 | en                                 | cn           |
 | ---------------------------------- | ------------ |

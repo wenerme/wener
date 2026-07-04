@@ -92,6 +92,8 @@ tags:
 - Tunnel
   - [ginuerzh/gost](https://github.com/ginuerzh/gost)
   - kcp
+- [3proxy/3proxy](https://github.com/3proxy/3proxy)
+  - BSD, C
 - [quic-go/masque-go](https://github.com/quic-go/masque-go)
   - MIT, Go
   - MASQUE: Proxying UDP in HTTP/3, RFC 9298
