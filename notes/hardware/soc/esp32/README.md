@@ -4,6 +4,11 @@ title: ESP32
 
 # ESP32
 
+module | desc
+---|---
+ESP32、ESP32-S2、ESP32-S3、ESP32-C3、ESP32-C6、ESP32-H2
+
+
 - 2016 年
 - 参考
   - [ESP32 C3](https://www.espressif.com/en/news/ESP32_C3)

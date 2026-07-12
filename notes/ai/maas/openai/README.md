@@ -10,6 +10,9 @@ title: OpenAI MaaS API
   - <https://www.openresponses.org/>
 - OpenAI compatible servers
   - vLLM: <https://docs.vllm.ai/en/v0.10.2/api/vllm/entrypoints/openai/serving_completion.html>
+- Tools
+  - apply_patch https://developers.openai.com/api/docs/guides/tools-apply-patch
+    - https://github.com/code-yeongyu/pi-apply-patch
 
 ## Chat / Responses
 
@@ -19,7 +22,7 @@ title: OpenAI MaaS API
 
 ## Streaming
 
-- OpenAI streaming 细节见 [sse](./sse.md)。
+- OpenAI streaming 细节见 [sse](../spec/sse.md)。
 
 ## ToolChoice
 
@@ -68,7 +71,7 @@ title: OpenAI MaaS API
 
 ## Prompt caching
 
-- OpenAI prompt cache 细节见 [cache](./cache.md)。
+- OpenAI prompt cache 细节见 [cache](../spec/cache.md)。
 - 参考
   - <https://platform.openai.com/docs/guides/prompt-caching>
   - <https://developers.openai.com/api/docs/guides/prompt-caching>

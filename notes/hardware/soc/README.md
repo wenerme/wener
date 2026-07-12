@@ -8,6 +8,8 @@ tags:
 
 # System on Chip (SoC)
 
+- https://github.com/micropython/micropython
+
 ## Wireless SoCs (Espressif)
 
 - [ESP32](./esp32/README.md)

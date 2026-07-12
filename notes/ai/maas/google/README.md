@@ -4,6 +4,13 @@ title: Google MaaS API
 
 # Google MaaS API
 
+- google-generative-ai - Gemini Developer API / AI Studio API
+  - generativelanguage.googleapis.com
+  - API key
+- google-vertex - Vertex AI / Google Cloud IAM / Gemini Enterprise Agent Platform API
+  - Google Cloud IAM/ADC
+  - VPC-SC、region、IAM、enterprise governance
+
 ## Gemini API
 
 - Google Generative AI API
@@ -65,7 +72,7 @@ title: Google MaaS API
 
 ## Cache
 
-- Gemini cache 细节见 [cache](./cache.md)。
+- Gemini cache 细节见 [cache](../spec/cache.md)。
 - Google OpenAI API 可通过 extra body 传递 Google 扩展字段。
 
 ```json

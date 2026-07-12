@@ -27,3 +27,24 @@ Model
 | Inference as a Service   | 推理即服务 |
 | Fine-tuning as a Service | 微调即服务 |
 | Foundation Models        | 基础模型   |
+
+## Provider
+
+| provider | for |
+| --- | --- |
+| [OpenAI](./openai/) | Chat Completions、Responses、role、tool choice、reasoning details |
+| [Google](./google/) | Gemini API、Vertex AI、tools、thinking、cache |
+| [Amazon Bedrock](./bedrock/) | Converse / InvokeModel、EventStream、tool use、usage |
+| [Anthropic API](./anthropic/) | Claude Messages API、extended thinking、tool use、cache |
+| [Anthropic Beta](./anthropic.md) | Anthropic beta headers、feature flags、版本能力跟踪 |
+
+## Spec
+
+| topic | for |
+| --- | --- |
+| [MaaS API Spec](./spec/) | 通用 MaaS API 协议设计入口 |
+| [SSE](./spec/sse.md) | Streaming / SSE chunk、usage、abort 行为 |
+| [Usage](./spec/usage.md) | token usage、计费维度、中断计费、异动检测 |
+| [Metrics](./spec/metrics.md) | 观测性指标、labels、dashboard、告警 |
+| [Tool Call](./spec/tool-call.md) | tool calling、tool choice、provider 差异 |
+| [Cache](./spec/cache.md) | prompt cache、最小 token、TTL、usage 字段 |

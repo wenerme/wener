@@ -14,9 +14,10 @@ title: MaaS API Spec
 
 | topic | for |
 | --- | --- |
-| [google](./google.md) | Gemini API、Vertex AI、Google tools / thinking / cache |
-| [anthropic](./anthropic.md) | Claude Messages API、extended thinking、tool use、cache |
-| [openai](./openai.md) | OpenAI Chat / Responses、role、tool choice、reasoning details |
+| [google](../google/) | Gemini API、Vertex AI、Google tools / thinking / cache |
+| [bedrock](../bedrock/) | Amazon Bedrock Converse / InvokeModel、EventStream、tool use、usage |
+| [anthropic](../anthropic/) | Claude Messages API、extended thinking、tool use、cache |
+| [openai](../openai/) | OpenAI Chat / Responses、role、tool choice、reasoning details |
 | [sse](./sse.md) | Streaming / SSE chunk、usage、abort 行为 |
 | [usage](./usage.md) | token usage、计费维度、中断计费、异动检测 |
 | [metrics](./metrics.md) | 观测性指标、labels、dashboard、告警 |

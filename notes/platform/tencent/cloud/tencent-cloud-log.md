@@ -161,6 +161,10 @@ url:""
 response_time:""
 ```
 
+## 区域
+
+- https://cloud.tencent.com/document/product/614/18940
+
 # FAQ
 
 ## LogParseFailure

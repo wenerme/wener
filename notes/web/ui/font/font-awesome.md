@@ -168,6 +168,42 @@ brew install --cask font-maple-mono-nf-cn
 - https://tikolu.net/emojimix/
 - https://joypixels.com/fonts
 
+## Pixel
+
+:::tip
+
+像素字体优先确认授权、目标字号和 CJK 覆盖。Bitmap 字体通常只在设计字号附近最清晰，放大/缩小时容易糊或比例不稳；用于 Web/UI 时优先选有 TTF/OTF/WOFF 的版本。
+
+:::
+
+| 字体 | size | license | 用途 | 说明 |
+| --- | --- | --- | --- | --- |
+| [Cozette] | 6×13 | MIT | 终端 / 编程 | 适合 terminal / editor 的 cozy bitmap programming font，小字号可读性好，也有 vector 版本方便现代系统使用。 |
+| [Terminus] | 6×12、8×14、8×16、10×20 等 | OFL-1.1 | 终端 / 低 DPI 屏 | 老牌 fixed-width bitmap font，面向长时间使用电脑设计，清晰硬朗。 |
+| [Spleen] | 5×8、6×12、8×16、12×24、16×32、32×64 | BSD-2-Clause | 终端 / console / framebuffer | 多尺寸 monospaced bitmap font，提供 BDF、PCF、PSF、OTB、OTF、WOFF/WOFF2 等格式；OpenBSD console 默认字体。 |
+| [Tamzen] / Tamsyn | 5×9、6×12、7×13、8×15、10×20 等 | 自由授权 | 终端 / 极简清晰 | Tamzen 是 Tamsyn 的 fork，面向编程使用，crisp、紧凑，适合 X11 / bitmap 字体环境。 |
+| [scientifica] | 约 4px 宽字符 | OFL-1.1 | 低 DPI / 超紧凑编程 | tall、condensed 的 bitmap font，适合 90–120 DPI 屏和想在小空间显示更多代码的环境。 |
+| [Departure Mono] | 11px increments | OFL-1.1 | 复古科技感终端 / UI | lo-fi technical vibe 的 monospaced pixel font，适合复古命令行、sci-fi UI、展示型 code block。 |
+| [Ark Pixel Font] | 10px、12px、16px | OFL-1.1 / MIT | 小尺寸 UI / 游戏 | 开源泛中日韩像素字体，黑体风格，适合像素游戏 UI、中文界面；项目仍在积极开发，汉字覆盖仍有缺口。 |
+| [Fusion Pixel Font] | 8px、10px、12px | OFL-1.1 / MIT | CJK 小字号过渡方案 | 方舟像素字体的临时性过渡方案，由多个像素字体合并而成，适合需要 8/10/12px 泛中日韩覆盖的场景。 |
+| [Zpix] | 12px | 个人/教育免费，商业需授权 | 中文像素风 | 支持英文、简中、繁中、日文，12px 风格明显，适合中文像素 UI。 |
+| [Vonwaon Bitmap] | 12px、16px | CC0 1.0 | 中文像素游戏 | 中文像素字体，公共领域授权，适合游戏、嵌入式、开源项目。 |
+| [GNU Unifont] | 8×16、16×16 | OFL-1.1 / GPL-2.0+ with font embedding exception | CJK fallback | 覆盖极广的 Unicode 双宽 monochrome font，适合“至少能显示出来”的 fallback 场景。 |
+| [PixelMplus] / JF Dot 系列 | 10px、12px 等 | M+ FONT LICENSE | 复古日系 / 小游戏 | 日文像素字体里常见，适合 RPG、复古 UI、小游戏。 |
+
+[Cozette]: https://github.com/the-moonwitch/Cozette
+[Terminus]: https://terminus-font.sourceforge.net/
+[Spleen]: https://github.com/fcambus/spleen
+[Tamzen]: https://github.com/sunaku/tamzen-font
+[scientifica]: https://github.com/oppiliappan/scientifica
+[Departure Mono]: https://github.com/rektdeckard/departure-mono
+[Ark Pixel Font]: https://github.com/TakWolf/ark-pixel-font
+[Fusion Pixel Font]: https://github.com/TakWolf/fusion-pixel-font
+[Zpix]: https://github.com/SolidZORO/zpix-pixel-font
+[Vonwaon Bitmap]: https://timothyqiu.itch.io/vonwaon-bitmap
+[GNU Unifont]: https://unifoundry.com/unifont/
+[PixelMplus]: https://github.com/nanoeru/fondot/tree/master/PixelMplus-20130602
+
 ## Unicode
 
 - [GNOME/gucharmap](https://gitlab.gnome.org/GNOME/gucharmap)

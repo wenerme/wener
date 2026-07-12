@@ -9,6 +9,29 @@ tags:
 - [Project Flogo](http://www.flogo.io/)
   - [TIBCOSoftware/flogo](https://github.com/TIBCOSoftware/flogo)
   - Open Source Framework for IoT Integration
+- https://github.com/espruino/espruino
+- https://github.com/tinygo-org/tinygo
+  - https://github.com/tinygo-org/espradio
+- [Moddable](https://github.com/Moddable-OpenSource/moddable)
+  - XS JavaScript engine
+- JerryScript
+- https://github.com/micropython/micropython
+  - 更通用、更偏嵌入式 Python
+  - 板子支持更多
+  - 适合 折腾、原型、通用 MCU
+- ESPHome
+- CircuitPython
+  - 更偏教学和创客
+  - Adafruit 生态很好
+  - Adafruit/SAMD/RP2040/ESP32-S
+  - 很多板子插上后像 U 盘
+  - 编辑 code.py 保存就运行
+  - 库管理对新手友好
+  - 新手、传感器、灯、简单项目
+- PlatformIO + Arduino C++
+- ESP-IDF C/C++
+  - 鑫官方框架
+  - https://www.espressif.com.cn/en/products/sdks/esp-idf
 
 ## Platform
 

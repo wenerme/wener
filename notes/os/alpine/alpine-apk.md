@@ -27,6 +27,9 @@ docker run --rm -it wener/base sh -c 'apk update >/dev/null;apk policy musl | se
 # 查看
 zcat lib.apk | tar -vtf
 tar -vtf lib.apk # 一般 tar 支持 gzip
+
+# 查找 无人 维护的
+rg -l --glob APKBUILD '^#\s*Maintainer:\s*$' main community testing | sed 's#^\./##; s#/APKBUILD$##' | sort
 ```
 
 | command      | note                             |

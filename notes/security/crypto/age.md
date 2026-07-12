@@ -13,6 +13,7 @@ title: age
 :::caution
 
 - age 不支持 ssh agent - [age#244](https://github.com/FiloSottile/age/discussions/244)
+  - 你为 ssh agent 只有 sign 的能力
 
 :::
 
@@ -32,6 +33,9 @@ age --decrypt -i key.txt data.tar.gz.age > data.tar.gz
 
 age -R ~/.ssh/id_ed25519.pub example.jpg > example.jpg.age # 使用 SSH pubkey 加密
 age -d -i ~/.ssh/id_ed25519 example.jpg.age > example.jpg  # 使用 SSH private key 解密
+
+# 可以直接加密给某个用户
+curl https://github.com/wenerme.keys | age -R - example.jpg > example.jpg.age
 ```
 
 

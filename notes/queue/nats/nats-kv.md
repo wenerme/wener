@@ -21,6 +21,14 @@ title: KV
   - $KV.CONFIGURATION.auth.username
     - io.nats.jetstream.api.v1.stream_msg_get_request
 
+| kv store | nats             |
+| -------- | ---------------- |
+| bucket   | JetStream stream |
+| key      | subject          |
+| value    | message payload  |
+| revision | stream sequence  |
+
+
 ```bash
 nats kv
 ```

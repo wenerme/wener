@@ -37,7 +37,7 @@ title: Anthropic MaaS API
 
 ## Prompt caching
 
-- Anthropic prompt cache 细节见 [cache](./cache.md)。
+- Anthropic prompt cache 细节见 [cache](../spec/cache.md)。
 - 参考：<https://platform.claude.com/docs/en/build-with-claude/prompt-caching>
 
 ## 错误码
