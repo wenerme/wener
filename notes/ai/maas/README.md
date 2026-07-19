@@ -33,10 +33,10 @@ Model
 | provider | for |
 | --- | --- |
 | [OpenAI](./openai/) | Chat Completions、Responses、role、tool choice、reasoning details |
-| [Google](./google/) | Gemini API、Vertex AI、tools、thinking、cache |
+| [Gemini](./gemini/) | Gemini Developer API、Generative Language API、tools、thinking、cache |
+| [Vertex AI](./vertex/) | Vertex PredictionService、Gemini publisher models、partner models |
 | [Amazon Bedrock](./bedrock/) | Converse / InvokeModel、EventStream、tool use、usage |
-| [Anthropic API](./anthropic/) | Claude Messages API、extended thinking、tool use、cache |
-| [Anthropic Beta](./anthropic.md) | Anthropic beta headers、feature flags、版本能力跟踪 |
+| [Anthropic API](./anthropic/) | Claude Messages API、thinking、tool use、cache、beta flags、FAQ |
 
 ## Spec
 

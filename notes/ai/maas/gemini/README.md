@@ -1,15 +1,12 @@
 ---
-title: Google MaaS API
+title: Gemini API
 ---
 
-# Google MaaS API
+# Gemini API
 
-- google-generative-ai - Gemini Developer API / AI Studio API
+- Gemini Developer API / Google AI Studio API
   - generativelanguage.googleapis.com
   - API key
-- google-vertex - Vertex AI / Google Cloud IAM / Gemini Enterprise Agent Platform API
-  - Google Cloud IAM/ADC
-  - VPC-SC、region、IAM、enterprise governance
 
 ## Gemini API
 
@@ -22,13 +19,16 @@ title: Google MaaS API
   - `/models/{model_id}:streamGenerateContent`
   - `/models/{model_id}:generateContent?key={key}`
 
-## Vertex AI
+## Protocol
 
-- Google Vertex AI
-  - GCP 企业级、全托管机器学习平台
-  - Model Garden + MLOps
-- Provider / partner models
-  - <https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-partner-models>
+- 上游：[googleapis/googleapis](https://github.com/googleapis/googleapis/tree/master/google/ai/generativelanguage)
+- Proto package：`google.ai.generativelanguage.*`
+- Default host：`generativelanguage.googleapis.com`
+- 本地导出：`just proto`
+- 默认固定 googleapis commit `69d78666e1c3b7c3b4f9d229550754c148638f98`；更新时可执行 `GOOGLEAPIS_REF=branch=master just proto`，核对后再更新默认 commit。
+- 输出：`proto/google/ai/generativelanguage/` 及递归 import 依赖。
+- 当前主要关注 `v1`、`v1beta`；导出同时保留 `v1alpha`、`v1beta2`、`v1beta3` 等历史协议，便于兼容性对照。
+- 各版本的 service/message 集合并不完全相同。
 
 ## Tools
 

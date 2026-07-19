@@ -4,6 +4,10 @@ title: Amazon Bedrock MaaS API
 
 # Amazon Bedrock MaaS API
 
+- API models：见 [Smithy Models](#smithy-models)。
+- 本地提取：`just models`
+- 输出：`models/*bedrock*/service/*/*.json`
+
 - InvokeModel / InvokeModelWithResponseStream
   - 适合单次调用、模型原生 body、大 payload、非消息型/特殊模型
 - Converse / ConverseStream
@@ -18,6 +22,38 @@ title: Amazon Bedrock MaaS API
   - <https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-eventstream.html>
 - Amazon Event Stream
   - <https://smithy.io/2.0/aws/amazon-eventstream.html>
+
+## Smithy Models
+
+- 上游格式：[Smithy JSON AST](https://smithy.io/2.0/spec/json-ast.html)
+- 默认固定 `api-models-aws` commit `61d7b25d8cc390475a1d3c566f2aef108b9c44af`。
+- 更新时可执行 `AWS_API_MODELS_REF=branch=main just models`，核对 diff 后再更新默认 commit。
+- 每个 JSON 文件是自包含 Smithy service model；按服务需要包含 operation、resource、structure、union、streaming/event stream 和 protocol traits。
+
+| Model directory | SDK ID | Version | Operations | 定位 |
+| --- | --- | --- | ---: | --- |
+| `bedrock-runtime` | Bedrock Runtime | 2023-09-30 | 11 | MaaS 推理主路径：Converse、InvokeModel、CountTokens、async invoke |
+| `bedrock` | Bedrock | 2023-04-20 | 108 | Foundation model、custom model、guardrail、evaluation 等 control plane |
+| `bedrock-agent-runtime` | Bedrock Agent Runtime | 2023-07-26 | 33 | Agent、knowledge base、flow runtime |
+| `bedrock-agent` | Bedrock Agent | 2023-06-05 | 75 | Agent、knowledge base、prompt、flow control plane |
+| `bedrock-agentcore` | Bedrock AgentCore | 2024-02-28 | 65 | AgentCore runtime、memory、gateway、code interpreter 等 |
+| `bedrock-agentcore-control` | Bedrock AgentCore Control | 2023-06-05 | 153 | AgentCore control plane |
+| `bedrock-data-automation-runtime` | Bedrock Data Automation Runtime | 2024-06-13 | 6 | Data Automation invocation/runtime |
+| `bedrock-data-automation` | Bedrock Data Automation | 2023-07-26 | 27 | Data Automation project/blueprint control plane |
+
+### Bedrock Runtime Operations
+
+- Model inference
+  - `Converse` / `ConverseStream`
+  - `InvokeModel` / `InvokeModelWithResponseStream`
+  - `InvokeModelWithBidirectionalStream`
+- Token/guardrail
+  - `CountTokens`
+  - `ApplyGuardrail` / `InvokeGuardrailChecks`
+- Async
+  - `StartAsyncInvoke` / `GetAsyncInvoke` / `ListAsyncInvokes`
+
+Smithy operation 的 HTTP URI、input/output shape、error、streaming/eventstream trait 才是生成 SDK 和实现 codec 的接口合同；README 的手工总结只作为导航。
 
 ## Runtime API
 
@@ -260,3 +296,9 @@ Bedrock `Converse` / `ConverseStream` 常见 usage 字段：
 - eventstream CRC 错误应终止 stream，不应继续解析 payload。
 - `InvokeModel*` 原生接口的 body schema 和 event chunk 内容由模型决定，不应强行套 Converse schema。
 - Bedrock 的跨区域 inference profile、guardrail、performance config、request metadata 都属于网关路由和审计层需要保留的信息。
+
+## 参考
+
+- [aws/api-models-aws](https://github.com/aws/api-models-aws)
+  - Apache-2.0, Smithy JSON AST
+  - AWS SDK/CLI 的 public service interface definitions；仓库内容由上游自动生成，不是手写 REST/OpenAPI 文档。

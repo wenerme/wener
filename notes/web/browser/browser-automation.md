@@ -1,6 +1,0 @@
----
-tags:
-- Automation
----
-
-# Browser Automation

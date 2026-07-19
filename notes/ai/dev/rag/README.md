@@ -47,6 +47,19 @@ title: RAG
 
 ## Awesome
 
+- Dify
+- FastGPT
+- Haystack
+  - 显式 pipeline contract
+- LlamaIndex
+  - 数据、索引和查询策略
+- LangChain
+  - provider/agent 生态
+- Onyx
+- Flowise
+- DSPy
+  - 优化层
+- Pathway
 - [chonkie-inc/chonkie](https://github.com/chonkie-inc/chonkie)
   - MIT, Python
   - RAG chunking library
@@ -54,6 +67,46 @@ title: RAG
   - MIT, Python
   - vector database, graph-based selective recomputation, high-degree preserving pruning, CSR/Compressed Sparse Row
   - 内置了对 PDF, Markdown, 微信/iMessage 聊天记录、浏览器历史的解析
+- GraphRAG
+  - lexical + dense + RRF + rerank baseline
+- LightRAG
+- Graphiti
+- KAG
+- Parsing/解析
+  - Docling
+  - PaddleOCR
+  - MinerU
+  - Marker
+- 存储
+  - PostgreSQL
+  - Qdrant
+  - Milvus
+  - Vespa
+    - 复杂 ranking
+- 评测/离线评测
+  - Ragas
+  - DeepEval
+- Benchmark
+  - BEIR - 检索
+  - MTEB - 检索
+  - RAGTruth - hallucination
+  - RAGBench - evaluator
+  - KILT - provenance
+- Trace/在线跟踪/实验
+  - Langfuse
+  - Opik
+  - Phoenix
+- Promptfoo
+
+```
+Docling / PaddleOCR
+-> structured document + page/region provenance
+-> PostgreSQL FTS + pgvector / Qdrant
+-> lexical + dense + RRF
+-> BGE / Qwen3 candidate + reranker
+-> thin Haystack / LlamaIndex pipeline
+-> Ragas / DeepEval + Langfuse / Opik / Phoenix + Promptfoo
+```
 
 ## Datasource
 

@@ -122,7 +122,47 @@ local/
 - 定期回顾和更新配置设置
 - 实施模块化设计原则
 
+---
+
+- Goal / Spec - 控制目标和思想
+- DESIGN.md - 保存系统模型
+- Sandbox / Hooks - 控制能力边界
+- Tests / Oracle - 验证行为
+- Review - 查找设计与实现缺口
+- Verify - 证明真实路径成立
+- Diff identity - 保证证据没有过期
+- CI / Human gate - 控制最终交付
+
+## Control the ideas, not the code
+
+人应该拥有软件的思想、模型和不变量，而不是执着于拥有每一行代码。
+
+- DESIGN.md 记录核设计思想、技巧、目标、边界
+- 代码已经不再是唯一的知识载体
+  - 很多关键设计只隐含在代码中，这本来就是软件工程长期存在的问题。AI 让代码生成速度提升后，这个问题更加明显。
+- 逐行 Review 无法随生成速度扩展
+  - 当 Agent 每天产生几千行变更时，人类不可能继续采用传统的等比例审查方式。
+- 设计、模型和 QA 的杠杆更高
+  - 人花一个小时发现错误的数据模型，可能避免 Agent 生成几万行错误实现；花一个小时修改代码风格，通常没有同等价值。
+- DESIGN.md 会变得更重要
+  - 这和我们刚才研究的“human rationale + machine-readable contract”一致。它既帮助人建立 mental model，也给 Agent 提供高质量设计上下文。
+- 年轻开发者不能只学 Review AI 输出
+  - 通过实现解释器、数据库、Hash Table 等小型系统建立基础能力。
+- https://antirez.com/news/169
+
+```
+设计成为主要的人类知识界面
+代码成为 Agent 可维护的执行产物
+测试和验证证明行为
+风险决定人工需要深入到哪一层
+```
+
 ## 参考
+
+```
+Code is cheap. Understanding is expensive.
+You own the thinking, not the typing.
+```
 
 - 2025-11 Claude Opus 4.5 标志着 AI Codeing Agent 从 Copilot -> Coworker 的转变
 - Time to Edit (TTE)

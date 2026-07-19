@@ -8,6 +8,8 @@ tags:
 # Codex
 
 - [openai/codex](httpss://github.com/openai/codex)
+- 参考
+  - https://help.openai.com/en/articles/20001106-codex-rate-card
 
 ```bash
 npm i -g @openai/codex
@@ -16,7 +18,7 @@ brew install codex
 codex --version
 
 # OPENAI_API_KEY 第一次会写入 auth.json ，之后需要修改 auth.json
-OPENAI_BASE_URL=https://api.openai.com/v1 OPENAI_API_KEY=<openai-api-key> codex --model deepseek-v3.2-exp
+OPENAI_BASE_URL=https://api.openai.com/v1 OPENAI_API_KEY= < openai-api-key > codex --model deepseek-v3.2-exp
 
 # 使用自定义 provider，环境变量定义 env_key
 MY_PROVIDER_KEY=xyz codex
@@ -174,3 +176,9 @@ wire_api = "responses"
 | `grep_files`       | 搜索文件内容                  |
 | `read_file`        | 读取文件                      |
 | `list_dir`         | 列出目录                      |
+
+## alpha/search
+
+- POST /v1/alpha/search
+- POST /alpha/search
+- POST /backend-api/codex/alpha/search

@@ -233,3 +233,18 @@ uv tool install honcho-cli
 ```
 
 - sessionStrategy
+
+## message embedding
+
+- 每一条消息生成向量
+- EMBED_MESSAGES=false
+- 关闭不影响 explicit Conclusion、curated memory、Document 的 embedding
+- 性能依赖 HNSW
+
+```
+curated memory
+  -> Embeding
+  -> client 截取 MRL 前 1024d
+  -> L2 normalize
+  -> vector(1024) / HNSW
+```

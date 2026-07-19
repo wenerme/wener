@@ -168,7 +168,7 @@ tags:
 - LeakyReLU - Leaky Rectified Linear Unit - 泄漏整流线性单元
 - BatchNorm2d - 2D Batch Normalization - 2D 批量归一化
 - Sigmoid - Sigmoid Activation Function - Sigmoid 激活函数
-- ReLU - Rectified Linear Unit - 线性整流单元
+- [ReLU](./relu.md) - Rectified Linear Unit - 线性整流单元
 - ConvTranspose2d - 2D Transposed Convolution Layer - 2D 转置卷积层
 - Accelerator
 - 参考

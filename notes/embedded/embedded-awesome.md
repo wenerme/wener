@@ -32,6 +32,7 @@ tags:
 - ESP-IDF C/C++
   - 鑫官方框架
   - https://www.espressif.com.cn/en/products/sdks/esp-idf
+- LVGL
 
 ## Platform
 
