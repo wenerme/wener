@@ -41,6 +41,7 @@ tags:
   - go fmt
   - clang fmt
   - [diffplug/spotless](https://github.com/diffplug/spotless)
+  - [google/yamlfmt](https://github.com/google/yamlfmt)
 - lint
   - eslint
   - go vet

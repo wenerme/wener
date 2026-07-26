@@ -37,3 +37,25 @@ ETag: "<etag_value>"
   - Connection 可以指定额外的 hop-by-hop header
     - `Connection: X-Foo`
     - 代理转发到后端前应该删除它
+
+## Idempotency-Key
+
+- https://www.ietf.org/archive/id/draft-ietf-httpapi-idempotency-key-header-07.html
+- 相同 Key 的原请求仍在执行 409 Conflict
+- 相同 Key 但请求内容不同 422 Unprocessable Content
+- adopted by
+  - Stripe
+  - Adyen
+  - OpenAI
+  - Integrated Finance
+    - X-Idempotency-Status: processed|replayed
+  - Worldpay
+    - Idempotency-Status
+- Alternative
+  - PayPal - PayPal-Request-Id
+  - AWS - ClientToken, ClientRequestToken
+- Cache TTL
+  - 普通内部 API、短暂网络重试 1-6h
+  - 常规公共 API 24h
+  - 支付、下单、不可逆操作 24-72h
+  - Idempotency-Key → resource_id / operation_id

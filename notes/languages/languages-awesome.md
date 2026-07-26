@@ -11,6 +11,7 @@ tags:
   - Application Language
   - Script Language
   - DSL
+  - IR
 - Template/General
   - [mustache](./template/mustache.md)
     - Logic-less, 最安全
@@ -235,3 +236,21 @@ tags:
 - Asciidoc
 - DITA
 - GTFO
+
+## IR
+
+- LLVM IR
+- [vnmakarov/mir](https://github.com/vnmakarov/mir)
+  - MIT, C
+- MLIR - Multi-Level IR
+- Cranelift
+  - Wasmtime
+- QBE IL
+- GIMPLE - GCC
+- RTL - Register Transfer Language
+  - GCC
+- Rust MIR
+  - Borrow Checker
+- Swift SIL
+- SPIR-V
+- WebAssembly

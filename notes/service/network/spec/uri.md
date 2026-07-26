@@ -5,6 +5,10 @@ tags:
 
 # URI
 
+- URI - Uniform Resource Identifier
+  - -> URL, URN
+  - Scheme + Resource Identifier
+  - [rfc3986](https://datatracker.ietf.org/doc/html/rfc3986)
 - URL - Uniform Resource Locator
   - URI > URL & URN
   - [List of URI schemes](https://en.wikipedia.org/wiki/List_of_URI_schemes)
@@ -16,9 +20,7 @@ tags:
   - NID - Namespace Identifier
   - NSS - Namespace Specific String
   - [rfc2141](https://datatracker.ietf.org/doc/html/rfc2141)
-- URI - Uniform Resource Identifier
-  - Scheme + Resource Identifier
-  - [rfc3986](https://datatracker.ietf.org/doc/html/rfc3986)
+  - https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml
 
 ## URL
 

@@ -107,19 +107,41 @@ title: 字典
 
 ## 日期 {#date}
 
+**星球**
+
+| en      | cn     |
+| ------- | ------ |
+| Sun     | 太阳   |
+| Moon    | 月亮   |
+| Mercury | 水星   |
+| Venus   | 金星   |
+| Earth   | 地球   |
+| Mars    | 火星   |
+| Jupiter | 木星   |
+| Saturn  | 土星   |
+| Uranus  | 天王星 |
+| Neptune | 海王星 |
+
 **星期**
 
-| abbr | en        | cn     |
-| ---- | --------- | ------ |
-| Sun  | Sunday    | 星期日 |
-| Mon  | Monday    | 星期一 |
-| Tue  | Tuesday   | 星期二 |
-| Wed  | Wednesday | 星期三 |
-| Thu  | Thursday  | 星期四 |
-| Fri  | Friday    | 星期五 |
-| Sat  | Saturday  | 星期六 |
+| abbr | en        | cn     | means |
+| ---- | --------- | ------ | ----- |
+| Sun  | Sunday    | 星期日 | 太阳  |
+| Mon  | Monday    | 星期一 | 月亮  |
+| Tue  | Tuesday   | 星期二 | 火星  |
+| Wed  | Wednesday | 星期三 | 水星  |
+| Thu  | Thursday  | 星期四 | 木星  |
+| Fri  | Friday    | 星期五 | 金星  |
+| Sat  | Saturday  | 星期六 | 土星  |
 |      | Weekend   | 周末   |
 |      | Weekday   | 工作日 |
+
+| 星期      | 英文词源    | 日耳曼／北欧神祇                               | 对应罗马神               |
+| --------- | ----------- | ---------------------------------------------- | ------------------------ |
+| Tuesday   | Tiw’s day   | **Tiw / Týr（提尔）**，战争与法律之神          | Mars（火星／战神玛尔斯） |
+| Wednesday | Woden’s day | **Woden / Odin（沃登／奥丁）**，智慧与魔法之神 | Mercury（水星／墨丘利）  |
+| Thursday  | Thor’s day  | **Thor（索尔／雷神）**                         | Jupiter（木星／朱庇特）  |
+| Friday    | Frigg’s day | **Frigg（弗丽嘉）**，婚姻与家庭女神            | Venus（金星／维纳斯）    |
 
 **月份**
 

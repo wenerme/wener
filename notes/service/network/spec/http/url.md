@@ -4,6 +4,11 @@ title: URL
 
 # URL
 
+```
+https://example.com/products/123?q=hello#details
+└─scheme ──host───────path────── query ─fragment
+```
+
 - 安全字符 / URL Safe characters
 - unreserved / 未保留字符
 - 安全字符 - `[0-9a-zA-Z-._~]`

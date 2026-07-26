@@ -1,5 +1,7 @@
 ---
 title: RAG
+tags:
+  - Awesome
 ---
 
 # RAG
@@ -106,6 +108,24 @@ Docling / PaddleOCR
 -> BGE / Qwen3 candidate + reranker
 -> thin Haystack / LlamaIndex pipeline
 -> Ragas / DeepEval + Langfuse / Opik / Phoenix + Promptfoo
+```
+
+## Code RAG
+
+- Code Intelligence RAG
+- CodeGraph
+- CocoIndex
+
+```
+repo / commit / worktree
+-> syntax
+-> symbol identity
+-> definition / reference / implementation
+-> call / import / type / dependency graph
+-> lexical / structural / semantic retrieval
+-> freshness-aware context assembly
+-> repo@revision:path:span evidence
+-> agent reasoning / edit / test
 ```
 
 ## Datasource

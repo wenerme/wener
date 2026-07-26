@@ -36,6 +36,7 @@ Model
 | [Gemini](./gemini/) | Gemini Developer API、Generative Language API、tools、thinking、cache |
 | [Vertex AI](./vertex/) | Vertex PredictionService、Gemini publisher models、partner models |
 | [Amazon Bedrock](./bedrock/) | Converse / InvokeModel、EventStream、tool use、usage |
+| [Microsoft Foundry](./foundry/) | Project API、OpenAI v1、Foundry Models、TypeSpec/OpenAPI |
 | [Anthropic API](./anthropic/) | Claude Messages API、thinking、tool use、cache、beta flags、FAQ |
 
 ## Spec

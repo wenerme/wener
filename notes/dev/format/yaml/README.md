@@ -8,6 +8,13 @@ title: YAML
   - https://yaml.org/
   - https://yaml.org/spec/1.2.2/
     - 2021-10-01
+- 参考
+  - https://kubernetes.io/docs/reference/encodings/kyaml/
+    - a safer and less ambiguous subset of YAML
+    - Kubernetes v1.34+
+    - 要求 `{}`, `[]` 和 双引号
+    - 接近 JSON
+    - `kubectl get -o kyaml svc hostnames`
 
 ```yaml
 # "1 2"

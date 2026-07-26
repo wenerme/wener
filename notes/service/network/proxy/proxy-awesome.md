@@ -584,6 +584,7 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - AdGuard DNS filter
 - [peiyingyao/Rule-for-OCD](https://github.com/peiyingyao/Rule-for-OCD)
   - Rules for OCD
+- https://github.com/Yu9191/wloc
 
 # Game
 

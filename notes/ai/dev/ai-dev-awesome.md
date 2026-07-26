@@ -108,6 +108,8 @@ tags:
     - Apache-2.0, Go
   - [QuantumNous/new-api](https://github.com/QuantumNous/new-api)
     - AGPLv3, Go
+  - [router-for-me/CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)
+    - MIT, Go
   - [maximhq/bifrost](https://github.com/maximhq/bifrost)
     - Apache-2.0, Go, Typescript
   - [Portkey-AI/gateway](https://github.com/Portkey-AI/gateway)
@@ -250,6 +252,13 @@ tags:
   - Task Oriented
   - Creative
   - Collaborative
+- [nullclaw/nullclaw](https://github.com/nullclaw/nullclaw)
+  - MIT, Zig
+- [zeroclaw-labs/zeroclaw](https://github.com/zeroclaw-labs/zeroclaw)
+  - Apache-2.0, Rust
+- [sipeed/picoclaw](https://github.com/sipeed/picoclaw)
+  - MIT, Go
+
 
 ---
 

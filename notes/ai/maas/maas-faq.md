@@ -318,6 +318,8 @@ This content was flagged for possible cybersecurity risk. If this seems wrong, t
 
 
 this model has beta-limitations, temperature, top_p and n are fixed at 1, while presence_penalty and frequency_penalty are fixed at 0
+
+All credentials for model gpt-5.6-sol are cooling down via provider codex
 ```
 
 **Codex**
