@@ -22,8 +22,7 @@ title: DuckDB
 :::
 
 ```bash
-# by Homebre
-brew install duckdb
+brew install duckdb # by macOS Homebrew
 # by Download
 curl -LO https://echo.wener.cc/github.com/duckdb/duckdb/releases/download/v0.8.0/duckdb_cli-osx-universal.zip
 unzip duckdb_cli-osx-universal.zip

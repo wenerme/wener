@@ -117,3 +117,5 @@ aws s3api put-bucket-policy --bucket your-bucket-name --policy file://public-rea
 # 5. 或者设置 ACL
 aws s3api put-bucket-acl --bucket your-bucket-name --acl public-read --endpoint-url $AWS_ENDPOINT_URL
 ```
+
+# FAQ

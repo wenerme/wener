@@ -17,6 +17,18 @@ title: AV1
   - Scalable Video Technology for AV1
   - 会比 libaom 快
 - librav1e - Xiph encoder for AV1
+- Decoding
+  - 2022+ 的设备基本都没问题了
+- 参考
+  - https://jellywatch.app/blog/av1-codec-jellyfin-future-streaming-encode-decode-2026
+
+| Hardware             | AV1 Encoding    |
+| -------------------- | --------------- |
+| Apple M3+            | VideoToolbox    |
+| Intel Arc A-series   | quality debated |
+| Intel 12th Gen+ iGPU | Limited         |
+| NVIDIA RTX 40-series | NVENC AV1       |
+| AMD RX 7000-series   | AMF AV1         |
 
 ```bash
 ffmpeg -h encoder=libaom-av1

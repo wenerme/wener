@@ -46,6 +46,15 @@ tags:
 | `__TAG__`          |
 | `__CONTENT__`      |
 
+```
+LogsetId   日志集：管理分类，不存日志
+TopicId    日志主题：日志采集、存储、检索的基本单元
+BTime
+LogGroup
+PkgId
+PkgLogId
+```
+
 **CQL**
 
 ```

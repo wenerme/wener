@@ -16,15 +16,18 @@ winget install --id astral-sh.uv --source winget --accept-source-agreements --ac
 winget upgrade --all --accept-source-agreements --accept-package-agreements
 ```
 
-| id                       | app    | source         | notes |
-| ------------------------ | ------ | -------------- | ----- |
-| Tencent.WeCom            |        | winget,msstore |
-| Tencent.WeChat           |        | winget,msstore |
-| Tencent.WeChat.Universal |        | winget,msstore | 4.x   |
-| Zellij.Zellij            | zellij |
-| Git.Git                  | git    |
-| bufbuild.buf             | buf    |
-| SQLite.SQLite            | sqlite |
+| id                       | cmd       | source         | notes |
+| ------------------------ | --------- | -------------- | ----- |
+| Tencent.WeCom            |           | winget,msstore |
+| Tencent.WeChat           |           | winget,msstore |
+| Tencent.WeChat.Universal |           | winget,msstore | 4.x   |
+| Zellij.Zellij            | zellij    |
+| Git.Git                  | git       |
+| bufbuild.buf             | buf       |
+| SQLite.SQLite            | sqlite    |
+| zyedidia.micro           | micro     |
+| Fastfetch-cli.Fastfetch  | fastfetch |
+| aristocratos.btop4win    | btop      |
 
 # FAQ
 

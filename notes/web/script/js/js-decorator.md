@@ -31,7 +31,7 @@ title: Decorator
   - accessor
 - `Symbol.annotations`
 - 参考
-  - [proposal-decorator-metadata](github.com/tc39/proposal-decorator-metadata)
+  - [proposal-decorator-metadata](https://github.com/tc39/proposal-decorator-metadata)
     - TS 5.2
     - 元数据
     - Symbol.metadata

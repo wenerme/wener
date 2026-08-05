@@ -25,6 +25,9 @@ runas /user:Administrator "cmd.exe"
 
 # PS
 Start-Process cmd -Verb RunAs
+
+quser
+query session
 ```
 
 - gsudo
