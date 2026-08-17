@@ -4,18 +4,48 @@ title: ESP32
 
 # ESP32
 
-module | desc
----|---
-ESP32、ESP32-S2、ESP32-S3、ESP32-C3、ESP32-C6、ESP32-H2
+| model         | notes               |
+| ------------- | ------------------- |
+| ESP32-C3      |
+| ESP32-C3FN4   | EOL                 |
+| ESP32-C3FH4   |
+| ESP32-C3FH4AZ | NRND                |
+| ESP32-C3FH4X  |                     |
+| ESP32-C3FH8X  |
+| ESP32-S3      |
+| ESP32-S3FN8   |
+| ESP32-S3RH2   |
+| ESP32-S3R8    |
+| ESP32-S3R16V  |
+| ESP32-S3FH4R2 |
+| ESP32-S3R8V   | EOL                 |
+| ESP32-S3R2    | EOL, -> ESP32-S3RH2 |
 
+```
+ESP32-C3  - 芯片系列
+F         - 封装
+H/N       - 温度 - H 高温 -40 ∼ 105  / N 正常 -40 ∼ 85/65
+8         - Flash 大小, MB
+R         - PSRAM
+H         - PSRAM 温度, H 高温
+16        - PSRAM 大小, MB
+AZ        - 其他标志
+X         - 芯片版本
+```
 
+- NRDN - 不推荐用于新设计
+- QFN32 - `5*5`
 - 2016 年
 - 参考
+  - https://documentation.espressif.com/
   - [ESP32 C3](https://www.espressif.com/en/news/ESP32_C3)
     - RISC-V MCU, Wi-Fi, BLE 5
   - [ESP32-C5](https://www.espressif.com.cn/en/news/ESP32-C5)
     - dual-band Wi-Fi 6 - 802.11b/g/n/ax
     - BLE
+- Datasheet
+  - https://documentation.espressif.com/esp32-c3_datasheet_cn.pdf
+  - https://documentation.espressif.com/esp32-s3_datasheet_cn.pdf
 
 ## 特性
 

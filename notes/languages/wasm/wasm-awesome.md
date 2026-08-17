@@ -123,6 +123,10 @@ tags:
   - Apache-2, Rust
   - developer tool for building and running serverless applications
 - [renderlet/wander](https://github.com/renderlet/wander)
+- Applications
+  - https://github.com/Vanilagy/turbores
+    - fast WASM Apple ProRes video decoder
+  - pglite
 
 ## JS
 

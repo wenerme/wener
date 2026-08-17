@@ -19,3 +19,7 @@ curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/httpd/tags?p
 
 docker pull golang@sha256:232a180dbcbcfa7250917507f3827d88a9ae89bb1cdd8fe3ac4db7b764ebb25a
 ```
+
+## Annotations
+
+- https://github.com/opencontainers/image-spec/blob/main/annotations.md

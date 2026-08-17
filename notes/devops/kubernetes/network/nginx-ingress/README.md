@@ -4,6 +4,8 @@ title: Nginx Ingress
 
 # Nginx Ingress
 
+> 已经不再维护
+
 - [kubernetes/ingress-nginx](https://github.com/kubernetes/ingress-nginx)
   - 基于 Nginx 实现的 Ingress API
 - 模版路径 [/etc/nginx/template/nginx.tmpl](https://github.com/kubernetes/ingress-nginx/blob/master/rootfs/etc/nginx/template/nginx.tmpl)

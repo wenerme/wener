@@ -30,6 +30,66 @@ pnpm dlx @apidevtools/swagger-cli validate openapi.yaml
 pnpm --package=@redocly/cli dlx redocly lint openapi.yaml
 ```
 
+**Schema路径**
+
+```
+// 最通用
+/openapi.json
+/openapi.yaml
+/openapi.yml
+
+// Swagger 传统命名
+/swagger.json
+/swagger.yaml
+/swagger.yml
+
+// Springdoc
+/v3/api-docs
+/v3/api-docs.yaml
+
+// 通用 api-docs 命名
+/api-docs
+/api-docs.json
+/api-docs.yaml
+
+// ASP.NET Core 常见默认值
+/swagger/v1/swagger.json
+
+// NestJS，假设 UI 挂载在 /api
+/api-json
+/api-yaml
+```
+
+**文档路径**
+
+```
+/docs
+/swagger
+/swagger-ui
+/swagger-ui.html
+/redoc
+/reference
+/scalar
+/api
+```
+
+| 框架/组件            | Schema                     | UI            |
+| -------------------- | ---------------------------------- | ---------------------- |
+| FastAPI              | `/openapi.json`                    | `/docs`、`/redoc`      |
+| Springdoc            | `/v3/api-docs`                     | `/swagger-ui.html`     |
+| ASP.NET Core Swagger | `/swagger/v1/swagger.json`         | `/swagger`             |
+| NestJS Swagger       | `${uiPath}-json`、`${uiPath}-yaml` | `/api`                 |
+| Hono Zod OpenAPI     | `app.doc(path)`                    |                        |
+| Swagger UI Express   |                                    | `/api-docs`            |
+| Scalar               |                                    | `/scalar` `/reference` |
+
+- Prefer
+  - /openapi.json
+  - /swagger.json
+  - /v3/api-docs
+  - /swagger/v1/swagger.json
+  - /api-docs
+
 ## OpenAPI
 
 - https://www.linode.com/docs/api/openapi.yaml

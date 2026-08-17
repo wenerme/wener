@@ -1,5 +1,8 @@
 ---
 title: llama-swap
+tags:
+  - Proxy
+  - Supervisor
 ---
 
 # llama-swap
