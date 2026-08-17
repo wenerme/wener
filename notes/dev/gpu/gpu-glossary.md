@@ -307,7 +307,7 @@ Arithmetic intensity
 : `operations / bytes accessed`。
 : 实现中的重复读取会降低实际 arithmetic intensity。
 
-Ops:byte ratio
+Ops-to-byte ratio
 : GPU math throughput 与 memory bandwidth 的比值。
 : 与 arithmetic intensity 比较可作为 roofline 的一阶判读。
 
@@ -316,7 +316,7 @@ Roofline model
 : 前提是 parallelism 足够；仍需要 profiler 验证实际 bottleneck。
 
 Ridge point
-: arithmetic intensity 等于 hardware ops:byte ratio 的位置。
+: arithmetic intensity 等于 hardware ops-to-byte ratio 的位置。
 : 低于它通常更偏 memory-limited，高于它通常更偏 math-limited。
 
 Compute-bound

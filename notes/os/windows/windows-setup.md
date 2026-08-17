@@ -1,4 +1,3 @@
-
 ---
 title: Windows Setup
 tags:
@@ -6,6 +5,7 @@ tags:
   - Development
   - OpenSSH
   - WinGet
+  - Setup
 ---
 
 # Windows Setup
