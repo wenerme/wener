@@ -50,6 +50,8 @@ tags:
     - AGPLv3, Go
     - Reverse Proxy for Minecraft
 - Server List
+  - [ServerBuddy](https://serverbuddy.net/)
+    - Java and Bedrock server discovery with live status, player history, uptime, MOTD, and version history
   - https://minecraftservers.org/
   - https://play.mcmod.cn/
 - Client / Launcher
