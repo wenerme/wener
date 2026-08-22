@@ -1,0 +1,638 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-dev/design/design-im" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>IM | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/dev/design/im /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="IM | Wener Live & Life"/><meta data-rh=true name=description content="IM - Instant Messaging - 即时通讯"/><meta data-rh=true property=og:description content="IM - Instant Messaging - 即时通讯"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/dev/design/im /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/design/im hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/dev/design/im hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/dev/","name":"开发","position":1},{"@type":"ListItem","item":"https://wener.me/notes/dev/design/","name":"Design","position":2},{"@type":"ListItem","item":"https://wener.me/notes/dev/design/im","name":"IM","position":3}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.45157e98.js defer></script><script src=/assets/js/main.dc4bf51b.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Collapse sidebar category '开发'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/arch><span title=Architecture class=linkLabel_JPPZ>Architecture</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/ascii><span title=ASCII class=linkLabel_JPPZ>ASCII</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/backup><span title=Backup class=linkLabel_JPPZ>Backup</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/benchmark><span title=Benchmark class=linkLabel_JPPZ>Benchmark</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/billing/faq><span title=billing class=categoryLinkLabel_RkOu>billing</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/build><span title=构建 class=categoryLinkLabel_RkOu>构建</span></a><button aria-label="Expand sidebar category '构建'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chaos-engineering><span title=混沌工程 class=linkLabel_JPPZ>混沌工程</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/chezmoi><span title=chezmoi class=linkLabel_JPPZ>chezmoi</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/circuit-breaker><span title=熔断 class=linkLabel_JPPZ>熔断</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/cloud/dapr-k8s><span title=cloud class=categoryLinkLabel_RkOu>cloud</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/code-faq><span title="Code FAQ" class=linkLabel_JPPZ>Code FAQ</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/coding><span title=Coding class=categoryLinkLabel_RkOu>Coding</span></a><button aria-label="Expand sidebar category 'Coding'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/compression><span title=压缩 class=categoryLinkLabel_RkOu>压缩</span></a><button aria-label="Expand sidebar category '压缩'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/cryptography><span title=Cryptography class=linkLabel_JPPZ>Cryptography</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/data-dict><span title=数据字典 class=linkLabel_JPPZ>数据字典</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/date><span title="Date & Time" class=linkLabel_JPPZ>Date & Time</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/dev/design><span title=Design class=categoryLinkLabel_RkOu>Design</span></a><button aria-label="Collapse sidebar category 'Design'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/design/api><span title="API Design" class=categoryLinkLabel_RkOu>API Design</span></a><button aria-label="Expand sidebar category 'API Design'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/desgn-formula><span title="Design Formula" class=linkLabel_JPPZ>Design Formula</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/accounting><span title=Accounting class=linkLabel_JPPZ>Accounting</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/auth-api><span title="Auth API" class=linkLabel_JPPZ>Auth API</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/auth><span title=Auth class=linkLabel_JPPZ>Auth</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/breakpoint><span title=响应式断点 class=linkLabel_JPPZ>响应式断点</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/builder><span title="Design Builder" class=linkLabel_JPPZ>Design Builder</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/cms><span title=CMS class=linkLabel_JPPZ>CMS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/component><span title="UI Components" class=linkLabel_JPPZ>UI Components</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/crm><span title=CRM class=linkLabel_JPPZ>CRM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/cron><span title="Design Cron" class=linkLabel_JPPZ>Design Cron</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/dashboard><span title="Design Dashboard" class=linkLabel_JPPZ>Design Dashboard</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/data-driven><span title=数据驱动 class=linkLabel_JPPZ>数据驱动</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/date-picker><span title="Date Picker" class=linkLabel_JPPZ>Date Picker</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/dms><span title=档案管理 class=linkLabel_JPPZ>档案管理</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/drive><span title=网盘设计 class=linkLabel_JPPZ>网盘设计</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/event-driven><span title=事件驱动 class=linkLabel_JPPZ>事件驱动</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/extension><span title="Design Extension" class=linkLabel_JPPZ>Design Extension</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/feature><span title="Design Feature" class=linkLabel_JPPZ>Design Feature</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/form-service><span title="Design Form Service" class=linkLabel_JPPZ>Design Form Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/frontend><span title=Frontend class=linkLabel_JPPZ>Frontend</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/iam><span title=IAM class=linkLabel_JPPZ>IAM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/dev/design/im><span title=IM class=linkLabel_JPPZ>IM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/manifest><span title="Design Manifest" class=linkLabel_JPPZ>Design Manifest</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/orm><span title=ORM class=linkLabel_JPPZ>ORM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/qos><span title=QoS class=linkLabel_JPPZ>QoS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/queue><span title=Queue class=linkLabel_JPPZ>Queue</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/quota><span title=Quota class=linkLabel_JPPZ>Quota</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/saas><span title=SaaS class=linkLabel_JPPZ>SaaS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/scheduler><span title="Design Scheduler" class=linkLabel_JPPZ>Design Scheduler</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/service><span title=服务 class=linkLabel_JPPZ>服务</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/shortcut><span title="Design Shortcut" class=linkLabel_JPPZ>Design Shortcut</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/social><span title=Social class=linkLabel_JPPZ>Social</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/supervisor><span title=Supervisor class=linkLabel_JPPZ>Supervisor</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/task><span title=任务管理 class=linkLabel_JPPZ>任务管理</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/ui><span title="Design UI" class=linkLabel_JPPZ>Design UI</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/webhook><span title="Webhook 设计" class=linkLabel_JPPZ>Webhook 设计</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/window><span title="Design Window" class=linkLabel_JPPZ>Design Window</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/workflow><span title="Workflow design" class=linkLabel_JPPZ>Workflow design</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/design/erp><span title="Design ERP" class=categoryLinkLabel_RkOu>Design ERP</span></a><button aria-label="Expand sidebar category 'Design ERP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/design/modeling><span title=Modeling class=linkLabel_JPPZ>Modeling</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/design/schema><span title="Schema Design" class=categoryLinkLabel_RkOu>Schema Design</span></a><button aria-label="Expand sidebar category 'Schema Design'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/awesome><span title="Dev Awesome" class=linkLabel_JPPZ>Dev Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/concept><span title=开发相关概念 class=linkLabel_JPPZ>开发相关概念</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/env><span title=ENV class=linkLabel_JPPZ>ENV</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/error><span title=error class=linkLabel_JPPZ>error</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/faq><span title="Dev FAQ" class=linkLabel_JPPZ>Dev FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/glossary><span title="Dev Glossary" class=linkLabel_JPPZ>Dev Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/limits><span title=开发常见限制 class=linkLabel_JPPZ>开发常见限制</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/pitfal><span title=Pitfal class=linkLabel_JPPZ>Pitfal</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/practice><span title="Dev Practice" class=linkLabel_JPPZ>Dev Practice</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/reference><span title=Reference class=linkLabel_JPPZ>Reference</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/style-guide><span title="Dev Style Guide" class=linkLabel_JPPZ>Dev Style Guide</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/devcontainer><span title=DevContainer class=linkLabel_JPPZ>DevContainer</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/dict><span title=开发用词字典 class=linkLabel_JPPZ>开发用词字典</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/domain/doc><span title=domain class=categoryLinkLabel_RkOu>domain</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/flow><span title="Workflow & Automation" class=linkLabel_JPPZ>Workflow & Automation</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/flutter><span title=Flutter class=categoryLinkLabel_RkOu>Flutter</span></a><button aria-label="Expand sidebar category 'Flutter'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/format><span title=Format class=categoryLinkLabel_RkOu>Format</span></a><button aria-label="Expand sidebar category 'Format'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/game><span title=GameDev class=categoryLinkLabel_RkOu>GameDev</span></a><button aria-label="Expand sidebar category 'GameDev'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/gherkin><span title=Gherkin class=linkLabel_JPPZ>Gherkin</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/google-eng-practices><span title="Google Engineering Practices" class=linkLabel_JPPZ>Google Engineering Practices</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/gpu/cuda><span title=gpu class=categoryLinkLabel_RkOu>gpu</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/graphics/glfw><span title=graphics class=categoryLinkLabel_RkOu>graphics</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/gui/clipboard><span title=gui class=categoryLinkLabel_RkOu>gui</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/hexdump><span title=hexdump class=linkLabel_JPPZ>hexdump</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title="Internationalization (i18n)" class=linkLabel_JPPZ>Internationalization (i18n)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/i18n><span title=i18n class=linkLabel_JPPZ>i18n</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/ide><span title=IDE class=categoryLinkLabel_RkOu>IDE</span></a><button aria-label="Expand sidebar category 'IDE'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/libs/audio><span title=libs class=categoryLinkLabel_RkOu>libs</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/license><span title=License class=linkLabel_JPPZ>License</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/naming><span title=命名规范 class=linkLabel_JPPZ>命名规范</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/network><span title=Network class=linkLabel_JPPZ>Network</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/opensource><span title="OpenSource Awesome" class=linkLabel_JPPZ>OpenSource Awesome</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/pattern><span title=设计模式 class=categoryLinkLabel_RkOu>设计模式</span></a><button aria-label="Expand sidebar category '设计模式'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/practice/semver><span title=practice class=categoryLinkLabel_RkOu>practice</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/protocol/bittorrent><span title=protocol class=categoryLinkLabel_RkOu>protocol</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/qa><span title=质量保障 class=categoryLinkLabel_RkOu>质量保障</span></a><button aria-label="Expand sidebar category '质量保障'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/quantum><span title=Quantum class=linkLabel_JPPZ>Quantum</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/random><span title=Random class=linkLabel_JPPZ>Random</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rate-limits><span title="Rate Limits" class=linkLabel_JPPZ>Rate Limits</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/react-native><span title="React Native" class=categoryLinkLabel_RkOu>React Native</span></a><button aria-label="Expand sidebar category 'React Native'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/reverse><span title=逆向工程 class=categoryLinkLabel_RkOu>逆向工程</span></a><button aria-label="Expand sidebar category '逆向工程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/rfc><span title=rfc class=linkLabel_JPPZ>rfc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/routing><span title=路由 class=linkLabel_JPPZ>路由</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/shell/ghostty><span title=shell class=categoryLinkLabel_RkOu>shell</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/std/calender><span title=std class=categoryLinkLabel_RkOu>std</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/dev/tech/qrcode><span title=tech class=categoryLinkLabel_RkOu>tech</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/testing><span title=测试 class=categoryLinkLabel_RkOu>测试</span></a><button aria-label="Expand sidebar category '测试'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/dev/theory><span title=理论 class=categoryLinkLabel_RkOu>理论</span></a><button aria-label="Expand sidebar category '理论'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/timezone><span title=timezone class=linkLabel_JPPZ>timezone</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/vibe-coding><span title="Vibe Coding" class=linkLabel_JPPZ>Vibe Coding</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/wall-of-shame><span title=耻辱墙 class=linkLabel_JPPZ>耻辱墙</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/dev/workspace><span title=Workspace class=linkLabel_JPPZ>Workspace</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成�长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/dev><span>开发</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/dev/design><span>Design</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>IM</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>IM</h1></header>
+<blockquote>
+<p>IM - Instant Messaging - 即时通讯</p>
+</blockquote>
+<ul>
+<li>目标：低延迟消息投递、可靠同步、多端一致、可追溯、可治理。</li>
+<li>核心难点：在线状态、离线消息、多端同步、消息顺序、已读未读、推送、撤回/编辑、群扩散、风控与合规。</li>
+<li>参考
+<ul>
+<li><a href=/notes/dev/design/event-driven>Event driven</a></li>
+<li><a href=/notes/dev/design/webhook>Webhook</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=概念模型>概念模型<a href=#概念模型 class=hash-link aria-label="Direct link to 概念模型" title="Direct link to 概念模型" translate=no>​</a></h2>
+<div class=mermaid></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>概念<th>说明<tbody><tr><td>User<td>自然人或主体，通常用于身份、资料、关系链<tr><td>Account<td>登录账号，可与 User 一对一或多对一<tr><td>Device<td>设备实例，用于多端同步、推送 token、在线连接<tr><td>Conversation<td>对话容器，承载一组相关消息<tr><td>Member / Participant<td>Conversation 参与者，带角色、权限、入退时间<tr><td>Message<td>消息实体，包含内容、发送者、时间、序号、状态<tr><td>Receipt<td>投递、已读、已消费等回执<tr><td>Thread<td>消息下的子讨论，适合话题化协作</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=核心对象>核心对象<a href=#核心对象 class=hash-link aria-label="Direct link to 核心对象" title="Direct link to 核心对象" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=conversation>Conversation<a href=#conversation class=hash-link aria-label="Direct link to Conversation" title="Direct link to Conversation" translate=no>​</a></h3>
+<p>Conversation 是 IM 里最稳定的抽象，常见类型：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>type<th>说明<th>例子<tbody><tr><td><code>direct</code><td>单聊<td>A 与 B 私聊<tr><td><code>group</code><td>群聊<td>项目群、兴趣群<tr><td><code>room</code><td>房间<td>直播间、活动聊天室<tr><td><code>channel</code><td>频道<td>公告、广播、订阅频道<tr><td><code>thread</code><td>线程<td>围绕某条消息展开讨论<tr><td><code>bot</code><td>Bot 对话<td>用户与机器人/Agent 对话</table>
+<p>常见字段：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td><code>id</code><td>会话 ID<tr><td><code>type</code><td>会话类型<tr><td><code>title</code><td>展示名称，可为空或动态生成<tr><td><code>owner_id</code><td>创建者 / 所有者<tr><td><code>created_at</code><td>创建时间<tr><td><code>last_message_id</code><td>最后一条消息，用于会话列表排序<tr><td><code>last_seq</code><td>会话内递增序号<tr><td><code>metadata</code><td>扩展字段，例如头像、公告、业务关联</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=message>Message<a href=#message class=hash-link aria-label="Direct link to Message" title="Direct link to Message" translate=no>​</a></h3>
+<p>消息通常需要同时满足展示、同步、审计和搜索需求。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td><code>id</code><td>全局消息 ID，通常雪花/ULID/UUIDv7<tr><td><code>conversation_id</code><td>所属会话<tr><td><code>seq</code><td>会话内单调递增序号，用于排序和增量同步<tr><td><code>sender_id</code><td>发送者<tr><td><code>client_msg_id</code><td>客户端生成 ID，用于幂等去重<tr><td><code>type</code><td><code>text</code>、<code>image</code>、<code>file</code>、<code>system</code>、<code>custom</code> 等<tr><td><code>body</code><td>消息内容，建议结构化 JSON<tr><td><code>status</code><td>正常、撤回、删除、屏蔽等状态<tr><td><code>created_at</code><td>服务端接收/落库时间<tr><td><code>edited_at</code><td>编辑时间<tr><td><code>deleted_at</code><td>删除时间，通常为软删除</table>
+<div class="theme-admonition theme-admonition-tip admonition_phik alert alert--success"><div class=admonitionHeading_zxjO><span class=admonitionIcon_bSNx><svg viewBox="0 0 12 16"><path fill-rule=evenodd d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"/></svg></span>tip</div><div class=admonitionContent_R6P7><p>消息排序应优先依赖服务端生成的 <code>seq</code>，不要只依赖客户端时间。客户端时间适合展示“发送时刻”，不适合作为最终顺序依据。</div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=reaction>Reaction<a href=#reaction class=hash-link aria-label="Direct link to Reaction" title="Direct link to Reaction" translate=no>​</a></h3>
+<p>Reaction 是对某条消息的轻量回应，例如 👍、😂、❤️。</p>
+<ul>
+<li>常见于 Slack、Discord、Telegram、飞书、企业微信等现代 IM / 协作产品。</li>
+<li>通常不建模为普通消息，而是 <code>MessageReactionAdded</code> / <code>MessageReactionRemoved</code> 事件。</li>
+<li>展示层一般聚合为：某个 emoji 有多少人点过、前几个用户是谁、当前用户是否点过。</li>
+<li>适合低打扰反馈，减少“收到”“赞同”“+1”这类噪声消息。</li>
+</ul>
+<p>常见字段：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td><code>message_id</code><td>被回应的消息<tr><td><code>conversation_id</code><td>冗余会话 ID，便于分片和权限判断<tr><td><code>user_id</code><td>做出 reaction 的用户<tr><td><code>emoji</code><td>标准 emoji 或自定义表情 ID<tr><td><code>created_at</code><td>创建时间</table>
+<p>设计注意：</p>
+<ul>
+<li>幂等键通常是 <code>message_id + user_id + emoji</code>，同一用户对同一消息同一 emoji 只能点一次。</li>
+<li>删除 reaction 不应删除消息，只是移除用户的互动状态。</li>
+<li>reaction 变更需要同步给在线成员，但一般不计入未读数。</li>
+<li>大群里 reaction 聚合要避免每次全量广播用户列表，可只广播计数变化和当前用户状态。</li>
+<li>自定义 emoji / sticker 需要额外的资源表和权限控制。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=participant-state>Participant State<a href=#participant-state class=hash-link aria-label="Direct link to Participant State" title="Direct link to Participant State" translate=no>​</a></h3>
+<p>参与者状态用于支持会话列表、未读数和权限控制。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td><code>joined_at</code><td>加入时间<tr><td><code>left_at</code><td>离开时间<tr><td><code>role</code><td>owner / admin / member / guest<tr><td><code>mute</code><td>是否免打扰<tr><td><code>pinned</code><td>是否置顶<tr><td><code>last_read_seq</code><td>已读到的会话序号<tr><td><code>last_delivered_seq</code><td>已投递到设备/用户的序号<tr><td><code>visible_from_seq</code><td>可见起点，用于入群前历史是否可见</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=消息生命周期>消息生命周期<a href=#消息生命周期 class=hash-link aria-label="Direct link to 消息生命周期" title="Direct link to 消息生命周期" translate=no>​</a></h2>
+<div class=mermaid></div>
+<p>常见状态：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>状态<th>说明<tbody><tr><td><code>pending</code><td>客户端本地发送中<tr><td><code>sent</code><td>服务端已接收并持久化<tr><td><code>delivered</code><td>已投递到接收端连接或设备<tr><td><code>read</code><td>接收方明确已读<tr><td><code>failed</code><td>发送失败，可重试<tr><td><code>recalled</code><td>已撤回<tr><td><code>deleted</code><td>对某个用户不可见或全局删除</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=投递语义>投递语义<a href=#投递语义 class=hash-link aria-label="Direct link to 投递语义" title="Direct link to 投递语义" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>语义<th>说明<th>IM 中的做法<tbody><tr><td>at-most-once<td>最多一次，可能丢<td>不适合核心消息<tr><td>at-least-once<td>至少一次，可能重复<td>常见，依赖 <code>client_msg_id</code> / <code>message_id</code> 去重<tr><td>exactly-once<td>精确一次<td>分布式下成本高，通常通过幂等实现“效果上一次”</table>
+<p>关键设计：</p>
+<ul>
+<li>发送幂等：<code>sender_id + client_msg_id</code> 唯一约束。</li>
+<li>投递幂等：客户端按 <code>message_id</code> 或 <code>conversation_id + seq</code> 去重。</li>
+<li>增量同步：客户端保存每个会话的 <code>last_seq</code>，重连后拉取 <code>seq > last_seq</code>。</li>
+<li>ACK 分层：发送 ACK、投递 ACK、已读 ACK 不要混为一谈。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=架构组件>架构组件<a href=#架构组件 class=hash-link aria-label="Direct link to 架构组件" title="Direct link to 架构组件" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>组件<th>说明<tbody><tr><td>Gateway<td>长连接接入，WebSocket / TCP / QUIC，负责鉴权、心跳、连接管理<tr><td>Session Service<td>维护 user-device-connection 映射和在线状态<tr><td>Message Service<td>消息校验、落库、分配序号、状态变更<tr><td>Conversation Service<td>会话、成员、权限、未读数、置顶免打扰<tr><td>Fanout Service<td>在线投递、群消息扩散、事件广播<tr><td>Push Service<td>离线推送，APNs / FCM / 厂商推送<tr><td>Media Service<td>图片、文件、语音、视频上传和转码<tr><td>Search / Index<td>消息搜索，异步索引<tr><td>Moderation / Risk<td>内容审核、反垃圾、频控、封禁</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=群消息扩散>群消息扩散<a href=#群消息扩散 class=hash-link aria-label="Direct link to 群消息扩散" title="Direct link to 群消息扩散" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>模式<th>说明<th>适用场景<tbody><tr><td>写扩散<td>发送时为每个成员写 inbox<td>小群、读多写少、会话列表要求快<tr><td>读扩散<td>只写一份消息，读取时按成员关系过滤<td>大群、频道、直播间<tr><td>混合扩散<td>小群写扩散，大群读扩散<td>通用 IM 系统</table>
+<p>设计取舍：</p>
+<ul>
+<li>小群：写扩散可简化未读数和会话列表。</li>
+<li>大群：写扩散成本随成员数线性增长，通常需要读扩散或分层 fanout。</li>
+<li>超大房间：不一定保证所有消息必达，可能更像实时流或弹幕。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=未读数>未读数<a href=#未读数 class=hash-link aria-label="Direct link to 未读数" title="Direct link to 未读数" translate=no>​</a></h2>
+<p>常见口径：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>口径<th>说明<tbody><tr><td>会话未读<td><code>conversation.last_seq - participant.last_read_seq</code><tr><td>用户总未读<td>所有未静音会话未读聚合<tr><td>at mention 未读<td>单独记录提及用户的消息序号<tr><td>系统通知未读<td>通常独立于聊天未读</table>
+<p>注意：</p>
+<ul>
+<li>未读数是用户状态，不是消息状态。</li>
+<li>多端已读需要同步到所有设备。</li>
+<li>大群未读数可只显示“99+”或只统计 at mention，避免高成本精确计算。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=多端同步>多端同步<a href=#多端同步 class=hash-link aria-label="Direct link to 多端同步" title="Direct link to 多端同步" translate=no>​</a></h2>
+<ul>
+<li>每个设备维护自己的连接状态，但用户级别共享会话状态。</li>
+<li>发送端也应该通过服务端回放/ACK 确认最终消息内容和 <code>seq</code>。</li>
+<li>编辑、撤回、删除、reaction 都应建模为事件，客户端按事件更新本地状态。</li>
+<li>重连后优先按 <code>conversation_id + last_seq</code> 增量拉取，必要时全量修复。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=presence>Presence<a href=#presence class=hash-link aria-label="Direct link to Presence" title="Direct link to Presence" translate=no>​</a></h2>
+<p>Presence 表示在线、离线、忙碌、正在输入等临时状态。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>状态<th>特点<tbody><tr><td>online/offline<td>可由连接和心跳推导，但多端场景要聚合<tr><td>typing<td>短 TTL 临时事件，不应持久化为消息<tr><td>last_seen<td>隐私敏感，可能需要用户开关<tr><td>device presence<td>用于选择投递连接，不一定对外展示</table>
+<p>Presence 通常用内存 KV / Redis / pub-sub 维护，不作为强一致核心数据。</p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=room-vs-group>Room vs Group<a href=#room-vs-group class=hash-link aria-label="Direct link to Room vs Group" title="Direct link to Room vs Group" translate=no>​</a></h2>
+<ul>
+<li>Room - 聊天室、房间
+<ul>
+<li>强调场所、空间、Host。</li>
+<li>场景：会议、活动、直播、临时讨论。</li>
+<li>特点：
+<ul>
+<li>成员动态。</li>
+<li>可能看不到历史消息。</li>
+<li>一般有 Host / Moderator 概念。</li>
+<li>可弱化未读数和强一致投递。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Group - 群组
+<ul>
+<li>强调集合、组织。</li>
+<li>场景：团队协作、兴趣小组、项目组。</li>
+<li>特点：
+<ul>
+<li>成员相对稳定。</li>
+<li>面向组织结构。</li>
+<li>通常需要历史消息、未读数、权限和成员管理。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=chat-vs-conversation>Chat vs Conversation<a href=#chat-vs-conversation class=hash-link aria-label="Direct link to Chat vs Conversation" title="Direct link to Chat vs Conversation" translate=no>​</a></h2>
+<ul>
+<li>Chat
+<ul>
+<li>更偏 UI / 使用场景。</li>
+<li>适合表示即时通信行为：个人聊天、群聊、客服聊天。</li>
+<li>常用于产品语言，例如“打开 chat”。</li>
+</ul>
+</li>
+<li>Conversation
+<ul>
+<li>更偏数据模型 / 领域模型。</li>
+<li>表示一组相关消息，是完整对话上下文。</li>
+<li>可以包含 direct chat、group、thread、ticket、agent session。</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=channel-vs-topic-vs-thread>Channel vs Topic vs Thread<a href=#channel-vs-topic-vs-thread class=hash-link aria-label="Direct link to Channel vs Topic vs Thread" title="Direct link to Channel vs Topic vs Thread" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>概念<th>说明<tbody><tr><td>Channel<td>频道，强调订阅和广播，例如 Slack channel、公告频道<tr><td>Topic<td>话题，强调语义分类，可跨会话或在房间内切换<tr><td>Thread<td>线程，强调从某条消息派生出的子讨论</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=设计建议>设计建议<a href=#设计建议 class=hash-link aria-label="Direct link to 设计建议" title="Direct link to 设计建议" translate=no>​</a></h2>
+<ul>
+<li>用 <code>Conversation</code> 作为核心聚合根，避免把 <code>Chat</code>、<code>Group</code>、<code>Room</code> 写死成互斥模型。</li>
+<li>消息内容用 typed payload，例如 <code>type + body</code>，为富文本、附件、卡片、Bot 消息留扩展空间。</li>
+<li>消息顺序使用服务端 <code>seq</code>，全局 ID 只用于唯一性和追踪。</li>
+<li>所有可变动作建模为事件：<code>MessageCreated</code>、<code>MessageEdited</code>、<code>MessageRecalled</code>、<code>ReactionAdded</code>。</li>
+<li>大群、房间、频道单独设计投递和未读策略，不要套用小群精确未读模型。</li>
+<li>权限判断应基于成员关系和消息可见区间，例如 <code>visible_from_seq</code>、<code>joined_at</code>。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=常见坑>常见坑<a href=#常见坑 class=hash-link aria-label="Direct link to 常见坑" title="Direct link to 常见坑" translate=no>​</a></h2>
+<ul>
+<li>用客户端时间排序，导致多端和弱网下乱序。</li>
+<li>未区分发送成功、投递成功、已读成功。</li>
+<li>群消息一开始只按小群写扩散设计，后续大群成本爆炸。</li>
+<li>未设计 <code>client_msg_id</code>，重试后产生重复消息。</li>
+<li>删除、撤回、编辑直接改消息体，缺少审计和同步事件。</li>
+<li>Presence 强一致化，导致在线状态链路复杂且收益有限。</li>
+<li>未读数和消息列表耦合过深，导致修复和多端同步困难。</li>
+</ul>
+<h1>FAQ</h1>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=入群前历史消息是否可见>入群前历史消息是否可见？<a href=#入群前历史消息是否可见 class=hash-link aria-label="Direct link to 入群前历史消息是否可见？" title="Direct link to 入群前历史消息是否可见？" translate=no>​</a></h2>
+<p>常见策略：</p>
+<ul>
+<li>不可见：设置 <code>visible_from_seq = current_last_seq + 1</code>。</li>
+<li>可见全部：适合公开群、频道、知识库型讨论。</li>
+<li>可见最近 N 条：适合兼顾上下文和隐私。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=撤回和删除有什么区别>撤回和删除有什么区别？<a href=#撤回和删除有什么区别 class=hash-link aria-label="Direct link to 撤回和删除有什么区别？" title="Direct link to 撤回和删除有什么区别？" translate=no>​</a></h2>
+<ul>
+<li>撤回：发送者或管理员让所有人看到“该消息已撤回”，通常有时间窗口。</li>
+<li>删除：对某个用户隐藏，或管理员全局删除；可见性变化不一定改变消息事实。</li>
+<li>合规场景下通常需要保留审计记录。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=已读回执要不要精确到每条消息>已读回执要不要精确到每条消息？<a href=#已读回执要不要精确到每条消息 class=hash-link aria-label="Direct link to 已读回执要不要精确到每条消息？" title="Direct link to 已读回执要不要精确到每条消息？" translate=no>​</a></h2>
+<ul>
+<li>单聊、小群可以精确。</li>
+<li>大群通常只记录 <code>last_read_seq</code> 或只显示大致人数。</li>
+<li>超大房间一般不做已读回执。</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/dev/design/design-im.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-07-12T05:43:13.000Z itemprop=dateModified>Jul 12, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/dev/design/iam><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>IAM</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/dev/design/manifest><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Design Manifest</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#概念模型 class="table-of-contents__link toc-highlight">概念模型</a><li><a href=#核心对象 class="table-of-contents__link toc-highlight">核心对象</a><ul><li><a href=#conversation class="table-of-contents__link toc-highlight">Conversation</a><li><a href=#message class="table-of-contents__link toc-highlight">Message</a><li><a href=#reaction class="table-of-contents__link toc-highlight">Reaction</a><li><a href=#participant-state class="table-of-contents__link toc-highlight">Participant State</a></ul><li><a href=#消息生命周期 class="table-of-contents__link toc-highlight">消息生命周期</a><li><a href=#投递语义 class="table-of-contents__link toc-highlight">投递语义</a><li><a href=#架构组件 class="table-of-contents__link toc-highlight">架构组件</a><li><a href=#群消息扩散 class="table-of-contents__link toc-highlight">群消息扩散</a><li><a href=#未读数 class="table-of-contents__link toc-highlight">未读数</a><li><a href=#多端同步 class="table-of-contents__link toc-highlight">多端同步</a><li><a href=#presence class="table-of-contents__link toc-highlight">Presence</a><li><a href=#room-vs-group class="table-of-contents__link toc-highlight">Room vs Group</a><li><a href=#chat-vs-conversation class="table-of-contents__link toc-highlight">Chat vs Conversation</a><li><a href=#channel-vs-topic-vs-thread class="table-of-contents__link toc-highlight">Channel vs Topic vs Thread</a><li><a href=#设计建议 class="table-of-contents__link toc-highlight">设计建议</a><li><a href=#常见坑 class="table-of-contents__link toc-highlight">常见坑</a><li><a href=#入群前历史消息是否可见 class="table-of-contents__link toc-highlight">入群前历史消息是否可见？</a><li><a href=#撤回和删除有什么区别 class="table-of-contents__link toc-highlight">撤回和删除有什么区别？</a><li><a href=#已读回执要不要精确到每条消息 class="table-of-contents__link toc-highlight">已读回执要不要精确到每条消息？</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-08-22 17:44</div></div></div></footer></div></body>

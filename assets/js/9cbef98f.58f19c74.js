@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["948374"],{870758:function(e){e.exports=JSON.parse('{"tag":{"label":"JS","permalink":"/notes/tags/js","allTagsPath":"/notes/tags","count":1,"items":[{"id":"web/graphics","title":"Graphical","description":"Charting","permalink":"/notes/web/graphics"}],"unlisted":false}}')}}]);

@@ -1,0 +1,743 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-hardware/soc/esp32/xueersi-xiaomiao" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>学而思小喵掌机 | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/hardware/soc/esp32/xueersi-xiaomiao /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="学而思小喵掌机 | Wener Live & Life"/><meta data-rh=true name=description content="- XiaoMiao / 小喵掌机；Wener 实机外观和 PCB 对照确认与 KittenBot MeowBit v1 / diegosanzmartin/Reversing-Meowbit-v1 同版硬件高度一致。"/><meta data-rh=true property=og:description content="- XiaoMiao / 小喵掌机；Wener 实机外观和 PCB 对照确认与 KittenBot MeowBit v1 / diegosanzmartin/Reversing-Meowbit-v1 同版硬件高度一致。"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/hardware/soc/esp32/xueersi-xiaomiao /><link data-rh=true rel=alternate href=https://wener.me/notes/hardware/soc/esp32/xueersi-xiaomiao hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/hardware/soc/esp32/xueersi-xiaomiao hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/hardware/","name":"硬件","position":1},{"@type":"ListItem","item":"https://wener.me/notes/hardware/soc/","name":"System on Chip (SoC)","position":2},{"@type":"ListItem","item":"https://wener.me/notes/hardware/soc/esp32/","name":"ESP32","position":3},{"@type":"ListItem","item":"https://wener.me/notes/hardware/soc/esp32/xueersi-xiaomiao","name":"学而思小喵掌机","position":4}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.45157e98.js defer></script><script src=/assets/js/main.dc4bf51b.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Collapse sidebar category '硬件'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/10gbe><span title=10gbe class=linkLabel_JPPZ>10gbe</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/amd><span title=AMD class=linkLabel_JPPZ>AMD</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/arch><span title="Computer Architecture & Standards" class=linkLabel_JPPZ>Computer Architecture & Standards</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/arm><span title=ARM class=linkLabel_JPPZ>ARM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/audio><span title="Audio Hardware & Digital Sound" class=linkLabel_JPPZ>Audio Hardware & Digital Sound</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/hardware/chip><span title="Hardware Chips & Controllers" class=categoryLinkLabel_RkOu>Hardware Chips & Controllers</span></a><button aria-label="Expand sidebar category 'Hardware Chips & Controllers'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/chip-awesome><span title="IC & Chip Resources (Awesome Chips)" class=linkLabel_JPPZ>IC & Chip Resources (Awesome Chips)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/components/power><span title=components class=categoryLinkLabel_RkOu>components</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/hardware/compute><span title=计算 class=categoryLinkLabel_RkOu>计算</span></a><button aria-label="Expand sidebar category '计算'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/cpu><span title="Central Processing Unit (CPU) Architectures" class=linkLabel_JPPZ>Central Processing Unit (CPU) Architectures</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/device/xiaozhi><span title=device class=categoryLinkLabel_RkOu>device</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/hardware/display><span title=显示器 class=categoryLinkLabel_RkOu>显示器</span></a><button aria-label="Expand sidebar category '显示器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/fio-out><span title="fio 结果" class=linkLabel_JPPZ>fio 结果</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/gadgets/bcm6838x><span title=gadgets class=categoryLinkLabel_RkOu>gadgets</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/gags><span title="ASRock DeskMini Series Mini-PC" class=linkLabel_JPPZ>ASRock DeskMini Series Mini-PC</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/gpu/faq><span title=gpu class=categoryLinkLabel_RkOu>gpu</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/awesome><span title="Hardware Awesome" class=linkLabel_JPPZ>Hardware Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/faq><span title="Hardware FAQ" class=linkLabel_JPPZ>Hardware FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/glossary><span title=硬件词汇 class=linkLabel_JPPZ>硬件词汇</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/price><span title=硬件价格 class=linkLabel_JPPZ>硬件价格</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/htpc><span title="HTPC (Home Theater PC) & Small Form Factor Chassis" class=linkLabel_JPPZ>HTPC (Home Theater PC) & Small Form Factor Chassis</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/intel><span title=Intel class=linkLabel_JPPZ>Intel</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/hardware/interface><span title=硬件接口 class=categoryLinkLabel_RkOu>硬件接口</span></a><button aria-label="Expand sidebar category '硬件接口'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/hardware/iot><span title=IoT class=categoryLinkLabel_RkOu>IoT</span></a><button aria-label="Expand sidebar category 'IoT'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/memory><span title=内存 class=linkLabel_JPPZ>内存</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/microcontroller/avr/es32><span title=microcontroller class=categoryLinkLabel_RkOu>microcontroller</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/hardware/module><span title=模块 class=categoryLinkLabel_RkOu>模块</span></a><button aria-label="Expand sidebar category '模块'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/motherboard><span title=主板 class=linkLabel_JPPZ>主板</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/nas><span title="NAS (Network Attached Storage) Considerations" class=linkLabel_JPPZ>NAS (Network Attached Storage) Considerations</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/network/switch><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/network><span title="High-Performance Networking Hardware (10GbE+)" class=linkLabel_JPPZ>High-Performance Networking Hardware (10GbE+)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/parts><span title=配件 class=linkLabel_JPPZ>配件</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/pc/awesome><span title=pc class=categoryLinkLabel_RkOu>pc</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/peripheral/headphone><span title=peripheral class=categoryLinkLabel_RkOu>peripheral</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/hardware/power><span title=电源 class=categoryLinkLabel_RkOu>电源</span></a><button aria-label="Expand sidebar category '电源'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/processor/arm/allwinner><span title=processor class=categoryLinkLabel_RkOu>processor</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/r6300><span title="Netgear R6300 v2 Router" class=linkLabel_JPPZ>Netgear R6300 v2 Router</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/rack><span title=机柜 class=linkLabel_JPPZ>机柜</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/rfid><span title=RFID class=linkLabel_JPPZ>RFID</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/samsung><span title=三星 class=linkLabel_JPPZ>三星</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/hardware/sbc><span title=SBC class=categoryLinkLabel_RkOu>SBC</span></a><button aria-label="Expand sidebar category 'SBC'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/server/dell><span title=server class=categoryLinkLabel_RkOu>server</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/sg200><span title="Cisco SG 200 Series Smart Switches" class=linkLabel_JPPZ>Cisco SG 200 Series Smart Switches</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/hardware/soc><span title="System on Chip (SoC)" class=categoryLinkLabel_RkOu>System on Chip (SoC)</span></a><button aria-label="Collapse sidebar category 'System on Chip (SoC)'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/soc/attiny><span title=ATtiny class=linkLabel_JPPZ>ATtiny</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/soc/esp/awesome><span title=esp class=categoryLinkLabel_RkOu>esp</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/hardware/soc/esp32><span title=ESP32 class=categoryLinkLabel_RkOu>ESP32</span></a><button aria-label="Collapse sidebar category 'ESP32'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/hardware/soc/esp32/xueersi-xiaomiao><span title=学而思小喵掌机 class=linkLabel_JPPZ>学而思小喵掌机</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/soc/esp8266><span title=ESP8266 class=linkLabel_JPPZ>ESP8266</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/soc/esphome><span title=ESPHome class=linkLabel_JPPZ>ESPHome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/soc/faq><span title=FAQ class=linkLabel_JPPZ>FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/soc/glossary><span title=Glossary class=linkLabel_JPPZ>Glossary</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/hardware/storage><span title=存储 class=categoryLinkLabel_RkOu>存储</span></a><button aria-label="Expand sidebar category '存储'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/tv><span title=TV class=linkLabel_JPPZ>TV</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/ubnt><span title=UBNT class=linkLabel_JPPZ>UBNT</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/hardware/vendor/hp-faq><span title=vendor class=categoryLinkLabel_RkOu>vendor</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/hardware/video><span title="Video Display Interfaces (HDMI, DP, DVI, VGA)" class=linkLabel_JPPZ>Video Display Interfaces (HDMI, DP, DVI, VGA)</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/hardware><span>硬件</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/hardware/soc><span>System on Chip (SoC)</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/hardware/soc/esp32><span>ESP32</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>学而思小喵掌机</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>学而思小喵掌机</h1></header>
+<ul>
+<li>XiaoMiao / 小喵掌机；Wener 实机外观和 PCB 对照确认与 KittenBot MeowBit v1 / <code>diegosanzmartin/Reversing-Meowbit-v1</code> 同版硬件高度一致。</li>
+<li>主控：ESP32</li>
+<li>外设：TFT、MicroSD、6 键、无源蜂鸣器、ADC 光照/热敏传感器、I2C、UART0</li>
+<li>本页是实机观察、硬件推测和社区资料整理；<code>pysn2012/xueersi-xiaomiao</code> 只是参考来源之一，不代表官方资料。</li>
+<li><a href=https://github.com/pysn2012/xueersi-xiaomiao target=_blank rel="noopener noreferrer">pysn2012/xueersi-xiaomiao</a>
+<ul>
+<li>Apache-2.0, Python, ESP32, MicroPython, ESPHome, LVGL</li>
+<li>学而思 ESP32 小喵掌机开发资料，包含硬件引脚、MicroPython 示例、ESPHome 配置和预编译固件。</li>
+</ul>
+</li>
+<li><a href=https://github.com/diegosanzmartin/Reversing-Meowbit-v1 target=_blank rel="noopener noreferrer">diegosanzmartin/Reversing-Meowbit-v1</a>
+<ul>
+<li>MIT, C++</li>
+<li>KittenBot 为 Xueersi Coding 平台开发的 MeowBit v1 硬件逆向资料，按键、LCD pinout 和板面布局可作为本机主要硬件参考。</li>
+</ul>
+</li>
+<li><a href=https://meowbit.kittenbot.cc/ target=_blank rel="noopener noreferrer">https://meowbit.kittenbot.cc/</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=硬件资源>硬件资源<a href=#硬件资源 class=hash-link aria-label="Direct link to 硬件资源" title="Direct link to 硬件资源" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>模块<th>资源<th>说明<tbody><tr><td>主控<td>ESP32<td>常规 ESP32，仓库提供 ESP32 SPIRAM 固件<tr><td>辅助 MCU<td>GD32<td>板上可见，疑似 USB-UART / 外设 / 下载辅助，需连线验证<tr><td>显示<td>SPI TFT / ST7735 类<td>128x160，SPI2，示例 rotation <code>90</code>；原屏具体驱动 IC 待确认<tr><td>存储<td>MicroSD<td>与 TFT 共享 SPI2，通过 CS 分时复用<tr><td>按键<td>上 / 下 / 左 / 右 / A / B<td>6 键输入<tr><td>蜂鸣器<td>GPIO14<td>无源蜂鸣器，PWM / LEDC 驱动<tr><td>光照<td>GPIO36 / ADC1_CH0<td>仅输入 ADC<tr><td>温度<td>GPIO39 / ADC1_CH3<td>热敏电阻，ESPHome 示例用 NTC<tr><td>I2C<td>GPIO15 / GPIO21<td>图示列出 MPU6050 / 运动传感器、马达/LED 控制器<tr><td>UART0<td>GPIO1 / GPIO3<td>原生串口；是否经过 GD32 待确认<tr><td>侧边接口<td>MOTOR-A / MOTOR-B<td>上游图示标注；是否对应背面 <code>M1/M2</code> 2Pin 小座需追线确认<tr><td>扩展<td>GPIO33 / GPIO32 / GPIO26 / GPIO25<td>底部 1/2/3/4 扩展位；图上每路还标 <code>GVD</code>，疑似公共电源/地，需实测</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=meowbit-对照>MeowBit 对照<a href=#meowbit-对照 class=hash-link aria-label="Direct link to MeowBit 对照" title="Direct link to MeowBit 对照" translate=no>​</a></h2>
+<ul>
+<li>Wener 实机观察确认：手头这台小喵掌机与 <code>diegosanzmartin/Reversing-Meowbit-v1</code> 图片中的外观和 PCB 布局完全一致。</li>
+<li>KittenBot 官方 MeowBit 资料列出 TFT、Dual LEDs、Light Sensor、Temperature Sensor、6 Programmable Buttons、Passive Buzzer、SD Card Slot、Gyroscope、Expansion Pins、JacDac Port、Micro:bit-compatible 40-pin expansion connector。</li>
+<li>MeowBit v1 逆向资料中的按键 GPIO 与小喵仓库一致：<code>GPIO2/13/27/35/34/12</code>。</li>
+<li>MeowBit v1 逆向资料中的 LCD FPC 14Pin 与小喵资料一致：<code>DC GPIO4</code>、<code>MOSI GPIO23</code>、<code>SCK GPIO18</code>、<code>CS GPIO5</code>。</li>
+<li>因此后续可以把 <code>Reversing-Meowbit-v1</code> 当作本机主要硬件基准；GD32 角色、右侧 M1/M2 接口和 IMU/扩展位的实际电气连接仍需实测确认。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=上游图示信息>上游图示信息<a href=#上游图示信息 class=hash-link aria-label="Direct link to 上游图示信息" title="Direct link to 上游图示信息" translate=no>​</a></h2>
+<p><code>pysn2012/xueersi-xiaomiao/image/xiaomiao.png</code> 是当前最完整的上游标注图之一，包含屏幕、SD、按键、UART、底部扩展、MOTOR-A/B 和 I2C 设备地址。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>模块<th>图示信息<th>备注<tbody><tr><td>TFT 屏幕<td><code>SPI2: sck=18, mosi=23, cs=5, dc=4, res=19, bl=None</code><td>ST7735 / SPI TFT 方向<tr><td>SD 卡<td><code>SPI2: sck=18, mosi=23, miso=19, cs=22</code><td>与 TFT 共享 <code>SCK/MOSI/MISO</code><tr><td>按键<td>上 <code>2</code>、下 <code>13</code>、左 <code>27</code>、右 <code>35</code>、A <code>34</code>、B <code>12</code><td>与 MeowBit v1 逆向资料一致<tr><td>蜂鸣器<td><code>14</code><td>PWM / LEDC<tr><td>光照<td><code>36</code><td>ADC input-only<tr><td>热敏电阻<td><code>39</code><td>ADC input-only<tr><td>UART<td><code>TX=1</code>、<code>RX=3</code><td>ESP32 UART0<tr><td>I2C<td><code>SCL=15</code>、<code>SDA=21</code><td>图示列出姿态/运动传感器和马达/LED 控制器<tr><td>I2C 设备<td><code>0x68: MPU6050（运动传感器）</code>、<code>0x40: 马达/LED控制器</code><td>图示功能速记：<code>姿态(0x6B)</code>、<code>电机/LED(0x40)</code>；<code>0x68</code> 与 <code>0x6B</code> 的关系需结合驱动/scan 确认<tr><td>MOTOR-A / MOTOR-B<td>左右侧绿色箭头标注<td>是否对应背面 <code>M1/M2</code> 2Pin 小座，需追线确认<tr><td>底部扩展<td><code>1 -> GPIO33</code>、<code>2 -> GPIO32</code>、<code>3 -> GPIO26</code>、<code>4 -> GPIO25</code><td>图上每路上方还标 <code>GVD</code>，疑似公共电源/地，需万用表确认</table>
+<p>图示里给出的 <code>0x40</code> I2C 写入示例：</p>
+<div class="language-python codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-python codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 格式: i2c.writeto_mem(设备地址, 寄存器地址, 数据)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">i2c</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">writeto_mem</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">0x40</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">0xA0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">bytes</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token number" style="color:rgb(247, 140, 108)">1</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 向地址 0x40 的设备，在寄存器 0xA0 中写入数据 1</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 使用 writeto: 地址 + 数据</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">i2c</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">writeto</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">0x40</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token builtin" style="color:rgb(130, 170, 255)">bytes</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">data_sequence</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># 告诉 0x40 设备接收这些数据，设备自行解析含义</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=pinout>Pinout<a href=#pinout class=hash-link aria-label="Direct link to Pinout" title="Direct link to Pinout" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>功能<th>引脚<th>备注<tbody><tr><td>Key Up<td>GPIO2<td>输入<tr><td>Key Down<td>GPIO13<td>输入<tr><td>Key Left<td>GPIO27<td>输入<tr><td>Key Right<td>GPIO35<td>仅输入<tr><td>Key A<td>GPIO34<td>仅输入<tr><td>Key B<td>GPIO12<td>启动敏感，上电阶段避免外部高电平<tr><td>TFT SCK<td>GPIO18<td>SPI2，与 SD 共享<tr><td>TFT MOSI<td>GPIO23<td>SPI2，与 SD 共享<tr><td>TFT CS<td>GPIO5<td>TFT 片选<tr><td>TFT DC<td>GPIO4<td>TFT Data/Command<tr><td>TFT RES<td>GPIO19<td>与 SD MISO 共享<tr><td>SD SCK<td>GPIO18<td>SPI2，与 TFT 共享<tr><td>SD MOSI<td>GPIO23<td>SPI2，与 TFT 共享<tr><td>SD MISO<td>GPIO19<td>SPI2，与 TFT RES 共享<tr><td>SD CS<td>GPIO22<td>SD 片选<tr><td>Buzzer<td>GPIO14<td>PWM<tr><td>Light ADC<td>GPIO36<td>ADC1_CH0，仅输入<tr><td>NTC ADC<td>GPIO39<td>ADC1_CH3，仅输入<tr><td>I2C SCL<td>GPIO15<td>I2C<tr><td>I2C SDA<td>GPIO21<td>I2C<tr><td>UART0 TX<td>GPIO1<td>原生串口<tr><td>UART0 RX<td>GPIO3<td>原生串口</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=lcd-fpc-14pin>LCD FPC 14Pin<a href=#lcd-fpc-14pin class=hash-link aria-label="Direct link to LCD FPC 14Pin" title="Direct link to LCD FPC 14Pin" translate=no>​</a></h2>
+<ul>
+<li>观察到的 14Pin 屏幕排线定义符合典型 SPI TFT LCD。</li>
+<li><code>SCL</code> 对应 SPI Clock，<code>SDA</code> 对应 SPI MOSI。</li>
+<li><code>VCC</code> / <code>IOVCC</code> / 背光供电方式需要实测后才能直接替换屏幕。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Pin<th>Symbol<th>Function<th>说明<tbody><tr><td>1<td>NC<td>空脚<td>未连接<tr><td>2<td>GND<td>电源接地<td>地<tr><td>3<td>LEDK<td>背光阴极<td>背光 LED 阴极<tr><td>4<td>LEDA<td>背光阳极<td>背光 LED 阳极<tr><td>5<td>GND<td>电源接地<td>地<tr><td>6<td>RESET<td>显示屏复位脚<td>LCD reset<tr><td>7<td>D/C<td>数据/命令控制脚<td>Data / Command 选择<tr><td>8<td>SDA<td>数据<td>SPI MOSI / SDA<tr><td>9<td>SCL<td>时钟<td>SPI SCLK<tr><td>10<td>VCC<td>模拟电压<td>屏幕供电，可能是 2.8V / 3.3V，需实测<tr><td>11<td>IOVCC<td>逻辑电压<td>IO 电平供电，通常 3.3V，需实测<tr><td>12<td>CS<td>片选信号<td>SPI CS<tr><td>13<td>GND<td>电源接地<td>地<tr><td>14<td>NC<td>空脚<td>未连接</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=lcd-替换推测>LCD 替换推测<a href=#lcd-替换推测 class=hash-link aria-label="Direct link to LCD 替换推测" title="Direct link to LCD 替换推测" translate=no>​</a></h2>
+<ul>
+<li>14Pin pinout 与常见 SPI TFT 模组接近，理论上可替换成 SPI 接口的 ST7789 屏幕。</li>
+<li>ST7789 常见信号包括 <code>VCC</code>、<code>GND</code>、<code>SCL</code>、<code>SDA</code>、<code>RES</code>、<code>DC</code>、<code>CS</code>、<code>BLK</code> / <code>LED</code>。</li>
+<li>如果原屏也是 ST7789 / ST7735 / GC9A01 / ILI9341 类 SPI 屏，替换难度主要在 pinout、供电、初始化参数和 framebuffer 尺寸。</li>
+<li>如果原屏已经是 ST7789 且只是分辨率不同，通常重点改 init sequence、分辨率、偏移量、RGB/BGR 和旋转方向。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>检查项<th>说明<tbody><tr><td>排线 pinout<td>14Pin 顺序必须完全对应，不一致需要转接板<tr><td>FPC pitch<td>间距要匹配，常见有 0.5mm 等规格，需量测<tr><td>触点方向<td>同向 / 反向会影响能否直插<tr><td>VCC / IOVCC<td>确认是 3.3V、2.8V 还是其它电压<tr><td>背光驱动<td>确认 LEDA / LEDK 是直接供电、限流电阻还是开关管控制<tr><td>屏幕尺寸<td>外形、可视区、固定结构要匹配外壳<tr><td>初始化参数<td>分辨率、offset、RGB/BGR、rotation 因模组而异<tr><td>固件驱动<td>需要能改 LCD init sequence、尺寸和 framebuffer</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=st7789-可选方向>ST7789 可选方向<a href=#st7789-可选方向 class=hash-link aria-label="Direct link to ST7789 可选方向" title="Direct link to ST7789 可选方向" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>分辨率<th>常见尺寸<th>备注<tbody><tr><td>240x240<td>1.3 / 1.54 寸<td>最常见，适合小掌机<tr><td>240x280<td>1.69 寸<td>竖屏设备常见<tr><td>240x320<td>2.0 寸左右<td>接近小屏手机比例<tr><td>320x240<td>2.0 / 2.4 寸<td>横屏掌机更舒服</table>
+<ul>
+<li>ESP32 推 SPI TFT 时，分辨率越高刷新压力越大。</li>
+<li>UI、菜单和简单游戏可以考虑 240x320；复杂动画优先考虑 240x240 / 240x280。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=m1--m2-与-motor-ab>M1 / M2 与 MOTOR-A/B<a href=#m1--m2-与-motor-ab class=hash-link aria-label="Direct link to M1 / M2 与 MOTOR-A/B" title="Direct link to M1 / M2 与 MOTOR-A/B" translate=no>​</a></h2>
+<ul>
+<li>上游 <code>xiaomiao.png</code> 图示把左右侧接口标成 <code>MOTOR-A</code> / <code>MOTOR-B</code>，同时列出 I2C <code>0x40</code> 为 <code>马达/LED控制器</code>。</li>
+<li>背面板图可见两组 2Pin 小接口，丝印类似 <code>M1+ / M1-</code>、<code>M2+ / M2-</code>。</li>
+<li>目前可以推测 <code>M1/M2</code> 与 <code>MOTOR-A/B</code>、I2C <code>0x40</code> 控制器有关，但还不能在未追线前直接确认电气连接和可承载负载。</li>
+<li>KittenBot 官方 MeowBit pinout 未把 <code>M1/M2</code> 列为可编程 IO 名称。</li>
+<li>公开资料里 <code>M1/M2</code> 也常出现在 Robotbit 扩展板的 motor port 文档中，但那是外接扩展板，不能直接套用到小喵/MeowBit 本体。</li>
+<li>验证前不要接低阻电机、外部供电或大电流负载。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>检查项<th>目的<tbody><tr><td>断电量 <code>M1+/-</code>、<code>M2+/-</code> 到 <code>GND</code> / <code>3V3</code> 的连通<td>判断是否是电源/地/信号<tr><td>上电测两组接口静态电压<td>判断是否有固定供电或受控输出<tr><td>追线到 ESP32 / GD32 / 驱动芯片<td>判断接口真实归属<tr><td>观察运行时波形<td>判断是否为 UART、GPIO、PWM、I2C 或其它协议</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=gd32--usb-uart-推测>GD32 / USB-UART 推测<a href=#gd32--usb-uart-推测 class=hash-link aria-label="Direct link to GD32 / USB-UART 推测" title="Direct link to GD32 / USB-UART 推测" translate=no>​</a></h2>
+<ul>
+<li>板上未见独立 USB-UART 芯片，同时观察到 GD32 MCU。</li>
+<li>推测 GD32 可能承担 USB CDC 转 UART、ESP32 自动下载控制或外设辅助控制。</li>
+<li>是否真实承担 USB-UART 需要用连线、枚举信息和串口行为确认。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>可能方案<th>说明<tbody><tr><td>GD32 作为 USB-UART 桥<td>GD32 连接 USB D+ / D-，再通过 UART 接 ESP32<tr><td>GD32 作为键盘 / 外设控制 MCU<td>负责按键、蜂鸣器、传感器等，再和 ESP32 通信<tr><td>GD32 作为下载 / 烧录辅助芯片<td>控制 ESP32 EN / GPIO0，实现自动下载<tr><td>GD32 是主控之一<td>ESP32 负责无线或应用，GD32 负责底层外设</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=验证点>验证点<a href=#验证点 class=hash-link aria-label="Direct link to 验证点" title="Direct link to 验证点" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>检查项<th>判断<tbody><tr><td>USB D+ / D- 是否接到 GD32<td>如果直连 GD32，说明 GD32 至少参与 USB 侧功能<tr><td>GD32 UART 是否接 ESP32 U0RXD / U0TXD<td>可验证是否作为 USB-UART 桥<tr><td>GD32 是否连接 ESP32 EN / GPIO0<td>可验证是否参与自动下载<tr><td>插 USB 后 VID/PID / 串口名称<td>CDC 串口且无 CH340/CP2102/FT232 时，GD32 做 USB CDC 的可能性较高</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=imu-预留推测>IMU 预留推测<a href=#imu-预留推测 class=hash-link aria-label="Direct link to IMU 预留推测" title="Direct link to IMU 预留推测" translate=no>​</a></h2>
+<ul>
+<li>板上存在空置焊盘，疑似 MPU6050 / MPU6500 / ICM-206xx 一类 I2C IMU 预留位。</li>
+<li>如果焊盘连接到 <code>GPIO15</code> / <code>GPIO21</code>，可尝试 I2C scan。</li>
+<li>焊上 MPU6050 后，常见 I2C 地址为 <code>0x68</code> 或 <code>0x69</code>。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>信号<th>说明<tbody><tr><td>VCC<td>IMU 供电<tr><td>GND<td>地<tr><td>SCL<td>I2C clock，可能接 GPIO15<tr><td>SDA<td>I2C data，可能接 GPIO21<tr><td>INT<td>中断脚，需追线确认<tr><td>AD0<td>地址选择脚，决定 <code>0x68</code> / <code>0x69</code></table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=注意事项>注意事项<a href=#注意事项 class=hash-link aria-label="Direct link to 注意事项" title="Direct link to 注意事项" translate=no>​</a></h2>
+<ul>
+<li>GPIO34、GPIO35、GPIO36、GPIO39 是 input-only，不能作为输出。</li>
+<li>GPIO12 是 ESP32 strapping pin；小喵掌机 B 键接在 GPIO12，上电阶段要避免外部高电平影响启动。</li>
+<li>TFT 与 MicroSD 共享 SPI2 的 GPIO18、GPIO23、GPIO19，通过不同 CS 分时访问。</li>
+<li>上游 README 中的部分扩展说明需要按实机追线复核，不宜直接当作确定硬件结论。</li>
+<li>如果使用 ESPHome 示例，示例 AP / Wi-Fi 配置应改成自己的配置，不要沿用公开仓库里的默认值。</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=下一步确认>下一步确认<a href=#下一步确认 class=hash-link aria-label="Direct link to 下一步确认" title="Direct link to 下一步确认" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>优先级<th>项目<th>目的<tbody><tr><td>P0<td>测量 LCD <code>VCC</code> / <code>IOVCC</code><td>判断 ST7789 是否可直接接入<tr><td>P0<td>确认 FPC pitch 和触点方向<td>判断是否能直接换屏或需要转接<tr><td>P0<td>确认原屏驱动 IC<td>判断是否只需改初始化参数<tr><td>P1<td>追 GD32 到 ESP32 的 UART / EN / GPIO0<td>判断 USB-UART、烧录和辅助控制路径<tr><td>P1<td>追右侧 <code>M1/M2</code> 2Pin 小座<td>判断是电源、GPIO、通信口还是专用模块接口<tr><td>P1<td>记录 USB VID/PID 和串口名称<td>验证 GD32 是否作为 USB CDC 设备<tr><td>P1<td>扫 I2C 总线<td>确认是否已有 IMU 或预留地址<tr><td>P2<td>测背光 LEDA / LEDK 驱动<td>判断换屏背光是否需要限流或开关控制</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=软件入口>软件入口<a href=#软件入口 class=hash-link aria-label="Direct link to 软件入口" title="Direct link to 软件入口" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>路径<th>内容<tbody><tr><td><code>bins/ESP32_SPIRAM_1.24_SDCARDST7735.bin</code><td>预编译 ESP32 SPIRAM / SDCard / ST7735 固件<tr><td><code>bins/lvgl9.3_mpy_ESP32_GENERIC_SPIRAM_4MB_st7735.bin</code><td>LVGL 9.3 + MicroPython 固件<tr><td><code>microptyhon/</code><td>MicroPython 示例；上游目录名保留拼写 <code>microptyhon</code><tr><td><code>lvgl-mpy/</code><td>LVGL MicroPython 示例、字体和 screen 示例<tr><td><code>esphome/xiaomiao.yaml</code><td>ESPHome 主配置，包含 Wi-Fi、packages、Home Assistant 时间同步<tr><td><code>esphome/packages/device.yaml</code><td>SPI / ST7735 显示配置<tr><td><code>esphome/packages/sensors.yaml</code><td>在线状态、uptime、Wi-Fi、光照 ADC、NTC 温度、IP 信息<tr><td><code>esphome/packages/fonts.yaml</code><td>字体配置</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=micropython-初始化>MicroPython 初始化<a href=#micropython-初始化 class=hash-link aria-label="Direct link to MicroPython 初始化" title="Direct link to MicroPython 初始化" translate=no>​</a></h2>
+<div class="language-python codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-python codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token keyword" style=font-style:italic>from</span><span class="token plain"> machine </span><span class="token keyword" style=font-style:italic>import</span><span class="token plain"> I2C</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> PWM</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> Pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> SPI</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">key_up </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> Pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">2</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> Pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">IN</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> Pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">PULL_UP</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">spi </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> SPI</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">2</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> baudrate</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token number" style="color:rgb(247, 140, 108)">40_000_000</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> sck</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain">Pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">18</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> mosi</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain">Pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">23</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> miso</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain">Pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">19</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">i2c </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> I2C</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">0</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> scl</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain">Pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">15</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> sda</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain">Pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">21</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">buzzer </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> PWM</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">Pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">14</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> freq</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token number" style="color:rgb(247, 140, 108)">2000</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> duty</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token number" style="color:rgb(247, 140, 108)">512</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=esphome-片段>ESPHome 片段<a href=#esphome-片段 class=hash-link aria-label="Direct link to ESPHome 片段" title="Direct link to ESPHome 片段" translate=no>​</a></h2>
+<div class="language-yaml codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-yaml codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token key atrule">spi</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain"> </span><span class="token key atrule">id</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> lcd_spi</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">clk_pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> GPIO18</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">mosi_pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> GPIO23</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token key atrule">display</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token plain"> </span><span class="token key atrule">platform</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> mipi_spi</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">id</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> tft_display</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">model</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> ST7735</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">spi_id</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> lcd_spi</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">cs_pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">5</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">dc_pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">4</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">reset_pin</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">19</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">rotation</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">90</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token key atrule">dimensions</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">width</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">128</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">      </span><span class="token key atrule">height</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">160</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=参考>参考<a href=#参考 class=hash-link aria-label="Direct link to 参考" title="Direct link to 参考" translate=no>​</a></h2>
+<ul>
+<li><a href=https://github.com/pysn2012/xueersi-xiaomiao target=_blank rel="noopener noreferrer">pysn2012/xueersi-xiaomiao</a></li>
+<li><a href=https://github.com/diegosanzmartin/Reversing-Meowbit-v1 target=_blank rel="noopener noreferrer">diegosanzmartin/Reversing-Meowbit-v1</a></li>
+<li><a href=https://learn.kittenbot.cc/docs/meowbit/ target=_blank rel="noopener noreferrer">Meowbit | Kittenbot</a></li>
+<li><a href=https://kittenbot-doc-en.readthedocs.io/en/latest/mainBoard/Meowbit/meowbit.html target=_blank rel="noopener noreferrer">Meowbit Introductions</a></li>
+<li><a href=https://www.kittenbot.cn/ target=_blank rel="noopener noreferrer">Kittenbot 中文站</a></li>
+<li><a href=http://learn.kittenbot.cn/ target=_blank rel="noopener noreferrer">小喵科技产品文档</a></li>
+<li><a href=https://kittenbot.cn/doc/hardware/meowbit/Arcade%E7%BC%96%E7%A8%8B/ target=_blank rel="noopener noreferrer">Arcade编程 | Kittenbot</a></li>
+<li><a href=/notes/hardware/soc/esp32>ESP32</a></li>
+<li><a href=/notes/hardware/iot/home-assistant>Home Assistant</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/hardware/soc/esp32/xueersi-xiaomiao.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-07-12T05:43:13.000Z itemprop=dateModified>Jul 12, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/hardware/soc/esp32><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>ESP32</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/hardware/soc/esp8266><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>ESP8266</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#硬件资源 class="table-of-contents__link toc-highlight">硬件资源</a><li><a href=#meowbit-对照 class="table-of-contents__link toc-highlight">MeowBit 对照</a><li><a href=#上游图示信息 class="table-of-contents__link toc-highlight">上游图示信息</a><li><a href=#pinout class="table-of-contents__link toc-highlight">Pinout</a><li><a href=#lcd-fpc-14pin class="table-of-contents__link toc-highlight">LCD FPC 14Pin</a><li><a href=#lcd-替换推测 class="table-of-contents__link toc-highlight">LCD 替换推测</a><ul><li><a href=#st7789-可选方向 class="table-of-contents__link toc-highlight">ST7789 可选方向</a></ul><li><a href=#m1--m2-与-motor-ab class="table-of-contents__link toc-highlight">M1 / M2 与 MOTOR-A/B</a><li><a href=#gd32--usb-uart-推测 class="table-of-contents__link toc-highlight">GD32 / USB-UART 推测</a><ul><li><a href=#验证点 class="table-of-contents__link toc-highlight">验证点</a></ul><li><a href=#imu-预留推测 class="table-of-contents__link toc-highlight">IMU 预留推测</a><li><a href=#注意事项 class="table-of-contents__link toc-highlight">注意事项</a><li><a href=#下一步确认 class="table-of-contents__link toc-highlight">下一步确认</a><li><a href=#软件入口 class="table-of-contents__link toc-highlight">软件入口</a><li><a href=#micropython-初始化 class="table-of-contents__link toc-highlight">MicroPython 初始化</a><li><a href=#esphome-片段 class="table-of-contents__link toc-highlight">ESPHome 片段</a><li><a href=#参考 class="table-of-contents__link toc-highlight">参考</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-08-22 17:44</div></div></div></footer></div></body>

@@ -1,0 +1,697 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-service/data/crawler/crawl4ai" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>crawl4ai | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/notes/service/data/crawler/crawl4ai /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="crawl4ai | Wener Live & Life"/><meta data-rh=true name=description content="- unclecode/crawl4ai"/><meta data-rh=true property=og:description content="- unclecode/crawl4ai"/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/notes/service/data/crawler/crawl4ai /><link data-rh=true rel=alternate href=https://wener.me/notes/service/data/crawler/crawl4ai hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/notes/service/data/crawler/crawl4ai hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://wener.me/notes/service/","name":"服务","position":1},{"@type":"ListItem","item":"https://wener.me/notes/service/data/","name":"数据","position":2},{"@type":"ListItem","item":"https://wener.me/notes/service/data/crawler/","name":"Cralwer","position":3},{"@type":"ListItem","item":"https://wener.me/notes/service/data/crawler/crawl4ai","name":"crawl4ai","position":4}]}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.45157e98.js defer></script><script src=/assets/js/main.dc4bf51b.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class=docsWrapper_oymo><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ZPA9" type=button></button><div class=docRoot_ng2Q><aside class="theme-doc-sidebar-container docSidebarContainer_nyHU"><div class=sidebarViewport_rLoj><div class=sidebar_TmDF><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_jRin"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes><span title=笔记 class=linkLabel_JPPZ>笔记</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/adobe/photoshop><span title=adobe class=categoryLinkLabel_RkOu>adobe</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ai><span title=AI class=categoryLinkLabel_RkOu>AI</span></a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/algorithm><span title=算法 class=categoryLinkLabel_RkOu>算法</span></a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/blockchain><span title=区块链 class=categoryLinkLabel_RkOu>区块链</span></a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/cn><span title=CN class=categoryLinkLabel_RkOu>CN</span></a><button aria-label="Expand sidebar category 'CN'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/courses><span title=课程 class=categoryLinkLabel_RkOu>课程</span></a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/culture><span title=文化 class=categoryLinkLabel_RkOu>文化</span></a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/db><span title=数据库 class=categoryLinkLabel_RkOu>数据库</span></a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/dev><span title=开发 class=categoryLinkLabel_RkOu>开发</span></a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/devops><span title=DevOps class=categoryLinkLabel_RkOu>DevOps</span></a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/economics><span title=经济学 class=categoryLinkLabel_RkOu>经济学</span></a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/electrical><span title=电学基础 class=categoryLinkLabel_RkOu>电学基础</span></a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/arduino><span title=embedded class=categoryLinkLabel_RkOu>embedded</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/evolve><span title=自我成长 class=categoryLinkLabel_RkOu>自我成长</span></a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/hardware><span title=硬件 class=categoryLinkLabel_RkOu>硬件</span></a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/healthcare><span title=健康 class=categoryLinkLabel_RkOu>健康</span></a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing><span title=howto class=categoryLinkLabel_RkOu>howto</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/java><span title=Java class=categoryLinkLabel_RkOu>Java</span></a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/languages><span title=语言 class=categoryLinkLabel_RkOu>语言</span></a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes/linguistics><span title=Linguistics class=linkLabel_JPPZ>Linguistics</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/math><span title=数学 class=categoryLinkLabel_RkOu>数学</span></a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dict><span title=network class=categoryLinkLabel_RkOu>network</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/ops><span title=运维 class=categoryLinkLabel_RkOu>运维</span></a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/os><span title=操作系统 class=categoryLinkLabel_RkOu>操作系统</span></a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/philosophy><span title=理念 class=categoryLinkLabel_RkOu>理念</span></a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/photography><span title=摄影 class=categoryLinkLabel_RkOu>摄影</span></a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/platform><span title=平台 class=categoryLinkLabel_RkOu>平台</span></a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/mbti><span title=psychology class=categoryLinkLabel_RkOu>psychology</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/queue><span title=Queue class=categoryLinkLabel_RkOu>Queue</span></a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/security><span title=安全 class=categoryLinkLabel_RkOu>安全</span></a><button aria-label="Expand sidebar category '安全'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" href=/notes/service><span title=服务 class=categoryLinkLabel_RkOu>服务</span></a><button aria-label="Collapse sidebar category '服务'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/ais><span title="会计信息系统 (AIS)" class=linkLabel_JPPZ>会计信息系统 (AIS)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/analytics><span title=统计 class=categoryLinkLabel_RkOu>统计</span></a><button aria-label="Expand sidebar category '统计'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/api/awesome><span title=api class=categoryLinkLabel_RkOu>api</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/auth><span title=Auth class=categoryLinkLabel_RkOu>Auth</span></a><button aria-label="Expand sidebar category 'Auth'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/baas><span title="Backend as a Service" class=categoryLinkLabel_RkOu>Backend as a Service</span></a><button aria-label="Expand sidebar category 'Backend as a Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/bi><span title="Business Intelligence (BI)" class=categoryLinkLabel_RkOu>Business Intelligence (BI)</span></a><button aria-label="Expand sidebar category 'Business Intelligence (BI)'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/business/glossary><span title=business class=categoryLinkLabel_RkOu>business</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/cctv><span title=CCTV class=linkLabel_JPPZ>CCTV</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/cms><span title="CMS 概览" class=categoryLinkLabel_RkOu>CMS 概览</span></a><button aria-label="Expand sidebar category 'CMS 概览'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/collaboration><span title=协同软件 class=categoryLinkLabel_RkOu>协同软件</span></a><button aria-label="Expand sidebar category '协同软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/commerce><span title=电商 class=categoryLinkLabel_RkOu>电商</span></a><button aria-label="Expand sidebar category '电商'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/service/data><span title=数据 class=categoryLinkLabel_RkOu>数据</span></a><button aria-label="Collapse sidebar category '数据'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/airbyte><span title=airbyte class=linkLabel_JPPZ>airbyte</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--active" tabindex=0 href=/notes/service/data/crawler><span title=Cralwer class=categoryLinkLabel_RkOu>Cralwer</span></a><button aria-label="Collapse sidebar category 'Cralwer'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/archivebox><span title=archivebox class=linkLabel_JPPZ>archivebox</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/service/data/crawler/crawl4ai><span title=crawl4ai class=linkLabel_JPPZ>crawl4ai</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/crawlab><span title=crawlab class=linkLabel_JPPZ>crawlab</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/crawlee><span title=crawlee class=linkLabel_JPPZ>crawlee</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/awesome><span title="Crawler Awesome" class=linkLabel_JPPZ>Crawler Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/faq><span title="Crawler FAQ" class=linkLabel_JPPZ>Crawler FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/proxy><span title=爬虫代理 class=linkLabel_JPPZ>爬虫代理</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/firecrawl><span title=Firecrawl class=linkLabel_JPPZ>Firecrawl</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/frontera><span title=Frontera class=linkLabel_JPPZ>Frontera</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/heritrix><span title=Heritrix class=linkLabel_JPPZ>Heritrix</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/scrapy-ui><span title="Scrapy UI & Management" class=linkLabel_JPPZ>Scrapy UI & Management</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/scrapy><span title=Scrapy class=linkLabel_JPPZ>Scrapy</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/till><span title=till class=linkLabel_JPPZ>till</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/warc><span title=WARC class=linkLabel_JPPZ>WARC</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/wayback-machine-downloader><span title=wayback-machine-downloader class=linkLabel_JPPZ>wayback-machine-downloader</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/crawler/wayback-machine><span title="Wayback Machine" class=linkLabel_JPPZ>Wayback Machine</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/data/data/bi><span title=data class=categoryLinkLabel_RkOu>data</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/awesome><span title="Data Awesome" class=linkLabel_JPPZ>Data Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/breach><span title=数据泄漏 class=linkLabel_JPPZ>数据泄漏</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/cn><span title=中国数据参考 class=linkLabel_JPPZ>中国数据参考</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/conv><span title=Conv class=linkLabel_JPPZ>Conv</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/faq><span title="Data FAQ" class=linkLabel_JPPZ>Data FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/usa><span title=USA class=linkLabel_JPPZ>USA</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/glossary><span title="Data Services Glossary" class=linkLabel_JPPZ>Data Services Glossary</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/imdb><span title=IMDB class=linkLabel_JPPZ>IMDB</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/data/nifi><span title="Apache NiFi" class=categoryLinkLabel_RkOu>Apache NiFi</span></a><button aria-label="Expand sidebar category 'Apache NiFi'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/data/rudder><span title=rudder class=linkLabel_JPPZ>rudder</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/data/schema/division><span title=schema class=categoryLinkLabel_RkOu>schema</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/dev/backstage><span title=dev class=categoryLinkLabel_RkOu>dev</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/dns><span title="DNS Service" class=categoryLinkLabel_RkOu>DNS Service</span></a><button aria-label="Expand sidebar category 'DNS Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/document><span title=办公套件 class=categoryLinkLabel_RkOu>办公套件</span></a><button aria-label="Expand sidebar category '办公套件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/download><span title=下载器 class=categoryLinkLabel_RkOu>下载器</span></a><button aria-label="Expand sidebar category '下载器'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/edms><span title=档案管理 class=categoryLinkLabel_RkOu>档案管理</span></a><button aria-label="Expand sidebar category '档案管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/email><span title=EMail class=categoryLinkLabel_RkOu>EMail</span></a><button aria-label="Expand sidebar category 'EMail'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/erp><span title=ERP class=categoryLinkLabel_RkOu>ERP</span></a><button aria-label="Expand sidebar category 'ERP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/file><span title="File Sharing & Storage Services" class=categoryLinkLabel_RkOu>File Sharing & Storage Services</span></a><button aria-label="Expand sidebar category 'File Sharing & Storage Services'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/financial/awesome><span title=financial class=categoryLinkLabel_RkOu>financial</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/forge><span title=Forge class=categoryLinkLabel_RkOu>Forge</span></a><button aria-label="Expand sidebar category 'Forge'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/forum/awesome><span title=forum class=categoryLinkLabel_RkOu>forum</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/game/gba><span title=game class=categoryLinkLabel_RkOu>game</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/geo/awesome><span title=geo class=categoryLinkLabel_RkOu>geo</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/im><span title="Instant Messaging" class=categoryLinkLabel_RkOu>Instant Messaging</span></a><button aria-label="Expand sidebar category 'Instant Messaging'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/lms><span title=LMS class=linkLabel_JPPZ>LMS</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/media><span title=Media class=categoryLinkLabel_RkOu>Media</span></a><button aria-label="Expand sidebar category 'Media'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/message><span title="Message Service" class=categoryLinkLabel_RkOu>Message Service</span></a><button aria-label="Expand sidebar category 'Message Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/messaging/centrifugo><span title=messaging class=categoryLinkLabel_RkOu>messaging</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/mgmt><span title=管理 class=categoryLinkLabel_RkOu>管理</span></a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/network><span title=网络服务 class=categoryLinkLabel_RkOu>网络服务</span></a><button aria-label="Expand sidebar category '网络服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/notification><span title="Notification Service" class=categoryLinkLabel_RkOu>Notification Service</span></a><button aria-label="Expand sidebar category 'Notification Service'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/notion><span title=Notion class=linkLabel_JPPZ>Notion</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/observability><span title=可观察性 class=categoryLinkLabel_RkOu>可观察性</span></a><button aria-label="Expand sidebar category '可观察性'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/p2p/ipfs><span title=p2p class=categoryLinkLabel_RkOu>p2p</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/password><span title=密码管理 class=categoryLinkLabel_RkOu>密码管理</span></a><button aria-label="Expand sidebar category '密码管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/placeholder><span title=Placeholder class=linkLabel_JPPZ>Placeholder</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/realtime><span title=Realtime class=categoryLinkLabel_RkOu>Realtime</span></a><button aria-label="Expand sidebar category 'Realtime'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/search/awesome><span title=search class=categoryLinkLabel_RkOu>search</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/security/infisical><span title=security class=categoryLinkLabel_RkOu>security</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/selfhost><span title=SelfHost class=categoryLinkLabel_RkOu>SelfHost</span></a><button aria-label="Expand sidebar category 'SelfHost'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/serverless><span title=Serverless class=categoryLinkLabel_RkOu>Serverless</span></a><button aria-label="Expand sidebar category 'Serverless'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/awesome><span title="Service Awesome" class=linkLabel_JPPZ>Service Awesome</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/service/faq><span title="Service FAQ" class=linkLabel_JPPZ>Service FAQ</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/storage><span title=存储服务 class=categoryLinkLabel_RkOu>存储服务</span></a><button aria-label="Expand sidebar category '存储服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/telecom/device><span title=telecom class=categoryLinkLabel_RkOu>telecom</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/torrent><span title=Torrent class=categoryLinkLabel_RkOu>Torrent</span></a><button aria-label="Expand sidebar category 'Torrent'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/vpn/goproxy><span title=vpn class=categoryLinkLabel_RkOu>vpn</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/wiki><span title=Wiki class=categoryLinkLabel_RkOu>Wiki</span></a><button aria-label="Expand sidebar category 'Wiki'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" tabindex=0 href=/notes/service/workflow><span title=Workflow class=categoryLinkLabel_RkOu>Workflow</span></a><button aria-label="Expand sidebar category 'Workflow'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/service/xaas/awesome><span title=xaas class=categoryLinkLabel_RkOu>xaas</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/software><span title=软件 class=categoryLinkLabel_RkOu>软件</span></a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/std><span title=标准数据 class=categoryLinkLabel_RkOu>标准数据</span></a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/voip><span title=VoIP class=categoryLinkLabel_RkOu>VoIP</span></a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_irRK menu__link menu__link--sublist" href=/notes/web><span title=Web class=categoryLinkLabel_RkOu>Web</span></a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_NY7h"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_c8nQ><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_GAGP><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_YQ1L"><div class=docItemContainer_Wjg4><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_tiqF" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_WTWT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/service><span>服务</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/service/data><span>数据</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/notes/service/data/crawler><span>Cralwer</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>crawl4ai</span></ul></nav><div class="tocCollapsible_GvsH theme-doc-toc-mobile tocMobile_qJgM"><button type=button class="clean-btn tocCollapsibleButton_LnP0">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>crawl4ai</h1></header>
+<ul>
+<li><a href=https://github.com/unclecode/crawl4ai target=_blank rel="noopener noreferrer">unclecode/crawl4ai</a>
+<ul>
+<li>Apache-2.0, Python, Playwright/Chromium, Redis</li>
+<li>Open-source LLM Friendly Web Crawler & Scraper</li>
+<li>面向 AI/LLM 的网页抓取、清洗、Markdown 生成、结构化抽取工具</li>
+<li>支持复杂页面、浏览器控制、截图、PDF、缓存、异步任务、Webhook</li>
+</ul>
+</li>
+<li>官方文档
+<ul>
+<li><a href=https://docs.crawl4ai.com/ target=_blank rel="noopener noreferrer">https://docs.crawl4ai.com/</a></li>
+<li><a href=https://docs.crawl4ai.com/api/parameters/ target=_blank rel="noopener noreferrer">https://docs.crawl4ai.com/api/parameters/</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=features>Features<a href=#features class=hash-link aria-label="Direct link to Features" title="Direct link to Features" translate=no>​</a></h2>
+<ul>
+<li>Generate Clean Markdown
+<ul>
+<li>将网页转为适合 LLM/RAG 使用的 Markdown</li>
+<li>支持 <code>fit</code>、<code>raw</code>、<code>bm25</code>、<code>llm</code> 等过滤模式</li>
+</ul>
+</li>
+<li>Structured Extraction
+<ul>
+<li>支持通过 schema/LLM 从页面中抽取结构化数据</li>
+<li>可先用 <code>/html</code> 获取预处理 HTML，再设计抽取 schema</li>
+</ul>
+</li>
+<li>Advanced Browser Control
+<ul>
+<li>基于 Playwright/Chromium 渲染动态页面</li>
+<li>支持 <code>BrowserConfig</code> 和 <code>CrawlerRunConfig</code></li>
+<li>支持等待图片、截图、PDF、JS 执行等能力</li>
+</ul>
+</li>
+<li>API Server
+<ul>
+<li>Docker 版默认监听 <code>11235</code></li>
+<li>内置 Redis 任务队列</li>
+<li>支持同步 <code>/crawl</code>、流式 <code>/crawl/stream</code>、异步 <code>/crawl/job</code></li>
+</ul>
+</li>
+<li>Web UI
+<ul>
+<li><code>/playground</code> Playground</li>
+<li><code>/dashboard</code> 监控面板</li>
+<li><code>/docs</code> FastAPI Swagger UI</li>
+<li><code>/redoc</code> ReDoc</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=security>Security<a href=#security class=hash-link aria-label="Direct link to Security" title="Direct link to Security" translate=no>​</a></h2>
+<ul>
+<li>0.9.x 之后 Docker API 默认更重视安全边界。</li>
+<li>对外监听时应配置 <code>CRAWL4AI_API_TOKEN</code>。</li>
+<li>除 <code>/health</code> 和 <code>/token</code> 外，API、UI、静态资源、Dashboard 都会经过 Bearer Auth。</li>
+<li>浏览器直接打开 <code>/playground</code> 无法自动带 <code>Authorization</code> Header，通常需要：
+<ul>
+<li>浏览器 Header 插件；或</li>
+<li>由反代做 Basic Auth，并在 upstream 注入 Bearer Token。</li>
+</ul>
+</li>
+<li>不建议公网裸奔，因为它本质上是一个可消耗 CPU/内存/带宽的远程浏览器和 URL 抓取服务。</li>
+<li>高风险能力默认关闭：
+<ul>
+<li><code>CRAWL4AI_EXECUTE_JS_ENABLED=false</code></li>
+<li><code>CRAWL4AI_HOOKS_ENABLED=false</code></li>
+<li><code>CRAWL4AI_ALLOW_INTERNAL_URLS=false</code></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=docker>Docker<a href=#docker class=hash-link aria-label="Direct link to Docker" title="Direct link to Docker" translate=no>​</a></h2>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain"># API: http://127.0.0.1:11235/</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># Playground: http://127.0.0.1:11235/playground</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"># Health: http://127.0.0.1:11235/health</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">export CRAWL4AI_API_TOKEN=$(openssl rand -hex 32)</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">docker run --rm -it \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -p 11235:11235 \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -e CRAWL4AI_API_TOKEN="$CRAWL4AI_API_TOKEN" \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  --name crawl4ai \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  unclecode/crawl4ai:0.9.0</span><br/></span></code></pre></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -fsS http://127.0.0.1:11235/health</span><br/></span></code></pre></div></div>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -fsS \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -H "Authorization: Bearer $CRAWL4AI_API_TOKEN" \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  http://127.0.0.1:11235/schema</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=env>Env<a href=#env class=hash-link aria-label="Direct link to Env" title="Direct link to Env" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>env<th>说明<tbody><tr><td><code>CRAWL4AI_API_TOKEN</code><td>静态 API Token；对外暴露时必须配置<tr><td><code>SECRET_KEY</code><td>JWT 签名密钥；使用 <code>/token</code> 发 JWT 时需要<tr><td><code>REDIS_PASSWORD</code><td>内置 Redis 密码；Docker entrypoint 可生成/注入<tr><td><code>LLM_PROVIDER</code><td>默认 LLM Provider，例如 <code>openai/gpt-4o-mini</code><tr><td><code>LLM_API_KEY</code><td>通用 LLM API Key fallback<tr><td><code>OPENAI_API_KEY</code><td>OpenAI API Key<tr><td><code>DEEPSEEK_API_KEY</code><td>DeepSeek API Key<tr><td><code>ANTHROPIC_API_KEY</code><td>Anthropic API Key<tr><td><code>GROQ_API_KEY</code><td>Groq API Key<tr><td><code>TOGETHER_API_KEY</code><td>Together API Key<tr><td><code>MISTRAL_API_KEY</code><td>Mistral API Key<tr><td><code>GEMINI_API_TOKEN</code><td>Gemini API Token<tr><td><code>CRAWL4AI_EXECUTE_JS_ENABLED</code><td>是否启用 <code>/execute_js</code>；默认关闭<tr><td><code>CRAWL4AI_HOOKS_ENABLED</code><td>是否启用 hooks；默认关闭<tr><td><code>CRAWL4AI_ALLOW_INTERNAL_URLS</code><td>是否允许抓取内网地址；默认关闭</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=rest-api>REST API<a href=#rest-api class=hash-link aria-label="Direct link to REST API" title="Direct link to REST API" translate=no>​</a></h2>
+<p>通用请求头：</p>
+<div class="language-http codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-http codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">Authorization: Bearer &lt;CRAWL4AI_API_TOKEN or JWT></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">Content-Type: application/json</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=基础与-ui>基础与 UI<a href=#基础与-ui class=hash-link aria-label="Direct link to 基础与 UI" title="Direct link to 基础与 UI" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Method<th>Path<th>说明<th>认证<tbody><tr><td><code>GET</code><td><code>/health</code><td>健康检查，返回版本与时间戳<td>否<tr><td><code>GET</code><td><code>/</code><td>重定向到 <code>/playground</code><td>是<tr><td><code>GET</code><td><code>/playground</code><td>Web Playground<td>是<tr><td><code>GET</code><td><code>/dashboard</code><td>监控面板<td>是<tr><td><code>GET</code><td><code>/docs</code><td>Swagger UI<td>是<tr><td><code>GET</code><td><code>/redoc</code><td>ReDoc<td>是<tr><td><code>GET</code><td><code>/openapi.json</code><td>OpenAPI schema<td>是<tr><td><code>GET</code><td><code>/metrics</code><td>Prometheus metrics<td>是<tr><td><code>GET</code><td><code>/schema</code><td>返回默认 <code>BrowserConfig</code> / <code>CrawlerRunConfig</code> schema<td>是<tr><td><code>POST</code><td><code>/token</code><td>用静态 <code>api_token</code> 换 JWT<td>特殊</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=crawl>Crawl<a href=#crawl class=hash-link aria-label="Direct link to Crawl" title="Direct link to Crawl" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=post-crawl><code>POST /crawl</code><a href=#post-crawl class=hash-link aria-label="Direct link to post-crawl" title="Direct link to post-crawl" translate=no>​</a></h4>
+<p>同步抓取一个或多个 URL，返回 JSON 结果。</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -fsS \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -H "Authorization: Bearer $CRAWL4AI_API_TOKEN" \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -H 'Content-Type: application/json' \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -d '{</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    "urls": ["https://example.com"],</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    "browser_config": {"headless": true},</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    "crawler_config": {"stream": false}</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  }' \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  http://127.0.0.1:11235/crawl | jq</span><br/></span></code></pre></div></div>
+<p>请求体：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>类型<th>说明<tbody><tr><td><code>urls</code><td><code>string[]</code><td>必填，1-100 个 URL<tr><td><code>browser_config</code><td><code>object</code><td>可选，传给 <code>BrowserConfig</code><tr><td><code>crawler_config</code><td><code>object</code><td>可选，传给 <code>CrawlerRunConfig</code><tr><td><code>crawler_configs</code><td><code>object[]</code><td>可选，按 URL 匹配的多配置，优先于 <code>crawler_config</code><tr><td><code>hooks</code><td><code>object</code><td>可选 declarative hooks；默认服务端禁用</table>
+<p>常见响应字段：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td><code>success</code><td>请求整体是否成功<tr><td><code>results</code><td>每个 URL 的抓取结果<tr><td><code>results[].url</code><td>原始 URL<tr><td><code>results[].success</code><td>单 URL 是否成功<tr><td><code>results[].status_code</code><td>HTTP 状态码<tr><td><code>results[].html</code><td>原始 HTML<tr><td><code>results[].cleaned_html</code><td>清洗后的 HTML<tr><td><code>results[].markdown</code><td>Markdown 结果<tr><td><code>results[].links</code><td>页面链接<tr><td><code>results[].media</code><td>图片、视频等媒体信息<tr><td><code>results[].metadata</code><td>title、description 等 metadata<tr><td><code>results[].error_message</code><td>失败原因</table>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=post-crawlstream><code>POST /crawl/stream</code><a href=#post-crawlstream class=hash-link aria-label="Direct link to post-crawlstream" title="Direct link to post-crawlstream" translate=no>​</a></h4>
+<p>流式抓取，返回 <code>application/x-ndjson</code>。</p>
+<ul>
+<li>适合 URL 数量较多、希望边抓边消费结果的场景。</li>
+<li>请求体与 <code>/crawl</code> 基本一致。</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=post-crawljob><code>POST /crawl/job</code><a href=#post-crawljob class=hash-link aria-label="Direct link to post-crawljob" title="Direct link to post-crawljob" translate=no>​</a></h4>
+<p>提交异步抓取任务，返回 <code>202</code> 和 <code>task_id</code>。</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -fsS \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -H "Authorization: Bearer $CRAWL4AI_API_TOKEN" \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -H 'Content-Type: application/json' \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -d '{"urls":["https://example.com"],"crawler_config":{}}' \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  http://127.0.0.1:11235/crawl/job | jq</span><br/></span></code></pre></div></div>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=get-crawljobtask_id><code>GET /crawl/job/{task_id}</code><a href=#get-crawljobtask_id class=hash-link aria-label="Direct link to get-crawljobtask_id" title="Direct link to get-crawljobtask_id" translate=no>​</a></h4>
+<p>查询异步抓取任务状态和结果。</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=markdown>Markdown<a href=#markdown class=hash-link aria-label="Direct link to Markdown" title="Direct link to Markdown" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=post-md><code>POST /md</code><a href=#post-md class=hash-link aria-label="Direct link to post-md" title="Direct link to post-md" translate=no>​</a></h4>
+<p>将页面转为 Markdown。</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -fsS \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -H "Authorization: Bearer $CRAWL4AI_API_TOKEN" \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -H 'Content-Type: application/json' \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -d '{"url":"https://example.com","f":"fit"}' \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  http://127.0.0.1:11235/md | jq -r .markdown</span><br/></span></code></pre></div></div>
+<p>请求体：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>类型<th>说明<tbody><tr><td><code>url</code><td><code>string</code><td>URL，支持 <code>http://</code>、<code>https://</code>、<code>raw:</code>、<code>raw://</code><tr><td><code>f</code><td><code>fit|raw|bm25|llm</code><td>过滤模式；默认 <code>fit</code><tr><td><code>q</code><td><code>string</code><td>BM25/LLM 查询语句<tr><td><code>c</code><td><code>string</code><td>cache-bust / revision counter<tr><td><code>provider</code><td><code>string</code><td>LLM provider override<tr><td><code>temperature</code><td><code>number</code><td>LLM temperature</table>
+<p>过滤模式：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>模式<th>说明<tbody><tr><td><code>fit</code><td>默认，Readability 风格正文抽取，输出干净 Markdown<tr><td><code>raw</code><td>直接 DOM/HTML 转 Markdown<tr><td><code>bm25</code><td>根据 <code>q</code> 做相关性过滤<tr><td><code>llm</code><td>使用 LLM 生成摘要/答案式 Markdown</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=html>HTML<a href=#html class=hash-link aria-label="Direct link to HTML" title="Direct link to HTML" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=post-html><code>POST /html</code><a href=#post-html class=hash-link aria-label="Direct link to post-html" title="Direct link to post-html" translate=no>​</a></h4>
+<p>抓取并返回预处理 HTML，适合用于 schema extraction 前的结构观察。</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -fsS \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -H "Authorization: Bearer $CRAWL4AI_API_TOKEN" \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -H 'Content-Type: application/json' \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -d '{"url":"https://example.com"}' \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  http://127.0.0.1:11235/html | jq -r .html</span><br/></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=screenshot--pdf--artifacts>Screenshot / PDF / Artifacts<a href=#screenshot--pdf--artifacts class=hash-link aria-label="Direct link to Screenshot / PDF / Artifacts" title="Direct link to Screenshot / PDF / Artifacts" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=post-screenshot><code>POST /screenshot</code><a href=#post-screenshot class=hash-link aria-label="Direct link to post-screenshot" title="Direct link to post-screenshot" translate=no>​</a></h4>
+<p>生成页面截图，返回 base64 PNG，并写入 artifact store。</p>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"url"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"https://example.com"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"screenshot_wait_for"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">2</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"wait_for_images"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token boolean" style="color:rgb(255, 88, 116)">false</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<p>响应包含：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td><code>screenshot</code><td>base64 PNG<tr><td><code>artifact_id</code><td>artifact ID<tr><td><code>url</code><td><code>/artifacts/{artifact_id}</code><tr><td><code>mime</code><td>MIME type<tr><td><code>size</code><td>artifact 大小</table>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=post-pdf><code>POST /pdf</code><a href=#post-pdf class=hash-link aria-label="Direct link to post-pdf" title="Direct link to post-pdf" translate=no>​</a></h4>
+<p>生成页面 PDF，返回 base64 PDF，并写入 artifact store。</p>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"> </span><span class="token property">"url"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"https://example.com"</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=get-artifactsartifact_id><code>GET /artifacts/{artifact_id}</code><a href=#get-artifactsartifact_id class=hash-link aria-label="Direct link to get-artifactsartifact_id" title="Direct link to get-artifactsartifact_id" translate=no>​</a></h4>
+<p>读取 <code>/screenshot</code> 或 <code>/pdf</code> 生成的 artifact。</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=llm>LLM<a href=#llm class=hash-link aria-label="Direct link to LLM" title="Direct link to LLM" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=get-llmurlpath><code>GET /llm/{url:path}</code><a href=#get-llmurlpath class=hash-link aria-label="Direct link to get-llmurlpath" title="Direct link to get-llmurlpath" translate=no>​</a></h4>
+<p>对页面做 LLM 问答。</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">curl -fsS \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  -H "Authorization: Bearer $CRAWL4AI_API_TOKEN" \</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  'http://127.0.0.1:11235/llm/example.com?q=Summarize%20this%20page' | jq</span><br/></span></code></pre></div></div>
+<p>Query 参数：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>说明<tbody><tr><td><code>q</code><td>必填，问题<tr><td><code>provider</code><td>可选，LLM provider override<tr><td><code>temperature</code><td>可选，温度</table>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=post-llmjob><code>POST /llm/job</code><a href=#post-llmjob class=hash-link aria-label="Direct link to post-llmjob" title="Direct link to post-llmjob" translate=no>​</a></h4>
+<p>提交异步 LLM extraction/QA 任务。</p>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"url"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"https://example.com"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"q"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"Extract title and summary"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"schema"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token null keyword" style=font-style:italic>null</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"cache"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token boolean" style="color:rgb(255, 88, 116)">false</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"provider"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"openai/gpt-4o-mini"</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=get-llmjobtask_id><code>GET /llm/job/{task_id}</code><a href=#get-llmjobtask_id class=hash-link aria-label="Direct link to get-llmjobtask_id" title="Direct link to get-llmjobtask_id" translate=no>​</a></h4>
+<p>查询异步 LLM 任务结果。</p>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=js--hooks>JS / Hooks<a href=#js--hooks class=hash-link aria-label="Direct link to JS / Hooks" title="Direct link to JS / Hooks" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=post-execute_js><code>POST /execute_js</code><a href=#post-execute_js class=hash-link aria-label="Direct link to post-execute_js" title="Direct link to post-execute_js" translate=no>​</a></h4>
+<p>在页面上下文执行 JS，并返回完整 CrawlResult。</p>
+<ul>
+<li>默认禁用，需要 <code>CRAWL4AI_EXECUTE_JS_ENABLED=true</code>。</li>
+<li>有明显安全风险，公网服务不建议开启。</li>
+</ul>
+<div class="language-json codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-json codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"url"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">"https://example.com"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token property">"scripts"</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token string" style="color:rgb(195, 232, 141)">"() => document.title"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br/></span></code></pre></div></div>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=get-hooksinfo><code>GET /hooks/info</code><a href=#get-hooksinfo class=hash-link aria-label="Direct link to get-hooksinfo" title="Direct link to get-hooksinfo" translate=no>​</a></h4>
+<p>列出可用 declarative hook actions。</p>
+<ul>
+<li>hooks 默认禁用，需要 <code>CRAWL4AI_HOOKS_ENABLED=true</code>。</li>
+<li>新版本不接受任意 Python hook code，只接受服务端注册过的 action。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=config--context>Config / Context<a href=#config--context class=hash-link aria-label="Direct link to Config / Context" title="Direct link to Config / Context" translate=no>​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=post-configdump><code>POST /config/dump</code><a href=#post-configdump class=hash-link aria-label="Direct link to post-configdump" title="Direct link to post-configdump" translate=no>​</a></h4>
+<p>将 JSON 配置解析/转换为服务器可用配置，用于调试 <code>BrowserConfig</code> / <code>CrawlerRunConfig</code>。</p>
+<h4 class="anchor anchorWithStickyNavbar_EG6R" id=get-ask><code>GET /ask</code><a href=#get-ask class=hash-link aria-label="Direct link to get-ask" title="Direct link to get-ask" translate=no>​</a></h4>
+<p>返回 Crawl4AI 代码/文档上下文，方便给 AI assistant 作为检索上下文。</p>
+<p>Query 参数：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>默认<th>说明<tbody><tr><td><code>context_type</code><td><code>all</code><td><code>code</code>、<code>doc</code>、<code>all</code><tr><td><code>query</code><td>空<td>BM25 过滤查询<tr><td><code>score_ratio</code><td><code>0.5</code><td>最低分数比例<tr><td><code>max_results</code><td><code>20</code><td>最大返回 chunk 数</table>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=monitor-api>Monitor API<a href=#monitor-api class=hash-link aria-label="Direct link to Monitor API" title="Direct link to Monitor API" translate=no>​</a></h3>
+<p>监控 API 一般服务于 <code>/dashboard</code>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Method<th>Path<th>说明<tbody><tr><td><code>GET</code><td><code>/monitor/health</code><td>监控健康状态<tr><td><code>GET</code><td><code>/monitor/requests</code><td>请求记录<tr><td><code>GET</code><td><code>/monitor/browsers</code><td>浏览器池状态<tr><td><code>GET</code><td><code>/monitor/endpoints/stats</code><td>endpoint 统计<tr><td><code>GET</code><td><code>/monitor/timeline</code><td>时间线<tr><td><code>GET</code><td><code>/monitor/logs/janitor</code><td>janitor 日志<tr><td><code>GET</code><td><code>/monitor/logs/errors</code><td>错误日志<tr><td><code>POST</code><td><code>/monitor/actions/cleanup</code><td>清理资源，admin<tr><td><code>POST</code><td><code>/monitor/actions/kill_browser</code><td>kill 浏览器，admin<tr><td><code>POST</code><td><code>/monitor/actions/restart_browser</code><td>重启浏览器，admin<tr><td><code>POST</code><td><code>/monitor/stats/reset</code><td>重置统计，admin</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=python-sdk>Python SDK<a href=#python-sdk class=hash-link aria-label="Direct link to Python SDK" title="Direct link to Python SDK" translate=no>​</a></h2>
+<div class="language-py codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-py codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token keyword" style=font-style:italic>import</span><span class="token plain"> asyncio</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>from</span><span class="token plain"> crawl4ai </span><span class="token keyword" style=font-style:italic>import</span><span class="token plain"> AsyncWebCrawler</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>async</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">main</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token keyword" style=font-style:italic>async</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>with</span><span class="token plain"> AsyncWebCrawler</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>as</span><span class="token plain"> crawler</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        result </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>await</span><span class="token plain"> crawler</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">arun</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">url</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token string" style="color:rgb(195, 232, 141)">"https://crawl4ai.com"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token keyword" style=font-style:italic>print</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">result</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">markdown</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">asyncio</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">run</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">main</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><br/></span></code></pre></div></div>
+<p>带配置：</p>
+<div class="language-py codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-py codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token keyword" style=font-style:italic>import</span><span class="token plain"> asyncio</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>from</span><span class="token plain"> crawl4ai </span><span class="token keyword" style=font-style:italic>import</span><span class="token plain"> AsyncWebCrawler</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> BrowserConfig</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> CrawlerRunConfig</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> CacheMode</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token keyword" style=font-style:italic>async</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>def</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">main</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    browser_config </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> BrowserConfig</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        headless</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token boolean" style="color:rgb(255, 88, 116)">True</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        text_mode</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token boolean" style="color:rgb(255, 88, 116)">True</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    crawler_config </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> CrawlerRunConfig</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        cache_mode</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain">CacheMode</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">ENABLED</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        screenshot</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token boolean" style="color:rgb(255, 88, 116)">False</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        pdf</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token boolean" style="color:rgb(255, 88, 116)">False</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">    </span><span class="token keyword" style=font-style:italic>async</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>with</span><span class="token plain"> AsyncWebCrawler</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">config</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain">browser_config</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>as</span><span class="token plain"> crawler</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        result </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>await</span><span class="token plain"> crawler</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">arun</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">            url</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token string" style="color:rgb(195, 232, 141)">"https://example.com"</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">            config</span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain">crawler_config</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token keyword" style=font-style:italic>print</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">result</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">success</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> result</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">status_code</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">        </span><span class="token keyword" style=font-style:italic>print</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">result</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">markdown</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain" style=display:inline-block></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">asyncio</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">run</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">main</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><br/></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=caching>Caching<a href=#caching class=hash-link aria-label="Direct link to Caching" title="Direct link to Caching" translate=no>​</a></h2>
+<ul>
+<li>讨论：<a href=https://github.com/unclecode/crawl4ai/discussions/784 target=_blank rel="noopener noreferrer">https://github.com/unclecode/crawl4ai/discussions/784</a></li>
+<li>API 侧常见控制点：
+<ul>
+<li><code>/md</code> 的 <code>c</code> 字段可作为 cache-bust / revision counter。</li>
+<li><code>/crawl</code> 通过 <code>crawler_config.cache_mode</code> 控制缓存行为。</li>
+</ul>
+</li>
+<li>Python SDK 常用 <code>CacheMode</code>：
+<ul>
+<li><code>CacheMode.ENABLED</code></li>
+<li><code>CacheMode.DISABLED</code></li>
+<li><code>CacheMode.BYPASS</code></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=wener-deploy>Wener Deploy<a href=#wener-deploy class=hash-link aria-label="Direct link to Wener Deploy" title="Direct link to Wener Deploy" translate=no>​</a></h2>
+<ul>
+<li>Host: <code>wen-svr-4</code></li>
+<li>Public URL: <code>https://crawl4ai.wener.run</code></li>
+<li>Compose service: <code>crawl4ai</code></li>
+<li>Image: <code>unclecode/crawl4ai:0.9.0</code></li>
+<li>API Secret:
+<ul>
+<li>repo root <code>.env.local</code>: <code>WEN4_CRAWL4AI_API_TOKEN</code></li>
+<li><code>deploy/wen-svr-4/opt/.env.crawl4ai.local</code>: <code>CRAWL4AI_API_TOKEN</code></li>
+</ul>
+</li>
+<li>LLM:
+<ul>
+<li>provider: <code>openai/deepseek-v3.2</code></li>
+<li>base URL: <code>https://wna.wener.run/v1</code></li>
+<li>repo root <code>.env.local</code>: <code>WEN4_CRAWL4AI_OPENAI_API_KEY</code></li>
+<li><code>deploy/wen-svr-4/opt/.env.crawl4ai.local</code>: <code>OPENAI_API_KEY</code>, <code>OPENAI_BASE_URL</code>, <code>LLM_BASE_URL</code></li>
+</ul>
+</li>
+<li>Caddy reverse proxy:
+<ul>
+<li><code>crawl4ai.wener.run</code> -> <code>crawl4ai:11235</code></li>
+<li>Caddy 使用 <code>CRAWL4AI_UPSTREAM_API_TOKEN</code> 向 upstream 注入 <code>Authorization: Bearer ...</code>。</li>
+<li>LAN 客户端可直接打开 <code>/playground/</code>、<code>/dashboard/</code>、<code>/docs</code>，不需要浏览器手动设置 Bearer header。</li>
+<li>直接访问 Docker upstream 仍需要 Crawl4AI Bearer token。</li>
+</ul>
+</li>
+<li>Persistent data:
+<ul>
+<li><code>deploy/wen-svr-4/opt/crawl4ai/data</code> -> <code>/home/appuser/.crawl4ai</code></li>
+<li><code>deploy/wen-svr-4/opt/crawl4ai/outputs</code> -> <code>/var/lib/crawl4ai/outputs</code></li>
+<li><code>crawl4ai/data/**</code> 与 <code>crawl4ai/outputs/**</code> runtime 内容不提交 git，只保留 <code>.gitkeep</code>。</li>
+<li>Redis 仍为 tmpfs，异步任务队列状态暂不持久化。</li>
+</ul>
+</li>
+<li>Current capability flags:
+<ul>
+<li><code>CRAWL4AI_EXECUTE_JS_ENABLED=true</code></li>
+<li><code>CRAWL4AI_HOOKS_ENABLED=true</code></li>
+<li>仅面向 Bearer Auth 认证后的 operator 使用，不开放无认证访问。</li>
+</ul>
+</li>
+<li>当前验证：
+<ul>
+<li><code>/health</code> 公开可访问</li>
+<li>经 Caddy 访问 <code>/schema</code> 可由 Caddy 自动注入 upstream auth</li>
+<li>直接访问 upstream <code>/schema</code> 未认证返回 <code>401</code></li>
+<li>带 Bearer token 的 <code>/crawl</code> 可成功抓取 <code>https://example.com</code></li>
+<li>带 Bearer token 的 <code>/execute_js</code> 可执行最小页面 JS。</li>
+<li><code>/hooks/info</code> 可列出 declarative hook actions。</li>
+</ul>
+</li>
+<li>注意：
+<ul>
+<li><code>unclecode/crawl4ai:0.9.0</code> 启用 read-only rootfs 会遇到运行时写入和 Chromium crashpad 问题。</li>
+<li>不要把整个 <code>/home/appuser/.cache</code> 挂 tmpfs，否则会覆盖镜像内预装的 Playwright Chromium。</li>
+<li>当前部署保留非 root、cap drop、no-new-privileges、pids limit、无 host port、Caddy TLS 和 Bearer Auth。</li>
+</ul>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/service/data/crawler/crawl4ai.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2026-07-12T05:43:13.000Z itemprop=dateModified>Jul 12, 2026</time></b> by <b>wener</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/service/data/crawler/archivebox><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>archivebox</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/service/data/crawler/crawlab><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>crawlab</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_wpyd thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#features class="table-of-contents__link toc-highlight">Features</a><li><a href=#security class="table-of-contents__link toc-highlight">Security</a><li><a href=#docker class="table-of-contents__link toc-highlight">Docker</a><li><a href=#env class="table-of-contents__link toc-highlight">Env</a><li><a href=#rest-api class="table-of-contents__link toc-highlight">REST API</a><ul><li><a href=#基础与-ui class="table-of-contents__link toc-highlight">基础与 UI</a><li><a href=#crawl class="table-of-contents__link toc-highlight">Crawl</a><li><a href=#markdown class="table-of-contents__link toc-highlight">Markdown</a><li><a href=#html class="table-of-contents__link toc-highlight">HTML</a><li><a href=#screenshot--pdf--artifacts class="table-of-contents__link toc-highlight">Screenshot / PDF / Artifacts</a><li><a href=#llm class="table-of-contents__link toc-highlight">LLM</a><li><a href=#js--hooks class="table-of-contents__link toc-highlight">JS / Hooks</a><li><a href=#config--context class="table-of-contents__link toc-highlight">Config / Context</a><li><a href=#monitor-api class="table-of-contents__link toc-highlight">Monitor API</a></ul><li><a href=#python-sdk class="table-of-contents__link toc-highlight">Python SDK</a><li><a href=#caching class="table-of-contents__link toc-highlight">Caching</a><li><a href=#wener-deploy class="table-of-contents__link toc-highlight">Wener Deploy</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-08-22 17:44</div></div></div></footer></div></body>
