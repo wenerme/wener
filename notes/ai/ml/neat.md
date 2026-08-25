@@ -8,13 +8,14 @@ NEAT（NeuroEvolution of Augmenting Topologies）是一种 neuroevolution 算法
 
 ## 基本信息
 
-| 项目 | 内容 |
-| --- | --- |
-| 时间 | 2002 年，`Evolving Neural Networks through Augmenting Topologies` 发表在 `Evolutionary Computation`。 |
-| 人物与机构 | Kenneth O. Stanley、Risto Miikkulainen；得克萨斯大学奥斯汀分校 Department of Computer Sciences。 |
-| 名称 | NeuroEvolution of Augmenting Topologies。 |
-| 领域 | 进化计算、神经进化、强化学习、控制。 |
-| 在线变体 | rtNEAT：Stanley、Bobby D. Bryant、Miikkulainen 在 2005 年 NERO 游戏工作中展示的实时神经进化方法。 |
+| 项目       | 内容                                                                                                  |
+| ---------- | ----------------------------------------------------------------------------------------------------- |
+| 时间       | 2002 年，`Evolving Neural Networks through Augmenting Topologies` 发表在 `Evolutionary Computation`。 |
+| 人物与机构 | Kenneth O. Stanley、Risto Miikkulainen；得克萨斯大学奥斯汀分校 Department of Computer Sciences。      |
+| 名称       | NeuroEvolution of Augmenting Topologies。                                                             |
+| 领域       | 进化计算、神经进化、强化学习、控制。                                                                  |
+| 在线变体   | rtNEAT：Stanley、Bobby D. Bryant、Miikkulainen 在 2005 年 NERO 游戏工作中展示的实时神经进化方法。     |
+
 
 ## 核心机制
 
@@ -32,12 +33,12 @@ rtNEAT（real-time NEAT）将种群更新放进持续运行的环境中，而非
 
 ## 与相近方法的区别
 
-| 方法 | 区别 |
-| --- | --- |
-| Genetic Algorithm | 通用遗传算法不规定神经网络基因对齐、拓扑增量或物种保护。 |
-| Evolution Strategies | 通常优化固定维度的参数向量，不直接演化离散网络拓扑。 |
-| Q-Learning / DQN | 通过 Bellman 目标学习价值函数；NEAT 以适应度驱动种群演化。 |
-| MCTS | 通过在线树搜索选择当前动作；NEAT 学习或演化策略/评估器本身。 |
+| 方法                 | 区别                                                         |
+| -------------------- | ------------------------------------------------------------ |
+| Genetic Algorithm    | 通用遗传算法不规定神经网络基因对齐、拓扑增量或物种保护。     |
+| Evolution Strategies | 通常优化固定维度的参数向量，不直接演化离散网络拓扑。         |
+| Q-Learning / DQN     | 通过 Bellman 目标学习价值函数；NEAT 以适应度驱动种群演化。   |
+| MCTS                 | 通过在线树搜索选择当前动作；NEAT 学习或演化策略/评估器本身。 |
 
 ## 实现检查
 

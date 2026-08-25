@@ -30,3 +30,42 @@ tags:
 | WinRM      | Windows Remote Management                        | Windows 远程管理            |
 | WMI        | Windows Management Instrumentation               | Windows 管理工具            |
 | WSMan      | Web Services Management                          | Web 服务管理                |
+| STA        | Single-Threaded Apartment                        |
+
+- 线程模型
+  - STA
+- Go goroutine Windows GUI 会有线程模型冲突
+  - GUI 要求再一个线程操作
+  - RPC_E_WRONG_THREAD
+
+```go
+go func() {
+    runtime.LockOSThread()
+    defer runtime.UnlockOSThread()
+
+    CoInitializeEx(nil, COINIT_APARTMENTTHREADED)
+    defer CoUninitialize()
+
+    for {
+        select {
+        case request := <-queue:
+            executeCOMRequest(request)
+        default:
+            pumpWindowsMessages()
+        }
+    }
+}()
+```
+
+```
+operation goroutine
+       |
+       v
+STA request queue
+       |
+       v
+locked Windows thread
+       |
+       v
+UI Automation / COM
+```

@@ -133,11 +133,11 @@ x-anthropic-billing-header: cc_version=2.1.37.0d9; cc_entrypoint=cli; cch=fa690;
 ```json
 {
   "system": [
-    {"type": "text", "text": "x-anthropic-billing-header: cc_version=2.1.37.0d9; cc_entrypoint=cli; cch=fa690;"},
-    {"type": "text", "text": "You are Claude Code, Anthropic's official CLI for Claude."},
-    {"type": "text", "text": "...full system prompt..."}
+    { "type": "text", "text": "x-anthropic-billing-header: cc_version=2.1.37.0d9; cc_entrypoint=cli; cch=fa690;" },
+    { "type": "text", "text": "You are Claude Code, Anthropic's official CLI for Claude." },
+    { "type": "text", "text": "...full system prompt..." }
   ],
-  "messages": [{"role": "user", "content": "hey"}]
+  "messages": [{ "role": "user", "content": "hey" }]
 }
 ```
 
@@ -153,3 +153,72 @@ x-anthropic-billing-header: cc_version=2.1.37.0d9; cc_entrypoint=cli; cch=fa690;
 - <https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-reference>
 - <https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling>
 - <https://platform.claude.com/docs/en/build-with-claude/data-residency>
+
+## direct classifier block 的 usage 不计费
+
+- direct block 不对 input token 计费
+- Direct refusal:
+  - 在任何 output 产生前拒绝
+  - content 为空
+  - input token 不计费
+- Mid-stream refusal:
+  - 已经产生部分 output 后拒绝
+  - input 和已生成 output 正常计费
+- stop_details.category
+- Input tokens are not billed on a direct classifier block when processing safety or security evaluations in Claude's Fable-tier or Auto Mode operations.
+- https://platform.claude.com/cookbook/fable-5-fallback-billing-guide
+- fallback_credit_token
+- mid-stream block 会计费
+
+```ts
+type RefusalStopDetails = {
+  type: 'refusal';
+  category: 'cyber' | 'bio' | 'frontier_llm' | 'reasoning_extraction' | 'general_harms' | null;
+  explanation: string | null;
+};
+
+type Message = {
+  stop_reason:
+    | 'end_turn'
+    | 'max_tokens'
+    | 'stop_sequence'
+    | 'tool_use'
+    | 'pause_turn'
+    | 'refusal'
+    | 'model_context_window_exceeded'
+    | null;
+  stop_details: RefusalStopDetails | null;
+};
+```
+
+```json
+{
+  "stop_reason": "refusal",
+  "stop_details": {
+    "type": "refusal",
+    "category": "cyber",
+    "explanation": "This request was declined because it could enable cyber harm."
+  },
+  "content": [],
+  "usage": {
+    "input_tokens": 412,
+    "output_tokens": 0
+  }
+}
+```
+
+Beta Fallback 扩展
+
+启用 fallback beta 时，stop_details 还可能包含：
+
+```ts
+type BetaUsage = {
+  fallback_credit_token: string | null;
+  fallback_has_prefill_claim: boolean | null;
+  recommended_model: string | null;
+};
+```
+
+- fallback_credit_token：一次性 opaque token，官方说明约 5 分钟过期；
+- fallback_has_prefill_claim：是否允许通过追加 partial assistant message 的形式兑换 credit；
+- recommended_model：配置的 server-side fallback 因限流或过载未执行时给出的建议模型。

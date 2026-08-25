@@ -36,6 +36,12 @@ title: awilix
     - 初始化成本高，但之后快
     - 不适用于需要 minify 场景
     - 通过 函数签名 检测的名字
+- adopted by
+  - Medusa
+  - Open Mercato
+  - Timeline Studio
+  - @fastify/awilix
+  - awilix-modular / Awilixify
 
 ```ts
 import { RESOLVER, Lifetime, InjectionMode } from 'awilix';

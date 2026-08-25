@@ -597,9 +597,14 @@ auth sufficient pam_tid.so
 
 ```bash
 # -i 避免 Idle
-# -s 避免 System Sleep
+# -m Disk / Media - 阻止磁盘休眠
+# -d 阻止屏幕熄屏
+# -s 避免 System Sleep - 阻止接通电源时的系统休眠
+# -t SECONDS
 # 依然会被 display closed 中断
 caffeinate -i -s
 # 可以结合命令使用
 caffeinate -i make build
+
+caffeinate -idms
 ```

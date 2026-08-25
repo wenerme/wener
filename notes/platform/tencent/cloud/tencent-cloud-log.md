@@ -24,14 +24,25 @@ tags:
 - 参考
   - https://cloud.tencent.com/document/product/614
   - [语法规则](https://cloud.tencent.com/document/product/614/47044)
+  - [配额限制](https://cloud.tencent.com/document/product/614/17413)
 
-:::tip
-
-单条长度上限： 512 KB。
-检索分析限制： 语句最长 12,000 字符。
-存量限制： 单个日志主题（Topic）支持 15 并发写入，建议在数据源头做好日志切割或精简。
-
-:::
+| 限制                | 值                    | note                                                                                                                                                                                                        |
+| ------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 单条日志大小        | 512 KB                | 单条日志写入大小上限；日志组可包含多条日志，不能把单条上限等同于日志组上限                                                                                                                                  |
+| SQL 分析语句长度    | 12,000 字符           | 查询文本长度边界；过长时应拆分查询、减少重复 CASE/字段表达式                                                                                                                                                |
+| 单 Topic 写请求     | 每分区 500 QPS        | 官方 FAQ；写请求按日志组计算，不等于日志条数                                                                                                                                                                |
+| 单 Topic 写流量     | 每分区 5 MB/s         | 官方 FAQ；日志上传会打包并压缩，不能直接按原始日志字节数换算                                                                                                                                                |
+| 单 Topic 最大分区   | 50 个                 | 开启主题分区自动分裂时，理论上最多 50 个分区                                                                                                                                                                |
+| 单 Topic 最大写能力 | 25,000 QPS / 250 MB/s | 50 个分区 × 每分区上限；实际受账号、地域、资源和压缩/打包影响                                                                                                                                               |
+| 读 QPS              | n/a                   | `FailedOperation.ReadQpsLimit`                                                                                                                                                                              |
+| 写 QPS              | n/a                   | `FailedOperation.WriteQpsLimit`                                                                                                                                                                             |
+| Topic 并发查询      | 公开限制 15 / Topic   | `LimitExceeded.LogSearch`；查询与分析共用该并发额度，Dashboard、告警、定时 SQL 等也会占用。官方基础资源文档允许对不足配额提交工单申请放开，但检索分析文档没有承诺该 15 并发一定可提升，需由腾讯技术支持确认 |
+| 检索内存            | n/a                   | `LimitExceeded.SearchResources`                                                                                                                                                                             |
+| 单次检索返回体      | 20 MB                 | `LimitExceeded.SearchResultTooLarge`；raw 明细应缩短时间范围、限制字段和行数                                                                                                                                |
+| 单次检索日志条数    | n/a                   | `FailedOperation.GetlogReachLimit`；优先使用聚合 SQL，不要拉取宽 raw 明细                                                                                                                                   |
+| 检索游标有效性      | 游标可能失效          | `FailedOperation.InvalidContext`；分页/上下文查询失败时需要重新发起检索                                                                                                                                     |
+| 短语检索通配词      | 最多匹配 128 个词     | 仅适用于短语内通配符；非短语检索不受此 128 词限制                                                                                                                                                           |
+| 统计字段有效长度    | 32,766 字符           | text 字段开启统计后，过长值仅前 32,766 个字符参与 SQL 统计                                                                                                                                                  |
 
 | attr               | for       |
 | ------------------ | --------- |
@@ -179,3 +190,15 @@ response_time:""
 ## LogParseFailure
 
 - 解析失败的日志
+
+## K8S
+
+```yaml
+# 单行日志不限制长度，或者不做截断
+eks.tke.cloud.tencent.com/stdout-line-size: '-1'
+
+# 轮转后只保留 5 个日志文件
+eks.tke.cloud.tencent.com/container-log-max-files: '5'
+```
+
+## The request is missing the required parameter "Version".

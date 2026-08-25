@@ -8,7 +8,6 @@ tags:
 
 # System on Chip (SoC)
 
-- https://github.com/micropython/micropython
 
 ## Wireless SoCs (Espressif)
 

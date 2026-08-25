@@ -48,6 +48,8 @@ tags:
     - modification of Windows 10, designed to optimize performance, and latency
     - designed for gamers
   - Windows LTSC
+- Optimize/Debloat
+  - https://github.com/farag2/Sophia-Script-for-Windows
 
 ## Softwares
 

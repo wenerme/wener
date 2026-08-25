@@ -407,3 +407,8 @@ srv    load_model: initializing slots, n_slots = 2
 common_speculative_is_compat: the target context does not support partial sequence removal
 srv    load_model: speculative decoding not supported by this context
 ```
+
+## CUDA error invalid argument multimodal image structured output json schema
+
+- https://github.com/ggml-org/llama.cpp/issues/25717
+- https://github.com/QwenLM/Qwen3.8/issues/104

@@ -20,6 +20,8 @@ title: ESP32
 | ESP32-S3FH4R2 |
 | ESP32-S3R8V   | EOL                 |
 | ESP32-S3R2    | EOL, -> ESP32-S3RH2 |
+| --            | --                  |
+| ESP32-D0WD    |
 
 ```
 ESP32-C3  - 芯片系列
@@ -33,7 +35,19 @@ AZ        - 其他标志
 X         - 芯片版本
 ```
 
-- NRDN - 不推荐用于新设计
+| abbr.   | stand for                                 | cn                        |
+| ------- | ----------------------------------------- | ------------------------- |
+| NVS     | Non-Volatile Storage                      | 非易失性存储              |
+| NRDN    | Not Recommended for New Designs           | 不推荐用于新设计          |
+| QFN32   | Quad Flat No-lead, 32 pins                | 32 引脚四方扁平无引脚封装 |
+| ESP-IDF | Espressif IoT Development Framework       | 乐鑫物联网开发框架        |
+| JEDEC   | Joint Electron Device Engineering Council | 联合电子器件工程委员会    |
+| GD32    | GigaDevice 32-bit Microcontroller         | 兆易创新 32 位微控制器    |
+| CDC     | Communication Device Class                | 通信设备类                |
+| NVS     | Non-Volatile Storage                      | 非易失性存储              |
+| OTA     | Over-the-Air                              | 空中下载                  |
+| REPL    | Read-Eval-Print Loop                      | 读取-求值-输出循环        |
+
 - QFN32 - `5*5`
 - 2016 年
 - 参考

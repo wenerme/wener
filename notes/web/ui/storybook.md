@@ -112,7 +112,6 @@ export default {
 };
 ```
 
-
 ## Meta
 
 ```tsx
@@ -136,7 +135,27 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 ```
 
+## AI
+
 # Version
+
+- 10.5
+  - Agentic review
+    - ADE - Agent-Driven Engineering
+  - React docgen service
+  - https://storybook.js.org/releases/10.5
+- 10.4
+  - Change review
+  - React MCP
+- 10.3
+  - Storybook MCP
+  - Vite 8
+  - ESLint 10
+  - Addon Vitest
+- 10.1
+  - Component manifest for Storybook MCP
+- 10
+  - ESM Only
 
 # FAQ
 

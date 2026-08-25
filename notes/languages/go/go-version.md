@@ -19,6 +19,7 @@ tags:
 
 | ver                | date   | EOL        | macOS                   | Windows                                |
 | ------------------ | ------ | ---------- | ----------------------- | -------------------------------------- |
+| [Go 1.27](#go-127) | 2026-8 |
 | [Go 1.26](#go-126) | 2026-2 | 2027-02    | macOS 12+               | 移除 32-bit windows/arm                |
 | [Go 1.25](#go-125) | 2025-8 | 2026-08    | macOS 12+               | 最后包含 32-bit windows/arm            |
 | [Go 1.24](#go-124) | 2025-2 | 2026-02-10 | macOS 11+               | 32-bit windows/arm 标记 broken         |
@@ -45,6 +46,19 @@ tags:
 - 1.18 fuzz - https://go.dev/blog/fuzz-beta
 
 :::
+
+## Go 1.27
+
+- 语言
+  - 方法支持 generic
+  - struct 内部 struct 初始化的字段可以直接写
+  - 方法支持类型推导
+- 包
+  - encoding/json/v2
+  - encoding/json/jsontext
+  - crypto/mldsa
+  - uuid
+  - simd
 
 ## Go 1.26
 

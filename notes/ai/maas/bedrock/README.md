@@ -4,10 +4,6 @@ title: Amazon Bedrock MaaS API
 
 # Amazon Bedrock MaaS API
 
-- API models：见 [Smithy Models](#smithy-models)。
-- 本地提取：`just models`
-- 输出：`models/*bedrock*/service/*/*.json`
-
 - InvokeModel / InvokeModelWithResponseStream
   - 适合单次调用、模型原生 body、大 payload、非消息型/特殊模型
 - Converse / ConverseStream
@@ -26,9 +22,6 @@ title: Amazon Bedrock MaaS API
 ## Smithy Models
 
 - 上游格式：[Smithy JSON AST](https://smithy.io/2.0/spec/json-ast.html)
-- 默认固定 `api-models-aws` commit `61d7b25d8cc390475a1d3c566f2aef108b9c44af`。
-- 更新时可执行 `AWS_API_MODELS_REF=branch=main just models`，核对 diff 后再更新默认 commit。
-- 每个 JSON 文件是自包含 Smithy service model；按服务需要包含 operation、resource、structure、union、streaming/event stream 和 protocol traits。
 
 | Model directory | SDK ID | Version | Operations | 定位 |
 | --- | --- | --- | ---: | --- |
@@ -301,4 +294,3 @@ Bedrock `Converse` / `ConverseStream` 常见 usage 字段：
 
 - [aws/api-models-aws](https://github.com/aws/api-models-aws)
   - Apache-2.0, Smithy JSON AST
-  - AWS SDK/CLI 的 public service interface definitions；仓库内容由上游自动生成，不是手写 REST/OpenAPI 文档。

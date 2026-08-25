@@ -8,13 +8,13 @@ Q-Learning 是一种无模型、离策略（off-policy）的时序差分强化�
 
 ## 基本信息
 
-| 项目 | 内容 |
-| --- | --- |
-| 首次提出 | 1989 年，Christopher J. C. H. Watkins 的博士论文 `Learning from Delayed Rewards`。 |
-| 理论工作 | 1992 年，Watkins 与 Peter Dayan 在 `Machine Learning` 发表 `Q-learning`，给出受控 Markov 域中的收敛结果。 |
-| 人物与机构 | Christopher J. C. H. Watkins，剑桥大学博士研究；Peter Dayan，Q-Learning 1992 论文合作者。 |
-| 领域 | 强化学习、序贯决策、控制。 |
-| 相关方法 | SARSA、DQN、Double DQN、Expected SARSA。 |
+| 项目       | 内容                                                                                                      |
+| ---------- | --------------------------------------------------------------------------------------------------------- |
+| 首次提出   | 1989 年，Christopher J. C. H. Watkins 的博士论文 `Learning from Delayed Rewards`。                        |
+| 理论工作   | 1992 年，Watkins 与 Peter Dayan 在 `Machine Learning` 发表 `Q-learning`，给出受控 Markov 域中的收敛结果。 |
+| 人物与机构 | Christopher J. C. H. Watkins，剑桥大学博士研究；Peter Dayan，Q-Learning 1992 论文合作者。                 |
+| 领域       | 强化学习、序贯决策、控制。                                                                                |
+| 相关方法   | SARSA、DQN、Double DQN、Expected SARSA。                                                                  |
 
 ## 核心更新
 
@@ -30,12 +30,12 @@ $$
 
 ## 与相近方法的区别
 
-| 方法 | 区别 |
-| --- | --- |
-| SARSA | 使用行为策略实际选出的下一动作进行更新，是在策略（on-policy）方法。 |
-| DQN | 用神经网络近似 $Q$ 函数，并常结合经验回放和目标网络。 |
-| MCTS | 在决策期显式搜索未来动作；Q-Learning 将价值压缩进已学习的函数。 |
-| Policy Gradient | 直接参数化并优化策略，而不是通过 $\max_{a'} Q(s', a')$ 选取动作。 |
+| 方法            | 区别                                                                |
+| --------------- | ------------------------------------------------------------------- |
+| SARSA           | 使用行为策略实际选出的下一动作进行更新，是在策略（on-policy）方法。 |
+| DQN             | 用神经网络近似 $Q$ 函数，并常结合经验回放和目标网络。               |
+| MCTS            | 在决策期显式搜索未来动作；Q-Learning 将价值压缩进已学习的函数。     |
+| Policy Gradient | 直接参数化并优化策略，而不是通过 $\max_{a'} Q(s', a')$ 选取动作。   |
 
 ## 实现检查
 

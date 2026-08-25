@@ -8,12 +8,12 @@ MCTS（Monte Carlo Tree Search，蒙特卡洛树搜索）是一类在有限计�
 
 ## 基本信息
 
-| 项目 | 内容 |
-| --- | --- |
-| 时间 | 2006 年。Rémi Coulom 在 CG 2006 论文中以 Monte-Carlo Tree Search 为题讨论选择性搜索与回传；同年 Kocsis、Szepesvári 提出 UCT。 |
-| 人物与机构 | Rémi Coulom（INRIA）；Levente Kocsis、Csaba Szepesvári（UCT 论文作者）。 |
-| 代表工作 | Coulom 的选择性 MCTS 工作；Kocsis、Szepesvári 的 `Bandit Based Monte-Carlo Planning`；后续的 AlphaGo Zero / AlphaZero。 |
-| 领域 | 博弈、规划、组合搜索、强化学习。 |
+| 项目       | 内容                                                                                                                          |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 时间       | 2006 年。Rémi Coulom 在 CG 2006 论文中以 Monte-Carlo Tree Search 为题讨论选择性搜索与回传；同年 Kocsis、Szepesvári 提出 UCT。 |
+| 人物与机构 | Rémi Coulom（INRIA）；Levente Kocsis、Csaba Szepesvári（UCT 论文作者）。                                                      |
+| 代表工作   | Coulom 的选择性 MCTS 工作；Kocsis、Szepesvári 的 `Bandit Based Monte-Carlo Planning`；后续的 AlphaGo Zero / AlphaZero。       |
+| 领域       | 博弈、规划、组合搜索、强化学习。                                                                                              |
 
 - 相关
   - [Algorithms](./algorithms.md)

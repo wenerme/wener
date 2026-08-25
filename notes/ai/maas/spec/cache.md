@@ -6,20 +6,20 @@ title: MaaS Prompt Cache
 
 ## 最小缓存 Token
 
-| 模型 / 场景 | 最小缓存 Token 数 |
-| :--- | :--- |
-| Claude Opus 4.5 | 4096 |
-| Claude Opus 4.1, 4 | 1024 |
-| Claude Sonnet 4.5, 4, ~~3.7~~ | 1024 |
-| Claude Haiku 4.5 | 4096 |
-| Claude Haiku ~~3.5~~, 3 | 2048 |
-| Gemini 3 Pro Preview | 4096 |
-| Gemini 3 Flash Preview | 1024 |
-| Gemini 2.5 Pro | 4096 |
-| Gemini 2.5 Flash | 1024 |
-| Gemini Explicit Caching (Vertex AI) | 4096 |
-| Gemini Context Caching (Early Versions) | 32768 |
-| OpenAI GPT | 1024 |
+| 模型 / 场景                             | 最小缓存 Token 数 |
+| :-------------------------------------- | :---------------- |
+| Claude Opus 4.5                         | 4096              |
+| Claude Opus 4.1, 4                      | 1024              |
+| Claude Sonnet 4.5, 4, ~~3.7~~           | 1024              |
+| Claude Haiku 4.5                        | 4096              |
+| Claude Haiku ~~3.5~~, 3                 | 2048              |
+| Gemini 3 Pro Preview                    | 4096              |
+| Gemini 3 Flash Preview                  | 1024              |
+| Gemini 2.5 Pro                          | 4096              |
+| Gemini 2.5 Flash                        | 1024              |
+| Gemini Explicit Caching (Vertex AI)     | 4096              |
+| Gemini Context Caching (Early Versions) | 32768             |
+| OpenAI GPT                              | 1024              |
 
 ## 类型
 

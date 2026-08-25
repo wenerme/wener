@@ -32,13 +32,14 @@ Windows Virtual HID通常仍会暴露：
   - -> kernel virtual pointer
   - -> Xorg MPX/XI2
 
-abbr.|stand for|cn
----|---
-PnP|
-VHF|
-ViGEm|
-KMDF|
-VID|
-PID|
-HID|
-UIA|
+| abbr. | stand for                           | cn                   |
+| ----- | ----------------------------------- | -------------------- |
+| PnP   | Plug and Play                       | 即插即用             |
+| VHF   | Virtual HID Framework               | 虚拟 HID 框架        |
+| ViGEm | Virtual Gamepad Emulation Framework | 虚拟游戏手柄仿真框架 |
+| KMDF  | Kernel-Mode Driver Framework        | 内核模式驱动框架     |
+| VID   | Vendor ID                           | 厂商标识符           |
+| PID   | Product ID                          | 产品标识符           |
+| HID   | Human Interface Device              | 人机接口设备         |
+| UIA   | User Interface Automation           | 用户界面自动化       |
+| EV    |

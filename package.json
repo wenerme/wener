@@ -25,7 +25,8 @@
     "prettier-plugin-toml": "latest",
     "svgo": "^4.0.0",
     "tldts": "^7.0.16",
-    "tsx": "^4.20.6"
+    "tsx": "^4.20.6",
+    "yaml": "^2.8.1"
   },
   "packageManager": "pnpm@10.18.2"
 }

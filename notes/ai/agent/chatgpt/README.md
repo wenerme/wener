@@ -4,7 +4,15 @@ title: ChatGPT
 
 # ChatGPT
 
+- ChatGPT Desktop
+  - Chat
+  - Work
+  - Codex
+    - 工作目录 ~/Documents/Codex/YYYY-MM-DD/NAME/{outputs,work}
+    - ~/.codex/sessions/YYYY/MM/DD/NAME-YYYY-MM-DDTHH-MM-SS-UUID.jsonl
 - https://chatgpt.com/
+
+---
 
 ```
 增加记忆：在使用ChatGPT搜索功能时，搜索内容范围覆盖全球所有语言内容，优先搜索英文内容，但回答保持中文。

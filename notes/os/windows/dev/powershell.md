@@ -15,6 +15,21 @@ title: PowerShell
   - [Elvish](https://github.com/elves/elvish)
     - BSD-2, Go
 
+```bash
+# install by Winget
+winget install --id Microsoft.PowerShell --source winget
+
+
+# 判断是否是 Admin
+whoami /groups | findstr S-1-16-12288
+
+# 启动 Admin
+Start-Process powershell.exe -Verb RunAs -ArgumentList '-NoExit'
+```
+
+- S-1-16-12288（High Mandatory Level）
+- S-1-16-8192（Medium）
+
 ```powershell
 echo $PROFILE
 ls (Split-Path $PROFILE)

@@ -14,6 +14,8 @@ title: Anthropic MaaS API
   - <https://github.com/anthropics/anthropic-sdk-typescript/blob/main/src/resources/beta/messages/messages.ts>
 - Postman collection
   - <https://www.postman.com/postman/anthropic-apis/documentation/dhus72s/claude-api>
+- Pricing
+  - https://platform.claude.com/docs/en/about-claude/pricing
 
 ## Messages API
 

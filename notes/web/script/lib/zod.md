@@ -67,7 +67,7 @@ const UserSchema = registry.register(
     id: z.string().openapi({ example: '1212121' }),
     name: z.string().openapi({ example: 'John Doe' }),
     age: z.number().openapi({ example: 42 }),
-  })
+  }),
 );
 
 // 定义接口
@@ -101,3 +101,16 @@ const generator = new OpenApiGeneratorV3(registry.definitions);
 // 生成文档
 generator.generateComponents();
 ```
+
+# Version
+
+- v4.5
+  - z.compile
+    - import "zod/compile"; 在定义 schema 之前 import 自动默认都走 compile
+  - z.properties
+  - z.deepPartial
+  - z.validate():boolean
+  - https://zod.dev/blog/zod-4-5
+- v4
+  - 拆分 core, mini, 完整
+  - 支持直接生成 jsonschema
