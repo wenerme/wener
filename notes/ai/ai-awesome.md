@@ -262,6 +262,8 @@ tags:
 - https://bing.com/create
 - https://beta.dreamstudio.ai/generate
 - https://playgroundai.com/
+- [PixMind](https://www.pixmind.io/)
+  - 浏览器端多模型 AI 图像与视频生成、参考图工作流和自然语言编辑
 - [chatpdf](https://www.chatpdf.com/)
   - 阅读 PDF
 - [roomgpt](https://www.roomgpt.io/)
