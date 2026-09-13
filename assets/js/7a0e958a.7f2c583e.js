@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["409306"],{272260:function(i){i.exports=JSON.parse('{"tag":{"label":"Jitsi","permalink":"/notes/tags/jitsi","allTagsPath":"/notes/tags","count":1,"items":[{"id":"dev/libs/jitsi","title":"Jitsi","description":"- jitsi/libjitsi","permalink":"/notes/dev/libs/jitsi"}],"unlisted":false}}')}}]);
