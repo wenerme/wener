@@ -12,6 +12,16 @@ aliases:
 
 - 规则系统、专家系统、机器学习
 
+**路径**
+
+- L1 聊天
+- L2 提供环境空间访问 - Workspace
+- L3 提供工具服务访问 - Connector
+- L4 结合场景应用 - Application
+- L5 上下文管理 - 沉淀的技能、知识、文档 - Context
+- L6 造工具 - 流程复用 - Dynamic to Static stable workflow
+- L7 探索、扩展边界
+
 ---
 
 - AI - 人工智能

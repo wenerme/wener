@@ -15,6 +15,8 @@ tags:
   - 格式化 textpb
 - 实现
   - [Go](./protobuf-go.md)
+  - [nanopb](./nanopb.md)
+    - 面向嵌入式和受限内存设备的 C 实现
   - Dart [dart-lang/protobuf](https://github.com/dart-lang/protobuf)
   - [protocolbuffers/upb](https://github.com/protocolbuffers/upb)
     - a small protobuf implementation in C

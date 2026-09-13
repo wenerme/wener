@@ -38,3 +38,12 @@ tags:
 ---
 
 - OODA - Observe Orient Decide Act - 观察 认知 决策 执行
+- Agent 类型
+  - direct - 直接 套 API + Toolcall
+    - 现场、前端 Tool 能力
+  - server - 走封装接口，Agent 后端处理
+    - 前端+后端 Tool 能力
+  - workflow - Agent 整体运行在 Durable Exection 上下文
+    - 异步审批长交互回复能力
+  - harness - harness adapter 驱动的原生 Agent runtime
+    - 转交给现成外部 Agent
