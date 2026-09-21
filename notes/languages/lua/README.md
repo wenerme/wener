@@ -160,3 +160,7 @@ end
 
 return T
 ```
+
+## MCU
+
+- lua 可以裁剪 io, debug, os, package 之类的来减少体积

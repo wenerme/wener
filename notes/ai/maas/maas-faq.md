@@ -322,6 +322,8 @@ this model has beta-limitations, temperature, top_p and n are fixed at 1, while 
 All credentials for model gpt-5.6-sol are cooling down via provider codex
 
 DeviceCheck token generation is unavailable
+
+Error: bio_policy: This content was flagged for possible biological risk. If this seems wrong, try rephrasing your request. We are continuously refining our work in detecting biological risk, and you can read more about our approach in our blog post: https://openai.com/index/preparing-for-future-ai-capabilities-in-biology
 ```
 
 **Codex**

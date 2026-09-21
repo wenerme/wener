@@ -18,3 +18,6 @@ title: 理论
 - CDD - Component-Driven Development - Component Driven User Interfaces
   https://componentdriven.org
   - https://www.chromatic.com/blog/component-driven-development/
+- [PID 控制器](./pid.md)
+  - Proportional–Integral–Derivative feedback controller
+- [复杂度不对称](./complexity-asymmetry.md)

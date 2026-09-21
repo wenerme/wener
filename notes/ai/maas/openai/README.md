@@ -121,3 +121,11 @@ title: OpenAI MaaS API
 - <https://developers.openai.com/api/docs/models/gpt-5.6-terra>
 - <https://developers.openai.com/api/docs/models/gpt-5.6-luna>
 - <https://developers.openai.com/api/docs/models/gpt-5.5>
+
+```
+GPT-5.5
+亚洲AV
+
+GPT-6-Astra
+Winvalid түркистан
+```

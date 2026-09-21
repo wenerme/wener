@@ -21,6 +21,10 @@ tags:
   - VSync / 帧同步
   - 给一些截图 API 提供窗口画面来源
 
+## rsync
+
+- [gokrazy/rsync](./gokrazy.md)：Windows 原生 rsync，通过 SSH 同步文件。
+
 ## 截屏
 
 - GDI / BitBlt 截屏

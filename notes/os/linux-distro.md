@@ -8,6 +8,12 @@ tags:
 
 # Linux 发行版列表与比较 {#linux-distributions-list-comparison}
 
+- [omacom/omarchy](https://github.com/omacom/omarchy)
+  - beautiful, fun & agentic Linux distribution
+  - by DHH
+
+---
+
 - [Arch-based distributions - ArchWiki](https://wiki.archlinux.org/index.php/Arch-based_distributions)
 - [Comparison of operating systems - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_operating_systems)
 - [Comparison of Linux distributions - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_Linux_distributions)

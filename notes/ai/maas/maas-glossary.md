@@ -34,4 +34,31 @@ tags:
 | Orchestration               | 编排（业务中对多个 Agent 或工具的流程调度）            |
 | Few-shot / Zero-shot        | 少样本 / 零样本（提示工程技巧）                        |
 
-## thinking vs reasoning
+### Thinking vs Reasoning
+
+| term      | 中文 | 含义                                                               |
+| --------- | ---- | ------------------------------------------------------------------ |
+| Thinking  | 思考 | 泛指模型处理信息、形成答案的过程，侧重过程或状态。                 |
+| Reasoning | 推理 | 基于事实、规则或前提进行逻辑分析并得出结论的能力，侧重方法与结果。 |
+
+在大模型语境中，两者经常互换使用；但 **thinking** 更宽泛，**reasoning** 通常特指需要多步逻辑、规划或问题求解的思考过程。
+
+- thinking level
+- thinking buget
+- reasoning effort
+
+## Cache Rate
+
+```
+cache_hit_rate
+= cached_input_tokens / input_tokens
+
+cache_write_rate
+= cache_write_tokens / input_tokens
+
+cache_request_hit_rate
+= cached_requests / requests
+
+cache_cost_saving_rate
+= 1 - actual_input_cost / hypothetical_uncached_input_cost
+```

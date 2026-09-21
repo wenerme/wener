@@ -1,5 +1,7 @@
 ---
 title: 开发相关词汇
+tags:
+  - Glossary
 ---
 
 ## 词汇

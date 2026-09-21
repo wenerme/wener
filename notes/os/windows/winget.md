@@ -4,8 +4,21 @@ title: winget
 
 # winget
 
+:::tips Why Windows Native
+
+- 能做 Windows 自动化, 能使用原生 API
+- 方便交付产出
+- 资源占用更少
+- IO 更快
+- golang + cgo 开发起来很顺畅
+
+:::
+
 - Windows 可直接使用
 - 类似于 macOS brew
+- source
+  - winget
+  - msstore
 
 ```bash
 # 先安装 VC++ 避免失败
@@ -42,11 +55,11 @@ winget upgrade --all --accept-source-agreements --accept-package-agreements
 winget install --id gerardog.gsudo --exact --source winget --scope machine
 ```
 
-| id                       | cmd       | source         | notes |
-| ------------------------ | --------- | -------------- | ----- |
-| Tencent.WeCom            |           | winget,msstore |
-| Tencent.WeChat           |           | winget,msstore |
-| Tencent.WeChat.Universal |           | winget,msstore | 4.x   |
+| id                       | cmd       | notes |
+| ------------------------ | --------- | ----- |
+| Tencent.WeCom            |           |
+| Tencent.WeChat           |           |
+| Tencent.WeChat.Universal |           | 4.x   |
 | Zellij.Zellij            | zellij    |
 | Git.Git                  | git       |
 | bufbuild.buf             | buf       |
@@ -54,6 +67,7 @@ winget install --id gerardog.gsudo --exact --source winget --scope machine
 | zyedidia.micro           | micro     |
 | Fastfetch-cli.Fastfetch  | fastfetch |
 | aristocratos.btop4win    | btop      |
+| Clement.bottom           | btm       |
 
 # FAQ
 

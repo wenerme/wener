@@ -11,6 +11,8 @@ tags:
 
 - [Awesome](./media-awesome.md)
 - [FAQ](./media-faq.md)
+- [MJPEG](./mjpeg.md)
+  - Motion JPEG、HTTP multipart 图像流与摄像头预览
 
 ## Multimedia
 
