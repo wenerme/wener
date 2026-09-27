@@ -309,3 +309,20 @@ type AskForApproval = 'never' | 'on-request' | 'unless-trusted' | { type: 'granu
 
 - [Codex Documentation](https://developers.openai.com/codex)
 - [Codex Skills](https://developers.openai.com/codex/skills)
+
+# FAQ
+
+## X-Codex-Turn-State
+- 292 State 长度
+
+```
+请求：model = gpt-6-astra
+
+          OpenAI Codex routing
+                │
+      ┌──────────┴──────────┐
+      │                     │
+某类 292 state         某类 312 state
+      │                     │
+  Astra              实际可能 Luna
+```

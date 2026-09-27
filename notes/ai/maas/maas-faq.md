@@ -336,6 +336,8 @@ Previous response with id <*> not found
 Codex SSE response headers timed out after 10000ms
 
 Our servers are currently overloaded. Please try again later.
+
+The 'gpt-5.6-sol' model is not supported when using Codex with a ChatGPT account.
 ```
 
 # Misc

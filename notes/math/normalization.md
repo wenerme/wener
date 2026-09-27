@@ -32,9 +32,27 @@ $$
 
 ## Z-Score Norm
 
+- 标准分数（standard score）
+- Z-score normalization
+- 均值方差标准化
 - 适合场景
   - 数据分布接近高斯分布（正态分布）时。
   - 当存在异常值时，Z-Score 可以保留其信息，而不是压缩到特定范围。
+
+```
+z = (x - μ) / σ
+z-sore = (x - mean) / std
+```
+
+- x：原始值
+- μ：训练数据的均值
+- σ：训练数据的标准差
+- z：标准化后的特征
+
+```text
+x - μ   → 中心化，让平均值变成 0
+÷ σ     → 缩放，让标准差变成 1
+```
 
 $$
 \text{Z-Score Norm} = \frac{\text{value} - \operatorname{mean}(\text{values})}{\operatorname{std}(\text{values})}

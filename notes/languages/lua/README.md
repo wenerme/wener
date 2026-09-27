@@ -164,3 +164,11 @@ return T
 ## MCU
 
 - lua 可以裁剪 io, debug, os, package 之类的来减少体积
+
+**Simple Test**
+
+| profile               | wasm      | gzip     | brotli   | heap peak |
+| --------------------- | --------- | -------- | -------- | --------- |
+| Lua + lauxlib         | 123.1 KiB | 54.4 KiB | 47.8 KiB | 4.6 KiB   |
+| base + string + table | 156.5 KiB | 70.0 KiB | 61.0 KiB | 9.1 KiB   |
+| stdlib                | 202.4 KiB | 95.2 KiB | 82.6 KiB | 16.4 KiB  |
