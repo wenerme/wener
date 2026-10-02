@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["735272"],{475530:function(e){e.exports=JSON.parse('{"tag":{"label":"PDF","permalink":"/notes/tags/pdf","allTagsPath":"/notes/tags","count":1,"items":[{"id":"ai/ocr/ocrmypdf","title":"OCRmyPDF","description":"- ocrmypdf/OCRmyPDF","permalink":"/notes/ai/ocr/ocrmypdf"}],"unlisted":false}}')}}]);

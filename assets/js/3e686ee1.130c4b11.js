@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["294713"],{809359:function(t){t.exports=JSON.parse('{"tag":{"label":"Vagrant","permalink":"/notes/tags/vagrant","allTagsPath":"/notes/tags","count":1,"items":[{"id":"os/virt/vagrant","title":"Vagrant","description":"vagrant}","permalink":"/notes/os/virt/vagrant"}],"unlisted":false}}')}}]);

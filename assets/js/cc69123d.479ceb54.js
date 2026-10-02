@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["431087"],{87727:function(e){e.exports=JSON.parse('{"tag":{"label":"DevEnv","permalink":"/notes/tags/dev-env","allTagsPath":"/notes/tags","count":1,"items":[{"id":"os/virt/vagrant","title":"Vagrant","description":"vagrant}","permalink":"/notes/os/virt/vagrant"}],"unlisted":false}}')}}]);

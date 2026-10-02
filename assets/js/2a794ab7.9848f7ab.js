@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["657817"],{114650:function(e){e.exports=JSON.parse('{"tag":{"label":"FreeBSD","permalink":"/notes/tags/free-bsd","allTagsPath":"/notes/tags","count":1,"items":[{"id":"os/bsd/freebsd","title":"FreeBSD","description":"- Get FreeBSD","permalink":"/notes/os/bsd/freebsd"}],"unlisted":false}}')}}]);

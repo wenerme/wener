@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["319965"],{322470:function(s){s.exports=JSON.parse('{"tag":{"label":"NSIS","permalink":"/notes/tags/nsis","allTagsPath":"/notes/tags","count":1,"items":[{"id":"os/windows/nsis","title":"NSIS","description":"nsis}","permalink":"/notes/os/windows/nsis"}],"unlisted":false}}')}}]);
