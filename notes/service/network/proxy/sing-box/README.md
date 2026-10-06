@@ -42,7 +42,7 @@ kill -HUP $(pgrep sing-box) # reload
 
 # https://github.com/SagerNet/sing-box/releases
 # https://sing-box.sagernet.org/changelog/
-VERSION=1.11.6
+VERSION=1.14.2
 curl -L -o sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v${VERSION}/sing-box-${VERSION}-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m | sed 's/x86_64/amd64/').tar.gz
 # gtar -zxvf sing-box.tar.gz --strip-components=1 --wildcards '*/sing-box'
 tar zxvf sing-box.tar.gz --strip-components=1 --wildcards '*/sing-box'
