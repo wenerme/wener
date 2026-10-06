@@ -1,9 +1,44 @@
 ---
+title: HAProxy Logging
+description: HAProxy 的 stdout 与 syslog 日志配置、HTTP/TCP 日志格式、JSON 转义示例，以及没有访问日志时的排查顺序。
 tags:
   - Logging
 ---
 
 # HAProxy Logging
+
+## 最小 HTTP 日志配置
+
+下面配置直接向 stdout 输出 HTTP 访问日志，并在 `8080` 返回测试响应。适合先确认日志链路，再替换成实际 backend。
+
+```haproxy
+global
+  log stdout format raw local0
+
+defaults
+  log global
+  mode http
+  option httplog
+  timeout connect 5s
+  timeout client 30s
+  timeout server 30s
+
+frontend http-in
+  bind :8080
+  http-request return status 200 content-type text/plain string ok
+```
+
+```bash
+haproxy -c -f haproxy.cfg # 检查配置
+haproxy -db -f haproxy.cfg # 前台运行，查看 stdout
+curl -i http://127.0.0.1:8080/
+```
+
+`global` 中的 `log` 指定目标，`defaults` / `frontend` 中的 `log global` 启用继承的目标。HTTP 用 `option httplog`，TCP frontend 用 `mode tcp` 与 `option tcplog`。自定义 `log-format` 会覆盖此前的 `httplog` / `tcplog`，要留意指令顺序。
+
+## 日志目标
+
+下面列出几种目标写法，按运行环境选用；同时配置多个目标会分别发送日志。
 
 ```haproxy
 global
@@ -24,7 +59,8 @@ defaults
   mode http
   option httplog
 
-backend s1
+frontend tcp-in
+  bind :9000
   mode tcp
   option tcplog
 ```
@@ -140,18 +176,38 @@ log-format "%[capture.req.hdr(0)]"
 
 ## JSON
 
-```
-log-format '{"host":"%H","ident":"haproxy","pid":%pid,"time":"%Tl","haproxy":{"conn":{"act":%ac,"fe":%fc,"be":%bc,"srv":%sc},"queue":{"backend":%bq,"srv":%sq},"time":{"tq":%Tq,"tw":%Tw,"tc":%Tc,"tr":%Tr,"tt":%Tt},"termination_state":"%tsc","retries":%rc,"network":{"client_ip":"%ci","client_port":%cp,"frontend_ip":"%fi","frontend_port":%fp},"ssl":{"version":"%sslv","ciphers":"%sslc"},"request":{"method":"%HM","hu":"%HU",hp:"%HP",hq:"%HQ","protocol":"%HV","header":{"host":"%[capture.req.hdr(0),json(utf8s)]","xforwardfor":"%[capture.req.hdr(1),json(utf8s)]","referer":"%[capture.req.hdr(2),json(utf8s)]"}},"name":{"backend":"%b","frontend":"%ft","server":"%s"},"response":{"status_code":%ST,"header":{"xrequestid":"%[capture.res.hdr(0),json(utf8s)]"}},"bytes":{"uploaded":%U,"read":%B}}}'
+字符串字段需要 JSON 转义，不能直接把请求 URL 或 header 填入带双引号的模板。`json(utf8s)` 负责转义；请求字段先保存到 `txn` 变量，便于请求结束时记录。
+
+下面是完整的 HTTP JSON 日志测试配置。自定义格式放在 `frontend`，覆盖从 `defaults` 继承的默认格式。
+
+```haproxy
+global
+  log stdout format raw local0
+
+defaults
+  log global
+  mode http
+  timeout connect 5s
+  timeout client 30s
+  timeout server 30s
+
+frontend http-in
+  bind :8080
+  http-request set-var(txn.log_method) method
+  http-request set-var(txn.log_url) url
+  http-request set-var(txn.log_host) req.hdr(host)
+  http-request set-var(txn.log_ua) req.hdr(user-agent)
+  log-format '{"client_ip":"%ci","client_port":%cp,"method":"%[var(txn.log_method),json(utf8s)]","url":"%[var(txn.log_url),json(utf8s)]","host":"%[var(txn.log_host),json(utf8s)]","user_agent":"%[var(txn.log_ua),json(utf8s)]","status":%ST,"bytes":%B}'
+  http-request return status 200 content-type text/plain string ok
 ```
 
-```
-frontend whatever
-    capture request header Host len 40
-    capture request header X-Forwarded-For len 50
-    capture request header Referer len 200
-    capture request header User-Agent len 200
-
-    capture response header X-Request-ID len 50
-```
-
+- [HAProxy 配置手册：JSON converter](https://docs.haproxy.org/3.2/configuration.html#7.3.1-json)
 - https://gist.github.com/vr/c9e158e298e6e316544c399b2ff3ef22
+
+## 没有访问日志
+
+1. 确认请求经过配置了日志的 `frontend` / `listen`，而不是只在 `backend` 中设置格式。
+2. 检查 `log global` 是否继承了目标，以及 `mode` 与 HTTP/TCP 格式是否对应。
+3. stdout 目标先以前台模式 `-db` 运行；syslog 目标检查 socket/端口和收集器，chroot 环境还要检查 socket 的可见性。
+4. 日志通常在请求或连接结束时输出，TCP 长连接需要等连接结束；`option logasap` 会提前记录，但计时和字节数也会受影响。
+5. 检查是否启用了 `option dontlognull`、`option dontlog-normal`，或被后续 `log-format` 覆盖。

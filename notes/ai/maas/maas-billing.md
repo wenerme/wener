@@ -82,3 +82,31 @@ UsageEvent {
   sourceEventId
 }
 ```
+
+
+```
+input_tokens
+output_tokens
+cache_read_tokens
+cache_write_tokens
+cache_write_5m_tokens
+cache_write_30m_tokens
+cache_write_1h_tokens
+
+reasoning_tokens
+
+-- 可生成或计算的 Token
+uncached_input_tokens
+total_tokens
+
+image_tokens
+audio_tokens
+video_tokens
+
+finish_reason
+
+usage_type: openai,anthropic,grok
+
+catalog_cost
+est_cost
+```
