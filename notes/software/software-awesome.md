@@ -60,6 +60,14 @@ tags:
     - RAW 图像处理软件
     - 支持 Windows, Linux, macOS
     - GPU-accelerated RAW image editor
+  - [digiKam](https://www.digikam.org/)
+    - [KDE/digikam](https://github.com/KDE/digikam)
+    - GPL-2.0-or-later, C++, Qt
+    - 专业开源跨平台数字资产与数码照片管理套件
+  - [darktable](https://www.darktable.org/)
+    - [darktable-org/darktable](https://github.com/darktable-org/darktable)
+    - GPL-3.0-or-later, C, OpenCL
+    - 开源专业虚拟灯光台与暗房摄影工作流套件（RAW 开发与调色）
 - Video Editor/Video Processing
   - [OpenCut-app/OpenCut](https://github.com/OpenCut-app/OpenCut)
     - MIT, TS

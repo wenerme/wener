@@ -12,6 +12,7 @@ tags:
   - BLAST
 - 参考
   - [withcatai/node-llama-cpp](https://github.com/withcatai/node-llama-cpp)
+  - https://github.com/ikawrakow/ik_llama.cpp
 - libllama
 - libggml
   - cpu, blas, metal, cuda

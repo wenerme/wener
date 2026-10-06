@@ -99,3 +99,10 @@ Bluetooth
 - [esp-rs/espflash](https://github.com/esp-rs/espflash)
 - [wasm-micro-runtime/wasm-micro-runtime](https://github.com/wasm-micro-runtime/wasm-micro-runtime)
   - WebAssembly Micro Runtime (WAMR)
+
+## Device
+
+- 56DZMiniWtClock
+  - SSD1306 OLED
+  - SH1106
+  - https://www.56dz.com/

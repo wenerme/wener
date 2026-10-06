@@ -68,6 +68,7 @@ aliases:
   - [NLP](./nlp/README.md)
   - [voice](./voice/README.md)
     - TTS, ASR, STT
+  - [安全](./security/README.md)
 - services
   - OpenAI
 

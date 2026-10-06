@@ -1,11 +1,39 @@
 ---
+title: AI Model Awesome
 tags:
   - Model
   - Reference
   - Awesome
 ---
 
-# Models
+# AI Model Awesome
+
+按模型能力和使用场景组织的 AI 模型资源索引，保留模型架构、厂商、版本、推理资源、量化、微调和扩散模型历史资料。新增内容优先写入对应专题页面。
+
+## 按领域浏览
+
+- [LLM 与开放模型](./llm/llm-awesome.md)
+- [图像生成](./image/image-awesome.md)
+- [视频生成](./video/video-awesome.md)
+- [OCR 与文档理解](./ocr/ocr-awesome.md)
+- [ASR / STT](./asr/asr-awesome.md)
+- [TTS](./tts/tts-awesome.md)
+- [音乐生成](./music/music-awesome.md)
+- [VLM / MLLM / Vision](./vlm/vlm-awesome.md)
+- [Agent 与 Coding](./agent/agent-awesome.md)
+- [Embedding 与 Reranker](./embedding/embedding-awesome.md)
+- [图像生成 Prompt](./prompt/prompt-awesome.md)
+
+## 既有专题
+
+- [决策模型](./decision/decision-awesome.md)
+- [DINO](./dino/README.md)
+- [YOLO](./yolo/README.md)
+- [Stable Diffusion](./stable-diffusion/README.md)
+- [TTS Awesome](./tts/tts-awesome.md)
+- [VAD Awesome](./vad/vad-awesome.md)
+
+## 综合模型资料
 
 **Open Weights/Transformer**
 
@@ -902,7 +930,7 @@ grep avx /proc/cpuinfo --color # x86_64
     - https://mistral.ai/news/devstral
     - https://ollama.com/library/devstral
 
-## Video
+## Video Generation
 
 - 整个流程
 - Flow
@@ -1331,7 +1359,7 @@ civitai.com
 - [AUTOMATIC/promptgen-majinai-unsafe (~300mb)](https://huggingface.co/AUTOMATIC/promptgen-majinai-unsafe) - 825 prompts from majinai.art (NSFW)
 - [Gustavosta/MagicPrompt-Dalle](https://huggingface.co/Gustavosta/MagicPrompt-Dalle)
 - [kmewhort/stable-diffusion-prompt-bolster (~500mb)](https://huggingface.co/kmewhort/stable-diffusion-prompt-bolster),
-- [Ar4ikov/gpt2-650k-stable-diffusion-prompt-generator (~500mb)](Ar4ikov/gpt2-650k-stable-diffusion-prompt-generator),
+- [Ar4ikov/gpt2-650k-stable-diffusion-prompt-generator (~500mb)](https://huggingface.co/Ar4ikov/gpt2-650k-stable-diffusion-prompt-generator),
 - [Ar4ikov/gpt2-medium-650k-stable-diffusion-prompt-generator (~1.4gb)](https://huggingface.co/Ar4ikov/gpt2-medium-650k-stable-diffusion-prompt-generator),
 - [crumb/bloom-560m-RLHF-SD2-prompter-aesthetic (~1.1gb)](https://huggingface.co/crumb/bloom-560m-RLHF-SD2-prompter-aesthetic),
 - [Meli/GPT2-Prompt (~500mb)](https://huggingface.co/Meli/GPT2-Prompt),
@@ -1593,3 +1621,5 @@ If you only want the main face being refined set 'Mask only the top k largest' t
   - sparsevec - up to 1,000 non-zero elements
 - https://github.com/huggingface/text-embeddings-inference
 - https://huggingface.co/spaces/mteb/leaderboard
+
+## Reranker
