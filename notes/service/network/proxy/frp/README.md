@@ -55,7 +55,7 @@ frpc verify -c /etc/frp/frpc.yaml
 ## frps
 
 ```bash
-[object Object]
+
 ```
 
 # FAQ

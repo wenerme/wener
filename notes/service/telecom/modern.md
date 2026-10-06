@@ -1,6 +1,0 @@
-- telecomadmin
-- admintelecom
-- CUAdmin
-  - 动态密码
-- 华为V175光猫 R23/R24
-- OptiXstar V175 Asymmetric 10G EPON Terminal
