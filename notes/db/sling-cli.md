@@ -61,5 +61,7 @@ env:
 
 - ~/.sling/env.yaml
   - https://docs.slingdata.io/sling-cli/environment
-- ~/dbt/profiles.yml
+- `~/.dbt/profiles.yml`
+  - `DBT_PROFILES_DIR` - 指定 profiles.yml 所在目录
+  - [v1.4.6 ReadDbtConnections](https://github.com/slingdata-io/sling-cli/blob/v1.4.6/core/dbio/connection/connection.go) - 默认目录与环境变量
 - https://docs.slingdata.io/concepts/replication/structure

@@ -11,24 +11,24 @@ title: ATtiny
 
 ## 选型关注
 
-| 关注点 | 说明 |
-| ------ | ---- |
+| 关注点       | 说明                                                                                 |
+| ------------ | ------------------------------------------------------------------------------------ |
 | Flash / SRAM | ATtiny13A 只有 1KB Flash / 64B SRAM；ATtiny85 有 8KB Flash / 512B SRAM，体验差异很大 |
-| Pin count | 常见 8-pin 封装实际可用 IO 很少，`RESET` 复用为 IO 会影响后续 ISP 烧录 |
-| 时钟 | 内部 RC 简单省料，但精度有限；串口、时间敏感协议要校准或用外部时钟 |
-| 电压 / 频率 | 低电压下可用最高频率会下降；不要只看 `20MHz` 上限 |
-| 编程接口 | 旧 ATtiny 常见 ISP；tinyAVR 0/1/2-series 常见 UPDI |
-| 外设 | 小型号没有完整 UART/SPI/I2C，常通过 USI 或软件模拟 |
-| Arduino 支持 | 可用第三方 core，但 fuse、bootloader、时钟配置要明确 |
+| Pin count    | 常见 8-pin 封装实际可用 IO 很少，`RESET` 复用为 IO 会影响后续 ISP 烧录               |
+| 时钟         | 内部 RC 简单省料，但精度有限；串口、时间敏感协议要校准或用外部时钟                   |
+| 电压 / 频率  | 低电压下可用最高频率会下降；不要只看 `20MHz` 上限                                    |
+| 编程接口     | 旧 ATtiny 常见 ISP；tinyAVR 0/1/2-series 常见 UPDI                                   |
+| 外设         | 小型号没有完整 UART/SPI/I2C，常通过 USI 或软件模拟                                   |
+| Arduino 支持 | 可用第三方 core，但 fuse、bootloader、时钟配置要明确                                 |
 
 ## 经典型号
 
-| 型号 | Flash | SRAM | EEPROM | IO / Pin | ADC | Timer / PWM | 接口 | 电压 | 备注 |
-| ---- | ----- | ---- | ------ | -------- | --- | ----------- | ---- | ---- | ---- |
-| ATtiny13A | 1KB | 64B | 64B | 6 IO / 8-pin | 4ch 10-bit | 1x 8-bit timer, 2 PWM | - | 1.8-5.5V | 极小资源，适合一次性小逻辑 |
-| ATtiny25 | 2KB | 128B | 128B | 6 IO / 8-pin | 4ch 10-bit | 8-bit timer + high-speed timer | USI | 1.8-5.5V | ATtiny25/45/85 同族低容量版 |
-| ATtiny45 | 4KB | 256B | 256B | 6 IO / 8-pin | 4ch 10-bit | 8-bit timer + high-speed timer | USI | 1.8-5.5V | ATtiny85 中间容量版 |
-| ATtiny85 | 8KB | 512B | 512B | 6 IO / 8-pin | 4ch 10-bit | 6 PWM | SPI / I2C via USI | 1.8-5.5V | 经典 8-pin ATtiny，Arduino 生态常见 |
+| 型号      | Flash | SRAM | EEPROM | IO / Pin     | ADC        | Timer / PWM                    | 接口              | 电压     | 备注                                |
+| --------- | ----- | ---- | ------ | ------------ | ---------- | ------------------------------ | ----------------- | -------- | ----------------------------------- |
+| ATtiny13A | 1KB   | 64B  | 64B    | 6 IO / 8-pin | 4ch 10-bit | 1x 8-bit timer, 2 PWM          | -                 | 1.8-5.5V | 极小资源，适合一次性小逻辑          |
+| ATtiny25  | 2KB   | 128B | 128B   | 6 IO / 8-pin | 4ch 10-bit | 8-bit timer + high-speed timer | USI               | 1.8-5.5V | ATtiny25/45/85 同族低容量版         |
+| ATtiny45  | 4KB   | 256B | 256B   | 6 IO / 8-pin | 4ch 10-bit | 8-bit timer + high-speed timer | USI               | 1.8-5.5V | ATtiny85 中间容量版                 |
+| ATtiny85  | 8KB   | 512B | 512B   | 6 IO / 8-pin | 4ch 10-bit | 6 PWM                          | SPI / I2C via USI | 1.8-5.5V | 经典 8-pin ATtiny，Arduino 生态常见 |
 
 ## ATtiny13A
 
@@ -57,11 +57,11 @@ title: ATtiny
 - 相比 ATtiny13A/25/45/85 这类经典型号，通常有更现代的外设、更多存储组合和 UPDI 编程接口。
 - 新项目如果不依赖老 ATtiny 封装/库，优先看 tinyAVR 1/2-series。
 
-| 系列 | 特点 | 注意 |
-| ---- | ---- | ---- |
-| tinyAVR 0-series | 低成本、现代外设、UPDI | 外设比 1-series 少 |
-| tinyAVR 1-series | 更完整外设组合，常见 ADC、DAC、event system、configurable custom logic | 资料和工具链要按具体型号确认 |
-| tinyAVR 2-series | 更新一代 tinyAVR，更多模拟和定时器能力 | Arduino/第三方 core 支持需单独确认 |
+| 系列             | 特点                                                                   | 注意                               |
+| ---------------- | ---------------------------------------------------------------------- | ---------------------------------- |
+| tinyAVR 0-series | 低成本、现代外设、UPDI                                                 | 外设比 1-series 少                 |
+| tinyAVR 1-series | 更完整外设组合，常见 ADC、DAC、event system、configurable custom logic | 资料和工具链要按具体型号确认       |
+| tinyAVR 2-series | 更新一代 tinyAVR，更多模拟和定时器能力                                 | Arduino/第三方 core 支持需单独确认 |
 
 ## 开发与烧录
 
@@ -93,13 +93,13 @@ avrdude -c usbasp -p t85 -U lfuse:r:lfuse.bin:r -U hfuse:r:hfuse.bin:r -U efuse:
 
 ## Fuse 注意事项
 
-| 项目 | 风险 |
-| ---- | ---- |
-| Clock source | 选错外部时钟后，芯片可能看起来“死掉”，需要提供对应时钟才能恢复 |
-| CKDIV8 | 默认分频可能导致实际频率比预期低 8 倍 |
-| RESET disable | 把 reset pin 改成 GPIO 后，普通 ISP 不能再烧录，可能需要高压编程恢复 |
-| Brown-out | BOD 电压过高会让低电压项目无法启动；过低可能导致 EEPROM/Flash 写入不可靠 |
-| SPIEN | 关闭 SPI programming 会阻断 ISP |
+| 项目          | 风险                                                                     |
+| ------------- | ------------------------------------------------------------------------ |
+| Clock source  | 选错外部时钟后，芯片可能看起来“死掉”，需要提供对应时钟才能恢复           |
+| CKDIV8        | 默认分频可能导致实际频率比预期低 8 倍                                    |
+| RESET disable | 把 reset pin 改成 GPIO 后，普通 ISP 不能再烧录，可能需要高压编程恢复     |
+| Brown-out     | BOD 电压过高会让低电压项目无法启动；过低可能导致 EEPROM/Flash 写入不可靠 |
+| SPIEN         | 关闭 SPI programming 会阻断 ISP                                          |
 
 ## FAQ
 

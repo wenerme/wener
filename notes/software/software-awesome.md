@@ -103,6 +103,11 @@ tags:
   - [NixRTR/nebula-commander](https://github.com/NixRTR/nebula-commander)
     - Nebula Commander 项目。
 
+## CAD
+
+- kicad
+- freecad
+
 ## Online
 
 - https://www.photopea.com/

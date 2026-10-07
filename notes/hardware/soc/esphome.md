@@ -68,7 +68,7 @@ esphome:
   friendly_name: ${friendly_name}
   project:
     name: wener.livingroom
-    version: "1.0.0"
+    version: '1.0.0'
 
 esp32:
   variant: esp32
@@ -95,21 +95,21 @@ wifi:
 
 ## 核心字段
 
-| 字段 | 说明 |
-| ---- | ---- |
-| `esphome.name` | 节点名，影响 mDNS、OTA、构建目录 |
-| `esphome.friendly_name` | 展示名称 |
-| `esphome.project` | 项目信息，会暴露到 device info / logger / mDNS |
-| `esp32.variant` | ESP32 芯片族，推荐显式设置 |
-| `esp32.board` | PlatformIO board ID；新配置优先用 `variant`，`board` 主要影响 pin alias 和默认参数 |
-| `esp32.framework.type` | `esp-idf` 或 `arduino`；新 ESP32 变体多要求 ESP-IDF |
-| `logger` | 串口/运行日志 |
-| `api` | Home Assistant native API |
-| `ota` | OTA 更新入口 |
-| `wifi` | Wi-Fi 和 fallback AP |
-| `secrets.yaml` | 保存 Wi-Fi、API key、OTA password 等私密值 |
-| `substitutions` | 字符串替换，适合统一设备名、GPIO、尺寸等参数 |
-| `packages` | 拆分公共配置，适合多设备复用 |
+| 字段                    | 说明                                                                               |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| `esphome.name`          | 节点名，影响 mDNS、OTA、构建目录                                                   |
+| `esphome.friendly_name` | 展示名称                                                                           |
+| `esphome.project`       | 项目信息，会暴露到 device info / logger / mDNS                                     |
+| `esp32.variant`         | ESP32 芯片族，推荐显式设置                                                         |
+| `esp32.board`           | PlatformIO board ID；新配置优先用 `variant`，`board` 主要影响 pin alias 和默认参数 |
+| `esp32.framework.type`  | `esp-idf` 或 `arduino`；新 ESP32 变体多要求 ESP-IDF                                |
+| `logger`                | 串口/运行日志                                                                      |
+| `api`                   | Home Assistant native API                                                          |
+| `ota`                   | OTA 更新入口                                                                       |
+| `wifi`                  | Wi-Fi 和 fallback AP                                                               |
+| `secrets.yaml`          | 保存 Wi-Fi、API key、OTA password 等私密值                                         |
+| `substitutions`         | 字符串替换，适合统一设备名、GPIO、尺寸等参数                                       |
+| `packages`              | 拆分公共配置，适合多设备复用                                                       |
 
 ## ESP32
 
@@ -144,19 +144,19 @@ packages:
 
 ## 常用组件
 
-| 组件 | 用途 |
-| ---- | ---- |
-| `binary_sensor` | GPIO 按键、门磁、在线状态 |
-| `sensor` | ADC、温湿度、Wi-Fi signal、uptime |
-| `text_sensor` | Wi-Fi info、版本、IP |
-| `switch` | GPIO 开关、模板开关 |
-| `output` | PWM、LED、蜂鸣器输出 |
-| `light` | 单色/RGB 灯 |
-| `i2c` | I2C 总线和传感器 |
-| `spi` | SPI 总线、显示屏、外设 |
-| `display` | TFT、OLED、电子纸等显示 |
-| `time` | Home Assistant / SNTP 时间源 |
-| `web_server` | 本地 Web 管理页面 |
+| 组件            | 用途                              |
+| --------------- | --------------------------------- |
+| `binary_sensor` | GPIO 按键、门磁、在线状态         |
+| `sensor`        | ADC、温湿度、Wi-Fi signal、uptime |
+| `text_sensor`   | Wi-Fi info、版本、IP              |
+| `switch`        | GPIO 开关、模板开关               |
+| `output`        | PWM、LED、蜂鸣器输出              |
+| `light`         | 单色/RGB 灯                       |
+| `i2c`           | I2C 总线和传感器                  |
+| `spi`           | SPI 总线、显示屏、外设            |
+| `display`       | TFT、OLED、电子纸等显示           |
+| `time`          | Home Assistant / SNTP 时间源      |
+| `web_server`    | 本地 Web 管理页面                 |
 
 ## 小喵掌机方向
 

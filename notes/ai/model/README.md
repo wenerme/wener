@@ -23,3 +23,9 @@ tags:
 - [DINO](./dino/README.md)
 - [YOLO](./yolo/README.md)
 - [Stable Diffusion](./stable-diffusion/README.md)
+
+# 我训练的模型
+
+1. Yolo 识别和切分 Poker
+2. QWen 拆分公司名字
+3. 唤醒词语, tflite micro

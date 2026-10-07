@@ -4,6 +4,7 @@ title: xiaozhi
 
 # 小智
 
+- Voice Device
 - 上行：麦克风 → PCM → Opus 编码 → 服务端
 - 下行：服务端 Opus → Opus 解码 → PCM → Codec/I2S → 喇叭
   - 接收 WSS 二进制帧；

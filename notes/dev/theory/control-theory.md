@@ -24,7 +24,7 @@ title: 控制理论
 | PID controller        | Proportional–Integral–Derivative controller |
 | Non-Linear Control    |                                             |
 | Linear Control        |                                             |
-| LPV                   | Linear Parameter Varing                     |
+| LPV                   | Linear Parameter-Varying                    |
 | Gain Schedule         |                                             |
 | transient-free switch | 在指定时间内完成 switch                     |
 | feedback controller   |                                             |
@@ -38,9 +38,9 @@ title: 控制理论
 - [Engineering Media](https://engineeringmedia.com/videos)
 - [Why Learn Control Theory](https://youtu.be/oBc_BHxw78s)
   - Building models
-  - Simulating preditions
+  - Simulating predictions
   - Dynamic interactions
   - Filtering / Rejecting noise
-  - Sekcting / Building hardware/controller
+  - Selecting / Building hardware/controller
   - Testing
   - Understanding your system
