@@ -10,10 +10,14 @@ title: uniswap
 - [info.uniswap.org](https://info.uniswap.org)
   - 流动池信息
 - API
-  - https://thegraph.com/hosted-service/subgraph/uniswap/uniswap-v2
-    - [Uniswap/uniswap-v2-subgraph](https://github.com/Uniswap/uniswap-v2-subgraph)
-  - https://thegraph.com/hosted-service/subgraph/uniswap/uniswap-v3
-  - https://thegraph.com/hosted-service/subgraph/ianlapham/uniswap-v3-rinkeby
+  - [Uniswap Subgraph 查询文档](https://docs.uniswap.org/api/subgraph/overview)
+    - 按协议版本和目标链查找部署，并核对 schema 与索引状态；文档列出的公共部署不保证由 Uniswap Labs 维护。
+  - [The Graph 查询文档](https://thegraph.com/docs/en/subgraphs/querying/from-an-application/)
+    - Hosted Service 已于 2024-06-12 停用，生产查询使用需要 API key 的 Network Gateway：`https://gateway.thegraph.com/api/<API_KEY>/subgraphs/id/<SUBGRAPH_ID>`。
+    - Subgraph Studio 端点用于开发测试且有限流。
+  - [Uniswap/v2-subgraph](https://github.com/Uniswap/v2-subgraph)
+  - [Uniswap/v3-subgraph](https://github.com/Uniswap/v3-subgraph)
+  - 历史 Hosted Service 部署名：`uniswap/uniswap-v2`、`uniswap/uniswap-v3`、`ianlapham/uniswap-v3-rinkeby`。
 - `sqrtPriceX96 = sqrt(price) * 2 ** 96`
   - `price = sqrtRatioX96 ** 2 / 2 ** 192`
   - sqrtPriceX96=sqrtRatioX96
