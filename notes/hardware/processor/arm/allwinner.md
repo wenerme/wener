@@ -1,5 +1,6 @@
 ---
 title: Allwinner (全志科技) ARM SoCs
+description: What Allwinner SoCs are, series by use (A/H/V/R/T/F), common chips like H3/H616/V3s/F1C100s, linux-sunxi mainline support and FEL boot.
 tags:
   - Hardware
   - SoC
@@ -11,7 +12,11 @@ tags:
 
 # Allwinner (全志科技) ARM SoCs
 
-Allwinner Technology is a Chinese fabless semiconductor company that designs mixed-signal systems on a chip (SoC) for tablets, OTT boxes, and IoT devices.
+Allwinner Technology (全志科技, SZSE: 300458) is a Chinese fabless semiconductor company founded in 2007 and headquartered in Zhuhai, Guangdong. It designs ARM-based mixed-signal systems on a chip (SoC) for tablets, OTT boxes, cameras, car electronics and IoT devices.
+
+- An Allwinner SoC integrates ARM CPU cores and peripherals in one chip; GPU, video codec (CedarX/VE), display and audio vary by model (e.g. V3s has no GPU).
+- Chips are cheap and common in low-cost SBCs (Orange Pi, NanoPi, Lichee Pi) and TV boxes; mainline Linux support comes mostly from the linux-sunxi community.
+- In 2012–2013 it was the largest supplier by units of application processors for Android tablets.
 
 - [Allwinner Official Website](http://www.allwinnertech.com/)
 - [Allwinner Technology (Wikipedia)](https://en.wikipedia.org/wiki/Allwinner_Technology)

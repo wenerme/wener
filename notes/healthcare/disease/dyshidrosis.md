@@ -1,8 +1,9 @@
 ---
-title: 汗疱疹
+title: 汗疱疹 (Dyshidrosis)
+description: 汗疱疹英文 Dyshidrosis / dyshidrotic eczema，又称 pompholyx、水疱性手足皮炎；手掌、手指侧面、脚底反复出现小水疱的湿疹样皮肤病。
 ---
 
-# 汗疱疹
+# 汗疱疹 (Dyshidrosis)
 
 - 英文：Dyshidrosis / dyshidrotic eczema
 - 别名：水疱性手足皮炎 / vesicular hand/foot dermatitis

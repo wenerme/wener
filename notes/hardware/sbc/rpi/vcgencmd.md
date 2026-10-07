@@ -58,12 +58,28 @@ The value returned by `vcgencmd get_throttled` is a bitmask where each bit repre
 | :----- | :-------- | :--------------------------------------------------------- |
 | **0**  | `0x1`     | **Under-voltage detected** (Lightning bolt icon).          |
 | **1**  | `0x2`     | **ARM frequency capped** (Frequency limited).              |
-| **2**  | `0x4\*\*  | **Currently throttled**.                                   |
+| **2**  | `0x4`     | **Currently throttled**.                                   |
 | **3**  | `0x8`     | **Soft temperature limit active**.                         |
 | **16** | `0x10000` | **Under-voltage has occurred** since last reboot.          |
 | **17** | `0x20000` | **ARM frequency capped has occurred** since last reboot.   |
 | **18** | `0x40000` | **Throttling has occurred** since last reboot.             |
 | **19** | `0x80000` | **Soft temperature limit has occurred** since last reboot. |
+
+- 低 4 位是当前状态，16–19 位是启动后发生过；`throttled=0x0` 表示正常
+- 常见值
+  - `0x50000` - 曾欠压并降频，当前正常；多为电源或线材不足
+  - `0x50005` - 当前正在欠压并降频
+  - `0x80008` - 曾达到并仍处于软温度限制，检查散热
+  - `0xe0000` - 曾发生降频、频率封顶和软温度限制，但未欠压；通常是温度问题
+
+```bash
+# 解析 get_throttled 位
+v=$(( $(vcgencmd get_throttled | cut -d= -f2) ))
+for b in 0:under-voltage 1:freq-capped 2:throttled 3:soft-temp-limit \
+  16:under-voltage-occurred 17:freq-capped-occurred 18:throttled-occurred 19:soft-temp-limit-occurred; do
+  if (( v >> ${b%%:*} & 1 )); then echo "${b#*:}"; fi
+done
+```
 
 ## Raw Output Examples
 
