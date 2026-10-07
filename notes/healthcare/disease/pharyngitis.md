@@ -1,6 +1,5 @@
 ---
 title: 咽炎/咽喉炎 (Pharyngitis)
-description: 咽炎、咽喉炎英文 pharyngitis，咽喉痛英文 sore throat；常见原因包括病毒与细菌感染、过敏、反流和刺激。
 ---
 
 # 咽炎/咽喉炎 (Pharyngitis)

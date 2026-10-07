@@ -1,6 +1,5 @@
 ---
 title: Raspberry Pi Emulation
-description: How to emulate a Raspberry Pi with QEMU raspi machines (raspi3b/raspi4b), the generic virt board, or qemu-user + binfmt for ARM chroots and containers, plus what Renode actually supports.
 tags:
   - Hardware
   - RaspberryPi
@@ -11,16 +10,14 @@ tags:
 
 # Raspberry Pi Emulation
 
-Simulating or emulating a Raspberry Pi allows for software development and testing without physical hardware.
+| 方法                    | 能力                                   | 用途                                       |
+| ----------------------- | -------------------------------------- | ------------------------------------------ |
+| QEMU `raspi*` machine   | 板卡模型，启动 RPi kernel + DTB        | 启动/内核调试，RPi 专有外设                |
+| QEMU `virt` machine     | 通用 ARM VM，virtio、PCIe、大内存      | 运行 RPi OS userland；ARM host 上 KVM/HVF  |
+| qemu-user + binfmt_misc | x86 host 运行 ARM 二进制，无内核       | chroot 进镜像，arm64/armv7 容器，CI        |
+| Renode                  | 确定性多节点模拟                       | MCU（如 RP2040）固件，非完整 RPi 板卡      |
 
-| Approach                         | What you get                                | Good for                                         |
-| -------------------------------- | ------------------------------------------- | ------------------------------------------------ |
-| QEMU `raspi*` machine            | Board model, boots RPi kernel + DTB         | Boot/kernel debugging, RPi-specific peripherals  |
-| QEMU `virt` machine              | Generic ARM VM, virtio, PCIe, lots of RAM   | Running RPi OS userland fast, KVM/HVF on ARM hosts |
-| qemu-user + binfmt_misc          | Run ARM binaries on x86 host, no kernel     | chroot into images, arm64/armv7 containers, CI   |
-| Renode                           | Deterministic multi-node simulation         | MCU (e.g. RP2040) firmware, not full RPi boards  |
-
-- See [Raspberry Pi Guide](./raspberry-pi.md) for the legacy `versatilepb` QEMU setup.
+- 旧版 `versatilepb` QEMU 配置见 [Raspberry Pi Guide](./raspberry-pi.md)
 
 ## QEMU raspi machines
 
@@ -32,20 +29,22 @@ Simulating or emulating a Raspberry Pi allows for software development and testi
 | `raspi3b`            | Cortex-A53 (4 cores)   | 1 GiB   |
 | `raspi4b`            | Cortex-A72 (4 cores)   | 2 GiB   |
 
-- `raspi4b` added in QEMU 9.0
-- `raspi2` / `raspi3` renamed to `raspi2b` / `raspi3b`, old names removed in QEMU 6.2
-- No Raspberry Pi 5 machine is listed in the QEMU docs
-- `-m` must match the board RAM, otherwise `Invalid RAM size, should be ...`
-- `qemu-system-aarch64` for 64-bit guests, `qemu-system-arm` or `qemu-system-aarch64` for 32-bit
-- Implemented: CPU, interrupt controller, DMA, CPRMAN, system timer, GPIO, UART (AUX 16550 + PL011), RNG, framebuffer, USB host (DWC2), SD/MMC, thermal sensor, mailbox, VideoCore firmware property, SPI, I2C (BSC)
-- Missing: PWM; on `raspi4b` also PCIe root port and GENET Ethernet
-  - QEMU removes the pcie, rng200, thermal and genet nodes from the BCM2711 DTB
-  - no PCIe means no xHCI USB on `raspi4b`
-- https://www.qemu.org/docs/master/system/arm/raspi.html
+- 用途：kernel / early boot 调试，免反复刷 SD 卡
+- `raspi4b` - QEMU 9.0+
+- `raspi2` / `raspi3` 改名为 `raspi2b` / `raspi3b`，旧名 QEMU 6.2 移除
+- QEMU 文档未列出 Raspberry Pi 5 machine
+- `-m` 必须与板卡 RAM 一致，否则 `Invalid RAM size, should be ...`
+- 64 位 guest 用 `qemu-system-aarch64`；32 位用 `qemu-system-arm` 或 `qemu-system-aarch64`
+- 已实现：CPU、interrupt controller、DMA、CPRMAN、system timer、GPIO、UART (AUX 16550 + PL011)、RNG、framebuffer、USB host (DWC2)、SD/MMC、thermal sensor、mailbox、VideoCore firmware property、SPI、I2C (BSC)
+- 未实现：PWM；`raspi4b` 另缺 PCIe root port、GENET Ethernet
+  - QEMU 从 BCM2711 DTB 删除 pcie、rng200、thermal、genet 节点
+  - 无 PCIe → `raspi4b` 无 xHCI USB
 
 ### Boot Raspberry Pi OS on raspi3b
 
-Linux host (Ubuntu/Debian), needs `qemu-system-arm`, `qemu-utils`, `xz-utils`. Images: [Raspberry Pi OS downloads](https://www.raspberrypi.com/software/operating-systems/).
+- Host：Ubuntu / Debian
+- 依赖：qemu-system-arm、qemu-utils、xz-utils
+- 镜像：[Raspberry Pi OS](https://www.raspberrypi.com/software/operating-systems/)
 
 ```bash
 xz -d 2023-05-03-raspios-bullseye-arm64.img.xz
@@ -76,15 +75,13 @@ qemu-system-aarch64 -M raspi3b -m 1G -nographic \
 ssh -p 2222 pi@localhost
 ```
 
-- `hostfwd=tcp::2222-:22` without an address listens on all host interfaces; bind `127.0.0.1` for local debugging
-
-- No on-board Ethernet is emulated, so networking goes through the emulated USB `usb-net` adapter
-- Kernel file names, see `config.txt` docs
-  - `kernel.img` Pi 1/Zero, `kernel7.img` Pi 2/3, `kernel8.img` 64-bit, `kernel7l.img` Pi 4 32-bit
-  - `kernel_2712.img` Pi 5 (no QEMU machine)
-- Bookworm+ mounts the boot partition at `/boot/firmware` and ships an `initramfs`
-- DTB: `bcm2710-rpi-3-b*.dtb` for raspi3b, `bcm2711-rpi-4-b.dtb` for raspi4b
-- https://interrupt.memfault.com/blog/emulating-raspberry-pi-in-qemu
+- `hostfwd=tcp::2222-:22` 不写地址时监听宿主所有接口；本机调试绑定 `127.0.0.1`
+- 未模拟板载 Ethernet，网络走模拟的 USB 网卡 `usb-net`
+- Kernel 文件名，见 `config.txt` 文档
+  - `kernel.img` Pi 1/Zero，`kernel7.img` Pi 2/3，`kernel8.img` 64 位，`kernel7l.img` Pi 4 32 位
+  - `kernel_2712.img` Pi 5（无 QEMU machine）
+- Bookworm+ boot 分区挂载在 `/boot/firmware`，并带 `initramfs`
+- DTB：raspi3b 用 `bcm2710-rpi-3-b*.dtb`，raspi4b 用 `bcm2711-rpi-4-b.dtb`
 
 ### Boot on raspi4b
 
@@ -95,22 +92,31 @@ qemu-system-aarch64 -M raspi4b -m 2G -nographic \
   -append "earlycon=pl011,mmio32,0xfe201000 console=ttyAMA0,115200 root=/dev/mmcblk1p2 rootwait dwc_otg.fiq_fsm_enable=0"
 ```
 
-- Root is `mmcblk1p2` on raspi4b (`mmcblk0p2` on raspi3b); depends on the kernel/DTB used
-- Reference template: cmdline taken from QEMU's functional test [test_raspi4.py](https://gitlab.com/qemu-project/qemu/-/blob/master/tests/functional/aarch64/test_raspi4.py), which checks early boot only, not a full SD-card boot
-- No GENET/PCIe, so expect no networking without extra work
+- raspi4b 的 root 为 `mmcblk1p2`（raspi3b 为 `mmcblk0p2`），取决于所用 kernel/DTB
+- cmdline 模板来自 QEMU functional test [test_raspi4.py](https://gitlab.com/qemu-project/qemu/-/blob/master/tests/functional/aarch64/test_raspi4.py)，只检查 early boot，不是完整 SD 卡启动
+- 无 GENET/PCIe，默认没有网络
 
 ### Known issues
 
 - [qemu#2351](https://gitlab.com/qemu-project/qemu/-/issues/2351) Raspberry Pi: Unable to start raspios bookworm
-  - Bullseye boots on raspi3b/raspi4b, `2024-03-15-raspios-bookworm-arm64-lite` only prints `usbnet: failed control transaction` (QEMU 9.0.0)
+  - raspi3b/raspi4b 可启动 Bullseye；`2024-03-15-raspios-bookworm-arm64-lite` 只输出 `usbnet: failed control transaction`（QEMU 9.0.0）
 - [Akinori-Furuta/qemu-raspberrypi](https://github.com/Akinori-Furuta/qemu-raspberrypi/)
-  - Scripts + dkms driver to run Raspberry Pi OS Trixie/Bookworm on emulated raspi3b/raspi2b, needs QEMU 8.2.2+
+  - 脚本 + dkms 驱动，在模拟的 raspi3b/raspi2b 上运行 Raspberry Pi OS Trixie/Bookworm，需要 QEMU 8.2.2+
 - [dhruvvyas90/qemu-rpi-kernel](https://github.com/dhruvvyas90/qemu-rpi-kernel)
-  - legacy `versatilepb` kernels, Raspbian Buster/Stretch era
+  - 旧版 `versatilepb` kernel，Raspbian Buster/Stretch 时期
 
 ## QEMU virt machine
 
-The `virt` board does not correspond to real hardware. It is the recommended board for just running Linux: PCI/PCIe, virtio, many CPUs, large RAM, and KVM on aarch64 hosts. It needs a kernel built for `virt` (virtio drivers), so the stock RPi `kernel8.img` is not the target here. Reuse the RPi OS rootfs with a generic arm64 kernel + initrd instead.
+- 通用 ARM 板，不模拟具体 Raspberry Pi 硬件
+- PCI / PCIe、virtio、多核、大内存
+- 用途
+  - 运行 Linux / RPi OS userland
+  - 学习 Linux、ARM 汇编，无需购买硬件
+  - 多个 VM 节点组网，测试分布式系统
+- RPi OS rootfs + 通用 arm64 kernel / initrd
+  - 内核需要 virt / virtio 支持
+  - 不直接使用 RPi `kernel8.img`
+- ARM64 host：KVM / HVF
 
 ```bash
 qemu-system-aarch64 -M virt -cpu cortex-a72 -smp 4 -m 4G -nographic \
@@ -118,17 +124,21 @@ qemu-system-aarch64 -M virt -cpu cortex-a72 -smp 4 -m 4G -nographic \
   -append "root=/dev/vda2 console=ttyAMA0" \
   -drive file=raspios.img,format=raw,if=virtio \
   -device virtio-net-pci,netdev=net0 \
-  -netdev user,id=net0,hostfwd=tcp::2222-:22
+  -netdev user,id=net0,hostfwd=tcp:127.0.0.1:2222-:22
 ```
 
-- `-cpu` is required for AArch64 (default is 32-bit `cortex-a15`)
-- On arm64 hosts: `-accel kvm` (Linux) / `-accel hvf` (macOS) with `-cpu host`
-- https://www.qemu.org/docs/master/system/arm/virt.html
-- https://www.qemu.org/docs/master/system/target-arm.html
+- AArch64 必须指定 `-cpu`（默认为 32 位 `cortex-a15`）
+- arm64 host：`-accel kvm`（Linux）/ `-accel hvf`（macOS）配合 `-cpu host`
 
 ## qemu-user + binfmt
 
-Runs individual ARM Linux binaries on the host kernel via syscall translation. No board, no kernel, much faster than full-system emulation.
+- qemu-user
+  - syscall 翻译，运行 ARM Linux 二进制
+  - 使用宿主内核，不模拟板卡/内核
+  - chroot、容器、镜像预装包；通常比整机模拟开销小
+- 用途
+  - 刷写前 chroot 进镜像预装软件包
+  - CI 中测试 RPi OS 镜像、构建 arm64/armv7 容器镜像
 
 ```bash
 # Debian/Ubuntu, Debian 13 qemu-user-static -> qemu-user + qemu-user-binfmt
@@ -153,29 +163,41 @@ docker run --rm --platform linux/arm64 debian uname -m
 docker buildx build --platform linux/arm64,linux/arm/v7 .
 ```
 
-- binfmt_misc `F` (fix binary) flag opens the interpreter at registration time, so it works inside chroots and mount namespaces without copying `qemu-*-static` into the rootfs
-- Docker Desktop and official BuildKit releases bundle QEMU, manual install needs kernel 4.8+ and static QEMU registered with `F`
-- Emulation is much slower than native for compile/compression heavy work
-- qemu-user does not support `clone` namespace flags, so container runtimes can't run inside it
-- https://www.qemu.org/docs/master/user/main.html
-- https://docs.kernel.org/admin-guide/binfmt-misc.html
-- https://docs.docker.com/build/building/multi-platform/
-- https://github.com/tonistiigi/binfmt
+- binfmt_misc `F` - fix binary
+  - 注册时打开解释器
+  - chroot / mount namespace 内无需再复制 `qemu-*-static`
+- Docker Desktop / 官方 BuildKit 已包含 QEMU
+- 手动注册：kernel 4.8+、静态 QEMU、`F` 标志
+- 编译/压缩等重计算仍明显慢于原生
+- qemu-user 不支持 `clone` namespace flags，不能在其中运行容器运行时
 
 ## Renode
 
-Open source framework from Antmicro for deterministic, multi-node simulation with CI integration.
+- Antmicro，开源，多节点确定性模拟，支持 CI 集成
+- 自定义平台：`.repl`
 
-- No Raspberry Pi (BCM2711) board platform upstream, only a `BCM2711_AUX_UART` peripheral model in renode-infrastructure
-- RP2040 (Raspberry Pi Pico): community [matgla/Renode_RP2040](https://github.com/matgla/Renode_RP2040) (WIP/frozen)
-- Custom platforms can be described in `.repl` files
-- [Renode Official Site](https://renode.io/)
-- [Supported boards](https://renode.readthedocs.io/en/latest/introduction/supported-boards.html)
+:::caution
 
-## Use Cases
+- upstream 无 Raspberry Pi (BCM2711) 板卡平台
+  - renode-infrastructure 仅有 `BCM2711_AUX_UART` 外设模型
+  - 不等于可启动 Raspberry Pi OS 的整板模型
+- RP2040 / Pico：社区项目 [matgla/Renode_RP2040](https://github.com/matgla/Renode_RP2040)，WIP / frozen
 
-- **Kernel Development**: Debugging early boot code without constant SD card flashing.
-- **CI/CD Pipelines**: Automated testing of Raspberry Pi OS images in the cloud.
-- **Education**: Learning Linux and ARM assembly without purchasing hardware.
-- **Network Simulation**: Testing distributed systems across multiple virtualized Pi nodes.
-- **Image customization**: chroot via qemu-user to preinstall packages before flashing.
+:::
+
+## 参考
+
+- QEMU
+  - https://www.qemu.org/docs/master/system/arm/raspi.html
+  - https://www.qemu.org/docs/master/system/arm/virt.html
+  - https://www.qemu.org/docs/master/system/target-arm.html
+  - https://www.qemu.org/docs/master/user/main.html
+- binfmt
+  - https://docs.kernel.org/admin-guide/binfmt-misc.html
+  - https://docs.docker.com/build/building/multi-platform/
+  - https://github.com/tonistiigi/binfmt
+- Renode
+  - [Renode Official Site](https://renode.io/)
+  - [Supported boards](https://renode.readthedocs.io/en/latest/introduction/supported-boards.html)
+- 社区
+  - https://interrupt.memfault.com/blog/emulating-raspberry-pi-in-qemu

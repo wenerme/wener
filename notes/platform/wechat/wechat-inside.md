@@ -1,6 +1,5 @@
 ---
 title: WeChat Inside
-description: macOS 与 Windows 微信 4.x 本地数据目录观察，整理 xwechat_files、db_storage、聊天附件与缓存的分层，以及数据库角色和加密特征。
 tags:
   - Inside
 ---

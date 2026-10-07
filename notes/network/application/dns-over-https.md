@@ -1,6 +1,5 @@
 ---
 title: DNS over HTTPS (DoH)
-description: DNS over HTTPS 的 JSON 与 wire format 请求，Cloudflare 1.1.1.1 和 Google Public DNS 的 JSON API curl 示例、参数与状态码。
 tags:
   - DNS
   - HTTPS

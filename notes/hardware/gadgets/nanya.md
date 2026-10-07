@@ -1,6 +1,5 @@
 ---
-title: 南亚科技 (Nanya) DRAM 与 NT5CB64M16FP 型号解析
-description: 南亚科技 DRAM 型号编码解析，以及 NT5CB64M16FP（1Gb DDR3 64Mx16 96-ball）规格、速度后缀与同族型号。
+title: 南亚科技 (Nanya Technology)
 tags:
   - Hardware
   - Memory
@@ -9,9 +8,12 @@ tags:
   - Nanya
 ---
 
-# 南亚科技 (Nanya) DRAM 与 NT5CB64M16FP 型号解析 {#nanya-technology}
+# 南亚科技 (Nanya Technology) {#nanya-technology}
 
-南亚科技 (Nanya Technology Corporation) 是台湾 DRAM 厂商，产品包括 Standard DRAM（DDR2/DDR3/DDR4/DDR5）、Low Power DRAM（LPDDR2 ~ LPDDR5/5X）和 KGD。
+- 台湾 DRAM 厂商 - Nanya Technology Corporation
+- Standard DRAM - DDR2 / DDR3 / DDR4 / DDR5
+- Low Power DRAM - LPDDR2 ~ LPDDR5/5X
+- KGD
 
 - [Nanya 产品](https://www.nanya.com/en/Product/)
   - [DDR3 产品列表](https://www.nanya.com/en/product/List/450/2249)
@@ -19,14 +21,17 @@ tags:
 - [NANYA Standard DRAM Part Numbering Guide](https://www.nanya.com/en/Support/50)
   - [PDF](https://www.nanya.com/Files/220)
 - 原 NT5CB64M16FP-DII 产品页 `https://www.nanya.com/en/Product/3756/NT5CB64M16FP-DII` 已失效
-- 当前官网 DDR3 列表中 1Gb x16 只有 `NT5CB64M16GP-*`，未见 FP
+- 官网 DDR3 列表中 1Gb x16 只有 `NT5CB64M16GP-*`，未见 FP - 2026-10 观察，不代表停产
 
 ## NT5CB64M16FP {#nt5cb64m16fp-technical-specifications}
 
-1Gb (128MB) DDR3 SDRAM，x16，F-die。常见于路由器、机顶盒等嵌入式设备。
+- 1Gb / 128MB，DDR3，x16，F-die
+- 路由器、机顶盒等嵌入式设备
 
 - [Datasheet - Commercial, Industrial and Automotive DDR3(L) 1Gb SDRAM v1.8 (08/2015)](https://resources.ampheo.com/static/datasheets/nanya-technology/nt5cb64m16fp-dii.pdf)
   - 镜像，官网已无 FP 产品页
+
+### 主要特性 {#key-features}
 
 | 项目       | 值                                                      |
 | :--------- | :------------------------------------------------------ |
@@ -44,9 +49,13 @@ tags:
 | 特性       | ODT、ZQ (240Ω ±1%)、Write Leveling、ASR、PASR、MPR      |
 
 - PASR 默认禁用，需原厂 electrical fuse 启用（datasheet Note 1）
-- 型号中没有容量 MB，`64M16` = 64M x 16bit = 1Gb = 128MB
-- 一颗 x16 组成 16bit 总线，两颗组成 32bit 总线（共 256MB）
 - Tc > 85℃ 需要 2x refresh，并开启 Extended SRT 或 ASR
+
+### 组织结构 {#organization}
+
+- 型号中没有容量 MB，`64M16` = 64M x 16bit = 1Gb = 128MB
+- 同步 DRAM 接口
+- 一颗 x16 → 16bit 总线；两颗 → 32bit 总线，共 256MB
 
 ### Ordering Information {#ordering-information}
 
@@ -125,7 +134,14 @@ tags:
   - DDR3L-RS 例外，不与 DDR3L/DDR3 兼容
 - 用 `NT5CC` 替换板上 `NT5CB` 时，供电可保持 1.5V；反过来 1.35V 板子不能直接换 `NT5CB`
 
-## 同族型号 {#related-products}
+## 相关产品 {#related-products}
+
+- Computing - PC / Server，DDR3 / DDR4 / DDR5
+- Consumer - 网络设备、机顶盒、数字电视
+- Mobile / Low Power - LPDDR3 / LPDDR4
+- Industrial / Automotive - 工业、车规
+
+### 同族型号
 
 | 型号                 | 说明                                      |
 | :------------------- | :---------------------------------------- |
@@ -138,11 +154,12 @@ tags:
 | NT5CB128M16JR        | 2Gb x16，96-ball，官网在售                |
 | NT5CB256M16ER        | 4Gb x16，96-ball，官网在售                |
 
-- 官网当前 1Gb x16 DDR3 有 `NT5CB64M16GP-DI/EK/FL` 及 `-DIT/-EKT/-EKI/-EKA/-EKH`
-- FP → GP 只是 die 版本不同；能否直接替换需对比两份 datasheet 的时序、IDD 和封装尺寸，待核验
+- 官网在售 - 2026-10 官网列表观察，不等于可供货
+- 官网 1Gb x16 DDR3 有 `NT5CB64M16GP-DI/EK/FL` 及 `-DIT/-EKT/-EKI/-EKA/-EKH` - 2026-10 观察
+- FP → GP：die 版本不同；兼容性待核验，需对比两份 datasheet 的时序、IDD 和封装尺寸
 - 跨厂替代需逐项核对：1Gb、x16、96-ball、电压、速度；分销商给的「equivalent」常有容量错误
 
 ## 丝印读法 {#marking}
 
 - 型号行按上面的 part number 规则解析，例如 `NT5CB64M16FP-DH` → DDR3 1.5V、1Gb x16、F-die、96-ball、DDR3-1600 CL10、Commercial
-- 型号行以外的日期码/批号格式：Nanya 无公开规范，待核验
+- 日期码 / 批号：公开规范待确认

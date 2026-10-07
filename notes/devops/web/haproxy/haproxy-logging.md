@@ -1,6 +1,5 @@
 ---
 title: HAProxy Logging
-description: HAProxy 的 stdout 与 syslog 日志配置、HTTP/TCP 日志格式、JSON 转义示例，以及没有访问日志时的排查顺序。
 tags:
   - Logging
 ---
@@ -9,7 +8,7 @@ tags:
 
 ## 最小 HTTP 日志配置
 
-下面配置直接向 stdout 输出 HTTP 访问日志，并在 `8080` 返回测试响应。适合先确认日志链路，再替换成实际 backend。
+- stdout HTTP 日志；:8080 返回 200 / ok，用于验证日志链路
 
 ```haproxy
 global
@@ -34,11 +33,20 @@ haproxy -db -f haproxy.cfg # 前台运行，查看 stdout
 curl -i http://127.0.0.1:8080/
 ```
 
-`global` 中的 `log` 指定目标，`defaults` / `frontend` 中的 `log global` 启用继承的目标。HTTP 用 `option httplog`，TCP frontend 用 `mode tcp` 与 `option tcplog`。自定义 `log-format` 会覆盖此前的 `httplog` / `tcplog`，要留意指令顺序。
+- `global.log` - 日志目标
+- `defaults` / `frontend` 的 `log global` - 继承目标
+- HTTP - `mode http` + `option httplog`
+- TCP - `mode tcp` + `option tcplog`
+
+:::caution
+
+- 后写的 `log-format` 覆盖前面的 `httplog` / `tcplog`，注意指令顺序
+
+:::
 
 ## 日志目标
 
-下面列出几种目标写法，按运行环境选用；同时配置多个目标会分别发送日志。
+- 多个 log 目标分别发送日志
 
 ```haproxy
 global
@@ -176,9 +184,15 @@ log-format "%[capture.req.hdr(0)]"
 
 ## JSON
 
-字符串字段需要 JSON 转义，不能直接把请求 URL 或 header 填入带双引号的模板。`json(utf8s)` 负责转义；请求字段先保存到 `txn` 变量，便于请求结束时记录。
+- 请求字段先存到 txn 变量，供日志阶段使用
+- frontend 自定义格式覆盖 defaults 继承格式
 
-下面是完整的 HTTP JSON 日志测试配置。自定义格式放在 `frontend`，覆盖从 `defaults` 继承的默认格式。
+:::caution
+
+- JSON 字符串用 `json(utf8s)` 转义
+- URL / header 不能直接插入双引号模板
+
+:::
 
 ```haproxy
 global
@@ -200,6 +214,38 @@ frontend http-in
   log-format '{"client_ip":"%ci","client_port":%cp,"method":"%[var(txn.log_method),json(utf8s)]","url":"%[var(txn.log_url),json(utf8s)]","host":"%[var(txn.log_host),json(utf8s)]","user_agent":"%[var(txn.log_ua),json(utf8s)]","status":%ST,"bytes":%B}'
   http-request return status 200 content-type text/plain string ok
 ```
+
+**JSON 字段速查**
+
+| 字段 | 取值 |
+| --- | --- |
+| host / ident / pid / time | `%H` / `haproxy` / `%pid` / `%Tl` |
+| conn act / fe / be / srv | `%ac` / `%fc` / `%bc` / `%sc` |
+| queue backend / srv | `%bq` / `%sq` |
+| time tq / tw / tc / tr / tt | `%Tq` / `%Tw` / `%Tc` / `%Tr` / `%Tt` |
+| termination_state / retries | `%tsc` / `%rc` |
+| client / frontend address | `%ci:%cp` / `%fi:%fp` |
+| ssl version / ciphers | `%sslv` / `%sslc` |
+| request method / hu / hp / hq / protocol | `%HM` / `%HU` / `%HP` / `%HQ` / `%HV` |
+| name backend / frontend / server | `%b` / `%ft` / `%s` |
+| response status_code | `%ST` |
+| bytes uploaded / read | `%U` / `%B` |
+| request header host / xforwardfor / referer | `capture.req.hdr(0)` / `capture.req.hdr(1)` / `capture.req.hdr(2)`，加 `json(utf8s)` |
+| response header xrequestid | `capture.res.hdr(0)`，加 `json(utf8s)` |
+
+```haproxy
+# 合并到记录日志的 frontend；不是独立配置
+# capture 编号按声明顺序，请求、响应分开计数
+frontend whatever
+  capture request header Host len 40
+  capture request header X-Forwarded-For len 50
+  capture request header Referer len 200
+  capture request header User-Agent len 200
+
+  capture response header X-Request-ID len 50
+```
+
+- User-Agent → `capture.req.hdr(3)`，原 JSON 模板未引用
 
 - [HAProxy 配置手册：JSON converter](https://docs.haproxy.org/3.2/configuration.html#7.3.1-json)
 - https://gist.github.com/vr/c9e158e298e6e316544c399b2ff3ef22
