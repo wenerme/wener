@@ -186,7 +186,10 @@ rustdesk --terminal 123456789
   - ~~Web Client V1~~
   - Web Client V2
 - [marcpope/cortendesk](https://github.com/marcpope/cortendesk)
-  - TS
+  - AGPL-3.0-only, PHP, TypeScript, Laravel, Livewire
+  - RustDesk OSS 的自托管管理控制台，提供设备、用户、地址簿管理及浏览器远程桌面客户端。
+  - RustDesk 客户端的 API Server 指向控制台 URL；项目独立于 RustDesk 官方。
+  - 内置管理主题单独授权，不在 AGPL 范围内，见仓库 NOTICE。
 - [UNITRONIX/BetterDesk](https://github.com/UNITRONIX/BetterDesk)
   - JS Web Client + Go
   - Server

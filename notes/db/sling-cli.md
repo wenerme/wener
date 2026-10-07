@@ -23,6 +23,10 @@ sling conns set MSSQL url='sqlserver://sa:sa@127.0.0.1:1433?database=master;encr
 
 sling conns set DUMP url='sqlite://./dump.db'
 
+# 测试连接
+sling conns test MSSQL
+sling conns test DUMP
+
 sling conns discover MSSQL
 sling conns discover DUMP
 
@@ -32,8 +36,10 @@ sling run --src-conn MSSQL --src-stream 'dbo.Users' --tgt-object file://$PWD/dum
 sling run -r sling.dump.yaml
 
 # 执行 SQL
-sling sling run --src-conn INFRA --src-stream "SELECT schema_name FROM information_schema.schemata WHERE schema_name NOT IN ('pg_catalog', 'information_schema', 'pg_toast')" --stdout
+sling run --src-conn INFRA --src-stream "SELECT schema_name FROM information_schema.schemata WHERE schema_name NOT IN ('pg_catalog', 'information_schema', 'pg_toast')" --stdout
 ```
+
+- [sling run](https://docs.slingdata.io/sling-cli/run) - `--src-stream` 支持 SQL；`--stdout` 输出到标准输出
 
 ```yaml title="replication.yaml"
 source: MY_POSTGRES

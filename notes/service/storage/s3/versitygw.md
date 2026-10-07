@@ -85,6 +85,22 @@ IAM users.json
 
 ## api error XAdminMethodNotSupported: The method is not supported in single root user mode.
 
+- 默认仅 root 账户；多用户管理需要选择 IAM 后端。
+- 内置 IAM：通过 `--iam-dir` / `VGW_IAM_DIR` 指定账户存储目录。
+  - 上面的容器示例可增加 `-e VGW_IAM_DIR=/meta/iam`，复用已挂载的 `/meta`。
+  - 多实例需共享该目录，保持账户信息一致。
+- 使用 root 或 admin 账户执行 `versitygw admin list-users`。
+- 参考
+  - [Multi-Tenant](https://github.com/versity/versitygw/wiki/Multi-Tenant)
+  - [Admin APIs](https://github.com/versity/versitygw/wiki/Admin-APIs)
+
+:::caution
+
+- 内置 IAM 账户文件以明文存储，限制目录访问权限。
+- standalone IAM 也可能对不支持的用户管理操作返回 `XAdminMethodNotSupported`，需结合 IAM 后端判断。
+
+:::
+
 ## Public Read
 
 ```bash
