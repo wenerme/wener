@@ -72,3 +72,12 @@ date: 2013-12-15 02:48:00
 - [物理的简单运用《PLAYBALL》（玩蛋）](http://club.eebbk.com/bbkbbs/showtopic/243308/1)
 - [贝塞尔曲线运用，8 个实例。](http://club.eebbk.com/bbkbbs/showtopic/243000/1)
 - [二次贝塞尔曲线辅助的工具，让你计算点的位置，可视化。exe 格式](http://club.eebbk.com/bbkbbs/showtopic/243168/1)
+
+## 2026-10-07 补记：原生 BDA SDK
+
+HelloClyde 在 [#43](https://github.com/wenerme/wener/issues/43) 分享了新的逆向成果：
+
+- [HelloClyde/BBK9588-bda-sdk](https://github.com/HelloClyde/BBK9588-bda-sdk)
+  - Apache-2.0 OR GPL-2.0-only，C / Python，MIPS little-endian。
+  - 面向步步高 9588（C200）和 9688（C100）固件，可从 C 源码独立生成 BDA，提供系统 API 头文件、示例和开发文档。
+  - 项目仍处于逆向验证阶段；模拟器通过的功能需按兼容性文档区分真机验证情况。
