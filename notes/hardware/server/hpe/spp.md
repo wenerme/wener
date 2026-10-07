@@ -1,9 +1,12 @@
 ---
 title: Service Pack for ProLiant
+description: HPE Service Pack for ProLiant (SPP) 固件与驱动包，取代 ProLiant Support Pack (PSP) 与 Firmware DVD；各代 ProLiant 服务器的版本与下载。
 ---
 
 # SPP
 
+- HPE Service Pack for ProLiant (SPP) 取代了 ProLiant Support Pack (PSP) 和 Smart Update Firmware DVD，包含固件、驱动和管理代理
+  - [HPE 说明](https://support.hpe.com/hpesc/public/docDisplay?docId=c03916606&docLocale=en_US)
 - [Service Pack for ProLiant](http://h17007.www1.hpe.com/us/en/enterprise/servers/products/service_pack/spp/index.aspx)
 - [支持文档](http://www.hpe.com/servers/spp/documentation)
 - [SPP 定制](https://spp.hpe.com/custom/)
