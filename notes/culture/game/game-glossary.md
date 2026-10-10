@@ -43,39 +43,40 @@ tags:
 - [Mzying2001/CefFlashBrowser](https://github.com/Mzying2001/CefFlashBrowser)
   - Flash浏览器, Windows
 
-|                        name | en                        | from   |
-| --------------------------: | ------------------------- | ------ |
-|                   **Board** |
-|                      井字棋 | tic tac toe               |
-|                        围棋 | Go                        |
-|                    国际象棋 | Chess                     |
-|                        象棋 | Chinese Chess             |
-|                        跳棋 | Checkers                  |
-|                      四子棋 | Connect Four              |
-|                      五子棋 | Gomoku                    |
-|              **Poker/扑克** |
-|                      斗地主 | Dou dizhu                 |
-|                        惯蛋 | Guandan                   |
-|                      十点半 |
-|             二十一点/黑杰克 | Blackjack                 |
-|                    德州扑克 | Texas Hold'em             |
-|                        吹牛 | Cheat/Bullshit/I Doubt It |
-| 潜乌龟/抽鬼牌/抽乌龟/抽狮虎 | Old maid                  |
-|                        三公 | Three Card                |
-|                      炸金花 |
-|                      百家乐 | Baccarat                  | 意大利 |
-|                  传统百家乐 | Classic Baccarat          |
-|                  龙宝百家乐 | Dragon Bonus Baccarat     |
-|               **Dice/骰子** |
-|                        斗牛 |                           |
-|                        牛牛 | Bull Bull                 |
-|                        骰宝 | Sic Bo                    |
-|            **Mahjong/麻将** |
-|                        13张 |
-|                         7张 |
-|                        ---- | ---                       |
-|                        轮盘 | Roulette                  |
-|                        龙虎 | Dragon Tiger              |
+|                            name | en                        | from   |
+| ------------------------------: | ------------------------- | ------ |
+|                       **Board** |
+|                          井字棋 | tic tac toe               |
+|                            围棋 | Go                        |
+|                        国际象棋 | Chess                     |
+|                            象棋 | Chinese Chess             |
+|                            跳棋 | Checkers                  |
+|                          四子棋 | Connect Four              |
+|                          五子棋 | Gomoku                    |
+|                  **Poker/扑克** |
+|                          斗地主 | Dou dizhu                 |
+|                            惯蛋 | Guandan                   |
+|                          十点半 |
+|                 二十一点/黑杰克 | Blackjack                 |
+|                        德州扑克 | Texas Hold'em             |
+|                            吹牛 | Cheat/Bullshit/I Doubt It |
+|     潜乌龟/抽鬼牌/抽乌龟/抽狮虎 | Old maid                  |
+|                            三公 | Three Card                |
+|                          炸金花 |
+|                          百家乐 | Baccarat                  | 意大利 |
+|                      传统百家乐 | Classic Baccarat          |
+|                      龙宝百家乐 | Dragon Bonus Baccarat     |
+|                   **Dice/骰子** |
+|   [吹牛/大话骰](./dice.md#吹牛) | Liar's Dice               |
+|                            斗牛 |                           |
+| [牛牛/骰子斗牛](./dice.md#牛牛) | Dice Niu Niu              |
+|                            骰宝 | Sic Bo                    |
+|                **Mahjong/麻将** |
+|                            13张 |
+|                             7张 |
+|                            ---- | ---                       |
+|                            轮盘 | Roulette                  |
+|                            龙虎 | Dragon Tiger              |
 
 [Mahjong]: https://en.wikipedia.org/wiki/Mahjong
 

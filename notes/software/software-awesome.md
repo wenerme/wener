@@ -147,3 +147,16 @@ tags:
 - OneNote
 - CherryTree
 - TickTick
+
+## Launcher
+
+- raycast
+- https://github.com/vicinaehq/vicinae
+  - GPLv3, C, C++
+- https://github.com/SuperCmdLabs/SuperCmd
+- https://github.com/abue-ammar/tinycast
+- [Xoshbin/asyar](https://github.com/Xoshbin/asyar)
+  - GPL-3.0, Rust, TypeScript, Tauri 2, Svelte 5
+  - 跨平台应用启动器，支持脚本、AI Agent 和 MCP；[Asyar](./asyar.md)
+- ~~[MystikoLab/rustcast](https://github.com/MystikoLab/rustcast)~~
+  - MIT, Rust

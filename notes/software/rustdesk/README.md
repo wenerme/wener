@@ -197,7 +197,7 @@ rustdesk --terminal 123456789
   - Web Client
   - API
   - Agent
-- MonsieurBiche/rustdesk-web-client
+- [MonsieurBiche/rustdesk-web-client](https://github.com/MonsieurBiche/rustdesk-web-client)
   - Web v1 Fork
   - docker-rustdesk-web-client
 

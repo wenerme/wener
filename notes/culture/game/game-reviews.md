@@ -2,6 +2,7 @@
 title: Game Reviews
 tags:
 - Review
+- Thoughts
 ---
 
 # Game Reviews

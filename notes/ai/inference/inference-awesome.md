@@ -10,7 +10,7 @@ tags:
   - PagedAttention
 - SGLang
 - llama.cpp
-- https://github.com/trymirai/uzu
+- [trymirai/uzu](https://github.com/trymirai/uzu)
 - localai
 - [NVIDIA/TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)
   - Apache-2.0, C++, Python

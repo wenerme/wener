@@ -5,6 +5,11 @@ tags:
 
 # Computer Use
 
+- [ifuryst/open-codex-computer-use](https://github.com/ifuryst/open-codex-computer-use)
+- [e2b-dev/open-computer-use](https://github.com/e2b-dev/open-computer-use)
+- [injaneity/pi-computer-use](https://github.com/injaneity/pi-computer-use)
+- https://github.com/CopilotKit/OpenDots
+
 | 输入方式                | UIA | input queue                       | 是否可后台        | 接近真实输入 | 可被区分            | 用户影响                                                           |
 | ----------------------- | --- | --------------------------------- | ----------------- | ------------ | ------------------- | ------------------------------------------------------------------ |
 | UIA                     | 是  | 否                                | 强                | 低           | 容易                | 不依赖鼠标键盘注入，适合控件级自动化，但受控件可访问性支持程度限制 |

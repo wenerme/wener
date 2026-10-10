@@ -36,6 +36,9 @@ https://www.game-game.com.ua/
     - 受 Tolkien 中土世界启发的等距世界构建器。
   - [veloren/veloren](https://github.com/veloren/veloren)
     - 开源开放世界 voxel RPG，灵感来自 Dwarf Fortress 和 Cube World。
+- [骰子游戏](./dice.md)
+  - [吹牛 / 大话骰](./dice.md#吹牛) - 叫骰、开盅、叫斋与百搭规则
+  - [牛牛 / 骰子斗牛](./dice.md#牛牛) - 凑十与六倍数两套算法
 
 ## NES
 

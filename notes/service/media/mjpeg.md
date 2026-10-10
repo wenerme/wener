@@ -21,13 +21,13 @@ tags:
 
 ## 编码与封装
 
-| 层次 | 示例 | 说明 |
-| --- | --- | --- |
-| 图像编码 | JPEG | 单帧压缩；分辨率、质量和色度采样影响画质与帧大小 |
-| 视频编码 | MJPEG | 连续的 JPEG 编码帧，不进行帧间预测 |
-| 文件容器 | AVI、MOV、Matroska | 保存视频帧、时间信息，也可承载独立音轨 |
-| 裸码流 | `.mjpg`、`.mjpeg` | 连续 JPEG 帧，通常需要外部提供帧率等播放信息 |
-| HTTP 传输 | `multipart/x-mixed-replace` | 一个持续的响应，每个 MIME part 承载一帧 JPEG |
+| 层次      | 示例                        | 说明                                             |
+| --------- | --------------------------- | ------------------------------------------------ |
+| 图像编码  | JPEG                        | 单帧压缩；分辨率、质量和色度采样影响画质与帧大小 |
+| 视频编码  | MJPEG                       | 连续的 JPEG 编码帧，不进行帧间预测               |
+| 文件容器  | AVI、MOV、Matroska          | 保存视频帧、时间信息，也可承载独立音轨           |
+| 裸码流    | `.mjpg`、`.mjpeg`           | 连续 JPEG 帧，通常需要外部提供帧率等播放信息     |
+| HTTP 传输 | `multipart/x-mixed-replace` | 一个持续的响应，每个 MIME part 承载一帧 JPEG     |
 
 - 扩展名不能可靠地区分裸 MJPEG 与 multipart MJPEG，应检查内容、HTTP 响应头或使用 `ffprobe`。
 - MJPEG 编码本身不包含音频；文件可以由容器复用音轨，常见的 HTTP MJPEG 图像流没有音轨。
@@ -101,14 +101,14 @@ Content-Length: N2
 
 ## FFmpeg
 
-| 参数 | 用途 |
-| --- | --- |
-| `-c:v mjpeg` | 使用 MJPEG 视频编码器 |
-| `-c:v copy` | 复制已有压缩帧，不重新编码，也不能同时缩放或应用视频滤镜 |
-| `-f mjpeg` | 裸 MJPEG 码流 |
-| `-f mpjpeg` | MIME multipart JPEG 格式 |
-| `-q:v 5` | MJPEG 编码质量示例，通常数值越小质量越高、输出越大 |
-| `-boundary_tag frame` | `mpjpeg` 输出的 boundary 参数值，不包含分隔符前缀 |
+| 参数                  | 用途                                                     |
+| --------------------- | -------------------------------------------------------- |
+| `-c:v mjpeg`          | 使用 MJPEG 视频编码器                                    |
+| `-c:v copy`           | 复制已有压缩帧，不重新编码，也不能同时缩放或应用视频滤镜 |
+| `-f mjpeg`            | 裸 MJPEG 码流                                            |
+| `-f mpjpeg`           | MIME multipart JPEG 格式                                 |
+| `-q:v 5`              | MJPEG 编码质量示例，通常数值越小质量越高、输出越大       |
+| `-boundary_tag frame` | `mpjpeg` 输出的 boundary 参数值，不包含分隔符前缀        |
 
 ### 播放与抓拍
 
