@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["670106"],{38525:function(e,t,n){n.d(t,{A:()=>r});var s=n(486106),i=n(7378),a=n(626300);a.A.initialize({startOnLoad:!0});let r=e=>{let{chart:t}=e;return(0,i.useEffect)(()=>{a.A.contentLoaded()},[]),(0,s.jsx)("div",{className:"mermaid",children:t})}}}]);
