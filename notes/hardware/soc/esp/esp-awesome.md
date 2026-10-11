@@ -6,15 +6,33 @@ tags:
 
 # ESP Awesome
 
-| module   | CPU            | freq       | ROM    | SRAM               | Wi-Fi   | Bluetooth        | 外设                                                                      | desc                                                                                  |
-| -------- | -------------- | ---------- | ------ | ------------------ | ------- | ---------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| ESP8266  | Tensilica L106 | 80/160 MHz | -      | <50 KB user        | 2.4 GHz | -                | UART, SDIO, SPI, I2C, I2S, PWM, IR, ADC                                   | 低成本经典 Wi-Fi MCU；资源较少，无蓝牙，适合简单联网、串口透传、传感器节点。          |
-| ESP32    | Xtensa LX6     | 240 MHz    | 448 KB | 520 KB + 16 KB RTC | 2.4 GHz | Classic, BLE 4.2 | UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, Ethernet MAC, ADC, DAC, Touch    | 经典款，生态成熟、资料最多；适合通用 IoT、音频、网关、需要 Bluetooth Classic 的场景。 |
-| ESP32-S2 | Xtensa LX7     | 240 MHz    | 128 KB | 320 KB + 8 KB RTC  | 2.4 GHz | -                | USB OTG, UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, LCD, ADC, DAC, Touch    | 无蓝牙；强调安全、USB OTG、丰富 GPIO，适合 Wi-Fi-only 设备、USB 外设、人机接口。      |
-| ESP32-S3 | Xtensa LX7     | 240 MHz    | 384 KB | 512 KB + 16 KB RTC | 2.4 GHz | BLE 5            | USB OTG, LCD, Camera, UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, ADC, Touch | 带向量指令，适合 AIoT、语音/图像/信号处理、USB、需要 PSRAM 的 HMI 场景。              |
-| ESP32-C3 | RISC-V         | 160 MHz    | 384 KB | 400 KB + 8 KB RTC  | 2.4 GHz | BLE 5            | USB Serial/JTAG, UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, ADC             | 低成本 RISC-V Wi-Fi + BLE，适合替代 ESP8266、传感器、简单联网设备。                   |
-| ESP32-C6 | RISC-V         | 160 MHz    | 320 KB | 512 KB + 16 KB LP  | 2.4 GHz | BLE 5            | 802.15.4, USB Serial/JTAG, UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, ADC   | 低功耗 Wi-Fi 6 + BLE + Thread/Zigbee，适合 Matter、智能家居、边缘节点。               |
-| ESP32-H2 | RISC-V         | 96 MHz     | 128 KB | 320 KB + 4 KB LP   | -       | BLE 5            | 802.15.4, USB Serial/JTAG, UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, ADC   | 无 Wi-Fi；面向低功耗 BLE/Thread/Zigbee/Matter 终端，常与 Wi-Fi SoC 组合做网关。       |
+| module   | CPU            | freq       | ROM    | SRAM               | Wi-Fi   | Bluetooth        | 外设                                                                      | desc |
+| -------- | -------------- | ---------- | ------ | ------------------ | ------- | ---------------- | ------------------------------------------------------------------------- | ---- |
+| ESP8266  | Tensilica L106 | 80/160 MHz | -      | <50 KB user        | 2.4 GHz | -                | UART, SDIO, SPI, I2C, I2S, PWM, IR, ADC                                   |
+| ESP32    | Xtensa LX6     | 240 MHz    | 448 KB | 520 KB + 16 KB RTC | 2.4 GHz | Classic, BLE 4.2 | UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, Ethernet MAC, ADC, DAC, Touch    |
+| ESP32-S2 | Xtensa LX7     | 240 MHz    | 128 KB | 320 KB + 8 KB RTC  | 2.4 GHz | -                | USB OTG, UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, LCD, ADC, DAC, Touch    |
+| ESP32-S3 | Xtensa LX7     | 240 MHz    | 384 KB | 512 KB + 16 KB RTC | 2.4 GHz | BLE 5            | USB OTG, LCD, Camera, UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, ADC, Touch |
+| ESP32-C3 | RISC-V         | 160 MHz    | 384 KB | 400 KB + 8 KB RTC  | 2.4 GHz | BLE 5            | USB Serial/JTAG, UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, ADC             |
+| ESP32-C6 | RISC-V         | 160 MHz    | 320 KB | 512 KB + 16 KB LP  | 2.4 GHz | BLE 5            | 802.15.4, USB Serial/JTAG, UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, ADC   |
+| ESP32-H2 | RISC-V         | 96 MHz     | 128 KB | 320 KB + 4 KB LP   | -       | BLE 5            | 802.15.4, USB Serial/JTAG, UART, SPI, I2C, I2S, RMT, LED PWM, TWAI, ADC   |
+
+- ESP8266 - 低成本经典 Wi-Fi MCU；资源较少，无蓝牙，适合简单联网、串口透传、传感器节点。
+- ESP32 - 经典款，生态成熟、资料最多；适合通用 IoT、音频、网关、需要 Bluetooth Classic 的场景。
+- ESP32-S2 - 无蓝牙；强调安全、USB OTG、丰富 GPIO，适合 Wi-Fi-only 设备、USB 外设、人机接口。
+- ESP32-S3 - 带向量指令，适合 AIoT、语音/图像/信号处理、USB、需要 PSRAM 的 HMI 场景。
+- ESP32-C3 - 低成本 RISC-V Wi-Fi + BLE，适合替代 ESP8266、传感器、简单联网设备。
+- ESP32-C6 - 低功耗 Wi-Fi 6 + BLE + Thread/Zigbee，适合 Matter、智能家居、边缘节点。
+  - 802.11ax, 802.11b/g/n
+  - BLE 5, 2 Mbps、Advertising Extensions、Coded PHY
+  - IEEE 802.15.4 - Thread、Zigbee、 Matter
+  - HP RISC-V 应用核，最高 160MHz
+  - LP RISC-V 核，最高 20MHz
+  - 512KB HP SRAM
+  - 16KB LP SRAM
+  - 320KB ROM
+- ESP32-H2 - 无 Wi-Fi；面向低功耗 BLE/Thread/Zigbee/Matter 终端，常与 Wi-Fi SoC 组合做网关。
+
+---
 
 - Bluetooth BR/EDR / Bluetooth Classic
   - 持续连接、高吞吐
