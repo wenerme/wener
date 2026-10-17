@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["629507"],{725924:function(e){e.exports=JSON.parse('{"tag":{"label":"DAM","permalink":"/notes/tags/dam","allTagsPath":"/notes/tags","count":1,"items":[{"id":"software/digikam","title":"digiKam","description":"- digiKam","permalink":"/notes/software/digikam"}],"unlisted":false}}')}}]);

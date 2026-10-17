@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["330564"],{174294:function(s){s.exports=JSON.parse('{"tag":{"label":"SMBIOS","permalink":"/notes/tags/smbios","allTagsPath":"/notes/tags","count":1,"items":[{"id":"os/virt/smbios","title":"SMBIOS","description":"smbios}","permalink":"/notes/os/virt/smbios"}],"unlisted":false}}')}}]);

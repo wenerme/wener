@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["71704"],{217448:function(e){e.exports=JSON.parse('{"tag":{"label":"Marketing","permalink":"/notes/tags/marketing","allTagsPath":"/notes/tags","count":1,"items":[{"id":"web/html/html-seo","title":"SEO","description":"- header","permalink":"/notes/web/html/seo"}],"unlisted":false}}')}}]);

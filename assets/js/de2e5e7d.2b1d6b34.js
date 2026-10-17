@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["911451"],{788685:function(e){e.exports=JSON.parse('{"tag":{"label":"MyNewt","permalink":"/notes/tags/my-newt","allTagsPath":"/notes/tags","count":1,"items":[{"id":"embedded/mynewt","title":"Apache MyNewt","description":"","permalink":"/notes/embedded/mynewt"}],"unlisted":false}}')}}]);
