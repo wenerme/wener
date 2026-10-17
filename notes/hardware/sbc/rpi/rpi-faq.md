@@ -96,3 +96,29 @@ dtparam=i2c_arm=on
   ```bash
   echo "max_usb_current=1" | sudo tee -a /boot/config.txt
   ```
+
+## rng
+
+```bash
+apk add rng-tools
+service rngd start
+
+rc-update add rngd
+
+# 如果很快生成则生效了
+cat /dev/random | rngtest -c 1000
+
+cat /proc/sys/kernel/random/entropy_avail
+cat /proc/sys/kernel/random/poolsize
+
+
+# 最大 256
+watch -n 1 cat /proc/sys/kernel/random/entropy_avail
+# 消耗
+dd if=/dev/random of=/dev/null bs=1024 count=100
+
+
+# 软件 RNG
+# 会空转 CPU
+apk add haveged
+```

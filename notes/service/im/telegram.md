@@ -13,6 +13,10 @@ title: Telegram
 - [LonamiWebs/Telethon](https://github.com/LonamiWebs/Telethon)
   - MIT, Puthon
   - Pure Python 3 MTProto API Telegram client library
+- https://github.com/jackwener/tg-cli
+- telethon
+  - python
+- MTProto
 - 参考
   - [Applications](https://telegram.org/apps)
   - [api](https://core.telegram.org/api)

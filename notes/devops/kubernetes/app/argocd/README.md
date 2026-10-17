@@ -165,10 +165,17 @@ argocd cluster get 'https://192.168.1.2:6443'
 
 ## 同步选项
 
+- [Sync Options](https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/)
+- 应用级：配置在 `Application.spec.syncPolicy.syncOptions`，作为该应用同步策略。
+- 资源级：配置在目标资源的 `metadata.annotations`，仅影响这个资源；支持的选项见下表，不是所有应用级选项都支持 annotation。
+  - 多个选项用逗号分隔，首尾空白会被去除。
+  - 写在 Application 自身的 annotation 上，控制的是父应用如何同步这个 Application 对象；控制其子资源应使用 `spec.syncPolicy.syncOptions`。
+
 ```yaml
+# 目标资源，例如 Deployment、CustomResourceDefinition
 metadata:
   annotations:
-    argocd.argoproj.io/sync-options: Prune=false
+    argocd.argoproj.io/sync-options: ServerSideApply=true,Prune=false
 ```
 
 ```yaml
@@ -189,11 +196,79 @@ syncPolicy:
     - RespectIgnoreDifferences=true
 ```
 
-| options                          | desc                                     |
-| -------------------------------- | ---------------------------------------- |
-| Prune=false                      | 不删除资源                               |
-| Validate=false                   | `kubectl --validate=false` - 不校验 YAML |
-| SkipDryRunOnMissingResource=true | 新增 CRD 时避免 DryRun 失败              |
+以下按官方 stable 文档整理；部署时应对照所用 Argo CD 版本的文档，尤其是 client-side apply migration。
+
+| option | 配置位置 | 含义 |
+| --- | --- | --- |
+| `ServerSideApply=true` | 应用 / 资源 | 使用 Server-Side Apply；资源级 `false` 可关闭应用级 SSA |
+| `Replace=true` | 应用 / 资源 | 使用 `kubectl replace/create`；优先于 SSA |
+| `Force=true,Replace=true` | 资源 | 删除后重新创建，例如需要重新执行的 Job |
+| `Validate=false` | 应用 / 资源 | 跳过 kubectl schema validation；不跳过 API Server 的准入和约束 |
+| `SkipDryRunOnMissingResource=true` | 应用 / 资源 | 资源类型尚不存在时跳过 dry-run；已有类型仍执行 dry-run |
+| `ApplyOutOfSyncOnly=true` | 应用 | 只 apply OutOfSync 资源，减少 API Server 压力 |
+| `Prune=false` | 应用 / 资源 | 同步时保留已从 Git 移除的资源；可能继续显示 OutOfSync |
+| `Prune=confirm` | 应用 / 资源 | prune 前要求人工确认 |
+| `PruneLast=true` | 应用 / 资源 | 在其他 wave 成功且资源健康后，最后执行 prune |
+| `PrunePropagationPolicy=foreground` | 应用 | prune 的级联删除策略；默认 `foreground`，也支持 `background`、`orphan` |
+| `Delete=false` | 应用 / 资源 | 删除 Application 时保留资源，例如 PVC |
+| `Delete=confirm` | 应用 / 资源 | 删除 Application 清理资源时要求人工确认 |
+| `FailOnSharedResource=true` | 应用 | 发现资源已经由其他 Application 管理时同步失败 |
+| `RespectIgnoreDifferences=true` | 应用 | 同步时也尊重 `spec.ignoreDifferences`，仅对已有 live 资源生效 |
+| `CreateNamespace=true` | 应用 | 自动创建 `spec.destination.namespace` 指定的命名空间 |
+| `ClientSideApplyMigration=false` | 应用；stable 文档 | 关闭默认启用的 client-side apply 字段所有权迁移 |
+| `DisableClientSideApplyMigration=true` | 应用；3.2 文档 | 3.2 文档中关闭上述迁移的写法；按实际版本确认 |
+
+- `Prune` 控制同步时清理 Git 已移除的资源；`Delete` 控制删除 Application 时清理资源。
+  - 资源级 `Prune`、`Delete` 覆盖对应应用级默认值。
+  - `confirm` 可通过 UI、CLI 或 Application 的 `argocd.argoproj.io/deletion-approved` annotation 批准，值为 ISO 格式时间戳。
+- `SkipDryRunOnMissingResource=true` 不会创建 CRD；如果 CRD 已包含在同次同步中，Argo CD 会自动跳过对应 CR 的 dry-run。
+- `CreateNamespace=true` 只创建目标 namespace，不会自动创建清单中出现的所有 namespace。
+  - `spec.syncPolicy.managedNamespaceMetadata` 可配置目标 namespace 的 labels / annotations，需要配合 `CreateNamespace=true`。
+  - 清单中显式声明的同名 Namespace 优先于 `managedNamespaceMetadata`。
+- `ignoreDifferences` 默认只影响 diff；需要 `RespectIgnoreDifferences=true` 才在同步时也保留被忽略的 live 字段。
+
+### ServerSideApply
+
+```yaml
+# 单个资源启用 SSA
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: ServerSideApply=true
+```
+
+```yaml
+# Application 的所有资源默认启用 SSA
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: example
+  namespace: argocd
+spec:
+  # source、destination、project 等按应用填写
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
+```
+
+- 默认 Client-Side Apply 在客户端计算变更，使用 `kubectl.kubernetes.io/last-applied-configuration` 保存上次提交的配置。
+- Server-Side Apply 由 Kubernetes API Server 合并声明式字段，以 `metadata.managedFields` 记录 field manager 和字段所有权。
+  - 常见用途：较大的 CRD、annotation 总大小超过 262144 bytes、只声明已有对象的一部分字段。
+  - SSA 不依赖 last-applied annotation；对象大小、schema、不可变字段和准入约束仍然有效。
+  - 使用不满足完整 schema 的部分清单时，官方示例配合 `Validate=false`；目标对象应已存在。
+- 当前 stable 文档描述的同步命令为 `kubectl apply --server-side --force-conflicts`。
+  - 冲突字段可被 Argo CD 接管；与 operator、HPA 等共同管理对象时，应明确字段边界，必要时配置 `ignoreDifferences` 和 `RespectIgnoreDifferences=true`。
+  - `--force-conflicts` 处理字段所有权冲突；`Force=true,Replace=true` 执行删除重建，二者含义不同。
+- 应用级启用后，单个资源可以用 `ServerSideApply=false` 退出。
+- Client-side apply migration 默认开启；关闭选项的名称及迁移过程按版本确认。
+  - 可用 Application annotation `argocd.argoproj.io/client-side-apply-migration-manager` 指定迁移来源的 field manager。
+  - [Argo CD 3.2 Sync Options](https://argo-cd.readthedocs.io/en/release-3.2/user-guide/sync-options/#client-side-apply-migration)
+- [Kubernetes Server-Side Apply](https://kubernetes.io/docs/reference/using-api/server-side-apply/)
+
+:::caution
+
+`Replace=true` 优先于 `ServerSideApply=true`。Replace 可能导致资源重建；`Force=true,Replace=true` 明确删除后重建，可能引起服务中断。
+
+:::
 
 ## 配置
 

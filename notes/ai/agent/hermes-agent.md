@@ -16,7 +16,6 @@ tags: [Agent, CLI, Python]
   - `skills/` — 技能
   - `sessions/` — 会话历史
   - `memories/` — 持久记忆
-- 运维文档：`wener-infra/.agents/docs/hermes-agent-ops.md`
 - 参考
   - [PR #8134 fix codex.rate_limits](https://github.com/NousResearch/hermes-agent/pull/8134)
 

@@ -111,7 +111,7 @@ AUTH_JWT_SECRET=your-secret-key
         "--header",
         "X-Honcho-User-Name:wener",
         "--header",
-        "X-Honcho-Workspace-ID:wener-infra"
+        "X-Honcho-Workspace-ID:wener"
       ]
     }
   }

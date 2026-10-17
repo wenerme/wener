@@ -37,7 +37,7 @@ tags:
 ## 如何增加并行 {#how-to-increase-parallel}
 
 1. use worktree
-2. use tmux
+2. use tmux / zellij
 3. use session name
 
 - the /rename command
@@ -69,11 +69,19 @@ with [tmux-session-manager](https://github.com/wenerme/ai/tree/main/skills/tmux-
 
 ```
 .agents/
-  docs/       # 让模型持续更新跟踪相关知识上下文
-  skills/     # 基础技能
+  docs/           # 让模型持续更新跟踪相关知识上下文
+  skills/         # 基础技能
+  adr/            # 架构决策记录
+  logs/YYYY-MM-DD/# 过程记录
+docs/             # 人看的文档
 local/
-  docs/       # 我应该需要知道的
-  YYYY-MM-DD/ # 模型应该知道的，每次的上下文
+  docs/           # 我应该需要知道的
+  YYYY-MM-DD/     # 模型应该知道的，每次的上下文
+context/DOMAIN/   # 某个领域的独立上下文
+  .agents/        # 同样的结构
+  docs/
+  scripts/
+~/gits/ORG/REPO   # 系统全局 repo 地址用于代码发现
 ```
 
 - 知识技能梳理 https://github.com/wenerme/ai
