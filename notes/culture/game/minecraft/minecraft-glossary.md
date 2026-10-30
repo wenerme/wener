@@ -10,11 +10,11 @@ tags:
 | MC    | Minecraft               | 我的世界       |
 | RCON  | Remote Console Protocol | 远程控制台协议 |
 | TPS   | Ticks Per Second        | 每秒刻数       |
-| MSPT  | Minecraft Server Tick   |
-| PVP   | Player vs Player        |
-| RTP   | Random Teleport         |
-| SMP   | Survival Multiplayer    |
-| NBT   |
+| MSPT  | Milliseconds Per Tick   | 每刻毫秒数     |
+| PVP   | Player versus Player    | 玩家对战       |
+| RTP   | Random Teleportation    | 随机传送       |
+| SMP   | Survival Multiplayer    | 生存多人游戏   |
+| NBT   | Named Binary Tag        | 命名二进制标签 |
 
 | en           | cn       |
 | ------------ | -------- |

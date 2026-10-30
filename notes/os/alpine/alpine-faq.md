@@ -260,6 +260,17 @@ echo previous_dmesg=yes | tee -a /etc/conf.d/bootmisc
 ## mirrors
 
 - https://mirrors.alpinelinux.org
+  - 同步慢，但是相对稳定
+- https://dl-cdn.alpinelinux.org/alpine/
+
+```bash
+# 恢复官方
+version=$(sed 's/\.[0-9]*$//' /etc/alpine-release)
+sudo tee /etc/apk/repositories > /dev/null <<EOF
+https://dl-cdn.alpinelinux.org/alpine/v${version}/main
+https://dl-cdn.alpinelinux.org/alpine/v${version}/community
+EOF
+```
 
 ## 避免 udhcp 修改 DNS
 

@@ -124,6 +124,10 @@ CVE 标识具体漏洞记录，CWE 描述可能导致漏洞的弱点类型。多
 
 | cve              | score | affect                                                   | info                                         |
 | ---------------- | ----: | -------------------------------------------------------- | -------------------------------------------- |
+| [CVE-2026-111943] | — | Go `crypto/x509`：`<1.26.10` 或 `>=1.27.0-0, <1.27.3`；下游使用范围见详情 | eMudhra 事件关联，受损中间 CA 公钥拒绝检查 |
+| [CVE-2026-109619] | 9.2 | PHP 8.2 `<8.2.35`、8.3 `<8.3.36`、8.4 `<8.4.27`、8.5 `<8.5.12` | PHP2Shell，跨请求遗留全局状态 RCE |
+| [CVE-2026-109618] | 9.2 | PHP 8.2 `<8.2.35`、8.3 `<8.3.36`、8.4 `<8.4.27`、8.5 `<8.5.12` | PHP2Shell，OOM 状态处理 RCE |
+| [CVE-2026-99999] |   9.3 | Linux `2.6.27` 起的未修复分支；宿主机 IPv4 / checksum    | PwnEscape，宿主机内存泄露与 guest-to-host 逃逸 |
 | [CVE-2026-59774] |   9.8 | Gitea `>=1.22.1, <1.27.1`                                | Gitea Org-mode 任意文件读取                  |
 | [CVE-2026-46300] |   7.8 | Linux `>=3.9, <7.1`；skb / ESP-in-TCP                    | Fragnesia，skb 合并与 ESP-in-TCP 页缓存写入  |
 | [CVE-2026-43500] |   7.8 | Linux `>=5.3, <7.1`；RxRPC                               | Dirty Frag，RxRPC 页缓存写入                 |
@@ -135,9 +139,12 @@ CVE 标识具体漏洞记录，CWE 描述可能导致漏洞的弱点类型。多
 | [CVE-2022-2602]  |   7.0 | Linux `5.4.y`、`5.15.y` 等未修复分支；io_uring / Unix GC | io_uring 与 Unix socket 垃圾回收 UAF         |
 | [CVE-2022-0847]  |   7.8 | Linux `5.8` 起的未修复 pipe 实现                         | Dirty Pipe，管道缓冲区标志导致页缓存写入     |
 | [CVE-2022-22947] |  10.0 | Spring Cloud Gateway `3.1.0`、`<=3.0.6`                  | Spring Cloud Gateway                         |
+| [CVE-2021-44228] |  10.0 | Log4j 2 `log4j-core` 从 `2.0-beta9` 起的未修复分支；含旧分支回补例外 | Log4Shell，JNDI Lookup 远程代码执行 |
+| [CVE-2020-1472]  |  10.0 | 未修复的 Windows AD 域控 / Netlogon；包括 RODC | Zerologon，认证绕过与域权限提升 |
 | [CVE-2016-5195]  |   7.0 | Linux `2.x–4.x` 未修复内核；4.8 分支 `<4.8.3`            | Dirty COW，写时复制竞态提权                  |
 
-- `score` 为 CVSS 3.1，评分来源见各详情页；CVE-2022-2602 此处采用 NVD 的 7.0。
+- `score` 默认使用 CVSS 3.1；PHP2Shell 条目采用 CNA 的 CVSS 4.0 `9.2`。Zerologon 采用 NVD 的 `10.0`，与当前 CNA 记录的评分差异见详情页；其他评分来源亦见各详情页。
+- CVE-2026-111943 在 2026-10-26 核对时，Go CNA 与 NVD 尚未提供 CVSS 分数；`—` 不表示 0.0。
 - Linux 的连续版本区间概括根因引入至主线修复的范围，已修复的稳定分支及发行版回补版本除外；完整分支修复表和利用条件见详情页。
 
 ## 参考
@@ -200,6 +207,10 @@ EPSS 的 Top 100 最接近按单一指标排序的 leaderboard；了解已经发
   - 内存与并发：[CWE-416]、[CWE-787]、[CWE-362]、[CWE-367]
   - 恶意代码：[CWE-506]
 
+[CVE-2026-99999]: ./cve-2026-99999.md
+[CVE-2026-109618]: ./cve-2026-109618.md
+[CVE-2026-109619]: ./cve-2026-109619.md
+[CVE-2026-111943]: ./cve-2026-111943.md
 [CVE-2026-59774]: ./cve-2026-59774.md
 [CVE-2026-46300]: ./cve-2026-46300.md
 [CVE-2026-43500]: ./cve-2026-43500.md
@@ -211,6 +222,8 @@ EPSS 的 Top 100 最接近按单一指标排序的 leaderboard；了解已经发
 [CVE-2022-2602]: ./cve-2022-2602.md
 [CVE-2022-0847]: ./cve-2022-0847.md
 [CVE-2022-22947]: ./cve-2022-22947.md
+[CVE-2021-44228]: ./cve-2021-44228.md
+[CVE-2020-1472]: ./cve-2020-1472.md
 [CVE-2016-5195]: ./cve-2016-5195.md
 [CVE Program]: https://www.cve.org/
 [CVE Records]: https://www.cve.org/Resources/Media/Archives/OldWebsite/cve/identifiers/index.html

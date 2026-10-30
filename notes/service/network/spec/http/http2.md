@@ -130,3 +130,17 @@ func main() {
 	}
 }
 ```
+
+# FAQ
+
+## Flow control
+
+- 可能导致上传慢问题
+- https://blog.cloudflare.com/delivering-http-2-upload-speed-improvements/
+- nginx 默认用 http2_body_preread_size（64KB）作为每个请求的初始窗口。
+- 在 200Mbps、40ms 时延下，HTTP/2 上传只有 HTTP/1.1 的一半左右。
+- RFC 9113 §6.9：规定窗口初始值为 65,535 字节，接收方可以设成任意值，发送方必须遵守。
+- [golang/net 906cda9](https://github.com/golang/net/commit/906cda9512f77671ab44f8c8563b13a8e707b230)：Go 的 HTTP/2 服务端原来固定 64KB 接收窗口，提交说明直接写了高 BDP 链路上传性能很差，改成默认 1MB 并可配置。
+- [golang/go#47840](https://github.com/golang/go/issues/47840)：Go 的 HTTP/2 吞吐明显低于 HTTP/1.1 的讨论。
+- [Microsoft Q&A](https://learn.microsoft.com/en-us/answers/questions/138898/http-2-upload-speed-issue-compared-to-http-1-1)：微软在自家服务上遇到同样的问题，也确认根因是默认 65535 的窗口。
+- [gRPC-Go 性能改进](https://grpc.io/blog/grpc-go-perf-improvements/)：gRPC 用估算链路容量、动态调整窗口的办法，补上了高延迟网络下和 HTTP/1.1 的差距。

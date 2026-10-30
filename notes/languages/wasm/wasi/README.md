@@ -38,23 +38,14 @@ WASI 应用没有 ambient authority：默认不能访问宿主文件系统、环
 
 ## 版本
 
-截至 2026 年 9 月 14 日，WASI 官方发布页将 WASI 0.3 列为当前稳定版本，WASI 0.3.1 于 2026 年 8 月 11 日发布；WASI 0.2 仍是许多组件工具链的主要目标，WASI 0.1/Preview 1 因运行时覆盖面广仍大量使用。
+| Date       | Version    | Name               | Notes                                          |
+| ---------- | ---------- | ------------------ | ---------------------------------------------- |
+| 2026-08-11 | WASI 0.3.1 | Preview 3          | `map<K, V>`,`implements`,`external-id`         |
+| 2026-06-11 | WASI 0.3.0 | Preview 3          | stream, future, async                            |
+| 2024-01-25 | WASI 0.2   | Preview 2 / WASIp2 | WIT、Component Model、可组合组件、跨语言互操作 |
+| 2020-12-15 | WASI 0.1   | Preview 1 / WASIp1 | POSIX,WITX IDL, `wasi_snapshot_preview1`       |
 
-| Date       | Version    | Name               | 产物模型    | 主要特点                                                                                                    | 状态                     |
-| ---------- | ---------- | ------------------ | ----------- | ----------------------------------------------------------------------------------------------------------- | ------------------------ |
-| 2026-08-11 | WASI 0.3.1 | Preview 3          | Component   | 基于 Component Model 的原生 async、`stream`、`future`；0.3.1 增加已采用的 Component Model 类型和 annotation | 当前稳定版本             |
-| 2026-06-11 | WASI 0.3.0 | Preview 3          | Component   | 将异步调度和唤醒传播下沉到 Component Model 的 Canonical ABI                                                 | 稳定版本                 |
-| 2024-01-25 | WASI 0.2   | Preview 2 / WASIp2 | Component   | WIT 接口、Component Model、可组合组件、跨语言互操作                                                         | 稳定但已被 0.3 supersede |
-| 2020-12-15 | WASI 0.1   | Preview 1 / WASIp1 | Core module | POSIX/CloudABI 影响的模块式 API，使用 `wasi_snapshot_preview1`                                              | Legacy，仍广泛使用       |
-
-WASI 0.1 官方概览页没有单独列出发布日期；表中的 2020-12-15 采用官方仓库 `snapshot-01` tag 的发布时间作为版本参考。
-
-选择版本时优先看运行时、语言绑定和部署平台的交集，而不是只看 WASI 的最高版本：
-
-- 需要最大兼容性或已有模块式工具链时，使用 WASI 0.1/`wasm32-wasip1`。
-- 新组件项目通常从 WASI 0.2/`wasm32-wasip2` 开始，获得 WIT 和组件组合能力。
-- 需要跨组件原生异步、`stream` 或 `future` 时，选择 WASI 0.3，并固定 Wasmtime、jco、wit-bindgen 等工具的兼容版本。
-- WASI 0.3 runtime 通常仍可运行 WASI 0.2 组件；迁移不必与 runtime 升级绑定完成。
+- https://wasi.dev/roadmap
 
 ## WASI 0.1
 

@@ -10,16 +10,17 @@ title: sub2api
 - 参考
   - [官网](https://sub2api.org)
   - [Demo](https://demo.sub2api.org/)
+  - [官方 Compose](https://github.com/Wei-Shaw/sub2api/blob/main/deploy/docker-compose.local.yml) - 包含 PostgreSQL、Redis
+  - [.env.example](https://github.com/Wei-Shaw/sub2api/blob/main/deploy/.env.example)
 
 ```bash
-docker run -d --name sub2api \
-  -p 8080:8080 \
-  -v $(pwd)/data:/app/data \
-  -e DATABASE_URL=postgres://sub2api:password@localhost:5432/sub2api \
-  -e REDIS_URL=redis://localhost:6379 \
-  -e JWT_SECRET=$(openssl rand -hex 32) \
-  -e TOTP_ENCRYPTION_KEY=$(openssl rand -hex 32) \
-  weishaw/sub2api:latest
+git clone --depth 1 https://github.com/Wei-Shaw/sub2api.git
+cd sub2api/deploy
+cp .env.example .env
+# 编辑 .env：POSTGRES_PASSWORD、JWT_SECRET、TOTP_ENCRYPTION_KEY
+mkdir -p data postgres_data redis_data
+docker compose -f docker-compose.local.yml config --quiet
+docker compose -f docker-compose.local.yml up -d
 ```
 
 # FAQ
