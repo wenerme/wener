@@ -11,6 +11,7 @@ tags:
 
 # Allwinner (全志科技) ARM SoCs
 
+- Allwinner SoC - Allwinner Technology 的 ARM 系统级芯片，按型号集成 CPU、GPU、视频编解码、显示、音频和其它外设
 - 全志科技 / Allwinner Technology
 - Fabless，2007，广东珠海，SZSE: 300458
 - ARM SoC - 平板、OTT、摄像头、汽车电子、IoT

@@ -461,3 +461,9 @@ create table entity_label(
   foreign key (account_id) references account(id),
 )
 ```
+
+## cid and rid
+
+- cid - copration id, vendor id, provider id
+- rid - relate id, relathionship id, vendor resource id
+- 用于多租户多外部供应商系统关联

@@ -608,3 +608,24 @@ caffeinate -i make build
 
 caffeinate -idms
 ```
+
+## macOS Monitor
+
+| column        | for |
+| ------------- | --- |
+| Memory        | 进程当前占用的内存（内存占用/Memory Footprint） |
+| Real Mem      | 进程实际驻留在物理 RAM 中的内存 |
+| Private Mem   | 仅该进程使用、不可与其他进程共享的内存 |
+| Shared Mem    | 可由多个进程共享的内存，如共享库和框架 |
+| VM Compressed | 被系统压缩以节省物理 RAM 的虚拟内存 |
+
+
+```text
+Memory Footprint（Memory）≈ Private Mem + 进程独占的压缩内存 + 其他不可共享的驻留/映射内存
+Real Mem（Resident/RSIZE）≈ Private Mem + Shared Mem（两者会有统计口径重叠）
+
+系统实际物理内存占用 ≠ 所有进程 Real Mem 之和
+```
+
+- `Shared Mem` 会被多个进程重复计入各自的统计值，不能直接累加。
+- `VM Compressed` 表示其中已压缩的部分；它仍属于该进程的内存统计，但占用的物理 RAM 小于压缩前大小。

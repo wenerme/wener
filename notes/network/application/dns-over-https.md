@@ -8,6 +8,8 @@ tags:
 
 # DNS over HTTPS (DoH)
 
+- DNS over HTTPS (DoH) - 通过 HTTPS 传输 DNS 查询（DNS over HTTPS sends DNS queries over HTTPS）
+
 - [Cloudflare: DNS over HTTPS](https://developers.cloudflare.com/1.1.1.1/dns-over-https)
   - [Using JSON](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/make-api-requests/dns-json/)
 - [Google Public DNS: DoH JSON API](https://developers.google.com/speed/public-dns/docs/doh/json)
