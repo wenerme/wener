@@ -1,5 +1,18 @@
-```
+---
+title: /proc/meminfo
+---
+
+# /proc/meminfo
+
+- [proc_meminfo(5)](https://man7.org/linux/man-pages/man5/proc_meminfo.5.html)
+- 每行格式：`字段名: 数值 [单位]`，单位通常是 `kB`
+- `free(1)` 的数据来源
+
+```bash
 # cat /proc/meminfo
+```
+
+```
 MemTotal:         500192 kB
 MemFree:           64276 kB
 Buffers:           32760 kB
@@ -44,122 +57,58 @@ DirectMap4k:       34816 kB
 DirectMap2M:      620544 kB
 ```
 
+## 字段
 
-MemTotal
-The MemTotal line indicates the total amount of memory available, minus a few reserved binary regions. Note that
-memory allocated to the GPU is not factored into MemTotal. Some may choose to allocate the minimum of 16 MB to
-the GPU to make more memory available.
-Model B Model A
-MemTotal 448,996 KB 190,836 KB
-If we break this down a bit further, accounting for memory allocated to the GPU (see Chapter 16 for more details),
-we find that there is about 9.5 MB (1.9%) of memory that is unaccounted for, as shown in Table 6-1.
-Table 6-1. GPU and Main Memory Breakdown
-Memory Model B Comments
-MemTotal 448,996 KB /proc/meminfo
-gpu_mem 65,536 KB /boot/config.txt
-Total 514,532 KB 502.5 MB
-Unaccounted for 9,756 KB 9.5 MB
-MemFree
-MemFree normally represents the sum of LowFree + HighFree memory in kilobytes on the Intel x86 platform. For ARM,
-this simply represents the amount of memory available to user space programs.
-Model B Model A
-MemFree 340,228 KB 151,352 KB
-The Model B has 332.25 MB for application programs, which amounts to about 64.9% (Rev 2.0). The Model A
-values indicate about 57.7% of the memory is available.
-Buffers
-This value represents temporary buffers used within the kernel for raw disk blocks, and so forth. This value should not
-get much larger than about 20 MB or so.
-Cached
-This value represents the read file content that has been cached (page cache). This does not include the content
-reported for SwapCached.
-Model B Model A
-Cached 58,532 KB 20,640 KB
-SwapCached
-The value shown for SwapCached represents memory that was swapped out and is now swapped back in. For
-efficiency, these memory pages are still represented by swap disk space, should they be needed again.
-Model B Model A
-SwapCached 0 KB 0 KB
-The fact that the value is reported as zero is a happy sign that no swapping has occurred, or is no longer pertinent.
-Active
-The Active memory value represents recently used memory that is not reclaimed, unless absolutely necessary.
-Model B Model A
-Active 45,948 KB 14,336 KB
-Inactive
-This value represents memory that is not active and is likely to be reclaimed when memory is needed.
-Model B Model A
-Inactive 51,564 KB 18,648 KB
-Active(anon)
-This value represents memory that is not backed up by a file and is active. Active memory is not reclaimed unless
-absolutely necessary.
-Model B Model A
-Active(anon) 24,680 KB 5,468 KB
-www.it-ebooks.info
-Chapter 6 ■ SDRAM
-41
-Inactive(anon)
-This value represents memory that is not backed up by a file and is not active. Inactive memory is eligible to be
-reclaimed if memory is required.
-Model B Model A
-Inactive(anon) 820 KB 0 KB
-Active(file)
-This value represents file-backed memory, which is active. Active memory is reclaimed only if absolutely required.
-Model B Model A
-Active(file) 21,268 KB 8,868 KB
-Inactive(file)
-This value represents inactive memory that is backed by a file. Inactive memory is eligible for reclamation, when
-memory is required.
-Model B Model A
-Inactive(file) 50,744 KB 18,648 KB
-Unevictable
-This amount reflects the total amount of memory that cannot be reclaimed. Memory that is locked, for example,
-cannot be reclaimed.
-Model B Model A
-Unevictable 0 KB 0 KB
-Mlocked
-This value reports the amount of locked memory.
-SwapTotal
-This value reports the total amount of swap space available in kilobytes.
-Model B Model A
-SwapTotal 102,396 KB 0 KB
-SwapFree
-This value reports the remaining amount of swap space available in kilobytes.
-Model B Model A
-SwapFree 102,396 KB 0 KB
-Dirty
-This value represents the kilobytes of memory that have been modified and are waiting to be written to disk.
-Model B Model A
-Dirty 0 KB 0 KB
-Writeback
-This value reports the amount of memory in kilobytes being written back to disk.
-Model B Model A
-Writeback 0 KB 0 KB
-AnonPages
-This represents the non-file-backed pages of memory mapped into user space.
-Model B Model A
-AnonPages 24,584 KB 5,348 KB
-Mapped
-This value reports the files that have been mapped into memory. This may include library code.
-Shmem
-This parameter does not appear to be documented well. However, it represents the amount of shared memory in
-kilobytes.
-Model B Model A
-Shmem 932 KB 136 KB
-Slab
-This parameter is described as “in-kernel data structures cache.”27
-Model B Model A
-Slab 6,088 KB 3,712 KB
-SReclaimable
-This parameter is described as “Part of Slab that might be reclaimed, such as caches.”27
-Model B Model A
-SReclaimable 2,392 KB 1,584 KB
-SUnreclaim
-This parameter is described as “Part of Slab that cannot be reclaimed [under] memory pressure.”27
-Model B Model A
-SUnreclaim 3,696 KB 2,128 KB
-KernelStack
-This value reports the memory used by the kernel stack(s).
-Model B Model A
-KernelStack 1,216 KB 944 KB
-PageTables
-This value reports the amount of memory required by the page tables used in the kernel. Clearly, with more memory
-to manage, there is more memory dedicated to page tables.
+| 字段                                                                     | 说明                                                                                                                       |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| `MemTotal`                                                               | 可用物理内存总量（物理内存减去保留部分和内核代码）                                                                         |
+| `MemFree`                                                                | `LowFree + HighFree`                                                                                                       |
+| `MemAvailable`（3.14+）                                                  | 不触发 swap 的情况下，可用于启动新应用的内存估算值                                                                         |
+| `Buffers`                                                                | 内核用于原始磁盘块的临时缓冲，一般不会超过约 20 MB                                                                         |
+| `Cached`                                                                 | 磁盘文件读取的 page cache，不含 `SwapCached`                                                                               |
+| `SwapCached`                                                             | 曾被换出又换入、但仍保留在 swap 文件中的内存；再次换出时可省去 I/O                                                         |
+| `Active`                                                                 | 近期被使用、非必要不会回收的内存                                                                                           |
+| `Inactive`                                                               | 较少被使用、更容易被回收的内存                                                                                             |
+| `Active(anon)` / `Inactive(anon)`（2.6.28+）                             | 匿名（非文件支持）内存的活跃/非活跃部分                                                                                    |
+| `Active(file)` / `Inactive(file)`（2.6.28+）                             | 文件支持内存的活跃/非活跃部分                                                                                              |
+| `Unevictable`（2.6.28+）                                                 | 不可被回收的内存（例如被锁定）                                                                                             |
+| `Mlocked`（2.6.28+）                                                     | 被锁定（`mlock`）的内存量                                                                                                  |
+| `HighTotal` / `HighFree`                                                 | 需要 `CONFIG_HIGHMEM`；highmem 总量/空闲量，highmem 是约 860 MB 以上的物理内存，内核需要额外机制访问，速度较慢             |
+| `LowTotal` / `LowFree`                                                   | lowmem 总量/空闲量；lowmem 除用户态用途外，也用于内核自身数据结构（如 Slab），耗尽会有问题                                 |
+| `SwapTotal` / `SwapFree`                                                 | swap 空间总量/当前未使用量                                                                                                 |
+| `Dirty`                                                                  | 等待写回磁盘的内存                                                                                                         |
+| `Writeback`                                                              | 正在写回磁盘的内存                                                                                                         |
+| `AnonPages`（2.6.18+）                                                   | 映射到用户空间页表的非文件支持页                                                                                           |
+| `Mapped`                                                                 | 通过 `mmap(2)` 映射到内存的文件（如库文件）                                                                                |
+| `Shmem`（2.6.32+）                                                       | tmpfs、System V/POSIX 共享内存、`MAP_SHARED\|MAP_ANONYMOUS` 共享匿名映射占用的内存                                         |
+| `KReclaimable`（4.20+）                                                  | 内存压力下内核会尝试回收的分配，包含 `SReclaimable` 及其他带 shrinker 的直接分配                                           |
+| `Slab`                                                                   | 内核数据结构缓存，详见 [slabinfo(5)](https://man7.org/linux/man-pages/man5/slabinfo.5.html)                                |
+| `SReclaimable`（2.6.19+）                                                | `Slab` 中可被回收的部分（如缓存）                                                                                          |
+| `SUnreclaim`（2.6.19+）                                                  | `Slab` 中内存压力下不可回收的部分                                                                                          |
+| `KernelStack`（2.6.32+）                                                 | 分配给内核栈的内存量                                                                                                       |
+| `PageTables`（2.6.18+）                                                  | 最底层页表占用的内存量                                                                                                     |
+| `NFS_Unstable`（2.6.18+）                                                | 已发送到 NFS 服务端但尚未提交到稳定存储的页                                                                                |
+| `Bounce`（2.6.18+）                                                      | 块设备 "bounce buffer" 占用的内存                                                                                          |
+| `WritebackTmp`（2.6.26+）                                                | FUSE 临时写回缓冲占用的内存                                                                                                |
+| `CommitLimit`（2.6.10+）                                                 | 系统当前可分配的内存总量；仅在 `/proc/sys/vm/overcommit_memory=2`（严格 overcommit）时生效                                 |
+| `Committed_AS`                                                           | 系统当前已分配（commit）的内存总量，是所有进程申请内存的总和，不代表实际已使用量                                           |
+| `VmallocTotal`                                                           | vmalloc 内存区域总大小                                                                                                     |
+| `VmallocUsed`                                                            | vmalloc 区域已用量；Linux 4.4+ 不再计算，固定为 0，参考 `/proc/vmallocinfo`                                                |
+| `VmallocChunk`                                                           | vmalloc 区域最大连续空闲块；Linux 4.4+ 不再计算，固定为 0                                                                  |
+| `HardwareCorrupted`（2.6.32+）                                           | 需要 `CONFIG_MEMORY_FAILURE`，未进一步文档化                                                                               |
+| `LazyFree`（4.12+）                                                      | 被 `madvise(2) MADV_FREE` 标记的内存量                                                                                     |
+| `AnonHugePages`（2.6.38+）                                               | 需要 `CONFIG_TRANSPARENT_HUGEPAGE`；映射到用户空间的非文件支持 huge page                                                   |
+| `ShmemHugePages`（4.8+）                                                 | 需要 `CONFIG_TRANSPARENT_HUGEPAGE`；shmem/tmpfs 使用 huge page 分配的内存                                                  |
+| `ShmemPmdMapped`（4.8+）                                                 | 需要 `CONFIG_TRANSPARENT_HUGEPAGE`；以 huge page 映射到用户空间的共享内存                                                  |
+| `CmaTotal` / `CmaFree`（3.1+）                                           | 需要 `CONFIG_CMA`；CMA（Contiguous Memory Allocator）总页数/空闲页数                                                       |
+| `HugePages_Total` / `HugePages_Free`                                     | 需要 `CONFIG_HUGETLB_PAGE`；huge page 池大小/池中尚未分配的数量                                                            |
+| `HugePages_Rsvd`（2.6.17+）                                              | 已承诺分配但尚未实际分配的 huge page 数量，保证故障时能从池中取到                                                          |
+| `HugePages_Surp`（2.6.24+）                                              | 池中超出 `/proc/sys/vm/nr_hugepages` 的数量，上限由 `/proc/sys/vm/nr_overcommit_hugepages` 控制                            |
+| `Hugepagesize`                                                           | 需要 `CONFIG_HUGETLB_PAGE`；huge page 的大小                                                                               |
+| `DirectMap4k` / `DirectMap4M` / `DirectMap2M` / `DirectMap1G`（2.6.27+） | 内核以 4k/4M/2M/1G 页线性映射的物理内存字节数（x86，依 `CONFIG_X86_64`/`CONFIG_X86_PAE`/`CONFIG_X86_DIRECT_GBPAGES` 而定） |
+
+:::tip
+
+`VmallocUsed`、`VmallocChunk` 自 Linux 4.4 起固定返回 0，不代表实际状态，需要查 `/proc/vmallocinfo`。
+
+:::

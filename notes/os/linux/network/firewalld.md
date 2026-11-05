@@ -1,5 +1,7 @@
 ---
 title: firewalld
+tags:
+  - Firewall
 ---
 
 # firewalld

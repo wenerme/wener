@@ -202,35 +202,45 @@ Authentication Suites (2) : PSK unknown (6)
   - 内存溢出风险
 - /var/tmp 放在磁盘上
 
-# TBD
+## rm 后 df 和 du 不一致 / 磁盘空间没有释放
 
-https://stackoverflow.com/questions/332629/rm-not-freeing-diskspace
-https://unix.stackexchange.com/questions/34140/tell-fs-to-free-space-from-deleted-files-now
+- 根因：文件被删除时若仍被某进程打开，kernel 不会回收对应 block；进程退出或关闭 fd 后空间才会真正释放
+- 查找被删除但仍占用的文件
 
-https://serverfault.com/questions/232525/df-in-linux-not-showing-correct-free-space-after-file-removal/232526
-
-ls -l /proc/\*/fd/ | grep deleted
+```bash
+ls -l /proc/*/fd/ | grep deleted
 lsof +L1
+```
 
+- 对比 `df`（文件系统层面）与 `du`（文件层面）的差异来定位
+
+```bash
 df -ah
 du -sh
+```
 
+- 参考
+  - [rm not freeing diskspace](https://stackoverflow.com/questions/332629/rm-not-freeing-diskspace)
+  - [Tell FS to free space from deleted files now](https://unix.stackexchange.com/questions/34140/tell-fs-to-free-space-from-deleted-files-now)
+  - [df not showing correct free space after file removal](https://serverfault.com/questions/232525/df-in-linux-not-showing-correct-free-space-after-file-removal/232526)
+  - [Tracking down where disk space has gone on Linux](https://unix.stackexchange.com/questions/125429/tracking-down-where-disk-space-has-gone-on-linux)
+  - [moby/moby#32420](https://github.com/moby/moby/issues/32420)
+
+## 磁盘空间/inode 不足
+
+```bash
+# inode 使用情况
 df -i
+```
 
+## root 预留分区空间
+
+- 大部分 Linux 文件系统会预留 5% 空间仅供 root 用户使用
+
+```bash
+# 查看预留量（ext2/3/4）
 dumpe2fs /dev/sda1 | grep -i reserved
 
-Most Linux filesystems reserve 5% space for use only the root user.
-
-You can see this with e.g
-
-dumpe2fs /dev/sda1 | grep -i reserved
-You can change the reserved amount using :
-
+# 修改预留比例，设为 0 表示不预留
 tune2fs -m 0 /dev/sda1
-
-Tracking down where disk space has gone on Linux?
-https://unix.stackexchange.com/questions/125429/tracking-down-where-disk-space-has-gone-on-linux
-
-https://github.com/moby/moby/issues/32420
-
-https://unix.stackexchange.com/questions/125429/tracking-down-where-disk-space-has-gone-on-linux
+```

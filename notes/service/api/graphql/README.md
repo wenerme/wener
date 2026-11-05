@@ -144,35 +144,29 @@ apollo schema:download --endpoint https://my-graphql-engine.com/v1/graphql --hea
 - [You Might Not Need GraphQL](https://blog.runscope.com/posts/you-might-not-need-graphql)
 - [GraphQL vs REST: Overview](https://philsturgeon.uk/api/2017/01/24/graphql-vs-rest-overview/)
 
-### TBD
+### 工具/客户端
 
-http://graphql.org/code/
+- [graphql/graphiql](https://github.com/graphql/graphiql)
+  - [GraphQL IDE 官方入口](http://graphql.org/code/)
+  - [skevy/graphiql-app](https://github.com/skevy/graphiql-app) - 基于 Electron 的 GraphiQL 封装
+- [apollographql/apollo-server](https://github.com/apollographql/apollo-server)
+- [graphile/graphql-playground](https://github.com/graphile/graphql-playground)
+  - GraphQL IDE，支持 Subscriptions、interactive docs 和协作
+- [graphile/postgraphile](https://github.com/graphile/postgraphile)（原 postgraphql，已改名）
+  - 根据 Postgres schema 自动生成 GraphQL API
 
-https://github.com/skevy/graphiql-app
-Light, Electron-based Wrapper around GraphiQL
+  ```bash
+  docker run -p 5000:5000 graphile/postgraphile --connection postgres://POSTGRES_USER:POSTGRES_PASSWORD@POSTGRES_HOST:POSTGRES_PORT/POSTGRES_SCHEMA
+  ```
 
-https://github.com/apollographql/apollo-server
+- [facebook/dataloader](https://github.com/facebook/dataloader)
+  - 批量和缓存后端请求的通用工具，常用于解决 N+1 问题
 
-https://github.com/graphcool/graphql-playground
-GraphQL IDE for better development workflows (GraphQL Subscriptions, interactive docs & collaboration)
+### 参考
 
-docker run -p 5000:5000 postgraphql/postgraphql --connection postgres://POSTGRES_USER:POSTGRES_PASSWORD@POSTGRES_HOST:POSTGRES_PORT/POSTGRES_SCHEMA
-
-https://github.com/chentsulin/awesome-graphql
-Awesome list of GraphQL & Relay
-
-https://www.graphql.com/
-http://graphql.org/learn/best-practices/
-GraphQL Best Practices
-
-https://www.apollographql.com/
-Apollo provides a universal GraphQL API on top of your existing services, so you can build new application features fast without waiting on backend changes.
-
-https://github.com/facebook/dataloader
-DataLoader is a generic utility to be used as part of your application's data fetching layer to provide a consistent API over various backends and reduce requests to those backends via batching and caching.
-
-https://blog.datank.ai/graphql-grpc-part-1-54d92a109619
-GraphQL & gRPC
+- [chentsulin/awesome-graphql](https://github.com/chentsulin/awesome-graphql)
+- [GraphQL Best Practices](http://graphql.org/learn/best-practices/)
+- [GraphQL & gRPC](https://blog.datank.ai/graphql-grpc-part-1-54d92a109619)
 
 # relay
 

@@ -1,5 +1,7 @@
 ---
 title: NFTables
+tags:
+  - Firewall
 ---
 
 # NFTables

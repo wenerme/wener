@@ -1,5 +1,7 @@
 ---
 title: nftables 规则
+tags:
+  - DSL
 ---
 
 # 表达式
@@ -456,6 +458,46 @@ table ip nat {
     type nat hook postrouting priority 0;
   }
 }
+```
+
+## Verdict maps（jump table）
+
+- 用 map 代替一系列 `if ... jump` 规则，等效于 iptables 里按条件跳至自定义 chain
+
+```
+# iptables 的等价写法
+# iptables -A FORWARD -i eth0 -s 192.168.0.1 -j MGMT_PACKETS
+# iptables -A FORWARD -i tap0 -s 10.0.0.1 -j VM1_PACKETS
+# iptables -A FORWARD -i tap1 -s 10.0.0.2 -j VM2_PACKETS
+
+chain forward {
+  type filter hook forward priority 0; policy accept;
+  iif . ip saddr vmap { eth0 . 192.168.0.1 : jump mgmt_packets,
+                        tap0 . 10.0.0.1 : jump vm1_packets,
+                        tap1 . 10.0.0.2 : jump vm2_packets }
+}
+chain mgmt_packets {}
+chain vm1_packets {}
+chain vm2_packets {}
+```
+
+## Flow statement
+
+- `flow table` 用于按动态 key 记录计数/限速状态，类似动态生成的 set + counter/limit
+
+```bash
+# 按 saddr+dport 限速
+nft add rule ip filter input flow table mylimit { ip saddr . tcp dport limit rate 10/second }
+
+# 按来源 IP 统计流量
+nft add rule ip filter forward flow table ipacct { ip daddr counter }
+# 按目标端口统计连接数
+nft add rule ip filter forward flow table portcount { tcp dport counter }
+
+# 查看所有 flow table
+nft list flow tables
+# 查看具体内容
+nft list flow table filter ipacct
 ```
 
 # 参考

@@ -1,5 +1,5 @@
 ---
-id: interfaces
+title: interfaces
 ---
 
 # interfaces

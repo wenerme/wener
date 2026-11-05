@@ -1,6 +1,7 @@
+---
+title: keyrings
+---
 # keyrings
-
-## Tips
 
 - [keyrings.7](https://www.man7.org/linux/man-pages/man7/keyrings.7.html)
 

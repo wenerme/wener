@@ -4,9 +4,9 @@ title: dd
 
 # dd
 
-| opt      | default | iflag | val     | for |
-| -------- | ------- | ----- | ------- | --- |
-| bs=BYTES | 512     |       |         | ibs,obs
+| opt      | default | iflag | val     | for     |
+| -------- | ------- | ----- | ------- | ------- |
+| bs=BYTES | 512     |       |         | ibs,obs |
 | status   |         |       | process |
 | seek=N   |
 | skip=N   |

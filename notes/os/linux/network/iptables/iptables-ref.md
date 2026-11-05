@@ -1,5 +1,4 @@
 ---
-id: iptables-ref
 title: iptables 参考
 ---
 

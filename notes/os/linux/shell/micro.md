@@ -18,34 +18,34 @@ tags:
 - 官网：<https://micro-editor.github.io/>
 - 定位：比 `nano` 更现代，保留常见 GUI 编辑器快捷键，适合 SSH、终端临时编辑、轻量代码编辑。
 
-shortcut | for
----|---
-`Ctrl-Q` | 退出
-`Ctrl-S` | 保存
-`Ctrl-O` | 打开文件
-`Ctrl-E` | 打开命令行 prompt
-`Ctrl-G` | 帮助
-`Ctrl-Z` | 撤销
-`Ctrl-Y` | 重做
-`Ctrl-C` | 复制选区
-`Ctrl-X` | 剪切选区 / 当前行
-`Ctrl-V` | 粘贴
-`Ctrl-A` | 全选
-`Ctrl-F` | 查找
-`Ctrl-N` | 查找下一个
-`Ctrl-P` | 查找上一个
-`Ctrl-R` | 替换
-`Ctrl-L` | 跳转到行
-`Ctrl-U` | 向上半页
-`Ctrl-D` | 向下半页
-`Alt-Up` / `Alt-Down` | 上下移动当前行或选区
-`Alt-Left` / `Alt-Right` | 按词移动
-`Ctrl-W` | 切换 split / pane
-`Ctrl-T` | 新建 tab
-`Alt-,` / `Alt-.` | 切换上一个 / 下一个 tab
-`Ctrl-B` | 执行 shell command
-`Ctrl-K` | cut 当前行
-`Ctrl-/` | toggle comment
+| shortcut                 | for                     |
+| ------------------------ | ----------------------- |
+| `Ctrl-Q`                 | 退出                    |
+| `Ctrl-S`                 | 保存                    |
+| `Ctrl-O`                 | 打开文件                |
+| `Ctrl-E`                 | 打开命令行 prompt       |
+| `Ctrl-G`                 | 帮助                    |
+| `Ctrl-Z`                 | 撤销                    |
+| `Ctrl-Y`                 | 重做                    |
+| `Ctrl-C`                 | 复制选区                |
+| `Ctrl-X`                 | 剪切选区 / 当前行       |
+| `Ctrl-V`                 | 粘贴                    |
+| `Ctrl-A`                 | 全选                    |
+| `Ctrl-F`                 | 查找                    |
+| `Ctrl-N`                 | 查找下一个              |
+| `Ctrl-P`                 | 查找上一个              |
+| `Ctrl-R`                 | 替换                    |
+| `Ctrl-L`                 | 跳转到行                |
+| `Ctrl-U`                 | 向上半页                |
+| `Ctrl-D`                 | 向下半页                |
+| `Alt-Up` / `Alt-Down`    | 上下移动当前行或选区    |
+| `Alt-Left` / `Alt-Right` | 按词移动                |
+| `Ctrl-W`                 | 切换 split / pane       |
+| `Ctrl-T`                 | 新建 tab                |
+| `Alt-,` / `Alt-.`        | 切换上一个 / 下一个 tab |
+| `Ctrl-B`                 | 执行 shell command      |
+| `Ctrl-K`                 | cut 当前行              |
+| `Ctrl-/`                 | toggle comment          |
 
 :::note
 
