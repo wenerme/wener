@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["914031"],{197445:function(e){e.exports=JSON.parse('{"tag":{"label":"RAW","permalink":"/notes/tags/raw","allTagsPath":"/notes/tags","count":1,"items":[{"id":"software/darktable","title":"darktable","description":"- darktable","permalink":"/notes/software/darktable"}],"unlisted":false}}')}}]);
