@@ -342,6 +342,7 @@ tags:
     - https://ollama.com/library
     - https://livebench.ai/
     - https://huggingface.co/models
+    - [ArtificialWatch](https://artificialwatch.com/releases) - 新模型上线追踪：模型在公开 API 上首次可用的时间（非发布会日期），附带上线时间记录
   - BFCL Leaderboard https://gorilla.cs.berkeley.edu/leaderboard.html
     - Berkeley Function-Calling Leaderboard
   - https://models.litellm.ai/
