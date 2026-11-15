@@ -7,7 +7,27 @@ tags:
 
 # Instant Messaging
 
-- Instant Messaging
+| Level    | Name                              | Note                           |
+| -------- | --------------------------------- | ------------------------------ |
+| 行业     | Communication Technology          | 通讯技术行业                   |
+| 细分行业 | Instant Messaging（IM）           | 即时通讯                       |
+| 服务模式 | OTT Messaging                     | 基于互联网提供消息、语音等服务 |
+| 产品类别 | Messaging Platform                | 消息通讯平台                   |
+| 扩展领域 | Social Media / Community Platform | 社交媒体、社区平台             |
+| 内容分发 | Broadcasting / Pub-Sub            | 频道广播、订阅发布             |
+
+- Telegram
+- WhatsApp
+- Signal
+  - Secure Messaging
+- Discord
+  - Community Platform
+- Slack
+  - Team Collaboration
+- 微信
+- Matrix
+  - Federated Messaging
+- QQ
 - [Awesome](./im-awesome.md)
 
 ## Message System

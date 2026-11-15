@@ -190,3 +190,32 @@ registry.set('step//./src/payment//charge', charge);
 
 charge.stepId = 'step//./src/payment//charge';
 ```
+
+# FAQ
+
+## Limits
+
+| 限制                                    | Node.js runtime |
+| --------------------------------------- | --------------- |
+| 单个 run 的 event 数                    | 25,000          |
+| 单个 run 的 step 数                     | 10,000          |
+| 单个 payload                            | 50 MB           |
+| 单个 run 的 entity storage              | 2 GB            |
+| workflow replay 时长                    | 240 秒          |
+| run 最大持续时间                        | No limit        |
+| 单次 sleep 最大时间                     | No limit        |
+| Max stream storage size                 | Unlimited       |
+| Max stream chunk size                   | 10 MB           |
+| Max stream chunks per second per stream | 1,000           |
+| Hook token size                         | 255 bytes       |
+| Attributes per run                      | 64              |
+| Attribute write size                    | 8 KiB           |
+| Workflow name                           | 255 bytes       |
+| Step name                               | 255 bytes       |
+| Dynamic workflow source size            | 128 KiB         |
+
+
+
+
+- WORKFLOW_VM
+- https://vercel.com/docs/workflows/pricing

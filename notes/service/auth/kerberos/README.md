@@ -17,6 +17,9 @@ title: Kerberos
   - SSH
   - NFS
   - 浏览器 - Chrome, Firefox
+- HTTP 专题
+  - [Kerberos HTTP](kerberos-http.md)
+  - [NTLM](ntlm.md)
 - 主要端口 88/udp/tcp 和 464/udp/tcp
 - 可以使用 SVR 避免指定端口
 - 参考

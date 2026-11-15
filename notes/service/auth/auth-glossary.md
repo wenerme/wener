@@ -14,6 +14,8 @@ tags:
 | abbr. | stand for                               | meanning           |
 | ----- | --------------------------------------- | ------------------ |
 | CIAM  | Customer Identity and Access Management | 客户身份和访问管理 |
+| STS   | Security Token Service                  |
+| SAS   | Shared Access Signature                 |
 
 | en        | cn   | means                             |
 | --------- | ---- | --------------------------------- |
@@ -103,3 +105,15 @@ access token 为 bearer token
 ## id token - 身份令牌
 
 contains Claims(claims are name/value pairs that contain information about a user) about the Authentication of an End-User by an Authorization Server
+
+## SAS vs STS
+
+| 项目     | STS                        | SAS                         |
+| -------- | -------------------------- | --------------------------- |
+| 全称     | Security Token Service     | Shared Access Signature     |
+| 常见平台 | AWS、阿里云                | Azure Storage               |
+| 结果     | 一组临时凭据               | 一个带签名的 URL 或签名参数 |
+| Header   | 通常需要                   | 通常不需要，签名在 URL 中   |
+| 权限粒度 | IAM Role / Policy          | URL 对应资源和操作权限      |
+| 主要风险 | Session Token 泄漏         | SAS URL 泄漏                |
+| 使用方式 | SDK 或 SigV4 / 云 API 签名 | 直接访问 URL                |
