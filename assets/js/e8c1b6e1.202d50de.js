@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["148147"],{51759:function(e){e.exports=JSON.parse('{"tag":{"label":"Layout","permalink":"/notes/tags/layout","allTagsPath":"/notes/tags","count":1,"items":[{"id":"web/fancy","title":"Fancy UI","description":"Masonry & Grid","permalink":"/notes/web/fancy"}],"unlisted":false}}')}}]);
