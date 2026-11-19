@@ -231,6 +231,11 @@ tags:
   - [microsoft/OmniParser](https://github.com/microsoft/OmniParser)
     - UI -> structured
 - Translate/Transcript/i18n
+  - [koharu-rs/koharu](https://github.com/koharu-rs/koharu)
+    - Rust，本地优先的漫画翻译工具
+    - 文本检测、OCR、翻译、图像修复与排版流程
+    - 支持本地模型及远程 API，提供人工校对与画布编辑
+    - [文档](https://koharu.rs/)
   - [Huanshere/VideoLingo](https://github.com/Huanshere/VideoLingo)
     - Apache-2.0, Python
     - subtitle cutting, translation, alignment, even dubbing

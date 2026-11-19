@@ -9,6 +9,11 @@ tags:
 - Benchmark/压力测试
 - 功能测试
 - E2E
+  - [tester-army/e2e](https://github.com/tester-army/e2e)
+    - Web 和移动应用的端到端测试框架
+    - 将自然语言操作与定位器、断言结合，支持动作记录与重放
+    - Web 基于 Playwright，移动端覆盖 iOS / Android
+    - 提供 CLI、测试运行器和 MCP 接口
 - 拨测
 - Service
   - https://httpbin.org/

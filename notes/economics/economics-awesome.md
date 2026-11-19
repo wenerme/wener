@@ -9,6 +9,11 @@ tags:
   - [microsoft/qlib](https://github.com/microsoft/qlib)
     - MIT, Python
     - AI-oriented Quant investment platform
+  - [nautechsystems/nautilus_trader](https://github.com/nautechsystems/nautilus_trader)
+    - NautilusTrader，多资产、事件驱动的量化交易与回测引擎
+    - Rust 核心，支持 Python 策略开发
+    - 回测与实盘复用策略代码，通过适配器连接市场和数据源
+    - [文档](https://nautilustrader.io/docs/)
 - AI/ML/LLM
   - FinBERT
   - BloombergGPT

@@ -31,6 +31,10 @@ tags:
   - https://github.com/anthropics/skills/tree/main/skills/frontend-design
   - https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
   - https://github.com/google-labs-code/stitch-skills
+  - [Anatomy](https://skills.wheresryan.sh/anatomy)
+    - Claude Code Skill，将概念解释为可交互的等距机械图形，而不是方框与箭头。
+    - 可按需指定 interactive、WebGL 或 3D；交互与显示数字来自同一模型。
+    - 图形是解释性的模型，不应把视觉表现当作工程或物理精度保证。
 - index
   - https://github.com/openai/skills
   - https://github.com/openclaw/openclaw/tree/main/skills

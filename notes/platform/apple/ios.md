@@ -17,6 +17,21 @@ tags:
 - [Typography](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/)
 - [libimobiledevice](https://github.com/libimobiledevice)
 - [ifuse](https://github.com/libimobiledevice/ifuse)
+- [OpenMinis/iCTRL](https://github.com/OpenMinis/iCTRL)
+  - Apache-2.0，基于 XCUITest 的 iOS 自动化服务，面向 AI Agent
+  - HTTP JSON-RPC 2.0，默认端口 8200；通过 `/skill` 和 `/schema` 自描述操作方法
+  - 支持点击、滑动、输入、读取 UI 树、截图、设备端 OCR、启动应用
+  - 需要开启 Developer Mode、签名安装 IPA、挂载 Developer Disk Image 并运行 Runner；重启后需重新挂载 DDI
+  - 默认仅本机访问；局域网控制需开启 Remote Access，并在手机上批准客户端配对
+- [onehumanbeing/esp32-iphone-agent](https://github.com/onehumanbeing/esp32-iphone-agent)
+  - 通过 ESP32-S3 USB HID 输入和 AirPlay 屏幕反馈连接视觉模型与真实 iPhone。
+  - 不依赖越狱；不同版本的 Agent 运行位置、固件及连接要求不同，部署时按对应版本文档核对。
+  - 仅用于自有或获授权设备测试，操作期间保留人工监督与停止手段。
+- [zhongerxin/iPhone-use](https://github.com/zhongerxin/iPhone-use)
+  - MIT，使用 WebDriverAgent、本地 MCP 服务和屏幕预览，让助手通过 USB 操作真实 iPhone。
+  - 支持读取页面、点击、滚动、输入；控件定位失败时可查看截图。
+  - 依赖 macOS、完整 Xcode、Python、Node.js，以及已信任并开启开发者模式的 iPhone。
+  - 首次使用需以自己的 Apple 开发团队签名并运行 WDA Runner；无需越狱或独立 Appium Server。
 - [iOS Device Display Summary](https://developer.apple.com/library/content/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Displays/Displays.html)
 - [Compare iPhone Models](https://www.apple.com/iphone/compare/)
 
