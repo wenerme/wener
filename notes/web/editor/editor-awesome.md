@@ -103,6 +103,11 @@ tags:
 - [layerhub-io/react-design-editor](https://github.com/layerhub-io/react-design-editor)
   - MIT, TS, React
   - Image, Presentation and Video editor. React design editor using fabric.js. Canva clone
+- [shaongitbd/doory](https://github.com/shaongitbd/doory)
+  - 浏览器设计编辑器、可自托管的 Canva 替代方案
+  - React、TypeScript、Fabric.js；Django 后端
+  - 模板、图层、协作编辑，支持图片、PDF 和视频导出
+  - [Attribution Assurance License](https://github.com/shaongitbd/doory/blob/main/LICENSE)，注意署名要求及第三方素材许可
 - [bharathreddyza/react-design-editor](https://github.com/bharathreddyza/react-design-editor)
 
 ## Code Editor

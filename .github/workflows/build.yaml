@@ -59,9 +59,12 @@ jobs:
 
       name: Build
     - run: cp -r site/build site/tech-build
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
     - run: echo wener.me > site/build/CNAME
-    - name: Deploy Pages
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    - name: Deploy wener.me Pages
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@releases/v4
       with:
         #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -69,11 +72,25 @@ jobs:
         folder: site/build
         single-commit: true
 
-    - run: echo wener.tech > site/build/CNAME
-    - name: Deploy Pages
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
+    - run: echo wener.tech > site/tech-build/CNAME
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    - name: Check legacy deployment token
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: site/tech-build
-        REPOSITORY_NAME: wenerme/wener.tech
+      run: |
+        if [[ -z "$ACCESS_TOKEN" ]]; then
+          echo "::error::ACCESS_TOKEN is required for deployment to wenerme/wener.tech with Contents write access."
+          exit 1
+        fi
+    - name: Deploy wener.tech Pages
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4
+      with:
+        # Cross-repository deployment requires a PAT with Contents write access to wenerme/wener.tech.
+        # The source repository's GITHUB_TOKEN cannot replace this token.
+        token: ${{ secrets.ACCESS_TOKEN }}
+        branch: gh-pages
+        folder: site/tech-build
+        repository-name: wenerme/wener.tech
+        force: false

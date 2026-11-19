@@ -59,6 +59,8 @@ sw_vers
 
 ## Apps
 
+- [peetzweg/opendisplay](https://github.com/peetzweg/opendisplay)
+  - 将 iPhone、iPad 或另一台 Mac 用作 Mac 的扩展显示器，免费开源。
 - [Tencent/lemon-cleaner](https://github.com/Tencent/lemon-cleaner)
 - [Kevin-De-Koninck/Clean-Me](https://github.com/Kevin-De-Koninck/Clean-Me)
 - https://shottr.cc/

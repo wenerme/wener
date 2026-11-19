@@ -110,6 +110,10 @@ tags:
   - [sismics/docs](https://github.com/sismics/docs)
 - [IceWhaleTech/CasaOS](https://github.com/IceWhaleTech/CasaOS)
   - Home Cloud system
+- [Crosstalk-Solutions/project-nomad](https://github.com/Crosstalk-Solutions/project-nomad)
+  - Project NOMAD，离线优先的自托管知识与教育服务器
+  - 基于 Docker 管理服务，浏览器访问；集成 Kiwix、Kolibri、离线地图和可选本地 AI
+  - 安装及下载内容需要联网；不应直接暴露到公网
 - [atareao/self-hosted](https://github.com/atareao/self-hosted)
 
 ---

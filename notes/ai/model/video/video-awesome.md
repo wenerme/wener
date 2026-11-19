@@ -151,8 +151,15 @@ tags:
 - [tencent-ailab/IP-Adapter](https://github.com/tencent-ailab/IP-Adapter)
   - 基于参考图的身份和风格控制。
 
+- [MiniMax H3](../minimax-h3.md) - 基座、开放范围与 360° Orbit LoRA。
+
 ## 视频生成平台与工作流
 
+- [GTKottman/mortiflix-oss](https://github.com/GTKottman/mortiflix-oss)
+  - AGPL-3.0，本地运行的 AI 动态设计工作流，使用自己的 Claude Code 登录或 Anthropic API。
+  - 从需求、脚本、风格帧到动画与成片，各阶段停在人工审查关口。
+  - 可对具体画面和时间点批注，并在下一轮逐条处理；项目记录用于跨会话衔接。
+  - 运行依赖 Node.js 与 ffmpeg；模型和可选外部服务费用不包含在开源代码中。
 - [fal.ai](https://fal.ai/)
 - [Replicate](https://replicate.com/)
 - [Runware](https://runware.ai/)
