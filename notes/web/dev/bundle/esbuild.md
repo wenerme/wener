@@ -62,6 +62,10 @@ title: ESBuild
 :::
 
 ```bash
+# 项目内安装并固定版本
+pnpm add --save-exact --save-dev esbuild
+pnpm exec esbuild --version
+
 esbuild example.js --outfile=out.js
 esbuild --bundle main.ts --outdir=dist --minify --sourcemap
 
@@ -77,7 +81,7 @@ esbuild $(find src \( -name '*.ts' -o -name '*.tsx' \)) --outdir=out
 esbuild src/modules/*/{index.tsx,manifest.json} --serve=8000 --splitting --outdir=out --format=esm --bundle --charset=utf8 --target=chrome90 --sourcemap --minify
 
 # stdin -> stdout
-echo 'export const OK = process.env.NODE_ENV === "producation"' | pnpm exec esbuild --format=esm
+echo 'export const OK = process.env.NODE_ENV === "production"' | pnpm exec esbuild --format=esm
 ```
 
 | flag                            |

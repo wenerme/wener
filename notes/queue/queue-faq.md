@@ -71,3 +71,12 @@ tags:
 ---
 
 - https://rocketmq.apache.org/docs/#rocketmq-vs-activemq-vs-kafka
+
+## PubSub vs Message Queue
+
+- PubSub - 消息分发
+- Message Queue - 消息分配
+  - Queue 对象
+  - 通用点来说也可以是 Message Queue 服务
+- Message Broker
+  - PubSub + Queue
