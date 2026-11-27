@@ -5,6 +5,8 @@ tags:
 
 # 服务
 
+- [Channel Service](./channel.md)
+
 ## 功能特性 {#features}
 
 **核心**

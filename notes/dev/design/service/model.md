@@ -72,13 +72,6 @@ interface IModelService {
 
 ## ModelProviderRegistry
 
-- `listProvider` / `getProvider`：查 Provider 目录，只返回 `ModelProviderInfo`，不暴露含凭据的 `ModelProviderConf`。
-- `ModelProviderInfo.name` 是当前 Registry 内的查找键，不是数据库 ID。上游地址、鉴权头和路径覆盖留在内部；模型列表通过 `IModelService.listModel()` 查询。
-- `getModelService`：已知 Provider 时，直接取得对应的 `IModelService`。
-- `resolveModel`：只知道模型名时，按可选的 Provider 和 `ApiType` 筛选，取注册顺序中的首个匹配项。模型显式声明 `api` 或 `apis` 时用模型配置，否则继承 Provider 配置。
-- `resolveLanguageModel` / `resolveImageModel`：返回可直接传给 [AI SDK](https://ai-sdk.dev/docs/reference/ai-sdk-core/provider-registry) 的模型对象，而不是目录元数据。
-- 接口为设计提案。现有实现的 `add` / `prepend` / `reset` 管理配置和优先级，`load` / `loadImage` 加载 SDK 模型，属于内部实现。
-
 ```ts
 type ModelProviderInfo = Readonly<{
   name: string;
@@ -87,30 +80,45 @@ type ModelProviderInfo = Readonly<{
   /** Provider 层声明的协议；模型可单独覆盖。 */
   apis: readonly ApiType[];
 }>;
+
+type RequestConf = {
+  baseUrl?: string;
+  apiKey?: string;
+  headers?: Record<string, string>;
+};
+
 /** 内部配置；不作为 Provider 目录的返回类型。 */
-type ModelProviderConf = {
+type ModelProviderConf = RequestConf & {
   name?: string; // 省略时取 baseUrl 的 host
   title?: string;
   description?: string;
-  baseUrl: string;
-  apiKey?: string;
-  headers?: Record<string, string>;
   api?: ApiType; // 默认协议
   apis?: ApiType[];
   endpoints?: Partial<Record<ApiType, string>>; // 同源的上游路径覆盖
   models?: Record<string, ModelProviderModelConf>; // 以目录模型 ID 为键
 };
 
-type ModelProviderModelConf = Omit<ModelInfo, 'id'> & {
+type ModelProviderModelConf = {
+  name?: string;
+  title?: string;
+  description?: string;
+
   api?: ApiType;
+  apis?: ApiType[];
   upstreamModelName?: string; // 省略时使用目录模型 ID
+
+  inputs?: string[]; // 输入模态，例如 text、image、audio
+  outputs?: string[]; // 输出模态，例如 text、audio、embedding
+  contextWindow?: number; // Token
+  maxOutputTokens?: number;
+  supportedParameters?: string[];
 };
 
 type GetProviderRequest = { name: string };
 type GetModelServiceRequest = { provider: string };
 
 type ResolveModelRequest = {
-  model: string;
+  model?: string;
   provider?: string;
   api?: ApiType;
 };
@@ -129,6 +137,26 @@ interface IModelProviderRegistry {
   resolveImageModel(input: ResolveModelRequest): ImageModel | undefined;
   getModelService(input: GetModelServiceRequest): IModelService | undefined;
 }
+```
+
+## ModelFunction
+
+- 预设的函数调用相关功能配置
+- 例如系统里有 10 个需要用模型调用的地方,但是这种能力代码层面只是调用,系统层面需要支持配置
+
+```ts
+type ModelFunctionConf = {
+  provider?: string;
+  model?: string;
+
+  api?: string;
+
+  systemPrompt?: string;
+  systemPromptTemplate?: string;
+  thinkingLevel?: string;
+
+  params?: Record<string, unknown>;
+};
 ```
 
 # FAQ
