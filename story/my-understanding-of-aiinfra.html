@@ -1,0 +1,401 @@
+<!doctype html><html lang=en dir=ltr class="blog-wrapper blog-post-page plugin-blog plugin-id-default" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.9.1"><title data-rh=true>我理解的企业 AI Infra | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://wener.me/story/my-understanding-of-aiinfra /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docusaurus_tag content=default /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docsearch:docusaurus_tag content=default /><meta data-rh=true property=og:title content="我理解的企业 AI Infra | Wener Live & Life"/><meta data-rh=true name=description content="The infra for the next generation."/><meta data-rh=true property=og:description content="The infra for the next generation."/><meta data-rh=true property=og:type content=article /><meta data-rh=true property=article:published_time content=2026-11-28T00:00:00.000Z /><meta data-rh=true property=article:tag content=Thoughts /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://wener.me/story/my-understanding-of-aiinfra /><link data-rh=true rel=alternate href=https://wener.me/story/my-understanding-of-aiinfra hreflang=en /><link data-rh=true rel=alternate href=https://wener.me/story/my-understanding-of-aiinfra hreflang=x-default /><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin=anonymous /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@id":"https://wener.me/story/my-understanding-of-aiinfra","@type":"BlogPosting","author":[],"datePublished":"2026-11-28T00:00:00.000Z","description":"The infra for the next generation.","headline":"我理解的企业 AI Infra","isPartOf":{"@id":"https://wener.me/story","@type":"Blog","name":"Blog"},"keywords":[],"mainEntityOfPage":"https://wener.me/story/my-understanding-of-aiinfra","name":"我理解的企业 AI Infra","url":"https://wener.me/story/my-understanding-of-aiinfra"}</script><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.fa221ee1.css /><script src=/assets/js/runtime~main.08f2e0af.js defer></script><script src=/assets/js/main.9e19cf7e.js defer></script></head><body class=navigation-with-keyboard><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_jKDA href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_j2y5 themedComponent--dark_PUQY"/></div><b class="navbar__title text--truncate">Wener</b></a><a class="navbar__item navbar__link" href=/notes>笔记</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a><div class="toggle_N7Mq colorModeToggle_vh_y"><button class="clean-btn toggleButton_PaHe toggleButtonDisabled_RC4w" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 lightToggleIcon_M1mU"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 darkToggleIcon_sEdo"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_Q188 systemToggleIcon_cOyE"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_d_Bn><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_c22C"><div class="container margin-vert--lg"><div class=row><aside class="col col--3"><nav class="sidebar_Ulkt thin-scrollbar" aria-label="Blog recent posts navigation"><div class="sidebarItemTitle_hSNJ margin-bottom--md">Recent posts</div><div role=group><h3 class=yearGroupHeading_KD0z>2026</h3><ul class="sidebarItemList_dElJ clean-list"><li class=sidebarItem_vrPW><a aria-current=page class="sidebarItemLink_w3wN sidebarItemLinkActive_YMjH" href=/story/my-understanding-of-aiinfra>我理解的企业 AI Infra</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/what-makes-agent-become-an-assistant>什么让 Agent 成为 Assistant</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/make-agent-work-with-project>让 Agent 更好地在项目里工作</a><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/how-to-trust-agent>怎么信任 Agent</a></ul></div><div role=group><h3 class=yearGroupHeading_KD0z>2025</h3><ul class="sidebarItemList_dElJ clean-list"><li class=sidebarItem_vrPW><a class=sidebarItemLink_w3wN href=/story/function-and-interface>工具 - 工 与 具</a></ul></div></nav></aside><main class="col col--7"><article class=""><header><h1 class=title_U7V0>我理解的企业 AI Infra</h1><div class="container_cxbP margin-vert--md"><time datetime=2026-11-28T00:00:00.000Z>November 28, 2026</time> · <!-- -->8 min read</div></header><div id=__blog-post-container class=markdown><p>The infra for the next generation.</p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=基本名词>基本名词<a href=#基本名词 class=hash-link aria-label="Direct link to 基本名词" title="Direct link to 基本名词" translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>en<th>cn<th>meaning<tbody><tr><td>Infra<td>基础设施<td>底层复用基础建设内容<tr><td>Service<td>服务<td>一切形式化定义的交互接口<tr><td>Workspace<td>工作空间<td>文件+命令交互<tr><td>Hub<td>聚合<td>共享、分享平台<tr><td>Context<td>上下文<td>交互与决策所需的背景信息<tr><td>Agent Context<td>Agent 上下文<td>它能感知的环境，fs、shell、prompt<tr><td>Assistant<td>助理<td>比 Agent 更加自主的 Agent<tr><td>Service Account<td>服务账号<td>等同人的个体，使用 Token 访问<tr><td>Broker<td><td>访问代理入口<tr><td>Service Catalog<td>服务目录<td>统一注册、定义与治理内外部服务的目录<tr><td>Secretless Broker<td><td>无密钥访问代理入口<tr><td>BYOA / Bring Your Own Agent<td>用自己的 Agent<td>允许自带外部 Agent 接入企业 Infra<tr><td>Governance<td>治理<td>权限、审计、审批与合规控制<tr><td>HitL / Human in the Loop<td>人在回路<td>关键操作等待人工审批或介入<tr><td>DLP / Data Loss Prevention<td>数据防泄漏<td>防止敏感数据未经授权外泄或流入不合规模型<tr><td>A2A / Agent to Agent<td>Agent 间协作<td>Agent 之间互相发现、通信与委派的能力<tr><td>Observability<td>可观测性<td>通过 Trace、Metrics、Logs 洞察系统与 Agent 运行状态<tr><td>OTel / OpenTelemetry<td><td>统一的遥测数据采集与追踪标准（Trace / Metrics / Logs）<tr><td>Agent Trajectory<td>Agent 轨迹<td>Agent 执行过程中的决策、工具调用与反馈完整记录</table>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=foundation>基础<a href=#foundation class=hash-link aria-label="Direct link to 基础" title="Direct link to 基础" translate=no>​</a></h2>
+<p>企业 AI Infra / Agent Infra 首先得是一个企业 Infra，因此至少会有</p>
+<p>基础组件</p>
+<ul>
+<li>控制与治理
+<ul>
+<li>OAuth 接入</li>
+<li>内部 AuthZ 权限控制</li>
+<li>审计</li>
+<li>审批流（HitL）</li>
+<li>组织管理 - Team</li>
+</ul>
+</li>
+<li>AI / 模型面
+<ul>
+<li>模型路由</li>
+<li>模型用量统计</li>
+<li>自定义模型映射</li>
+</ul>
+</li>
+<li>协作与存储空间
+<ul>
+<li>网盘 / 私有文件空间</li>
+<li>Wiki / 共享文档空间</li>
+<li>Channel</li>
+</ul>
+</li>
+<li>核心业务实体
+<ul>
+<li>CRM - 客户、联系人</li>
+<li>业务工单</li>
+<li>用户、服务订阅、消费、支付记录</li>
+</ul>
+</li>
+</ul>
+<p>设计考量</p>
+<ul>
+<li>支持多主体
+<ul>
+<li>User</li>
+<li>Team</li>
+<li>Service Account（SA）- 允许创建服务维度的身份</li>
+</ul>
+</li>
+<li>Auth Scope 跟随主体</li>
+<li>身份委托（Delegation）
+<ul>
+<li>大多数场景以当事人主体（User / Team / SA）身份执行</li>
+<li>Service Account 是做 Delegation 的主要方式，用于脱离个人身份的受控授权与自动化运行</li>
+</ul>
+</li>
+<li>治理与审批（Governance / HitL）
+<ul>
+<li>横切贯穿 AuthZ、审计、工单审批、Durable Workflow（Approve）与 Secretless Broker 细粒度审查</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=agent-infra>Agent Infra<a href=#agent-infra class=hash-link aria-label="Direct link to Agent Infra" title="Direct link to Agent Infra" translate=no>​</a></h2>
+<ul>
+<li>Agent 主要的内容是
+<ul>
+<li>运行时</li>
+<li>会话 - Session</li>
+<li>工作空间 - 文件访问</li>
+<li>模型访问 - 模型路由</li>
+<li>Scheduled prompt - 定时任务</li>
+<li>Durable workflow</li>
+<li>Channel</li>
+</ul>
+</li>
+<li>Agent Runtime
+<ul>
+<li>划分依据
+<ul>
+<li>工具可用性
+<ul>
+<li>tool 只能在某个具体环境使用
+<ul>
+<li>网页 - 可以生成 UI，可以操作页面元素</li>
+<li>Durable - 可能一个 tool 等待授权需要 2 天</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>运行可用性
+<ul>
+<li>临时执行</li>
+<li>7×24 小时执行</li>
+</ul>
+</li>
+<li>会话可用性
+<ul>
+<li>可以留存在服务端</li>
+<li>只能留存在客户端</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>direct - 直接原地运行
+<ul>
+<li>网页前端运行</li>
+<li>临时短的 ToolLoopAgent</li>
+</ul>
+</li>
+<li>server - 服务端运行</li>
+<li>workflow - 以 Durable Workflow 的方式运行，可能对接 Approve 等逻辑，7×24 可恢复方式运行</li>
+<li>remote - 以远程或者 Harness 方式运行，只考虑 Agent 交互面，不记录回放 Session</li>
+</ul>
+</li>
+<li>Workspace Provider（数据与文件来源）
+<ul>
+<li>user - 用户默认空间</li>
+<li>session - Agent 会话维度空间内容</li>
+<li>remote - 通过 <code>woctl ws connect</code> 从客户端反向挂载，数据留在本地，在平台侧表现为 remote workspace</li>
+<li>host - CLI 本地直连当前宿主机（例如 <code>woctl agent --workspace host</code>）</li>
+</ul>
+</li>
+<li>Workspace Runtime（命令执行环境）
+<ul>
+<li>just-bash - 以模拟的方式来执行 shell</li>
+<li>host - Harness Agent 的场景下，CLI 直接在宿主机执行</li>
+<li>sandbox - 以 Sandbox Provider 的方式动态创建</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=event-infra>Event Infra<a href=#event-infra class=hash-link aria-label="Direct link to Event Infra" title="Direct link to Event Infra" translate=no>​</a></h2>
+<blockquote>
+<p>What makes an agent alive.</p>
+</blockquote>
+<p>Event infra 指</p>
+<ul>
+<li>Channel 支持自定义渠道
+<ul>
+<li>feishu, gitlab, github, linear, telegram, wechat ilink</li>
+</ul>
+</li>
+<li>支持内置 Channel - 类似于内置 IM</li>
+<li>支持订阅</li>
+</ul>
+<p>从人来驱动 Agent 变为 Agent 基于事件来自驱动。</p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=service-catalog>服务目录<a href=#service-catalog class=hash-link aria-label="Direct link to 服务目录" title="Direct link to 服务目录" translate=no>​</a></h2>
+<p>服务定义（Secretless Broker）</p>
+<ul>
+<li>内外交互网关</li>
+<li>暴露为 服务名+方法名字</li>
+<li>所有操作会进行审计记录</li>
+<li>Auth 信息保留在内部（密钥不暴露给调用方）</li>
+<li>服务的方法是由 Schema 定义的</li>
+<li>服务方法调用可 inspect 方法请求内容做细粒度权限控制
+<ul>
+<li>例如判断访问参数、判断执行 SQL 语句</li>
+</ul>
+</li>
+</ul>
+<p>服务类型</p>
+<ul>
+<li>标准 Auth HTTP</li>
+<li>非标准 Auth HTTP - S3</li>
+<li>非 HTTP - 数据库</li>
+</ul>
+<p>服务暴露方式</p>
+<ul>
+<li>RPC
+<ul>
+<li>例如 <code>POST /service/call/SERVICE/METHOD</code></li>
+</ul>
+</li>
+<li>MCP
+<ul>
+<li>例如 <code>/mcp/SERVICE</code></li>
+</ul>
+</li>
+<li>Code eval
+<ul>
+<li>例如 <code>services.mysql.query({sql:'select 1'})</code></li>
+</ul>
+</li>
+<li>CLI
+<ul>
+<li>例如 <code>woctl svc mysql call query '{"sql":"select 1"}'</code></li>
+</ul>
+</li>
+<li>Proxy
+<ul>
+<li>例如 <code>GET /service/proxy/prometheus/api/v1/query?query=up</code></li>
+<li>例如 <code>mysql -h myservice -P 3306 -e 'select 1'</code></li>
+<li>对大部分服务达到 <code>as is</code> 的效果，Agent 最熟悉的样子</li>
+<li>依然保留 inspect、拦截、audit 等能力</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>“Accessibility” is the key to making things useful.</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=wiki>知识共享<a href=#wiki class=hash-link aria-label="Direct link to 知识共享" title="Direct link to 知识共享" translate=no>​</a></h2>
+<p>知识共享最简单原始的方式就可以是 file based 的，本质类似于维护一个目录结构和对应的 md 文档，wiki like。
+因为本质上是一种特殊的 Workspace，天然可以复用 AuthN/AuthZ、Hub 和 BYOA 等基础能力。</p>
+<p>对于这种特殊的 workspace 可以建立 index：</p>
+<div class="language-sql codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-sql codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token keyword" style=font-style:italic>create</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>table</span><span class="token plain"> wiki_file_info</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  summary </span><span class="token keyword" style=font-style:italic>text</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  embedding float8</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  workspace_id </span><span class="token keyword" style=font-style:italic>text</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  path </span><span class="token keyword" style=font-style:italic>text</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  </span><span class="token keyword" style=font-style:italic>type</span><span class="token plain"> </span><span class="token keyword" style=font-style:italic>text</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  tags </span><span class="token keyword" style=font-style:italic>text</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"></span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br/></span></code></pre></div></div>
+<p>默认使用 <code>rg</code>、<code>grep</code> 能满足大部分场景，特殊的场景使用类似 RAG 召回即可。
+特殊文件内容类型，例如 image、video 等，也一样可以通过 embedding 或者 summary 的方式形成摘要来作为索引依据。
+RAG 只在海量数据的时候带来价值，例如十万+ 文档；在少量文档文件的时候，原始的方式就是最好的方式。</p>
+<p>Agent 自有的知识管理方式最好的就是文件的形式，且 99% 是对其他场景无价值的中间临时内容，但对当前会话是有相当价值的，例如</p>
+<div class="language-text codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-text codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">.agents/</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  adr/</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">  logs/YYYY-MM-DD/</span><br/></span></code></pre></div></div>
+<p>不应该什么东西都进入 Wiki 这种系统，应该有知识漏斗这样的主见和感知。</p>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=case>工单系统<a href=#case class=hash-link aria-label="Direct link to 工单系统" title="Direct link to 工单系统" translate=no>​</a></h2>
+<p>工单、Issue、Task、Action Item、Todo、Topic 本质上是类似的一个东西，当需要围绕一个目标去完成的时候，需要有一个中间对象，这个对象的 status 本质上反映了一个基础的 Workflow。
+这样的业务事务隐含了一个独立的上下文：</p>
+<ul>
+<li>横跨不同范围</li>
+<li>有状态跟踪</li>
+<li>隐含了一个独立主题概念</li>
+<li>可以关联不同的人</li>
+<li>可以关联对象资源</li>
+<li>可以有独立的工作空间</li>
+<li>可以有结构化数据 - 例如类型对应一个结构化数据 Schema</li>
+<li>可以交互</li>
+</ul>
+<p>一个基础的这样的对象足以覆盖大多数的业务流程场景。</p>
+<p>在多个 Agent 进行协作交互的时候，这样的一个业务对象能很好地捕获相关的上下文，记录沟通协作信息，推动达成业务需求。
+这样的对象覆盖了基础的业务流程需求，现在大多系统都是围绕这样的对象做的设计，反而真正复杂的 Workflow 的可用场景会少得多。
+也因此这样的对象是相对必要的。</p>
+<blockquote>
+<p>This makes things DONE.</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=hub>聚合共享<a href=#hub class=hash-link aria-label="Direct link to 聚合共享" title="Direct link to 聚合共享" translate=no>​</a></h2>
+<p>Hub 定义</p>
+<ul>
+<li>类似于 GitHub</li>
+<li>可共享个人工作场景内容
+<ul>
+<li>Agent 定义</li>
+<li>Skill</li>
+<li>服务</li>
+<li>Prompt</li>
+<li>工作空间</li>
+</ul>
+</li>
+<li>可申请访问</li>
+<li>可细化访问权限控制</li>
+<li>可发现</li>
+<li>可互动</li>
+<li>可记录版本</li>
+<li>可评论</li>
+</ul>
+<blockquote>
+<p>That makes 1+1 > 2</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_EG6R" id=faq>FAQ<a href=#faq class=hash-link aria-label="Direct link to FAQ" title="Direct link to FAQ" translate=no>​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=企业平台维度设计考量>企业平台维度设计考量<a href=#企业平台维度设计考量 class=hash-link aria-label="Direct link to 企��业平台维度设计考量" title="Direct link to 企业平台维度设计考量" translate=no>​</a></h3>
+<ol>
+<li>企业维度 Infra 作为一个平台，需要提供 A2A 能力，Agent 本身作为一个服务可以互相发现与通信</li>
+<li>平台整体接入 OTel 提供可观测性，平台内的 Agent 执行可留存轨迹作为提升优化依据</li>
+<li>平台的服务可作为基础的治理规范标准</li>
+<li>长期沉淀的内容作为数据资产留存</li>
+<li>平台内的模型转发服务有足够的弹性，能服务大部分使用场景</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=数据归属考虑>数据归属考虑<a href=#数据归属考虑 class=hash-link aria-label="Direct link to 数据归属考虑" title="Direct link to 数据归属考虑" translate=no>​</a></h3>
+<ol>
+<li>Agent 产出的 99% 都是无用的中间过程信息</li>
+<li>剩下的 1% 有价值内容以 Workspace file、Skill、Service、Tool 等方式沉淀</li>
+<li>Workspace 默认由企业平台提供，但允许 Remote 提供，例如 connect 自己的电脑作为 Agent runtime，对外通过 Agent 交互</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_EG6R" id=byoa>BYOA<a href=#byoa class=hash-link aria-label="Direct link to BYOA" title="Direct link to BYOA" translate=no>​</a></h3>
+<ol>
+<li>
+<p>Infra 是能通过工具暴露出来的，例如</p>
+<div class="language-bash codeBlockContainer_ljD1 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_rhaG><pre tabindex=0 class="prism-code language-bash codeBlock_mx9Q thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_NG8l><span class=token-line style=color:#bfc7d5><span class="token plain">woctl workspace ls</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">woctl agent ls</span><br/></span><span class=token-line style=color:#bfc7d5><span class="token plain">woctl hub ls</span><br/></span></code></pre></div></div>
+</li>
+<li>
+<p>通过 workspace mcp 就能全量接入</p>
+<ul>
+<li>workspace 的 MCP 会暴露 bash、read、write、ls</li>
+</ul>
+</li>
+<li>
+<p>通过 cli 的 wrapper 能原地接入</p>
+<ul>
+<li><code>woctl ws run pi</code> 进入 Pi Code Agent，但是看到的内容都是 AI Infra workspace 的内容，注入的模型 Provider 都是用户身份的</li>
+</ul>
+</li>
+</ol></div><footer class=docusaurus-mt-lg><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class=col><b>Tags:</b><ul class="tags_noif padding--none margin-left--sm"><li class=tag_mzC7><a rel=tag class="tag_xI_x tagRegular_Q4uH" href=/story/tags/thoughts>Thoughts</a></ul></div></div><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/story/../story/2026/2026-11-28-my-understanding-of-aiinfra.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_A7Jz aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Hg3U"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--next" href=/story/what-makes-agent-become-an-assistant><div class=pagination-nav__sublabel>Older post</div><div class=pagination-nav__label>什么让 Agent 成为 Assistant</div></a></nav></main><div class="col col--2"><div class="tableOfContents_wpyd thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#基本名词 class="table-of-contents__link toc-highlight">基本名词</a><li><a href=#foundation class="table-of-contents__link toc-highlight">基础</a><li><a href=#agent-infra class="table-of-contents__link toc-highlight">Agent Infra</a><li><a href=#event-infra class="table-of-contents__link toc-highlight">Event Infra</a><li><a href=#service-catalog class="table-of-contents__link toc-highlight">服务目录</a><li><a href=#wiki class="table-of-contents__link toc-highlight">知识共享</a><li><a href=#case class="table-of-contents__link toc-highlight">工单系统</a><li><a href=#hub class="table-of-contents__link toc-highlight">聚合共享</a><li><a href=#faq class="table-of-contents__link toc-highlight">FAQ</a><ul><li><a href=#企业平台维度设计考量 class="table-of-contents__link toc-highlight">企业平台维度设计考量</a><li><a href=#数据归属考虑 class="table-of-contents__link toc-highlight">数据归属考虑</a><li><a href=#byoa class="table-of-contents__link toc-highlight">BYOA</a></ul></ul></div></div></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg />
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_kUGX><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--light_v877"/><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_j2y5 themedComponent--dark_PUQY"/></div><div class=footer__copyright>Copyright © 1992-2026 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg /> - Build @2026-11-28 13:11</div></div></div></footer></div></body>

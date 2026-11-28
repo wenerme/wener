@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["18119"],{805051:function(e){e.exports=JSON.parse('{"tag":{"label":"SDN","permalink":"/notes/tags/sdn","allTagsPath":"/notes/tags","count":1,"items":[{"id":"network/sdn","title":"Software Defined Network (SDN)","description":"- ONOS","permalink":"/notes/network/sdn"}],"unlisted":false}}')}}]);
